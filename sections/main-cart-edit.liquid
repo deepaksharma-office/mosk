@@ -1,0 +1,128 @@
+{% liquid
+  assign product_form_id = 'product-form-main-cart-edit-' | append: section.id
+  assign theme_st = settings
+%}
+<main-cart-edit-popup class="modal modal_type_popup active-modal-js fixed inset-0 z-22 w-full flex align-center invisible-1025 transition-drawer">
+  {% style %}
+    main-cart-edit-popup .saving-price {
+      display: none;
+    }
+  {% endstyle %}
+  <modal-overlay class="modal-overlay invisible transition-drawer pointer"></modal-overlay>
+  <div
+    class="modal-popup-inner w-full invisible-1025 flex column modal-focus transition modal-draggable rounded max-w-custom m-auto z-15 bg-white"
+    tabindex="-1"
+    style="--max-width: 45rem;"
+  >
+    <draggable-modal
+      class="modal__header draggable-modal sticky drawer__header drawer-spacing border-bottom flex gap-10 space-between"
+      style="--padding-block-desktop: 1.1rem;--padding-block: 1.2rem;--padding-inline-desktop: 2.4rem;"
+    >
+      <div class="drawer__heading h6 flex-1 flex align-center">{{ 'templates.cart.cart_page.edit_cart' | t }}</div>
+      <button
+        is="button-close-model"
+        class="modal__close pointer modal-button-close rounded-50 btn-reset flex content-center "
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        <svg width="12" height="12" viewBox="0 0 14 15" fill="none">
+          <use href="#icon-close" />
+        </svg>
+      </button>
+    </draggable-modal>
+    <div
+      class="drawer__body grow-1 h-full overflow-y-auto custom-scrollbar p-sp-6"
+      id="Product-{{ section.id }}"
+      style="--width: 5rem;"
+    >
+      <div
+        class="cart__edit-wrapper flex align-start align-1025-center gap-sp-4"
+      >
+        {% liquid
+          assign featured_media = product.selected_or_first_available_variant.featured_media
+          assign first_image_found = false
+          if featured_media == blank
+            for media in product.media
+              if media.media_type == 'image' and first_image_found == false
+                assign featured_media = media
+              endif
+              assign first_image_found = true
+            endfor
+          endif
+          assign alt_features = featured_media.alt | default: product.title | escape
+        %}
+        {% if featured_media != blank %}
+          <div class="cart__image flex align-center gap-sp-1">
+            <div class="cart-item__media w-custom" style="--width: 7rem;">
+              {%- liquid
+                assign ratio = ''
+                if theme_st.product_image_ratio != 'adapt'
+                  case theme_st.product_image_ratio
+                    when 'square'
+                      assign ratio = '1/1'
+                    when 'landscape'
+                      assign ratio = '4/3'
+                    when 'portrait'
+                      assign ratio = '3/4'
+                  endcase
+                else
+                  assign ratio = featured_media.aspect_ratio
+                endif
+              -%}
+              <div
+                class="banner__media hover-effect rounded-10"
+              >
+                <div
+                  class="product-image focus-inset block"
+                  style="--aspect-ratio: {{ ratio }}"
+                >
+                  {% render 'responsive-image',
+                    type: 'product',
+                    class: 'cart-item__image featured-image',
+                    custom_widths: '360, 160, 90',
+                    image: featured_media,
+                    image_alt: alt_features,
+                    disable_lazy_loading: true
+                  %}
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+        <div
+          class="cart-edit-info flex wrap nowrap-1025 gap-0 gap-1025-20 flex-1 align-center"
+          style="--col-width: 100%;--gap-desktop: 20px;--gap: 10px;"
+        >
+          <div class="cart__product-name-price w-full col-1025-w-custom">
+            <div
+              class="product__cart-name heading-color lh-global"
+            >
+              {{- product.title | escape -}}
+            </div>
+            <div class="block-product__price">
+              <div class="price mt-sp-1">
+                {%- render 'price', product: product, type: 'action_beside' -%}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="block-product__variant-picker variant-swatches-edit-cart border-top my-sp-6 pt-sp-6"
+        style="--color-swatch-height: 4rem;--color-swatch-width: 4rem;"
+      >
+        {%- render 'variant-swatches', product: product, scope: 'detail', is_dropdown: false -%}
+      </div>
+      <div class="block-product__buttons">
+        <div class="product-detail__buy-buttons edit-cart-form">
+          {%- render 'buy-buttons',
+            type: 'primary',
+            product: product,
+            product_form_id: product_form_id,
+            scope: 'detail',
+            type_form: 'edit-cart'
+          -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</main-cart-edit-popup>

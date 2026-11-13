@@ -1,0 +1,46 @@
+{% liquid
+  assign block_st = block.settings
+  assign scroll_animation = 'disable'
+%}
+<div
+  class="block__heading mb-custom{% if block_st.spacing_bottom > 10 %} mb_auto-rsp{% endif %}"
+  style="--space-bottom: {{ block_st.spacing_bottom }};"
+  {{ block.shopify_attributes }}
+>
+  {%- if scroll_animation != 'disable' -%}
+    <motion-effect
+      data-animate="fade-up"
+      class="block"
+    >
+  {%- endif -%}
+  <social-icon class="social-icon">
+    {% render 'social-icons' %}
+  </social-icon>
+  {%- if scroll_animation != 'disable' -%}
+    </motion-effect>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.multi_content.blocks.social_icon",
+  "class": "w-full flex justify_block",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.footer.blocks.contact_bar_block.settings.show_social.info"
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.spacing_bottom",
+      "default": 15
+    }
+  ],
+  "presets": [{ "name": "t:sections.multi_content.blocks.social_icon" }]
+}
+{% endschema %}

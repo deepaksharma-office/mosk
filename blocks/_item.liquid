@@ -1,0 +1,192 @@
+{% liquid
+  assign section_st = section.settings
+  assign block_st = block.settings
+  assign image = block_st.image_block
+  assign link_image = block_st.link_image
+  assign icon_svg = block_st.icon_svg
+  assign image_alt_default = 'sections.scrolling_text.alt' | t
+  assign image_alt = image.alt | default: image_alt_default | escape
+%}
+
+{% style %}
+  @media screen and (max-width: 767.98px) {
+    .scrolling-image-item svg {
+      width: var(--width-mb);
+      height: var(--width-mb);
+    }
+  }
+{% endstyle %}
+{% if request.visual_preview_mode %}
+  <div
+    class="item-wrapper flex gap-10"
+    {{ block.shopify_attributes }}
+  >
+    <div
+      class="w-custom h-custom rounded flex content-center rounded"
+      style=" --width: {{ block.settings.image_width }}px; --height: {{ block.settings.image_width }}px;"
+    >
+      {% render 'placeholder-render',
+        type: 'collection',
+        class: 'img-placeholder h-full w-full object-fit-cover',
+        class_motion: ' h-full w-full object-fit-cover'
+      %}
+    </div>
+    <div class="item-content">
+      {{ block.settings.heading }}
+    </div>
+  </div>
+{% else %}
+  <a
+    class="block-icon-list flex"
+    href="{{ link_image | default: "#" }}"
+    aria-label="{{ 'sections.scrolling_text.alt' | t }}"
+    {{ block.shopify_attributes }}
+    {% if block.settings.open_new_tab and link_image != blank %}
+      target="_blank"
+      rel="noopener noreferrer"
+    {% endif %}
+  >
+    <div
+      class="scrolling-image-item relative overflow-hidden flex align-center rounded w-custom h-custom"
+      style="--width: {{ block_st.image_width }}px;--height: {{ block.settings.image_width }}px;"
+      {{ block.shopify_attributes }}
+    >
+      {% if icon_svg != 'none' %}
+        {% render 'icon_svg_list',
+          icon: icon_svg,
+          custom_width: block_st.image_width,
+          custom_height: block_st.image_width
+        %}
+      {%- elsif image != blank and icon_svg == 'none' -%}
+        <div
+          class="scrolling-image image_scroll rounded flex w-full"
+          style="--image-width: {{ block_st.image_width }}px;--img-rounded:{{ block_st.rounded_image }}px;"
+        >
+          {% render 'responsive-image',
+            image: image,
+            type: 'other',
+            image_alt: image_alt,
+            container: section_st,
+            class: 'h-full w-full object-fit-cover'
+          %}
+        </div>
+      {% elsif image == blank and icon_svg == 'none' %}
+        <div
+          class="w-custom h-full rounded flex content-center"
+          style="--width: {{ block_st.image_width }}px;--img-rounded:{{ block_st.rounded_image }}px;"
+        >
+          {% render 'placeholder-render',
+            type: 'collection',
+            class: 'img-placeholder h-full w-full object-fit-cover',
+            class_motion: ' h-full w-full object-fit-cover'
+          %}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if block.settings.heading != blank -%}
+      <div class="item-content">
+        {{ block.settings.heading }}
+      </div>
+    {%- endif -%}
+  </a>
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.custom_section.blocks.icon_list.item",
+  "class": "w-full",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_block",
+      "label": "t:sections.all.image.label"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "min": 20,
+      "max": 200,
+      "step": 5,
+      "label": "t:sections.scrolling_text.settings.blocks.image.image_width.label",
+      "default": 50,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "icon_svg",
+      "label": "t:sections.all.svg.label",
+      "info": "t:sections.all.svg.custom_svg.info",
+      "default": "none",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.icon.none.label"
+        },
+        {
+          "value": "beauty",
+          "label": "t:sections.all.icon.beauty.label"
+        },
+        {
+          "value": "line",
+          "label": "t:sections.all.icon.line.label"
+        },
+        {
+          "value": "leaf",
+          "label": "t:sections.all.icon.leaf.label"
+        },
+        {
+          "value": "cruelty",
+          "label": "t:sections.all.icon.cruelty.label"
+        },
+        {
+          "value": "paraben",
+          "label": "t:sections.all.icon.paraben.label"
+        },
+        {
+          "value": "check_badge",
+          "label": "t:sections.all.icon.check_badge.label"
+        },
+        {
+          "value": "free_shipping",
+          "label": "t:sections.all.icon.free_shipping.label"
+        },
+        {
+          "value": "message_communications",
+          "label": "t:sections.all.icon.message_communications.label"
+        },
+        {
+          "value": "moon",
+          "label": "t:sections.all.icon.moon.label"
+        },
+        {
+          "value": "hive",
+          "label": "t:sections.all.icon.hive.label"
+        }
+      ]
+    },
+    {
+      "type": "url",
+      "id": "link_image",
+      "label": "t:sections.all.content_setting.link.label"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "List item",
+      "label": "t:settings_schema.colors.settings.general_text.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_new_tab",
+      "default": true,
+      "label": "t:sections.custom_section.blocks.icon_list.open_new_tab"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.custom_section.blocks.icon_list.item"
+    }
+  ]
+}
+{% endschema %}

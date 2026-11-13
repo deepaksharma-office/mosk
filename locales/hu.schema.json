@@ -1,0 +1,4686 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "settings_schema": {
+    "layout": {
+      "name": "Elrendezés",
+      "how_to_use": {
+        "label": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/theme-settings/layout)"
+      },
+      "settings": {
+        "page_width": {
+          "label": "Oldalszélesség"
+        },
+        "site_style": {
+          "label": "Lekerekített sarkok",
+          "image": {
+            "label": "Image"
+          },
+          "button": {
+            "label": "Gomb sarok sugara"
+          },
+          "input": {
+            "label": "Adja meg a sarok sugarát"
+          }
+        },
+        "select_preset": {
+          "label": "Válassza ki az előre beállított beállítást",
+          "options__1": "Kozmetikumok",
+          "options__2": "Divat",
+          "options__3": "Háziállatok"
+        }
+      },
+      "rtl_support": {
+        "header": "RTL támogatás",
+        "enable_rtl": "RTL támogatás engedélyezése",
+        "rtl_language": {
+          "label": "RTL nyelvkód",
+          "info": "Adja meg az RTL-elrendezést használó nyelveket ISO-kódjuk megadásával, pontosvesszővel elválasztva. Például: ar; fa; ku; pa; sd. Ha üresen hagyja, az RTL-elrendezés minden nyelvre vonatkozik."
+        }
+      }
+    },
+    "logo_favicon": {
+      "name": "Logo és favicon",
+      "how_to_use": {
+        "label": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/theme-settings/logo-and-favicon)"
+      },
+      "settings": {
+        "favicon": {
+          "label": "Favicon"
+        },
+        "favicon_image": {
+          "label": "Favicon kép",
+          "info": "32 x 32 képpont .png ajánlott"
+        },
+        "logo": {
+          "label": "Logó",
+          "logo_on_transparent": {
+            "label": "Logó az átlátszó fejlécen"
+          }
+        },
+        "logo_width": {
+          "label": "Logó szélessége",
+          "info": "A logó szélessége automatikusan mobilra van optimalizálva."
+        }
+      }
+    },
+    "customer_account": {
+      "how_to_use": {
+        "label": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/theme-settings/customer-account)"
+      },
+      "name": "Ügyfélfiók",
+      "settings": {
+        "customer_account_menu": {
+          "label": "Menu"
+        },
+        "open_as": {
+          "label": "Megnyitás mint",
+          "options": {
+            "popup": "Felugró ablak",
+            "link": "Link"
+          }
+        }
+      }
+    },
+    "colors": {
+      "name": "Színek",
+      "how_to_use": {
+        "label": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/theme-settings/colors)"
+      },
+      "settings": {
+        "palette_header": {
+          "label": "Paletta"
+        },
+        "palette_info": {
+          "label": "Határozza meg a paletta színeit a témában való könnyebb használat érdekében"
+        },
+        "general_header": {
+          "label": "Általános"
+        },
+        "general_text": {
+          "label": "Text"
+        },
+        "general_heading": {
+          "label": "Cím"
+        },
+        "general_link": {
+          "label": "Link"
+        },
+        "general_border": {
+          "label": "Határ"
+        },
+        "background_header": {
+          "label": "Háttér"
+        },
+        "background": {
+          "label": "Háttér"
+        },
+        "background_2": {
+          "label": "Háttér 2"
+        },
+        "background_gradient": {
+          "label": "Háttér színátmenet",
+          "info": "A háttérszínátmenet lehetőség szerint helyettesíti a hátteret."
+        },
+        "fill_button_header": {
+          "label": "Kitöltés gomb"
+        },
+        "fill_button_background": {
+          "label": "Háttér"
+        },
+        "fill_button_text": {
+          "label": "Text"
+        },
+        "fill_button_background_hover": {
+          "label": "Háttér lebeg"
+        },
+        "fill_button_text_hover": {
+          "label": "Szöveg lebeg"
+        },
+        "outline_button_header": {
+          "label": "Vázlat gomb"
+        },
+        "outline_button_outline": {
+          "label": "Text"
+        },
+        "outline_button_outline_border": {
+          "label": "Határ"
+        }
+      }
+    },
+    "typography": {
+      "name": "Tipográfia",
+      "how_to_use": {
+        "label": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)"
+      },
+      "settings": {
+        "font_weight": {
+          "default": "Default",
+          "inline": "Inline",
+          "regular": "Szabályos",
+          "medium": "Közepes"
+        },
+        "font_size": "Betűméret",
+        "body": {
+          "label": "Test",
+          "font": {
+            "label": "Betűtípus",
+            "info": "Más betűtípus kiválasztása befolyásolhatja az üzlet sebességét. [További információ a rendszer-betűtípusokról.](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "base_size": "Alap mérete"
+        },
+        "heading": {
+          "label": "Cím",
+          "font": {
+            "label": "Betűtípus",
+            "info": "Más betűtípus kiválasztása befolyásolhatja az üzlet sebességét. [További információ a rendszer-betűtípusokról.](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "sub_heading": {
+            "sub_heading_weight": "Alcím betűmérete"
+          },
+          "text_transform": {
+            "label": "Szöveg átalakítás",
+            "unset": "Unset",
+            "capitalize": "Nagybetűvel",
+            "uppercase": "Nagybetűs"
+          },
+          "heading_letter_spacing": {
+            "label": "Betűköz"
+          }
+        },
+        "menu": {
+          "label": "Menu",
+          "font": {
+            "label": "Betűtípus",
+            "body_font": "Test",
+            "heading_font": "Cím"
+          },
+          "uppercase": {
+            "label": "Nagybetűs első szint"
+          }
+        },
+        "button": {
+          "label": "Gomb",
+          "font": {
+            "label": "Betűtípus",
+            "body_font": "Test",
+            "heading_font": "Cím"
+          }
+        },
+        "text_preset": {
+          "header": "Előre beállított szöveg",
+          "name": {
+            "heading_1": "1. címsor",
+            "heading_2": "2. címsor",
+            "heading_3": "3. címsor",
+            "heading_4": "4. címsor",
+            "heading_5": "5. címsor",
+            "heading_6": "6. címsor"
+          },
+          "settings": {
+            "size": {
+              "label": "Size",
+              "18px": "18 képpont",
+              "20px": "20 képpont",
+              "22px": "22 képpont",
+              "24px": "24 képpont",
+              "26px": "26 képpont",
+              "30px": "30 képpont",
+              "36px": "36 képpont",
+              "40px": "40 képpont",
+              "46px": "46 képpont",
+              "50px": "50 képpont",
+              "56px": "56 képpont",
+              "60px": "60 képpont",
+              "80px": "80 képpont"
+            },
+            "line_height": {
+              "label": "Vonalmagasság",
+              "original": "Eredeti",
+              "small": "Kicsi",
+              "medium": "Közepes",
+              "large": "Nagy",
+              "x_large": "X-nagy"
+            }
+          }
+        }
+      }
+    },
+    "browser_tab_notifications": {
+      "name": "Böngésző lap értesítései",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/theme-settings/browser-tab-notifications)",
+      "settings": {
+        "notification_info": "Hagyja üresen az eredeti oldalcím használatához",
+        "enable_browser_tab_notifications": {
+          "label": "Engedélyezés"
+        },
+        "first_notification": {
+          "label": "Első értesítés"
+        },
+        "secondary_notification": {
+          "label": "Másodlagos értesítés"
+        }
+      }
+    },
+    "animation": {
+      "name": "Animáció",
+      "how_to_use": {
+        "label": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/theme-settings/animation)"
+      },
+      "settings": {
+        "scroll_animation": {
+          "label": "Görgetési animáció",
+          "options__1": {
+            "label": "Letiltás"
+          },
+          "options__2": {
+            "label": "Csak asztali"
+          },
+          "options__3": {
+            "label": "Minden képernyő"
+          }
+        },
+        "enable_loading_page_effect": {
+          "heading": "Oldalbetöltési hatás",
+          "label": "Hatás engedélyezése",
+          "loading": "Betöltés ikon",
+          "info": "Javasolt képszélesség 100x100px"
+        },
+        "image_lazy_loading": {
+          "label": "Kép késleltetett betöltésének engedélyezése"
+        },
+        "hover_effect": {
+          "label": "Lebegő hatás",
+          "info": "A lebegő kártyákat érinti, például: termék, szalaghirdetés, gyűjtemény, blog...",
+          "fade_in": "Elhalványul",
+          "zoom": "Zoomolás"
+        }
+      }
+    },
+    "product": {
+      "name": "Termékkártyák",
+      "how_to_use": {
+        "label": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/theme-settings/product-cards)"
+      },
+      "settings": {
+        "enable_quickview": "Gyors nézet engedélyezése",
+        "enable_quickadd": "Gyors hozzáadás engedélyezése",
+        "enable_color_swatches": "Színminták engedélyezése",
+        "show_tag": {
+          "hidden": "Rejtett",
+          "desktop": "Csak asztali",
+          "all_devices": "Minden képernyő"
+        },
+        "show_scrolling_text": "Görgető szöveg megjelenítése",
+        "show_rate": {
+          "label": "Arány megjelenítése",
+          "info": "Értékelés megjelenítéséhez adjon hozzá egy termékértékelő alkalmazást. [További információ](https://help.shopify.com/en/manual/products/product-reviews/installation)"
+        },
+        "alignment": {
+          "label": "Igazítás",
+          "left": "Balra",
+          "center": "Központ"
+        },
+        "product_image": {
+          "label": "Termék kép"
+        },
+        "show_image_hover": {
+          "label": "Másodlagos kép megjelenítése"
+        },
+        "show_video_featured": {
+          "label": "Videó lejátszása az egérmutatóval",
+          "info": "Csak MP4 videóval működik."
+        },
+        "product_image_ratio": {
+          "label": "Képarány",
+          "adapt_to_image": "Alkalmazkodni a képhez",
+          "square": "Négyzet (1:1)",
+          "portrait": "Portré (3:4)",
+          "landscape": "Fekvő (4:3)"
+        },
+        "mobile_options": {
+          "label": "Mobil beállítások"
+        },
+        "show_quick_add_mobile": {
+          "label": "Gyors hozzáadás gomb megjelenítése mobilon"
+        },
+        "highlights_scrolling_text_metafield": {
+          "label": "Gördülő szöveg Metamező",
+          "info": "Termék metamező. Futó szövegként jelenik meg a termékkártyákon. Format: namespace.key. Default: custom.highlights_scrolling_text."
+        }
+      }
+    },
+    "badges": {
+      "name": "Jelvények",
+      "how_to_use": {
+        "label": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/theme-settings/badges)"
+      },
+      "settings": {
+        "badge_color": {
+          "label": "Szöveg színe"
+        },
+        "show_badge": {
+          "label": "Jelvény megjelenítése"
+        },
+        "background_color": {
+          "label": "Háttérszín"
+        },
+        "sale": {
+          "label": "Eladás",
+          "format": {
+            "label": "Formátum",
+            "text": "Text",
+            "percentage": "Százalék",
+            "fixed": "Fix összeg"
+          }
+        },
+        "new": {
+          "label": "Új",
+          "new_badge_display_period": {
+            "label": "Új jelvény megjelenítési időszak",
+            "info": "Válassza ki, hogy a termékek létrehozásuk napjától meddig legyenek „Új” címkével ellátva."
+          }
+        },
+        "sold_out": {
+          "label": "Elfogyott"
+        },
+        "custom_badge": {
+          "label": "Egyedi jelvény",
+          "info": "Kérjük, kövesse a dokumentumot az [egyéni jelvény beállításának] (https://nextsky.gitbook.io/purity-theme/theme-settings/badges#id-5.-custom-badge) megtekintéséhez."
+        }
+      }
+    },
+    "color_swatches": {
+      "name": "Színminták",
+      "how_to_use": {
+        "label": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/theme-settings/color-swatch)"
+      },
+      "settings": {
+        "hide_sold_out_variant": {
+          "label": "Elfogyott változatok elrejtése"
+        },
+        "show_sale_in_variant_swatch": {
+          "label": "Kiárusítás változatmintában"
+        },
+        "color_limit": {
+          "label": "Maximum megjeleníthető színminták"
+        },
+        "color_swatch_trigger": {
+          "label": "Színminta kioldó",
+          "info": "Adja meg a színopció nevét. Vesszővel elválasztva. Például. Szín, Szín"
+        },
+        "color_swatch_type": {
+          "label": "Színminta típusa",
+          "options__1": {
+            "label": "Változatos kép"
+          },
+          "options__2": {
+            "label": "Color"
+          }
+        },
+        "color_swatch_shape": {
+          "label": "Színes forma",
+          "options__1": {
+            "label": "Kerek"
+          },
+          "options__2": {
+            "label": "Négyzet"
+          }
+        },
+        "color_swatch_custom": {
+          "label": "Egyedi színek",
+          "info": "Érvényes formátum: müzli: #ddd5bc vagy müzli: image.png vesszővel elválasztva"
+        }
+      }
+    },
+    "cart": {
+      "name": "Kosár",
+      "how_to_use": {
+        "label": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/theme-settings/cart)"
+      },
+      "settings": {
+        "cart_action_desktop": {
+          "label": "Művelet a kosár hozzáadása után az asztalon",
+          "drawer": "Fiók",
+          "page": "oldal"
+        },
+        "cart_mobile": {
+          "label": "Mobil beállítások",
+          "action": {
+            "label": "Művelet a kosár hozzáadása után",
+            "info": "Válassza ki, hogy mi történjen, miután az ügyfél mobileszközön kosárba helyez egy terméket.",
+            "option_1": "Nyitott mini kosár",
+            "option_2": "Értesítési üzenet",
+            "option_3": "Egyszer nyisd ki a kosarat, utána értesíts"
+          },
+          "open_cart": {
+            "label": "Kosár megnyitása mint",
+            "info": "Válassza ki, hogyan nyíljon meg a kosár, amikor megérinti a kosár ikont a fejlécben és a mobil navigációs sávban.",
+            "option_1": "Fiók",
+            "option_2": "Felugró ablak"
+          }
+        },
+        "free_shipping": {
+          "label": "Ingyenes szállítás üzenet",
+          "paragraph": "Győződjön meg arról, hogy megfelelően konfigurálta a [szállítási díjakat.](/admin/settings/shipping)",
+          "message": {
+            "label": "Üzenet",
+            "info": "Az [összeg] segítségével nyomon követheti előrehaladását az ingyenes szállításra való jogosultság felé."
+          },
+          "minimum_amount": {
+            "label": "Ingyenes szállítás minimális összeg",
+            "info": "Használj kerek számokat. Pénznem, szimbólumok és betűk kizárása."
+          }
+        },
+        "term_and_conditions": {
+          "label": "Feltételek",
+          "enable": "Jelölőnégyzet megjelenítése a minikosárban és a kosár oldalon.",
+          "text": "Text"
+        },
+        "cart_count_down": {
+          "label": "Kosár visszaszámlálás",
+          "show_duration": {
+            "label": "Megjelenítés a minikocsin és a kosár oldalon"
+          },
+          "duration": {
+            "label": "Időtartam"
+          }
+        },
+        "product_recommendations": {
+          "label": "Termékajánlatok",
+          "heading": "Cím",
+          "enable_product_recommendations": "Termékajánlások engedélyezése",
+          "enable_product_recommendations_info": "A termékajánlások a minikosáron és a kosár oldalon jelennek meg.",
+          "recommendation_product_type": {
+            "label": "Termékajánlatok típusa",
+            "auto": "Auto",
+            "selected": "Kiválasztott"
+          },
+          "select_product_recommendation": "Product",
+          "show_on_mobile": {
+            "label": "Megjelenítés mobilon"
+          }
+        },
+        "gift_wrap": {
+          "label": "Termék ajándékcsomagolás",
+          "select_product_gift_wrap": {
+            "label": "Product",
+            "info": "Csak változatok nélküli termékekkel működik."
+          }
+        },
+        "empty": {
+          "label": "Üres kosár beállításai",
+          "heading": "Cím",
+          "description": "Leírás",
+          "collection": {
+            "label": "Gyűjteménylista",
+            "info": "Collections will display their featured image by default. Use metafield to change image and text. Learn more"
+          },
+          "button_text": "Gomb címke",
+          "button_link": {
+            "label": "Gomb link",
+            "info": "Az alapértelmezett az Összes gyűjtemény oldal"
+          },
+          "free_shipping": {
+            "label": "Ingyenes szállítás üzenet"
+          },
+          "empty_cart_layout": {
+            "label": "Üres kosár elrendezése",
+            "option_1": "Lista",
+            "option_2": "Rács"
+          },
+          "collection_metafield": {
+            "label": "Üres kosár kollekció Metamező",
+            "info": "Kollekció metamező. (metaobjektum) az üres kosár képéhez és leírásához. Format: namespace.key. Default: custom.collection_empty. Fields: collection_image, collection_description."
+          }
+        },
+        "discount_progress_bar": {
+          "label": "Kedvezmény folyamatjelző",
+          "paragraph": "Jelenítsen meg legfeljebb 3 költési mérföldkövet a kosárban. Győződjön meg róla, hogy a megfelelő kedvezménykód vagy automatikus kedvezmény létrejött a [Shopify adminban.](/admin/discounts)",
+          "currency_info": "Adja meg a mérföldkő összegeket a bolt alapértelmezett pénznemében. A helyi pénznemekre automatikusan átváltódnak.",
+          "enable": {
+            "label": "Kedvezmény folyamatjelző engedélyezése",
+            "info": "Ha engedélyezve van, felülírja a fenti egyetlen ingyenes szállítás sávot a kosárfiókban és a kosároldalon."
+          },
+          "milestone_1": {
+            "label": "Mérföldkő 1"
+          },
+          "milestone_2": {
+            "label": "Mérföldkő 2"
+          },
+          "milestone_3": {
+            "label": "Mérföldkő 3"
+          },
+          "milestone": {
+            "amount": {
+              "label": "Küszöb",
+              "info": "Használjon kerek számokat pénznemszimbólumok vagy betűk nélkül."
+            },
+            "label_text": {
+              "label": "Címke"
+            },
+            "icon": {
+              "label": "Ikon",
+              "option_none": "Nincs",
+              "option_tag": "Címke",
+              "option_truck": "Teherautó",
+              "option_box": "Doboz"
+            }
+          },
+          "message": {
+            "text": {
+              "label": "Folyamatüzenet",
+              "info": "Használja az [amount] és [label] jelölőket a fennmaradó összeg és a következő jutalom címkéjének megjelenítéséhez."
+            },
+            "success": {
+              "label": "Üzenet az összes mérföldkő elérésekor"
+            }
+          }
+        }
+      }
+    },
+    "search": {
+      "name": "Keresési viselkedés",
+      "how_to_use": {
+        "label": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/theme-settings/search-behavior)"
+      },
+      "settings": {
+        "type": {
+          "label": "Írja be",
+          "info": "A fiók alapértelmezett elrendezése a mobilon.",
+          "option_1": "Felugró ablak",
+          "option_2": "Fiók",
+          "option_3": "Keresősáv"
+        },
+        "search_placeholder": {
+          "label": "Keresés helyőrző"
+        },
+        "speech_search": {
+          "label": "Beszédalapú keresés",
+          "enable": {
+            "label": "Beszédalapú keresés engedélyezése"
+          }
+        },
+        "search_results": {
+          "label": "Eredmények megjelenítése",
+          "option_1": "Default",
+          "option_2": "Tab"
+        },
+        "recommendations": {
+          "popular_keywords": {
+            "label": "Népszerű keresés",
+            "info": "Ajánljon vásárlóinak népszerű keresett kulcsszavakat az üzletében. Például: póló, ruha, fekete."
+          },
+          "products_recommended": {
+            "label": "Termékajánlás",
+            "info": "Válasszon egy terméket, amelyet ajánlani szeretne az ügyfeleknek."
+          },
+          "collections_recommended": {
+            "label": "Gyűjtemények ajánlása"
+          }
+        },
+        "results": {
+          "label": "Keresési eredmények"
+        },
+        "predictive_search": {
+          "label": "Prediktív keresés engedélyezése",
+          "info": "Élő keresési eredmények. Nem érhető el minden nyelven. [További információ](https://shopify.dev/themes/navigation-search/search/predictive-search#general-requirements-and-limitations)"
+        },
+        "show_search_history": {
+          "label": "Keresési előzmények megjelenítése"
+        },
+        "show_price": {
+          "label": "Mutasd a termék árát"
+        }
+      }
+    },
+    "social_media": {
+      "name": "Közösségi média",
+      "how_to_use": {
+        "label": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/theme-settings/social-media)"
+      },
+      "settings": {
+        "social_account": {
+          "label": "Társadalmi számlák",
+          "facebook": {
+            "label": "Facebook",
+            "info": "https://facebook.com/shopify"
+          },
+          "instagram": {
+            "label": "Instagram",
+            "info": "http://instagram.com/shopify"
+          },
+          "twitter": {
+            "label": "Twitter",
+            "info": "https://twitter.com/shopify"
+          },
+          "tiktok": {
+            "label": "Tiktok",
+            "info": "https://tiktok.com/@shopify"
+          },
+          "pinterest": {
+            "label": "Pinterest",
+            "info": "https://pinterest.com/shopify"
+          },
+          "youtube": {
+            "label": "Youtube",
+            "info": "https://www.youtube.com/shopify"
+          },
+          "vimeo": {
+            "label": "Vimeo",
+            "info": "https://vimeo.com/shopify"
+          },
+          "linkedin": {
+            "label": "Linkedin",
+            "info": "https://linkedin.com/company/shopify"
+          },
+          "whatsapp": {
+            "label": "Whatsapp",
+            "info": "https://www.whatsapp.com/shopify"
+          },
+          "snapchat": {
+            "label": "Snapchat",
+            "info": "https://www.snapchat.com/add/shopify"
+          }
+        },
+        "sharing_options": {
+          "label": "Megosztási lehetőségek",
+          "facebook": {
+            "label": "Megosztás a Facebookon"
+          },
+          "pinterest": {
+            "label": "Oszd meg a Pinteresten"
+          },
+          "twitter": {
+            "label": "Megosztás a Twitteren"
+          },
+          "whatsapp": {
+            "label": "Megosztás a WhatsApp-on"
+          },
+          "email": {
+            "label": "Megosztás e-mailben"
+          }
+        }
+      }
+    },
+    "currency": {
+      "name": "Pénznem formátuma",
+      "how_to_use": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/theme-settings/currency-format)",
+      "settings": {
+        "code": {
+          "label": "Pénznem kódok",
+          "show_code": {
+            "label": "Pénznemkódok megjelenítése",
+            "info": "A kosár és a pénztári árak mindig a pénznemkódokat mutatják. Példa: 1,00 USD."
+          }
+        }
+      }
+    },
+    "script_tracking": {
+      "name": "Nyomon követés és betekintés",
+      "settings": {
+        "how_to_use": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/theme-settings/tracking-and-insights)",
+        "scripts_tracking": {
+          "label": "Kódrészlet",
+          "info": "Adja hozzá kódrészletét a követéshez és a statisztikákhoz"
+        },
+        "appended_scripts": {
+          "label": "Pozíció csatolva",
+          "body": "Test címke",
+          "head": "Head címke"
+        }
+      }
+    }
+  },
+  "content": {
+    "manage_customer_accounts": "[Láthatóság kezelése](/admin/settings/customer_accounts) az ügyfélfiók beállításaiban. A régi fiókok nem támogatottak."
+  },
+  "sections": {
+    "all": {
+      "general": "Általános",
+      "layout": {
+        "label": "Metszet szélessége",
+        "fix_width": "Fix szélesség",
+        "stretch_width": "Nyújtás szélessége",
+        "full_width": "Teljes szélességben"
+      },
+      "colors": {
+        "label": "Színséma",
+        "info": "A téma összes színének szerkesztéséhez lépjen a [színtéma beállításaihoz] (/editor?context=theme&category=colors). Gondoskodjon tiszta szöveg kontrasztról a jobb felhasználói élmény érdekében."
+      },
+      "desktop_content_position": {
+        "label": "Asztali tartalom pozíciója",
+        "info": "A pozíció automatikusan mobilra van optimalizálva.",
+        "info_2": "A tartalom először az alapértelmezett mobilelrendezés.",
+        "group": {
+          "top": {
+            "label": "Top"
+          },
+          "middle": {
+            "label": "Középső"
+          },
+          "bottom": {
+            "label": "Alsó"
+          }
+        },
+        "options__1": {
+          "label": "Balra fent"
+        },
+        "options__2": {
+          "label": "Felső középső"
+        },
+        "options__3": {
+          "label": "Jobbra fent"
+        },
+        "options__4": {
+          "label": "bal középső"
+        },
+        "options__5": {
+          "label": "Középső központ"
+        },
+        "options__6": {
+          "label": "Jobb középső"
+        },
+        "options__7": {
+          "label": "Balra lent"
+        },
+        "options__8": {
+          "label": "Alul középen"
+        },
+        "options__9": {
+          "label": "Jobbra lent"
+        }
+      },
+      "padding": {
+        "section_padding_heading": "Szakasz párnázás",
+        "padding_inline": {
+          "label": "Beépített párnázás",
+          "info": "A beágyazott padding automatikusan mobilra van optimalizálva."
+        },
+        "padding_block": {
+          "label": "Párnázó blokk",
+          "info": "A padding blokk automatikusan mobilra van optimalizálva."
+        },
+        "padding_top": "Top",
+        "padding_bottom": "Alsó",
+        "spacing_bottom": "Távolság alsó",
+        "image_spacing": "Képtávolság",
+        "space_between": "Tér Között",
+        "column_gap": {
+          "label": "Távköz",
+          "no_gap": "Nincs rés",
+          "small": "Kicsi",
+          "medium": "Közepes",
+          "large": "Nagy",
+          "x_large": "X-nagy"
+        }
+      },
+      "space_between": {
+        "label": "Hely az elemek között"
+      },
+      "width": {
+        "label": "Szélesség",
+        "fill": "Töltse ki",
+        "fit": "Fit"
+      },
+      "columns": {
+        "label": "Oszlopok száma"
+      },
+      "items_to_show": {
+        "label": "Maximum megjeleníthető elemek"
+      },
+      "product_to_show": {
+        "label": "Maximum megjeleníthető termékek"
+      },
+      "text_alignment": {
+        "label": "Tartalmi igazítás",
+        "alignment": "Igazítás",
+        "options__1": {
+          "label": "Balra"
+        },
+        "options__2": {
+          "label": "Központ"
+        },
+        "options__3": {
+          "label": "Jobbra"
+        }
+      },
+      "content": {
+        "label": "Tartalom"
+      },
+      "text": {
+        "label": "Text"
+      },
+      "content_position": {
+        "label": "Tartalmi pozíció",
+        "options__1": {
+          "label": "Fedvénykép",
+          "top": "Top",
+          "middle": "Középső",
+          "bottom": "Alsó",
+          "text_above_button": "Szöveg a gomb felett"
+        },
+        "options__2": {
+          "label": "Kép alatt"
+        }
+      },
+      "section_setting": {
+        "page_heading": {
+          "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "description": {
+            "label": "Tartalom"
+          },
+          "heading": {
+            "label": "Cím"
+          },
+          "breadcrumb": {
+            "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/breadcrumb)",
+            "label": "Zsemlemorzsa"
+          }
+        },
+        "enable_rounded_style": {
+          "label": "Lekerekített stílus engedélyezése"
+        }
+      },
+      "content_setting": {
+        "label": "Tartalombeállítások",
+        "image": {
+          "label": "Image"
+        },
+        "subheading": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "Alcím",
+          "info": "Az egyes szövegelemeket függőleges sávval (|) válassza el, hogy az elemek között egy pont jelenjen meg."
+        },
+        "highlight_text": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/highlight-text)",
+          "label": "Szöveg kiemelése",
+          "settings": {
+            "icons": {
+              "label": "Válassza ki az ikont",
+              "options__1": {
+                "label": "None"
+              },
+              "options__2": {
+                "label": "Csillag"
+              },
+              "options__3": {
+                "label": "Pont"
+              }
+            }
+          }
+        },
+        "heading": {
+          "label": "Cím",
+          "info": "Adjon hozzá egy aláhúzást a szöveg dőlt betűs tördelésével. Használja a Dőlt (I) gombot a szerkesztőben az alkalmazáshoz."
+        },
+        "heading_highlight": {
+          "label": "Címsor kiemelés szövege",
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading-highlight-text)"
+        },
+        "detail_list": {
+          "label": "Részletes lista",
+          "detail_row": {
+            "label": "Detail row",
+            "row_title": "Row title",
+            "row_details": "Row details"
+          },
+          "layout": {
+            "label": "Elrendezés",
+            "specifications": "Specifikációk",
+            "information_cards": "Információs kártyák"
+          }
+        },
+        "description": {
+          "label": "Leírás",
+          "hide_on_mobile": {
+            "label": "Leírás elrejtése mobilon"
+          },
+          "description": "Jelenítse meg a termék leírását. A rövid leírás metamezőt használja, ha elérhető, ellenkező esetben az alapértelmezett termékleírásra tér vissza. További információért keresse fel [Támogatás oldalunkat] (https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-7.-description)."
+        },
+        "content": "Tartalom",
+        "button_label": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "Gomb címke",
+          "info": "Hagyja üresen a címkét a gomb elrejtéséhez."
+        },
+        "button_label-block": {
+          "name": "Címke",
+          "label": "Gomb"
+        },
+        "link": {
+          "label": "Link",
+          "info": "Megjegyzés: Ez a linkbeállítás csak képeknél működik, videóknál nem."
+        },
+        "first_button_label": {
+          "name": "Első gomb",
+          "label": "Gomb címke",
+          "link": "Gomb link"
+        },
+        "second_button_label": {
+          "name": "Második gomb",
+          "label": "Gomb címke",
+          "link": "Gomb link"
+        },
+        "button_type": {
+          "label": "Írja be",
+          "primary": {
+            "label": "Elsődleges"
+          },
+          "outline": {
+            "label": "Vázlat"
+          },
+          "link": {
+            "label": "Link"
+          }
+        },
+        "show_view_all_button": {
+          "label": "Az összes megtekintése gomb",
+          "label_text": "Gomb címke",
+          "default_text": "Az összes termék megtekintése",
+          "default": "Az összes megtekintése"
+        },
+        "open_link_in_new_tab": {
+          "label": "Link megnyitása új lapon"
+        },
+        "drawn_underline": {
+          "label": "Engedélyezze a címsor aláhúzott animációját",
+          "type": "Aláhúzott stílus",
+          "value": {
+            "simple_underline": "Egyszerű aláhúzás",
+            "curve_underline": "Görbe ütés",
+            "squiggle_underline": "Squiggle aláhúzás"
+          },
+          "color": "Aláhúzás színe"
+        },
+        "metrics": {
+          "label": "Mutatók",
+          "item": {
+            "label": "Mutatóelem",
+            "value": "Érték",
+            "description": "Címke"
+          }
+        },
+        "citation": {
+          "label": "Idézet"
+        },
+        "heading_block_highlight": {
+          "label": "Címsor kiemelésének engedélyezése",
+          "info": "Adjon hozzá kiemelést úgy, hogy a szöveget dőlt betűssé teszi. Használja a Dőlt (I) gombot a szerkesztőben.",
+          "type": "Kiemelés stílusa",
+          "text_highlight": "Szövegkiemelés",
+          "color": "Kiemelés színe"
+        }
+      },
+      "content_header": {
+        "label": "Szakaszfejléc",
+        "heading_size": {
+          "label": "Címsor mérete",
+          "size": "Size",
+          "xs_small": {
+            "label": "XS-Kicsi"
+          },
+          "x_small": {
+            "label": "X-Small"
+          },
+          "small": {
+            "label": "Kicsi"
+          },
+          "large": {
+            "label": "Nagy"
+          },
+          "x_large": {
+            "label": "X-nagy"
+          },
+          "base": {
+            "label": "Alap mérete"
+          },
+          "options__1": {
+            "label": "1. címsor"
+          },
+          "options__2": {
+            "label": "2. címsor"
+          },
+          "options__3": {
+            "label": "3. címsor"
+          },
+          "options__4": {
+            "label": "4. címsor"
+          },
+          "options__5": {
+            "label": "5. címsor"
+          },
+          "options__7": {
+            "label": "7. címsor"
+          },
+          "options__0": {
+            "label": "0. címsor"
+          }
+        }
+      },
+      "blog_setting": {
+        "show_category": "Kategória megjelenítése",
+        "show_tags": "Címkék megjelenítése",
+        "show_date": "Dátum megjelenítése",
+        "show_author": "Szerző megjelenítése",
+        "show_excerpt": "Kivonatok megjelenítése"
+      },
+      "media": {
+        "label": "Írja be"
+      },
+      "image": {
+        "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/image)",
+        "label": "Image",
+        "image_setting": "Képbeállítások",
+        "width": "Kép szélessége",
+        "info_width": "A kép automatikusan mobilra van optimalizálva.",
+        "mobile_image": "Mobil kép",
+        "mobile_image_width": "Mobil kép szélessége",
+        "aspect_ratio": {
+          "label": "Képarány",
+          "label_mb": "Képarány mobilon",
+          "label_video": "Videó arány",
+          "options__1": "Négyzet (1:1)",
+          "options__2": "Portré (3:4)",
+          "options__3": "Fekvő (4:3)",
+          "options__4": "Ugyanaz, mint az asztali",
+          "adapt": "Alkalmazkodni a képhez"
+        },
+        "desktop_position": {
+          "label": "Az asztali kép pozíciója",
+          "top": "Top",
+          "right": "Jobbra",
+          "bottom": "Alsó",
+          "left": "Balra",
+          "info": "A kép a szöveg felett jelenik meg mobilon."
+        },
+        "desktop_image_width": {
+          "label": "Az asztali kép szélessége"
+        }
+      },
+      "video": {
+        "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)",
+        "label": "Video",
+        "info": "Felülbírálja a képbeállítást",
+        "settings": {
+          "source": {
+            "label": "Forrás",
+            "uploaded_video": {
+              "label": "Helyi videó"
+            },
+            "external_link": {
+              "label": "Külső videó link"
+            }
+          }
+        },
+        "width": "Videó szélessége",
+        "width_unit_type": {
+          "label": "Szélesség mértékegység típusa",
+          "options": {
+            "percent": {
+              "label": "százalék (%)"
+            },
+            "px": {
+              "label": "Képpont (px)"
+            }
+          }
+        }
+      },
+      "video_mobile": {
+        "label": "Videó mobil"
+      },
+      "svg": {
+        "label": "SVG ikonra",
+        "custom_svg": {
+          "label": "Egyedi svg",
+          "info": "Felülbírálja a képbeállítást."
+        }
+      },
+      "icon": {
+        "none": {
+          "label": "None"
+        },
+        "cruelty": {
+          "label": "Kegyetlenség"
+        },
+        "paraben": {
+          "label": "Paraben"
+        },
+        "privacy-protection": {
+          "label": "Adatvédelem"
+        },
+        "secure-shopping": {
+          "label": "Biztonságos vásárlás"
+        },
+        "guarantee": {
+          "label": "Garancia"
+        },
+        "account": {
+          "label": "fiók"
+        },
+        "leaf": {
+          "label": "Levél növényen"
+        },
+        "moon": {
+          "label": "Hold"
+        },
+        "hive": {
+          "label": "Kaptár"
+        },
+        "comb": {
+          "label": "Fésű"
+        },
+        "free_shipping": {
+          "label": "Ingyenes szállítás"
+        },
+        "check_badge": {
+          "label": "Check jelvény"
+        },
+        "message_communications": {
+          "label": "Üzenetkommunikáció"
+        },
+        "circular-text": {
+          "label": "Kör alakú szöveg"
+        },
+        "beauty": {
+          "label": "Arc"
+        },
+        "line": {
+          "label": "Vonal"
+        },
+        "droplet": {
+          "label": "Cseppecske"
+        },
+        "smooth": {
+          "label": "Sima"
+        },
+        "shield": {
+          "label": "Pajzs"
+        },
+        "balloon": {
+          "label": "Ballon"
+        },
+        "brightening": {
+          "label": "Világosító"
+        },
+        "hydration": {
+          "label": "Hidratáció"
+        },
+        "coptic_cross": {
+          "label": "Kopt kereszt"
+        },
+        "coil": {
+          "label": "Tekercs"
+        },
+        "verified": {
+          "label": "Ellenőrzött"
+        },
+        "security": {
+          "label": "Biztonság"
+        },
+        "package": {
+          "label": "Csomag"
+        },
+        "cat": {
+          "label": "Macska"
+        }
+      },
+      "carousel": {
+        "header": "A körhinta beállításai",
+        "enable_carousel": {
+          "label": "Körhinta engedélyezése",
+          "description": "A körhinta csak akkor jelenik meg, ha az összes gyűjtemény nagyobb, mint a soronkénti tételek száma az asztalon."
+        },
+        "show_navigation": {
+          "label": "Navigáció megjelenítése"
+        },
+        "show_pagination": {
+          "label": "Oldalszámozás megjelenítése",
+          "info": "A lapozás automatikusan megjelenik mobilon, ha 1-ben vagy 2-ben jeleníti meg a tételek számát",
+          "info_single": "A lapozás automatikusan megjelenik a mobilon.",
+          "type": {
+            "label": "Lapozási stílus",
+            "progress_bar": "Folyamat sáv",
+            "dot": "Pontok"
+          }
+        },
+        "reveal_slide": {
+          "label": "Következő dia feltárása",
+          "info": "Jelenítse meg a közelgő dia egy részét."
+        },
+        "enable_carousel_mobile": {
+          "label": "A körhinta engedélyezése a mobilon"
+        },
+        "change_slide_every": "Minden alkalommal cserélje ki a diákat",
+        "slide_auto_change": "Automatikus csúszdaváltás"
+      },
+      "mobile_options": {
+        "label": "Mobil beállítások",
+        "mobile_layout": {
+          "label": "Mobil elrendezés",
+          "show_text_bellow": {
+            "label": "Az alábbi szöveg megjelenítése mobilon",
+            "info": "Mobilon a kép alatt jelenik meg a szöveg."
+          },
+          "hidden_description_on_mobile": {
+            "label": "Leírás elrejtése mobilon"
+          }
+        }
+      },
+      "items": {
+        "items_per_row": "Elemek soronként",
+        "items_per_row_mobile": "Elemek soronként mobileszközön"
+      },
+      "columns_desktop": {
+        "label": "Elemek soronként az asztalon"
+      },
+      "newsletter_setting": {
+        "email_placeholder": "E-mail helyőrző",
+        "button_label": "Gomb címke"
+      },
+      "pagination_type": {
+        "label": "Lapozás típusa",
+        "options__1": {
+          "label": "Oldalszám"
+        },
+        "options__2": {
+          "label": "További betöltése gomb"
+        },
+        "options__3": {
+          "label": "Végtelen görgetés"
+        }
+      },
+      "product_setting": {
+        "badges": {
+          "name": "Jelvények"
+        },
+        "notify": {
+          "name": "Értesítés a termék készletről"
+        },
+        "live_view": {
+          "name": "Élő nézet",
+          "settings": {
+            "min_number": "Min. szám",
+            "max_number": "Max szám",
+            "interval_time": "Intervallum idő",
+            "content": "Tartalom",
+            "show_icon_eye": {
+              "label": "Ikon megjelenítése"
+            }
+          },
+          "info": "Szimulálja a terméktevékenységet az élő megtekintések számának megjelenítésével, elősegítve a sürgősségi, társadalmi bizonyítási és konverziós arányok növelését."
+        },
+        "shop_the_look": {
+          "name": "Vásárolja meg a megjelenést",
+          "settings": {
+            "heading": {
+              "label": "Cím"
+            }
+          },
+          "description": "Javasoljon kapcsolódó termékeket a megjelenés kiegészítéséhez. További információért látogasson el a [támogatási oldalunkra](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)"
+        },
+        "stock_countdown": {
+          "name": "Részvény visszaszámlálás",
+          "settings": {
+            "message": {
+              "label": "Üzenet",
+              "info": "Használja a [count] rövid kódot a készleten lévő termékek fennmaradó mennyiségének megjelenítéséhez. Ezt a rövid kódot bárhol eltávolíthatja vagy elhelyezheti"
+            },
+            "stock_items": {
+              "label": "Raktári tételek",
+              "info": "Mutassa, ha kevesebb mint (X) termék van raktáron"
+            }
+          }
+        },
+        "product_meta": {
+          "name": "Termék meta",
+          "settings": {
+            "show_sku": {
+              "label": "Cikkszám megjelenítése"
+            },
+            "show_collections": {
+              "label": "Gyűjtemények megjelenítése"
+            },
+            "show_tags": {
+              "label": "Címkék megjelenítése"
+            },
+            "show_type": {
+              "label": "Megjelenítés típusa"
+            }
+          }
+        },
+        "collapsible_row": {
+          "name": "Harmonika sor",
+          "settings": {
+            "info": "Adjon meg egy címsort, amely elmagyarázza a tartalmat.",
+            "content": "Sor tartalma",
+            "content_page": "Tartalom sora az oldalról"
+          }
+        },
+        "accordion_row_drawer": {
+          "name": "Harmonika soros fiók",
+          "settings": {
+            "info": "Adjon meg egy címsort, amely elmagyarázza a tartalmat.",
+            "content": "Sor tartalma",
+            "content_page": "Tartalom sora az oldalról"
+          }
+        },
+        "model_size": {
+          "name": "Modell mérete",
+          "settings": {
+            "paragraph": {
+              "content": "Nézze meg, milyen méretet visel a modell, valamint a magasságot, a súlyt és a méreteit. [Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)"
+            }
+          }
+        },
+        "title": {
+          "name": "Termék címe"
+        },
+        "price": {
+          "name": "Ár"
+        },
+        "rating": {
+          "name": "Termék értékelése"
+        },
+        "variant_picker": {
+          "name": "Változatválasztó",
+          "settings": {
+            "picker_type": {
+              "label": "Írja be",
+              "options__1": {
+                "label": "Legördülő menü"
+              },
+              "options__2": {
+                "label": "Tabletták"
+              }
+            },
+            "size_guide": {
+              "heading": "Mérettáblázat",
+              "info": "Mérettáblázat-információk lekérése a kiválasztott oldalról.",
+              "settings": {
+                "size_trigger": {
+                  "label": "Méret kiváltó",
+                  "info": "Adja meg a méret opció nevét. Vesszővel elválasztva. Például. Méret, Misurare"
+                },
+                "show_size_guide": "Mérettáblázat megjelenítése",
+                "size_guide_label": "Mérettáblázat címke",
+                "size_guide_page": "Mérettáblázat oldal",
+                "footer_content": "Lábléc tartalom",
+                "custom_size_guide": {
+                  "label": "Egyedi mérettáblázat",
+                  "info__1": "Speciális mérettáblázatok használata minden kollekcióhoz vagy termékhez.",
+                  "info__2": "Egyedi méretdiagramok használatához termékhez vagy gyűjteményhez hozzon létre metamezőt névtérrel és kulccsal: \"custom.size_chart\". További információ](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/size-chart)"
+                }
+              }
+            }
+          }
+        },
+        "buy_buttons": {
+          "name": "Vásárlás gombok",
+          "settings": {
+            "show_dynamic_checkout": {
+              "label": "Dinamikus fizetési gombok megjelenítése",
+              "info": "Az üzletében elérhető fizetési módok használatával az ügyfelek láthatják az általuk preferált opciót, például az PayPal vagy az Apple Pay. [További információ](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+            },
+            "show_gift_card_recipient": {
+              "label": "Az ajándékutalványok címzett információs űrlapjának megjelenítése",
+              "info": "Lehetővé teszi a vásárlók számára, hogy ajándékutalványokat küldjenek egy meghatározott időpontban személyes üzenettel együtt. [További információ](https://help.shopify.com/manual/online-store/themes/customizing-themes/add-gift-card-recipient-fields)"
+            }
+          }
+        },
+        "subscription_widget": {
+          "name": "Előfizetés widget",
+          "settings": {
+            "info": "Egyszeri vásárlást és külön kártyát jelenít meg minden egyes értékesítési tervcsoporthoz. Helyezze ezt a blokkot a Vásárlás gombok fölé.",
+            "one_time_purchase_title": {
+              "label": "Egyszeri vásárlás jogcíme"
+            },
+            "one_time_purchase_description": {
+              "label": "Egyszeri vásárlás leírása"
+            },
+            "subscription_description": {
+              "label": "Előfizetés leírása"
+            },
+            "show_price": {
+              "label": "Ár megjelenítése"
+            }
+          }
+        },
+        "share": {
+          "name": "Részesedés"
+        },
+        "complementary_products": {
+          "name": "Kiegészítő termékek",
+          "settings": {
+            "paragraph": {
+              "content": "Kiegészítő termékek kiválasztásához adja hozzá a Search & Discovery alkalmazást. [További információ](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+            },
+            "product_list_limit": {
+              "label": "Maximum megjeleníthető termékek"
+            }
+          }
+        },
+        "pickup_avaiability": {
+          "name": "Átvétel elérhetősége"
+        },
+        "media_lightbox": {
+          "name": "Nézze meg működés közben",
+          "settings": {
+            "enable_sticky": {
+              "label": "Ragadó engedélyezése az asztalon"
+            }
+          },
+          "description": "Mutasson valós fényképeket vagy videókat a használatban lévő termékéről. További információért látogasson el a [támogatási oldalunkra](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-16.-media-lightbox)"
+        },
+        "highlights": {
+          "name": "Kiemelések",
+          "description": "Mutassa be terméke legfontosabb értékesítési pontjait. További információért látogasson el a [támogatási oldalunkra](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-8.-highlights)"
+        },
+        "key_features": {
+          "name": "Főbb jellemzők",
+          "description": "Sorolja fel terméke főbb jellemzőit és előnyeit. További információért látogasson el a [támogatási oldalunkra](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-9.-key-features)"
+        },
+        "ask_question": {
+          "name": "Tegyen fel egy kérdést"
+        },
+        "promotion_countdown": {
+          "name": "Promóció visszaszámlálás",
+          "show_countdown_units": {
+            "label": "Visszaszámlálási egységek megjelenítése"
+          },
+          "description": "Adjon hozzá egy visszaszámlálót, hogy sürgős legyen terméke promóciója. További információért keresse fel [Támogatás oldalunkat] (https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-11.-promotion-countdown)."
+        },
+        "promotion_alert": {
+          "name": "Promóciós figyelmeztetés",
+          "heading": {
+            "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+            "label": "Cím"
+          },
+          "description": {
+            "label": "Leírás"
+          },
+          "text_color": {
+            "label": "Szöveg színe"
+          }
+        },
+        "icon_with_text": {
+          "name": "Ikon szöveggel",
+          "heading": {
+            "label_1": "Ikon szöveggel 1",
+            "label_2": "Ikon szöveggel 2",
+            "label_3": "Ikon szöveggel 3",
+            "label_4": "Ikon szöveggel 4",
+            "label_5": "Ikon szöveggel 5"
+          },
+          "info": "Ez a tartalom automatikusan el lesz rejtve a mobileszközön.",
+          "svg": {
+            "label": "SVG ikonra"
+          },
+          "content": {
+            "label": "Tartalom"
+          },
+          "icon": {
+            "none": {
+              "label": "None"
+            },
+            "free_shipping": {
+              "label": "Ingyenes szállítás"
+            },
+            "check_badge": {
+              "label": "Check jelvény"
+            },
+            "message_communications": {
+              "label": "Üzenetkommunikáció"
+            },
+            "truck": {
+              "label": "Teherautó"
+            },
+            "question": {
+              "label": "Kérdés"
+            },
+            "location": {
+              "label": "Elhelyezkedés"
+            },
+            "leaf": {
+              "label": "Levél növényen"
+            },
+            "blossom": {
+              "label": "Kivirul"
+            },
+            "payment": {
+              "label": "Fizetés"
+            },
+            "discount": {
+              "label": "Discount"
+            },
+            "order": {
+              "label": "Rendelés"
+            },
+            "return": {
+              "label": "Visszatérés"
+            },
+            "return_package": {
+              "label": "Csomag visszaküldése"
+            }
+          }
+        },
+        "inventory_status": {
+          "name": "Készlet állapota",
+          "settings": {
+            "inventory_threshold": {
+              "label": "Alacsony készletküszöb",
+              "info": "Állítsa be ezt az értéket, hogy figyelmeztesse az ügyfeleket, ha egy termék hamarosan kifogy."
+            },
+            "inventory_base": {
+              "label": "Készlet alapmennyiség",
+              "info": "Állítsa be a termékkészlet kezdeti mennyiségét a folyamatjelző sávhoz."
+            }
+          }
+        },
+        "disclosures": {
+          "name": "Közzétételek",
+          "description": "A termékhez szükséges biztonsági figyelmeztetések és szabályozási közzétételek. További információért látogasson el a [támogatási oldalunkra](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information).",
+          "settings": {
+            "heading": {
+              "label": "Címsor",
+              "default": "Fontos információk"
+            },
+            "open_by_default": {
+              "label": "Alapértelmezetten nyitva"
+            }
+          }
+        }
+      },
+      "divider": {
+        "section_divider_heading": "Szakaszelválasztó",
+        "show_divider": "Elválasztó megjelenítése",
+        "top": "Felső osztó",
+        "top_info": "Rejtett, ha a fenti szakasz alsó osztója Hullám vagy Ív",
+        "bottom_info": "A vonal rejtett, ha az alábbi szakasz felső osztója Hullám vagy Ív",
+        "bottom": "Alsó osztó",
+        "none": "Nincs",
+        "line": "Vonal",
+        "wave": "Hullám",
+        "curve_out": "Ív kifelé",
+        "curve_in": "Ív befelé"
+      },
+      "metafield": {
+        "short_description": {
+          "label": "Rövid leírás Metamező",
+          "info": "Termék metamező. Rövid leírás esetén használatos. Format: namespace.key. Default: custom.short_description."
+        },
+        "highlights": {
+          "label": "Kiemelések Metamező",
+          "info": "Termék metamező. Kiemelés ikonok/címek listája. Format: namespace.key. Default: custom.highlights."
+        },
+        "key_features": {
+          "label": "Főbb jellemzők Metamező",
+          "info": "Termék metamező. Cím/leírás elemek listája. Format: namespace.key. Default: custom.key_features."
+        },
+        "media_lightbox": {
+          "label": "Média lightbox Metamező",
+          "info": "Termék metamező. Képek/videók listája a galériához. Format: namespace.key. Default: custom.media_lightbox."
+        },
+        "model_size": {
+          "label": "Modellméret Metamező",
+          "info": "Termék metamező. (metaobjektum) modellméretekkel. Format: namespace.key. Default: custom.model_size."
+        },
+        "product_sizing": {
+          "label": "Termékméretek Metamező",
+          "info": "Termék metamező. Lista a méretskálához. Format: namespace.key. Default: custom.product_sizing."
+        },
+        "shop_the_look": {
+          "label": "Vásárold meg a lookot Metamező",
+          "info": "Termék metamező. Look képek és termékek listája. Format: namespace.key. Default: custom.shop_the_look."
+        },
+        "similar_products": {
+          "label": "Hasonló termékek Metamező",
+          "info": "Termék metamező. Hasonló termékek listája. Format: namespace.key. Default: custom.similar_products."
+        },
+        "frequently_bought_together": {
+          "label": "Gyakran együtt vásárolt Metamező",
+          "info": "Termék metamező. Együtt vásárolandó termékek listája. Format: namespace.key. Default: custom.frequently_bought_together."
+        },
+        "complete_the_look": {
+          "label": "Egészítsd ki a lookot Metamező",
+          "info": "Termék metamező. Outfit termékek listája. Format: namespace.key. Default: custom.complete_the_look."
+        },
+        "info_gallery": {
+          "label": "Info galéria Metamező",
+          "info": "Termék metamező. Galériakártyák listája (kép + szöveg). Format: namespace.key. Default: custom.info_gallery."
+        },
+        "compare_items": {
+          "label": "Termékek összehasonlítása Metamező",
+          "info": "Termék metamező. Összehasonlítandó termékek listája. Format: namespace.key. Default: custom.compare_items."
+        },
+        "ingredient_highlights": {
+          "label": "Kiemelt összetevők Metamező",
+          "info": "Termék metamező. Az összehasonlító sorban jelenik meg. Format: namespace.key. Default: custom.ingredient_highlights."
+        },
+        "subcollection": {
+          "label": "Alkollekció Metamező",
+          "info": "Kollekció metamező. Alkollekciók listája. Format: namespace.key. Default: custom.subcollection."
+        }
+      }
+    },
+    "group": {
+      "product": "Products",
+      "collection": "Gyűjtemények",
+      "storytelling": "Mesemondás",
+      "banners": "Bannerek",
+      "blog": "Blog",
+      "form": "Űrlapok",
+      "shopable": "Vásárolható termékek",
+      "blocks": {
+        "basic": "Alapvető",
+        "layout": "Segédprogramok és elrendezés",
+        "custom": "Custom",
+        "forms": "Űrlapok"
+      },
+      "decorative": {
+        "name": "Dekoratív",
+        "marquee": "Sátor",
+        "how_to_use_maquee": "[A blokk használata](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/marquee)"
+      },
+      "links": {
+        "name": "Linkek",
+        "menu": "Menu",
+        "how_to_use_menu": "[A blokk használata](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)",
+        "how_to_use_popup_link": "[A blokk használata](https://nextsky.gitbook.io/purity-theme/group-blocks/links/popup-link)",
+        "popup_link": "Felugró link"
+      },
+      "general": {
+        "name": "Általános",
+        "image_box": "Képdoboz",
+        "image_box_use": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/overlay-group/search)"
+        }
+      }
+    },
+    "overlay_group": {
+      "name": "Fedvénycsoport"
+    },
+    "search": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/overlay-group/search)",
+      "name": "Keresés"
+    },
+    "footer": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/footer-group/footer)",
+      "name": "Lábléc",
+      "settings": {
+        "enable_back_top": {
+          "label": "Engedélyezés vissza az elejére"
+        },
+        "show_policy": {
+          "label": "Szabályzati linkek",
+          "info": "[Irányelvek kezelése](/admin/settings/legal)"
+        },
+        "country_language": {
+          "content": "Ország/nyelv választó",
+          "info": "Ország/régió hozzáadásához lépjen a [piaci beállításokhoz.](/admin/settings/markets). Nyelv hozzáadásához lépjen a [nyelvi beállításokhoz.](/admin/settings/languages)"
+        },
+        "enable_country_selector": {
+          "label": "Ország/régió választó engedélyezése"
+        },
+        "width": {
+          "options__1": "16%",
+          "options__2": "20%",
+          "options__3": "25%",
+          "options__4": "33%",
+          "options__5": "50%",
+          "options__6": "66%",
+          "options__7": "75%",
+          "options__8": "86%",
+          "options__9": "100%"
+        },
+        "enable_language_selector": {
+          "label": "Nyelvválasztó engedélyezése"
+        },
+        "payment": {
+          "content": "Fizetési módok"
+        },
+        "payment_enable": {
+          "label": "Fizetési ikonok megjelenítése"
+        },
+        "menu_policies": {
+          "label": "Lábléc alsó"
+        },
+        "header_follow": {
+          "content": "Kövesd a Shopban",
+          "info": "Ahhoz, hogy az ügyfelek követhessék üzletét a Shop alkalmazásban az Ön kirakatáról, engedélyeznie kell a Shop Pay szolgáltatást. [További információ](https://help.shopify.com/manual/online-store/themes/customizing-themes/follow-on-shop)"
+        },
+        "enable_follow_on_shop": {
+          "label": "Engedélyezze a Követés a boltban lehetőséget"
+        }
+      },
+      "blocks": {
+        "menu_block": {
+          "label": "Menu"
+        },
+        "newsletter_block": {
+          "name": "Hírlevél",
+          "info": "Az előfizetők automatikusan felkerülnek az „elfogadott marketing” ügyfelek listájára. [További információ](https://help.shopify.com/manual/customers/manage-customers)",
+          "settings": {
+            "note": {
+              "label": "Jegyzet"
+            }
+          }
+        },
+        "contact_bar_block": {
+          "name": "Kapcsolattartó sáv",
+          "settings": {
+            "store_address": "Cím",
+            "store_phone": "Telefon",
+            "store_email": "Email",
+            "show_social": {
+              "label": "Közösségi média ikonok megjelenítése",
+              "info": "A közösségimédia-fiókok megjelenítéséhez kapcsolja össze őket a témabeállításokban."
+            }
+          }
+        }
+      }
+    },
+    "header": {
+      "name": "Fejléc",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header)",
+      "settings": {
+        "sticky_header_type": {
+          "label": "Ragadós fejléc",
+          "options__1": {
+            "label": "None"
+          },
+          "options__2": {
+            "label": "Felfelé görgetéskor"
+          },
+          "options__3": {
+            "label": "Mindig"
+          }
+        },
+        "menu": {
+          "label": "Menu",
+          "menu_trigger": {
+            "label": "Az asztali legördülő menü indítója",
+            "options__1": {
+              "label": "Kattintson"
+            },
+            "options__2": {
+              "label": "Lebeg"
+            }
+          },
+          "dropdowns_animation": {
+            "label": "Legördülő menük animációja",
+            "options__1": {
+              "label": "Elhalványul"
+            },
+            "options__3": {
+              "label": "Leről felfelé"
+            }
+          }
+        },
+        "menu_mobile": {
+          "label": "Mobil menü beállításai",
+          "menu_icon": {
+            "label": "Hamburger ikon pozíciója",
+            "info": "Válassza ki, hol jelenjen meg a hamburger menü mobileszközön."
+          }
+        },
+        "addons": {
+          "label": "Kiegészítők",
+          "show_account": {
+            "label": "Fiók ikon megjelenítése"
+          },
+          "show_search": {
+            "label": "Keresés megjelenítése"
+          },
+          "show_cart": {
+            "label": "Bevásárlókosár megjelenítése"
+          },
+          "show_offer": {
+            "label": "Mutasd az ajánlatot"
+          },
+          "show_language": {
+            "label": "Nyelv megjelenítése"
+          },
+          "show_currency": {
+            "label": "Pénznem megjelenítése"
+          }
+        },
+        "transparent": {
+          "content": "Átlátszó fejléc",
+          "info": "Győződjön meg arról, hogy a kezdőlap első része a következők egyikeként van beállítva: diavetítés, videó szöveges fedéssel vagy kép szöveges fedéssel.",
+          "transparent": {
+            "label": "Átlátszó fejléc engedélyezése"
+          },
+          "text_icon_transparent": {
+            "label": "Szöveg és ikon színe"
+          }
+        },
+        "blocks": {
+          "mega_menu": {
+            "name": "Banner (Mega menü)",
+            "how_to_use": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#banner-mega-menu)",
+            "banners": {
+              "label": "Bannerek beállításai"
+            },
+            "promotion_1": {
+              "label": "Bannerek #1"
+            },
+            "promotion_2": {
+              "label": "Bannerek #2"
+            },
+            "promotion_3": {
+              "label": "Bannerek #3"
+            },
+            "promotion_4": {
+              "label": "Bannerek #4"
+            },
+            "promotion_5": {
+              "label": "Bannerek #5"
+            },
+            "info": "448 képpont x 260 képpont ajánlott"
+          },
+          "menu_item": {
+            "label": "Menüpont",
+            "info": "Írja be a menüelemet a mega menü legördülő menüjének alkalmazásához. Kérem, tegyen különbséget a kis- és nagybetűk között."
+          },
+          "menu_column": {
+            "label": "Asztali menü oszlopai"
+          },
+          "product": {
+            "name": "Termékek (Mega menü)",
+            "how_to_use": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#product-mega-menu)",
+            "header": "Products"
+          },
+          "collection": {
+            "name": "Gyűjtemények (Mega menü)",
+            "how_to_use": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#collection-mega-menu)",
+            "header": "Gyűjtemények"
+          },
+          "menu_highlight": {
+            "name": "Menü kiemelése",
+            "menu_items": {
+              "label": "A kiemelendő menüelemek",
+              "info": "Adja meg a kiemelendő menüpontok nevét, vesszővel elválasztva (pl. Kiárusítás, Újdonságok). Kérem, tegyen különbséget a kis- és nagybetűk között."
+            },
+            "highlight_color": {
+              "label": "Szín kiemelése"
+            },
+            "highlight_icon": {
+              "label": "Jelölje ki az ikont",
+              "options": {
+                "unset": "Unset",
+                "star": "Csillag",
+                "custom": "Custom"
+              }
+            },
+            "custom_icon": {
+              "label": "Egyéni ikon",
+              "info": "Opcionális ikon a kiemelt menüelemek mellett megjeleníthető (javasolt méret: 24x24 képpont)"
+            }
+          }
+        },
+        "header_layout": {
+          "label": "Asztali fejléc elrendezése",
+          "info": "Az elrendezés automatikusan optimalizálva van mobilra.",
+          "options__1": {
+            "label": "Logo balra, menü közepén"
+          },
+          "options__2": {
+            "label": "Logó középen, menü balra"
+          },
+          "options__3": {
+            "label": "Logo középen, menü alul"
+          },
+          "options__4": {
+            "label": "Logo balra, menü alul"
+          },
+          "options__5": {
+            "label": "Logo balra, menü balra"
+          }
+        }
+      }
+    },
+    "custom_liquid": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "how_to_use_block": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "name": "Egyedi folyadék",
+      "liquid_code": "Folyékony kód",
+      "info": "Adjon hozzá alkalmazásrészleteket vagy más folyékony kódot a speciális testreszabások létrehozásához.",
+      "info_custom_liquid": "Adjon hozzá alkalmazásrészleteket vagy más kódot speciális testreszabások létrehozásához. [További információ](https://shopify.dev/docs/api/liquid)"
+    },
+    "blog-posts": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/blog-posts)",
+      "name": "Blogbejegyzések",
+      "settings": {
+        "blog-post": {
+          "label": "Blogbejegyzés",
+          "blog_post_type": {
+            "label": "Blogbejegyzés típusa",
+            "category": "Kategória",
+            "select_blog": "Válogatott blogok"
+          }
+        },
+        "blog": {
+          "label": "Blog"
+        }
+      }
+    },
+    "multi_content": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/multi-content)",
+      "name": "Több tartalom",
+      "blocks": {
+        "label": "Blokkolási beállítások",
+        "bellow_image": "Jelvénybeállítások",
+        "badge": "Jelvény",
+        "equal_height_adjustment": {
+          "label": "Egyenlő magasságállítás"
+        },
+        "social_icon": "Szociális ikonok",
+        "grid_info": "Rács információ",
+        "grid_info_1": "Rács információ 1",
+        "grid_info_2": "Rács információ 2",
+        "grid_info_3": "Rács információ 3",
+        "grid_info_4": "Rács információ 4"
+      }
+    },
+    "grid_banner": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/banners/grid-banner)",
+      "name": "Rácsbanner",
+      "settings": {
+        "hidden_block_des_mobile": {
+          "label": "Elemleírás elrejtése mobilon"
+        }
+      },
+      "blocks": {
+        "item": {
+          "name": "Banner elem",
+          "show_arrow": "Nyíl ikon megjelenítése"
+        }
+      }
+    },
+    "scrolling_text": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/scrolling-text)",
+      "name": "Szöveg görgetése",
+      "settings": {
+        "direction": {
+          "label": "Irány",
+          "left": {
+            "label": "Jobbról balra"
+          },
+          "right": {
+            "label": "Balról jobbra"
+          }
+        },
+        "speed": {
+          "label": "Sebesség"
+        },
+        "text_size": {
+          "label": "Size"
+        },
+        "blocks": {
+          "image": {
+            "rounded_image": {
+              "label": "Kép sarok sugara"
+            },
+            "image_height": {
+              "label": "Kép magassága"
+            },
+            "image_width": {
+              "label": "Szélesség"
+            }
+          }
+        }
+      }
+    },
+    "shopby-outfit": {
+      "name": "Vásároljon ruhák szerint",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-by-outfit)",
+      "blocks": {
+        "outfit": {
+          "name": "Felszerelés",
+          "settings": {
+            "product": {
+              "label": "Terméklista"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Vásároljon ruhák szerint"
+      },
+      "setting": {
+        "media": {
+          "label": "Média típusa"
+        },
+        "video_autoplay": {
+          "info": "Csak akkor működik, ha a Videó van kiválasztva a Médiatípus blokk beállításaiban."
+        }
+      }
+    },
+    "collection-list": {
+      "name": "Gyűjteménylista",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/collection-list)",
+      "settings": {
+        "header": {
+          "collection": "Collection",
+          "collection_title": "Gyűjtemény címe",
+          "collection_card": "Gyűjteménykártya",
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "how_to_use_collection_title": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/sections/page-heading)"
+        },
+        "collection_title_style": {
+          "label": "A gyűjtemény címének stílusa",
+          "text": "Text",
+          "button": "Gomb"
+        },
+        "show_product_count": {
+          "label": "Termékszám megjelenítése"
+        },
+        "overlay_image_settings": "Fedőkép beállításai",
+        "overlay_image_color": "Szöveg színe",
+        "collection_overlay_image_color": "Gyűjtemények szöveg színe"
+      },
+      "blocks": {
+        "featured_collection": {
+          "name": "Collection",
+          "settings": {
+            "collection": {
+              "label": "Collection"
+            },
+            "image": {
+              "label": "Image",
+              "info": "Hagyja üresen a gyűjtemény képének használatához",
+              "info_highlight": "Hagyja üresen a gyűjtemény képének használatához. 330x520px ajánlott",
+              "info_suitable": "Hagyja üresen a gyűjtemény képének használatához. 147x72px ajánlott",
+              "info_collection_item": "444x444px ajánlott"
+            },
+            "title": {
+              "label": "Cím",
+              "info": "Hagyja üresen a gyűjtemény címének használatához"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Gyűjteménylista"
+      }
+    },
+    "quickview": {
+      "name": "Gyorsnézet",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/overlay-group/quickview)",
+      "settings": {
+        "paragraph": "Ez a rész lehetővé teszi a gyorsnézet felugró ablak testreszabását."
+      }
+    },
+    "featured-collection": {
+      "name": "Kiemelt gyűjtemény",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/featured-collection)"
+    },
+    "expandable_card": {
+      "name": "Bővíthető kártya",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/expandable-card)",
+      "settings": {
+        "card_header": "A kártya beállításai",
+        "interaction_behavior": {
+          "label": "Interakciós viselkedés",
+          "options": {
+            "hover": "Megjelenítés az egérrel",
+            "drawer": "Kattintson a fiók megnyitása gombra"
+          }
+        }
+      },
+      "blocks": {
+        "layered_card": {
+          "name": "Réteges kártyák",
+          "settings": {
+            "media_header": "Image",
+            "description": "Leírás",
+            "drawer_page": "Leírás az oldalról"
+          }
+        }
+      }
+    },
+    "featured-product": {
+      "name": "Kiemelt termék",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/featured-product)",
+      "settings": {
+        "product": "Product"
+      }
+    },
+    "slideshow": {
+      "name": "Diavetítés",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/slideshow)",
+      "settings": {
+        "loading_background_color": {
+          "label": "Háttér betöltése",
+          "info": "A videó dia betöltése közben a háttérszín látható."
+        },
+        "slide_height": {
+          "label": "Csúszda magassága",
+          "full_screen": "Teljes képernyő",
+          "adapt_to_first_image": "Alkalmazkodjon az első képhez",
+          "small": "Kicsi",
+          "medium": "Közepes",
+          "large": "Nagy"
+        },
+        "info": "1920x840px ajánlott",
+        "info_mobile": "390x572px ajánlott",
+        "blocks": {
+          "image": {
+            "label": "Kép dia",
+            "image_overlay_opacity": {
+              "label": "Képfedő átlátszatlanság",
+              "overlay_opacity": "Fedvény átlátszatlansága"
+            }
+          },
+          "video": {
+            "label": "Videó dia",
+            "video_setting": "Videó beállítások",
+            "video_overlay_opacity": {
+              "label": "Videófedő átlátszatlansága"
+            }
+          }
+        }
+      }
+    },
+    "related-products": {
+      "name": "Kapcsolódó termékek",
+      "how_to_use": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/related-products)"
+    },
+    "similar-products": {
+      "name": "Vásároljon hasonló terméket",
+      "how_to_use": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-product)"
+    },
+    "complete-the-look": {
+      "name": "Egészítse ki a megjelenést",
+      "how_to_use": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/group-sections/products/complete-the-look)"
+    },
+    "similar-color": {
+      "name": "Vásároljon hasonló színt",
+      "how_to_use": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-color)"
+    },
+    "quick-order-list": {
+      "name": "Gyors rendelési lista"
+    },
+    "newsletter": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/newsletter)",
+      "name": "Hírlevél",
+      "settings": {
+        "header": {
+          "heading_setting": "Hírlevél beállítása"
+        }
+      }
+    },
+    "rich-text": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/rich-text)",
+      "name": "Gazdag szöveg",
+      "settings": {
+        "max_width": {
+          "label": "Max szélesség",
+          "info": "A maximális szélesség automatikusan mobilra van optimalizálva."
+        },
+        "rotating_text": "Kör alakú szöveg",
+        "separator_spacing": {
+          "label": "Elválasztó térköze",
+          "info": "Szóközt ad az elválasztók, például a - vagy a • mindkét oldalára a kifejezések között."
+        }
+      }
+    },
+    "recently-viewed-products": {
+      "name": "Nemrég nézett termékek",
+      "info": "Mentse el az oldalt a nemrég megtekintett termékek betöltéséhez",
+      "how_to_use": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/recently-product)"
+    },
+    "info-gallery-products": {
+      "name": "Kulcsfontosságú összetevők",
+      "how_to_use": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metaobjects/info-gallery)"
+    },
+    "product-benefits": {
+      "name": "A termék előnyei",
+      "how_to_use": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/product-benefits)",
+      "settings": {
+        "media_header": "Középső média",
+        "image": {
+          "label": "Image",
+          "info": "Üres állapotban a termék kiemelt képét használja. 640 x 900 képpont ajánlott."
+        },
+        "media_width": {
+          "label": "Kép szélessége az asztalon"
+        },
+        "video": {
+          "label": "Video"
+        },
+        "video_poster": {
+          "label": "Videó poszter képe"
+        }
+      },
+      "blocks": {
+        "benefit": {
+          "name": "Haszon",
+          "settings": {
+            "icon": {
+              "label": "Ikon"
+            }
+          }
+        }
+      }
+    },
+    "quiz-results-products": {
+      "name": "Kvíz eredmények termékek"
+    },
+    "quiz": {
+      "name": "Kvíz",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/utilities-and-layout/quiz)",
+      "settings": {
+        "intro_header": "Intro",
+        "enable_intro_step": {
+          "label": "Bevezető lépés engedélyezése"
+        },
+        "intro_button_label": {
+          "label": "Start gomb címke"
+        },
+        "show_retake_button": {
+          "label": "Újrafelvétel gomb megjelenítése"
+        },
+        "retake_label": {
+          "label": "A gombcímke újrafelvétele"
+        },
+        "results_display_header": "Eredmények megjelenítése",
+        "content_max_width": {
+          "label": "Tartalom max. szélessége"
+        },
+        "show_back_button": {
+          "label": "Vissza gomb megjelenítése"
+        },
+        "email_header": "E-mail lépés",
+        "enable_email_step": {
+          "label": "E-mail lépés engedélyezése"
+        },
+        "email_heading": {
+          "label": "E-mail címsor"
+        },
+        "email_placeholder": {
+          "label": "E-mail helyőrző"
+        },
+        "continue_label": {
+          "label": "Folytatás gomb címke"
+        },
+        "skip_label": {
+          "label": "Kihagyás gomb címke"
+        },
+        "results_banner_image": {
+          "label": "Eredmény banner kép"
+        },
+        "fallback_products": {
+          "label": "Tartalék termékek",
+          "info": "A termékek csak akkor jelennek meg, ha a kvízválaszok nem adnak erős vagy részleges egyezést. Használja biztonsági másolatként, hogy az eredményoldal soha ne legyen üres."
+        },
+        "results_products_limit": {
+          "label": "Maximum megjeleníthető termékek"
+        }
+      }
+    },
+    "compare-products": {
+      "name": "Hasonlítsa össze a termékeket",
+      "how_to_use": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/compare-items)",
+      "settings": {
+        "header": {
+          "label": "Hasonlítsa össze a beállításokat"
+        },
+        "show_price": "Ár",
+        "show_ratings": "Értékelések",
+        "show_vendor": "Eladó",
+        "show_color": "Color",
+        "show_size": "Size",
+        "show_highlights": "Kiemelések",
+        "show_availability": "Elérhetőség"
+      }
+    },
+    "bought-together-products": {
+      "name": "Együtt vásárolt termékek",
+      "how_to_use": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/frequently-bought-together)"
+    },
+    "media-with-text": {
+      "name": "Média szöveggel",
+      "info_image": {
+        "info_desktop": "950x844px ajánlott",
+        "info_mobile": "475x422px ajánlott",
+        "info_video": "Felülbírálja a képbeállítást. 950x844px ajánlott"
+      }
+    },
+    "product-specifications": {
+      "name": "Termékleírások",
+      "item_name": "Product specifications item",
+      "specifications_layout": "Specifikációk elrendezése",
+      "grid_gap": "Rácsköz",
+      "mobile_rows_shown": "Sorok",
+      "view_more_label": "Továbbiak gomb felirata",
+      "view_less_label": "Kevesebb gomb felirata",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-specifications)"
+    },
+    "image-with-text": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/image-with-text)",
+      "name": "Kép szöveggel",
+      "settings": {
+        "desktop_vertical_alignment": {
+          "label": "Asztali függőleges igazítás",
+          "top": "Top",
+          "middle": "Középső",
+          "bottom": "Alsó"
+        },
+        "vertical_alignment": "Függőleges igazítás",
+        "background_type": {
+          "label": "Háttér típusa",
+          "image": "Image",
+          "color": "Color"
+        },
+        "background_color": "Háttérszín",
+        "background_image": "Háttér kép",
+        "text_color": "Szöveg színe",
+        "image_info": "696 képpont x 500 képpont ajánlott",
+        "offer_image_with_text_info": "360x200px ajánlott",
+        "image_caption": {
+          "label": "Képaláírás",
+          "heading": "Címsor",
+          "description": "Leírás",
+          "position": "Pozíció"
+        }
+      }
+    },
+    "before_after_result": {
+      "name": "Előtte utána",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/banners/before-after)",
+      "before_text": {
+        "label": "Szöveg előtt",
+        "default": "Előtt"
+      },
+      "after_text": {
+        "label": "Szöveg után",
+        "default": "Után"
+      }
+    },
+    "parallax-image-with-text": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/banners/parallax-split)",
+      "name": "Parallax hasadás",
+      "settings": {
+        "image": {
+          "image_1": {
+            "label": "1. kép"
+          },
+          "image_2": {
+            "label": "2. kép"
+          },
+          "image_3": {
+            "label": "3. kép"
+          }
+        },
+        "parallax_image": {
+          "label": "Parallax kép"
+        }
+      }
+    },
+    "discount_popup": {
+      "info": "Ez a rész előugró ablak megjelenítésére szolgál az előfizetés után.",
+      "name": "Kedvezmény felugró ablak",
+      "how_to_use": "[A beállítás használata](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/discount-popup)",
+      "settings": {
+        "discount_code": {
+          "label": "Promóciós link",
+          "info": "Hogyan lehet promóciós linket szerezni? [További információ](https://help.shopify.com/en/manual/discounts/managing-discount-codes#promote-a-discount-using-a-shareable-link)"
+        },
+        "discount_button": {
+          "label": "Promóciós gomb címke",
+          "default": "👉 Vásárolj 10% kedvezménnyel"
+        },
+        "sub_heading": {
+          "default": "Hurrá! Ön előfizetett"
+        },
+        "info_image": "Ezt a képet a rendszer automatikusan elrejti a mobileszközön. 350x410px ajánlott"
+      }
+    },
+    "image-with-text-overlay": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/image-with-text-overlay)",
+      "name": "Kép szöveges fedéssel",
+      "countdown": "Visszaszámláló",
+      "count_down": "Visszaszámlálás",
+      "how_to_use_count_down": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/countdown)",
+      "end_time": {
+        "label": "Vége",
+        "info": "például hh-nn-éééé"
+      },
+      "message": {
+        "label": "Lejárt üzenet",
+        "info": "Ez az üzenet az idő lejártakor jelenik meg."
+      },
+      "image_info": {
+        "info_desktop": "1392x500px ajánlott",
+        "info_mobile": "400x469px ajánlott"
+      }
+    },
+    "media-hero": {
+      "name": "Médiahős",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/media-hero)",
+      "media": "Média",
+      "info": "Felülbírálja a Kép beállítást."
+    },
+    "video": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/video)",
+      "name": "Video",
+      "settings": {
+        "video_local": {
+          "label": "Videó helyi",
+          "info_2": "Felülbírálja a Videó URL-beállítását.",
+          "info_multi_content_video": "Felülbírálja a Videó URL-beállítását. 684x500px ajánlott.",
+          "info_poster": "Használja ugyanazokat a méreteket, mint a videó"
+        },
+        "video_link": {
+          "label": "Videó URL-je",
+          "info": "Elfogadja a YouTube vagy a Vimeo URL-jét"
+        },
+        "video_poster": {
+          "label": "Videó poszter"
+        },
+        "alt_description": {
+          "label": "Videó alternatív szövege",
+          "info": "Ismertesse a videót a képernyőolvasókat használó ügyfelek számára. [További információ](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#video-block)"
+        },
+        "autoplay": {
+          "label": "Videó automatikus lejátszása",
+          "info": "A videók automatikusan el vannak némítva az automatikus lejátszás engedélyezéséhez"
+        },
+        "looping": {
+          "label": "Videó hurkolása"
+        },
+        "show_action": {
+          "label": "Videóvezérlők megjelenítése"
+        },
+        "aspect_ratio": {
+          "label": "Képarány",
+          "option__1": "16:9",
+          "option__2": "21:9",
+          "option__3": "Alkalmazkodj videóhoz"
+        },
+        "show_text_bellow": {
+          "label": "Szöveg megjelenítése a videó alatt mobileszközön",
+          "info": "A szöveg a videó alatt jelenik meg mobilon."
+        }
+      }
+    },
+    "main-password-content": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/other-pages/password-page)",
+      "name": "Fő jelszó oldal",
+      "settings": {
+        "header__2": {
+          "content": "Tartalom beállítása"
+        }
+      },
+      "blocks": {
+        "countdown_bn": {
+          "settings": {
+            "countdown_design": {
+              "label": "Tervezés",
+              "options__1": {
+                "label": "Default"
+              },
+              "options__2": {
+                "label": "Modern"
+              }
+            }
+          }
+        },
+        "form_subscribe": {
+          "name": "Űrlap feliratkozás",
+          "settings": {
+            "email_placeholder": {
+              "label": "E-mail helyőrző szövege"
+            },
+            "btn_label": {
+              "label": "Gomb címke"
+            }
+          }
+        }
+      }
+    },
+    "divider": {
+      "settings": {
+        "height": {
+          "label": "Height"
+        },
+        "color": {
+          "label": "Color"
+        }
+      }
+    },
+    "faq": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/faqs)",
+      "name": "GYIK",
+      "main-faq": "Fő GYIK oldal",
+      "heading": {
+        "content": "GYIK üzenet"
+      },
+      "info_image": "646 képpont x 700 képpont ajánlott",
+      "settings": {
+        "show_faqs_message": "GYIK üzenet megjelenítése",
+        "show_image": "Kép megjelenítése",
+        "open_all_question": "Nyissa meg az összes kérdést",
+        "framed": "Keretezett",
+        "faq_style": "GYIK stílus",
+        "desktop_layout": {
+          "label": "Asztali elrendezés",
+          "horizontal": "Vízszintes",
+          "vertical": "Függőleges"
+        }
+      },
+      "blocks": {
+        "name": "GYIK elemek",
+        "settings": {
+          "question": {
+            "question": "Kérdés",
+            "answer": "Válasz"
+          }
+        }
+      }
+    },
+    "page-faq": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/other-pages/faq-page)"
+    },
+    "video-with-text-overlay": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/video-with-text-overlay)",
+      "name": "Videó szöveges fedéssel",
+      "settings": {
+        "video_local": {
+          "label": "Videó helyi",
+          "info": "Felülbírálja a Videó URL-beállítását. 1392x550px ajánlott",
+          "info_mobile": "Ajánlott: 390px x 550px"
+        },
+        "video_link": {
+          "label": "Videó link"
+        },
+        "video_poster": {
+          "info": "Méretek megegyeznek a videóval"
+        },
+        "overlay_opacity": "Fedvény átlátszatlansága",
+        "video_height": {
+          "label": "Videó magassága",
+          "options__1": {
+            "label": "Alkalmazkodj videóhoz"
+          },
+          "options__2": {
+            "label": "Kicsi"
+          },
+          "options__3": {
+            "label": "Közepes"
+          },
+          "options__4": {
+            "label": "Nagy"
+          }
+        }
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "Termékrács",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/product-grid)",
+      "settings": {
+        "items_per_page": {
+          "label": "Oldalanként megjelenítendő elemek"
+        },
+        "columns_desktop": {
+          "label": "Oszlopok soronként az asztalon"
+        },
+        "show_product_counts": {
+          "label": "Termékszám megjelenítése"
+        }
+      }
+    },
+    "main-collection": {
+      "settings": {
+        "items_per_page": {
+          "label": "Oldalanként megjelenítendő elemek"
+        },
+        "columns_desktop": {
+          "label": "Oszlopok soronként az asztalon"
+        },
+        "enable_filtering": {
+          "label": "Szűrés engedélyezése",
+          "info": "Testreszabhatja a szűrőket a Search & Discovery alkalmazással. [További információ](https://help.shopify.com/manual/online-store/search-and-discovery/filters)"
+        },
+        "filter_type": {
+          "label": "Asztali szűrő elrendezése",
+          "options__1": {
+            "label": "Horizontal"
+          },
+          "options__2": {
+            "label": "Vertical"
+          },
+          "options__3": {
+            "label": "Fiók"
+          }
+        },
+        "enable_sorting": {
+          "label": "Rendezés engedélyezése"
+        },
+        "show_product_counts": {
+          "label": "Termékszám megjelenítése"
+        },
+        "header__1": {
+          "content": "Szűrés és válogatás"
+        }
+      },
+      "blocks": {
+        "promotion": {
+          "name": "Promóció",
+          "promotion_position": {
+            "label": "Előléptetési pozíció"
+          },
+          "info": "330px 550px ajánlott"
+        },
+        "steps": {
+          "name": "Vásároljon lépésről lépésre",
+          "info": "337 képpont x 200 képpont ajánlott"
+        }
+      }
+    },
+    "main-search": {
+      "name": "Keresési eredmények",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/other-pages/search-page)",
+      "settings": {
+        "search_results": {
+          "label": "Eredmények megjelenítése",
+          "option_1": "Default",
+          "option_2": "Tab"
+        }
+      }
+    },
+    "main-article": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/other-pages/blog-post-page)",
+      "name": "Blogbejegyzés",
+      "settings": {
+        "show_date": "A közzététel dátumának megjelenítése",
+        "show_comment": "Megjegyzés megjelenítése",
+        "show_excerpt": "Bejegyzésrészlet megjelenítése",
+        "show_share": "Megosztás gomb megjelenítése",
+        "blocks": {
+          "featured_image": "Kiemelt kép",
+          "content_article": "Tartalom",
+          "addons": "Kiegészítők",
+          "prev_next_articles": "Előző és következő cikkek"
+        }
+      },
+      "related": {
+        "heading": "Kapcsolódó cikkek",
+        "articles": {
+          "label": "Cikkek",
+          "info": "Ebben a sorrendben jelennek meg. Hagyja üresen, ha a blog legújabb cikkeit szeretné megjeleníteni."
+        }
+      },
+      "blocks": {
+        "featured_image": {
+          "settings": {
+            "image_height": {
+              "label": "Kép magassága",
+              "options__1": {
+                "label": "Alkalmazkodni a képhez"
+              },
+              "options__2": {
+                "label": "Kicsi"
+              },
+              "options__3": {
+                "label": "Közepes"
+              },
+              "options__4": {
+                "label": "Nagy"
+              }
+            }
+          }
+        }
+      },
+      "related_product": {
+        "heading": "Kapcsolódó termékek",
+        "products": {
+          "label": "Termékek"
+        }
+      }
+    },
+    "cart-drawer": {
+      "name": "Kocsi fiók",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/overlay-group/cart-drawer)",
+      "settings": {
+        "info": "A kosárfiók megjelenítéséhez lépjen a Témabeállításokhoz, és a [kosárbeállítások] (/editor?context=theme&category=cart) részben kosártípusként válassza ki a Fiókot.",
+        "content": "",
+        "show_free_shipping_message": {
+          "label": "Ingyenes szállítási üzenet megjelenítése",
+          "info": "Állítsa be az ingyenes szállítás minimális összegét a témabeállításokban."
+        },
+        "show_cart_note": "Kosár megjegyzés megjelenítése",
+        "show_estimate_shipping": "Mutasd a becsült szállítást",
+        "show_discount": "Kedvezménykód megjelenítése",
+        "hide_check_badge_on_mobile": "A bizalmi jelvények blokkjának elrejtése a mobilon",
+        "hide_icon_with_text_on_mobile": "Ikon elrejtése szövegblokk segítségével a mobilon",
+        "show_gift_wrap": {
+          "label": "Mutasd az ajándékcsomagolást",
+          "info": "Kérjük, válasszon ajándékcsomagolási termékeket a témabeállítások között."
+        },
+        "discount_progress_bar_active": "A kedvezmény folyamatjelző engedélyezve van a témabeállításokban, és felváltja az ingyenes szállítás üzenetét."
+      }
+    },
+    "main-list-collections": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-list-page)",
+      "name": "Gyűjtemények listaoldala",
+      "blocks": {
+        "name": "Collection",
+        "settings": {
+          "collection_image": "Gyűjtemény kép"
+        }
+      },
+      "settings": {
+        "information_position": {
+          "label": "Információs pozíció",
+          "options__1": {
+            "label": "Fedvénykép"
+          },
+          "options__2": {
+            "label": "Lent kép"
+          }
+        },
+        "collection_to_show": {
+          "label": "Megjelenítendő gyűjtemények",
+          "options__1": {
+            "label": "Minden"
+          },
+          "options__2": {
+            "label": "Kiválasztott"
+          }
+        },
+        "sort": {
+          "label": "Gyűjtemények rendezése szerint",
+          "options__1": {
+            "label": "ABC sorrendben, A-Z"
+          },
+          "options__2": {
+            "label": "ABC sorrendben Z-A"
+          },
+          "options__3": {
+            "label": "Dátum, új a régi"
+          },
+          "options__4": {
+            "label": "Dátum, régitől újig"
+          },
+          "options__5": {
+            "label": "Termékek száma, magastól alacsonyig"
+          },
+          "options__6": {
+            "label": "Termékek száma alacsonytól magasig"
+          }
+        }
+      }
+    },
+    "main-blog": {
+      "name": "Blogbejegyzések",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/other-pages/blog-page)",
+      "settings": {
+        "header": {
+          "content_post": "Hozzászólás beállításai"
+        },
+        "maximum_posts_to_show": {
+          "label": "A megjeleníthető bejegyzések maximális száma"
+        },
+        "post_per_row_desktop": {
+          "label": "Hozzászólás soronként az asztalon"
+        },
+        "show_all_tags": {
+          "label": "Címkelista megjelenítése"
+        }
+      },
+      "blocks": {
+        "name": "Feliratkozási űrlap",
+        "settings": {
+          "show_email_icon": "E-mail ikon megjelenítése",
+          "form_position": "Forma pozíció"
+        }
+      }
+    },
+    "main-product": {
+      "name": "Termék információ",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "settings": {
+        "header": {
+          "content": "Média"
+        },
+        "enable_sticky_desktop": {
+          "label": "Engedélyezze a ragadós kosár hozzáadását az asztalon"
+        },
+        "desktop_layout": {
+          "label": "Asztali elrendezés",
+          "group": {
+            "static": "Rács",
+            "carousel": "Körhinta"
+          },
+          "one_columns": {
+            "label": "1 oszlop"
+          },
+          "options__1": {
+            "label": "2 oszlop"
+          },
+          "options__2": {
+            "label": "Vízszintes miniatűrök"
+          },
+          "options__3": {
+            "label": "Verem"
+          },
+          "options__4": {
+            "label": "Függőleges miniatűrök"
+          },
+          "options__5": {
+            "label": "Függőleges miniatűrök (görgetés)"
+          },
+          "options__6": {
+            "label": "2 oszlop"
+          }
+        },
+        "thumbnail_carousel_setting": {
+          "label": "Miniatűr körhinta beállítása",
+          "number_thumbs": "Miniatűrök száma"
+        },
+        "media_position": {
+          "label": "Az asztali média pozíciója"
+        },
+        "media_width": {
+          "label": "Asztali média szélessége"
+        },
+        "mobile_thumbnails": {
+          "options__1": {
+            "label": "Bélyegképek megjelenítése"
+          },
+          "options__2": {
+            "label": "Bélyegképek elrejtése"
+          }
+        },
+        "enable_video_looping": {
+          "label": "Videó loop engedélyezése"
+        },
+        "enable_image_zoom": {
+          "label": "Kép nagyítása",
+          "options__1": {
+            "label": "Letiltás"
+          },
+          "options__2": {
+            "label": "Belső nagyítás"
+          },
+          "options__3": {
+            "label": "Kicsinyítés"
+          }
+        },
+        "enable_image_lightbox": {
+          "label": "Lightbox engedélyezése"
+        },
+        "enable_video_autoplay": {
+          "label": "Videó automatikus lejátszásának engedélyezése",
+          "info": "A videók automatikusan elnémulnak az automatikus lejátszás engedélyezéséhez. YouTube/Vimeo esetén nem működik."
+        },
+        "enable_video_controls_default": {
+          "label": "Egyéni videóvezérlők engedélyezése",
+          "info": "YouTube/Vimeo esetén nem működik."
+        }
+      },
+      "blocks": {
+        "custom_product": {
+          "name": "Egyéni beállítások",
+          "tab_setting": {
+            "label": "Lapcímkék",
+            "tab_1": {
+              "label": "1. lap"
+            },
+            "tab_2": {
+              "label": "2. lap"
+            },
+            "tab_3": {
+              "label": "3. lap"
+            }
+          },
+          "description": "Hagyja, hogy az ügyfelek személyre szabják a terméket – pozíciót, szöveget és színt – egy 3 lépésből álló előugró ablakon keresztül, mielőtt a kosárba helyeznék. További információért látogasson el a [támogatási oldalunkra](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/custom-options)",
+          "placement": "Elhelyezés",
+          "text": "Text",
+          "text_limit": "Szövegkorlát",
+          "note": "Jegyzet",
+          "color": {
+            "name": "Color",
+            "options": {
+              "color_1": "1. szín",
+              "color_2": "2. szín",
+              "color_3": "3. szín",
+              "color_4": "4. szín",
+              "color_5": "5. szín",
+              "color_6": "6. szín",
+              "color_7": "7. szín",
+              "color_8": "8. szín",
+              "color_9": "9. szín",
+              "color_10": "10. szín"
+            }
+          }
+        }
+      }
+    },
+    "main-cart-items": {
+      "name": "Fő kocsi",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/other-pages/cart-page)",
+      "block": {
+        "icon_with_text": "Ikon szöveggel",
+        "trust_badges": "Bizalmi jelvények"
+      }
+    },
+    "main-collection-banner": {
+      "name": "Gyűjtemény banner",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/collection-banner)",
+      "settings": {
+        "heading": {
+          "label": "Beállítások elemre"
+        },
+        "use_collection_image": {
+          "label": "Gyűjteménykép használata",
+          "info": "A háttérkép beállításának felülbírálása"
+        },
+        "image_height": {
+          "option__2": "A tartalom alapján"
+        },
+        "image_position": {
+          "label": "A kép helyzete",
+          "option__1": "Balra",
+          "option__2": "Jobbra"
+        },
+        "image_opacity": {
+          "label": "Kép átlátszatlansága"
+        }
+      }
+    },
+    "contact-form": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/contact-form)",
+      "name": "Kapcsolatfelvételi űrlap",
+      "settings": {
+        "name": "Név",
+        "email_placeholder": "Email",
+        "message": "Üzenet",
+        "option": "Opció",
+        "info_option": "Határozza meg az opció nevét. A lehetőségeket vesszővel válassza el. Például. Termék, Rendelés, Nyomda, Egyéb"
+      }
+    },
+    "main-404": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/other-pages/404-page)",
+      "name": "Fő 404",
+      "info_image": "500x288px ajánlott"
+    },
+    "main-activate-account": {
+      "name": "Fiók aktiválása"
+    },
+    "main-password-footer": {
+      "name": "Jelszó lábléc"
+    },
+    "main-account": {
+      "name": "fiók"
+    },
+    "main-register": {
+      "name": "Bejegyzés"
+    },
+    "main-login": {
+      "name": "Bejelentkezés"
+    },
+    "main-reset-password": {
+      "name": "Jelszó visszaállítása"
+    },
+    "main-order": {
+      "name": "Rendelés"
+    },
+    "main-addresses": {
+      "name": "Címek"
+    },
+    "announcement-bar": {
+      "how_to_use": {
+        "label": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/announcement-bar)"
+      },
+      "name": "Hirdetménysáv",
+      "settings": {
+        "type": {
+          "name": "Írja be",
+          "options": {
+            "slide": {
+              "label": "Körhinta"
+            },
+            "marquee": {
+              "label": "Sátor"
+            }
+          }
+        },
+        "show_only_homepage": {
+          "label": "Csak a kezdőlapon jelenjen meg"
+        },
+        "show_close_button": {
+          "label": "Bezárás gomb megjelenítése"
+        },
+        "enable_on_mobile": {
+          "label": "Engedélyezés mobileszközön"
+        },
+        "marquee_settings": {
+          "label": "Kijelölő beállításai",
+          "speed": {
+            "label": "Sebesség"
+          },
+          "show_icon": {
+            "label": "Ikon megjelenítése"
+          }
+        }
+      },
+      "blocks": {
+        "name": "Közlemény",
+        "setting": {
+          "label": "Text"
+        }
+      }
+    },
+    "multimedia_with_text": {
+      "blocks": {
+        "settings": {
+          "header": "Médiabeállítások",
+          "media_style": {
+            "label": "Média stílus",
+            "options__1": {
+              "label": "Lekerekített"
+            },
+            "options__2": {
+              "label": "Ovális"
+            },
+            "options__3": {
+              "label": "Default"
+            }
+          }
+        }
+      }
+    },
+    "product-tabs": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/vertical-product-tabs)",
+      "name": "Termék fülek",
+      "setting": {
+        "layout": {
+          "label": "Asztali elrendezés",
+          "vertical": "Vertical",
+          "horizontal": "Horizontal"
+        },
+        "banner_header": "Banner",
+        "show_banner": "Banner megjelenítése",
+        "sticky_banner": "Rögzített banner",
+        "portrait_4_5": "Álló (4:5)",
+        "enable_carousel_info": "Mobilon a termékelrendezés mindig körhintaként jelenik meg."
+      },
+      "blocks": {
+        "name": "Tab",
+        "header": "Blokkolási beállítások",
+        "settings": {
+          "hidden_des_mobile": {
+            "label": "Lapleírás elrejtése mobilon"
+          },
+          "collection": {
+            "label": "Collection",
+            "description": "Leírás"
+          }
+        }
+      },
+      "presets": {
+        "product_tabs_with_banner": "Termék fülek bannerrel"
+      }
+    },
+    "collection-highlights": {
+      "name": "Gyűjtemény kiemeli",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/collection-highlights)",
+      "settings": {
+        "highlight_collection_width": {
+          "label": "A gyűjtemény kiemeli a szélességet"
+        }
+      },
+      "blocks": {
+        "header": "Blokkolási beállítások",
+        "type": {
+          "type_highlight": {
+            "header": "A gyűjtemény kiemeli a beállításokat",
+            "name": "Gyűjtemény kiemeli"
+          }
+        }
+      }
+    },
+    "collection-pills": {
+      "name": "Gyűjtemény pirulák",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/collections/collection-pills)",
+      "settings": {
+        "pill_style": {
+          "label": "Pirula stílus"
+        },
+        "show_image_on_hover": {
+          "label": "Kép megjelenítése rámutatáskor",
+          "info": "A rámutatáskori kép mobilon rejtve lesz."
+        },
+        "horizontal_scroll": {
+          "label": "Vízszintes görgetés"
+        }
+      }
+    },
+    "suitable_products_finder": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/suitable-products-finder)",
+      "name": "Megfelelő termékkereső",
+      "settings": {
+        "collection_tab_header": {
+          "label": "Gyűjtemény fül"
+        },
+        "collection_tab_style": {
+          "label": "Gyűjtemény lap stílusa"
+        },
+        "collection_tab_style_options": {
+          "range_slider": {
+            "label": "Tartomány csúszka"
+          },
+          "pill_tabs": {
+            "label": "Tabletta fülek"
+          }
+        },
+        "show_pill_tabs_with_heading": {
+          "label": "Inline a címsorral",
+          "info": "Jelenítse meg a színválasztót a címsorral azonos sorban."
+        },
+        "show_pill_tabs_color": {
+          "label": "Színes pont megjelenítése"
+        },
+        "pill_tabs_color": {
+          "label": "Color"
+        },
+        "pill_tabs_image": {
+          "info": "A minta kép felülírja a színt a kép feltöltésekor."
+        },
+        "image_collection_width": {
+          "label": "Kép szélessége"
+        },
+        "range_slider": {
+          "settings": {
+            "show_range_slider": {
+              "label": "Tartománycsúszka megjelenítése",
+              "info": "A tartomány csúszkája automatikusan el lesz rejtve a mobilon."
+            }
+          }
+        }
+      },
+      "preset": {
+        "ranger_slider": "Termékkereső: Tartomány csúszka",
+        "pill_tabs": "Termékkereső: Tablettalapok",
+        "color_dots": "Termékkereső: Színes pöttyök"
+      }
+    },
+    "icon-box": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/icon-box)",
+      "name": "Ikon doboz",
+      "settings": {
+        "icon_settings": {
+          "header": "Ikonbeállítások",
+          "icon_position": {
+            "label": "Pozíció"
+          },
+          "icon_size": {
+            "label": "Size"
+          },
+          "radius_image": {
+            "label": "Lekerekített kép",
+            "info": "Ez a beállítás csak akkor működik, ha az ikon egy kép."
+          }
+        }
+      }
+    },
+    "metric-banner": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/metric-banner)",
+      "name": "Metrikus banner",
+      "settings": {
+        "metric_setting": "Metrikus beállítások",
+        "metric_font_size": "Metrikus betűméret",
+        "enable_metric_animation": "Engedélyezze a metrikus animációt",
+        "metric_value": {
+          "start": "Metrikus kezdőérték",
+          "end": "Metrikus végérték"
+        },
+        "metric_unit": "Metrikus mértékegység"
+      },
+      "block": {
+        "name": "Metrikus elem"
+      }
+    },
+    "compact_product_bundle": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/compact-product-bundle)",
+      "name": "Kompakt termékcsomag",
+      "settings": {
+        "image": {
+          "label": "Image",
+          "info_desktop": "696 képpont x 750 képpont ajánlott",
+          "info_mobile": "350x303px ajánlott"
+        },
+        "enable_quick_add_for_items": {
+          "label": "Gyors hozzáadás engedélyezése az elemekhez"
+        },
+        "hidden_button_mobile": {
+          "label": "Rejtett gomb a mobilon"
+        },
+        "products_show": {
+          "label": "A termékek mint",
+          "options__1": {
+            "label": "Lista"
+          },
+          "options__2": {
+            "label": "Rács"
+          }
+        }
+      },
+      "presets": {
+        "name": "Kompakt termékcsomag"
+      },
+      "blocks": {
+        "settings": {
+          "name": "Product",
+          "select_product": "Product",
+          "position_top": "Függőleges helyzet",
+          "position_left": "Vízszintes helyzet"
+        }
+      }
+    },
+    "mobile-navigation-bar": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/overlay-group/mobile-navigation-bar)",
+      "name": "Mobil navigációs sáv",
+      "info": "Ez a szakasz csak mobilon jelenik meg. Kérjük, váltson mobilnézetre.",
+      "settings": {
+        "show_section": "Mobil navigációs sáv engedélyezése",
+        "show_shop": "Áruház megjelenítése",
+        "show_account": "Fiók megjelenítése",
+        "show_cart": "Kosár megjelenítése",
+        "show_homepage": "Kezdőlap megjelenítése"
+      }
+    },
+    "mobile_first": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/mobile-first)",
+      "name": "Spotlight galéria",
+      "image_1": "Szpot kép 1",
+      "image_2": "Szpot kép 2",
+      "image_3": "Szpot kép 3",
+      "image_4": "Szpot kép 4",
+      "image_5": "Szpot kép 5",
+      "text_1": "Szpotszöveg 1",
+      "text_2": "Szpotszöveg 2",
+      "text_3": "Szpotszöveg 3",
+      "text_4": "Szpotszöveg 4",
+      "text_5": "Szpotszöveg 5"
+    },
+    "shopable_video": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/shopable-video)",
+      "name": "Vásárolható videó",
+      "settings": {
+        "video_settings": {
+          "header": "Videó beállítások"
+        },
+        "enable_sticky": {
+          "label": "Videó ragadós engedélyezése",
+          "option_1": {
+            "label": "Letiltás"
+          },
+          "option_2": {
+            "label": "Csak asztali"
+          },
+          "option_3": {
+            "label": "Minden képernyő"
+          }
+        },
+        "ratio": {
+          "adapt": {
+            "label": "Alkalmazkodj az első videóhoz"
+          }
+        },
+        "video": {
+          "auto_play": {
+            "info": "A videó automatikusan elindul, ha ez a blokk aktív vagy látható a képernyőn"
+          }
+        },
+        "show_product_card": {
+          "label": "Termékkártya megjelenítése"
+        }
+      },
+      "blocks": {
+        "name": "Video",
+        "settings": {
+          "poster_image": {
+            "label": "Plakát kép",
+            "info": "1080x1920px ajánlott"
+          },
+          "local_video": {
+            "label": "Helyi videó"
+          },
+          "select_product": {
+            "label": "Product"
+          }
+        }
+      }
+    },
+    "image_card": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/image-cards)",
+      "name": "Képkártyák",
+      "blocks": {
+        "header": "A kártya beállításai",
+        "group_name": "Kártya",
+        "info": "451x453px ajánlott"
+      }
+    },
+    "testimonials": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonials)",
+      "name": "Sajtó",
+      "settings": {
+        "header": "Nyomja meg a beállításokat",
+        "show_icon_quote": {
+          "label": "Idézet ikon megjelenítése"
+        }
+      },
+      "blocks": {
+        "name": "Nyomja meg a tételt",
+        "settings": {
+          "quote": {
+            "label": "Idézet"
+          },
+          "info_image": "180px 60px ajánlott"
+        }
+      }
+    },
+    "press_card": {
+      "name": "Nyomja meg a Kártyát",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/press-card)",
+      "blocks": {
+        "content": "Tartalom",
+        "media": "Média",
+        "quote": "Idézet",
+        "settings": {
+          "show_icon_quote": "Idézet ikon megjelenítése",
+          "author_name": "Szerző neve",
+          "quote_content": "Idézet tartalom",
+          "press-image": {
+            "info": "Felülbírálja a háttérszín beállítását"
+          }
+        }
+      }
+    },
+    "scrolling_image": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/scrolling-image)",
+      "name": "Galéria kép",
+      "settings": {
+        "show_background_blur": {
+          "label": "Elmosódott háttér megjelenítése"
+        },
+        "show_icon_hover": {
+          "label": "Instagram ikon megjelenítése az egérmutatón"
+        },
+        "info_image": "303 képpont x 303 képpont ajánlott"
+      }
+    },
+    "featured_product_banner": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/featured-product-banner)",
+      "name": "Kiemelt termék banner",
+      "hide_icon_text": "Ikon elrejtése szövegblokkokkal a mobilon",
+      "blocks": {
+        "name": "Ikon szöveggel"
+      },
+      "info": {
+        "info_desktop": "400x400px ajánlott",
+        "info_mobile": "300x300px ajánlott"
+      }
+    },
+    "product_testimonials": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-testimonials)",
+      "name": "Termékismertetők",
+      "settings": {
+        "header": "Az ajánlások beállításai",
+        "rating_color": {
+          "label": "Értékelés színe"
+        },
+        "rating_type": {
+          "label": "Értékelés típusa",
+          "default": "Default",
+          "modern": "Modern",
+          "show": "Értékelés megjelenítése",
+          "show_before_after": "Megjelenítés a szöveg előtt"
+        },
+        "product_rounded": {
+          "label": "A termék képének sarok sugara"
+        },
+        "show_verified_buyer": {
+          "label": "Ellenőrzött vásárló megjelenítése"
+        },
+        "show_author_name": {
+          "label": "Szerző nevének megjelenítése"
+        }
+      },
+      "blocks": {
+        "type": {
+          "media": {
+            "label": "Beszámoló média"
+          },
+          "image_comparison": {
+            "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/image-comparison)",
+            "label": "Beszámolóképes összehasonlítás",
+            "name": "Kép összehasonlítás",
+            "show_after_before_text": {
+              "label": "Megjelenítés szöveg előtt/után"
+            }
+          }
+        },
+        "settings": {
+          "media": {
+            "label": "Médiabeállítások",
+            "info": "448x246px ajánlott",
+            "before_after_image": {
+              "label": "Előtte utána képek"
+            },
+            "before_image": {
+              "label": "Előtt"
+            },
+            "after_image": {
+              "label": "Után"
+            }
+          },
+          "information": {
+            "label": "Információs beállítások",
+            "rating_star": {
+              "label": "Értékelő csillag"
+            },
+            "select_product": {
+              "label": "Product"
+            },
+            "author_name": {
+              "label": "Szerző neve"
+            },
+            "review_sumary": {
+              "label": "Összegzés"
+            },
+            "use_richtext": {
+              "label": "Richtext használata"
+            }
+          }
+        }
+      }
+    },
+    "routine-builder": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/routine-builder)",
+      "name": "Vásároljon lépésről lépésre",
+      "blocks": {
+        "name": "Lépés",
+        "settings": {
+          "text_step": {
+            "label": "Lépés címe"
+          },
+          "product_in_step": {
+            "label": "Termék lépésben"
+          }
+        }
+      }
+    },
+    "newsletter_popup": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/overlay-group/newsletter-popup)",
+      "name": "Hírlevél előugró ablak",
+      "header": {
+        "heading": "Általános beállítások"
+      },
+      "settings": {
+        "sections_width": {
+          "label": "Szélesség",
+          "options": {
+            "options__1": "Teljes szélességben",
+            "options__2": "Auto"
+          }
+        },
+        "collections_selector": {
+          "setting": "Gyűjteményválasztó beállításai",
+          "label": "Gyűjtemények választó engedélyezése",
+          "collection": {
+            "label_1": "1. gyűjtemény",
+            "label_2": "2. gyűjtemény",
+            "label_3": "3. gyűjtemény",
+            "label_4": "Gyűjtemény 4",
+            "label_5": "5. gyűjtemény"
+          }
+        },
+        "newsletter_heading": "Hírlevél beállításai",
+        "show_on_homepage": "Csak a kezdőlapon jelenjen meg",
+        "discount_sticky": {
+          "setting": "Kedvezmény ragadós",
+          "label": "Kedvezmény ragadós megjelenítése",
+          "heading": "Tartalom",
+          "info": "A tartalom automatikusan lecsonkodik 25 karakternél, beleértve a HTML-címkéket is."
+        },
+        "heading": "Cím",
+        "short_description": "Leírás",
+        "instructional_text": "Oktató szöveg",
+        "email_placeholder": "E-mail helyőrző",
+        "button_label": "Gomb címke",
+        "banner_image": "Banner kép"
+      }
+    },
+    "featured-blog": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/featured-blog)",
+      "name": "Kiemelt blog"
+    },
+    "recommended_collection": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/recommended-collection)",
+      "name": "Ajánlott gyűjtemény",
+      "blocks": {
+        "button": {
+          "info": "A [gyűjtemény] és a [cím] olyan változónevek, amelyek automatikusan lecserélődnek. Ne módosítsa a neveket, de módosíthatja a szövegben elfoglalt helyüket. A [cím] nem kötelező – távolítsa el, ha csak a gyűjteményválasztót szeretné használni.",
+          "first_button_info": "Űrlap képpel: megnyitja az eredménykollekciót a választott szűrőkkel"
+        },
+        "featured_collection": {
+          "title_info": "Csak a Szöveg a sorban elrendezés: a [Cím] legördülő lista lehetőségeként jelenik meg. A kollekcióblokkok nem használatosak az Űrlap képpel elrendezésben"
+        },
+        "filter_dropdown": {
+          "name": "Legördülő szűrő",
+          "info": "Az Űrlap képpel elrendezéssel működik. A szűrőt először a Shopify Search & Discovery alkalmazásban állítsa be.",
+          "filter_name": {
+            "label": "Szűrő neve",
+            "info": "Adja meg a szűrőfeliratot pontosan úgy, ahogy a kollekcióoldalakon látszik, például „Kutya korcsoport”. Több nyelvnél a feliratokat a ; jellel válassza el. Az árszűrők nem támogatottak."
+          },
+          "placeholder": "Helyőrző"
+        },
+        "text": {
+          "name": "Szöveg"
+        }
+      },
+      "background": {
+        "label": "Háttérkép megjelenítése",
+        "header": "Háttér kép"
+      },
+      "image_info": {
+        "info_desktop": "1920x700px ajánlott",
+        "info_mobile": "390x407px ajánlott"
+      },
+      "layout": {
+        "label": "Elrendezés",
+        "inline": "Szöveg a sorban",
+        "form": "Űrlap képpel"
+      },
+      "content_color_scheme": "Tartalom színsémája",
+      "results_collection": {
+        "label": "Eredménykollekció",
+        "info": "Csak az Űrlap képpel elrendezéshez. A legördülő szűrők ennek a kollekciónak a szűrőit mutatják, az első gomb pedig megnyitja. Hagyja üresen, ha az összes terméket szeretné használni."
+      },
+      "presets": {
+        "form": "Ajánlott kollekció képpel"
+      }
+    },
+    "offers-popup": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/overlay-group/offers-popup)",
+      "name": "Felugró ablakot kínál",
+      "popup": {
+        "label": "Címsor ajánlat felugró ablak",
+        "info": "Testreszabhatja az Ajánlatok előugró blokk tartalmát az Overlay csoportban."
+      }
+    },
+    "outfit-finder": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/products/outfit-finder)",
+      "name": "Ruházat kereső",
+      "settings": {
+        "product_listing": {
+          "label": "Terméklista beállításai"
+        },
+        "outfit_finder_logic": {
+          "label": "Előnézeti beállítások"
+        },
+        "max_items_to_show": {
+          "label": "Termékek oldalanként",
+          "info": "Az eredetileg megjelenített termékek száma. A lefelé görgetés több elemet tölt be."
+        },
+        "max_items": {
+          "label": "Max termék ruhánként",
+          "info": "Korlátozza, hogy az ügyfél hány elemet adhat hozzá az előnézeti területhez."
+        },
+        "product": {
+          "label": "Ajánlott öltözet",
+          "info": "Válasszon ki legfeljebb 3 terméket, amelyek alapértelmezés szerint megjelennek az előnézeti területen az oldal betöltésekor."
+        },
+        "notify_preview": {
+          "label": "Üres állapot értesítés",
+          "info": "Útmutató szöveg látható az előnézeti területen, mielőtt bármilyen elemet hozzáadna."
+        }
+      }
+    },
+    "scrolling-card": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scrolling-card)",
+      "name": "Gördülő kártya"
+    },
+    "scroll-scatter": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scroll-scatter)",
+      "name": "Szórt görgetés"
+    },
+    "store-location": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/other-pages/store-location)",
+      "name": "Az üzlet helye",
+      "settings": {
+        "key_google_map": {
+          "label": "Google Maps API kulcs",
+          "info": "'Maps JavaScript', 'Places' és 'Geocoding' API-kat igényel. [Kulcs lekérése] (https://console.cloud.google.com/google/maps-apis/credentials)."
+        },
+        "map_settings": {
+          "header": "Térképbeállítások"
+        },
+        "allowed_countries": {
+          "label": "Engedélyezett országok",
+          "info": "Szabályozza, hogy az ügyfelek hol kereshetnek üzleteket. Használjon ISO-országkódokat (pl. USA, Egyesült Királyság, CA), vesszővel elválasztva. Hagyja üresen a globális kereséshez."
+        },
+        "radius_km": {
+          "label": "Keresési sugár (km)",
+          "info": "Maximális távolság a bolti eredményekhez."
+        }
+      },
+      "blocks": {
+        "name": "Bolt",
+        "settings": {
+          "store_name": {
+            "label": "Az üzlet neve"
+          },
+          "store_address": {
+            "label": "Az üzlet címe"
+          },
+          "store_email": {
+            "label": "Üzlet e-mail-címe"
+          },
+          "store_phone": {
+            "label": "Tárolja a telefont"
+          },
+          "store_lat": {
+            "label": "Tárolja a szélességi fokot",
+            "info": "Másolja ki az első számot a Google Térkép koordinátáiról."
+          },
+          "store_lng": {
+            "label": "Tárolja a hosszúságot",
+            "info": "Másolja ki a második számot a Google Térkép koordinátáiból."
+          },
+          "time_location": {
+            "monday": "hétfő",
+            "tuesday": "kedd",
+            "wednesday": "szerda",
+            "thursday": "csütörtök",
+            "friday": "péntek",
+            "saturday": "szombat",
+            "sunday": "vasárnap",
+            "open": "Nyitott",
+            "closed": "Zárt",
+            "open_time_hour": "Nyitva tartás óra",
+            "open_time_minute": "Nyitva tartás perc",
+            "close_time_hour": "Zárási idő óra",
+            "close_time_minute": "Bezárási idő perc"
+          },
+          "time_schedule": {
+            "monday": "Schedule",
+            "tuesday": "Schedule",
+            "wednesday": "Schedule",
+            "thursday": "Schedule",
+            "friday": "Schedule",
+            "saturday": "Schedule",
+            "sunday": "Schedule"
+          }
+        }
+      }
+    },
+    "product-bundle": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/product-bundle)",
+      "name": "Termékcsomag",
+      "settings": {
+        "discount": {
+          "name": "Discount",
+          "info": "További információ a kedvezmény létrehozásáról [itt](https://help.shopify.com/manual/discounts)",
+          "minimum": "Minimális szükséges tételek",
+          "maximum": "Maximum tétel",
+          "edit_quantity": "Minden terméknél engedélyezze a mennyiségi változtatást",
+          "discount_title": "Kedvezmény kód",
+          "discount_value": {
+            "name": "Kedvezmény érték",
+            "option": {
+              "fixed": {
+                "label": "Fix összeg",
+                "once_per_order": "Megrendelésenként egyszer"
+              },
+              "percentage": {
+                "label": "Százalék"
+              }
+            }
+          }
+        },
+        "your_bundle": {
+          "name": "Discount",
+          "settings": {
+            "show_progress_bar": {
+              "label": "A folyamatjelző sáv megjelenítése"
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "product_discount": {
+            "name": "Termékcsomag",
+            "info": "Kiválasztáskor helyettesíti a gyűjteményt."
+          }
+        }
+      }
+    },
+    "shopable-image": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/sections/shopable-image)",
+      "name": "Vásárolható kép",
+      "blocks": {
+        "tags": {
+          "name": "Címkék",
+          "info": "Határozza meg a címkék nevét. Vesszővel elválasztva. Például. Címke 1, Címke 2",
+          "info_image": "448px x 600px ajánlott",
+          "settings": {
+            "show_verify_icon": {
+              "label": "Ikon pipa megjelenítése"
+            }
+          }
+        },
+        "lookbook": {
+          "name": "Lookbook",
+          "settings": {
+            "products": {
+              "label": "Products",
+              "position_top": "Függőleges helyzet",
+              "position_left": "Vízszintes helyzet",
+              "products": {
+                "otpion__1": {
+                  "label": "1. termék"
+                },
+                "otpion__2": {
+                  "label": "2. termék"
+                },
+                "otpion__3": {
+                  "label": "3. termék"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parallax-image": {
+      "blocks": {
+        "icon": {
+          "name": "Ikon",
+          "info": "Felülbírálja az svg ikon beállítását"
+        }
+      }
+    },
+    "main-page": {
+      "name": "oldal"
+    },
+    "subcollection-list": {
+      "name": "Algyűjtemény",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/sub-collection)"
+    },
+    "before-you-leave": {
+      "name": "Mielőtt elmész",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/before-you-leave)",
+      "settings": {
+        "header": {
+          "recommended_products": "Ajánlott termékek"
+        },
+        "show_time": {
+          "label": "Idő megjelenítése után (másodperc)"
+        },
+        "banner": {
+          "label": "Banner kép",
+          "info": "380x423px ajánlott"
+        },
+        "collection": {
+          "label": "Collection"
+        },
+        "code": {
+          "label": "Kedvezmény kód"
+        }
+      }
+    },
+    "advanced-slideshow": {
+      "block": {
+        "slide": "Csúszik",
+        "settings": {
+          "type": {
+            "label": "Írja be",
+            "image": {
+              "label": "Image"
+            },
+            "video": {
+              "label": "Video"
+            }
+          },
+          "media_overlay": {
+            "label": "Médiafedvény"
+          }
+        }
+      }
+    },
+    "custom_section": {
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/advanced/flexible-section)",
+      "name": "Rugalmas rész",
+      "settings": {
+        "layout": {
+          "label": "Elrendezés",
+          "direction": {
+            "label": "Irány",
+            "options__1": {
+              "label": "Vertical"
+            },
+            "options__2": {
+              "label": "Horizontal"
+            }
+          },
+          "vertical_on_mobile": {
+            "label": "Függőleges mobilon"
+          },
+          "content_wrap": {
+            "label": "Tartalomcsomagolás"
+          },
+          "height": {
+            "label": "Height",
+            "options": {
+              "auto": {
+                "label": "Auto"
+              },
+              "custom": {
+                "label": "Custom"
+              }
+            },
+            "custom_height": {
+              "label": "Egyedi magasság"
+            }
+          },
+          "gap": {
+            "label": "Rés"
+          },
+          "position": {
+            "label": "Pozíció",
+            "options__1": {
+              "label": "Top"
+            },
+            "options__2": {
+              "label": "Központ"
+            },
+            "options__3": {
+              "label": "Alsó"
+            }
+          },
+          "alignment": {
+            "label": "Igazítás",
+            "label_mobile": "Mobil igazítás",
+            "options__1": {
+              "label": "Balra"
+            },
+            "options__2": {
+              "label": "Központ"
+            },
+            "options__3": {
+              "label": "Jobbra"
+            },
+            "options__4": {
+              "label": "Közötti tér"
+            }
+          },
+          "hide_on_mobile": {
+            "label": "Mobilon elrejtve"
+          }
+        },
+        "appearance": {
+          "header": "Megjelenés",
+          "settings": {
+            "background_media": {
+              "label": "Háttér média",
+              "options__2": {
+                "label": "Image"
+              },
+              "options__3": {
+                "label": "Video"
+              },
+              "options__1": {
+                "label": "None"
+              }
+            },
+            "border": {
+              "label": "Határok",
+              "options": {
+                "none": "None",
+                "solid": "Szilárd"
+              },
+              "border_color": {
+                "label": "Szegély színe"
+              },
+              "border_thickness": {
+                "label": "Szegély vastagsága"
+              }
+            },
+            "corner_radius": {
+              "label": "Saroksugár",
+              "options": {
+                "none": {
+                  "label": "None"
+                },
+                "rounded": {
+                  "label": "Lekerekített"
+                },
+                "custom": {
+                  "label": "Custom"
+                },
+                "inherit": {
+                  "label": "Örököl",
+                  "info": "Ha az \"Öröklés\" értékre van állítva, ez a blokk követi a globális lekerekített sarkok beállítását a Témabeállítások ▸ Elrendezés ▸ Lekerekített kép részben."
+                }
+              },
+              "custom_radius": {
+                "label": "Egyedi sugár"
+              }
+            },
+            "background_overlay": {
+              "label": "Háttérfedő",
+              "overlay_color": {
+                "label": "Fedvény színe"
+              },
+              "overlay_style": {
+                "label": "Overlay stílus",
+                "options__1": {
+                  "label": "Szilárd"
+                },
+                "options__2": {
+                  "label": "Gradiens"
+                }
+              },
+              "gradient_direction": {
+                "label": "Gradiens iránya",
+                "options__1": {
+                  "label": "Fel"
+                },
+                "options__2": {
+                  "label": "Le"
+                }
+              }
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "size": {
+            "label": "Size",
+            "height": {
+              "label": "Height"
+            },
+            "width": {
+              "label": "Szélesség",
+              "custom_width": {
+                "label": "Egyedi szélesség"
+              }
+            },
+            "mobile_width": {
+              "label": "Mobil szélesség"
+            },
+            "options": {
+              "options__1": {
+                "label": "Fit"
+              },
+              "options__2": {
+                "label": "Töltse ki"
+              },
+              "options__3": {
+                "label": "Custom"
+              },
+              "options__4": {
+                "label": "Alkalmazkodjon a média hátteréhez"
+              }
+            }
+          },
+          "background": {
+            "label": "Háttér"
+          },
+          "background_color": {
+            "label": "Háttérszín"
+          }
+        },
+        "heading": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading)",
+          "label": "Előre beállított",
+          "heading_tag": {
+            "label": "Címsor címke",
+            "info": "Állítsa be a fejléc címkét (H1–H6) a tartalomhierarchia szabályozásához és a keresőmotorok SEO olvashatóságának javításához.",
+            "h1": "H1",
+            "h2": "H2",
+            "h3": "H3",
+            "h4": "H4",
+            "h5": "H5",
+            "h6": "H6"
+          },
+          "custom": "Custom",
+          "default": "Default",
+          "paragraph": "Bekezdés",
+          "h1": "1. címsor",
+          "h2": "2. címsor",
+          "h3": "3. címsor",
+          "h4": "4. címsor",
+          "h5": "5. címsor",
+          "h6": "6. címsor",
+          "h7": "7. címsor",
+          "info": {
+            "edit_presets_in_theme_settings": "Előbeállítások szerkesztése a [témabeállítások] (/editor?context=theme&category=typography) menüpontban",
+            "label": "Betűméret"
+          },
+          "text_alignment": {
+            "desktop": "Igazítás",
+            "mobile": "Mobil igazítás"
+          }
+        },
+        "logo": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Logó",
+          "settings": {
+            "size": {
+              "name": "Size",
+              "unit": {
+                "label": "Egység",
+                "option__1": {
+                  "label": "Pixel"
+                },
+                "option__2": {
+                  "label": "Százalékos"
+                }
+              },
+              "custom_mobile_size": {
+                "label": "Egyedi mobil méret"
+              },
+              "height": {
+                "label": "Height"
+              },
+              "mobile": {
+                "name": "Mobil méret"
+              }
+            }
+          }
+        },
+        "email_subscription": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/newsletter)",
+          "name": "Hírlevél"
+        },
+        "contact_form": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/contact-form)",
+          "name": "Kapcsolatfelvételi űrlap",
+          "settings": {
+            "name": "Név",
+            "email": "Email",
+            "message": "Üzenet",
+            "select_label": "Válassza ki a címkét",
+            "default_select_label": "Téma",
+            "option": "Opció",
+            "default_option": "Termék, Rendelés, Nyomda, Egyéb",
+            "phone": "Telefon",
+            "submit_button": "Küldés gomb",
+            "default_submit_button": "Beküld"
+          }
+        },
+        "accordion": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/accordion)",
+          "name": "Harmonika",
+          "settings": {
+            "icon_style": {
+              "style": "Stílus",
+              "label": "Ikon stílus",
+              "caret": "Carret",
+              "plus": "Plusz"
+            },
+            "row_style": {
+              "label": "Sor stílus",
+              "background": "Háttér",
+              "divider": "Osztó"
+            },
+            "background_color": "Háttérszín",
+            "row_spacing": "Tételköz",
+            "gap_row": "Rés",
+            "padding_row": "Párnázás",
+            "gap_content": "Közötti tér",
+            "accordion_row": "Harmonika sor",
+            "default_accordion_row": "Harmonika címszó",
+            "accordion_content": "Harmonika tartalom",
+            "settings": {
+              "heading": "Cím",
+              "heading_size": "Címsor mérete",
+              "heading_weight": "Iránysúly",
+              "body_weight": "Testtömeg",
+              "open_default": {
+                "label": "Alapértelmezés megnyitása"
+              }
+            }
+          }
+        },
+        "group": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/group)",
+          "name": "Csoport",
+          "settings": {
+            "link": "Link",
+            "open_in_new_tab": {
+              "label": "Link megnyitása új lapon"
+            }
+          }
+        },
+        "carousel": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/carousel)",
+          "name": "Körhinta"
+        },
+        "text": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/text)",
+          "name": "Text",
+          "default_text": "Olyan dolgokat készítünk, amelyek jobban működnek és tovább tartanak. Termékeink valódi problémákat oldanak meg tiszta tervezéssel és becsületes anyagokkal.",
+          "text_color": {
+            "label": "Szöveg színe",
+            "body_color": "Testszín",
+            "heading_color": "Címsor színe"
+          }
+        },
+        "button": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/button)"
+        },
+        "icon": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/icon)"
+        },
+        "page": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "oldal",
+          "inherit_color_scheme": "Színséma örökölése",
+          "appearance": "Megjelenés",
+          "spacing": "Térköz"
+        },
+        "spacer": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/spacer)",
+          "name": "Távtartó",
+          "mobile_settings": {
+            "label": "Mobil beállítások"
+          }
+        },
+        "divider": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Osztó",
+          "settings": {
+            "thickness": "Vastagság",
+            "size": "Size",
+            "color": "Color"
+          }
+        },
+        "icon_list": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Ikon lista",
+          "item": "Tétel",
+          "open_new_tab": "Új lap megnyitása"
+        },
+        "alert": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Éber",
+          "dismiss_icon": "Elvetés ikon",
+          "display_dismiss_icon": "Elvetés ikon megjelenítése"
+        },
+        "social_icons": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Szociális ikonok",
+          "circle": "Kör",
+          "rounded": "Lekerekített",
+          "square": "Négyzet",
+          "shape": "Alak",
+          "color": "Color",
+          "backgroup_color": "Háttér színe"
+        },
+        "progress_bar": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Folyamat sáv",
+          "text_color": "Szöveg színe",
+          "percentage": "Százalék",
+          "border_radius": "Határsugár",
+          "display_percentage": "Megjelenítési százalék",
+          "inner_text": "Belső szöveg"
+        },
+        "counter": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/counter)",
+          "name": "Ellen",
+          "counter_style": {
+            "label": "Counter stílus",
+            "default": "Default",
+            "circle": "Kör"
+          },
+          "counter_layout": {
+            "label": "A pult elrendezése",
+            "horizontal": "Horizontal",
+            "vertical": "Vertical"
+          },
+          "number_position": "Szám Pozíció",
+          "space_between": "Közötti tér",
+          "before_title": "Cím előtt",
+          "after_title": "Cím után",
+          "number_alignment": "Szám igazítás",
+          "stroke_color": "Körvonal színe",
+          "indicator_color": "Jelző színe",
+          "background_color": "Háttérszín",
+          "text_color": "Szöveg színe",
+          "ending_number": "Befejező szám",
+          "starting_number": "Kezdő szám",
+          "animation": "Animáció időtartama (ms)"
+        },
+        "map": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/google-maps)",
+          "name": "Google Térkép",
+          "location": "Elhelyezkedés",
+          "longitude": "Hosszúság",
+          "latitude": "Szélesség"
+        },
+        "jumbo_text": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+          "name": "Jumbo szöveg"
+        },
+        "tab": {
+          "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/tab)",
+          "name": "Tab",
+          "tab_row": "Tab elem",
+          "settings": {
+            "heading": "Címsor stílusa",
+            "heading_preset": "Címsor előre beállított",
+            "heading_alignment": "Címsorigazítás",
+            "heading_color": "Címsor színe",
+            "content": "Tartalom stílusa",
+            "content_alignment": "Tartalmi igazítás"
+          }
+        },
+        "icon_with_text": {
+          "name": "Ikon szöveggel",
+          "icon_first": "Először az ikon",
+          "icon_second": "Második ikon",
+          "svg_custom": "Egyedi SVG"
+        },
+        "popup_link": {
+          "button_type_link": {
+            "label": "Gomb típusa",
+            "primary": {
+              "label": "Elsődleges"
+            },
+            "outline": {
+              "label": "Vázlat"
+            },
+            "link": {
+              "label": "Link"
+            }
+          },
+          "popup_style": {
+            "label": "Popup stílus"
+          },
+          "popup_type": {
+            "label": "Felugró ablak típusa"
+          },
+          "popup_width": {
+            "label": "Felugró ablak szélességű asztal"
+          },
+          "icon_type": {
+            "label": "Ikon típusa",
+            "none": "None",
+            "arrow": "Nyíl",
+            "image": {
+              "label": "Image",
+              "size": "Size"
+            }
+          }
+        }
+      },
+      "preset": {
+        "promotion_banner": "Rugalmas: Promóciós banner",
+        "flexible_marquee": "Rugalmas: Marquee",
+        "story_tabs": "Rugalmas: Lap"
+      }
+    },
+    "text_image_pairing": {
+      "how_to_use": "[Tanulja meg, hogyan kell használni ezt a blokkot](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/text-image-pairing)",
+      "name": "Szöveges képpárosítás",
+      "settings": {
+        "text_default": "\"Tedd meg a ragyogó[image_1]elcsúsztatással kevert fényét, <br/> érezd magad gyönyörűen[image_2]legyen látható, hogy teljesen[image_3]ünnepel.\"",
+        "info": {
+          "label": "Használjon egy adott helyőrző formátumot ([kép_X]), ahol meg szeretné jeleníteni a képet. X a kép indexe. Például: a „[kép_1]” helyére az első kép lép."
+        },
+        "images": {
+          "label": "Képek",
+          "image_style": {
+            "label": "Képstílus"
+          },
+          "image_1": {
+            "label": "1. kép"
+          },
+          "image_2": {
+            "label": "2. kép"
+          },
+          "image_3": {
+            "label": "3. kép"
+          }
+        }
+      }
+    },
+    "product_sizing": {
+      "name": "Termék méretezése",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "info": "Segít az ügyfeleknek megérteni, hogyan illeszkedik a termék, és magabiztosan kiválaszthatják a megfelelő méretet."
+    },
+    "size_recommendation": {
+      "name": "Méretajánlás",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/size-recommendation)",
+      "info": "Segít az ügyfeleknek megtalálni a megfelelő méretet olyan egyszerű bevitelekkel, mint a magasság, súly, testforma, mellméret és csésze mérete.",
+      "data_usage_notice": {
+        "label": "Adathasználati közlemény",
+        "info": "Ez az üzenet elmagyarázza, hogyan használják az ügyféladatokat a méretajánlatokhoz. Testreszabhatja a szöveget, hogy megfeleljen üzlete adatvédelmi hangnemének."
+      },
+      "no_size_match": {
+        "label": "Nincs méretegyezési üzenet",
+        "info": "Üzenet jelenik meg, ha egyik méret sem felel meg az ügyfél által megadott adatoknak."
+      },
+      "fit_recommendation_note": {
+        "label": "Fit ajánlási megjegyzés",
+        "info": "A méretajánlás eredményei után jelenik meg."
+      }
+    },
+    "sticky_image_with_text": {
+      "name": "Ragadós kép szöveggel",
+      "blocks": {
+        "group_text": {
+          "name": "Szövegcsoport",
+          "image": {
+            "label": "Kép görgetéskor",
+            "info": "A rögzített képen jelenik meg, amikor ez a csoport a nézetbe gördül. Hagyja üresen az előző kép megtartásához. A szakasz beállításaiban kell a „Kép cseréje görgetéskor” lehetőség."
+          }
+        },
+        "list_tag": {
+          "name": "Címkelista",
+          "tags": {
+            "label": "Címkék",
+            "info": "A címkéket vesszővel válaszd el."
+          },
+          "show_check": {
+            "label": "Pipák ikon megjelenítése"
+          },
+          "chip_style": {
+            "label": "Címkestílus"
+          }
+        }
+      },
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/banners/sticky-image-with-text)",
+      "settings": {
+        "hide_image_mobile": {
+          "label": "Kép elrejtése mobilon"
+        },
+        "change_image_on_scroll": {
+          "label": "Kép cseréje görgetéskor",
+          "info": "Lecseréli a rögzített képet, ahogy az egyes szövegcsoportok a nézetbe gördülnek. Állítsa be a képet minden szövegcsoportban. A szakasz képe nem használt. Csak asztali gépen."
+        }
+      }
+    },
+    "testimonial-images": {
+      "name": "Véleményképek",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonial-images)",
+      "settings": {
+        "show_author_image": "Szerző képének megjelenítése",
+        "hide_image_on_mobile": {
+          "label": "Kép elrejtése mobilon"
+        }
+      },
+      "blocks": {
+        "review": "Vélemény",
+        "settings": {
+          "author_image": "Szerző képe"
+        }
+      }
+    },
+    "flow": {
+      "name": "Folyamat",
+      "blocks": {
+        "step": {
+          "name": "Lépés",
+          "heading": {
+            "label": "Címsor"
+          },
+          "image": {
+            "label": "Kép"
+          },
+          "product": {
+            "label": "Termék"
+          }
+        }
+      },
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/flow)"
+    },
+    "parallax-scroll": {
+      "name": "Parallax görgetés",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/parallax-scroll)",
+      "instructions": "Adjon hozzá legfeljebb 7 kártyát. A kártyák oldalt váltanak, és minden harmadik kártya automatikusan behúzott.",
+      "blocks": {
+        "info_card": {
+          "name": "Infókártya"
+        }
+      },
+      "settings": {
+        "card_width": {
+          "label": "Kártyaszélesség",
+          "info": "Beállítja a kártya maximális szélességét asztali nézetben. Kisebb képernyőkön a kártyák reszponzívak maradnak."
+        },
+        "button_link": {
+          "info": "Ha üresen hagyja, a gomb letiltottként jelenik meg."
+        },
+        "button_type": {
+          "info": "A téma által beállított gombstílusokat használja."
+        }
+      }
+    },
+    "benefit-tabs": {
+      "name": "Előnyfülek",
+      "how_to_use": "Minden fülhöz adjon hozzá egy Előnyfül blokkot, majd minden fülbe Előny blokkokat.",
+      "settings": {
+        "text_alignment": {
+          "info": "A fülgombokat is igazítja."
+        },
+        "mobile_alignment": {
+          "info": "Igazítja az előnyöket mobilon és táblagépen. Asztali gépen az előnyök a média felé igazodnak."
+        }
+      },
+      "blocks": {
+        "tab": {
+          "name": "Előnyfül",
+          "how_to_use": "A kiegyensúlyozott elrendezéshez legfeljebb 6 előnyblokk ajánlott. Asztali gépen a páratlan előnyök a média bal oldalán, a párosak a jobb oldalán vannak.",
+          "settings": {
+            "tab_label": {
+              "label": "Fül felirata"
+            },
+            "image": {
+              "label": "Kép előtte",
+              "info": "950 x 1060 képpont ajánlott."
+            },
+            "image_after": {
+              "label": "Kép utána",
+              "info": "Ugyanolyan méretet használjon, mint a kép előtte. A kép utána görgetéskor válik láthatóvá."
+            }
+          }
+        },
+        "benefit": {
+          "settings": {
+            "icon": {
+              "info": "Ha üres, helyőrzőt mutat. 120 x 120 képpont ajánlott."
+            }
+          }
+        }
+      }
+    },
+    "comparison-table": {
+      "name": "Összehasonlító táblázat",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/products/comparison-table)",
+      "settings": {
+        "table": {
+          "label": "Táblázat"
+        },
+        "comparison_heading": {
+          "label": "Összehasonlítás címsora"
+        },
+        "show_column_images": {
+          "label": "Oszlopképek megjelenítése"
+        },
+        "color_column_highlight": {
+          "label": "Oszlopkiemelés színe"
+        },
+        "table_notes": {
+          "label": "Táblázat megjegyzései"
+        },
+        "show_labels": {
+          "label": "Feliratok megjelenítése"
+        },
+        "first_label": {
+          "label": "Első felirat"
+        },
+        "second_label": {
+          "label": "Második felirat"
+        },
+        "button_link": {
+          "label": "Hivatkozás"
+        }
+      },
+      "blocks": {
+        "column": {
+          "name": "Oszlop",
+          "settings": {
+            "highlight": {
+              "label": "Oszlop kiemelése"
+            }
+          }
+        },
+        "row": {
+          "name": "Sor",
+          "settings": {
+            "icon_info": "Válassza ki, hogyan jelenjen meg az érték ebben az oszlopban.",
+            "image_info": "Adjon hozzá egy képet. A Kép választásakor jelenik meg.",
+            "value": {
+              "yes": "Igen",
+              "no": "Nem"
+            },
+            "text_1": {
+              "label": "1. oszlop szövege",
+              "info": "Akkor jelenik meg, ha a Szöveg van kiválasztva. Az értékek az oszlopok sorrendjét követik, ezért az Oszlop blokkok sorrendjét körültekintően módosítsa."
+            },
+            "icon_1": {
+              "label": "1. oszlop ikonja"
+            },
+            "image_1": {
+              "label": "1. oszlop képe"
+            },
+            "text_2": {
+              "label": "2. oszlop szövege",
+              "info": "Akkor jelenik meg, ha a Szöveg van kiválasztva."
+            },
+            "icon_2": {
+              "label": "2. oszlop ikonja"
+            },
+            "image_2": {
+              "label": "2. oszlop képe"
+            },
+            "text_3": {
+              "label": "3. oszlop szövege",
+              "info": "Akkor jelenik meg, ha a Szöveg van kiválasztva."
+            },
+            "icon_3": {
+              "label": "3. oszlop ikonja"
+            },
+            "image_3": {
+              "label": "3. oszlop képe"
+            },
+            "text_4": {
+              "label": "4. oszlop szövege",
+              "info": "Akkor jelenik meg, ha a Szöveg van kiválasztva. Csak akkor használatos, ha a táblázatnak négy oszlopa van."
+            },
+            "icon_4": {
+              "label": "4. oszlop ikonja"
+            },
+            "image_4": {
+              "label": "4. oszlop képe"
+            },
+            "column_1": "1. oszlop",
+            "column_2": "2. oszlop",
+            "column_3": "3. oszlop",
+            "column_4": "4. oszlop"
+          }
+        }
+      }
+    },
+    "image-with-text-carousel": {
+      "name": "Kép és szöveg körhinta",
+      "how_to_use": "[További információ ennek a szakasznak a használatáról](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/image-with-text-carousel)",
+      "settings": {
+        "show_slide_counter": {
+          "label": "Diaszámláló megjelenítése"
+        }
+      },
+      "blocks": {
+        "slide": {
+          "icon_info": "80 x 80 képpont .png vagy .svg ajánlott."
+        }
+      }
+    },
+    "recommended-collection-filters": {
+      "name": "Ajánlott szűrők"
+    }
+  },
+  "blocks": {
+    "quiz-step": {
+      "name": "Kvíz kérdés",
+      "settings": {
+        "stepper_label": {
+          "label": "Léptetős címke",
+          "info": "A folyamatjelző sávon látható rövid címke. Példa: Bőrtípus, Aggodalom."
+        },
+        "question_id": {
+          "label": "Kérdés azonosítója",
+          "info": "Egyedi azonosító ehhez a kérdéshez. A lehetőségekre vonatkozó kérdések kihagyása esetén használatos (pl. q1, q2)."
+        },
+        "layout": {
+          "label": "Opció elrendezés",
+          "options": {
+            "pill": "Tabletta gombok",
+            "image": "Kép körök"
+          }
+        }
+      }
+    },
+    "quiz-option": {
+      "name": "Kvíz lehetőség",
+      "settings": {
+        "label": {
+          "label": "Címke"
+        },
+        "image": {
+          "label": "Image",
+          "info": "Akkor használatos, ha a kérdés elrendezése Képkörök."
+        },
+        "product_matching_header": "Eredménytermékek",
+        "strong_match": {
+          "label": "Elsődleges termékek",
+          "info": "Először jelenik meg a kvíz eredményei között, amikor a vásárlók ezt a választ választják."
+        },
+        "partial_match": {
+          "label": "További termékek",
+          "info": "A kvíz eredményeiben az elsődleges termékek után jelenik meg."
+        },
+        "exclude": {
+          "label": "Soha ne ajánljuk",
+          "info": "Tiltsa le ezeket a termékeket a találatok közül, amikor a vásárlók ezt a választ választják, még akkor is, ha más válaszokban megjelennek."
+        },
+        "skip_questions_header": "Kérdés logika",
+        "skip_questions": {
+          "label": "Kérdések kihagyása",
+          "info": "Adja meg a kvízkérdésekből származó kérdésazonosítókat, hogy kihagyja ezt a választ. Példa: q3, q4"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,337 @@
+{%- liquid
+  assign product = closest.product
+  assign block_st = block.settings
+  assign current_variant = product.selected_or_first_available_variant
+  assign product_form_id = 'product-form-' | append: section.id
+  assign one_time_title = block_st.one_time_purchase_title
+  if one_time_title == blank
+    assign one_time_title = 'products.product.subscription_widget.one_time_purchase' | t
+  endif
+  assign variant_price = current_variant.price
+  assign subscription_default_set = false
+-%}
+{%- if product != blank and product.metafields.custom.external_affiliate == blank -%}
+  {%- if product.selling_plan_groups.size > 0 or request.design_mode -%}
+    <subscription-widget
+      class="subscription-widget block-product__subscription-widget mb-custom"
+      data-section-id="{{ section.id }}"
+      data-form-id="{{ product_form_id }}"
+      data-show-price="{{ block_st.show_price }}"
+      {{ block.shopify_attributes }}
+    >
+      <div class="subscription-widget__options flex column gap-sp-3">
+        {%- unless product.requires_selling_plan -%}
+          <div
+            class="subscription-widget__card border bg-white p-sp-3 p-sp-6 rounded transition subscription-widget__card--one-time pointer"
+            data-subscription-card
+          >
+            <div class="subscription-widget__header flex align-center gap-sp-3 space-between">
+              <span class="flex align-center gap-sp-3 min-w-0">
+                <input
+                  type="radio"
+                  class="subscription-widget__radio visually-hidden"
+                  name="purchase_option_{{ section.id }}"
+                  value="one-time"
+                  data-purchase-type="one-time"
+                  checked
+                >
+                <span
+                  class="subscription-widget__radio-ui shrink-0 w-custom h-custom border bg-white relative rounded-50"
+                  style="--width: 2.2rem;--height: 2.2rem"
+                  aria-hidden="true"
+                ></span>
+                <span class="subscription-widget__title heading_weight">{{ one_time_title }}</span>
+              </span>
+              {%- if block_st.show_price -%}
+                <span class="subscription-widget__price heading_weight shrink-0">
+                  {{ variant_price | money }}
+                </span>
+              {%- endif -%}
+            </div>
+            {%- if block_st.one_time_purchase_description != blank -%}
+              <div class="subscription-widget__divider my-sp-4 border-top-dashed" aria-hidden="true"></div>
+              <div class="subscription-widget__benefits opacity rte" style="--opacity: 0.7;">
+                {{ block_st.one_time_purchase_description }}
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endunless -%}
+
+        {%- for group in product.selling_plan_groups -%}
+          {%- assign group_allocations = current_variant.selling_plan_allocations
+            | where: 'selling_plan_group_id', group.id
+          -%}
+          {%- if group_allocations.size > 0 -%}
+            {%- liquid
+              assign group_first = group_allocations | first
+              assign group_checked = false
+              if product.requires_selling_plan
+                if subscription_default_set == false
+                  assign group_checked = true
+                  assign subscription_default_set = true
+                endif
+              endif
+              assign plan_select_id = 'SubscriptionPlanSelect-' | append: section.id | append: '-' | append: group.id
+            -%}
+            <div
+              class="subscription-widget__card border bg-white p-sp-3 p-sp-6 rounded transition subscription-widget__card--subscription pointer"
+              data-subscription-card
+              data-subscription-group="{{ group.id }}"
+            >
+              <div class="subscription-widget__header flex column row-1025 align-start gap-sp-3 space-between">
+                <span class="flex align-center gap-sp-3 min-w-0 wrap">
+                  <input
+                    type="radio"
+                    class="subscription-widget__radio visually-hidden"
+                    name="purchase_option_{{ section.id }}"
+                    value="subscription-{{ group.id }}"
+                    data-purchase-type="subscription"
+                    data-group-id="{{ group.id }}"
+                    {% if group_checked %}
+                      checked
+                    {% endif %}
+                    {% unless current_variant.available %}
+                      disabled
+                    {% endunless %}
+                  >
+                  <span
+                    class="subscription-widget__radio-ui shrink-0 w-custom h-custom border bg-white relative rounded-50"
+                    style="--width: 2.2rem;--height: 2.2rem"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="flex align-center gap-sp-1 wrap">
+                    <span class="subscription-widget__title heading_weight">
+                      {{ group.name }}
+                    </span>
+                  </span>
+                </span>
+                {%- if block_st.show_price -%}
+                  <span class="subscription-widget__prices flex align-center gap-sp-2 shrink-0">
+                    <span class="subscription-widget__sale-price sale-color" data-subscription-sale-price>
+                      {{ group_first.price | money }}
+                    </span>
+                    {%- if group_first.price < variant_price -%}
+                      <s class="subscription-widget__compare-price grey-color" data-subscription-compare-price>
+                        {{ variant_price | money }}
+                      </s>
+                    {%- endif -%}
+                  </span>
+                {%- endif -%}
+              </div>
+
+              <div class="subscription-widget__divider my-sp-4 border-top-dashed" aria-hidden="true"></div>
+              <div class="subscription-widget__frequency mb-sp-3 mb-1025-sp-4 relative">
+                <label class="field__label visually-hidden" for="{{ plan_select_id }}">
+                  {{ 'products.product.subscription_widget.frequency_label' | t: group_name: group.name }}
+                </label>
+                <select
+                  id="{{ plan_select_id }}"
+                  class="subscription-widget__select w-full fs-small-1 show-placehoder"
+                  data-subscription-plan-select
+                >
+                  {%- for allocation in group_allocations -%}
+                    {%- liquid
+                      assign plan_price = allocation.price
+                      assign delivery_price = allocation.per_delivery_price
+                      if delivery_price == blank or delivery_price == 0
+                        assign delivery_price = plan_price
+                      endif
+                      assign formatted_delivery_price = delivery_price | money
+                      if variant_price > plan_price
+                        assign discount_percent = variant_price | minus: plan_price | times: 100.0 | divided_by: variant_price | round
+                      else
+                        assign discount_percent = 0
+                      endif
+                      assign plan_frequency = allocation.selling_plan.name
+                      assign plan_name_lower = plan_frequency | downcase
+                      if plan_name_lower contains '/delivery'
+                        assign plan_option_label = allocation.selling_plan.name
+                      else
+                        if plan_name_lower contains '% off'
+                          if plan_frequency contains ','
+                            assign plan_frequency = plan_frequency | split: ',' | first | strip
+                          elsif plan_frequency contains '—'
+                            assign plan_frequency = plan_frequency | split: '—' | first | strip
+                          endif
+                        endif
+                        assign plan_option_label = 'products.product.subscription_widget.plan_option' | t: plan_name: plan_frequency, discount: discount_percent, price: formatted_delivery_price
+                      endif
+                    -%}
+                    <option
+                      value="{{ allocation.selling_plan.id }}"
+                      data-price="{{ plan_price | money }}"
+                      data-compare-price="{{ variant_price | money }}"
+                      data-discount="{{ discount_percent }}"
+                      {% if forloop.first %}
+                        selected
+                      {% endif %}
+                    >
+                      {{ plan_option_label }}
+                    </option>
+                  {%- endfor -%}
+                </select>
+              </div>
+
+              {%- if block_st.subscription_description != blank -%}
+                <div class="subscription-widget__benefits opacity rte" style="--opacity: 0.7;">
+                  {{ block_st.subscription_description }}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- if request.design_mode and current_variant.selling_plan_allocations.size == 0 -%}
+          {%- for mock_group in (1..2) -%}
+            <div
+              class="subscription-widget__card border bg-white p-sp-3 p-sp-6 rounded transition subscription-widget__card--subscription pointer"
+              data-subscription-card
+            >
+              <div class="subscription-widget__header flex align-start gap-sp-3 space-between">
+                <span class="flex align-center gap-sp-3 min-w-0 wrap">
+                  <span
+                    class="subscription-widget__radio-ui shrink-0 w-custom h-custom border bg-white relative rounded-50"
+                    style="--width: 2.2rem;--height: 2.2rem"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="flex align-center gap-sp-2 wrap">
+                    <span class="subscription-widget__title heading_weight">
+                      {%- if mock_group == 1 -%}
+                        Subscribe and Save
+                      {%- else -%}
+                        Subscription option {{ mock_group }}
+                      {%- endif -%}
+                      <span
+                        class="subscription-widget__discount-max subscription-widget__badge inline-flex align-center content-center rounded-30 fs-small fw-500 shrink-0 heading-weight"
+                        style="--heading-weight: 700;"
+                        >10%</span
+                      >
+                    </span>
+                  </span>
+                </span>
+                {%- if block_st.show_price -%}
+                  <span class="subscription-widget__prices flex align-center gap-sp-2 shrink-0">
+                    <span class="subscription-widget__sale-price heading_weight">$192.00</span>
+                    <span class="subscription-widget__compare-price fs-small">$240.00</span>
+                  </span>
+                {%- endif -%}
+              </div>
+              <div class="subscription-widget__divider my-sp-4 border-top-dashed" aria-hidden="true"></div>
+              <div class="subscription-widget__frequency mb-sp-3 mb-1025-sp-4 relative">
+                <div class="subscription-widget__select w-full rounded fs-small heading_weight">
+                  Every 1 month—10% Off ($157.00/delivery)
+                </div>
+              </div>
+              {%- if block_st.subscription_description != blank -%}
+                <div class="subscription-widget__benefits opacity rte" style="--opacity: 0.7;">
+                  {{ block_st.subscription_description }}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+
+      <input
+        type="hidden"
+        name="selling_plan"
+        value=""
+        class="subscription-widget__selling-plan-input"
+        form="{{ product_form_id }}"
+      >
+    </subscription-widget>
+    <script src="{{ 'block-subscription-widget.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+{%- endif -%}
+
+{% stylesheet %}
+  .subscription-widget__card:has(.subscription-widget__radio:checked),
+  .subscription-widget__card.is-active {
+    background: #f5f3ed;
+    border-color: var(--color-heading, #1d1d1f);
+  }
+
+  .subscription-widget__card:has(.subscription-widget__radio:checked) .subscription-widget__radio-ui,
+  .subscription-widget__radio-ui.is-checked {
+    border-color: var(--color-heading, #1d1d1f);
+  }
+
+  .subscription-widget__card:has(.subscription-widget__radio:checked) .subscription-widget__radio-ui::after,
+  .subscription-widget__radio-ui.is-checked::after {
+    content: '';
+    position: absolute;
+    inset: 0.2rem;
+    border-radius: 50%;
+    background: var(--color-heading, #1d1d1f);
+  }
+
+  .subscription-widget__card:has(.subscription-widget__radio:checked) .subscription-widget__benefits,
+  .subscription-widget__card.is-active .subscription-widget__benefits {
+    opacity: 1;
+  }
+
+  .subscription-widget__benefits :is(ul, ol) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .subscription-widget__benefits li {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin: 0;
+  }
+
+  .subscription-widget__benefits li::before {
+    content: '';
+    width: 1.6rem;
+    height: 1.2rem;
+    flex-shrink: 0;
+    background-color: currentColor;
+    mask: url("data:image/svg+xml,%3Csvg width='14' height='10' viewBox='0 0 14 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.6693 0.216606C12.8273 0.0722022 13.0095 0 13.2161 0C13.4349 0 13.6172 0.0722022 13.763 0.216606C13.921 0.373045 14 0.559567 14 0.776173C14 0.980746 13.921 1.15523 13.763 1.29964L5.21354 9.78339C5.06771 9.9278 4.88542 10 4.66667 10C4.44792 10 4.26562 9.9278 4.11979 9.78339L0.236979 5.92058C0.0789931 5.77617 0 5.60168 0 5.39711C0 5.18051 0.0789931 4.99398 0.236979 4.83754C0.382812 4.69314 0.559028 4.62094 0.765625 4.62094C0.984375 4.62094 1.17274 4.69314 1.33073 4.83754L4.66667 8.14079L12.6693 0.216606Z'/%3E%3C/svg%3E")
+      center / contain no-repeat;
+  }
+
+  .subscription-widget__benefits p {
+    margin: 0;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.all.product_setting.subscription_widget.name",
+  "class": "block-product__subscription-widget slideIn-animate my-custom",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.all.product_setting.subscription_widget.settings.info"
+    },
+    {
+      "type": "richtext",
+      "id": "subscription_description",
+      "label": "t:sections.all.product_setting.subscription_widget.settings.subscription_description.label"
+    },
+    {
+      "type": "text",
+      "id": "one_time_purchase_title",
+      "label": "t:sections.all.product_setting.subscription_widget.settings.one_time_purchase_title.label"
+    },
+    {
+      "type": "richtext",
+      "id": "one_time_purchase_description",
+      "label": "t:sections.all.product_setting.subscription_widget.settings.one_time_purchase_description.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "t:sections.all.product_setting.subscription_widget.settings.show_price.label",
+      "default": true
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.product_setting.subscription_widget.name" }]
+}
+{% endschema %}

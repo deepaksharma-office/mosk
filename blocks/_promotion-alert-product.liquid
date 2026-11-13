@@ -1,0 +1,55 @@
+{%- if closest.product != blank -%}
+  {%- liquid
+    assign heading = block.settings.heading
+    assign description = block.settings.description
+    assign color = block.settings.text_color
+  -%}
+  {% if heading or description %}
+    <div
+      class="promotion_alert p-sp-4 border-dashed text-center bg-custom rounded border-dashed lh-global"
+      style="--color-text: {{ color }};--opacity: 0.04;--color-border: {{ color }};--sale-bg-rgb: {{ block.settings.text_color.red }}, {{ block.settings.text_color.green }}, {{ block.settings.text_color.blue }};--bg-color-custom: {{ block.settings.bg_color }}"
+    >
+      {% if heading %}
+        <div class="heading h7 text-color mb-sp-1">{{ block.settings.heading }}</div>
+      {% endif %}
+      {% if description %}
+        <div class="description text-color prose">{{ block.settings.description }}</div>
+      {% endif %}
+    </div>
+  {% endif %}
+{%- endif -%}
+{% schema %}
+{
+  "name": "t:sections.all.product_setting.promotion_alert.name",
+  "class": "block-product__promotion-alert my-custom slideIn-animate",
+  "settings": [
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.all.product_setting.promotion_alert.text_color.label",
+      "default": "#fff",
+      "alpha": true
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "t:sections.all.product_setting.promotion_alert.text_color.label",
+      "default": "#C03E35",
+      "alpha": true
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.all.product_setting.promotion_alert.heading.label",
+      "default": "Promotion alert"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "default": "<p>Promotion alert description</p>",
+      "label": "t:sections.all.product_setting.promotion_alert.description.label"
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.product_setting.promotion_alert.name" }]
+}
+{% endschema %}

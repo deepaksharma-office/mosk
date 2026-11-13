@@ -1,0 +1,204 @@
+{% liquid
+  assign block_st = block.settings
+  assign information_grid_gap = 0
+  if block_st.grid_gap == 'large'
+    assign information_grid_gap = 32
+  elsif block_st.grid_gap == 'medium'
+    assign information_grid_gap = 24
+  elsif block_st.grid_gap == 'small'
+    assign information_grid_gap = 12
+  endif
+%}
+{% capture style %}
+--space-bottom: {{ block_st.padding_bottom }};--space-top: {{ block_st.padding_top }};
+{%- if block_st.layout == 'information_cards' -%}
+  --col-number: {{ block_st.columns_mobile }};--col-desktop: {{ block_st.columns_desktop }};
+  --gap: {{ information_grid_gap }}px;--gap-desktop: {{ information_grid_gap }}px;
+{%- endif -%}
+{% endcapture %}
+
+{% case block_st.layout %}
+  {% when 'specifications' %}
+    {% style %}
+      .key-information--specifications .detail-row:first-child {
+        padding-top: 0;
+      }
+
+      .key-information--specifications .detail-row:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+    {% endstyle %}
+  {% when 'information_cards' %}
+    {% style %}
+      .key-information--information_cards .detail-row {
+        flex-direction: column;
+        min-width: 0;
+        padding: var(--sp-4) var(--sp-6);
+        border: 1px solid var(--color-border);
+        border-radius: 15px;
+        gap: 0;
+      }
+
+      .key-information--information_cards .row-title {
+        min-width: 0;
+        font-size: 14px;
+        color: var(--color-text);
+      }
+
+      .key-information--information_cards .row-details {
+        color: var(--color-heading);
+      }
+
+      @media screen and (max-width: 767.98px) {
+        .key-information--information_cards .detail-row {
+          padding: var(--sp-4);
+        }
+      }
+    {% endstyle %}
+{% endcase %}
+
+{% if request.visual_preview_mode %}
+  <div
+    class="block__detail-list-container w-full flex column w-custom rounded-20 p-sp-5 bg-white"
+    style="--width: 500px;"
+  >
+    {% for index in (1..4) %}
+      <div class="detail-row flex space-between gap-sp-4 py-sp-4 border-bottom">
+        <div class="row-title heading-color">{{ 'sections.detail_list.detail_row.row_title' | t }}</div>
+        <div class="row-details">{{ 'sections.detail_list.detail_row.row_detail' | t }}</div>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <div
+    class="block__detail-list mb-custom mt-custom{% if block_st.padding_bottom > 10 %} mb_auto-rsp{% endif %}{% if block_st.padding_top > 10 %} mt_auto-rsp{% endif %} w-full"
+    style="{{ style | strip | strip_newlines }}"
+    {{ block.shopify_attributes }}
+  >
+    <div
+      class="block__detail-list-container key-information--{{ block_st.layout }} {% if block_st.layout == 'specifications' %} flex column w-full{% else %} grid grid-cols gap{% if block_st.columns_mobile == 1.5 %} grid_scroll{% endif %}{% endif %}"
+    >
+      {% content_for 'blocks' %}
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.all.content_setting.detail_list.label",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.all.product_setting.promotion_alert.heading.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "t:sections.all.content_setting.detail_list.layout.label",
+      "options": [
+        {
+          "value": "specifications",
+          "label": "t:sections.all.content_setting.detail_list.layout.specifications"
+        },
+        {
+          "value": "information_cards",
+          "label": "t:sections.all.content_setting.detail_list.layout.information_cards"
+        }
+      ],
+      "default": "specifications"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "t:sections.all.columns_desktop.label",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 2,
+      "visible_if": "{{ block.settings.layout == 'information_cards' }}"
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "label": "t:sections.all.items.items_per_row_mobile",
+      "min": 1,
+      "max": 2,
+      "step": 0.5,
+      "default": 2,
+      "visible_if": "{{ block.settings.layout == 'information_cards' }}"
+    },
+    {
+      "type": "select",
+      "id": "grid_gap",
+      "label": "t:sections.all.padding.column_gap.label",
+      "options": [
+        {
+          "value": "no_gap",
+          "label": "t:sections.all.padding.column_gap.no_gap"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.all.padding.column_gap.small"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.all.padding.column_gap.medium"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.all.padding.column_gap.large"
+        }
+      ],
+      "default": "medium",
+      "visible_if": "{{ block.settings.layout == 'information_cards' }}"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.page.spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 10
+    }
+  ],
+  "blocks": [
+    {
+      "type": "_detail-row"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.all.content_setting.detail_list.label",
+      "category": "t:sections.group.blocks.basic",
+      "blocks": [
+        { "type": "_detail-row" },
+        { "type": "_detail-row" },
+        { "type": "_detail-row" },
+        { "type": "_detail-row" }
+      ]
+    }
+  ]
+}
+{% endschema %}

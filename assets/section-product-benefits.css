@@ -1,0 +1,101 @@
+.product-benefits__mobile-slider {
+  padding-top: calc(var(--ring-gap) * 2);
+  margin-inline: calc(var(--ring-gap) * -2);
+}
+
+.product-benefits__wrapper {
+  padding: calc(var(--ring-gap) * 2);
+  padding-bottom: 0;
+}
+
+.product-benefits__img {
+  grid-column: 2;
+  grid-row: 1;
+  max-width: var(--media-width);
+}
+
+.product-benefits__icons-container {
+  grid-column: 1 / span 3;
+  grid-row: 1;
+}
+
+.product-benefits__icon-list {
+  grid-template-columns: 1fr var(--media-width, 420px) 1fr;
+  gap: clamp(1rem, 2vw, 5rem) clamp(7rem, 5vw, 12rem);
+}
+
+.product-benefits__icon-item--left {
+  grid-column: 1;
+  justify-self: start;
+}
+
+.product-benefits__icon-item--right {
+  grid-column: 3;
+  justify-self: end;
+}
+
+.product-benefits__img::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: calc(var(--ring-gap) * -1);
+  border: 1px solid color-mix(in oklch, var(--color-border) 80%, white);
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.product-benefits__img::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: calc(var(--ring-gap) * -2);
+  border: 1px solid color-mix(in oklch, var(--color-border) 50%, white);
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.product-benefits__img-inner {
+  aspect-ratio: 0.74;
+  border-radius: 999px;
+  position: relative;
+}
+
+.product-benefits__img-inner > motion-effect,
+.product-benefits__img-inner > video-local {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.product-benefits__img img,
+.product-benefits__img video,
+.product-benefits__img svg.img-placeholder {
+  border-radius: 999px;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.product-benefits__img-inner > :is(img, video, svg.img-placeholder) {
+  position: absolute;
+  inset: 0;
+}
+
+@media screen and (min-width: 1025px) {
+  .product-benefits__wrapper {
+    grid-template-columns: 1fr var(--media-width, 420px) 1fr;
+    gap: clamp(1rem, 2vw, 4rem) clamp(7rem, 5vw, 8rem);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .product-benefits__img {
+    max-width: var(--media-width-mobile, 250px);
+  }
+  .product-benefits__icon-list {
+    grid-template-columns: 1fr var(--media-width-mobile, 250px) 1fr;
+  }
+}

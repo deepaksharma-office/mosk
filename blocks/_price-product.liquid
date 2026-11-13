@@ -1,0 +1,33 @@
+<div class="price">
+  {%- render 'price', scope: 'detail', product: closest.product, price_class: 'price--large', class:'heading_weight' -%}
+  {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
+    <div class="product__tax tax-note caption rte mt-sp-3 fs-small">
+      {%- if cart.duties_included and cart.taxes_included -%}
+        {{ 'products.product.duties_and_taxes_included' | t }}
+      {%- elsif cart.taxes_included -%}
+        {{ 'products.product.taxes_included' | t }}
+      {%- elsif cart.duties_included -%}
+        {{ 'products.product.duties_included' | t }}
+      {%- endif -%}
+      {%- if shop.shipping_policy.body != blank -%}
+        {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+  {%- if product != blank -%}
+    <div {{ block.shopify_attributes }}>
+      {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
+      {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        {{ form | payment_terms }}
+      {%- endform -%}
+    </div>
+  {%- endif -%}
+</div>
+{% schema %}
+{
+  "name": "t:sections.all.product_setting.price.name",
+  "class": "block-product__price my-custom slideIn-animate mb-sp-3",
+  "presets": [{ "name": "t:sections.all.product_setting.price.name" }]
+}
+{% endschema %}

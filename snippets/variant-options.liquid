@@ -1,0 +1,264 @@
+{%- liquid
+  assign theme_st = settings
+  assign color_limit = theme_st.color_limit
+  assign color_swatch_type = theme_st.color_swatch_type
+  assign hide_sold_out_variant = theme_st.hide_sold_out_variant
+  assign color_swatch_custom = theme_st.color_swatch_custom
+  assign color_swatch_shape = theme_st.color_swatch_shape
+  assign count = 0
+  assign color_limit = color_limit | plus: 0
+  assign hidden_colors = 0
+  assign show_sale_in_variant_swatch = theme_st.show_sale_in_variant_swatch
+-%}
+{%- for value in option.values -%}
+  {%- liquid
+    assign is_swatch_image = false
+    assign swatch_image = ''
+    assign swatch_color = value
+    assign op = 'option' | append: option.position
+    assign variants = product.variants | where: op, value
+    assign disable_variant = true
+    if value.available
+      assign disable_variant = false
+    endif
+    if scope == 'item'
+      for variant in variants
+        assign inventory_quantity = variant.inventory_quantity | plus: inventory_quantity
+        if variant.available == true
+          assign disable_variant = false
+        endif
+      endfor
+    endif
+    if hide_sold_out_variant == true and disable_variant == true
+      assign product_avail = false
+      for variant in product.variants
+        assign product_avail = variant.available
+        if product_avail
+          break
+        endif
+      endfor
+      if product_avail == false
+        if forloop.index0 > 0
+          continue
+        endif
+      else
+        continue
+      endif
+    endif
+    if color_swatch_type == 'color'
+      if color_swatch_custom != blank
+        assign string_value = color_swatch_custom
+        assign pairs = string_value | split: ','
+        for pair in pairs
+          assign key_and_value = pair | split: ':'
+          assign key = key_and_value[0] | strip
+          assign v = key_and_value[1] | strip
+          if key == value
+            if v contains '.png' or v contains '.jpg' or v contains '.webp'
+              assign image_url = v | file_img_url: 'medium'
+              assign swatch_image = 'url(' | append: image_url | append: ')'
+              assign is_swatch_image = true
+            else
+              assign swatch_color = v
+            endif
+          endif
+        endfor
+      endif
+      if value.swatch.image
+        assign image_url = value.swatch.image | image_url: width: 120
+        assign swatch_image = 'url(' | append: image_url | append: ')'
+        assign is_swatch_image = true
+      elsif value.swatch.color
+        assign swatch_color = value.swatch.color
+      endif
+    else
+      assign image_url = false
+      for variant in variants
+        if variant.featured_image.src
+          assign image_url = variant.featured_image.src | image_url: width: 120
+          break
+        endif
+      endfor
+      if image_url == false
+        assign image_url = product.featured_image.src | image_url: width: 120
+      endif
+      assign swatch_image = 'url(' | append: image_url | append: ')'
+      assign is_swatch_image = true
+    endif
+    assign sale = false
+    if scope == 'detail'
+      for variant in variants
+        if variant.compare_at_price > variant.price
+          assign p = variant.compare_at_price | minus: variant.price
+          assign p = p | times: 100.0 | divided_by: variant.compare_at_price | round
+          assign sale = true
+        endif
+      endfor
+    endif
+  -%}
+  {%- if color_limit == 0 or count < color_limit or scope == 'detail' -%}
+    <li
+      class="variant-input{% if scope == 'item' and option.selected_value == value %} active{%- endif %} loading-smooth relative"
+    >
+      <input
+        type="radio"
+        name="swatch-product-{{ quick_add }}{{ product.id }}-{{ option.position }}-{{ section.id }}"
+        id="{{ section.id }}-product-{{ quick_add }}{{ product.id }}-{{ option.position }}-value-{{ value.id }}"
+        value="{{ value.id }}"
+        data-option-position="{{ option.position }}"
+        data-option-value="{{- value -}}"
+        class="variant-options{% if quick_add and is_color %} options-color{%- endif -%}"
+        {% if option.selected_value == value %}
+          {% if quick_add %}
+            {% if is_color and disable_select == blank %}
+              checked
+            {%- endif -%}
+          {%- else -%}
+            checked
+          {%- endif -%}
+        {%- endif %}
+        {%- if scope == 'item' -%}
+          {% assign clean_url = product.url | split: '?' | first %}
+          data-href="{{ clean_url }}?option_values={{ value.id | escape }}"
+          data-value-id="{{ value.id }}"
+        {%- endif -%}
+      >
+      {%- if is_color and is_dropdown == false -%}
+        <label
+          class="color-swatch-label me-sp-1 pointer not-highlight-tap {{ color_swatch_shape }}{% if disable_variant %} disable{% endif %}{% if is_swatch_image %} swatch-image{% endif %}"
+          style="--swatch-background: {{ swatch_color }};{% if is_swatch_image %}--swatch-background-image: {{ swatch_image }};{% endif %}{% if color_swatch_shape == 'round' %}--radius: 50%;{% else %}--radius: 3px;{% endif %}"
+          for="{{ section.id }}-product-{{ quick_add }}{{ product.id }}-{{ option.position }}-value-{{ value.id }}"
+          aria-label="{{ value }}"
+        >
+          {% if sale and show_sale_in_variant_swatch and is_show_sale_variant %}
+            <span
+              class="sale-variant-badge fs-12 sale-color bg-white border px-6 rounded-30 absolute top-custom left-custom z-2"
+              style="--color-border: rgb(var(--sale-bg-rgb));--top-custom: -6px;--left-custom: 12px;"
+            >
+              -{{ p }}%</span
+            >
+          {% endif %}
+          <span class="hidden">{{ value }}</span>
+        </label>
+        {% if product.variants.size < 250 and scope == 'item' %}
+          {%- liquid
+            assign p_media = false
+            for variant in variants
+              if variant.featured_image.src
+                assign p_media = variant.featured_image
+                break
+              endif
+            endfor
+            if p_media == false
+              assign p_media = product.featured_image
+            endif
+            assign alt_features = p_media.alt | default: product.title | escape
+          -%}
+
+          <div class="variant-image hidden">
+            {% render 'responsive-image',
+              type: 'product',
+              class: 'product__img featured-image',
+              image: p_media,
+              image_alt: alt_features,
+              disable_lazy_loading: true
+            %}
+          </div>
+        {% endif %}
+      {%- else -%}
+        <label
+          class="text-swatch-label word-break pointer {% if is_dropdown %} w-full transition py-sp-2 px-gutter-x flex align-center gap-10{% else %} overflow-hidden transition{% endif %}{% if disable_variant == false %} btn-hover{% endif %} relative inline-flex content-center min-w-custom{% if color_swatch_shape == 'round' %} btn-rounded{% else %} rounded-3{% endif %} border{% if type == 'action_bundle' %} px-15 py-5 btn border subheading_weight{% else %} px-sp-5 py-7{% endif %}{% if disable_variant %} disable{% else %} pointer{% endif %} pill"
+          style="{% if scope != 'detail' %}--min-width: 6.6rem;{% endif %}{% if is_color == false %}--btn-bg: #fff;{% endif %}"
+          for="{{ section.id }}-product-{{ quick_add }}{{ product.id }}-{{ option.position }}-value-{{ value.id }}"
+        >
+          {%- if is_color -%}
+            <span
+              class="color-variant-input hidden-on-load fs-0{% if is_swatch_image %} swatch-image{% endif %}"
+              style="--swatch-background: {{ swatch_color }};{% if is_swatch_image %}--swatch-background-image: {{ swatch_image }};{% endif %}--color-swatch-width: 2rem;--color-swatch-height: 2rem;{% if color_swatch_shape == 'round' %}--radius: 50%;{% else %}--radius: 3px;{% endif %}"
+            >
+              {{- value -}}
+            </span>
+          {%- endif -%}
+          <span class="option_value hidden-on-load{% if outfit and is_color %} hidden{% endif %}">
+            {{ value }}
+          </span>
+        </label>
+        {%- render 'loader', color_white: true -%}
+      {%- endif -%}
+    </li>
+    {%- assign count = count | plus: 1 -%}
+  {%- elsif count >= color_limit -%}
+    <li
+      class="
+        variant-input hidden {% if scope == 'item' and option.selected_value == value %}
+          active
+        {%- endif %}
+      "
+    >
+      <input
+        type="radio"
+        name="swatch-product-{{ product.id }}-{{ option.position }}-{{ section.id }}"
+        id="{{ section.id }}-product-{{ product.id }}-{{ option.position }}-value-{{ value.id }}"
+        value="{{ value.id }}"
+        data-option-position="1"
+        data-option-position="{{ option.position }}"
+        class="variant-options"
+        {% if option.selected_value == value %}
+          checked
+        {% endif %}
+        {%- if scope == 'item' -%}
+          {% assign clean_url = product.url | split: '?' | first %}
+          data-href="{{ clean_url }}?option_values={{ value.id | escape }}"
+        {%- endif -%}
+      >
+      <label
+        class="color-swatch-label pointer not-highlight-tap {{ color_swatch_shape }}{% if disable_variant %} disable{% endif %}{% if is_swatch_image %} swatch-image{% endif %}"
+        style="--swatch-background: {{ swatch_color }};{% if is_swatch_image %}--swatch-background-image: {{ swatch_image }};{% endif %}{% if color_swatch_shape == 'round' %}--radius: 50%;{% else %}--radius: 3px;{% endif %}"
+        for="{{ section.id }}-product-{{ product.id }}-{{ option.position }}-value-{{ value.id }}"
+      >
+        <span class="hidden">{{ value }}</span>
+      </label>
+      {% if product.variants.size < 250 and scope == 'item' %}
+        {%- liquid
+          assign p_media = false
+          for variant in variants
+            if variant.featured_image.src
+              assign p_media = variant.featured_image
+              break
+            endif
+          endfor
+          if p_media == false
+            assign p_media = product.featured_image
+          endif
+          assign alt_features = p_media.alt | default: product.title | escape
+        -%}
+        <div class="variant-image hidden">
+          {% render 'responsive-image',
+            type: 'product',
+            class: 'product__img featured-image',
+            image: p_media,
+            image_alt: alt_features,
+            disable_lazy_loading: true
+          %}
+        </div>
+      {% endif %}
+    </li>
+    {%- assign hidden_colors = hidden_colors | plus: 1 -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if hidden_colors > 0 and scope == 'item' -%}
+  <li>
+    <button
+      type="button"
+      class="number-showmore btn-reset pointer text-color"
+      title="{{ 'products.product.more_colors' | t }}"
+      aria-label="{{ 'products.product.more_colors' | t }}"
+    >
+      <span>+</span>
+      <span class="text-number">
+        {{- hidden_colors }}
+        {{ 'products.product.colors' | t -}}
+      </span>
+    </button>
+  </li>
+{%- endif -%}

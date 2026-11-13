@@ -1,0 +1,95 @@
+{%- liquid
+  assign product = closest.product
+  assign show_sku = block.settings.show_sku
+  assign show_collections = block.settings.show_collections
+  assign show_tags = block.settings.show_tags
+  assign show_type = block.settings.show_type
+-%}
+{%- if product.metafields.custom.external_affiliate == blank -%}
+  <ul class="product-meta list-unstyled mb-custom" {{ block.shopify_attributes }}>
+    {% if show_sku %}
+      <li>
+        <span class="product-meta-label heading-style">{{ 'products.product.sku' | t }}:</span>
+        <span
+          class="product__sku no-js-hidden{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
+          role="status"
+        >
+          <span class="sku_content product-meta-value sku-value">
+            {{- product.selected_or_first_available_variant.sku | default: 'N/A' -}}
+          </span>
+        </span>
+      </li>
+    {% endif %}
+    {% if show_tags %}
+      <li>
+        <span class="product-meta-label heading-style">{{ 'products.product.tags' | t }}:</span>
+        <span class="product-meta-value">
+          {% if product.tags != blank %}
+            {% for tags in product.tags %}
+              {{- tags -}}
+              {%- if forloop.last != true -%},{%- endif -%}
+            {% endfor %}
+          {%- else -%}
+            N/A
+          {% endif %}
+        </span>
+      </li>
+    {% endif %}
+    {% if show_type %}
+      <li>
+        <span class="product-meta-label heading-style">{{ 'products.product.type' | t }}:</span>
+        <span class="product-meta-value">{{ product.type | link_to_type }}</span>
+      </li>
+    {% endif %}
+    {% if show_collections %}
+      <li class="product-collections">
+        <span class="product-meta-label heading-style">{{ 'products.product.collections' | t }}:</span>
+        <span class="broduct-meta-value">
+          {% if product.collections.size > 0 %}
+            {% for collection in product.collections %}
+              <a href="{{ collection.url }}" class="text-color remove-underline pointer">
+                {{- collection.title -}}
+                {%- if forloop.last != true -%},{%- endif -%}
+              </a>
+            {% endfor %}
+          {%- else -%}
+            N/A
+          {% endif %}
+        </span>
+      </li>
+    {% endif %}
+  </ul>
+{%- endif -%}
+{% schema %}
+{
+  "name": "t:sections.all.product_setting.product_meta.name",
+  "class": "block-product__meta slideIn-animate",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_sku",
+      "label": "t:sections.all.product_setting.product_meta.settings.show_sku.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collections",
+      "label": "t:sections.all.product_setting.product_meta.settings.show_collections.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tags",
+      "label": "t:sections.all.product_setting.product_meta.settings.show_tags.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_type",
+      "label": "t:sections.all.product_setting.product_meta.settings.show_type.label",
+      "default": true
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.product_setting.product_meta.name" }]
+}
+{% endschema %}

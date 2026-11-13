@@ -1,0 +1,51 @@
+:root {
+  --header-spacing-bottom: 2.4rem;
+}
+
+.section-description.mt-sp-4 {
+  margin-top: 8px;
+}
+
+.featured-product .product-detail__information {
+  --space-bottom: 16;
+}
+.featured-product .product-form__buttons {
+  gap: 16px;
+}
+.faq-page :is(.section-heading, .group__faq-heading) {
+  font-size: var(--h3);
+}
+
+:is(.size-chart-popup, .custom-options-popup) .modal__footer {
+  --btn-primary-bg-color: #ffffff;
+  --color-white: #444444;
+}
+:is(.size-chart-popup, .custom-options-popup) .drawer__body {
+  background-color: #f2f2f2;
+}
+
+.facets__selected.bg-primary {
+  background-color: #f2f2f2;
+  color: var(--color-heading);
+}
+
+body .jdgm-rev-widg {
+  --jdgm-secondary-color: #e5e5e5 !important;
+}
+
+@media screen and (min-width: 1025px) {
+  :root {
+    --header-spacing-bottom: 3.2rem;
+  }
+  .featured-product .product-detail__information {
+    --space-bottom: 24;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .fluid_container {
+    --gutter-x: clamp(3rem, calc((100vw - var(--page-width)) / 2), 56px);
+  }
+  .outfit-finder .outfit-finder-collection {
+    --padding-gutter: clamp(3rem, calc((100vw - var(--page-width)) / 2), 56px);
+  }
+}

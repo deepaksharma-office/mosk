@@ -1,0 +1,130 @@
+{%- liquid
+  assign product = closest.product
+  assign inventory_base = block.settings.inventory_base
+  assign inventory_threshold = block.settings.inventory_threshold
+-%}
+<style>
+  .dot-animation:before {
+    content: '';
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 var(--shadow-position, 4px) var(--color-text);
+    background: rgb(var(--color-white));
+    position: absolute;
+    inset: 0;
+    margin: auto;
+  }
+
+  .dot-animation:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    -webkit-animation: ripple_animate 1s ease infinite;
+    animation: ripple_animate 1s ease infinite;
+    border-radius: 50%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-color: var(--color-text);
+    z-index: -1;
+  }
+  @keyframes ripple_animate {
+    0% {
+      opacity: 0.5;
+      -webkit-transform: scale(0.5);
+      transform: scale(0.5);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+</style>
+{% if product.metafields.custom.external_affiliate == blank %}
+  <div class="main-product-block inventory_status">
+    {%- liquid
+      assign product_qty = product.selected_or_first_available_variant.inventory_quantity
+      assign product_management = product.selected_or_first_available_variant.inventory_management
+      assign product_available = product.selected_or_first_available_variant.available
+    -%}
+    <inventory-progress-bar
+      data-order="{{ product_qty }}"
+      data-available="{{ product_available }}"
+      data-fe-amount="{{ inventory_base }}"
+      data-threshold="{{ inventory_threshold }}"
+      class="{% if product_qty <= inventory_threshold %} notify{% endif %}{% if product_management != "shopify" %} d-none{% else %} block{%- endif -%}"
+    >
+      <div class="progress-bar-message" style="--width: 29px;--height: 29px;">
+        {%- if product_qty <= inventory_threshold -%}
+          {%- if product_qty > 0 -%}
+            <div class="message flex gap-10 text-color" style="--color-text: var(--sale-color);">
+              <span class="dot-animation inline-block rounded-50 relative w-custom h-custom"></span>
+              <span class="flex-1">{{ 'products.product.inventory_status.low_stock' | t: count: product_qty }}</span>
+            </div>
+          {%- else -%}
+            {%- if product_available -%}
+              <div class="message flex gap-10 text-color" style="--color-text: var(--sale-color);">
+                <span class="dot-animation inline-block rounded-50 relative w-custom h-custom"></span>
+                <span class="flex-1">{{ 'products.product.inventory_status.pre_order' | t }}</span>
+              </div>
+            {%- else -%}
+              <div class="message flex gap-10 text-color" style="--color-text: var(--sale-color);">
+                <span class="dot-animation inline-block rounded-50 relative w-custom h-custom"></span>
+                <span class="flex-1">{{ 'products.product.inventory_status.sold_out' | t }}</span>
+              </div>
+            {%- endif -%}
+          {%- endif -%}
+        {%- else -%}
+          <div class="message flex gap-10 text-color" style="--color-text: #14854E">
+            <span class="dot-animation inline-block rounded-50 relative w-custom h-custom"></span>
+            <span class="flex-1">{{ 'products.product.inventory_status.available' | t }}</span>
+          </div>
+        {%- endif -%}
+      </div>
+    </inventory-progress-bar>
+    {%- if product.selected_or_first_available_variant.incoming -%}
+      <div class="incoming-message">
+        {%- if product.selected_or_first_available_variant.next_incoming_date != blank -%}
+          {%- assign date_convert = product.selected_or_first_available_variant.next_incoming_date
+            | date: '%B %d, %Y'
+          -%}
+          {{ 'products.product.inventory_status.incoming_with_date' | t: date: date_convert }}
+        {%- else -%}
+          {{ 'products.product.inventory_status.incoming' | t }}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.all.product_setting.inventory_status.name",
+  "class": "block-product__inventory mb-custom slideIn-animate",
+  "settings": [
+    {
+      "type": "range",
+      "id": "inventory_threshold",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "default": 20,
+      "label": "t:sections.all.product_setting.inventory_status.settings.inventory_threshold.label",
+      "info": "t:sections.all.product_setting.inventory_status.settings.inventory_threshold.info"
+    },
+    {
+      "type": "number",
+      "id": "inventory_base",
+      "default": 50,
+      "label": "t:sections.all.product_setting.inventory_status.settings.inventory_base.label",
+      "info": "t:sections.all.product_setting.inventory_status.settings.inventory_base.info"
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.product_setting.inventory_status.name" }]
+}
+{% endschema %}

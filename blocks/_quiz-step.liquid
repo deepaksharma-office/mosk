@@ -1,0 +1,107 @@
+{%- liquid
+  assign block_st = block.settings
+  assign layout = block_st.layout | default: 'pill'
+-%}
+
+<div
+  class="quiz__panel text-center"
+  data-quiz-panel="step"
+  data-step-key="{{ block.id }}"
+  data-question-id="{{ block_st.question_id | default: '' | strip | handleize }}"
+  data-stepper-label="{{ block_st.stepper_label | default: block_st.subheading | escape }}"
+  {{ block.shopify_attributes }}
+  hidden
+>
+  {%- if block_st.subheading != blank -%}
+    <p class="quiz__subheading fs-big-2 mb-sp-2 subheading_weight heading-color">
+      {{ block_st.subheading }}
+    </p>
+  {%- endif -%}
+  {%- if block_st.heading != blank -%}
+    <h2 class="quiz__heading heading-style h2 mb-sp-4">
+      {{ block_st.heading }}
+    </h2>
+  {%- endif -%}
+  {%- if block_st.description != blank -%}
+    <div class="quiz__description prose mx-auto mb-sp-6 mb-1025-40 w-1025-custom" style="--width-1025: 50rem">
+      {{ block_st.description }}
+    </div>
+  {%- endif -%}
+
+  <div class="quiz__options quiz__options--{{ layout }} mx-auto flex wrap justify-center gap-sp-3">
+    {% content_for 'blocks' %}
+    <p class="quiz__options-empty w-full text-center mt-sp-4" data-quiz-options-empty hidden>
+      {{ 'sections.quiz.no_options' | t }}
+    </p>
+  </div>
+
+  <div class="quiz__nav mt-sp-8 mt-1025-sp-10" data-quiz-back-wrap>
+    <button type="button" class="btn btn-outline quiz__back min-w-custom" style="--min-width:15rem" data-quiz-back>
+      {{ 'sections.quiz.back' | t }}
+    </button>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:blocks.quiz-step.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "stepper_label",
+      "label": "t:blocks.quiz-step.settings.stepper_label.label",
+      "info": "t:blocks.quiz-step.settings.stepper_label.info",
+      "default": "Step"
+    },
+    {
+      "type": "text",
+      "id": "question_id",
+      "label": "t:blocks.quiz-step.settings.question_id.label",
+      "info": "t:blocks.quiz-step.settings.question_id.info",
+      "placeholder": "q1"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.all.content_setting.subheading.label"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.all.content_setting.heading.label"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.all.content_setting.description.label"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "t:blocks.quiz-step.settings.layout.label",
+      "default": "pill",
+      "options": [
+        {
+          "value": "pill",
+          "label": "t:blocks.quiz-step.settings.layout.options.pill"
+        },
+        {
+          "value": "image",
+          "label": "t:blocks.quiz-step.settings.layout.options.image"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "_quiz-option"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:blocks.quiz-step.name"
+    }
+  ]
+}
+{% endschema %}

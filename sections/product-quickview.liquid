@@ -1,0 +1,174 @@
+<link rel="stylesheet" href="{{ 'main-product.css' | asset_url }}" media="print" onload="this.media='all'">
+{%- liquid
+  assign section_st = section.settings
+-%}
+<quickview-drawer
+  id="Product-{{ section.id }}"
+  data-section-id="{{ section.id }}"
+  class="modal transition-drawer invisible fixed inset-0 z-31 pointer-none active-modal-js content-hidden"
+  style="--drawer-width: 82rem;--col-width: clamp(25%, 12vw, 300px);"
+  drawer
+>
+  <modal-overlay class="modal-overlay cursor-crosshair"></modal-overlay>
+  <div
+    class="modal-inner transition-drawer quickview_inner quickview_inner_modal modal-body modal-draggable color-default drawer drawer-right fixed right-0 z-2 inset-y-0 w-full{% if product.media.size > 0 %} rounded-0{% endif %}"
+    role="dialog"
+    aria-modal="true"
+    aria-label="{{ 'products.product.quickview' | t }}"
+    tabindex="-1"
+  >
+    <draggable-modal
+      class="drawer__header draggable-modal hidden-md flex gap-10 space-between align-center drawer-spacing border-bottom border-bottom-md-0 sticky"
+      style="--padding-block-desktop: 2rem;--padding-inline-desktop:3.2rem;--padding-block: 1.2rem"
+    >
+      <div class="drawer__heading h5 flex gap align-center" style="--gap-desktop: 8px;--gap: 8px">
+        {{ 'products.product.quickview' | t }}
+      </div>
+      <button
+        type="button"
+        is="button-close-model"
+        class="modal__close pointer modal-button-close rounded-50 hover-icon-zoom heading-color btn-reset h-full inline-flex content-center"
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 14 14"
+          fill="none"
+          class="transition-short will-change"
+        >
+          <use href="#icon-close" />
+        </svg>
+      </button>
+    </draggable-modal>
+    <div class="drawer__body h-full overflow-y-scroll-mb custom-scrollbar">
+      <div class="quickview-product h-full flex wrap nowrap-md gap py-gutter-x py-md-0" style="--row-gap: 0;--gap:0">
+        {% if product.media.size > 0 %}
+          <div
+            class="product-detail__media w-full w-md-custom pb-md-20 bg-white px-gutter-x px-1025-20 z-1 overflow-hidden-mb"
+            style="--width: clamp(28rem, 24vw, 34rem)"
+          >
+            {% render 'media-gallery',
+              images: product.media,
+              section_st: section_st,
+              product: product,
+              section: section,
+              type_section: 'quick_view'
+            %}
+          </div>
+        {% endif %}
+        <div
+          id="ProductInfo-{{ section.id }}"
+          class="product-detail__information w-full bg-white drawer-spacing z-2 flex-1 overflow-y-auto custom-scrollbar"
+          style="--space-bottom: 16;"
+        >
+          <button
+            type="button"
+            is="button-close-model"
+            class="modal__close pointer modal-button-close rounded-50 hover-icon-zoom heading-color btn-reset h-full inline-flex content-center absolute top-sp-3 right-sp-3"
+            aria-label="{{ 'accessibility.close' | t }}"
+          >
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 14 14"
+              fill="none"
+              class="transition-short will-change"
+            >
+              <use href="#icon-close" />
+            </svg>
+          </button>
+          <div class="sticky-md top-sp-5">
+            {% content_for 'blocks', closest.product: product %}
+            <div class="flex justify-center justify-start-1025 pt-sp-2 pb-sp-4">
+              <a
+                {% if product == blank %}
+                  role="link" aria-disabled="true"
+                {% else %}
+                  href="{{ product.url }}"
+                {% endif %}
+                aria-label="{{ 'products.product.view_full_details' | t }}"
+                class="slideIn-animate mt-5 product-singe__view-all-button heading-color inline-flex align-center gap-5 no-underline lh-normal"
+              >
+                <span class="outlined-border">{{ 'products.product.view_full_details' | t }}</span>
+                <svg width="12" height="9" fill="none" class="rtl-mirror">
+                  <path fill="currentColor" d="M7.283 8.783a.776.776 0 0 1-.545.211c-.199 0-.369-.07-.51-.21A.724.724 0 0 1 6 8.255c0-.211.076-.387.229-.527l3.216-3.235L6.23 1.277A.688.688 0 0 1 6 .75c0-.21.076-.387.229-.527a.669.669 0 0 1 .51-.229c.21 0 .392.076.544.229l3.744 3.744a.744.744 0 0 1 .229.545c0 .199-.076.369-.229.51L7.283 8.782Zm-5.256 0a.715.715 0 0 1-.527.211.715.715 0 0 1-.527-.21.724.724 0 0 1-.229-.528c0-.211.076-.387.229-.527l3.216-3.235L.973 1.277A.688.688 0 0 1 .744.75C.744.54.82.363.973.223A.688.688 0 0 1 1.5-.006c.21 0 .387.076.527.229l3.744 3.744A.744.744 0 0 1 6 4.512c0 .199-.076.369-.229.51L2.027 8.782Z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</quickview-drawer>
+{% schema %}
+{
+  "name": "t:sections.quickview.name",
+  "tag": "section",
+  "class": "overlay-section overlay-quickbuy",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.quickview.how_to_use"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.quickview.settings.paragraph"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_image_lightbox",
+      "default": true,
+      "label": "t:sections.main-product.settings.enable_image_lightbox.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_video_looping",
+      "default": false,
+      "label": "t:sections.main-product.settings.enable_video_looping.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_video_autoplay",
+      "default": false,
+      "label": "t:sections.main-product.settings.enable_video_autoplay.label",
+      "info": "t:sections.main-product.settings.enable_video_autoplay.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_video_controls_default",
+      "default": false,
+      "label": "t:sections.main-product.settings.enable_video_controls_default.label",
+      "info": "t:sections.main-product.settings.enable_video_controls_default.info"
+    }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    { "type": "_badges-product" },
+    { "type": "_price-product" },
+    { "type": "_description-product" },
+    { "type": "_title-product" },
+    { "type": "_rating-product" },
+    { "type": "_text-product" },
+    { "type": "_buy-buttons" },
+    { "type": "_variant-picker" },
+    { "type": "_inventory-status" },
+    { "type": "_product-meta" },
+    { "type": "_collapsible-row" },
+    { "type": "_accordion-row-drawer-product" },
+    { "type": "_custom-liquid" },
+    { "type": "_share-product" },
+    { "type": "_highlights-product" },
+    { "type": "_key-features-product" },
+    { "type": "_promotion-alert-product" },
+    { "type": "_icon-with-text-product" },
+    { "type": "_ask-question-product" },
+    { "type": "_promotion-countdown-product" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,48 @@
+{% liquid
+  assign class = ''
+  if show_on_hover == true
+    assign class = 'invisible show-on-hover transition absolute'
+  else
+    assign class = ''
+  endif
+  assign show_action_class = ''
+  if show_action == true
+    assign show_action_class = ' show-swiper-actions'
+  endif
+%}
+<div
+  class="swiper-actions {{ class-custom }}{% if show_action == true %} flex gap-10 mt-15{% endif %}"
+  style="--shadow: 0 0 24px 0 rgba(0, 0, 0, 0.08);--transition: 0.4s ease-in-out"
+>
+  <div
+    class="{{ class_prev }} swiper-arrow swiper-button-prev overflow-hidden {{ class }}{% if settings.rounded_button > 0 %} rounded-50{% endif %} inline-flex content-center{% if type == "custom_nav" %} left-0 mt-0{% elsif type == "original"%} bg-white btn-hover border{% else %} shadow-glass-2 blur bg-white btn-hover transition{% endif %}{{ show_action_class }}"
+  >
+    {% if type != 'slideshow' and type != 'custom_nav' %}
+      <svg width="6" height="11" fill="none">
+        <use href="#icon-back" />
+      </svg>
+    {% elsif type == 'custom_nav' %}
+      <svg width="8" height="14" fill="none" viewBox="0 0 8 14" class="rtl-mirror">
+        <use href="#icon-arrow-back-facet" />
+      </svg>
+    {% endif %}
+  </div>
+  {% if navigation_custom %}
+    <div
+      class="swiper-pagination"
+    ></div>
+  {% endif %}
+  <div
+    class="{{ class_next }} swiper-arrow swiper-button-next overflow-hidden {{ class }}{% if settings.rounded_button > 0 %} rounded-50{% endif %} inline-flex content-center{% if type == "custom_nav" %} right-0 mt-0{% elsif type == "original"%} bg-white btn-hover border{% else %} shadow-glass-2 blur bg-white btn-hover transition{% endif %}{{ show_action_class }}"
+  >
+    {% if type != 'slideshow' and type != 'custom_nav' %}
+      <svg width="6" height="11" fill="none">
+        <use href="#icon-next" />
+      </svg>
+    {% elsif type == 'custom_nav' %}
+      <svg width="8" height="14" fill="none" viewBox="0 0 8 14" class="rtl-mirror">
+        <use href="#icon-arrow-next-facet" />
+      </svg>
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,138 @@
+{% liquid
+  assign theme_st = settings
+  assign section_st = section.settings
+  assign block_st = block.settings
+  assign scroll_animation = theme_st.scroll_animation
+  assign type_preset = block_st.type_preset
+  assign scroll_animation = 'disable'
+  assign content_alignment = section_st.text_alignment
+  assign text_alignment_mobile = section_st.text_alignment_mobile
+%}
+{% style %}
+  .block__description ul {
+    margin: 0;
+    padding-inline-start: 15px;
+  }
+  .block__description ul li:not(:last-child) {
+    margin-bottom: 5px;
+  }
+{% endstyle %}
+{% capture style %}
+--space-bottom: {{ block.settings.padding_bottom }};--space-top: {{ block.settings.padding_top }};
+{% endcapture %}
+<div
+  class="block__description mb-custom mt-custom{% if block_st.padding_bottom > 10 %} mb_auto-rsp{% endif %}{% if block_st.padding_top > 10 %} mt_auto-rsp{% endif %} {% if type_preset != 'custom' %}{{ type_preset }}{% else %}custom-preset{% endif %} flex justify-content-{{ text_alignment_mobile }} flex-md-{{ content_alignment }}"
+  style="{{ style | strip | strip_newlines }}"
+  {{ block.shopify_attributes }}
+>
+  {%- if scroll_animation != 'disable' -%}
+    <motion-effect
+      data-animate="fade-in"
+      class="block"
+    >
+  {%- endif -%}
+  <div
+    class="w-full prose"
+    {{ block.shopify_attributes }}
+  >
+    {{ block.settings.description }}
+  </div>
+  {%- if scroll_animation != 'disable' -%}
+    </motion-effect>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.all.content_setting.description.label",
+  "class": "w-full",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.all.product_setting.promotion_alert.heading.how_to_use"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "default": "<p>Add a short description for this block.</p>",
+      "label": "t:sections.all.content_setting.description.label"
+    },
+    {
+      "type": "header",
+      "content": "t:settings_schema.typography.name"
+    },
+    {
+      "type": "select",
+      "id": "type_preset",
+      "label": "t:sections.custom_section.blocks.heading.label",
+      "options": [
+        {
+          "value": "",
+          "label": "t:sections.custom_section.blocks.heading.default"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.custom_section.blocks.heading.h1"
+        },
+        {
+          "value": "h2",
+          "label": "t:sections.custom_section.blocks.heading.h2"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.custom_section.blocks.heading.h3"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.custom_section.blocks.heading.h4"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.custom_section.blocks.heading.h5"
+        },
+        {
+          "value": "h6",
+          "label": "t:sections.custom_section.blocks.heading.h6"
+        },
+        {
+          "value": "fs-big-2",
+          "label": "t:sections.all.content_header.heading_size.large.label"
+        },
+        {
+          "value": "fs-small",
+          "label": "t:sections.all.content_header.heading_size.small.label"
+        }
+      ],
+      "default": "",
+      "info": "t:sections.custom_section.blocks.heading.info.edit_presets_in_theme_settings"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.page.spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 20
+    }
+  ],
+  "presets": [
+    { "name": "t:sections.all.content_setting.description.label", "category": "t:sections.group.blocks.basic" }
+  ]
+}
+{% endschema %}

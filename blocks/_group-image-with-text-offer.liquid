@@ -1,0 +1,131 @@
+{% liquid
+  assign section_st = section.settings
+  assign block_st = block.settings
+  assign padding_content_class = 'p-sp-5 p-1025-30'
+  assign image_ratio = section_st.image_ratio
+  assign ratio = '3/4'
+  if image_ratio != 'adapt'
+    case image_ratio
+      when 'square'
+        assign ratio = '1/1'
+      when 'landscape'
+        assign ratio = '4/3'
+      when 'portrait'
+        assign ratio = '3/4'
+    endcase
+  else
+    if block_st.image != blank
+      assign ratio = block_st.image.aspect_ratio
+    else
+      assign ratio = '4/3'
+    endif
+  endif
+  assign show_border = true
+%}
+{% style %}
+  {% if request.visual_preview_mode %}
+    .block__image-with-text-offer {
+      border-radius: var(--img-rounded);
+      height: 500px;
+      background-color: transparent;
+    }
+    .image-with-text__text-item-inner{
+      background-color: #ffffff;
+    }
+    .block__image-with-text-offer .image-with-text__media {
+      height: 230px;
+    }
+  {% endif %}
+{% endstyle %}
+<div
+  class="block__image-with-text-offer"
+>
+  <div
+    class="flex column"
+  >
+    <div class="image-with-text__media-item">
+      <div
+        class="image-with-text__media banner__media rounded-top h-full w-full"
+        style="--aspect-ratio: {{ ratio }};"
+      >
+        {%- liquid
+          assign alt = 'general.image.image_alt_default' | t
+          if block_st.image.alt
+            assign alt = block_st.image.alt | escape
+          endif
+        -%}
+        {%- if block_st.image != blank -%}
+          {% render 'responsive-image', type: 'other', container: 'full-width', image: block_st.image, image_alt: alt %}
+        {% else %}
+          {% render 'placeholder-render', type: 'collection-6', class: 'img-placeholder h-full w-full', motion: false %}
+        {% endif %}
+      </div>
+    </div>
+    <div class="flex color-{{ block_st.color_scheme }} gradient text-{{ section_st.content_alignment }}{% if show_border %} border-content border border-top-0 rounded-bottom{% endif %}"
+    >
+      <div
+        class="rounded-bottom offer_pop_up image-with-text__wrapper w-full flex"
+      >
+        <div class="rounded-bottom image-with-text__text-item-inner w-full {{ padding_content_class }}">
+          {% content_for 'blocks' %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.image-with-text.name",
+  "class": "swiper-slide",
+  "blocks": [
+    {
+      "type": "heading"
+    },
+    {
+      "type": "subheading"
+    },
+    {
+      "type": "description"
+    },
+    {
+      "type": "button"
+    }
+  ],
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.all.image.label",
+      "info": "t:sections.image-with-text.settings.offer_image_with_text_info"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.image-with-text.name",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "description"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

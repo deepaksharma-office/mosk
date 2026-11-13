@@ -1,0 +1,102 @@
+{%- if closest.product != blank and closest.product.metafields.custom.promotion_countdown -%}
+  {% liquid
+    assign promotion_countdown = product.metafields.custom.promotion_countdown | date: '%s'
+    assign time_now = 'now' | date: '%s'
+  %}
+  {%- if promotion_countdown > time_now -%}
+    <script src="{{ 'countdown-timer.js' | asset_url }}" defer="defer"></script>
+    {%- liquid
+      assign heading = block.settings.heading
+      assign description = block.settings.description
+      assign show_countdown_units = block.settings.show_countdown_units
+    -%}
+    <div
+      class="flex gap-10 rounded countdown_timer-product align-center space-between wrap bg-custom text-color p-sp-3 mb-custom{% if show_countdown_units %} show-countdown-units{% endif %}"
+      style="--opacity: 1;--min-width: 2.8rem; --img-rounded: 10px; --bg-color-custom: var(--sale-color); --color-text: #fff;"
+    >
+      {%- if block.settings.heading != blank -%}
+        <span class="inline-flex gap-sp-2 align-center text-size heading_weight">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="24" fill="none" class="shrink-0">
+            <use href="#icon-time"/>
+          </svg>
+          {{ heading -}}
+        </span>
+      {% endif %}
+      <div class="timer-product inline-flex gap-15 align-center wrap">
+        {%- if block.settings.description != blank -%}
+          <span class="description ms-auto heading_weight text-size">{{ description }}</span>
+        {% endif %}
+        <countdown-timer
+          dir="auto"
+          class="flex gap-sp-4 text-center wrap heading_weight lh-global"
+          style="--lh-body-rtl-multiplier: 1.4;"
+          data-deadline="{{ product.metafields.custom.promotion_countdown }}"
+          data-days="{{ 'sections.countdown.format.days' | t }}"
+          data-hours="{{ 'sections.countdown.format.hours' | t }}"
+          data-mins="{{ 'sections.countdown.format.mins' | t }}"
+          data-secs="{{ 'sections.countdown.format.secs' | t }}"
+        >
+          <div class="relative flex fs-small column content-center countdown-container lh-normal sale-color min-w-custom">
+            <span class="days_timer countdown-item">00</span>
+            <span class="timer-announcementbar-text{% unless show_countdown_units %} hidden{% endunless %}">
+              {{- 'sections.countdown.format.days' | t -}}
+            </span>
+          </div>
+          <div class="relative flex column content-center fs-small countdown-container lh-normal sale-color min-w-custom">
+            <span class="hours_timer countdown-item">00</span>
+            <span class="timer-announcementbar-text{% unless show_countdown_units %} hidden{% endunless %}">
+              {{- 'sections.countdown.format.hours' | t -}}
+            </span>
+          </div>
+          <div class="relative flex column content-center fs-small countdown-container lh-normal sale-color min-w-custom">
+            <span class="minutes_timer countdown-item">00</span>
+            <span class="timer-announcementbar-text{% unless show_countdown_units %} hidden{% endunless %}">
+              {{- 'sections.countdown.format.mins' | t -}}
+            </span>
+          </div>
+          <div class="relative flex column content-center fs-small countdown-container lh-normal sale-color min-w-custom">
+            <span class="seconds_timer countdown-item">00</span>
+            <span class="timer-announcementbar-text{% unless show_countdown_units %} hidden{% endunless %}">
+              {{- 'sections.countdown.format.secs' | t -}}
+            </span>
+          </div>
+        </countdown-timer>
+      </div>
+    </div>
+  {% elsif request.design_mode %}
+    {%- render 'editor-metafield-hint', id: 'promotion_countdown', source: 'custom.promotion_countdown', state: 'expired' -%}
+  {% endif %}
+{%- elsif request.design_mode and closest.product != blank -%}
+  {%- render 'editor-metafield-hint', id: 'promotion_countdown', source: 'custom.promotion_countdown' -%}
+{%- endif -%}
+{% schema %}
+{
+  "name": "t:sections.all.product_setting.promotion_countdown.name",
+  "class": "block-product__promotion-countdown slideIn-animate",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.all.product_setting.promotion_countdown.description"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.all.product_setting.promotion_alert.heading.label",
+      "default": "Flash Deals"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "default": "<p>End in:</p>",
+      "label": "t:sections.all.product_setting.promotion_alert.description.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_countdown_units",
+      "label": "t:sections.all.product_setting.promotion_countdown.show_countdown_units.label",
+      "default": false
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.product_setting.promotion_countdown.name" }]
+}
+{% endschema %}

@@ -1,0 +1,92 @@
+{%- liquid
+  assign theme_st = settings
+  assign product = closest.product
+  assign variant_type = block.settings.variant_type
+  assign color_swatch_type = theme_st.color_swatch_type
+-%}
+{% if product.metafields.custom.external_affiliate == blank %}
+  {%- unless product.has_only_default_variant -%}
+    <div
+      class="main-product-block main-product-variant-picker variant-swatch-{{ color_swatch_type }}"
+      {{ block.shopify_attributes }}
+    >
+      {%- assign is_dropdown = false -%}
+      {% if variant_type == 'dropdown' %}
+        {%- assign is_dropdown = true -%}
+      {% endif %}
+      {%- render 'variant-swatches', product: product, block: block, scope: 'detail', is_dropdown: is_dropdown, is_show_sale_variant: true -%}
+    </div>
+  {%- endunless -%}
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.all.product_setting.variant_picker.name",
+  "class": "block-product__variant-picker mb-custom slideIn-animate",
+  "settings": [
+    {
+      "type": "select",
+      "id": "variant_type",
+      "label": "t:sections.all.product_setting.variant_picker.settings.picker_type.label",
+      "options": [
+        {
+          "value": "swatches",
+          "label": "t:sections.all.product_setting.variant_picker.settings.picker_type.options__2.label"
+        },
+        {
+          "value": "dropdown",
+          "label": "t:sections.all.product_setting.variant_picker.settings.picker_type.options__1.label"
+        }
+      ],
+      "default": "swatches"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.product_setting.variant_picker.settings.size_guide.heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_size_guide",
+      "label": "t:sections.all.product_setting.variant_picker.settings.size_guide.settings.show_size_guide",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "size_trigger",
+      "label": "t:sections.all.product_setting.variant_picker.settings.size_guide.settings.size_trigger.label",
+      "info": "t:sections.all.product_setting.variant_picker.settings.size_guide.settings.size_trigger.info",
+      "default": "Size,Größe,Misurare,مقاس"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_label",
+      "label": "t:sections.all.product_setting.variant_picker.settings.size_guide.settings.size_guide_label",
+      "default": "Size Guide"
+    },
+    {
+      "type": "page",
+      "id": "size_guide_page",
+      "label": "t:sections.all.product_setting.variant_picker.settings.size_guide.settings.size_guide_page",
+      "info": "t:sections.all.product_setting.variant_picker.settings.size_guide.info"
+    },
+    {
+      "type": "richtext",
+      "id": "size_guide_footer",
+      "default": "<p>Still unsure? Check out our Help Center or Contact Us directly.</p>",
+      "label": "t:sections.all.product_setting.variant_picker.settings.size_guide.settings.footer_content"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.product_setting.variant_picker.settings.size_guide.settings.custom_size_guide.label"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.all.product_setting.variant_picker.settings.size_guide.settings.custom_size_guide.info__1"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.all.product_setting.variant_picker.settings.size_guide.settings.custom_size_guide.info__2"
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.product_setting.variant_picker.name" }]
+}
+{% endschema %}

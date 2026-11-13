@@ -1,0 +1,46 @@
+{%- comment -%}
+  Intended for blocks and sections that provide values for all the referenced settings.
+  Accepts:
+     settings: {block.settings || section.settings}
+{%- endcomment -%}
+
+{%- if settings.height_block == 'custom' -%}
+  --height-size:
+  {{- settings.custom_height }}%;
+{%- elsif settings.height_block == 'fill' -%}
+  --height-size: 100%;
+{%- else -%}
+  --height-size: fit-content;
+{%- endif -%}
+
+{%- if settings.width_block == 'custom' -%}
+  {%- if is_group -%}
+    --width-size: {{ settings.custom_width }}%; --width-flex-basis: {{ settings.custom_width }}%;
+  {%- else -%}
+    {%- if is_image and settings.width_unit_type == 'px' -%}
+      --width-size: {{ settings.custom_width_px }}px;
+    {%- else -%}
+      --width-size: {{ settings.custom_width }}%;
+    {%- endif -%}
+  {%- endif -%}
+{%- elsif settings.width_block == 'fill' -%}
+  --width-size: 100%;
+{%- else -%}
+  --width-size: fit-content;
+{%- endif -%}
+{%- if settings.width_block_mobile == 'custom' -%}
+  {%- if is_group == true -%}
+    --width-size-mobile: {{ settings.custom_width_mobile }}%; --width-flex-basis-mobile:
+    {{ settings.custom_width_mobile }}%;
+  {%- else -%}
+    {%- if is_image and settings.width_unit_type == 'px' -%}
+      --width-size-mobile: {{ settings.custom_width_mobile_px }}px;
+    {%- else -%}
+      --width-size-mobile: {{ settings.custom_width_mobile }}%;
+    {%- endif -%}
+  {%- endif -%}
+{%- elsif settings.width_block_mobile == 'fill' -%}
+  --width-size-mobile: 100%;
+{%- else -%}
+  --width-size-mobile: fit-content;
+{%- endif -%}

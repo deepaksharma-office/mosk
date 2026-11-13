@@ -1,0 +1,734 @@
+{{ 'quiz.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign section_st = section.settings
+
+  if section_st.section_width == 'fix_width'
+    assign section_width = 'container'
+  elsif section_st.section_width == 'full_width'
+    assign section_width = 'full-width'
+  else
+    assign section_width = 'fluid_container'
+  endif
+
+  assign has_quiz = false
+  if section.blocks.size > 0
+    assign has_quiz = true
+  endif
+  if request.design_mode
+    assign has_quiz = true
+  endif
+
+  assign col_style = '--col-desktop: ' | append: section_st.items_per_row | append: '; --col-number: ' | append: section_st.items_per_row_mobile | append: '; --col-tablet: ' | append: section_st.items_per_row | append: '; --col-mobile: ' | append: section_st.items_per_row_mobile
+-%}
+
+{%- capture style -%}
+  --section-pt: {{ section_st.padding_top }};
+  --section-pb: {{ section_st.padding_bottom }};
+  --quiz-content-width: {{ section_st.content_max_width }}%;
+{%- endcapture -%}
+
+{%- if has_quiz -%}
+  {%- render 'section-divider', position: 'top', style: section_st.divider_top, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+  <div
+    class="section color-{{ section_st.color_scheme }} gradient quiz-section{% if section_st.show_divider and section_st.divider_top == 'line' %} border-top{% endif %}{% if section_st.show_divider and section_st.divider_bottom == 'line' %} border-bottom{% endif %}"
+    style="{{ style | strip | strip_newlines }}"
+  >
+    <div class="{{ section_width }}">
+      <quiz-section
+        class="quiz block mx-auto{% if section_st.enable_intro_step %} quiz--intro{% endif %}"
+        data-section-id="{{ section.id }}"
+        data-results-limit="{{ section_st.results_products_limit }}"
+        data-show-back-button="{{ section_st.show_back_button }}"
+        data-results-products-url="{{ routes.search_url }}"
+        data-results-section-id="quiz-results-products"
+        data-items-per-row="{{ section_st.items_per_row }}"
+        data-items-per-row-mobile="{{ section_st.items_per_row_mobile }}"
+        data-section-width="{{ section_width }}"
+        data-email-required="{{ 'sections.quiz.email_required' | t | escape }}"
+        data-email-invalid="{{ 'sections.quiz.email_invalid' | t | escape }}"
+        {% if section_st.enable_intro_step %}
+          data-enable-intro="true"
+        {% endif %}
+        style="--quiz-content-width: {{ section_st.content_max_width }}%;"
+      >
+        {%- if section_st.enable_intro_step -%}
+          <div class="quiz__panel mx-auto quiz__panel--intro py-1025-60 text-center" data-quiz-panel="intro">
+            {%- if section_st.intro_subheading != blank -%}
+              <p class="quiz__subheading fs-big-2 mb-sp-2 subheading_weight heading-color">
+                {{ section_st.intro_subheading }}
+              </p>
+            {%- endif -%}
+            {%- if section_st.intro_heading != blank -%}
+              <h2 class="quiz__heading heading-style h2 mb-sp-4">
+                {{ section_st.intro_heading }}
+              </h2>
+            {%- endif -%}
+            {%- if section_st.intro_description != blank -%}
+              <div
+                class="quiz__description prose mx-auto mb-sp-6 mb-1025-40"
+              >
+                {{ section_st.intro_description }}
+              </div>
+            {%- endif -%}
+            <button
+              type="button"
+              class="btn btn-primary quiz__start min-w-custom"
+              style="--min-width:15rem"
+              data-quiz-start
+            >
+              {%- if section_st.intro_button_label != blank -%}
+                {{ section_st.intro_button_label }}
+              {%- else -%}
+                {{ 'sections.quiz.start' | t }}
+              {%- endif -%}
+            </button>
+          </div>
+        {%- endif -%}
+
+        <div
+          class="quiz__stepper mb-sp-10 pb-custom px-sp-5  mx-auto max-w-100 w-custom"
+          style="--width:64rem; --space-bottom: 60"
+          data-quiz-stepper
+          hidden
+        >
+          <div class="quiz__stepper-rail relative">
+            <div
+              class="quiz__stepper-line quiz__stepper-line--track absolute pointer-none h-custom"
+              style="--height:2px;"
+              aria-hidden="true"
+            ></div>
+            <div
+              class="quiz__stepper-line quiz__stepper-line--active z-1 absolute pointer-none h-custom"
+              style="--height:2px;"
+              data-quiz-stepper-progress
+              aria-hidden="true"
+            ></div>
+            <ol class="quiz__stepper-list z-2 relative w-full list-unstyled flex space-between" role="list"></ol>
+          </div>
+        </div>
+        <div class="quiz__panels">
+          {% content_for 'blocks' %}
+        </div>
+        {%- if section_st.enable_email_step -%}
+          <div class="quiz__panel quiz__panel--email text-center" data-quiz-panel="email" hidden>
+            {%- if section_st.email_heading != blank -%}
+              <h2 class="quiz__heading heading-style h2 mb-sp-6 mb-1025-40">
+                {{ section_st.email_heading }}
+              </h2>
+            {%- endif -%}
+            <form
+              id="contact_form"
+              class="quiz__email-form form-validation contact-form mx-auto max-w-100 w-custom"
+              style="--width:65rem"
+              action="/contact#contact_form"
+              method="post"
+              accept-charset="UTF-8"
+              data-quiz-email-form
+              novalidate
+            >
+              <input type="hidden" name="form_type" value="customer">
+              <input type="hidden" name="utf8" value="✓">
+              <input type="hidden" name="contact[tags]" value="quiz">
+              <div data-quiz-note-fields hidden></div>
+              <div class="field relative w-full flex wrap">
+                <input
+                  type="email"
+                  id="QuizEmail-{{ section.id }}"
+                  name="contact[email]"
+                  class="field__input quiz__email-input w-full"
+                  placeholder="{%- if section_st.email_placeholder != blank -%}{{ section_st.email_placeholder }}{%- else -%}{{ 'sections.quiz.email_placeholder' | t }}{%- endif -%}"
+                  data-quiz-email
+                  autocomplete="email"
+                  autocapitalize="off"
+                  autocorrect="off"
+                  spellcheck="false"
+                  aria-required="true"
+                  required
+                >
+                <label class="field__label" for="QuizEmail-{{ section.id }}">
+                  {{ 'sections.quiz.email_label' | t }}
+                </label>
+                <p class="form__message error  mt-sp-3 w-full" data-quiz-email-error hidden>
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" class="flex-auto w-18" aria-hidden="true">
+                    <use href="#icon-error"></use>
+                  </svg>
+                  <span data-quiz-email-error-text></span>
+                </p>
+              </div>
+              <div class="quiz__email-actions flex wrap justify-center gap-sp-3 mt-40">
+                <button type="button" class="btn btn-primary min-w-custom" style="--min-width:20rem" data-quiz-continue>
+                  {%- if section_st.continue_label != blank -%}
+                    {{ section_st.continue_label }}
+                  {%- else -%}
+                    {{ 'sections.quiz.continue' | t }}
+                  {%- endif -%}
+                </button>
+                <button type="button" class="btn btn-outline min-w-custom" style="--min-width:20rem" data-quiz-skip>
+                  {%- if section_st.skip_label != blank -%}
+                    {{ section_st.skip_label }}
+                  {%- else -%}
+                    {{ 'sections.quiz.skip' | t }}
+                  {%- endif -%}
+                </button>
+              </div>
+            </form>
+          </div>
+        {%- endif -%}
+
+        <div class="quiz__panel mx-auto quiz__panel--results" data-quiz-panel="results" hidden>
+          {%- if section_st.results_banner_image != blank -%}
+            <div
+              class="quiz__results-banner quiz__panel-content mx-auto relative overflow-hidden rounded mb-sp-6 mb-1025-40"
+              style="--aspect-ratio: 21/9"
+            >
+              {{
+                section_st.results_banner_image
+                | image_url: width: 2000
+                | image_tag: class: 'quiz__results-banner-image w-full h-full object-cover block', loading: 'lazy'
+              }}
+              <div class="quiz__results-banner-overlay absolute inset-0 flex column justify-center align-center text-center p-sp-5">
+                {%- if section_st.results_heading != blank -%}
+                  <h2 class="quiz__results-heading heading-style h2 heading-color">
+                    {{ section_st.results_heading }}
+                  </h2>
+                {%- endif -%}
+                {%- if section_st.results_description != blank -%}
+                  <div class="quiz__results-description prose mt-sp-4">
+                    {{ section_st.results_description }}
+                  </div>
+                {%- endif -%}
+              </div>
+              <span class="overlay absolute inset-0 bg-dark pointer-none" style="--opacity: 0.15"></span>
+            </div>
+          {%- else -%}
+            <div class="text-center quiz__panel-content mx-auto mb-sp-6 mb-1025-sp-8">
+              {%- if section_st.results_heading != blank -%}
+                <h2 class="quiz__results-heading heading-style h2">
+                  {{ section_st.results_heading }}
+                </h2>
+              {%- endif -%}
+              {%- if section_st.results_description != blank -%}
+                <div class="quiz__results-description prose mt-sp-4 mx-auto" data-quiz-results-description>
+                  {{ section_st.results_description }}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- if section_st.show_retake_button -%}
+            <div class="quiz__panel-content mx-auto quiz__results-actions text-center mb-sp-6 mb-1025-60">
+              <button
+                type="button"
+                class="btn btn-primary quiz__retake min-w-custom"
+                style="--min-width: 20rem;"
+                data-quiz-retake
+              >
+                {%- if section_st.retake_label != blank -%}
+                  {{ section_st.retake_label }}
+                {%- else -%}
+                  {{ 'sections.quiz.retake' | t }}
+                {%- endif -%}
+              </button>
+            </div>
+          {%- endif -%}
+
+          <div
+            class="quiz__results-grid grid grid-cols gap gap-medium"
+            data-quiz-results-grid
+            style="{{ col_style }}"
+          >
+            <p class="quiz__results-loading w-full text-center" data-quiz-results-loading hidden>
+              {{ 'accessibility.loading' | t }}
+            </p>
+          </div>
+          <p class="quiz__results-empty text-center mt-sp-6" data-quiz-results-empty hidden>
+            {{ 'sections.quiz.results_empty' | t }}
+          </p>
+        </div>
+
+        {%- if section_st.fallback_products != blank -%}
+          <script type="application/json" data-quiz-fallback-ids>
+            [
+              {%- for product in section_st.fallback_products limit: section_st.results_products_limit -%}
+                {{ product.id | json }}{%- unless forloop.last -%},{%- endunless -%}
+              {%- endfor -%}
+            ]
+          </script>
+        {%- endif -%}
+      </quiz-section>
+    </div>
+  </div>
+  {%- render 'section-divider', position: 'bottom', style: section_st.divider_bottom, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+
+  <script src="{{ 'section-quiz.js' | asset_url }}" defer="defer" type="module"></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.quiz.name",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "max_blocks": 48,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.quiz.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.quiz.settings.intro_header"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_intro_step",
+      "label": "t:sections.quiz.settings.enable_intro_step.label",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "intro_subheading",
+      "label": "t:sections.all.content_setting.subheading.label",
+      "default": "Intro subheading"
+    },
+    {
+      "type": "text",
+      "id": "intro_heading",
+      "label": "t:sections.all.content_setting.heading.label",
+      "default": "Intro heading"
+    },
+    {
+      "type": "richtext",
+      "id": "intro_description",
+      "label": "t:sections.all.content_setting.description.label",
+      "default": "<p>Intro description</p>"
+    },
+    {
+      "type": "text",
+      "id": "intro_button_label",
+      "label": "t:sections.quiz.settings.intro_button_label.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:sections.all.layout.label",
+      "default": "fix_width",
+      "options": [
+        { "value": "fix_width", "label": "t:sections.all.layout.fix_width" },
+        { "value": "stretch_width", "label": "t:sections.all.layout.stretch_width" },
+        { "value": "full_width", "label": "t:sections.all.layout.full_width" }
+      ]
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "label": "t:sections.quiz.settings.content_max_width.label",
+      "min": 60,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 90
+    },
+    {
+      "type": "checkbox",
+      "id": "show_back_button",
+      "label": "t:sections.quiz.settings.show_back_button.label",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:sections.quiz.settings.email_header"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_email_step",
+      "label": "t:sections.quiz.settings.enable_email_step.label",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "email_heading",
+      "label": "t:sections.quiz.settings.email_heading.label",
+      "default": "Get 10% off your personalized routine."
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "t:sections.quiz.settings.email_placeholder.label"
+    },
+    {
+      "type": "text",
+      "id": "continue_label",
+      "label": "t:sections.quiz.settings.continue_label.label"
+    },
+    {
+      "type": "text",
+      "id": "skip_label",
+      "label": "t:sections.quiz.settings.skip_label.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.quiz.settings.results_display_header"
+    },
+    {
+      "type": "image_picker",
+      "id": "results_banner_image",
+      "label": "t:sections.quiz.settings.results_banner_image.label"
+    },
+    {
+      "type": "text",
+      "id": "results_heading",
+      "label": "t:sections.all.content_setting.heading.label",
+      "default": "Your personalized picks"
+    },
+    {
+      "type": "richtext",
+      "id": "results_description",
+      "label": "t:sections.all.content_setting.description.label",
+      "default": "<p>Here are the products selected for your skin type, concern, and care style.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_retake_button",
+      "label": "t:sections.quiz.settings.show_retake_button.label",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "retake_label",
+      "label": "t:sections.quiz.settings.retake_label.label"
+    },
+    {
+      "type": "product_list",
+      "id": "fallback_products",
+      "label": "t:sections.quiz.settings.fallback_products.label",
+      "info": "t:sections.quiz.settings.fallback_products.info",
+      "limit": 12
+    },
+    {
+      "type": "range",
+      "id": "results_products_limit",
+      "label": "t:sections.quiz.settings.results_products_limit.label",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "items_per_row",
+      "label": "t:sections.all.columns_desktop.label",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "items_per_row_mobile",
+      "label": "t:sections.all.items.items_per_row_mobile",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.all.padding.padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.all.padding.padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.divider.section_divider_heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "t:sections.all.divider.show_divider",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "divider_top",
+      "label": "t:sections.all.divider.top",
+      "info": "t:sections.all.divider.top_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "line",
+      "visible_if": "{{ section.settings.show_divider }}"
+    },
+    {
+      "type": "select",
+      "id": "divider_bottom",
+      "label": "t:sections.all.divider.bottom",
+      "info": "t:sections.all.divider.bottom_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.show_divider }}"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "_quiz-step"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.quiz.name",
+      "category": "t:sections.group.blocks.layout",
+      "settings": {
+        "enable_intro_step": true,
+        "intro_subheading": "Intro subheading",
+        "intro_heading": "Intro heading",
+        "intro_description": "<p>Intro description</p>",
+        "email_heading": "Email heading",
+        "results_heading": "Results heading",
+        "results_description": "<p>Results description</p>",
+        "show_retake_button": true
+      },
+      "blocks": [
+        {
+          "type": "_quiz-step",
+          "settings": {
+            "stepper_label": "Stepper label",
+            "subheading": "Stepper subheading",
+            "heading": "Stepper heading",
+            "description": "<p>Stepper description</p>",
+            "layout": "pill"
+          },
+          "blocks": [
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            },
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            },
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            },
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            },
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            },
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            },
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            }
+          ]
+        },
+        {
+          "type": "_quiz-step",
+          "settings": {
+            "stepper_label": "Stepper label",
+            "subheading": "Stepper subheading",
+            "heading": "Stepper heading",
+            "description": "<p>Stepper description</p>",
+            "layout": "pill"
+          },
+          "blocks": [
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            },
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            },
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            },
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            },
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            },
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            },
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            }
+          ]
+        },
+        {
+          "type": "_quiz-step",
+          "settings": {
+            "stepper_label": "Stepper label",
+            "subheading": "Stepper subheading",
+            "heading": "Stepper heading",
+            "description": "<p>Stepper description</p>",
+            "layout": "image"
+          },
+          "blocks": [
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            },
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            },
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            },
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            }
+          ]
+        },
+        {
+          "type": "_quiz-step",
+          "settings": {
+            "stepper_label": "Stepper label",
+            "subheading": "Stepper subheading",
+            "heading": "Stepper heading",
+            "description": "<p>Stepper description</p>",
+            "layout": "pill"
+          },
+          "blocks": [
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            },
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            },
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            },
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            },
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            },
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            },
+            {
+              "type": "_quiz-option",
+              "settings": {
+                "label": "Option"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

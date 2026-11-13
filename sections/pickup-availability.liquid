@@ -1,0 +1,143 @@
+{%- assign pick_up_availabilities = product_variant.store_availabilities | where: 'pick_up_enabled', true -%}
+
+{%- if pick_up_availabilities.size > 0 -%}
+  <pickup-availability-preview class="pickup-availability-preview flex gap-10">
+    {%- liquid
+      assign closest_location = pick_up_availabilities.first
+    -%}
+    <div class="pickup_icon heading-color">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="currentColor" d="M10.5 7.926c0-.293.088-.58.253-.823.165-.244.399-.434.673-.546a1.517 1.517 0 0 1 1.635.321 1.464 1.464 0 0 1 .325 1.615c-.114.27-.306.502-.553.665a1.513 1.513 0 0 1-1.894-.185 1.472 1.472 0 0 1-.439-1.047Zm-4.5 0a5.89 5.89 0 0 1 1.757-4.19A6.038 6.038 0 0 1 12 2c1.591 0 3.117.624 4.243 1.736A5.889 5.889 0 0 1 18 7.926c0 5.55-5.398 8.661-5.625 8.792a.758.758 0 0 1-.744 0C11.398 16.588 6 13.482 6 7.926Zm1.5 0c0 3.907 3.36 6.5 4.5 7.268 1.14-.766 4.5-3.36 4.5-7.268 0-1.179-.474-2.31-1.318-3.143A4.529 4.529 0 0 0 12 3.481a4.529 4.529 0 0 0-3.182 1.302A4.417 4.417 0 0 0 7.5 7.926Zm11.51 6.262a.758.758 0 0 0-.561.036.744.744 0 0 0-.378.41.732.732 0 0 0 .017.555.746.746 0 0 0 .402.388c1.548.566 2.51 1.323 2.51 1.979 0 1.237-3.424 2.962-9 2.962-5.576 0-9-1.725-9-2.962 0-.656.962-1.413 2.51-1.978a.746.746 0 0 0 .402-.388.732.732 0 0 0 .017-.554.744.744 0 0 0-.378-.411.759.759 0 0 0-.56-.036c-2.252.82-3.491 2.016-3.491 3.367C1.5 20.443 6.91 22 12 22s10.5-1.557 10.5-4.444c0-1.351-1.24-2.548-3.49-3.368Z"/>
+      </svg>
+    </div>
+    <div class="pickup-availability-info">
+      {%- if closest_location.available -%}
+        <div class="caption-large">
+          <div class="pickup_text">
+            {{-
+              'products.product.pickup_availability.pick_up_available_at_html'
+              | t: location_name: closest_location.location.name
+            }}
+            {{ closest_location.pick_up_time -}}
+            <div
+              class="w-full fs-small mt-sp-2"
+              style="--btn-link-color: var(--color-text);--body-font-size: 14px;--heading-weight: var(--body-font-weight);"
+            >
+              <button
+                id="ShowPickupAvailabilityDrawer"
+                class="btn-reset border-animation lh-1 btn-link body-font pickup-availability-button text-color pointer"
+                aria-haspopup="dialog"
+                aria-label="{{ 'products.product.pickup_availability.view_store_info' | t }}"
+              >
+                {%- if pick_up_availabilities.size == 1 -%}
+                  {{ 'products.product.pickup_availability.view_store_info' | t }}
+                {%- else -%}
+                  {{ 'products.product.pickup_availability.check_other_stores' | t }}
+                {%- endif -%}
+              </button>
+            </div>
+          </div>
+        </div>
+      {%- else -%}
+        <p class="caption-large my-0">
+          {{
+            'products.product.pickup_availability.pick_up_unavailable_at_html'
+            | t: location_name: closest_location.location.name
+          }}
+        </p>
+        {%- if pick_up_availabilities.size > 1 -%}
+          <button
+            id="ShowPickupAvailabilityDrawer"
+            class="mt-sp-2 btn-reset border-animation lh-1 btn-link pickup-availability-button border-bottom round-0 text-color pointer"
+            style="--btn-link-color: var(--color-text);--body-font-size: 14px;--heading-weight: var(--body-font-weight);"
+            aria-haspopup="dialog"
+            aria-label="{{ 'products.product.pickup_availability.check_other_stores' | t }}"
+          >
+            {{ 'products.product.pickup_availability.check_other_stores' | t }}
+          </button>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+  </pickup-availability-preview>
+
+  <pickup-availability-drawer
+    class="pickup-availability-drawer modal transition-drawer  invisible fixed inset-0 z-15 pointer-none active-modal-js content-hidden"
+    drawer
+  >
+    <modal-overlay class="modal-overlay cursor-crosshair"></modal-overlay>
+    <div
+      class="modal-inner transition-drawer overflow-auto custom-scrollbar draw-mb drawer-right-mb color-default w-full drawer-right fixed z-2 inset-y-0 right-0 bg-white"
+      role="dialog"
+      aria-modal="true"
+      aria-label="{{ 'products.product.pickup_availability.view_store_info' | t }}"
+      tabindex="-1"
+    >
+      <div
+        class="pickup-availability-header drawer-spacing flex align-center space-between gap-15 border-bottom"
+        style="--padding-block-desktop: 1.7rem;--padding-block:1.2rem;"
+      >
+        <div class="pickup-heading flex-1">
+          <h2 class="h6 heading-color my-0" id="PickupAvailabilityHeading">
+            {{ product_variant.product.title | escape }}
+          </h2>
+          {%- unless product_variant.product.has_only_default_variant -%}
+            <p class="pickup-availability-variant fs-small">
+              {%- for product_option in product_variant.product.options_with_values -%}
+                {{ product_option.name | escape }}:&nbsp;
+                {%- for value in product_option.values -%}
+                  {%- if product_option.selected_value == value -%}
+                    <span>{{ value | escape }}</span>
+                  {%- endif -%}
+                {%- endfor -%}
+                {%- unless forloop.last -%},&nbsp;{%- endunless -%}
+              {%- endfor -%}
+            </p>
+          {%- endunless -%}
+        </div>
+        <button
+          is="button-close-model"
+          class="modal__close pointer modal-button-close rounded-50 flex content-center hover-svg-zoom flex-end btn-reset heading-color"
+          aria-label="{{ 'accessibility.close' | t }}"
+        >
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 14 14"
+            fill="none"
+            class="transition-short will-change icon-zoom"
+          >
+            <use href="#icon-close"></use>
+          </svg>
+        </button>
+      </div>
+      <div class="canvas-content drawer-spacing">
+        <ul
+          class="pickup-availability-list list-unstyled flex column gap-20"
+          role="list"
+          data-store-availability-drawer-content
+        >
+          {%- for availability in pick_up_availabilities -%}
+            <li class="pickup-availability-list__item pb-sp-5 border-bottom last-0">
+              <p class="heading-style fs-big-2 mb-3">
+                {{ availability.location.name | escape }}
+              </p>
+              <p class="pickup-availability-preview caption-large mb-10">
+                {%- if availability.available -%}
+                  {{ 'products.product.pickup_availability.pick_up_available' | t }},
+                  {{ availability.pick_up_time | downcase }}
+                {%- endif -%}
+              </p>
+              {%- assign address = availability.location.address -%}
+              <address class="pickup-availability-address heading-color">
+                {{ address | format_address }}
+                {%- if address.phone.size > 0 -%}
+                  <p class="mb-0">{{ address.phone }}</p>
+                {%- endif -%}
+              </address>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+  </pickup-availability-drawer>
+{%- endif -%}

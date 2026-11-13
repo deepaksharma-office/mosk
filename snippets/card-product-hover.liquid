@@ -1,0 +1,43 @@
+{%- liquid
+  assign alt_features = product.media[1].alt | default: product.title | escape
+  assign media_hover = product.media[1]
+  if media_hover.media_type == 'video' or media_hover.media_type == 'external_video' or media_hover.media_type == 'model'
+    assign media_hover = product.media[1].preview_image
+  endif
+  assign has_video = product.media | where: 'media_type', 'video'
+-%}
+{% if product_show_video_featured and disable_show_video != true and has_video.size > 0 %}
+  {% assign media_hover = has_video[0].preview_image %}
+  <video-product
+    class="product__img featured-image product__img_video lazy-video-item product__hover-img transition invisible absolute inset-0"
+    style="--aspect-ratio: {{ aspect_ratio | default: ratio }};"
+  >
+    {% render 'responsive-image',
+      type: 'product',
+      class: 'video-thumbnail product__hover-img transition invisible absolute inset-0',
+      image: media_hover,
+      image_alt: alt_features,
+      container: container,
+      column: column,
+      column_mobile: column_mobile,
+      padding: padding,
+      sizes: sizes
+    %}
+    <template class="video-template max-w-100">
+      {{ has_video[0] | media_tag: image_size: '800x', autoplay: true, controls: false, loop: true, preload: 'none' }}
+    </template>
+  </video-product>
+{% elsif product_show_image_hover and disable_hover_image != true %}
+  {% render 'responsive-image',
+    type: 'product',
+    class: 'product__hover-img transition invisible absolute inset-0',
+    image: media_hover,
+    image_alt: alt_features,
+    container: container,
+    column: column,
+    column_mobile: column_mobile,
+    padding: padding,
+    sizes: sizes,
+    disable_lazy_loading: disable_lazy_loading
+  %}
+{% endif %}

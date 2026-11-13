@@ -1,0 +1,183 @@
+{%- liquid
+  assign block_st = block.settings
+  assign section_st = section.settings
+  assign media_type = block_st.media_type
+  assign media_ratio = 1
+  if media_type == 'video'
+    if block_st.video_local != blank
+      assign media_ratio = block_st.video_local.aspect_ratio
+    endif
+  elsif block_st.image != blank
+    assign media_ratio = block_st.image.aspect_ratio
+  endif
+  assign image_alt = 'general.image.image_alt_default' | t
+  if block_st.image.alt
+    assign image_alt = block_st.image.alt | escape
+  endif
+-%}
+
+<div
+  class="parallax-scroll__card-row flex justify-center w-full"
+  data-parallax-scroll-card
+  role="listitem"
+  {{ block.shopify_attributes }}
+>
+  {%- if block_st.link != blank -%}
+    <a href="{{ block_st.link }}" class="parallax-scroll__card color-{{ section_st.color_scheme }} grid max-w-100 overflow-hidden no-underline text-color bg-secondary">
+  {%- else -%}
+    <article class="parallax-scroll__card color-{{ section_st.color_scheme }} grid max-w-100 overflow-hidden no-underline text-color bg-secondary">
+  {%- endif -%}
+  <div
+    class="parallax-scroll__media h-full w-full relative overflow-hidden bg-secondary"
+    style="--aspect-ratio: {{ media_ratio }};"
+  >
+    {%- if media_type == 'video' -%}
+      {%- if block_st.video_local != blank -%}
+        {%- liquid
+          assign source_url = ''
+          for source in block_st.video_local.sources
+            if source.format == 'mp4'
+              assign source_url = source.url
+              break
+            endif
+          endfor
+          assign video_poster = block_st.video_local.preview_image | image_url: width: 1100
+        -%}
+        <video-local class="block w-full">
+          <video
+            class="parallax-scroll__media-element w-full h-full object-fit-cover"
+            data-src="{{ source_url }}"
+            poster="{{ video_poster }}"
+            autoplay
+            loop
+            muted
+            playsinline
+          ></video>
+        </video-local>
+      {%- else -%}
+        {% render 'placeholder-render',
+          type: 'collection-6',
+          class: 'img-placeholder parallax-scroll__media-element w-full h-full',
+          motion: false
+        %}
+      {%- endif -%}
+    {%- elsif block_st.image != blank -%}
+      {% render 'responsive-image',
+        type: 'other',
+        container: 'container',
+        image: block_st.image,
+        image_alt: image_alt,
+        class: 'parallax-scroll__media-element w-full h-full',
+        motion: false
+      %}
+    {%- else -%}
+      {% render 'placeholder-render',
+        type: 'collection-6',
+        class: 'img-placeholder parallax-scroll__media-element w-full h-full',
+        motion: false
+      %}
+    {%- endif -%}
+  </div>
+  <div class="parallax-scroll__card-content p-sp-4 p-1025-sp-8 flex column justify-center text-start">
+    {% content_for 'blocks' %}
+  </div>
+  {%- if block_st.link != blank -%}
+    </a>
+  {%- else -%}
+    </article>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.parallax-scroll.blocks.info_card.name",
+  "class": "blocks-group-parallax-card w-full shrink-0",
+  "blocks": [
+    {
+      "type": "highlight-text"
+    },
+    {
+      "type": "heading"
+    },
+    {
+      "type": "description"
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "media_type",
+      "label": "t:sections.all.media.label",
+      "default": "image",
+      "options": [
+        {
+          "value": "image",
+          "label": "t:sections.all.image.label"
+        },
+        {
+          "value": "video",
+          "label": "t:sections.all.video.label"
+        }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.all.image.label",
+      "visible_if": "{{ block.settings.media_type == 'image' }}"
+    },
+    {
+      "type": "video",
+      "id": "video_local",
+      "label": "t:sections.all.video.label",
+      "visible_if": "{{ block.settings.media_type == 'video' }}"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "t:sections.all.content_setting.link.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.parallax-scroll.blocks.info_card.name",
+      "settings": {
+        "media_type": "image"
+      },
+      "blocks": [
+        {
+          "type": "highlight-text",
+          "settings": {
+            "highlight_text": "Our Belief",
+            "highlight_text_size": "small",
+            "highlight_text_icon": "none",
+            "background_color": "rgba(205, 215, 169, 1)",
+            "text_color": "rgba(31, 71, 62, 1)",
+            "uppercase": false,
+            "padding_top": 0,
+            "padding_bottom": 8
+          }
+        },
+        {
+          "type": "heading",
+          "settings": {
+            "heading": "Every Skin",
+            "type_preset": "h5",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        {
+          "type": "description",
+          "settings": {
+            "description": "<p>Inclusive skincare thoughtfully made for every skin type.</p>",
+            "type_preset": "fs-small",
+            "padding_top": 16,
+            "padding_bottom": 0
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

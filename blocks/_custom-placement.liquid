@@ -1,0 +1,85 @@
+{% assign product_placement = product.metafields.custom.product_placement.value %}
+{% if product_placement != blank %}
+  <div class="custom-placement-list">
+    <h3 id="custom-placement-title-{{ block.id }}" class="visually-hidden">Select placement</h3>
+    <div
+      class="placement-products grid-cols grid gap"
+      role="radiogroup"
+      aria-labelledby="custom-placement-title-{{ block.id }}"
+      style="--col: 4;--gap: 12px;--gap-desktop: 16px;"
+    >
+      {%- for entry in product_placement -%}
+        {%- assign placement_image = entry.image.value -%}
+        {%- assign placement_text = entry.text.value -%}
+        {%- assign placement_product = entry.product.value -%}
+        {%- assign money_price = placement_product.price -%}
+        {%- assign placement_label = placement_text | default: placement_product.title -%}
+        {%- if placement_image != blank or placement_text != blank -%}
+          <div class="placement-product-item w-full text-center">
+            <label class="placement-product-option block pointer relative h-full" for="placement-product-{{ block.id }}-{{ forloop.index }}">
+              <input
+                type="radio"
+                id="placement-product-{{ block.id }}-{{ forloop.index }}"
+                class="absolute opacity-0"
+                name="placement_product"
+                tabindex="0"
+                required
+                aria-required="true"
+                aria-label="{{ placement_label | escape }}"
+                value="{{ placement_product.selected_or_first_available_variant.id }}"
+                data-placement-text="{{ placement_text }}"
+                data-product-id="{{ placement_product.id }}"
+                data-money-price="{{ money_price }}"
+              >
+
+              <div class="placement-product-content flex column text-left">
+                {%- if placement_image != blank -%}
+                  <div
+                    class="placement-product-image w-full rounded-15 clip-path-unset relative overflow-hidden border"
+                    style="--aspect-ratio: 1;"
+                  >
+                    {% render 'responsive-image',
+                      type: 'product',
+                      image: placement_image,
+                      image_alt: placement_text,
+                      class: 'w-full h-full object-cover rounded-15 overflow-hidden'
+                    %}
+                  </div>
+                {%- endif -%}
+
+                {%- if placement_text != blank -%}
+                  <div class="placement-product-info mt-sp-2">
+                    <h4 class="placement-product-title heading-color text-size body_weight lh-global">
+                      {{ placement_text }}
+                    </h4>
+                  </div>
+                  <div class="price-regular">
+                    <span class="visually-hidden visually-hidden--inline">
+                      {{- 'products.product.price.regular_price' | t -}}
+                    </span>
+                    <span class="price heading-color text-size">
+                      {{ money_price | money }}
+                    </span>
+                  </div>
+                {%- endif -%}
+              </div>
+            </label>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+{% elsif request.design_mode %}
+  {%- render 'editor-metafield-hint', id: 'custom_placement', source: 'custom.product_placement' -%}
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.main-product.blocks.custom_product.placement",
+  "tag": null,
+  "presets": [
+    {
+      "name": "t:sections.main-product.blocks.custom_product.placement"
+    }
+  ]
+}
+{% endschema %}

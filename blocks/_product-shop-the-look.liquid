@@ -1,0 +1,70 @@
+{%- liquid
+  assign metafield_path = block.settings.metafield | default: 'custom.shop_the_look' | strip
+  assign metafield_parts = metafield_path | split: '.'
+  assign metafield_namespace = metafield_parts[0] | default: 'custom'
+  assign metafield_key = metafield_parts[1] | default: 'shop_the_look'
+  assign metafield_list = closest.product.metafields[metafield_namespace][metafield_key]
+-%}
+{%- if closest.product != blank and metafield_list != blank -%}
+  {%- if block.settings.heading != blank -%}
+    <div class="inline-flex gap-sp-2 align-center text-size heading_weight">
+      {{ block.settings.heading }}
+    </div>
+    <div class="look">
+      <ul>
+        {%- assign index_look = 0 -%}
+        {% for item in metafield_list.value %}
+          {%- if item.image.value != blank and item.product.value != blank -%}
+            {%- liquid
+              assign media = item.image.value
+              assign card_product = item.product.value
+              assign image_alt = media.alt | default: closest.product.title | escape
+              assign index_look = index_look | plus: 1
+              if index_look == 1
+                assign ratio = media.aspect_ratio
+              endif
+            -%}
+            <li>
+              <a href="{{ card_product.url }}" style="--aspect-ratio: {{ ratio }};">
+                {% render 'responsive-image', type: 'banner', image: media, image_alt: image_alt %}
+              </a>
+              <span>{{ 'products.product.look_set' | t: index: index_look }}</span>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+{% elsif request.design_mode and closest.product != blank %}
+  {%- render 'editor-metafield-hint', id: 'shop_the_look', source: metafield_path -%}
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.all.product_setting.shop_the_look.name",
+  "class": "block-product__shop-the-look",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.all.product_setting.shop_the_look.description"
+    },
+    {
+      "type": "text",
+      "id": "metafield",
+      "label": "t:sections.all.metafield.shop_the_look.label",
+      "info": "t:sections.all.metafield.shop_the_look.info",
+      "default": "custom.shop_the_look"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.all.product_setting.shop_the_look.settings.heading.label",
+      "default": "Heading"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.all.product_setting.shop_the_look.name"
+    }
+  ]
+}
+{% endschema %}

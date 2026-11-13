@@ -1,0 +1,60 @@
+{%- liquid
+  assign block_st = block.settings
+  assign section_st = section.settings
+
+  if section_st.section_width == 'fix_width'
+    assign section_width = 'container'
+  elsif section_st.section_width == 'full_width'
+    assign section_width = 'full-width'
+  else
+    assign section_width = 'fluid_container'
+  endif
+  assign column_gap_slide = 0
+  if section_st.column_gap_block == 'large'
+    assign column_gap_slide = 32
+  elsif section_st.column_gap_block == 'medium'
+    assign column_gap_slide = 24
+  elsif section_st.column_gap_block == 'small'
+    assign column_gap_slide = 16
+  endif
+  assign no_gap = false
+  if column_gap_slide == 0
+    assign no_gap = true
+  endif
+-%}
+{% render 'collection-item',
+  card_collection: block_st.collection,
+  section: section,
+  block: block,
+  container: section_width,
+  column: section_st.items_per_row,
+  column_mobile: section_st.items_per_row_mobile,
+  padding: column_gap_slide,
+  no_gap: no_gap
+%}
+{% schema %}
+{
+  "name": "t:sections.collection-list.blocks.featured_collection.name",
+  "class": "collection-item swiper-slide",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:sections.collection-list.blocks.featured_collection.settings.collection.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image",
+      "label": "t:sections.collection-list.blocks.featured_collection.settings.image.label",
+      "info": "t:sections.collection-list.blocks.featured_collection.settings.image.info_highlight"
+    },
+    {
+      "type": "text",
+      "id": "collection_title",
+      "label": "t:sections.collection-list.blocks.featured_collection.settings.title.label",
+      "info": "t:sections.collection-list.blocks.featured_collection.settings.title.info"
+    }
+  ],
+  "presets": [{ "name": "t:sections.collection-list.blocks.featured_collection.name" }]
+}
+{% endschema %}

@@ -1,0 +1,4686 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "settings_schema": {
+    "layout": {
+      "name": "Asettelu",
+      "how_to_use": {
+        "label": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/theme-settings/layout)"
+      },
+      "settings": {
+        "page_width": {
+          "label": "Sivun leveys"
+        },
+        "site_style": {
+          "label": "Pyöristetyt kulmat",
+          "image": {
+            "label": "Kuva"
+          },
+          "button": {
+            "label": "Painikkeen kulman säde"
+          },
+          "input": {
+            "label": "Syötä kulman säde"
+          }
+        },
+        "select_preset": {
+          "label": "Valitse esiasetus",
+          "options__1": "Kosmetiikka",
+          "options__2": "Muoti",
+          "options__3": "Lemmikit"
+        }
+      },
+      "rtl_support": {
+        "header": "RTL-tuki",
+        "enable_rtl": "Ota RTL-tuki käyttöön",
+        "rtl_language": {
+          "label": "RTL-kielikoodi",
+          "info": "Määritä RTL-asettelua käyttävät kielet syöttämällä niiden ISO-koodit puolipisteillä erotettuina. Esimerkiksi: ar; fa; ku; pa; sd. Jos jätetään tyhjäksi, RTL-asettelu otetaan käyttöön kaikilla kielillä."
+        }
+      }
+    },
+    "logo_favicon": {
+      "name": "Logo ja suosikkikuvake",
+      "how_to_use": {
+        "label": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/theme-settings/logo-and-favicon)"
+      },
+      "settings": {
+        "favicon": {
+          "label": "Favicon"
+        },
+        "favicon_image": {
+          "label": "Suosikkikuva",
+          "info": "32 x 32 px .png suositeltu"
+        },
+        "logo": {
+          "label": "Logo",
+          "logo_on_transparent": {
+            "label": "Logo läpinäkyvässä otsikossa"
+          }
+        },
+        "logo_width": {
+          "label": "Logon leveys",
+          "info": "Logon leveys optimoidaan automaattisesti mobiililaitteille."
+        }
+      }
+    },
+    "customer_account": {
+      "how_to_use": {
+        "label": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/theme-settings/customer-account)"
+      },
+      "name": "Asiakastili",
+      "settings": {
+        "customer_account_menu": {
+          "label": "Valikko"
+        },
+        "open_as": {
+          "label": "Avaa nimellä",
+          "options": {
+            "popup": "Ponnahdusikkuna",
+            "link": "Linkki"
+          }
+        }
+      }
+    },
+    "colors": {
+      "name": "Värit",
+      "how_to_use": {
+        "label": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/theme-settings/colors)"
+      },
+      "settings": {
+        "palette_header": {
+          "label": "Paletti"
+        },
+        "palette_info": {
+          "label": "Määritä paletin värit, jotta niitä on helpompi käyttää eri teemassa"
+        },
+        "general_header": {
+          "label": "Yleistä"
+        },
+        "general_text": {
+          "label": "Teksti"
+        },
+        "general_heading": {
+          "label": "Otsikko"
+        },
+        "general_link": {
+          "label": "Linkki"
+        },
+        "general_border": {
+          "label": "Reuna"
+        },
+        "background_header": {
+          "label": "Tausta"
+        },
+        "background": {
+          "label": "Tausta"
+        },
+        "background_2": {
+          "label": "Tausta 2"
+        },
+        "background_gradient": {
+          "label": "Taustagradientti",
+          "info": "Taustagradientti korvaa taustan mahdollisuuksien mukaan."
+        },
+        "fill_button_header": {
+          "label": "Täyttöpainike"
+        },
+        "fill_button_background": {
+          "label": "Tausta"
+        },
+        "fill_button_text": {
+          "label": "Teksti"
+        },
+        "fill_button_background_hover": {
+          "label": "Hiippaus taustalla"
+        },
+        "fill_button_text_hover": {
+          "label": "Tekstin osoitin"
+        },
+        "outline_button_header": {
+          "label": "Outline-painike"
+        },
+        "outline_button_outline": {
+          "label": "Teksti"
+        },
+        "outline_button_outline_border": {
+          "label": "Reuna"
+        }
+      }
+    },
+    "typography": {
+      "name": "Typografia",
+      "how_to_use": {
+        "label": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)"
+      },
+      "settings": {
+        "font_weight": {
+          "default": "Oletus",
+          "inline": "Sisäinen",
+          "regular": "Tavallinen",
+          "medium": "Keskitaso"
+        },
+        "font_size": "Fonttikoko",
+        "body": {
+          "label": "Runko",
+          "font": {
+            "label": "Fontti",
+            "info": "Toisen fontin valitseminen voi vaikuttaa myymäläsi nopeuteen. [Lisätietoja järjestelmäfonteista.](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "base_size": "Peruskoko"
+        },
+        "heading": {
+          "label": "Otsikko",
+          "font": {
+            "label": "Fontti",
+            "info": "Toisen fontin valitseminen voi vaikuttaa myymäläsi nopeuteen. [Lisätietoja järjestelmäfonteista.](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "sub_heading": {
+            "sub_heading_weight": "Aliotsikon fontin paino"
+          },
+          "text_transform": {
+            "label": "Tekstin muunnos",
+            "unset": "Poista",
+            "capitalize": "Isolla kirjaimella",
+            "uppercase": "Isot kirjaimet"
+          },
+          "heading_letter_spacing": {
+            "label": "Kirjainten väli"
+          }
+        },
+        "menu": {
+          "label": "Valikko",
+          "font": {
+            "label": "Fontti",
+            "body_font": "Runko",
+            "heading_font": "Otsikko"
+          },
+          "uppercase": {
+            "label": "Isoilla kirjaimilla ensimmäinen taso"
+          }
+        },
+        "button": {
+          "label": "painike",
+          "font": {
+            "label": "Fontti",
+            "body_font": "Runko",
+            "heading_font": "Otsikko"
+          }
+        },
+        "text_preset": {
+          "header": "Tekstin esiasetukset",
+          "name": {
+            "heading_1": "Otsikko 1",
+            "heading_2": "Otsikko 2",
+            "heading_3": "Otsikko 3",
+            "heading_4": "Otsikko 4",
+            "heading_5": "Otsikko 5",
+            "heading_6": "Otsikko 6"
+          },
+          "settings": {
+            "size": {
+              "label": "Koko",
+              "18px": "18 kuvapistettä",
+              "20px": "20 kuvapistettä",
+              "22px": "22 kuvapistettä",
+              "24px": "24 kuvapistettä",
+              "26px": "26 kuvapistettä",
+              "30px": "30 kuvapistettä",
+              "36px": "36 kuvapistettä",
+              "40px": "40 kuvapistettä",
+              "46px": "46 kuvapistettä",
+              "50px": "50 kuvapistettä",
+              "56px": "56 kuvapistettä",
+              "60px": "60 kuvapistettä",
+              "80px": "80 kuvapistettä"
+            },
+            "line_height": {
+              "label": "Rivin korkeus",
+              "original": "Alkuperäinen",
+              "small": "Pieni",
+              "medium": "Keskitaso",
+              "large": "Suuri",
+              "x_large": "X-suuri"
+            }
+          }
+        }
+      }
+    },
+    "browser_tab_notifications": {
+      "name": "Selainvälilehden ilmoitukset",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/theme-settings/browser-tab-notifications)",
+      "settings": {
+        "notification_info": "Jätä tyhjäksi, jos haluat käyttää alkuperäistä sivusi otsikkoa",
+        "enable_browser_tab_notifications": {
+          "label": "Ota käyttöön"
+        },
+        "first_notification": {
+          "label": "Ensimmäinen ilmoitus"
+        },
+        "secondary_notification": {
+          "label": "Toissijainen ilmoitus"
+        }
+      }
+    },
+    "animation": {
+      "name": "Animaatio",
+      "how_to_use": {
+        "label": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/theme-settings/animation)"
+      },
+      "settings": {
+        "scroll_animation": {
+          "label": "Vieritä animaatio",
+          "options__1": {
+            "label": "Poista käytöstä"
+          },
+          "options__2": {
+            "label": "Vain työpöytä"
+          },
+          "options__3": {
+            "label": "Kaikki näytöt"
+          }
+        },
+        "enable_loading_page_effect": {
+          "heading": "Sivun latausvaikutus",
+          "label": "Ota tehoste käyttöön",
+          "loading": "Ladataan kuvake",
+          "info": "Suositeltu kuvan leveys 100 x 100 pikseliä"
+        },
+        "image_lazy_loading": {
+          "label": "Ota kuvan laiska lataus käyttöön"
+        },
+        "hover_effect": {
+          "label": "Hover-tehoste",
+          "info": "Vaikuttaa hover-kortteihin, kuten: tuote, banneri, kokoelma, blogi...",
+          "fade_in": "Hiihennys sisään",
+          "zoom": "Zoomaa"
+        }
+      }
+    },
+    "product": {
+      "name": "Tuotekortit",
+      "how_to_use": {
+        "label": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/theme-settings/product-cards)"
+      },
+      "settings": {
+        "enable_quickview": "Ota pikanäkymä käyttöön",
+        "enable_quickadd": "Ota nopea lisäys käyttöön",
+        "enable_color_swatches": "Ota käyttöön värimallit",
+        "show_tag": {
+          "hidden": "Piilotettu",
+          "desktop": "Vain työpöytä",
+          "all_devices": "Kaikki näytöt"
+        },
+        "show_scrolling_text": "Näytä vierivä teksti",
+        "show_rate": {
+          "label": "Näytä hinta",
+          "info": "Näytä arvio lisäämällä tuotearviointisovellus. [Lisätietoja](https://help.shopify.com/en/manual/products/product-reviews/installation)"
+        },
+        "alignment": {
+          "label": "Tasaus",
+          "left": "Vasen",
+          "center": "Keski"
+        },
+        "product_image": {
+          "label": "Tuotekuva"
+        },
+        "show_image_hover": {
+          "label": "Näytä toissijainen kuva"
+        },
+        "show_video_featured": {
+          "label": "Toista video hiirellä",
+          "info": "Toimii vain MP4-videoiden kanssa."
+        },
+        "product_image_ratio": {
+          "label": "Kuvasuhde",
+          "adapt_to_image": "Sopeuta kuvaan",
+          "square": "Neliö (1:1)",
+          "portrait": "Pysty (3:4)",
+          "landscape": "Maisema (4:3)"
+        },
+        "mobile_options": {
+          "label": "Mobiiliasetukset"
+        },
+        "show_quick_add_mobile": {
+          "label": "Näytä pikalisäyspainike mobiililaitteella"
+        },
+        "highlights_scrolling_text_metafield": {
+          "label": "Vierittävä teksti Metakenttä",
+          "info": "Tuotteen metakenttä. Näkyy juoksevana tekstinä tuotekorteissa. Format: namespace.key. Default: custom.highlights_scrolling_text."
+        }
+      }
+    },
+    "badges": {
+      "name": "Tunnusmerkit",
+      "how_to_use": {
+        "label": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/theme-settings/badges)"
+      },
+      "settings": {
+        "badge_color": {
+          "label": "Tekstin väri"
+        },
+        "show_badge": {
+          "label": "Näytä merkki"
+        },
+        "background_color": {
+          "label": "Taustaväri"
+        },
+        "sale": {
+          "label": "Ale",
+          "format": {
+            "label": "Muoto",
+            "text": "Teksti",
+            "percentage": "Prosentti",
+            "fixed": "Kiinteä summa"
+          }
+        },
+        "new": {
+          "label": "Uusi",
+          "new_badge_display_period": {
+            "label": "Uusi tunnuksen näyttöjakso",
+            "info": "Valitse, kuinka kauan tuotteisiin merkitään \"Uusi\" niiden luomispäivästä lähtien."
+          }
+        },
+        "sold_out": {
+          "label": " Loppuunmyyty"
+        },
+        "custom_badge": {
+          "label": "Muokattu merkki",
+          "info": "Noudata asiakirjaa nähdäksesi [miten määrität mukautetun tunnuksen](https://nextsky.gitbook.io/purity-theme/theme-settings/badges#id-5.-custom-badge)"
+        }
+      }
+    },
+    "color_swatches": {
+      "name": "Värimallit",
+      "how_to_use": {
+        "label": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/theme-settings/color-swatch)"
+      },
+      "settings": {
+        "hide_sold_out_variant": {
+          "label": "Piilota loppuunmyytyjä versioita"
+        },
+        "show_sale_in_variant_swatch": {
+          "label": "Näytä alennus eri versioina"
+        },
+        "color_limit": {
+          "label": "Näytettävien väritilkkujen enimmäismäärä"
+        },
+        "color_swatch_trigger": {
+          "label": "Värimallin liipaisin",
+          "info": "Määritä värivaihtoehdon nimi. Erottele pilkulla. Esim. Väri, väri"
+        },
+        "color_swatch_type": {
+          "label": "Swatch-tyyppi",
+          "options__1": {
+            "label": "Varianttikuva"
+          },
+          "options__2": {
+            "label": "Väri"
+          }
+        },
+        "color_swatch_shape": {
+          "label": "Värimuoto",
+          "options__1": {
+            "label": "Pyöreä"
+          },
+          "options__2": {
+            "label": "Neliö"
+          }
+        },
+        "color_swatch_custom": {
+          "label": "Mukautetut värit",
+          "info": "Kelvollinen muoto: mysli: #ddd5bc tai mysli: image.png pilkulla erotettuna"
+        }
+      }
+    },
+    "cart": {
+      "name": "Oskuri",
+      "how_to_use": {
+        "label": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/theme-settings/cart)"
+      },
+      "settings": {
+        "cart_action_desktop": {
+          "label": "Toiminto ostoskorin lisäämisen jälkeen työpöydällä",
+          "drawer": "Laatikko",
+          "page": "Sivu"
+        },
+        "cart_mobile": {
+          "label": "Mobiiliasetukset",
+          "action": {
+            "label": "Toiminto ostoskorin lisäämisen jälkeen",
+            "info": "Valitse, mitä tapahtuu sen jälkeen, kun asiakas lisää tuotteen ostoskoriin mobiililaitteella.",
+            "option_1": "Avaa minikärry",
+            "option_2": "Ilmoita viesti",
+            "option_3": "Avaa ostoskori kerran, ilmoita myöhemmin"
+          },
+          "open_cart": {
+            "label": "Avaa ostoskori nimellä",
+            "info": "Valitse, miten ostoskori avautuu napauttamalla ostoskorikuvaketta otsikossa ja mobiilinavigointipalkissa.",
+            "option_1": "Laatikko",
+            "option_2": "Ponnahdusikkuna"
+          }
+        },
+        "free_shipping": {
+          "label": "Ilmainen toimitusviesti",
+          "paragraph": "Varmista, että olet määrittänyt [toimitushinnat.](/admin/settings/shipping) oikein.",
+          "message": {
+            "label": "Viesti",
+            "info": "Käytä [summa] seurataksesi edistymistäsi kohti ilmaista toimitusta."
+          },
+          "minimum_amount": {
+            "label": "Ilmainen toimitus vähimmäissumma",
+            "info": "Käytä pyöreitä numeroita. Sulje pois valuutat, symbolit ja kirjaimet."
+          }
+        },
+        "term_and_conditions": {
+          "label": "Käyttöehdot",
+          "enable": "Näytä valintaruutu minikärryssä ja ostoskorisivulla.",
+          "text": "Teksti"
+        },
+        "cart_count_down": {
+          "label": "Osakorin laskuri",
+          "show_duration": {
+            "label": "Näytä minikärryssä ja ostoskorisivulla"
+          },
+          "duration": {
+            "label": "Kesto"
+          }
+        },
+        "product_recommendations": {
+          "label": "Tuotesuositukset",
+          "heading": "Otsikko",
+          "enable_product_recommendations": "Ota käyttöön tuotesuositukset",
+          "enable_product_recommendations_info": "Tuotesuositukset näkyvät minikärry- ja ostoskorisivulla.",
+          "recommendation_product_type": {
+            "label": "Tuotesuositustyyppi",
+            "auto": "Automaattinen",
+            "selected": "Valittu"
+          },
+          "select_product_recommendation": "Tuote",
+          "show_on_mobile": {
+            "label": "Näytä mobiililaitteella"
+          }
+        },
+        "gift_wrap": {
+          "label": "Tuotteen lahjapakkaus",
+          "select_product_gift_wrap": {
+            "label": "Tuote",
+            "info": "Toimii vain tuotteiden kanssa, joissa ei ole muunnelmia."
+          }
+        },
+        "empty": {
+          "label": "Tyhjän ostoskorin asetukset",
+          "heading": "Otsikko",
+          "description": "Kuvaus",
+          "collection": {
+            "label": "Kokoelmaluettelo",
+            "info": "Kokoelmat näyttävät esittelykuvansa oletuksena. Käytä metakenttää kuvan ja tekstin vaihtamiseen. Lue lisää"
+          },
+          "button_text": "Painikkeen otsikko",
+          "button_link": {
+            "label": "Painikelinkki",
+            "info": "Oletus on Kokoelma kaikki -sivu"
+          },
+          "free_shipping": {
+            "label": "Ilmainen toimitusviesti"
+          },
+          "empty_cart_layout": {
+            "label": "Tyhjän ostoskorin asettelu",
+            "option_1": "Lista",
+            "option_2": "Ruudukko"
+          },
+          "collection_metafield": {
+            "label": "Tyhjän korin kokoelma Metakenttä",
+            "info": "Kokoelman metakenttä. (metaobjekti) tyhjän korin kuvalle ja kuvaukselle. Format: namespace.key. Default: custom.collection_empty. Fields: collection_image, collection_description."
+          }
+        },
+        "discount_progress_bar": {
+          "label": "Alennuksen edistymispalkki",
+          "paragraph": "Näytä enintään 3 ostamisen virstanpylvästä ostoskorissa. Varmista, että vastaava alennuskoodi tai automaattinen alennus on luotu [Shopify-hallinnassa.](/admin/discounts)",
+          "currency_info": "Syötä virstanpylväiden summat kaupan oletusvaluutassa. Ne muunnetaan automaattisesti paikallisille valuutoille.",
+          "enable": {
+            "label": "Ota alennuksen edistymispalkki käyttöön",
+            "info": "Kun tämä on käytössä, se korvaa yllä olevan yksittäisen ilmaisen toimituksen palkin ostoskorilaatikossa ja ostoskorisivulla."
+          },
+          "milestone_1": {
+            "label": "Virstanpylväs 1"
+          },
+          "milestone_2": {
+            "label": "Virstanpylväs 2"
+          },
+          "milestone_3": {
+            "label": "Virstanpylväs 3"
+          },
+          "milestone": {
+            "amount": {
+              "label": "Kynnys",
+              "info": "Käytä pyöreitä lukuja ilman valuuttasymboleita tai kirjaimia."
+            },
+            "label_text": {
+              "label": "Nimike"
+            },
+            "icon": {
+              "label": "Kuvake",
+              "option_none": "Ei mitään",
+              "option_tag": "Tunniste",
+              "option_truck": "Kuorma-auto",
+              "option_box": "Laatikko"
+            }
+          },
+          "message": {
+            "text": {
+              "label": "Edistymisviesti",
+              "info": "Käytä [amount]- ja [label]-paikkamerkkejä näyttääksesi jäljellä olevan summan ja seuraavan palkinnon nimikkeen."
+            },
+            "success": {
+              "label": "Viesti kaikkien virstanpylväiden saavuttamisesta"
+            }
+          }
+        }
+      }
+    },
+    "search": {
+      "name": "Hakukäyttäytyminen",
+      "how_to_use": {
+        "label": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/theme-settings/search-behavior)"
+      },
+      "settings": {
+        "type": {
+          "label": "Tyyppi",
+          "info": "Laatikko on oletusasettelu mobiililaitteella.",
+          "option_1": "Ponnahdusikkuna",
+          "option_2": "Laatikko",
+          "option_3": "Hakupalkki"
+        },
+        "search_placeholder": {
+          "label": "Haun paikkamerkki"
+        },
+        "speech_search": {
+          "label": "Puhehaku",
+          "enable": {
+            "label": "Ota puhehaku käyttöön"
+          }
+        },
+        "search_results": {
+          "label": "Näytä tulokset",
+          "option_1": "Oletus",
+          "option_2": "Välilehti"
+        },
+        "recommendations": {
+          "popular_keywords": {
+            "label": "Suosittu haku",
+            "info": "Suosittele myymäläsi suosittuja avainsanoja asiakkaille. Esimerkiksi: t-paita, mekko, musta."
+          },
+          "products_recommended": {
+            "label": "Tuotesuositus",
+            "info": "Valitse tuote, jota haluat suositella asiakkaille."
+          },
+          "collections_recommended": {
+            "label": "Kokoelmien suositus"
+          }
+        },
+        "results": {
+          "label": "Hakutulokset"
+        },
+        "predictive_search": {
+          "label": "Ota ennakoiva haku käyttöön",
+          "info": "Reaaliaikaiset hakutulokset. Ei saatavilla kaikilla kielillä. [Lisätietoja](https://shopify.dev/themes/navigation-search/search/predictive-search#general-requirements-and-limitations)"
+        },
+        "show_search_history": {
+          "label": "Näytä hakuhistoria"
+        },
+        "show_price": {
+          "label": "Näytä tuotteen hinta"
+        }
+      }
+    },
+    "social_media": {
+      "name": "Sosiaalinen media",
+      "how_to_use": {
+        "label": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/theme-settings/social-media)"
+      },
+      "settings": {
+        "social_account": {
+          "label": "Sosiaaliset tilit",
+          "facebook": {
+            "label": "Facebook",
+            "info": "https://facebook.com/shopify"
+          },
+          "instagram": {
+            "label": "Instagram",
+            "info": "http://instagram.com/shopify"
+          },
+          "twitter": {
+            "label": "Twitter",
+            "info": "https://twitter.com/shopify"
+          },
+          "tiktok": {
+            "label": "Tiktok",
+            "info": "https://tiktok.com/@shopify"
+          },
+          "pinterest": {
+            "label": "Pinterest",
+            "info": "https://pinterest.com/shopify"
+          },
+          "youtube": {
+            "label": "YouTube",
+            "info": "https://www.youtube.com/shopify"
+          },
+          "vimeo": {
+            "label": "Vimeo",
+            "info": "https://vimeo.com/shopify"
+          },
+          "linkedin": {
+            "label": "LinkedIn",
+            "info": "https://linkedin.com/company/shopify"
+          },
+          "whatsapp": {
+            "label": "WhatsApp",
+            "info": "https://www.whatsapp.com/shopify"
+          },
+          "snapchat": {
+            "label": "Snapchat",
+            "info": "https://www.snapchat.com/add/shopify"
+          }
+        },
+        "sharing_options": {
+          "label": "Jakamisasetukset",
+          "facebook": {
+            "label": "Jaa Facebookissa"
+          },
+          "pinterest": {
+            "label": "Jaa Pinterestiin"
+          },
+          "twitter": {
+            "label": "Jaa Twitteriin"
+          },
+          "whatsapp": {
+            "label": "Jaa WhatsAppiin"
+          },
+          "email": {
+            "label": "Jaa sähköpostiin"
+          }
+        }
+      }
+    },
+    "currency": {
+      "name": "Valuutan muoto",
+      "how_to_use": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/theme-settings/currency-format)",
+      "settings": {
+        "code": {
+          "label": "Valuuttakoodit",
+          "show_code": {
+            "label": "Näytä valuuttakoodit",
+            "info": "Osa- ja kassahinnat näyttävät aina valuuttakoodit. Esimerkki: $1.00 USD."
+          }
+        }
+      }
+    },
+    "script_tracking": {
+      "name": "Seuranta ja oivallukset",
+      "settings": {
+        "how_to_use": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/theme-settings/tracking-and-insights)",
+        "scripts_tracking": {
+          "label": "Koodinpätkä",
+          "info": "Lisää koodinpätkä seurantaa ja oivalluksia varten"
+        },
+        "appended_scripts": {
+          "label": "Sijainti liitetty",
+          "body": "Rungon tunniste",
+          "head": "Head-tunniste"
+        }
+      }
+    }
+  },
+  "content": {
+    "manage_customer_accounts": "[Hallitse näkyvyyttä](/admin/settings/customer_accounts) asiakastilin asetuksissa. Vanhoja tilejä ei tueta."
+  },
+  "sections": {
+    "all": {
+      "general": "Yleistä",
+      "layout": {
+        "label": "Leikkauksen leveys",
+        "fix_width": "Kiinteä leveys",
+        "stretch_width": "Venytysleveys",
+        "full_width": "Täysi leveys"
+      },
+      "colors": {
+        "label": "Värimalli",
+        "info": "Voit muokata kaikkia teemasi värejä siirtymällä [väriteema-asetuksiin] (/editor?context=theme&category=colors). Varmista selkeä tekstikontrasti parantaaksesi käyttökokemusta."
+      },
+      "desktop_content_position": {
+        "label": "Työpöydän sisällön sijainti",
+        "info": "Sijainti optimoidaan automaattisesti mobiililaitteille.",
+        "info_2": "Sisältö ensin on oletusmobiiliasettelu.",
+        "group": {
+          "top": {
+            "label": "Yläosa"
+          },
+          "middle": {
+            "label": "Keski"
+          },
+          "bottom": {
+            "label": "Alhaalla"
+          }
+        },
+        "options__1": {
+          "label": "Ylävasen"
+        },
+        "options__2": {
+          "label": "Ylempänä keskellä"
+        },
+        "options__3": {
+          "label": "Oikea yläkulma"
+        },
+        "options__4": {
+          "label": "Keskivasemmalla"
+        },
+        "options__5": {
+          "label": "Keskikeskus"
+        },
+        "options__6": {
+          "label": "Oikea keskellä"
+        },
+        "options__7": {
+          "label": "Alhaalla vasemmalla"
+        },
+        "options__8": {
+          "label": "Alhaalla keskellä"
+        },
+        "options__9": {
+          "label": "Alhaalla oikealla"
+        }
+      },
+      "padding": {
+        "section_padding_heading": "Osion pehmuste",
+        "padding_inline": {
+          "label": "Sisäinen täyte",
+          "info": "Inline-täyte optimoidaan automaattisesti mobiililaitteille."
+        },
+        "padding_block": {
+          "label": "Täytepala",
+          "info": "Täyte on optimoitu automaattisesti mobiililaitteille."
+        },
+        "padding_top": "Yläosa",
+        "padding_bottom": "Alhaalla",
+        "spacing_bottom": "Välitön alareunassa",
+        "image_spacing": "Kuvavälit",
+        "space_between": "Väliväli",
+        "column_gap": {
+          "label": "Sarakeväli",
+          "no_gap": "Ei aukkoa",
+          "small": "Pieni",
+          "medium": "Keskitaso",
+          "large": "Suuri",
+          "x_large": "X-suuri"
+        }
+      },
+      "space_between": {
+        "label": "Välilyönti kohteiden välillä"
+      },
+      "width": {
+        "label": "Leveys",
+        "fill": "Täytä",
+        "fit": "Sopii"
+      },
+      "columns": {
+        "label": "Sarakkeiden lukumäärä"
+      },
+      "items_to_show": {
+        "label": "Näytettävien tuotteiden enimmäismäärä"
+      },
+      "product_to_show": {
+        "label": "Näytettävien tuotteiden enimmäismäärä"
+      },
+      "text_alignment": {
+        "label": "Sisällön kohdistus",
+        "alignment": "Tasaus",
+        "options__1": {
+          "label": "Vasen"
+        },
+        "options__2": {
+          "label": "Keski"
+        },
+        "options__3": {
+          "label": "Oikein"
+        }
+      },
+      "content": {
+        "label": "Sisältö"
+      },
+      "text": {
+        "label": "Teksti"
+      },
+      "content_position": {
+        "label": "Sisällön sijainti",
+        "options__1": {
+          "label": "Peittokuva",
+          "top": "Yläosa",
+          "middle": "Keski",
+          "bottom": "Alhaalla",
+          "text_above_button": "Teksti yllä -painike"
+        },
+        "options__2": {
+          "label": "Kuvan alla"
+        }
+      },
+      "section_setting": {
+        "page_heading": {
+          "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "description": {
+            "label": "Sisältö"
+          },
+          "heading": {
+            "label": "Otsikko"
+          },
+          "breadcrumb": {
+            "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/breadcrumb)",
+            "label": "Merkkimurska"
+          }
+        },
+        "enable_rounded_style": {
+          "label": "Ota pyöristetty tyyli käyttöön"
+        }
+      },
+      "content_setting": {
+        "label": "Sisältöasetukset",
+        "image": {
+          "label": "Kuva"
+        },
+        "subheading": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "Aliotsikko",
+          "info": "Erota jokainen tekstikohde pystypalkilla (|), jotta kohteiden välissä näkyy piste."
+        },
+        "highlight_text": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/highlight-text)",
+          "label": "Korosta tekstiä",
+          "settings": {
+            "icons": {
+              "label": "Valitse kuvake",
+              "options__1": {
+                "label": "Ei mitään"
+              },
+              "options__2": {
+                "label": "Tähti"
+              },
+              "options__3": {
+                "label": "Piste"
+              }
+            }
+          }
+        },
+        "heading": {
+          "label": "Otsikko",
+          "info": "Lisää alleviivaus rivittämällä teksti kursiivilla. Käytä kursivoitu (I) -painiketta editorissa ottaaksesi sen käyttöön."
+        },
+        "heading_highlight": {
+          "label": "Otsikon korostusteksti",
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading-highlight-text)"
+        },
+        "detail_list": {
+          "label": "Yksityiskohtainen luettelo",
+          "detail_row": {
+            "label": "Yksityiskohtarivi",
+            "row_title": "Rivin otsikko",
+            "row_details": "Rivin tiedot"
+          },
+          "layout": {
+            "label": "Asettelu",
+            "specifications": "Tekniset tiedot",
+            "information_cards": "Infokortit"
+          }
+        },
+        "description": {
+          "label": "Kuvaus",
+          "hide_on_mobile": {
+            "label": "Piilota kuvaus mobiililaitteella"
+          },
+          "description": "Näytä tuotekuvaus. Käyttää lyhyen kuvauksen metakenttää, jos se on saatavilla, muussa tapauksessa palaa oletustuotteen kuvaukseen. Saat lisätietoja vierailemalla [tukisivullamme](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-7.-description)."
+        },
+        "content": "Sisältö",
+        "button_label": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "Painikkeen otsikko",
+          "info": "Jätä otsikko tyhjäksi piilottaaksesi painikkeen."
+        },
+        "button_label-block": {
+          "name": "Etiketti",
+          "label": "painike"
+        },
+        "link": {
+          "label": "Linkki",
+          "info": "Huomaa: Tämä linkkiasetus toimii vain kuville, ei videoille."
+        },
+        "first_button_label": {
+          "name": "Ensimmäinen painike",
+          "label": "Painikkeen otsikko",
+          "link": "Painikelinkki"
+        },
+        "second_button_label": {
+          "name": "Toinen painike",
+          "label": "Painikkeen otsikko",
+          "link": "Painikelinkki"
+        },
+        "button_type": {
+          "label": "Tyyppi",
+          "primary": {
+            "label": "Ensisijainen"
+          },
+          "outline": {
+            "label": "Ääriviiva"
+          },
+          "link": {
+            "label": "Linkki"
+          }
+        },
+        "show_view_all_button": {
+          "label": "Näytä Näytä kaikki -painike",
+          "label_text": "Painikkeen otsikko",
+          "default_text": "Näytä kaikki tuotteet",
+          "default": "Näytä kaikki"
+        },
+        "open_link_in_new_tab": {
+          "label": "Avaa linkki uudessa välilehdessä"
+        },
+        "drawn_underline": {
+          "label": "Ota käyttöön otsikon alleviivausanimaatio",
+          "type": "Alleviivauksen tyyli",
+          "value": {
+            "simple_underline": "Yksinkertainen alleviivaus",
+            "curve_underline": "Kaariviiva",
+            "squiggle_underline": "Alleviivaus"
+          },
+          "color": "Alleviivauksen väri"
+        },
+        "metrics": {
+          "label": "Mittarit",
+          "item": {
+            "label": "Mittarikohde",
+            "value": "Arvo",
+            "description": "Nimike"
+          }
+        },
+        "citation": {
+          "label": "Lainaus"
+        },
+        "heading_block_highlight": {
+          "label": "Ota otsikon korostus käyttöön",
+          "info": "Lisää korostus laittamalla teksti kursiiviksi. Käytä editorin Kursiivi (I) -painiketta.",
+          "type": "Korostustyyli",
+          "text_highlight": "Tekstikorostus",
+          "color": "Korostusväri"
+        }
+      },
+      "content_header": {
+        "label": "Osion otsikko",
+        "heading_size": {
+          "label": "Otsikon koko",
+          "size": "Koko",
+          "xs_small": {
+            "label": "XS-Pieni"
+          },
+          "x_small": {
+            "label": "X-SMALL"
+          },
+          "small": {
+            "label": "Pieni"
+          },
+          "large": {
+            "label": "Suuri"
+          },
+          "x_large": {
+            "label": "X-suuri"
+          },
+          "base": {
+            "label": "Peruskoko"
+          },
+          "options__1": {
+            "label": "Otsikko 1"
+          },
+          "options__2": {
+            "label": "Otsikko 2"
+          },
+          "options__3": {
+            "label": "Otsikko 3"
+          },
+          "options__4": {
+            "label": "Otsikko 4"
+          },
+          "options__5": {
+            "label": "Otsikko 5"
+          },
+          "options__7": {
+            "label": "Otsikko 7"
+          },
+          "options__0": {
+            "label": "Otsikko 0"
+          }
+        }
+      },
+      "blog_setting": {
+        "show_category": "Näytä luokka",
+        "show_tags": "Näytä tunnisteet",
+        "show_date": "Näytä päivämäärä",
+        "show_author": "Näytä kirjoittaja",
+        "show_excerpt": "Näytä otteita"
+      },
+      "media": {
+        "label": "Tyyppi"
+      },
+      "image": {
+        "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/image)",
+        "label": "Kuva",
+        "image_setting": "Kuva-asetukset",
+        "width": "Kuvan leveys",
+        "info_width": "Kuva optimoidaan automaattisesti mobiililaitteille.",
+        "mobile_image": "Mobiilikuva",
+        "mobile_image_width": "Mobiilikuvan leveys",
+        "aspect_ratio": {
+          "label": "Kuvasuhde",
+          "label_mb": "Kuvasuhde mobiililaitteella",
+          "label_video": "Videosuhde",
+          "options__1": "Neliö (1:1)",
+          "options__2": "Pysty (3:4)",
+          "options__3": "Maisema (4:3)",
+          "options__4": "Sama kuin työpöytä",
+          "adapt": "Sopeuta kuvaan"
+        },
+        "desktop_position": {
+          "label": "Työpöydän kuvan sijainti",
+          "top": "Yläosa",
+          "right": "Oikein",
+          "bottom": "Alhaalla",
+          "left": "Vasen",
+          "info": "Kuva näkyy tekstin yläpuolella mobiililaitteella."
+        },
+        "desktop_image_width": {
+          "label": "Työpöydän kuvan leveys"
+        }
+      },
+      "video": {
+        "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)",
+        "label": "Video",
+        "info": "Ohittaa kuva-asetuksen",
+        "settings": {
+          "source": {
+            "label": "Lähde",
+            "uploaded_video": {
+              "label": "Paikallinen video"
+            },
+            "external_link": {
+              "label": "Ulkoinen videolinkki"
+            }
+          }
+        },
+        "width": "Videon leveys",
+        "width_unit_type": {
+          "label": "Leveysyksikön tyyppi",
+          "options": {
+            "percent": {
+              "label": "Prosentti (%)"
+            },
+            "px": {
+              "label": "pikseliä (pikseliä)"
+            }
+          }
+        }
+      },
+      "video_mobile": {
+        "label": "Video-mobiili"
+      },
+      "svg": {
+        "label": "Svg-kuvake",
+        "custom_svg": {
+          "label": "Muokattu svg",
+          "info": "Ohittaa kuva-asetuksen."
+        }
+      },
+      "icon": {
+        "none": {
+          "label": "Ei mitään"
+        },
+        "cruelty": {
+          "label": "Julmuus"
+        },
+        "paraben": {
+          "label": "Parabeeni"
+        },
+        "privacy-protection": {
+          "label": "Yksityisyyden suojaus"
+        },
+        "secure-shopping": {
+          "label": "Turvallinen ostos"
+        },
+        "guarantee": {
+          "label": "Takuu"
+        },
+        "account": {
+          "label": "Tili"
+        },
+        "leaf": {
+          "label": "Lehti"
+        },
+        "moon": {
+          "label": "Kuu"
+        },
+        "hive": {
+          "label": "Pesä"
+        },
+        "comb": {
+          "label": "kampa"
+        },
+        "free_shipping": {
+          "label": "Ilmainen toimitus"
+        },
+        "check_badge": {
+          "label": "Sekkin merkki"
+        },
+        "message_communications": {
+          "label": "Viestiviestintä"
+        },
+        "circular-text": {
+          "label": "Pyöreä teksti"
+        },
+        "beauty": {
+          "label": "Kasvot"
+        },
+        "line": {
+          "label": "Linja"
+        },
+        "droplet": {
+          "label": "Pisara"
+        },
+        "smooth": {
+          "label": "Sileä"
+        },
+        "shield": {
+          "label": "Silpi"
+        },
+        "balloon": {
+          "label": "Ilmapallo"
+        },
+        "brightening": {
+          "label": "Kirkastava"
+        },
+        "hydration": {
+          "label": "Nesteytys"
+        },
+        "coptic_cross": {
+          "label": "koptilainen risti"
+        },
+        "coil": {
+          "label": "Kela"
+        },
+        "verified": {
+          "label": "Vahvistettu"
+        },
+        "security": {
+          "label": "Turvallisuus"
+        },
+        "package": {
+          "label": "Paketti"
+        },
+        "cat": {
+          "label": "Kissa"
+        }
+      },
+      "carousel": {
+        "header": "Karuselliasetukset",
+        "enable_carousel": {
+          "label": "Ota karuselli käyttöön",
+          "description": "Karuselli näkyy vain, kun kokoelmien kokonaismäärä on suurempi kuin työpöydän rivikohtaiset kohteet."
+        },
+        "show_navigation": {
+          "label": "Näytä navigointi"
+        },
+        "show_pagination": {
+          "label": "Näytä sivutus",
+          "info": "Sivutus näkyy automaattisesti mobiililaitteella, jos näytät kohteiden lukumäärän mobiililaitteella 1 tai 2",
+          "info_single": "Sivutus näkyy automaattisesti mobiililaitteella.",
+          "type": {
+            "label": "Sivutyyli",
+            "progress_bar": "Edistymispalkki",
+            "dot": "Pisteet"
+          }
+        },
+        "reveal_slide": {
+          "label": "Näytä seuraava dia",
+          "info": "Näytä osa tulevasta diasta."
+        },
+        "enable_carousel_mobile": {
+          "label": "Ota karuselli käyttöön mobiililaitteella"
+        },
+        "change_slide_every": "Vaihda dioja aina",
+        "slide_auto_change": "Vaihda dia automaattisesti"
+      },
+      "mobile_options": {
+        "label": "Mobiiliasetukset",
+        "mobile_layout": {
+          "label": "Mobiiliasettelu",
+          "show_text_bellow": {
+            "label": "Näytä teksti alla mobiililaitteella",
+            "info": "Teksti näkyy kuvan alla mobiililaitteella."
+          },
+          "hidden_description_on_mobile": {
+            "label": "Piilota kuvaus mobiililaitteella"
+          }
+        }
+      },
+      "items": {
+        "items_per_row": "Tuotteita riviä kohden",
+        "items_per_row_mobile": "Tuotteita riviä kohden mobiililaitteella"
+      },
+      "columns_desktop": {
+        "label": "Kohteita riviä kohden työpöydällä"
+      },
+      "newsletter_setting": {
+        "email_placeholder": "Sähköpostin paikkamerkki",
+        "button_label": "Painikkeen otsikko"
+      },
+      "pagination_type": {
+        "label": "Sivutustyyppi",
+        "options__1": {
+          "label": "Sivunumero"
+        },
+        "options__2": {
+          "label": "Lataa lisää -painike"
+        },
+        "options__3": {
+          "label": "Ääretön vieritys"
+        }
+      },
+      "product_setting": {
+        "badges": {
+          "name": "Tunnusmerkit"
+        },
+        "notify": {
+          "name": "Ilmoita tuotteen varastosta"
+        },
+        "live_view": {
+          "name": "Suora näkymä",
+          "settings": {
+            "min_number": "Miniminumero",
+            "max_number": "Maksimimäärä",
+            "interval_time": "Väliaika",
+            "content": "Sisältö",
+            "show_icon_eye": {
+              "label": "Näytä kuvake"
+            }
+          },
+          "info": "Simuloi tuotetoimintaa näyttämällä live-katselukerrat, mikä auttaa lisäämään kiireellisyyttä, sosiaalista näyttöä ja tulosprosentteja."
+        },
+        "shop_the_look": {
+          "name": "Osta ulkoasu",
+          "settings": {
+            "heading": {
+              "label": "Otsikko"
+            }
+          },
+          "description": "Ehdota aiheeseen liittyviä tuotteita täydentääksesi ulkoasua. Saat lisätietoja vierailemalla [tukisivullamme](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)"
+        },
+        "stock_countdown": {
+          "name": "Varastojen lähtölaskenta",
+          "settings": {
+            "message": {
+              "label": "Viesti",
+              "info": "Käytä lyhytkoodia [count] näyttääksesi jäljellä olevan varastossa olevien tuotteiden määrän. Voit poistaa tai laittaa tämän lyhytkoodin mihin tahansa"
+            },
+            "stock_items": {
+              "label": "Varastotuotteet",
+              "info": "Näytä, kun alle (X) tuotetta on varastossa"
+            }
+          }
+        },
+        "product_meta": {
+          "name": "Tuotteen meta",
+          "settings": {
+            "show_sku": {
+              "label": "Näytä SKU"
+            },
+            "show_collections": {
+              "label": "Näytä kokoelmat"
+            },
+            "show_tags": {
+              "label": "Näytä tunnisteet"
+            },
+            "show_type": {
+              "label": "Näytä tyyppi"
+            }
+          }
+        },
+        "collapsible_row": {
+          "name": "Haitaririvi",
+          "settings": {
+            "info": "Sisällytä otsikko, joka selittää sisällön.",
+            "content": "Rivisisältö",
+            "content_page": "Rivi sisältö sivulta"
+          }
+        },
+        "accordion_row_drawer": {
+          "name": "Haitaririvilaatikko",
+          "settings": {
+            "info": "Sisällytä otsikko, joka selittää sisällön.",
+            "content": "Rivisisältö",
+            "content_page": "Rivi sisältö sivulta"
+          }
+        },
+        "model_size": {
+          "name": "Mallin koko",
+          "settings": {
+            "paragraph": {
+              "content": "Katso mallin koko, pituus, paino ja mitat. [Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)"
+            }
+          }
+        },
+        "title": {
+          "name": "Tuotteen nimi"
+        },
+        "price": {
+          "name": "Hinta"
+        },
+        "rating": {
+          "name": "Tuotteen luokitus"
+        },
+        "variant_picker": {
+          "name": "Varianttien poimija",
+          "settings": {
+            "picker_type": {
+              "label": "Tyyppi",
+              "options__1": {
+                "label": "pudotusvalikko"
+              },
+              "options__2": {
+                "label": "Pillerit"
+              }
+            },
+            "size_guide": {
+              "heading": "Kokotaulukko",
+              "info": "Hanki kokotaulukon tiedot valitulta sivulta.",
+              "settings": {
+                "size_trigger": {
+                  "label": "Koon liipaisin",
+                  "info": "Määritä kokovaihtoehdon nimi. Erottele pilkulla. Esim. Koko, Misurare"
+                },
+                "show_size_guide": "Näytä kokotaulukko",
+                "size_guide_label": "Kokotaulukon etiketti",
+                "size_guide_page": "Kokokaaviosivu",
+                "footer_content": "Alatunnisteen sisältö",
+                "custom_size_guide": {
+                  "label": "Mukautettu kokotaulukko",
+                  "info__1": "Tiettyjen kokotaulukoiden käyttäminen jokaiselle kokoelmalle tai tuotteelle.",
+                  "info__2": "Jos haluat käyttää mukautettuja kokotaulukoita tuotteelle tai kokoelmalle, luo metakenttä nimiavaruudella ja avaimella: \"custom.size_chart\".[Lisätietoja](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/size-chart)"
+                }
+              }
+            }
+          }
+        },
+        "buy_buttons": {
+          "name": "Osta-painikkeet",
+          "settings": {
+            "show_dynamic_checkout": {
+              "label": "Näytä dynaamiset kassapainikkeet",
+              "info": "Käyttämällä kaupassasi saatavilla olevia maksutapoja asiakkaat näkevät haluamansa vaihtoehdon, kuten PayPalin tai Apple Payn. [Lisätietoja](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+            },
+            "show_gift_card_recipient": {
+              "label": "Näytä lahjakorttien vastaanottajan tietolomake",
+              "info": "Ostajat voivat lähettää lahjakortteja sovittuna päivänä henkilökohtaisen viestin mukana. [Lisätietoja](https://help.shopify.com/manual/online-store/themes/customizing-themes/add-gift-card-recipient-fields)"
+            }
+          }
+        },
+        "subscription_widget": {
+          "name": "Tilaus-widget",
+          "settings": {
+            "info": "Näyttää kertaostoksen ja erillisen kortin jokaiselle myyntisuunnitelmaryhmälle. Sijoita tämä lohko Osta-painikkeiden yläpuolelle.",
+            "one_time_purchase_title": {
+              "label": "Kertaluonteinen ostonimike"
+            },
+            "one_time_purchase_description": {
+              "label": "Kertaluonteisen oston kuvaus"
+            },
+            "subscription_description": {
+              "label": "Tilauksen kuvaus"
+            },
+            "show_price": {
+              "label": "Näytä hinta"
+            }
+          }
+        },
+        "share": {
+          "name": "Jaa"
+        },
+        "complementary_products": {
+          "name": "Täydentävät tuotteet",
+          "settings": {
+            "paragraph": {
+              "content": "Valitse täydentäviä tuotteita lisäämällä Search & Discovery -sovellus. [Lisätietoja](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+            },
+            "product_list_limit": {
+              "label": "Näytettävien tuotteiden enimmäismäärä"
+            }
+          }
+        },
+        "pickup_avaiability": {
+          "name": "Noudon saatavuus"
+        },
+        "media_lightbox": {
+          "name": "Katso se toiminnassa",
+          "settings": {
+            "enable_sticky": {
+              "label": "Ota sticky käyttöön työpöydällä"
+            }
+          },
+          "description": "Näytä tosielämän valokuvia tai videoita tuotteestasi käytössä. Saat lisätietoja vierailemalla [tukisivullamme](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-16.-media-lightbox)"
+        },
+        "highlights": {
+          "name": "Kohokohdat",
+          "description": "Esittele tuotteesi tärkeimmät myyntivaltit. Saat lisätietoja vierailemalla [tukisivullamme](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-8.-highlights)"
+        },
+        "key_features": {
+          "name": "Tärkeimmät ominaisuudet",
+          "description": "Luettelo tuotteesi tärkeimmät ominaisuudet ja edut. Saat lisätietoja vierailemalla [tukisivullamme](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-9.-key-features)"
+        },
+        "ask_question": {
+          "name": "Esitä kysymys"
+        },
+        "promotion_countdown": {
+          "name": "Tarjouksen lähtölaskenta",
+          "show_countdown_units": {
+            "label": "Näytä lähtölaskentayksiköt"
+          },
+          "description": "Lisää ajastin lisätäksesi tuotteesi kampanjan kiireellisyyttä. Saat lisätietoja vierailemalla [tukisivullamme](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-11.-promotion-countdown)."
+        },
+        "promotion_alert": {
+          "name": "Tarjousilmoitus",
+          "heading": {
+            "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+            "label": "Otsikko"
+          },
+          "description": {
+            "label": "Kuvaus"
+          },
+          "text_color": {
+            "label": "Tekstin väri"
+          }
+        },
+        "icon_with_text": {
+          "name": "Kuvake tekstillä",
+          "heading": {
+            "label_1": "Kuvake tekstillä 1",
+            "label_2": "Kuvake tekstillä 2",
+            "label_3": "Kuvake tekstillä 3",
+            "label_4": "Kuvake tekstillä 4",
+            "label_5": "Kuvake tekstillä 5"
+          },
+          "info": "Tämä sisältö piilotetaan automaattisesti mobiililaitteella.",
+          "svg": {
+            "label": "Svg-kuvake"
+          },
+          "content": {
+            "label": "Sisältö"
+          },
+          "icon": {
+            "none": {
+              "label": "Ei mitään"
+            },
+            "free_shipping": {
+              "label": "Ilmainen toimitus"
+            },
+            "check_badge": {
+              "label": "Sekkin merkki"
+            },
+            "message_communications": {
+              "label": "Viestiviestintä"
+            },
+            "truck": {
+              "label": "Kuorma-auto"
+            },
+            "question": {
+              "label": "Kysymys"
+            },
+            "location": {
+              "label": "Sijainti"
+            },
+            "leaf": {
+              "label": "Lehti"
+            },
+            "blossom": {
+              "label": "Kukki"
+            },
+            "payment": {
+              "label": "Maksu"
+            },
+            "discount": {
+              "label": "Alennus"
+            },
+            "order": {
+              "label": "Tilaa"
+            },
+            "return": {
+              "label": "Palauta"
+            },
+            "return_package": {
+              "label": "Palauta paketti"
+            }
+          }
+        },
+        "inventory_status": {
+          "name": "Varaston tila",
+          "settings": {
+            "inventory_threshold": {
+              "label": "Matala varaston kynnys",
+              "info": "Aseta tämä arvo varoittaaksesi asiakkaita, kun tuote on loppumassa varastosta."
+            },
+            "inventory_base": {
+              "label": "Varaston perusmäärä",
+              "info": "Aseta tuotevaraston alkumäärä edistymispalkkia varten."
+            }
+          }
+        },
+        "disclosures": {
+          "name": "Ilmoitukset",
+          "description": "Tämän tuotteen pakolliset turvallisuusvaroitukset ja sääntelyilmoitukset. Lisätietoja on [tukisivullamme](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information).",
+          "settings": {
+            "heading": {
+              "label": "Otsikko",
+              "default": "Tärkeää tietoa"
+            },
+            "open_by_default": {
+              "label": "Avaa oletuksena"
+            }
+          }
+        }
+      },
+      "divider": {
+        "section_divider_heading": "Osiajakaja",
+        "show_divider": "Näytä jakaja",
+        "top": "Yläjakaja",
+        "top_info": "Piilotetaan, kun yllä olevassa osiossa on alajakaja Aalto tai Kaari",
+        "bottom_info": "Viiva piilotetaan, kun alla olevassa osiossa on yläjakaja Aalto tai Kaari",
+        "bottom": "Alajakaja",
+        "none": "Ei mitään",
+        "line": "Viiva",
+        "wave": "Aalto",
+        "curve_out": "Kaari ulos",
+        "curve_in": "Kaari sisään"
+      },
+      "metafield": {
+        "short_description": {
+          "label": "Lyhyt kuvaus Metakenttä",
+          "info": "Tuotteen metakenttä. Käytetään, kun lyhyt kuvaus on saatavilla. Format: namespace.key. Default: custom.short_description."
+        },
+        "highlights": {
+          "label": "Kohokohdat Metakenttä",
+          "info": "Tuotteen metakenttä. Luettelo korostuskuvakkeista/otsikoista. Format: namespace.key. Default: custom.highlights."
+        },
+        "key_features": {
+          "label": "Tärkeimmät ominaisuudet Metakenttä",
+          "info": "Tuotteen metakenttä. Luettelo otsikko/kuvaus-kohteista. Format: namespace.key. Default: custom.key_features."
+        },
+        "media_lightbox": {
+          "label": "Media-lightbox Metakenttä",
+          "info": "Tuotteen metakenttä. Luettelo kuvista/videoista galleriaan. Format: namespace.key. Default: custom.media_lightbox."
+        },
+        "model_size": {
+          "label": "Mallin koko Metakenttä",
+          "info": "Tuotteen metakenttä. (metaobjekti) mallin mitoilla. Format: namespace.key. Default: custom.model_size."
+        },
+        "product_sizing": {
+          "label": "Tuotteen koot Metakenttä",
+          "info": "Tuotteen metakenttä. Luettelo kokotaulukkoon. Format: namespace.key. Default: custom.product_sizing."
+        },
+        "shop_the_look": {
+          "label": "Osta look Metakenttä",
+          "info": "Tuotteen metakenttä. Luettelo look-kuvista ja tuotteista. Format: namespace.key. Default: custom.shop_the_look."
+        },
+        "similar_products": {
+          "label": "Samankaltaiset tuotteet Metakenttä",
+          "info": "Tuotteen metakenttä. Luettelo samankaltaisista tuotteista. Format: namespace.key. Default: custom.similar_products."
+        },
+        "frequently_bought_together": {
+          "label": "Usein ostettu yhdessä Metakenttä",
+          "info": "Tuotteen metakenttä. Luettelo yhdessä ostettavista tuotteista. Format: namespace.key. Default: custom.frequently_bought_together."
+        },
+        "complete_the_look": {
+          "label": "Täydennä look Metakenttä",
+          "info": "Tuotteen metakenttä. Luettelo asustetuotteista. Format: namespace.key. Default: custom.complete_the_look."
+        },
+        "info_gallery": {
+          "label": "Infogalleria Metakenttä",
+          "info": "Tuotteen metakenttä. Luettelo galleriakorteista (kuva + teksti). Format: namespace.key. Default: custom.info_gallery."
+        },
+        "compare_items": {
+          "label": "Vertaa tuotteita Metakenttä",
+          "info": "Tuotteen metakenttä. Luettelo vertailtavista tuotteista. Format: namespace.key. Default: custom.compare_items."
+        },
+        "ingredient_highlights": {
+          "label": "Ainesosien kohokohdat Metakenttä",
+          "info": "Tuotteen metakenttä. Näkyy vertailurivillä. Format: namespace.key. Default: custom.ingredient_highlights."
+        },
+        "subcollection": {
+          "label": "Alakokoelma Metakenttä",
+          "info": "Kokoelman metakenttä. Luettelo alakokoelmista. Format: namespace.key. Default: custom.subcollection."
+        }
+      }
+    },
+    "group": {
+      "product": "Tuotteet",
+      "collection": "Kokoelmat",
+      "storytelling": "Tarinankerronta",
+      "banners": "Bannerit",
+      "blog": "Blogi",
+      "form": "Lomakkeet",
+      "shopable": "Ostokset",
+      "blocks": {
+        "basic": "Perus",
+        "layout": "Apuohjelmat ja asettelu",
+        "custom": "Muokattu",
+        "forms": "Lomakkeet"
+      },
+      "decorative": {
+        "name": "Koristeellinen",
+        "marquee": "Marquee",
+        "how_to_use_maquee": "[Kuinka tätä lohkoa käytetään](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/marquee)"
+      },
+      "links": {
+        "name": "Linkit",
+        "menu": "Valikko",
+        "how_to_use_menu": "[Kuinka tätä lohkoa käytetään](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)",
+        "how_to_use_popup_link": "[Kuinka tätä lohkoa käytetään](https://nextsky.gitbook.io/purity-theme/group-blocks/links/popup-link)",
+        "popup_link": "Ponnahdusikkuna"
+      },
+      "general": {
+        "name": "Yleistä",
+        "image_box": "Kuvalaatikko",
+        "image_box_use": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/overlay-group/search)"
+        }
+      }
+    },
+    "overlay_group": {
+      "name": "Peittokuvaryhmä"
+    },
+    "search": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/overlay-group/search)",
+      "name": "Hae"
+    },
+    "footer": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/footer-group/footer)",
+      "name": "alatunniste",
+      "settings": {
+        "enable_back_top": {
+          "label": "Ota käyttöön takaisin alkuun"
+        },
+        "show_policy": {
+          "label": "Käytäntölinkit",
+          "info": "[Hallinnoi käytäntöjä](/admin/settings/legal)"
+        },
+        "country_language": {
+          "content": "Maan/kielen valitsin",
+          "info": "Jos haluat lisätä maan/alueen, siirry [markkina-asetuksiin.](/admin/settings/markets). Lisää kieli siirtymällä [kieliasetuksiin.](/admin/settings/languages)"
+        },
+        "enable_country_selector": {
+          "label": "Ota käyttöön maan/alueen valitsin"
+        },
+        "width": {
+          "options__1": "16%",
+          "options__2": "20%",
+          "options__3": "25%",
+          "options__4": "33%",
+          "options__5": "50%",
+          "options__6": "66%",
+          "options__7": "75%",
+          "options__8": "86%",
+          "options__9": "100%"
+        },
+        "enable_language_selector": {
+          "label": "Ota käyttöön kielenvalitsin"
+        },
+        "payment": {
+          "content": "Maksutavat"
+        },
+        "payment_enable": {
+          "label": "Näytä maksukuvakkeet"
+        },
+        "menu_policies": {
+          "label": "Alatunnisteen alaosa"
+        },
+        "header_follow": {
+          "content": "Seuraa Shopissa",
+          "info": "Shop Payn on oltava käytössä, jotta asiakkaat voivat seurata kauppaasi Shop-sovelluksessa. [Lisätietoja](https://help.shopify.com/manual/online-store/themes/customizing-themes/follow-on-shop)"
+        },
+        "enable_follow_on_shop": {
+          "label": "Ota Seuraa kaupassa käyttöön"
+        }
+      },
+      "blocks": {
+        "menu_block": {
+          "label": "Valikko"
+        },
+        "newsletter_block": {
+          "name": "Uutiskirje",
+          "info": "Tilaajat lisätään automaattisesti \"hyväksytyn markkinoinnin\" asiakasluetteloosi. [Lisätietoja](https://help.shopify.com/manual/customers/manage-customers)",
+          "settings": {
+            "note": {
+              "label": "Huom"
+            }
+          }
+        },
+        "contact_bar_block": {
+          "name": "Yhteystietopalkki",
+          "settings": {
+            "store_address": "Osoite",
+            "store_phone": "Puhelin",
+            "store_email": "Sähköposti",
+            "show_social": {
+              "label": "Näytä sosiaalisen median kuvakkeet",
+              "info": "Näytä sosiaalisen median tilit linkittämällä ne teema-asetuksissa."
+            }
+          }
+        }
+      }
+    },
+    "header": {
+      "name": "Otsikko",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header)",
+      "settings": {
+        "sticky_header_type": {
+          "label": "Tarttuva otsikko",
+          "options__1": {
+            "label": "Ei mitään"
+          },
+          "options__2": {
+            "label": "Vieritä ylös"
+          },
+          "options__3": {
+            "label": "Aina"
+          }
+        },
+        "menu": {
+          "label": "Valikko",
+          "menu_trigger": {
+            "label": "Työpöydän avattavan valikon liipaisin",
+            "options__1": {
+              "label": "Napsauta"
+            },
+            "options__2": {
+              "label": "Piirrä"
+            }
+          },
+          "dropdowns_animation": {
+            "label": "Pudotusvalikoiden animaatio",
+            "options__1": {
+              "label": "Hiihennys sisään"
+            },
+            "options__3": {
+              "label": "Alas ylös"
+            }
+          }
+        },
+        "menu_mobile": {
+          "label": "Mobiilivalikon asetukset",
+          "menu_icon": {
+            "label": "Hampurilaiskuvakkeen sijainti",
+            "info": "Valitse, missä hampurilaisvalikko näkyy mobiililaitteella."
+          }
+        },
+        "addons": {
+          "label": "Lisäosat",
+          "show_account": {
+            "label": "Näytä tilin kuvake"
+          },
+          "show_search": {
+            "label": "Näytä haku"
+          },
+          "show_cart": {
+            "label": " Näytä ostoskori"
+          },
+          "show_offer": {
+            "label": " Näytä tarjous"
+          },
+          "show_language": {
+            "label": "Näytä kieli"
+          },
+          "show_currency": {
+            "label": "Näytä valuutta"
+          }
+        },
+        "transparent": {
+          "content": "Läpinäkyvä otsikko",
+          "info": "Varmista, että etusivusi ensimmäinen osio on määritetty jollain seuraavista: diaesitys, video tekstipeittokuvalla tai kuva tekstipeittokuvalla.",
+          "transparent": {
+            "label": "Ota käyttöön läpinäkyvä otsikko"
+          },
+          "text_icon_transparent": {
+            "label": " Tekstin ja kuvakkeen väri"
+          }
+        },
+        "blocks": {
+          "mega_menu": {
+            "name": "Banneri (Mega-valikko)",
+            "how_to_use": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#banner-mega-menu)",
+            "banners": {
+              "label": "Banneriasetukset"
+            },
+            "promotion_1": {
+              "label": "Bannerit #1"
+            },
+            "promotion_2": {
+              "label": "Bannerit #2"
+            },
+            "promotion_3": {
+              "label": "Bannerit #3"
+            },
+            "promotion_4": {
+              "label": "Bannerit #4"
+            },
+            "promotion_5": {
+              "label": "Bannerit #5"
+            },
+            "info": "448px x 260px suositeltu"
+          },
+          "menu_item": {
+            "label": "Valikkokohta",
+            "info": "Syötä valikkokohta ottaaksesi mega-valikon avattavan valikon käyttöön. Erota isot ja pienet kirjaimet."
+          },
+          "menu_column": {
+            "label": "Työpöytävalikon sarakkeet"
+          },
+          "product": {
+            "name": "Tuotteet (Mega-valikko)",
+            "how_to_use": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#product-mega-menu)",
+            "header": "Tuotteet"
+          },
+          "collection": {
+            "name": "Kokoelmat (Mega-valikko)",
+            "how_to_use": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#collection-mega-menu)",
+            "header": "Kokoelmat"
+          },
+          "menu_highlight": {
+            "name": "Valikon korostus",
+            "menu_items": {
+              "label": "Korostettavat valikkokohdat",
+              "info": "Kirjoita korostettavan valikon kohteiden nimet pilkuilla erotettuina (esim. Ale, Uudet saapuvat). Erota isot ja pienet kirjaimet."
+            },
+            "highlight_color": {
+              "label": "Korosta väri"
+            },
+            "highlight_icon": {
+              "label": "Korosta kuvake",
+              "options": {
+                "unset": "Poista",
+                "star": "Tähti",
+                "custom": "Muokattu"
+              }
+            },
+            "custom_icon": {
+              "label": "Muokattu kuvake",
+              "info": "Valinnainen kuvake, joka näytetään korostettujen valikkokohtien vieressä (suositeltu koko: 24 x 24 pikseliä)"
+            }
+          }
+        },
+        "header_layout": {
+          "label": "Työpöytäotsikon asettelu",
+          "info": "Asettelu optimoidaan automaattisesti mobiililaitteille.",
+          "options__1": {
+            "label": "Logo vasemmalla, valikon keskellä"
+          },
+          "options__2": {
+            "label": "Logo keskellä, valikko vasemmalla"
+          },
+          "options__3": {
+            "label": "Logo keskellä, valikko alla"
+          },
+          "options__4": {
+            "label": "Logo vasemmalla, valikko alla"
+          },
+          "options__5": {
+            "label": "Logo vasemmalla, valikko vasemmalla"
+          }
+        }
+      }
+    },
+    "custom_liquid": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "how_to_use_block": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "name": "Muokattu neste",
+      "liquid_code": "Nestekoodi",
+      "info": "Lisää sovelluksen katkelmia tai muuta nestemäistä koodia luodaksesi lisämuokkauksia.",
+      "info_custom_liquid": "Lisää sovelluksen katkelmia tai muuta koodia luodaksesi lisämuokkauksia. [Lisätietoja](https://shopify.dev/docs/api/liquid)"
+    },
+    "blog-posts": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/blog-posts)",
+      "name": "Blogiviestit",
+      "settings": {
+        "blog-post": {
+          "label": "Blogiviesti",
+          "blog_post_type": {
+            "label": "Blogiviestin tyyppi",
+            "category": "Luokka",
+            "select_blog": "Valitut blogit"
+          }
+        },
+        "blog": {
+          "label": "Blogi"
+        }
+      }
+    },
+    "multi_content": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/multi-content)",
+      "name": "Useita sisältöä",
+      "blocks": {
+        "label": "Estä asetukset",
+        "bellow_image": "Tunnusasetukset",
+        "badge": "Tunnus",
+        "equal_height_adjustment": {
+          "label": "Sama korkeussäätö"
+        },
+        "social_icon": "Sosiaaliset kuvakkeet",
+        "grid_info": "Ruudukkotiedot",
+        "grid_info_1": "Ruudukkotiedot 1",
+        "grid_info_2": "Ruudukkotiedot 2",
+        "grid_info_3": "Ruudukkotiedot 3",
+        "grid_info_4": "Ruudukkotiedot 4"
+      }
+    },
+    "grid_banner": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/banners/grid-banner)",
+      "name": "Ruudukkobanneri",
+      "settings": {
+        "hidden_block_des_mobile": {
+          "label": "Piilota kohteen kuvaus mobiililaitteella"
+        }
+      },
+      "blocks": {
+        "item": {
+          "name": "Bannerikohde",
+          "show_arrow": "Näytä nuolikuvake"
+        }
+      }
+    },
+    "scrolling_text": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/scrolling-text)",
+      "name": "Viertävä teksti",
+      "settings": {
+        "direction": {
+          "label": "Suunta",
+          "left": {
+            "label": "Oikealta vasemmalle"
+          },
+          "right": {
+            "label": "Vasemmalta oikealle"
+          }
+        },
+        "speed": {
+          "label": "Nopeus"
+        },
+        "text_size": {
+          "label": "Koko"
+        },
+        "blocks": {
+          "image": {
+            "rounded_image": {
+              "label": "Kuvan kulman säde"
+            },
+            "image_height": {
+              "label": "Kuvan korkeus"
+            },
+            "image_width": {
+              "label": "Leveys"
+            }
+          }
+        }
+      }
+    },
+    "shopby-outfit": {
+      "name": "Osta asun mukaan",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-by-outfit)",
+      "blocks": {
+        "outfit": {
+          "name": "Asu",
+          "settings": {
+            "product": {
+              "label": "Tuoteluettelo"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Osta asun mukaan"
+      },
+      "setting": {
+        "media": {
+          "label": "Mediatyyppi"
+        },
+        "video_autoplay": {
+          "info": "Se toimii vain, kun Video on valittu Media Type block -asetuksissa."
+        }
+      }
+    },
+    "collection-list": {
+      "name": "Kokoelmaluettelo",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/collection-list)",
+      "settings": {
+        "header": {
+          "collection": "Kokoelma",
+          "collection_title": "Kokoelman nimi",
+          "collection_card": "Keräilykortti",
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "how_to_use_collection_title": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/sections/page-heading)"
+        },
+        "collection_title_style": {
+          "label": "Kokoelman otsikon tyyli",
+          "text": "Teksti",
+          "button": "painike"
+        },
+        "show_product_count": {
+          "label": "Näytä tuotemäärä"
+        },
+        "overlay_image_settings": "Peittokuvan asetukset",
+        "overlay_image_color": "Tekstin väri",
+        "collection_overlay_image_color": "Kokoelmien tekstin väri"
+      },
+      "blocks": {
+        "featured_collection": {
+          "name": "Kokoelma",
+          "settings": {
+            "collection": {
+              "label": "Kokoelma"
+            },
+            "image": {
+              "label": "Kuva",
+              "info": "Jätä tyhjäksi, jos haluat käyttää kokoelman kuvaa",
+              "info_highlight": "Jätä tyhjäksi, jos haluat käyttää kokoelman kuvaa. 330 x 520 pikseliä suositellaan",
+              "info_suitable": "Jätä tyhjäksi, jos haluat käyttää kokoelman kuvaa. 147x72px suositeltu",
+              "info_collection_item": "444 x 444 pikseliä suositellaan"
+            },
+            "title": {
+              "label": "Otsikko",
+              "info": "Jätä tyhjäksi, jos haluat käyttää kokoelman otsikkoa"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Kokoelmaluettelo"
+      }
+    },
+    "quickview": {
+      "name": "Pikanäkymä",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/overlay-group/quickview)",
+      "settings": {
+        "paragraph": "Tässä osiossa voit mukauttaa pikanäkymän ponnahdusikkunaa."
+      }
+    },
+    "featured-collection": {
+      "name": "Suositeltu kokoelma",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/featured-collection)"
+    },
+    "expandable_card": {
+      "name": "Laajentuva kortti",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/expandable-card)",
+      "settings": {
+        "card_header": "Kortin asetukset",
+        "interaction_behavior": {
+          "label": "Vuorovaikutuskäyttäytyminen",
+          "options": {
+            "hover": "Näytä osoitin",
+            "drawer": "Napsauta avaa laatikko"
+          }
+        }
+      },
+      "blocks": {
+        "layered_card": {
+          "name": "Kerrokselliset kortit",
+          "settings": {
+            "media_header": "Kuva",
+            "description": "Kuvaus",
+            "drawer_page": "Kuvaus sivulta"
+          }
+        }
+      }
+    },
+    "featured-product": {
+      "name": "Suositeltu tuote",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/featured-product)",
+      "settings": {
+        "product": "Tuote"
+      }
+    },
+    "slideshow": {
+      "name": "Diaesitys",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/slideshow)",
+      "settings": {
+        "loading_background_color": {
+          "label": "Ladataan taustaa",
+          "info": "Taustaväri näkyy, kun videodia latautuu."
+        },
+        "slide_height": {
+          "label": "Liuan korkeus",
+          "full_screen": "Koko näyttö",
+          "adapt_to_first_image": "Sopeudu ensimmäiseen kuvaan",
+          "small": "Pieni",
+          "medium": "Keskitaso",
+          "large": "Suuri"
+        },
+        "info": "1920x840px suositeltu",
+        "info_mobile": "390x572px suositeltu",
+        "blocks": {
+          "image": {
+            "label": "Kuvadia",
+            "image_overlay_opacity": {
+              "label": "Peittokuvan peittävyys",
+              "overlay_opacity": "Peittokuvan peittävyys"
+            }
+          },
+          "video": {
+            "label": "Videodia",
+            "video_setting": "Videoasetukset",
+            "video_overlay_opacity": {
+              "label": "Videon peittokuvan peittävyys"
+            }
+          }
+        }
+      }
+    },
+    "related-products": {
+      "name": "Aiheeseen liittyviä tuotteita",
+      "how_to_use": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/related-products)"
+    },
+    "similar-products": {
+      "name": "Osta samanlainen tuote",
+      "how_to_use": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-product)"
+    },
+    "complete-the-look": {
+      "name": "Täydennä ulkoasu",
+      "how_to_use": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/group-sections/products/complete-the-look)"
+    },
+    "similar-color": {
+      "name": "Osta samanlainen väri",
+      "how_to_use": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-color)"
+    },
+    "quick-order-list": {
+      "name": "Pikatilausluettelo"
+    },
+    "newsletter": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/newsletter)",
+      "name": "Uutiskirje",
+      "settings": {
+        "header": {
+          "heading_setting": "Uutiskirjeasetus"
+        }
+      }
+    },
+    "rich-text": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/rich-text)",
+      "name": "Rikas teksti",
+      "settings": {
+        "max_width": {
+          "label": "Maksimileveys",
+          "info": "Maksimileveys optimoidaan automaattisesti mobiililaitteille."
+        },
+        "rotating_text": "Pyöreä teksti",
+        "separator_spacing": {
+          "label": "Erottimen väli",
+          "info": "Lisää väliä erottimien, kuten - tai •, molemmille puolille fraasien väliin."
+        }
+      }
+    },
+    "recently-viewed-products": {
+      "name": "Äskettäin katsotut tuotteet",
+      "info": "Tallenna sivu ladataksesi äskettäin katsotut tuotteet",
+      "how_to_use": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/recently-product)"
+    },
+    "info-gallery-products": {
+      "name": "Tärkeimmät ainesosat",
+      "how_to_use": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metaobjects/info-gallery)"
+    },
+    "product-benefits": {
+      "name": "Tuoteedut",
+      "how_to_use": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/product-benefits)",
+      "settings": {
+        "media_header": "Keskimedia",
+        "image": {
+          "label": "Kuva",
+          "info": "Käyttää tuotteen esittelykuvaa, kun se on tyhjä. 640 x 900 pikseliä suositellaan."
+        },
+        "media_width": {
+          "label": "Kuvan leveys työpöydällä"
+        },
+        "video": {
+          "label": "Video"
+        },
+        "video_poster": {
+          "label": "Videojulistekuva"
+        }
+      },
+      "blocks": {
+        "benefit": {
+          "name": "Etu",
+          "settings": {
+            "icon": {
+              "label": "Kuvake"
+            }
+          }
+        }
+      }
+    },
+    "quiz-results-products": {
+      "name": "Tiedan tulokset"
+    },
+    "quiz": {
+      "name": "Visa",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/utilities-and-layout/quiz)",
+      "settings": {
+        "intro_header": "Johdanto",
+        "enable_intro_step": {
+          "label": "Ota käyttöön esittelyvaihe"
+        },
+        "intro_button_label": {
+          "label": "Käynnistä-painikkeen otsikko"
+        },
+        "show_retake_button": {
+          "label": "Näytä uusintapainike"
+        },
+        "retake_label": {
+          "label": "Ota uudelleen painikkeen otsikko"
+        },
+        "results_display_header": "Tulosten näyttö",
+        "content_max_width": {
+          "label": "Sisällön enimmäisleveys"
+        },
+        "show_back_button": {
+          "label": "Näytä takaisin -painike"
+        },
+        "email_header": "Sähköpostivaihe",
+        "enable_email_step": {
+          "label": "Ota sähköpostivaihe käyttöön"
+        },
+        "email_heading": {
+          "label": "Sähköpostin otsikko"
+        },
+        "email_placeholder": {
+          "label": "Sähköpostin paikkamerkki"
+        },
+        "continue_label": {
+          "label": "Jatka-painikkeen otsikko"
+        },
+        "skip_label": {
+          "label": "Ohita painikkeen otsikko"
+        },
+        "results_banner_image": {
+          "label": "Tulosbannerikuva"
+        },
+        "fallback_products": {
+          "label": "Varatuotteet",
+          "info": "Tuotteet näytetään vain, kun tietokilpailuvastaukset eivät anna vahvoja tai osittaisia osumia. Käytä varmuuskopiona, jotta tulossivu ei ole koskaan tyhjä."
+        },
+        "results_products_limit": {
+          "label": "Näytettävien tuotteiden enimmäismäärä"
+        }
+      }
+    },
+    "compare-products": {
+      "name": "Vertaa tuotteita",
+      "how_to_use": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/compare-items)",
+      "settings": {
+        "header": {
+          "label": "Vertaa asetuksia"
+        },
+        "show_price": "Hinta",
+        "show_ratings": "Arviot",
+        "show_vendor": "Myyjä",
+        "show_color": "Väri",
+        "show_size": "Koko",
+        "show_highlights": "Kohokohdat",
+        "show_availability": "Saatavuus"
+      }
+    },
+    "bought-together-products": {
+      "name": "Yhdessä ostetut tuotteet",
+      "how_to_use": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/frequently-bought-together)"
+    },
+    "media-with-text": {
+      "name": "Tekstillinen media",
+      "info_image": {
+        "info_desktop": "950 x 844 pikseliä suositellaan",
+        "info_mobile": "475 x 422 pikseliä suositellaan",
+        "info_video": "Ohittaa kuva-asetuksen. 950 x 844 pikseliä suositeltu"
+      }
+    },
+    "product-specifications": {
+      "name": "Tuotteen tekniset tiedot",
+      "item_name": "Product specifications item",
+      "specifications_layout": "Teknisten tietojen asettelu",
+      "grid_gap": "Ruudukon väli",
+      "mobile_rows_shown": "Rivit",
+      "view_more_label": "Näytä lisää -painikkeen teksti",
+      "view_less_label": "Näytä vähemmän -painikkeen teksti",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-specifications)"
+    },
+    "image-with-text": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/image-with-text)",
+      "name": "Kuva ja teksti",
+      "settings": {
+        "desktop_vertical_alignment": {
+          "label": "Työpöydän pystytasaus",
+          "top": "Yläosa",
+          "middle": "Keski",
+          "bottom": "Alhaalla"
+        },
+        "vertical_alignment": "Pystysuuntainen kohdistus",
+        "background_type": {
+          "label": "Taustatyyppi",
+          "image": "Kuva",
+          "color": "Väri"
+        },
+        "background_color": "Taustaväri",
+        "background_image": "Taustakuva",
+        "text_color": "Tekstin väri",
+        "image_info": "696 x 500 pikseliä suositellaan",
+        "offer_image_with_text_info": "360 x 200 pikseliä suositellaan",
+        "image_caption": {
+          "label": "Kuvan kuvateksti",
+          "heading": "Otsikko",
+          "description": "Kuvaus",
+          "position": "Sijainti"
+        }
+      }
+    },
+    "before_after_result": {
+      "name": "Ennen jälkeen",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/banners/before-after)",
+      "before_text": {
+        "label": "Ennen tekstiä",
+        "default": "Ennen"
+      },
+      "after_text": {
+        "label": "Tekstin jälkeen",
+        "default": "Jälkeen"
+      }
+    },
+    "parallax-image-with-text": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/banners/parallax-split)",
+      "name": "Parallaksijako",
+      "settings": {
+        "image": {
+          "image_1": {
+            "label": "Kuva 1"
+          },
+          "image_2": {
+            "label": "Kuva 2"
+          },
+          "image_3": {
+            "label": "Kuva 3"
+          }
+        },
+        "parallax_image": {
+          "label": "Parallaksikuva"
+        }
+      }
+    },
+    "discount_popup": {
+      "info": "Tätä osiota käytetään ponnahdusikkunan näyttämiseen tilauksen jälkeen.",
+      "name": "Alennusponnahdusikkuna",
+      "how_to_use": "[Asetuksen käyttäminen](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/discount-popup)",
+      "settings": {
+        "discount_code": {
+          "label": "Mainoslinkki",
+          "info": "Kuinka saada promo-linkki? [Lisätietoja](https://help.shopify.com/en/manual/discounts/managing-discount-codes#promote-a-discount-using-a-shareable-link)"
+        },
+        "discount_button": {
+          "label": "Promoto-painikkeen otsikko",
+          "default": "👉 Osta 10 % alennuksella"
+        },
+        "sub_heading": {
+          "default": "Hurraa! Olet tilannut"
+        },
+        "info_image": "Tämä kuva piilotetaan automaattisesti mobiililaitteella. 350 x 410 pikseliä suositellaan "
+      }
+    },
+    "image-with-text-overlay": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/image-with-text-overlay)",
+      "name": "Kuva tekstipeittokuvalla",
+      "countdown": "Ajastin",
+      "count_down": "Ajastin",
+      "how_to_use_count_down": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/countdown)",
+      "end_time": {
+        "label": "Päättymisaika",
+        "info": "esim. kk-pp-vvvv"
+      },
+      "message": {
+        "label": "Vanhentunut viesti",
+        "info": "Tämä viesti näytetään, kun aika on kulunut umpeen."
+      },
+      "image_info": {
+        "info_desktop": "1392 x 500 pikseliä suositellaan",
+        "info_mobile": "400 x 469 pikseliä suositellaan"
+      }
+    },
+    "media-hero": {
+      "name": "Media sankari",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/media-hero)",
+      "media": "Media",
+      "info": "Ohittaa kuva-asetuksen."
+    },
+    "video": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/video)",
+      "name": "Video",
+      "settings": {
+        "video_local": {
+          "label": "Paikallinen video",
+          "info_2": "Ohittaa videon URL-asetuksen.",
+          "info_multi_content_video": "Ohittaa videon URL-asetuksen. 684 x ​​500 pikseliä suositeltu.",
+          "info_poster": "Käytä samoja mittoja kuin videossa"
+        },
+        "video_link": {
+          "label": "Videon URL-osoite",
+          "info": "Hyväksyy YouTuben tai Vimeon URL-osoitteen"
+        },
+        "video_poster": {
+          "label": "Videojuliste"
+        },
+        "alt_description": {
+          "label": "Videon vaihtoehtoinen teksti",
+          "info": "Kuvaile video näytönlukuohjelmia käyttäville asiakkaille. [Lisätietoja](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#video-block)"
+        },
+        "autoplay": {
+          "label": "Videon automaattinen toisto",
+          "info": "Videot mykistetään automaattisesti automaattisen toiston mahdollistamiseksi"
+        },
+        "looping": {
+          "label": "Videosilmukka"
+        },
+        "show_action": {
+          "label": "Näytä videoohjaimet"
+        },
+        "aspect_ratio": {
+          "label": "Kuvasuhde",
+          "option__1": "16:9",
+          "option__2": "21:9",
+          "option__3": "Sopeudu videoon"
+        },
+        "show_text_bellow": {
+          "label": "Näytä teksti videon alla mobiililaitteella",
+          "info": "Teksti näytetään videon alla mobiililaitteella."
+        }
+      }
+    },
+    "main-password-content": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/other-pages/password-page)",
+      "name": "Salasanan pääsivu",
+      "settings": {
+        "header__2": {
+          "content": "Sisältöasetus"
+        }
+      },
+      "blocks": {
+        "countdown_bn": {
+          "settings": {
+            "countdown_design": {
+              "label": "Suunnittelu",
+              "options__1": {
+                "label": "Oletus"
+              },
+              "options__2": {
+                "label": "Moderni"
+              }
+            }
+          }
+        },
+        "form_subscribe": {
+          "name": "Tilaa lomake",
+          "settings": {
+            "email_placeholder": {
+              "label": "Sähköpostin paikkamerkkiteksti"
+            },
+            "btn_label": {
+              "label": "Painikkeen otsikko"
+            }
+          }
+        }
+      }
+    },
+    "divider": {
+      "settings": {
+        "height": {
+          "label": "Korkeus"
+        },
+        "color": {
+          "label": "Väri"
+        }
+      }
+    },
+    "faq": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/faqs)",
+      "name": "Usein kysytyt kysymykset",
+      "main-faq": "Usein kysyttyjen kysymysten pääsivu",
+      "heading": {
+        "content": "Usein kysytyt kysymykset"
+      },
+      "info_image": "646 x 700 pikseliä suositellaan",
+      "settings": {
+        "show_faqs_message": "Näytä usein kysytyt kysymykset",
+        "show_image": "Näytä kuva",
+        "open_all_question": "Avaa kaikki kysymykset",
+        "framed": "Kehyksellinen",
+        "faq_style": "Usein kysyttyjen kysymysten tyyli",
+        "desktop_layout": {
+          "label": "Työpöytäasettelu",
+          "horizontal": "Vaakasuora",
+          "vertical": "Pystysuora"
+        }
+      },
+      "blocks": {
+        "name": "Usein kysytyt kohteet",
+        "settings": {
+          "question": {
+            "question": "Kysymys",
+            "answer": "Vastaus"
+          }
+        }
+      }
+    },
+    "page-faq": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/other-pages/faq-page)"
+    },
+    "video-with-text-overlay": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/video-with-text-overlay)",
+      "name": "Video tekstipeittokuvalla",
+      "settings": {
+        "video_local": {
+          "label": "Paikallinen video",
+          "info": "Ohittaa videon URL-asetuksen. 1392x550px suositeltu",
+          "info_mobile": "Suositus 390px x 550px"
+        },
+        "video_link": {
+          "label": "Videon linkki"
+        },
+        "video_poster": {
+          "info": "Samat mitat kuin videossa"
+        },
+        "overlay_opacity": "Peittokuvan peittävyys",
+        "video_height": {
+          "label": "Videon korkeus",
+          "options__1": {
+            "label": "Sopeudu videoon"
+          },
+          "options__2": {
+            "label": "Pieni"
+          },
+          "options__3": {
+            "label": "Keskitaso"
+          },
+          "options__4": {
+            "label": "Suuri"
+          }
+        }
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "Tuoteruudukko",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/product-grid)",
+      "settings": {
+        "items_per_page": {
+          "label": "Näytettävät kohteet sivulla"
+        },
+        "columns_desktop": {
+          "label": "Sarakkeita per rivi työpöydällä"
+        },
+        "show_product_counts": {
+          "label": "Näytä tuotemäärät"
+        }
+      }
+    },
+    "main-collection": {
+      "settings": {
+        "items_per_page": {
+          "label": "Näytettävät kohteet sivulla"
+        },
+        "columns_desktop": {
+          "label": "Sarakkeita per rivi työpöydällä"
+        },
+        "enable_filtering": {
+          "label": "Ota suodatus käyttöön",
+          "info": "Muokkaa suodattimia Search & Discovery -sovelluksella. [Lisätietoja](https://help.shopify.com/manual/online-store/search-and-discovery/filters)"
+        },
+        "filter_type": {
+          "label": "Työpöytäsuodattimen asettelu",
+          "options__1": {
+            "label": "Vaaka"
+          },
+          "options__2": {
+            "label": "Pysty"
+          },
+          "options__3": {
+            "label": "Laatikko"
+          }
+        },
+        "enable_sorting": {
+          "label": "Ota lajittelu käyttöön"
+        },
+        "show_product_counts": {
+          "label": "Näytä tuotemäärät"
+        },
+        "header__1": {
+          "content": "Suodatus ja lajittelu"
+        }
+      },
+      "blocks": {
+        "promotion": {
+          "name": "Tarjous",
+          "promotion_position": {
+            "label": "Ylennyssijainti"
+          },
+          "info": "330px 550px suositeltu"
+        },
+        "steps": {
+          "name": "Kauppa vaiheittain",
+          "info": "337 x 200 pikseliä suositellaan"
+        }
+      }
+    },
+    "main-search": {
+      "name": "Hakutulokset",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/other-pages/search-page)",
+      "settings": {
+        "search_results": {
+          "label": "Näytä tulokset",
+          "option_1": "Oletus",
+          "option_2": "Välilehti"
+        }
+      }
+    },
+    "main-article": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/other-pages/blog-post-page)",
+      "name": "Blogiviesti",
+      "settings": {
+        "show_date": "Näytä julkaisupäivä",
+        "show_comment": "Näytä kommentti",
+        "show_excerpt": "Näytä tekstiote",
+        "show_share": "Näytä jakopainike",
+        "blocks": {
+          "featured_image": "Suositeltu kuva",
+          "content_article": "Sisältö",
+          "addons": "Lisäosat",
+          "prev_next_articles": "Edelliset ja seuraavat artikkelit"
+        }
+      },
+      "related": {
+        "heading": "Aiheeseen liittyviä artikkeleita",
+        "articles": {
+          "label": "Artikkelit",
+          "info": "Näytetään tässä järjestyksessä. Jätä tyhjäksi, jotta näytetään tämän blogin uusimmat artikkelit."
+        }
+      },
+      "blocks": {
+        "featured_image": {
+          "settings": {
+            "image_height": {
+              "label": "Kuvan korkeus",
+              "options__1": {
+                "label": "Sopeuta kuvaan"
+              },
+              "options__2": {
+                "label": "Pieni"
+              },
+              "options__3": {
+                "label": "Keskitaso"
+              },
+              "options__4": {
+                "label": "Suuri"
+              }
+            }
+          }
+        }
+      },
+      "related_product": {
+        "heading": "Aiheeseen liittyvät tuotteet",
+        "products": {
+          "label": "Tuotteet"
+        }
+      }
+    },
+    "cart-drawer": {
+      "name": "kärrylaatikko",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/overlay-group/cart-drawer)",
+      "settings": {
+        "info": "Jos haluat näyttää ostoskorilaatikon, siirry Teema-asetuksiin ja valitse [kärryn asetuksista] korityypiksi Vetolaatikko.](/editor?context=theme&category=cart)",
+        "content": "",
+        "show_free_shipping_message": {
+          "label": "Näytä ilmainen toimitusviesti",
+          "info": "Aseta ilmaisen toimituksen vähimmäissumma teema-asetuksissa."
+        },
+        "show_cart_note": "Näytä ostoskorin huomautus",
+        "show_estimate_shipping": "Näytä arvioitu toimitus",
+        "show_discount": "Näytä alennuskoodi",
+        "hide_check_badge_on_mobile": "Piilota luottamusmerkkien esto mobiililaitteella",
+        "hide_icon_with_text_on_mobile": "Piilota kuvake tekstilohkolla mobiilissa",
+        "show_gift_wrap": {
+          "label": "Näytä lahjapakkaus",
+          "info": "Valitse lahjapakkaustuotteet teema-asetuksista."
+        },
+        "discount_progress_bar_active": "Alennuksen edistymispalkki on käytössä teeman asetuksissa ja korvaa ilmaisen toimituksen viestin."
+      }
+    },
+    "main-list-collections": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-list-page)",
+      "name": "Kokoelmaluettelosivu",
+      "blocks": {
+        "name": "Kokoelma",
+        "settings": {
+          "collection_image": "Kokoelmakuva"
+        }
+      },
+      "settings": {
+        "information_position": {
+          "label": "Tietojen sijainti",
+          "options__1": {
+            "label": "Peittokuva"
+          },
+          "options__2": {
+            "label": "Alla oleva kuva"
+          }
+        },
+        "collection_to_show": {
+          "label": "Näytettävät kokoelmat",
+          "options__1": {
+            "label": "Kaikki"
+          },
+          "options__2": {
+            "label": "Valittu"
+          }
+        },
+        "sort": {
+          "label": "Lajittele kokoelmat",
+          "options__1": {
+            "label": "Aakkosjärjestyksessä, A-Z"
+          },
+          "options__2": {
+            "label": "Aakkosjärjestyksessä, Z-A"
+          },
+          "options__3": {
+            "label": "Päivämäärä, uudesta vanhaan"
+          },
+          "options__4": {
+            "label": "Päivämäärä, vanhasta uuteen"
+          },
+          "options__5": {
+            "label": "Tuotemäärät, korkeasta alhaiseen"
+          },
+          "options__6": {
+            "label": "Tuotemäärät, pienestä korkeaan"
+          }
+        }
+      }
+    },
+    "main-blog": {
+      "name": "Blogiviestit",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/other-pages/blog-page)",
+      "settings": {
+        "header": {
+          "content_post": "Viestiasetukset"
+        },
+        "maximum_posts_to_show": {
+          "label": "Näytettävien viestien enimmäismäärä"
+        },
+        "post_per_row_desktop": {
+          "label": "Viesti per rivi työpöydällä"
+        },
+        "show_all_tags": {
+          "label": "Näytä tunnisteluettelo"
+        }
+      },
+      "blocks": {
+        "name": "Tilaa lomake",
+        "settings": {
+          "show_email_icon": "Näytä sähköpostikuvake",
+          "form_position": "Lomakkeen sijainti"
+        }
+      }
+    },
+    "main-product": {
+      "name": "Tuotetiedot",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "settings": {
+        "header": {
+          "content": "Media"
+        },
+        "enable_sticky_desktop": {
+          "label": "Ota kiinnityskori käyttöön työpöydällä"
+        },
+        "desktop_layout": {
+          "label": "Työpöydän asettelu",
+          "group": {
+            "static": "Ruudukko",
+            "carousel": "Karuselli"
+          },
+          "one_columns": {
+            "label": "1 sarake"
+          },
+          "options__1": {
+            "label": "2 saraketta"
+          },
+          "options__2": {
+            "label": "Vaakasuuntaiset pikkukuvat"
+          },
+          "options__3": {
+            "label": "Pino"
+          },
+          "options__4": {
+            "label": "Pystysuuntaiset pikkukuvat"
+          },
+          "options__5": {
+            "label": "Pystysuuntaiset pikkukuvat (vieritä)"
+          },
+          "options__6": {
+            "label": "2 saraketta"
+          }
+        },
+        "thumbnail_carousel_setting": {
+          "label": "Pikkukuvakaruselliasetus",
+          "number_thumbs": "Pikkukuvien määrä"
+        },
+        "media_position": {
+          "label": "Työpöytämedian sijainti"
+        },
+        "media_width": {
+          "label": "Työpöytämedian leveys"
+        },
+        "mobile_thumbnails": {
+          "options__1": {
+            "label": "Näytä pikkukuvat"
+          },
+          "options__2": {
+            "label": "Piilota pikkukuvat"
+          }
+        },
+        "enable_video_looping": {
+          "label": "Ota videosilmukka käyttöön"
+        },
+        "enable_image_zoom": {
+          "label": "Kuvan zoomaus",
+          "options__1": {
+            "label": "Poista käytöstä"
+          },
+          "options__2": {
+            "label": "Zoomaa sisään"
+          },
+          "options__3": {
+            "label": "Loitonna"
+          }
+        },
+        "enable_image_lightbox": {
+          "label": "Ota lightbox käyttöön"
+        },
+        "enable_video_autoplay": {
+          "label": "Ota käyttöön videon automaattinen toisto",
+          "info": "Videot mykistetään automaattisesti automaattisen toiston mahdollistamiseksi. Ei toimi YouTubessa/Vimeossa."
+        },
+        "enable_video_controls_default": {
+          "label": "Ota käyttöön mukautetut videoohjaimet",
+          "info": "Ei toimi YouTubessa/Vimeossa."
+        }
+      },
+      "blocks": {
+        "custom_product": {
+          "name": "Mukautetut asetukset",
+          "tab_setting": {
+            "label": "Välilehtitunnisteet",
+            "tab_1": {
+              "label": "Välilehti 1"
+            },
+            "tab_2": {
+              "label": "Välilehti 2"
+            },
+            "tab_3": {
+              "label": "Välilehti 3"
+            }
+          },
+          "description": "Anna asiakkaiden muokata tuotetta – sijaintia, tekstiä ja väriä – 3-vaiheisen ponnahdusikkunan kautta, ennen kuin lisäät sen ostoskoriin. Saat lisätietoja vierailemalla [tukisivullamme](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/custom-options)",
+          "placement": "Sijoittelu",
+          "text": "Teksti",
+          "text_limit": "Tekstirajoitus",
+          "note": "Huom",
+          "color": {
+            "name": "Väri",
+            "options": {
+              "color_1": "Väri 1",
+              "color_2": "Väri 2",
+              "color_3": "Väri 3",
+              "color_4": "Väri 4",
+              "color_5": "Väri 5",
+              "color_6": "Väri 6",
+              "color_7": "Väri 7",
+              "color_8": "Väri 8",
+              "color_9": "Väri 9",
+              "color_10": "Väri 10"
+            }
+          }
+        }
+      }
+    },
+    "main-cart-items": {
+      "name": "Pääkärry",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/other-pages/cart-page)",
+      "block": {
+        "icon_with_text": "Kuvake tekstillä",
+        "trust_badges": "Luottamusmerkit"
+      }
+    },
+    "main-collection-banner": {
+      "name": "Kokoelmabanneri",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/collection-banner)",
+      "settings": {
+        "heading": {
+          "label": "Asetukset"
+        },
+        "use_collection_image": {
+          "label": "Käytä kokoelman kuvaa",
+          "info": "Ohita taustakuva-asetus"
+        },
+        "image_height": {
+          "option__2": "Perustuu sisältöön"
+        },
+        "image_position": {
+          "label": "Kuvan sijainti",
+          "option__1": "Vasen",
+          "option__2": "Oikein"
+        },
+        "image_opacity": {
+          "label": "Kuvan peittävyys"
+        }
+      }
+    },
+    "contact-form": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/contact-form)",
+      "name": "Yhteydenottolomake",
+      "settings": {
+        "name": "Nimi",
+        "email_placeholder": "Sähköposti",
+        "message": "Viesti",
+        "option": "Vaihtoehto",
+        "info_option": "Määritä vaihtoehdon nimi. Erottele vaihtoehdot pilkulla. Esim. Tuote, Tilaus, Lehdistö, Muut"
+      }
+    },
+    "main-404": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/other-pages/404-page)",
+      "name": "Päänumero 404",
+      "info_image": "500 x 288 pikseliä suositellaan"
+    },
+    "main-activate-account": {
+      "name": "Tilin aktivointi"
+    },
+    "main-password-footer": {
+      "name": "Salasana-alatunniste"
+    },
+    "main-account": {
+      "name": "Tili"
+    },
+    "main-register": {
+      "name": "Rekisteröityminen"
+    },
+    "main-login": {
+      "name": "Kirjaudu sisään"
+    },
+    "main-reset-password": {
+      "name": "Salasanan palautus"
+    },
+    "main-order": {
+      "name": "Tilaa"
+    },
+    "main-addresses": {
+      "name": "Osoitteet"
+    },
+    "announcement-bar": {
+      "how_to_use": {
+        "label": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/announcement-bar)"
+      },
+      "name": "Ilmoituspalkki",
+      "settings": {
+        "type": {
+          "name": "Tyyppi",
+          "options": {
+            "slide": {
+              "label": "Karuselli"
+            },
+            "marquee": {
+              "label": "Marquee"
+            }
+          }
+        },
+        "show_only_homepage": {
+          "label": "Näytä vain etusivulla"
+        },
+        "show_close_button": {
+          "label": "Näytä sulkemispainike"
+        },
+        "enable_on_mobile": {
+          "label": "Ota käyttöön mobiililaitteella"
+        },
+        "marquee_settings": {
+          "label": "Marquee-asetukset",
+          "speed": {
+            "label": "Nopeus"
+          },
+          "show_icon": {
+            "label": "Näytä kuvake"
+          }
+        }
+      },
+      "blocks": {
+        "name": "Ilmoitus",
+        "setting": {
+          "label": "Teksti"
+        }
+      }
+    },
+    "multimedia_with_text": {
+      "blocks": {
+        "settings": {
+          "header": "Media-asetukset",
+          "media_style": {
+            "label": "Mediatyyli",
+            "options__1": {
+              "label": "Pyöristetty"
+            },
+            "options__2": {
+              "label": "Ovaali"
+            },
+            "options__3": {
+              "label": "Oletus"
+            }
+          }
+        }
+      }
+    },
+    "product-tabs": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/vertical-product-tabs)",
+      "name": "Tuotevälilehdet",
+      "setting": {
+        "layout": {
+          "label": "Työpöydän asettelu",
+          "vertical": "Pysty",
+          "horizontal": "Vaaka"
+        },
+        "banner_header": "Banneri",
+        "show_banner": "Näytä banneri",
+        "sticky_banner": "Kiinnitetty banneri",
+        "portrait_4_5": "Pysty (4:5)",
+        "enable_carousel_info": "Mobiililaitteella tuotteen asettelu näytetään aina karusellina."
+      },
+      "blocks": {
+        "name": "Välilehti",
+        "header": "Estä asetukset",
+        "settings": {
+          "hidden_des_mobile": {
+            "label": "Piilota välilehden kuvaus mobiililaitteella"
+          },
+          "collection": {
+            "label": "Kokoelma",
+            "description": "Kuvaus"
+          }
+        }
+      },
+      "presets": {
+        "product_tabs_with_banner": "Tuotevälilehdet bannerilla"
+      }
+    },
+    "collection-highlights": {
+      "name": "Kokoelman kohokohdat",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/collection-highlights)",
+      "settings": {
+        "highlight_collection_width": {
+          "label": "Kokoelma korostaa korostuksen leveyttä"
+        }
+      },
+      "blocks": {
+        "header": "Estä asetukset",
+        "type": {
+          "type_highlight": {
+            "header": "Kokoelman korostuksen asetukset",
+            "name": "Kokoelman kohokohdat"
+          }
+        }
+      }
+    },
+    "collection-pills": {
+      "name": "Kokoelma-pillerit",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/collections/collection-pills)",
+      "settings": {
+        "pill_style": {
+          "label": "Pillerityyli"
+        },
+        "show_image_on_hover": {
+          "label": "Näytä kuva osoitettaessa",
+          "info": "Kuva osoitettaessa piilotetaan mobiililaitteella."
+        },
+        "horizontal_scroll": {
+          "label": "Vaakavieritys"
+        }
+      }
+    },
+    "suitable_products_finder": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/suitable-products-finder)",
+      "name": "Sopivien tuotteiden etsintä",
+      "settings": {
+        "collection_tab_header": {
+          "label": "Kokoelma-välilehti"
+        },
+        "collection_tab_style": {
+          "label": "Kokoelma-välilehden tyyli"
+        },
+        "collection_tab_style_options": {
+          "range_slider": {
+            "label": "Alueen liukusäädin"
+          },
+          "pill_tabs": {
+            "label": "Pillerivälilehdet"
+          }
+        },
+        "show_pill_tabs_with_heading": {
+          "label": "Sisäinen otsikon kanssa",
+          "info": "Näytä värinvalitsin samalla rivillä otsikon kanssa."
+        },
+        "show_pill_tabs_color": {
+          "label": "Näytä väripiste"
+        },
+        "pill_tabs_color": {
+          "label": "Väri"
+        },
+        "pill_tabs_image": {
+          "info": "Kuviokuva ohittaa värin, kun kuva ladataan."
+        },
+        "image_collection_width": {
+          "label": "Kuvan leveys"
+        },
+        "range_slider": {
+          "settings": {
+            "show_range_slider": {
+              "label": "Näytä alueen liukusäädin",
+              "info": "Alueen liukusäädin piilotetaan automaattisesti mobiililaitteella."
+            }
+          }
+        }
+      },
+      "preset": {
+        "ranger_slider": "Tuotehaku: Alueen liukusäädin",
+        "pill_tabs": "Tuotehaku: Pillerivälilehdet",
+        "color_dots": "Tuotehaku: Väripisteet"
+      }
+    },
+    "icon-box": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/icon-box)",
+      "name": "Kuvakelaatikko",
+      "settings": {
+        "icon_settings": {
+          "header": "Kuvakeasetukset",
+          "icon_position": {
+            "label": "Sijainti"
+          },
+          "icon_size": {
+            "label": "Koko"
+          },
+          "radius_image": {
+            "label": "Pyöreä kuva",
+            "info": "Tämä asetus toimii vain, kun kuvake on kuva."
+          }
+        }
+      }
+    },
+    "metric-banner": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/metric-banner)",
+      "name": "Metrinen banneri",
+      "settings": {
+        "metric_setting": "Tiedon asetukset",
+        "metric_font_size": "Metrinen kirjasinkoko",
+        "enable_metric_animation": "Ota käyttöön metriset animaatiot",
+        "metric_value": {
+          "start": "Metrin aloitusarvo",
+          "end": "Metrin loppuarvo"
+        },
+        "metric_unit": "Metrinen yksikkö"
+      },
+      "block": {
+        "name": "Metrinen kohde"
+      }
+    },
+    "compact_product_bundle": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/compact-product-bundle)",
+      "name": "Kompakti tuotepaketti",
+      "settings": {
+        "image": {
+          "label": "Kuva",
+          "info_desktop": "696 x 750 pikseliä suositellaan",
+          "info_mobile": "350 x 303 pikseliä suositeltu"
+        },
+        "enable_quick_add_for_items": {
+          "label": "Ota käyttöön kohteiden pikalisäys"
+        },
+        "hidden_button_mobile": {
+          "label": "Piilotettu painike mobiilissa"
+        },
+        "products_show": {
+          "label": "Tuotteet näkyvät muodossa",
+          "options__1": {
+            "label": "Lista"
+          },
+          "options__2": {
+            "label": "Ruudukko"
+          }
+        }
+      },
+      "presets": {
+        "name": "Kompakti tuotepaketti"
+      },
+      "blocks": {
+        "settings": {
+          "name": "Tuote",
+          "select_product": "Tuote",
+          "position_top": "Pystyasento",
+          "position_left": "Vaaka-asento"
+        }
+      }
+    },
+    "mobile-navigation-bar": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/overlay-group/mobile-navigation-bar)",
+      "name": "Mobiili navigointipalkki",
+      "info": "Tämä osio näkyy vain mobiililaitteilla. Vaihda mobiilinäkymään.",
+      "settings": {
+        "show_section": "Ota käyttöön mobiilinavigointipalkki",
+        "show_shop": "Esittelykauppa",
+        "show_account": "Näytä tili",
+        "show_cart": "Näytä ostoskori",
+        "show_homepage": "Näytä kotisivu"
+      }
+    },
+    "mobile_first": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/mobile-first)",
+      "name": "Spotlight-galleria",
+      "image_1": "Pistekuva 1",
+      "image_2": "Pistekuva 2",
+      "image_3": "Pistekuva 3",
+      "image_4": "Pistekuva 4",
+      "image_5": "Pistekuva 5",
+      "text_1": "Pisteteksti 1",
+      "text_2": "Pisteteksti 2",
+      "text_3": "Pisteteksti 3",
+      "text_4": "Pisteteksti 4",
+      "text_5": "Pisteteksti 5"
+    },
+    "shopable_video": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/shopable-video)",
+      "name": "Ostettava video",
+      "settings": {
+        "video_settings": {
+          "header": "Videoasetukset"
+        },
+        "enable_sticky": {
+          "label": "Ota videon kiinnitys käyttöön",
+          "option_1": {
+            "label": "Poista käytöstä"
+          },
+          "option_2": {
+            "label": "Vain työpöytä"
+          },
+          "option_3": {
+            "label": "Kaikki näytöt"
+          }
+        },
+        "ratio": {
+          "adapt": {
+            "label": "Sopeudu ensimmäiseen videoon"
+          }
+        },
+        "video": {
+          "auto_play": {
+            "info": "Video toistetaan automaattisesti, kun tämä lohko on aktiivinen tai näkyy näytöllä"
+          }
+        },
+        "show_product_card": {
+          "label": "Näytä tuotekortti"
+        }
+      },
+      "blocks": {
+        "name": "Video",
+        "settings": {
+          "poster_image": {
+            "label": "Julistekuva",
+            "info": "1080x1920px suositeltu"
+          },
+          "local_video": {
+            "label": "Paikallinen video"
+          },
+          "select_product": {
+            "label": "Tuote"
+          }
+        }
+      }
+    },
+    "image_card": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/image-cards)",
+      "name": "Kuvakortit",
+      "blocks": {
+        "header": "Kortin asetukset",
+        "group_name": "Kortti",
+        "info": "451 x 453 pikseliä suositeltu"
+      }
+    },
+    "testimonials": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonials)",
+      "name": "Paina",
+      "settings": {
+        "header": "Paina asetukset",
+        "show_icon_quote": {
+          "label": "Näytä tarjouskuvake"
+        }
+      },
+      "blocks": {
+        "name": "Paina kohtaa",
+        "settings": {
+          "quote": {
+            "label": "Lainaus"
+          },
+          "info_image": "180px 60px suositeltu"
+        }
+      }
+    },
+    "press_card": {
+      "name": "Paina korttia",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/press-card)",
+      "blocks": {
+        "content": "Sisältö",
+        "media": "Media",
+        "quote": "Lainaus",
+        "settings": {
+          "show_icon_quote": "Näytä tarjouskuvake",
+          "author_name": "Tekijän nimi",
+          "quote_content": "Lainaa sisältöä",
+          "press-image": {
+            "info": "Ohittaa taustaväriasetuksen"
+          }
+        }
+      }
+    },
+    "scrolling_image": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/scrolling-image)",
+      "name": "Gallerian kuva",
+      "settings": {
+        "show_background_blur": {
+          "label": "Näytä epäselvä tausta"
+        },
+        "show_icon_hover": {
+          "label": "Näytä instagram-kuvake osoitin"
+        },
+        "info_image": "303px x 303px suositeltu"
+      }
+    },
+    "featured_product_banner": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/featured-product-banner)",
+      "name": "Suositeltu tuotebanneri",
+      "hide_icon_text": "Piilota kuvake tekstilohkoilla mobiililaitteella",
+      "blocks": {
+        "name": "Kuvake tekstillä"
+      },
+      "info": {
+        "info_desktop": "400 x 400 pikseliä suositellaan",
+        "info_mobile": "300 x 300 pikseliä suositellaan"
+      }
+    },
+    "product_testimonials": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-testimonials)",
+      "name": "Tuotearvostelut",
+      "settings": {
+        "header": "Lausutteluasetukset",
+        "rating_color": {
+          "label": "Arviointiväri"
+        },
+        "rating_type": {
+          "label": "Arviointityyppi",
+          "default": "Oletus",
+          "modern": "Moderni",
+          "show": "Näytä arvio",
+          "show_before_after": "Näytä ennen tekstin jälkeen"
+        },
+        "product_rounded": {
+          "label": "Tuotekuvan kulman säde"
+        },
+        "show_verified_buyer": {
+          "label": "Näytä vahvistettu ostaja"
+        },
+        "show_author_name": {
+          "label": "Näytä kirjoittajan nimi"
+        }
+      },
+      "blocks": {
+        "type": {
+          "media": {
+            "label": "Suosittelumedia"
+          },
+          "image_comparison": {
+            "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/image-comparison)",
+            "label": "Lausuttelukuvien vertailu",
+            "name": "Kuvien vertailu",
+            "show_after_before_text": {
+              "label": "Näytä ennen/jälkeen tekstiä"
+            }
+          }
+        },
+        "settings": {
+          "media": {
+            "label": "Media-asetukset",
+            "info": "448px x 246px suositeltu",
+            "before_after_image": {
+              "label": "Ennen jälkeen kuvat"
+            },
+            "before_image": {
+              "label": "Ennen"
+            },
+            "after_image": {
+              "label": "Jälkeen"
+            }
+          },
+          "information": {
+            "label": "Tietoasetukset",
+            "rating_star": {
+              "label": "Arviointitähti"
+            },
+            "select_product": {
+              "label": "Tuote"
+            },
+            "author_name": {
+              "label": "Tekijän nimi"
+            },
+            "review_sumary": {
+              "label": "Yhteenveto"
+            },
+            "use_richtext": {
+              "label": "Käytä rikastekstiä"
+            }
+          }
+        }
+      }
+    },
+    "routine-builder": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/routine-builder)",
+      "name": "Kauppa vaiheittain",
+      "blocks": {
+        "name": "Vaihe",
+        "settings": {
+          "text_step": {
+            "label": "Vaihe otsikko"
+          },
+          "product_in_step": {
+            "label": "Tuote vaiheessa"
+          }
+        }
+      }
+    },
+    "newsletter_popup": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/overlay-group/newsletter-popup)",
+      "name": "Uutiskirjeen ponnahdusikkuna",
+      "header": {
+        "heading": "Yleiset asetukset"
+      },
+      "settings": {
+        "sections_width": {
+          "label": "Leveys",
+          "options": {
+            "options__1": "Täysi leveys",
+            "options__2": "Automaattinen"
+          }
+        },
+        "collections_selector": {
+          "setting": "Kokoelman valitsimen asetukset",
+          "label": "Ota käyttöön kokoelmavalitsin",
+          "collection": {
+            "label_1": "Kokoelma 1",
+            "label_2": "Kokoelma 2",
+            "label_3": "Kokoelma 3",
+            "label_4": "Kokoelma 4",
+            "label_5": "Kokoelma 5"
+          }
+        },
+        "newsletter_heading": "Uutiskirjeen asetukset",
+        "show_on_homepage": "Näytä vain etusivulla",
+        "discount_sticky": {
+          "setting": "Tarjoava alennus",
+          "label": "Näytä alennus sticky",
+          "heading": "Sisältö",
+          "info": "Sisältö katkaistaan automaattisesti 25 merkin pituiseksi, mukaan lukien HTML-tunnisteet."
+        },
+        "heading": "Otsikko",
+        "short_description": "Kuvaus",
+        "instructional_text": "Ohjeteksti",
+        "email_placeholder": "Sähköpostin paikkamerkki",
+        "button_label": "Painikkeen otsikko",
+        "banner_image": "Bannerikuva"
+      }
+    },
+    "featured-blog": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/featured-blog)",
+      "name": "Suositeltu blogi"
+    },
+    "recommended_collection": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/recommended-collection)",
+      "name": "Suositeltu kokoelma",
+      "blocks": {
+        "button": {
+          "info": "[kokoelma] ja [nimi] ovat muuttujien nimiä, jotka korvataan automaattisesti. Älä muuta nimiä, mutta voit muuttaa niiden sijaintia tekstissä. [otsikko] on valinnainen – poista se, jos haluat vain kokoelmavalitsimen.",
+          "first_button_info": "Lomake kuvalla: avaa tulosten kokoelman valituilla suodattimilla"
+        },
+        "featured_collection": {
+          "title_info": "Vain riviteksti: näytetään pudotusvalikon [otsikko] vaihtoehtona. Kokoelmalohkoja ei käytetä asettelussa Lomake kuvalla"
+        },
+        "filter_dropdown": {
+          "name": "Suodattimen pudotusvalikko",
+          "info": "Toimii asettelussa Lomake kuvalla. Määritä suodatin ensin Shopify-sovelluksessa Search & Discovery.",
+          "filter_name": {
+            "label": "Suodattimen nimi",
+            "info": "Kirjoita suodattimen nimike täsmälleen niin kuin se näkyy kokoelmasivuilla, esimerkiksi \"Koiran ikäryhmä\". Erota eri kielten nimikkeet merkillä ;. Hintasuodattimia ei tueta."
+          },
+          "placeholder": "Paikkamerkki"
+        },
+        "text": {
+          "name": "Teksti"
+        }
+      },
+      "background": {
+        "label": "Näytä taustakuva",
+        "header": "Taustakuva"
+      },
+      "image_info": {
+        "info_desktop": "1920 x 700 pikseliä suositellaan",
+        "info_mobile": "390 x 407 pikseliä suositellaan"
+      },
+      "layout": {
+        "label": "Asettelu",
+        "inline": "Riviteksti",
+        "form": "Lomake kuvalla"
+      },
+      "content_color_scheme": "Sisällön värimalli",
+      "results_collection": {
+        "label": "Tulosten kokoelma",
+        "info": "Vain Lomake kuvalla. Suodattimen pudotusvalikot näyttävät tämän kokoelman suodattimet, ja ensimmäinen painike avaa sen. Jätä tyhjäksi, jotta käytetään kaikkia tuotteita."
+      },
+      "presets": {
+        "form": "Suositeltu kokoelma kuvalla"
+      }
+    },
+    "offers-popup": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/overlay-group/offers-popup)",
+      "name": "Tarjoukset ponnahdusikkuna",
+      "popup": {
+        "label": "Otsikkotarjouksen ponnahdusikkuna",
+        "info": "Muokkaa Tarjoukset-ponnahdusikkunan sisältöä peittoryhmässä."
+      }
+    },
+    "outfit-finder": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/products/outfit-finder)",
+      "name": "Asujen etsijä",
+      "settings": {
+        "product_listing": {
+          "label": "Tuoteluettelon asetukset"
+        },
+        "outfit_finder_logic": {
+          "label": "Esikatsele asetukset"
+        },
+        "max_items_to_show": {
+          "label": "Tuotteita sivulla",
+          "info": "Aluksi näytettyjen tuotteiden määrä. Vieritä alaspäin lataa lisää kohteita."
+        },
+        "max_items": {
+          "label": "Enimmäistuotteita asua kohden",
+          "info": "Rajoittaa, kuinka monta kohdetta asiakas voi lisätä esikatselualueelle."
+        },
+        "product": {
+          "label": "Suositeltu asu",
+          "info": "Valitse enintään 3 tuotetta, jotka näkyvät oletuksena esikatselualueella, kun sivu latautuu."
+        },
+        "notify_preview": {
+          "label": "Tyhjätilan ilmoitus",
+          "info": "Ohjeteksti näkyy esikatselualueella ennen kuin kohteet lisätään."
+        }
+      }
+    },
+    "scrolling-card": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scrolling-card)",
+      "name": "Viertävä kortti"
+    },
+    "scroll-scatter": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scroll-scatter)",
+      "name": "Vieritä sironta"
+    },
+    "store-location": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/other-pages/store-location)",
+      "name": "Kauppapaikka",
+      "settings": {
+        "key_google_map": {
+          "label": "Google Maps -sovellusliittymäavain",
+          "info": "Edellyttää Maps JavaScript-, Places- ja Geocoding-sovellusliittymiä. [Hanki avain](https://console.cloud.google.com/google/maps-apis/credentials)."
+        },
+        "map_settings": {
+          "header": "Kartta-asetukset"
+        },
+        "allowed_countries": {
+          "label": "Sallitut maat",
+          "info": "Valitse, mistä asiakkaat voivat etsiä kauppoja. Käytä ISO-maakoodeja (esim. USA, UK, CA) pilkuilla erotettuina. Jätä tyhjäksi etsiäksesi maailmanlaajuisesti."
+        },
+        "radius_km": {
+          "label": "Hakusäde (km)",
+          "info": "Myymälätulosten enimmäisetäisyys."
+        }
+      },
+      "blocks": {
+        "name": "Kauppa",
+        "settings": {
+          "store_name": {
+            "label": "kaupan nimi"
+          },
+          "store_address": {
+            "label": "Myymälän osoite"
+          },
+          "store_email": {
+            "label": "Säilytä sähköposti"
+          },
+          "store_phone": {
+            "label": "Säilytä puhelin"
+          },
+          "store_lat": {
+            "label": "Tallenna leveysaste",
+            "info": "Kopioi ensimmäinen numero Google Maps -koordinaateista."
+          },
+          "store_lng": {
+            "label": "Tallenna pituusaste",
+            "info": "Kopioi toinen numero Google Maps -koordinaateista."
+          },
+          "time_location": {
+            "monday": "Maanantai",
+            "tuesday": "tiistai",
+            "wednesday": "Keskiviikko",
+            "thursday": "torstai",
+            "friday": "Perjantai",
+            "saturday": "Lauantai",
+            "sunday": "sunnuntai",
+            "open": "Avoinna",
+            "closed": "Suljettu",
+            "open_time_hour": "Aukioloajat",
+            "open_time_minute": "Aukioloaika minuutti",
+            "close_time_hour": "Suljetun ajan",
+            "close_time_minute": "Sulkeutumisaika minuutti"
+          },
+          "time_schedule": {
+            "monday": "Aikataulu",
+            "tuesday": "Aikataulu",
+            "wednesday": "Aikataulu",
+            "thursday": "Aikataulu",
+            "friday": "Aikataulu",
+            "saturday": "Aikataulu",
+            "sunday": "Aikataulu"
+          }
+        }
+      }
+    },
+    "product-bundle": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/product-bundle)",
+      "name": "Tuotepaketti",
+      "settings": {
+        "discount": {
+          "name": "Alennus",
+          "info": "Opi alennuksen luomiseen [täällä](https://help.shopify.com/manual/discounts)",
+          "minimum": "Vaadittava vähimmäismäärä",
+          "maximum": "Tuotteiden enimmäismäärä",
+          "edit_quantity": "Salli määrämuutos jokaiselle tuotteelle",
+          "discount_title": "Alennuskoodi",
+          "discount_value": {
+            "name": "Alennusarvo",
+            "option": {
+              "fixed": {
+                "label": "Kiinteä summa",
+                "once_per_order": "Kerran per tilaus"
+              },
+              "percentage": {
+                "label": "Prosentti"
+              }
+            }
+          }
+        },
+        "your_bundle": {
+          "name": "Alennus",
+          "settings": {
+            "show_progress_bar": {
+              "label": "Näytä edistymispalkki"
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "product_discount": {
+            "name": "Tuotepaketti",
+            "info": "Korvaa kokoelman valittaessa."
+          }
+        }
+      }
+    },
+    "shopable-image": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/sections/shopable-image)",
+      "name": "Ostettava kuva",
+      "blocks": {
+        "tags": {
+          "name": "Tagit",
+          "info": "Määritä tunnisteiden nimet. Erottele pilkulla. Esim. Tag 1, Tag 2",
+          "info_image": "448px x 600px suositeltu",
+          "settings": {
+            "show_verify_icon": {
+              "label": "Näytä kuvakkeen rasti"
+            }
+          }
+        },
+        "lookbook": {
+          "name": "Mallisto.",
+          "settings": {
+            "products": {
+              "label": "Tuotteet",
+              "position_top": "Pystyasento",
+              "position_left": "Vaaka-asento",
+              "products": {
+                "otpion__1": {
+                  "label": "Tuote 1"
+                },
+                "otpion__2": {
+                  "label": "Tuote 2"
+                },
+                "otpion__3": {
+                  "label": "Tuote 3"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parallax-image": {
+      "blocks": {
+        "icon": {
+          "name": "Kuvake",
+          "info": "Ohittaa svg-kuvakeasetuksen"
+        }
+      }
+    },
+    "main-page": {
+      "name": "Sivu"
+    },
+    "subcollection-list": {
+      "name": "Alikokoelma",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/sub-collection)"
+    },
+    "before-you-leave": {
+      "name": "Ennen kuin lähdet",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/before-you-leave)",
+      "settings": {
+        "header": {
+          "recommended_products": "Suositellut tuotteet"
+        },
+        "show_time": {
+          "label": "Näyttöaika jälkeen (sekuntia)"
+        },
+        "banner": {
+          "label": "Bannerikuva",
+          "info": "380 x 423 pikseliä suositellaan"
+        },
+        "collection": {
+          "label": "Kokoelma"
+        },
+        "code": {
+          "label": "Alennuskoodi"
+        }
+      }
+    },
+    "advanced-slideshow": {
+      "block": {
+        "slide": "Liuku",
+        "settings": {
+          "type": {
+            "label": "Tyyppi",
+            "image": {
+              "label": "Kuva"
+            },
+            "video": {
+              "label": "Video"
+            }
+          },
+          "media_overlay": {
+            "label": "Mediapeittokuva"
+          }
+        }
+      }
+    },
+    "custom_section": {
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/advanced/flexible-section)",
+      "name": "Joustava osio",
+      "settings": {
+        "layout": {
+          "label": "Asettelu",
+          "direction": {
+            "label": "Suunta",
+            "options__1": {
+              "label": "Pysty"
+            },
+            "options__2": {
+              "label": "Vaaka"
+            }
+          },
+          "vertical_on_mobile": {
+            "label": "Pystysuunta mobiilissa"
+          },
+          "content_wrap": {
+            "label": "Sisällön rivitys"
+          },
+          "height": {
+            "label": "Korkeus",
+            "options": {
+              "auto": {
+                "label": "Automaattinen"
+              },
+              "custom": {
+                "label": "Muokattu"
+              }
+            },
+            "custom_height": {
+              "label": "Muokattu korkeus"
+            }
+          },
+          "gap": {
+            "label": "Auko"
+          },
+          "position": {
+            "label": "Sijainti",
+            "options__1": {
+              "label": "Yläosa"
+            },
+            "options__2": {
+              "label": "Keski"
+            },
+            "options__3": {
+              "label": "Alhaalla"
+            }
+          },
+          "alignment": {
+            "label": "Tasaus",
+            "label_mobile": "Mobiilikohdistus",
+            "options__1": {
+              "label": "Vasen"
+            },
+            "options__2": {
+              "label": "Keski"
+            },
+            "options__3": {
+              "label": "Oikein"
+            },
+            "options__4": {
+              "label": "Väliväli"
+            }
+          },
+          "hide_on_mobile": {
+            "label": "Piilotettu mobiililaitteessa"
+          }
+        },
+        "appearance": {
+          "header": "Ulkonäkö",
+          "settings": {
+            "background_media": {
+              "label": "Taustamedia",
+              "options__2": {
+                "label": "Kuva"
+              },
+              "options__3": {
+                "label": "Video"
+              },
+              "options__1": {
+                "label": "Ei mitään"
+              }
+            },
+            "border": {
+              "label": "Rajat",
+              "options": {
+                "none": "Ei mitään",
+                "solid": "Kiinteä"
+              },
+              "border_color": {
+                "label": "Reunuksen väri"
+              },
+              "border_thickness": {
+                "label": "Reunuksen paksuus"
+              }
+            },
+            "corner_radius": {
+              "label": "Kulman säde",
+              "options": {
+                "none": {
+                  "label": "Ei mitään"
+                },
+                "rounded": {
+                  "label": "Pyöristetty"
+                },
+                "custom": {
+                  "label": "Muokattu"
+                },
+                "inherit": {
+                  "label": "Peri",
+                  "info": "Jos asetuksena on \"Peri\", tämä lohko noudattaa yleisiä pyöristetyt kulmat -asetusta Teema-asetuksissa ▸ Asettelu ▸ Pyöristetty kuva."
+                }
+              },
+              "custom_radius": {
+                "label": "Muokattu säde"
+              }
+            },
+            "background_overlay": {
+              "label": "Taustapeittokuva",
+              "overlay_color": {
+                "label": "Peittokuvan väri"
+              },
+              "overlay_style": {
+                "label": "Peittokuvatyyli",
+                "options__1": {
+                  "label": "Kiinteä"
+                },
+                "options__2": {
+                  "label": "Gradientti"
+                }
+              },
+              "gradient_direction": {
+                "label": "Gradientin suunta",
+                "options__1": {
+                  "label": "Ylös"
+                },
+                "options__2": {
+                  "label": "Alas"
+                }
+              }
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "size": {
+            "label": "Koko",
+            "height": {
+              "label": "Korkeus"
+            },
+            "width": {
+              "label": "Leveys",
+              "custom_width": {
+                "label": "Muokattu leveys"
+              }
+            },
+            "mobile_width": {
+              "label": "Mobiilileveys"
+            },
+            "options": {
+              "options__1": {
+                "label": "Sopii"
+              },
+              "options__2": {
+                "label": "Täytä"
+              },
+              "options__3": {
+                "label": "Muokattu"
+              },
+              "options__4": {
+                "label": "Sopeudu mediataustaan"
+              }
+            }
+          },
+          "background": {
+            "label": "Tausta"
+          },
+          "background_color": {
+            "label": "Taustaväri"
+          }
+        },
+        "heading": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading)",
+          "label": "Esiasetus",
+          "heading_tag": {
+            "label": "Otsikkotunniste",
+            "info": "Aseta otsikkotunniste (H1–H6) hallitaksesi sisältöhierarkiaa ja parantaaksesi hakukoneoptimoinnin luettavuutta hakukoneissa.",
+            "h1": "H1",
+            "h2": "H2",
+            "h3": "H3",
+            "h4": "H4",
+            "h5": "H5",
+            "h6": "H6"
+          },
+          "custom": "Muokattu",
+          "default": "Oletus",
+          "paragraph": "Kohta",
+          "h1": "Otsikko 1",
+          "h2": "Otsikko 2",
+          "h3": "Otsikko 3",
+          "h4": "Otsikko 4",
+          "h5": "Otsikko 5",
+          "h6": "Otsikko 6",
+          "h7": "Otsikko 7",
+          "info": {
+            "edit_presets_in_theme_settings": "Muokkaa esiasetuksia [teeman asetuksissa](/editor?context=theme&category=typography)",
+            "label": "Fonttikoko"
+          },
+          "text_alignment": {
+            "desktop": "Tasaus",
+            "mobile": "Mobiilikohdistus"
+          }
+        },
+        "logo": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Logo",
+          "settings": {
+            "size": {
+              "name": "Koko",
+              "unit": {
+                "label": "Yksikkö",
+                "option__1": {
+                  "label": "Pikseli"
+                },
+                "option__2": {
+                  "label": "Prosentti"
+                }
+              },
+              "custom_mobile_size": {
+                "label": "Muokattu mobiilikoko"
+              },
+              "height": {
+                "label": "Korkeus"
+              },
+              "mobile": {
+                "name": "Mobiilikoko"
+              }
+            }
+          }
+        },
+        "email_subscription": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/newsletter)",
+          "name": "Uutiskirje"
+        },
+        "contact_form": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/contact-form)",
+          "name": "Yhteydenottolomake",
+          "settings": {
+            "name": "Nimi",
+            "email": "Sähköposti",
+            "message": "Viesti",
+            "select_label": "Valitse tunniste",
+            "default_select_label": "Aihe",
+            "option": "Vaihtoehto",
+            "default_option": "Tuote, Tilaus, Lehdistö, Muu",
+            "phone": "Puhelin",
+            "submit_button": "Lähetä-painike",
+            "default_submit_button": "Lähetä"
+          }
+        },
+        "accordion": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/accordion)",
+          "name": "Haitari",
+          "settings": {
+            "icon_style": {
+              "style": "Tyyli",
+              "label": "Kuvaketyyli",
+              "caret": "Carret",
+              "plus": "Plus+ calculator button"
+            },
+            "row_style": {
+              "label": "Rivityyli",
+              "background": "Tausta",
+              "divider": "Jakaja"
+            },
+            "background_color": "Taustaväri",
+            "row_spacing": "Tuoteväli",
+            "gap_row": "Auko",
+            "padding_row": "Täyte",
+            "gap_content": "Väliväli",
+            "accordion_row": "Haitaririvi",
+            "default_accordion_row": "Haitariotsikko",
+            "accordion_content": "Haitarisisältö",
+            "settings": {
+              "heading": "Otsikko",
+              "heading_size": "Otsikon koko",
+              "heading_weight": "Osapaino",
+              "body_weight": "Kehon paino",
+              "open_default": {
+                "label": "Avaa oletus"
+              }
+            }
+          }
+        },
+        "group": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/group)",
+          "name": "Ryhmä",
+          "settings": {
+            "link": "Linkki",
+            "open_in_new_tab": {
+              "label": "Avaa linkki uudessa välilehdessä"
+            }
+          }
+        },
+        "carousel": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/carousel)",
+          "name": "Karuselli"
+        },
+        "text": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/text)",
+          "name": "Teksti",
+          "default_text": "Teemme asioita, jotka toimivat paremmin ja kestävät pidempään. Tuotteemme ratkaisevat todelliset ongelmat puhtaalla suunnittelulla ja rehellisillä materiaaleilla.",
+          "text_color": {
+            "label": "Tekstin väri",
+            "body_color": "Runan väri",
+            "heading_color": "Otsikon väri"
+          }
+        },
+        "button": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/button)"
+        },
+        "icon": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/icon)"
+        },
+        "page": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Sivu",
+          "inherit_color_scheme": "Peri väriteeman",
+          "appearance": "Ulkonäkö",
+          "spacing": "välilyönti"
+        },
+        "spacer": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/spacer)",
+          "name": "Välikappale",
+          "mobile_settings": {
+            "label": "Mobiiliasetukset"
+          }
+        },
+        "divider": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Jakaja",
+          "settings": {
+            "thickness": "Paksuus",
+            "size": "Koko",
+            "color": "Väri"
+          }
+        },
+        "icon_list": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Kuvakeluettelo",
+          "item": "Tuote",
+          "open_new_tab": "Avaa uusi välilehti"
+        },
+        "alert": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Varoitus",
+          "dismiss_icon": "Hylkää-kuvake",
+          "display_dismiss_icon": "Näytä hylkäyskuvake"
+        },
+        "social_icons": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Sosiaaliset kuvakkeet",
+          "circle": "Ympyrä",
+          "rounded": "Pyöristetty",
+          "square": "Neliö",
+          "shape": "Muoto",
+          "color": "Väri",
+          "backgroup_color": "Taustaryhmän väri"
+        },
+        "progress_bar": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Edistymispalkki",
+          "text_color": "Tekstin väri",
+          "percentage": "Prosentti",
+          "border_radius": "Reunan säde",
+          "display_percentage": "Näyttöprosentti",
+          "inner_text": "Sisäinen teksti"
+        },
+        "counter": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/counter)",
+          "name": "Laskuri",
+          "counter_style": {
+            "label": "Taskurityyli",
+            "default": "Oletus",
+            "circle": "Ympyrä"
+          },
+          "counter_layout": {
+            "label": "Laskuriasettelu",
+            "horizontal": "Vaaka",
+            "vertical": "Pysty"
+          },
+          "number_position": "Numeron sijainti",
+          "space_between": "Väliväli",
+          "before_title": "Ennen otsikkoa",
+          "after_title": "Nimikkeen jälkeen",
+          "number_alignment": "Numeroiden tasaus",
+          "stroke_color": "Viivan väri",
+          "indicator_color": "Osoitinväri",
+          "background_color": "Taustaväri",
+          "text_color": "Tekstin väri",
+          "ending_number": "Loppunumero",
+          "starting_number": "Aloitusnumero",
+          "animation": "Animaation kesto (ms)"
+        },
+        "map": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/google-maps)",
+          "name": "Google-kartat",
+          "location": "Sijainti",
+          "longitude": "Pituusaste",
+          "latitude": "Leveysaste"
+        },
+        "jumbo_text": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+          "name": "Jumbo-teksti"
+        },
+        "tab": {
+          "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/tab)",
+          "name": "Välilehti",
+          "tab_row": "Välilehtikohde",
+          "settings": {
+            "heading": "Otsikon tyyli",
+            "heading_preset": "Otsikon esiasetus",
+            "heading_alignment": "Otsikon tasaus",
+            "heading_color": "Otsikon väri",
+            "content": "Sisällön tyyli",
+            "content_alignment": "Sisällön kohdistus"
+          }
+        },
+        "icon_with_text": {
+          "name": "Kuvake tekstillä",
+          "icon_first": "Kuvake ensin",
+          "icon_second": "Kuvake toinen",
+          "svg_custom": "SVG mukautettu"
+        },
+        "popup_link": {
+          "button_type_link": {
+            "label": "Painikkeen tyyppi",
+            "primary": {
+              "label": "Ensisijainen"
+            },
+            "outline": {
+              "label": "Ääriviiva"
+            },
+            "link": {
+              "label": "Linkki"
+            }
+          },
+          "popup_style": {
+            "label": "Ponnahdusikkunatyyli"
+          },
+          "popup_type": {
+            "label": "Ponnahdusikkunan tyyppi"
+          },
+          "popup_width": {
+            "label": "Ponnahdusikkunan leveys työpöytä"
+          },
+          "icon_type": {
+            "label": "Kuvakkeen tyyppi",
+            "none": "Ei mitään",
+            "arrow": "Nuoli",
+            "image": {
+              "label": "Kuva",
+              "size": "Koko"
+            }
+          }
+        }
+      },
+      "preset": {
+        "promotion_banner": "Joustava: Mainosbanneri",
+        "flexible_marquee": "Joustava: teltta",
+        "story_tabs": "Joustava: Välilehti"
+      }
+    },
+    "text_image_pairing": {
+      "how_to_use": "[Opi käyttämään tätä lohkoa](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/text-image-pairing)",
+      "name": "Tekstikuvaparin muodostaminen",
+      "settings": {
+        "text_default": "\"Omista hehkusi[image_1]pyyhkäisevä kiilto <br/> tuntea olosi kauniiksi[image_2]nähdä täysin[image_3]juhlimassa.\"",
+        "info": {
+          "label": "Käytä tiettyä paikkamerkkimuotoa [image_X], jossa haluat kuvan näkyvän. X on kuvan indeksi. Esimerkki: \"[image_1]\" korvataan ensimmäisellä kuvalla."
+        },
+        "images": {
+          "label": "Kuvat",
+          "image_style": {
+            "label": "Kuvan tyyli"
+          },
+          "image_1": {
+            "label": "Kuva #1"
+          },
+          "image_2": {
+            "label": "Kuva #2"
+          },
+          "image_3": {
+            "label": "Kuva #3"
+          }
+        }
+      }
+    },
+    "product_sizing": {
+      "name": "Tuotteen mitoitus",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "info": "Auttaa asiakkaita ymmärtämään tuotteen istuvuuden ja valitsemaan oikean koon luottavaisin mielin."
+    },
+    "size_recommendation": {
+      "name": "Kokosuositus",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/size-recommendation)",
+      "info": "Auttaa asiakkaita löytämään oikean koon käyttämällä yksinkertaisia tietoja, kuten pituutta, painoa, vartalon muotoa, rinnan kokoa ja kupin kokoa.",
+      "data_usage_notice": {
+        "label": "Tietojen käyttöä koskeva huomautus",
+        "info": "Tämä viesti selittää, kuinka asiakastietoja käytetään kokosuosituksiin. Voit muokata sanamuotoa myymäläsi yksityisyyden sävyyn sopivaksi."
+      },
+      "no_size_match": {
+        "label": "Ei kokoa vastaavaa viestiä",
+        "info": "Viesti näytetään, kun mikään koko ei vastaa asiakkaan syötteitä."
+      },
+      "fit_recommendation_note": {
+        "label": "Fit-suositus",
+        "info": "Näytetään kokosuosituksen tulosten jälkeen."
+      }
+    },
+    "sticky_image_with_text": {
+      "name": "Kiinnitetty kuva tekstillä",
+      "blocks": {
+        "group_text": {
+          "name": "Tekstiryhmä",
+          "image": {
+            "label": "Kuva vieritettäessä",
+            "info": "Näkyy kiinnitetyssä kuvassa, kun tämä ryhmä vierittyy näkyviin. Jätä tyhjäksi, jotta edellinen kuva säilyy. Vaatii asetuksen \"Vaihda kuva vieritettäessä\" osion asetuksissa."
+          }
+        },
+        "list_tag": {
+          "name": "Tunnisteiden luettelo",
+          "tags": {
+            "label": "Tunnisteet",
+            "info": "Erota tunnisteet pilkulla."
+          },
+          "show_check": {
+            "label": "Näytä valintakuvake"
+          },
+          "chip_style": {
+            "label": "Tunnistetyyli"
+          }
+        }
+      },
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/banners/sticky-image-with-text)",
+      "settings": {
+        "hide_image_mobile": {
+          "label": "Piilota kuva mobiilissa"
+        },
+        "change_image_on_scroll": {
+          "label": "Vaihda kuva vieritettäessä",
+          "info": "Vaihtaa kiinnitetyn kuvan, kun kukin tekstiryhmä vierittyy näkyviin. Aseta kuva jokaiseen tekstiryhmään. Osion kuvaa ei käytetä. Vain työpöytä."
+        }
+      }
+    },
+    "testimonial-images": {
+      "name": "Suosittelukuvat",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonial-images)",
+      "settings": {
+        "show_author_image": "Näytä kirjoittajan kuva",
+        "hide_image_on_mobile": {
+          "label": "Piilota kuva mobiilissa"
+        }
+      },
+      "blocks": {
+        "review": "Suosittelu",
+        "settings": {
+          "author_image": "Kirjoittajan kuva"
+        }
+      }
+    },
+    "flow": {
+      "name": "Kulku",
+      "blocks": {
+        "step": {
+          "name": "Vaihe",
+          "heading": {
+            "label": "Otsikko"
+          },
+          "image": {
+            "label": "Kuva"
+          },
+          "product": {
+            "label": "Tuote"
+          }
+        }
+      },
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/flow)"
+    },
+    "parallax-scroll": {
+      "name": "Parallaksivieritys",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/parallax-scroll)",
+      "instructions": "Lisää enintään 7 korttia. Kortit vuorottelevat sivuja, ja joka kolmas kortti upotetaan automaattisesti.",
+      "blocks": {
+        "info_card": {
+          "name": "Infokortti"
+        }
+      },
+      "settings": {
+        "card_width": {
+          "label": "Kortin leveys",
+          "info": "Määrittää kortin enimmäisleveyden työpöydällä. Kortit pysyvät responsiivisina pienemmillä näytöillä."
+        },
+        "button_link": {
+          "info": "Jos jätetään tyhjäksi, painike näytetään pois käytöstä."
+        },
+        "button_type": {
+          "info": "Käyttää teeman määrittämiä painiketyylejä."
+        }
+      }
+    },
+    "benefit-tabs": {
+      "name": "Etu-välilehdet",
+      "how_to_use": "Lisää Etu-välilehti-lohko jokaiselle välilehdelle ja lisää sitten Etu-lohkoja jokaiseen välilehteen.",
+      "settings": {
+        "text_alignment": {
+          "info": "Tasaa myös välilehtien painikkeet."
+        },
+        "mobile_alignment": {
+          "info": "Tasaa edut mobiilissa ja tabletissa. Työpöydällä edut tasataan mediaa kohti."
+        }
+      },
+      "blocks": {
+        "tab": {
+          "name": "Etu-välilehti",
+          "how_to_use": "Tasapainoisen asettelun vuoksi suositellaan enintään 6 Etu-lohkoa. Työpöydällä parittomat edut ovat median vasemmalla puolella ja parilliset oikealla.",
+          "settings": {
+            "tab_label": {
+              "label": "Välilehden nimike"
+            },
+            "image": {
+              "label": "Kuva ennen",
+              "info": "950 x 1060 px suositeltu"
+            },
+            "image_after": {
+              "label": "Kuva jälkeen",
+              "info": "Käytä samaa kokoa kuin kuvassa ennen. Jälkimmäinen kuva paljastuu, kun kävijä vierittää."
+            }
+          }
+        },
+        "benefit": {
+          "settings": {
+            "icon": {
+              "info": "Näyttää paikkamerkin, kun se on tyhjä. 120 x 120 px suositeltu"
+            }
+          }
+        }
+      }
+    },
+    "comparison-table": {
+      "name": "Vertailutaulukko",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/products/comparison-table)",
+      "settings": {
+        "table": {
+          "label": "Taulukko"
+        },
+        "comparison_heading": {
+          "label": "Vertailun otsikko"
+        },
+        "show_column_images": {
+          "label": "Näytä sarakkeiden kuvat"
+        },
+        "color_column_highlight": {
+          "label": "Sarakkeen korostusväri"
+        },
+        "table_notes": {
+          "label": "Taulukon huomautukset"
+        },
+        "show_labels": {
+          "label": "Näytä nimikkeet"
+        },
+        "first_label": {
+          "label": "Ensimmäinen nimike"
+        },
+        "second_label": {
+          "label": "Toinen nimike"
+        },
+        "button_link": {
+          "label": "Linkki"
+        }
+      },
+      "blocks": {
+        "column": {
+          "name": "Sarake",
+          "settings": {
+            "highlight": {
+              "label": "Korosta tämä sarake"
+            }
+          }
+        },
+        "row": {
+          "name": "Rivi",
+          "settings": {
+            "icon_info": "Valitse, miten arvo näytetään tässä sarakkeessa.",
+            "image_info": "Lisää kuva, joka näytetään, kun Kuva on valittu.",
+            "value": {
+              "yes": "Kyllä",
+              "no": "Ei"
+            },
+            "text_1": {
+              "label": "Sarakkeen 1 teksti",
+              "info": "Näytetään, kun Teksti on valittu. Arvot noudattavat sarakkeiden järjestystä, joten järjestä Sarake-lohkot huolellisesti."
+            },
+            "icon_1": {
+              "label": "Sarakkeen 1 kuvake"
+            },
+            "image_1": {
+              "label": "Sarakkeen 1 kuva"
+            },
+            "text_2": {
+              "label": "Sarakkeen 2 teksti",
+              "info": "Näytetään, kun Teksti on valittu."
+            },
+            "icon_2": {
+              "label": "Sarakkeen 2 kuvake"
+            },
+            "image_2": {
+              "label": "Sarakkeen 2 kuva"
+            },
+            "text_3": {
+              "label": "Sarakkeen 3 teksti",
+              "info": "Näytetään, kun Teksti on valittu."
+            },
+            "icon_3": {
+              "label": "Sarakkeen 3 kuvake"
+            },
+            "image_3": {
+              "label": "Sarakkeen 3 kuva"
+            },
+            "text_4": {
+              "label": "Sarakkeen 4 teksti",
+              "info": "Näytetään, kun Teksti on valittu. Käytetään vain, kun taulukossa on neljä saraketta."
+            },
+            "icon_4": {
+              "label": "Sarakkeen 4 kuvake"
+            },
+            "image_4": {
+              "label": "Sarakkeen 4 kuva"
+            },
+            "column_1": "Sarake 1",
+            "column_2": "Sarake 2",
+            "column_3": "Sarake 3",
+            "column_4": "Sarake 4"
+          }
+        }
+      }
+    },
+    "image-with-text-carousel": {
+      "name": "Kuva ja tekstikaruselli",
+      "how_to_use": "[Opi käyttämään tätä osiota](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/image-with-text-carousel)",
+      "settings": {
+        "show_slide_counter": {
+          "label": "Näytä dialaskuri"
+        }
+      },
+      "blocks": {
+        "slide": {
+          "icon_info": "80 x 80 px .png tai .svg suositeltu"
+        }
+      }
+    },
+    "recommended-collection-filters": {
+      "name": "Suositellut suodattimet"
+    }
+  },
+  "blocks": {
+    "quiz-step": {
+      "name": "Kysymys",
+      "settings": {
+        "stepper_label": {
+          "label": "Stepper-tarra",
+          "info": "Lyhyt otsikko näkyy edistymispalkissa. Esimerkki: Ihotyyppi, huolenaihe."
+        },
+        "question_id": {
+          "label": "Kysymystunnus",
+          "info": "Tämän kysymyksen yksilöllinen tunnus. Käytetään vaihtoehtojen ohituskysymyksissä (esim. q1, q2)."
+        },
+        "layout": {
+          "label": "Vaihtoehto-asettelu",
+          "options": {
+            "pill": "Pillerit",
+            "image": "Kuvapiirit"
+          }
+        }
+      }
+    },
+    "quiz-option": {
+      "name": " Tietovisavaihtoehto",
+      "settings": {
+        "label": {
+          "label": "Etiketti"
+        },
+        "image": {
+          "label": "Kuva",
+          "info": "Käytetään, kun kysymyksen asettelu on Image circles."
+        },
+        "product_matching_header": "Tulostuotteet",
+        "strong_match": {
+          "label": "Päätuotteet",
+          "info": "Näytetään ensimmäisenä tietokilpailutuloksissa, kun ostajat valitsevat tämän vastauksen."
+        },
+        "partial_match": {
+          "label": "Lisätuotteita",
+          "info": "Näytetään tietokilpailutuloksissa ensisijaisten tuotteiden jälkeen."
+        },
+        "exclude": {
+          "label": "Ei koskaan suosittele",
+          "info": "Estä nämä tuotteet tuloksista, kun ostajat valitsevat tämän vastauksen, vaikka ne näkyisivät muissa vastauksissa."
+        },
+        "skip_questions_header": "Kysymyslogiikka",
+        "skip_questions": {
+          "label": "Ohita kysymykset",
+          "info": "Syötä kysymystunnukset tietokilpailukysymyksistä ohittaaksesi, kun tämä vastaus on valittuna. Esimerkki: q3, q4"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,216 @@
+{% liquid
+  assign block_st = block.settings
+%}
+{% capture style %}
+--space-bottom: {{ block_st.padding_bottom }};--space-top: {{ block_st.padding_top }};--space-left: 0;--space-right: 0;--space-min-left: 0;--space-min-right: 0;
+{%- if block_st.padding_top > 20 -%}--space-min-top: {{ block_st.padding_top | times: 0.67 }};{%- else -%}--space-min-top: {{ block_st.padding_top }};{%- endif -%}
+{%- if block_st.padding_bottom > 20 -%}--space-min-bottom: {{ block_st.padding_bottom | times: 0.67 }};{%- else -%}--space-min-bottom: {{ block_st.padding_bottom }};{%- endif -%}
+{% endcapture %}
+
+<div
+  class="flexible-block group-block--width-fill group-block--width-mb-fill group-block--height w-full gradient switch-slide__mobile{% if request.visual_preview_mode %} bg-white rounded-5 p-sp-5{% else %} spacing-style{% endif %}"
+  {{ block.shopify_attributes }}
+  style="{{ style | strip | strip_newlines }}"
+>
+  <tab-row class="tab-row" is="tab-row">
+    <div
+      class="tab-heading-container flex {{ block_st.type_preset }} horizontal__tab-header hidden-scrollbar overflow-x-scroll-mb flex-1025-{{ block_st.heading_alignment }}"
+      style="--color-heading: {{ block_st.heading_color }};"
+      role="tablist"
+    >
+      {% content_for 'blocks' %}
+    </div>
+    <div
+      class="tab-row__content-container relative overflow-hidden flex column align-{{ block_st.content_alignment }} mt-sp-6 mt-1025-sp-10{% if block.settings.inherit_color_scheme == false %} color-{{ block.settings.color_scheme }}{% endif %}"
+      id="tab-content-display"
+      role="tabpanel"
+    ></div>
+  </tab-row>
+</div>
+{% schema %}
+{
+  "name": "t:sections.custom_section.blocks.tab.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.custom_section.blocks.tab.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.tab.settings.heading"
+    },
+    {
+      "type": "select",
+      "id": "type_preset",
+      "label": "t:sections.custom_section.blocks.tab.settings.heading_preset",
+      "options": [
+        {
+          "value": "h1",
+          "label": "t:sections.custom_section.blocks.heading.h1"
+        },
+        {
+          "value": "h2",
+          "label": "t:sections.custom_section.blocks.heading.h2"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.custom_section.blocks.heading.h3"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.custom_section.blocks.heading.h4"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.custom_section.blocks.heading.h5"
+        },
+        {
+          "value": "h6",
+          "label": "t:sections.custom_section.blocks.heading.h6"
+        },
+        {
+          "value": "fs-big-2",
+          "label": "t:sections.all.content_header.heading_size.large.label"
+        }
+      ],
+      "default": "h5",
+      "info": "t:sections.custom_section.blocks.heading.info.edit_presets_in_theme_settings"
+    },
+    {
+      "type": "select",
+      "label": "t:sections.custom_section.blocks.tab.settings.heading_alignment",
+      "id": "heading_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.custom_section.settings.layout.alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.custom_section.settings.layout.alignment.options__2.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.custom_section.settings.layout.alignment.options__3.label"
+        }
+      ],
+      "default": "start"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "t:sections.custom_section.blocks.tab.settings.heading_color",
+      "default": "#1d1d1f"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.tab.settings.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "inherit_color_scheme",
+      "label": "t:sections.custom_section.blocks.page.inherit_color_scheme",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme",
+      "visible_if": "{{ block.settings.inherit_color_scheme == false }}"
+    },
+    {
+      "type": "text_alignment",
+      "label": "t:sections.custom_section.blocks.tab.settings.content_alignment",
+      "id": "content_alignment"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.page.spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "_tab-row"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.custom_section.blocks.tab.name",
+      "category": "t:sections.group.blocks.layout",
+      "blocks": [
+        {
+          "type": "_tab-row",
+          "settings": {
+            "heading": "Description"
+          },
+          "blocks": [
+            {
+              "type": "text",
+              "settings": {
+                "text": "<p>This product is crafted from comfortable, stretchy ripstop fabric, detailed with an oversized utility pocket and two zipped back pockets.</p>",
+                "text_align_desktop": "left",
+                "text_align_mobile": "left"
+              }
+            }
+          ]
+        },
+        {
+          "type": "_tab-row",
+          "settings": {
+            "heading": "Customer Reviews"
+          },
+          "blocks": [
+            {
+              "type": "text",
+              "settings": {
+                "text": "<p>Our customer reviews reflect honest experiences from verified buyers, helping you make the best purchase decision. The current average rating is 4.8 out of 5.0 based on 154 ratings. We encourage you to share your experience and contribute to our community feedback.</p>",
+                "text_align_desktop": "left",
+                "text_align_mobile": "left"
+              }
+            }
+          ]
+        },
+        {
+          "type": "_tab-row",
+          "settings": {
+            "heading": "Shipping & Returns"
+          },
+          "blocks": [
+            {
+              "type": "text",
+              "settings": {
+                "text": "<p>We offer free standard shipping on all orders over $40. Standard delivery typically takes 3-5 business days, while express shipping is available for 1-2 day delivery. You will receive a tracking code via email immediately after your order is dispatched.</p>",
+                "text_align_desktop": "left",
+                "text_align_mobile": "left"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

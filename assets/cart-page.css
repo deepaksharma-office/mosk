@@ -1,0 +1,35 @@
+.cart-info textarea {
+  min-height: 12rem;
+  padding: 25px;
+}
+.cart-info .totals {
+  --color-border: #dddad0;
+}
+.cart-info .collapse-item:first-child .collapsible-row {
+  padding-top: 0;
+}
+.cart-addons-content select {
+  background-position: var(--end-side) 26px center;
+}
+.cart-quantity .quantity__input,
+.edit-cart-form .product-form__buttons .quantity__input {
+  --width: 5rem;
+}
+@media screen and (max-width: 1024.98px) {
+  .cart-quantity {
+    --input-height: 4rem;
+  }
+  .cart-quantity .quantity__button {
+    padding-inline: 1.6rem;
+  }
+  .cart-quantity .quantity__input,
+  .edit-cart-form .product-form__buttons .quantity__input {
+    --width: 2.6rem;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1200px) {
+  main-cart .cart-item-info .col-1025-remaining {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}

@@ -1,0 +1,74 @@
+{%- liquid
+  assign metafield_path = block.settings.metafield | default: 'custom.product_sizing' | strip
+  assign metafield_parts = metafield_path | split: '.'
+  assign metafield_namespace = metafield_parts[0] | default: 'custom'
+  assign metafield_key = metafield_parts[1] | default: 'product_sizing'
+  assign product_sizing = closest.product.metafields[metafield_namespace][metafield_key].value
+-%}
+{% if product_sizing %}
+  {% style %}
+    .product-sizing-slider {
+      background-color: transparent;
+    }
+    .sizing-slider.active {
+      background-color: var(--color-heading);
+    }
+  {% endstyle %}
+  <div class="w-full flex column">
+    <div class="product-sizing-slider relative w-full h-custom flex gap-sp-2" style="--height: 3px;">
+      {% for item in product_sizing %}
+        <span
+          class="sizing-slider bg-custom flex-1 h-full rounded-10{% if item.active %} active{% endif %}"
+          style="--bg-color-custom: #E5E5E5;"
+        >
+        </span>
+        {% unless forloop.last %}
+          <span
+            class="sizing-slider bg-custom flex-1 h-full rounded-10 hidden block-1025"
+            style="--bg-color-custom: #E5E5E5;"
+          ></span>
+        {% endunless %}
+      {% endfor %}
+    </div>
+    <div class="product-sizing-options fs-small flex space-between w-full mt-sp-2 w-full">
+      {% for item in product_sizing %}
+        <span class="sizing-option{% if item.active %} active{% endif %}">
+          {{ item.label }}
+        </span>
+        {% unless forloop.last %}
+          <span class="sizing-empty"></span>
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </div>
+{% elsif request.design_mode %}
+  {%- render 'editor-metafield-hint', id: 'product_sizing', source: metafield_path -%}
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.product_sizing.name",
+  "class": "product-sizing-block my-custom",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.product_sizing.how_to_use"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.product_sizing.info"
+    },
+    {
+      "type": "text",
+      "id": "metafield",
+      "label": "t:sections.all.metafield.product_sizing.label",
+      "info": "t:sections.all.metafield.product_sizing.info",
+      "default": "custom.product_sizing"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.product_sizing.name"
+    }
+  ]
+}
+{% endschema %}

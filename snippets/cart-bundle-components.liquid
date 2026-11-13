@@ -1,0 +1,23 @@
+{%- doc -%}
+  @param {object} item - Cart line item
+  @param {string} [class] - Extra classes for the list
+
+  @example
+  {% render 'cart-bundle-components', item: item, class: 'mb-sp-1' %}
+{%- enddoc -%}
+{%- if item.item_components.size > 0 -%}
+  <ul
+    class="cart-item__bundle-components list-unstyled m-0 p-0 fs-small flex column gap{% if class != blank %} {{ class }}{% endif %}"
+    style="--gap: 2px;"
+    role="list"
+  >
+    {%- for component in item.item_components -%}
+      {%- assign component_quantity = component.quantity | divided_by: item.quantity -%}
+      <li class="product-option">
+        {{- component.product.title | escape -}}
+        {%- if component.product.has_only_default_variant == false %} - {{ component.variant.title | escape }}{%- endif -%}
+        {%- if component_quantity > 1 %} x {{ component_quantity }}{%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+{%- endif -%}

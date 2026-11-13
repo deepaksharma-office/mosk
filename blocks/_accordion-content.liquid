@@ -1,0 +1,23 @@
+<div
+  class="collapsible-row__content overflow-hidden"
+  {{ block.shopify_attributes }}
+>
+  <div class="prose">
+    {{ block.settings.accordion_content }}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "t:sections.custom_section.blocks.accordion.settings.accordion_content",
+  "tag": null,
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "accordion_content",
+      "label": "t:sections.all.text.label",
+      "default": "t:sections.custom_section.blocks.accordion.settings.accordion_content"
+    }
+  ],
+  "presets": [{ "name": "t:sections.custom_section.blocks.accordion.settings.accordion_content" }]
+}
+{% endschema %}

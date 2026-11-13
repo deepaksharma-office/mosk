@@ -1,0 +1,101 @@
+{% liquid
+  assign block_st = block.settings
+%}
+{% style %}
+  {% if block_st.heading == blank %}
+    #shopify-block-{{ block.id }} .group__faqs-content .shopify-block:first-of-type .section__faq-items {
+      border-top: 0;
+    }
+    #shopify-block-{{ block.id }} .group__faqs-content .shopify-block:first-of-type summary {
+      padding-top: 0;
+    }
+  {% else %}
+    #shopify-block-{{ block.id }} .group__faqs-content .shopify-block:first-of-type {
+      border-top: 1px solid var(--color-border);
+    }
+  {% endif %}
+  #shopify-block-{{ block.id }} .group__faqs-content .shopify-block:last-of-type summary {
+    padding-bottom: 0;
+  }
+  #shopify-block-{{ block.id }} .group__faqs-content .shopify-block:last-of-type .faq_content-inner {
+    margin-bottom: 0;
+    padding-top: var(--sp-4);
+  }
+  #shopify-block-{{ block.id }} .group__faqs-content .shopify-block:last-of-type .section__faq-items {
+    border-bottom: 0;
+  }
+  @media (min-width: 1025px) {
+    #shopify-block-{{ block.id }} .group__faqs-content .shopify-block:last-of-type .faq_content-inner {
+      padding-top: var(--sp-6);
+    }
+  }
+{% endstyle %}
+<div
+  class="group__faqs-content w-full"
+>
+  <div class="w-full{% if block_st.framed %} rounded border p-sp-5 p-1025-40{% endif %}">
+    {% if block_st.heading != blank %}
+      <h2
+        class="mb-25 fs-22"
+        {{ block.shopify_attributes }}
+      >
+        <span>{{ block_st.heading }}</span>
+      </h2>
+    {% endif %}
+    {% content_for 'blocks' %}
+  </div>
+</div>
+<script>
+  var faqContainer_item = document.querySelector('.group__faqs-content');
+  if (faqContainer_item) {
+    var firstDetails_item = faqContainer_item.querySelector('details');
+
+    if (firstDetails_item) {
+      firstDetails_item.classList.add('detail-open');
+      firstDetails_item.setAttribute('open', '');
+    }
+  }
+</script>
+{% schema %}
+{
+  "name": "t:sections.faq.name",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "_item-faq"
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.all.content_setting.heading.label",
+      "default": "Questions heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "framed",
+      "label": "t:sections.faq.settings.framed",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.faq.name",
+      "blocks": [
+        {
+          "type": "_item-faq"
+        },
+        {
+          "type": "_item-faq"
+        },
+        {
+          "type": "_item-faq"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

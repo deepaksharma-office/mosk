@@ -1,0 +1,316 @@
+{% liquid
+  assign theme_st = settings
+  assign block_st = block.settings
+  assign scroll_animation = theme_st.scroll_animation
+  assign image_style = block_st.image_style
+  assign image_width = block_st.image_width
+  assign default_alt = 'general.image.image_alt_default' | t
+  assign text_alignment = block_st.text_alignment
+
+  assign class = 'rounded'
+  assign base_aspect_ratio = 2
+  if image_style == 'rounded'
+    assign class = 'rounded-50'
+    assign base_aspect_ratio = '1/1'
+  endif
+%}
+{% capture style %}
+--image-width: {{ image_width }}px;--space-bottom: {{ block_st.padding_bottom }};--space-top: {{ block_st.padding_top }};--space-left: 0;--space-right: 0;--space-min-left: 0;--space-min-right: 0;
+{%- if block_st.padding_top > 20 -%}--space-min-top: {{ block_st.padding_top | times: 0.67 }};{%- else -%}--space-min-top: {{ block_st.padding_top }};{%- endif -%}
+{%- if block_st.padding_bottom > 20 -%}--space-min-bottom: {{ block_st.padding_bottom | times: 0.67 }};{%- else -%}--space-min-bottom: {{ block_st.padding_bottom }};{%- endif -%}
+{% endcapture %}
+{% style %}
+  .image-pairing {
+    vertical-align: middle;
+  }
+{% endstyle %}
+{% liquid
+  assign image_1 = block_st.image_1
+  assign link_1 = block_st.image_1_link
+  assign aspect_ratio_1 = base_aspect_ratio
+  if image_style != 'rounded' and image_1 != blank
+    assign aspect_ratio_1 = image_1.aspect_ratio
+  endif
+  assign image_alt_1 = image_1.alt | default: default_alt | escape
+%}
+{% capture replace_image_1 %}
+<a
+    {% if link_1 == blank %}role="link" aria-disabled="true"{% else %}href="{{ link_1 }}"{% endif %}
+    aria-label="{{ image_alt_1 }}"
+    class="image-pairing w-custom max-w-100 {{ class }} inline-flex m-sp-1 mx-md-sp-4 my-md-sp-3"
+    style="--aspect-ratio: {{ aspect_ratio_1 }};{% if image_style == 'oval' %}--img-rounded: 50px;{% endif %}--width: clamp(calc(var(--image-width) * 0.7), 12vw, var(--image-width));"
+>
+  {%- if image_1 != blank -%}
+    {% render 'responsive-image',
+      type: 'other',
+      container: section.settings.section_width,
+      image: image_1,
+      image_alt: image_alt_1,
+      animate: 'zoom-out-small',
+      motion: true
+    %}
+  {%- else -%}
+    {% render 'placeholder-render', type: 'lifestyle-1', class: 'img-placeholder h-full w-full' %}
+  {%- endif -%}
+</a>
+{% endcapture %}
+
+{% liquid
+  assign image_2 = block_st.image_2
+  assign link_2 = block_st.image_2_link
+  assign aspect_ratio_2 = base_aspect_ratio
+  if image_style != 'rounded' and image_2 != blank
+    assign aspect_ratio_2 = image_2.aspect_ratio
+  endif
+  assign image_alt_2 = image_2.alt | default: default_alt | escape
+%}
+{% capture replace_image_2 %}
+<a
+    {% if link_2 == blank %}role="link" aria-disabled="true"{% else %}href="{{ link_2 }}"{% endif %}
+    aria-label="{{ image_alt_2 }}"
+    class="image-pairing w-custom max-w-100 {{ class }} inline-flex m-sp-1 mx-md-sp-4 my-md-sp-3"
+    style="--aspect-ratio: {{ aspect_ratio_2 }};{% if image_style == 'oval' %}--img-rounded: 50px;{% endif %}--width: clamp(calc(var(--image-width) * 0.7), 12vw, var(--image-width));"
+>
+  {%- if image_2 != blank -%}
+    {% render 'responsive-image',
+      type: 'other',
+      container: section.settings.section_width,
+      image: image_2,
+      image_alt: image_alt_2,
+      animate: 'zoom-out-small',
+      motion: true
+    %}
+  {%- else -%}
+    {% render 'placeholder-render', type: 'lifestyle-1', class: 'img-placeholder h-full w-full' %}
+  {%- endif -%}
+</a>
+{% endcapture %}
+
+{% liquid
+  assign image_3 = block_st.image_3
+  assign link_3 = block_st.image_3_link
+  assign aspect_ratio_3 = base_aspect_ratio
+  if image_style != 'rounded' and image_3 != blank
+    assign aspect_ratio_3 = image_3.aspect_ratio
+  endif
+  assign image_alt_3 = image_3.alt | default: default_alt | escape
+%}
+{% capture replace_image_3 %}
+<a
+    {% if link_3 == blank %}role="link" aria-disabled="true"{% else %}href="{{ link_3 }}"{% endif %}
+    aria-label="{{ image_alt_3 }}"
+    class="image-pairing w-custom max-w-100 {{ class }} inline-flex m-sp-1 mx-md-sp-4 my-md-sp-3"
+    style="--aspect-ratio: {{ aspect_ratio_3 }};{% if image_style == 'oval' %}--img-rounded: 50px;{% endif %}--width: clamp(calc(var(--image-width) * 0.7), 12vw, var(--image-width));"
+>
+  {%- if image_3 != blank -%}
+    {% render 'responsive-image',
+      type: 'other',
+      container: section.settings.section_width,
+      image: image_3,
+      image_alt: image_alt_3,
+      animate: 'zoom-out-small',
+      motion: true
+    %}
+  {%- else -%}
+    {% render 'placeholder-render', type: 'lifestyle-1', class: 'img-placeholder h-full w-full' %}
+  {%- endif -%}
+</a>
+{% endcapture %}
+<div
+  class="flexible-block block__text-image-pairing prose heading-color subheading_weight w-full pb-custom pt-custom spacing-style text-{{ text_alignment }} {% if block_st.inherit_color_scheme == false %} color-{{ block_st.color_scheme }} gradient{% endif %} {{ block_st.size }} fs-{{ block_st.size }} switch-slide__mobile group-block--height{% if request.visual_preview_mode %} bg-white p-sp-5 rounded-5{% endif %}"
+  style="{{ style | strip | strip_newlines }}"
+  {{ block.shopify_attributes }}
+>
+  {%- if scroll_animation != 'disable' -%}
+    <motion-effect
+      data-animate="fade-up"
+      class="block"
+    >
+  {%- endif -%}
+
+  {% liquid
+    assign processed_text = block_st.text
+    assign processed_text = processed_text | replace: '[image_1]', replace_image_1
+    assign processed_text = processed_text | replace: '[image_2]', replace_image_2
+    assign processed_text = processed_text | replace: '[image_3]', replace_image_3
+  %}
+  <p>
+    {{ processed_text }}
+  </p>
+  {%- if scroll_animation != 'disable' -%}
+    </motion-effect>
+  {%- endif -%}
+</div>
+{% schema %}
+{
+  "name": "t:sections.text_image_pairing.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.text_image_pairing.how_to_use"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "default": "t:sections.text_image_pairing.settings.text_default",
+      "label": "t:sections.custom_section.blocks.text.name",
+      "info": "t:sections.text_image_pairing.settings.info.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "inherit_color_scheme",
+      "label": "t:sections.custom_section.blocks.page.inherit_color_scheme",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme",
+      "visible_if": "{{ block.settings.inherit_color_scheme == false }}"
+    },
+    {
+      "type": "select",
+      "id": "size",
+      "options": [
+        {
+          "value": "h5",
+          "label": "t:sections.all.content_header.heading_size.xs_small.label"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.all.content_header.heading_size.x_small.label"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.all.content_header.heading_size.small.label"
+        },
+        {
+          "value": "34",
+          "label": "t:sections.all.content_header.heading_size.large.label"
+        },
+        {
+          "value": "h2",
+          "label": "t:sections.all.content_header.heading_size.x_large.label"
+        }
+      ],
+      "default": "34",
+      "label": "t:sections.all.content_header.heading_size.size"
+    },
+    {
+      "type": "text_alignment",
+      "id": "text_alignment",
+      "label": "t:sections.custom_section.blocks.heading.text_alignment.desktop",
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.text_image_pairing.settings.images.label"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "label": "t:sections.all.image.width",
+      "default": 150,
+      "min": 50,
+      "max": 200,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "image_style",
+      "options": [
+        {
+          "value": "oval",
+          "label": "t:sections.multimedia_with_text.blocks.settings.media_style.options__2.label"
+        },
+        {
+          "value": "rounded",
+          "label": "t:sections.multimedia_with_text.blocks.settings.media_style.options__1.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.multimedia_with_text.blocks.settings.media_style.options__3.label"
+        }
+      ],
+      "default": "oval",
+      "label": "t:sections.text_image_pairing.settings.images.image_style.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.text_image_pairing.settings.images.image_1.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "t:sections.all.image.label"
+    },
+    {
+      "type": "url",
+      "id": "image_1_link",
+      "label": "t:sections.all.content_setting.link.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.text_image_pairing.settings.images.image_2.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "t:sections.all.image.label"
+    },
+    {
+      "type": "url",
+      "id": "image_2_link",
+      "label": "t:sections.all.content_setting.link.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.text_image_pairing.settings.images.image_3.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "t:sections.all.image.label"
+    },
+    {
+      "type": "url",
+      "id": "image_3_link",
+      "label": "t:sections.all.content_setting.link.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.page.spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.text_image_pairing.name",
+      "category": "t:sections.group.decorative.name"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,206 @@
+{% liquid
+  assign block_st = block.settings
+  echo block_st.percentage
+%}
+{% capture style %}
+--progress_percentage: {{ block_st.percentage }}%;}
+--space-bottom: {{ block_st.padding_bottom }};--space-top: {{ block_st.padding_top }};--space-left: 0;--space-right: 0;--space-min-left: 0;--space-min-right: 0;
+{%- if block_st.padding_top > 20 -%}--space-min-top: {{ block_st.padding_top | times: 0.67 }};{%- else -%}--space-min-top: {{ block_st.padding_top }};{%- endif -%}
+{%- if block_st.padding_bottom > 20 -%}--space-min-bottom: {{ block_st.padding_bottom | times: 0.67 }};{%- else -%}--space-min-bottom: {{ block_st.padding_bottom }};{%- endif -%}
+{% endcapture %}
+<div
+  class="progress-block progress-block-{{ block.id }} spacing-style w-full{% if request.visual_preview_mode %} bg-white w-500 p-sp-5 rounded-30{% endif %}"
+  data-section-id="{{ block.id }}"
+  style="{{ style | strip | strip_newlines }};"
+  {{ block.shopify_attributes }}
+>
+  {% if block_st.show_title %}
+    <div class="progress-title text-start {{ block_st.type_preset }} mb-sp-2">{{ block_st.title }}</div>
+  {% endif %}
+
+  <progress-bar-block class="w-full block">
+    <div class="progress-bar-container overflow-hidden relative w-full">
+      <div class="progress-bar overflow-hidden relative">
+        <span class="text-inner overflow-hidden inline-block absolute">{{ block_st.text_inner }}</span>
+        {% if block_st.show_percentage %}
+          <span class="progress-percentage absolute" data-percentage="{{ block_st.percentage }}">0%</span>
+        {% endif %}
+      </div>
+    </div>
+  </progress-bar-block>
+</div>
+
+{%- style -%}
+  .progress-block-{{ block.id }} .progress-title {
+    color: {{ block_st.title_color }};
+  }
+
+  .progress-block-{{ block.id }} .progress-description {
+    color: {{ block_st.text_color }};
+  }
+
+  .progress-block-{{ block.id }} .progress-bar-container {
+    background-color: {{ block_st.background_color }};
+    height: {{ block_st.bar_height }}px;
+    border-radius: {{ block_st.border_radius }}px;
+  }
+
+  .progress-block-{{ block.id }} .progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: {{ block_st.progress_color }};
+    animation: progressAnimation {{ block_st.percentage | times: 0.02 }}s ease-in-out forwards;
+  }
+
+  @keyframes progressAnimation {
+    from { width: 0; }
+    to { width: var(--progress_percentage); }
+  }
+
+  {% if block_st.show_percentage %}
+  .progress-block-{{ block.id }} .progress-percentage {
+    top: 50%;
+    right: 10px;
+    color: {{ block_st.text_color }};
+    transform: translateY(-50%);
+  }
+  {% endif %}
+
+  .progress-block-{{ block.id }} .text-inner {
+    top: 50%;
+    left: 10px;
+    color: {{ block_st.text_color }};
+    transform: translateY(-50%);
+     width: max-content;
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "t:sections.custom_section.blocks.progress_bar.name",
+  "class": "w-full",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.custom_section.blocks.progress_bar.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.progress_bar.name"
+    },
+    {
+      "type": "range",
+      "id": "percentage",
+      "label": "t:sections.custom_section.blocks.progress_bar.percentage",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 50
+    },
+    {
+      "type": "checkbox",
+      "id": "show_percentage",
+      "label": "t:sections.custom_section.blocks.progress_bar.display_percentage",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "progress_color",
+      "label": "t:sections.divider.settings.color.label",
+      "default": "#1F473E",
+      "visible_if": "{{ block.settings.show_percentage}}",
+      "alpha": true
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:settings_schema.badges.settings.background_color.label",
+      "default": "#ECE7DA",
+      "visible_if": "{{ block.settings.show_percentage}}",
+      "alpha": true
+    },
+    {
+      "type": "range",
+      "id": "bar_height",
+      "label": "t:sections.divider.settings.height.label",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 30,
+      "visible_if": "{{ block.settings.show_percentage}}"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "t:sections.custom_section.blocks.progress_bar.border_radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 30,
+      "visible_if": "{{ block.settings.show_percentage}}"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.progress_bar.inner_text"
+    },
+    {
+      "type": "text",
+      "id": "text_inner",
+      "label": "t:settings_schema.badges.settings.sale.format.text",
+      "default": "Skill"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.custom_section.blocks.progress_bar.text_color",
+      "default": "#FFFFFF",
+      "alpha": true
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.page.spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.custom_section.blocks.progress_bar.name",
+      "category": "t:sections.group.decorative.name"
+    }
+  ]
+}
+{% endschema %}
+
+<script type="module">
+  document.addEventListener('shopify:section:load', function (event) {
+    const section = event.target.querySelector('.progress-section');
+    if (section) {
+      const progressBarBlock = section.querySelector('progress-bar-block');
+      if (progressBarBlock) {
+        progressBarBlock.resetAndAnimate();
+      }
+    }
+  });
+</script>

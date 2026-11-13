@@ -1,0 +1,140 @@
+{%- liquid
+  assign product = closest.product
+-%}
+{% if product.available == false %}
+  {% liquid
+    assign notify_id = 'FormStockNotify-' | append: block.id
+  %}
+  {%- form 'contact', id: notify_id, class: 'form-validation isolate field' -%}
+    <div class="bg-secondary p-sp-6 rounded">
+      {%- if block.settings.title != blank -%}
+        <div class="share-heading heading-color mb-sp-3">{{ block.settings.title }}</div>
+      {% endif %}
+      {%- if form.posted_successfully? -%}
+        <div
+          class="form-status form-status form__message success mb-10 flex align-center gap-10 mb-10"
+          tabindex="-1"
+          autofocus
+        >
+          <div class="flex content-center">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" class="flex-auto w-18">
+              <use href="#icon-success"></use>
+            </svg>
+          </div>
+          {{ 'templates.contact.form.post_success' | t }}
+        </div>
+      {%- elsif form.errors -%}
+        <div class="form__message error mb-10">
+          <div
+            class="flex align-center gap-10"
+            role="alert"
+            tabindex="-1"
+            autofocus
+          >
+            <div class="flex content-center">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" class="flex-auto w-18">
+                <use href="#icon-error"></use>
+              </svg>
+            </div>
+            {{ 'templates.contact.form.error_heading' | t }}
+          </div>
+          <ul class="list-unstyled w-custom fs-small" style="--width: calc(100% - 24px)">
+            <li>
+              <a
+                href="#FormStockNotify-email"
+                class="color-inherit"
+                aria-label=" {{ form.errors.translated_fields.email }}"
+              >
+                {{ form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      {%- endif -%}
+      <div
+        class="contact__fields field"
+      >
+        <div class="flex gap-10 wrap">
+          <div class="field relative w-full flex wrap field--with-error flex-1">
+            <input
+              autocomplete="email"
+              type="email"
+              id="FormStockNotifyEmail-{{ block.id }}"
+              class="field__input w-full"
+              name="contact[email]"
+              spellcheck="false"
+              autocapitalize="off"
+              autocorrect="off"
+              value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+              aria-required="true"
+              {% if form.errors contains 'email' %}
+                aria-invalid="true"
+                aria-describedby="FormStockNotify-email-error--{{ block.id }}"
+              {% endif %}
+              placeholder="{{ block.settings.email }} *"
+              required
+              pattern=".+\.[a-zA-Z]{2,6}"
+              style="--color-border: #DDDAD0;"
+            >
+            <label class="field__label overflow-hidden right-0 whitespace-nowrap" for="FormStockNotifyEmail-{{ block.id }}"> {{ block.settings.email }} *</label>
+            {%- if form.errors contains 'email' -%}
+              <div
+                class="contact__field-error error flex align-center mt-10"
+                id="FormStockNotify-email-error-{{ block.id }}"
+              >
+                <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+                <div class="flex content-center">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" class="flex-auto w-18">
+                    <use href="#icon-error"></use>
+                  </svg>
+                </div>
+                <span class="form__message">
+                  {{- form.errors.translated_fields.email | capitalize }}
+                  {{ form.errors.messages.email -}}
+                </span>
+              </div>
+            {%- endif -%}
+          </div>
+          <div class="hidden">
+            <textarea
+              rows="9"
+              id="FormStockNotifyProduct-{{ block.id }}"
+              name="contact[product]"
+            >{{ product.title }} - {{ request.origin }}{{ product.url }}</textarea>
+          </div>
+          <div class="hidden">
+            <textarea
+              rows="9"
+              id="FormStockNotify-message-notify"
+              name="contact[body]"
+            >{{ 'products.product.message_notify' | t }}</textarea>
+          </div>
+          {% content_for 'block', type: '_submit-button', id: 'button' %}
+        </div>
+      </div>
+    </div>
+  {%- endform -%}
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.all.product_setting.notify.name",
+  "class": "block-product__notify mb-custom",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.all.content_setting.description.label",
+      "default": "Enter your email to be notified when this item/variant is back in stock."
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "t:sections.newsletter_popup.settings.email_placeholder",
+      "default": "Enter your email..."
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.product_setting.notify.name" }]
+}
+{% endschema %}

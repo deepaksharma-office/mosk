@@ -1,0 +1,410 @@
+{% liquid
+  assign theme_st = settings
+  assign color_swatch_shape = theme_st.color_swatch_shape
+  assign block_st = block.settings
+  assign color_swatch_trigger = theme_st.color_swatch_trigger
+  assign color_swatch_type = theme_st.color_swatch_type
+  assign color_swatch_custom = theme_st.color_swatch_custom
+  assign size_trigger = block_st.size_trigger
+  if color_swatch_trigger != blank
+    assign option_name = color_swatch_trigger | split: ','
+  else
+    assign option_name = 'Color'
+  endif
+  assign has_color = false
+  for opt in product.options_with_values
+    for c in option_name
+      if opt.name == c
+        assign has_color = true
+      endif
+    endfor
+  endfor
+%}
+{%- if scope == 'item' -%}
+  {% if product.has_only_default_variant == false and has_color == true -%}
+    <variant-input
+      class="mt-sp-2 product-variants-js block{% if type == 'action_bundle' %} variant-bundle-js{% endif %}"
+      handle="{{ product.handle }}"
+      data-product-url="{{ product.url }}"
+      {{ block.shopify_attributes }}
+    >
+      {%- if type == 'action_bundle' -%}
+        {%- for option in product.options_with_values -%}
+          {%- liquid
+            assign is_color_option = false
+            for cl in option_name
+              if option.name == cl
+                assign is_color_option = true
+              endif
+            endfor
+          -%}
+          <fieldset
+            class="product-bundle-swatch-js product-variants__input p-0 border-0 relative variants-bundle-{{ option.position }}{% if forloop.last == false %} mb-sp-2{% endif %}"
+            id="fieldset-{{ section.id }}-product-{{ product.id }}-position-{{ forloop.index0 }}"
+            data-position-option="{{ option.position }}"
+          >
+            <div class="product-variants-info">
+              <legend class="form__label p-0 fs-small lh-global mb-sp-1">
+                <span class="heading-color">{{ option.name }}:</span> <span class="option_value heading-color"></span>
+              </legend>
+              <div class="product-variants-option">
+                <ul class="list-unstyled flex wrap{% if is_color_option %} swatch-color gap-sp-2{% else %} swatch-text gap-sp-1{% endif %}">
+                  {% render 'variant-options',
+                    product: product,
+                    option: option,
+                    option_name: option_name,
+                    scope: 'detail',
+                    is_color: is_color_option,
+                    is_dropdown: false,
+                    type: 'action_bundle'
+                  %}
+                </ul>
+              </div>
+            </div>
+          </fieldset>
+        {%- endfor -%}
+      {%- else -%}
+        <fieldset class="product-card-swatch-js product-variants__input m-0 p-0 border-0 relative">
+          <legend class="{% if scope == 'item' %}visually-hidden{% endif %}">
+            {{ 'products.product.colors' | t }}
+          </legend>
+          <ul class="swatch-color list-unstyled flex align-center wrap gap-sp-1{% if settings.product_alignment == 'center' %} justify-center{% endif %}">
+            {%- for option in product.options_with_values -%}
+              {%- liquid
+                assign is_color_option = false
+                for cl in option_name
+                  if option.name == cl
+                    assign is_color_option = true
+                  endif
+                endfor
+              -%}
+              {%- if is_color_option == true -%}
+                {% render 'variant-options',
+                  product: product,
+                  option: option,
+                  option_name: option_name,
+                  select_color: select_color,
+                  scope: scope,
+                  is_color: true,
+                  is_dropdown: false
+                %}
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </fieldset>
+      {%- endif -%}
+    </variant-input>
+  {% endif %}
+{% elsif scope == 'variant_swatch' %}
+  {%- if product.variants.size > 1 -%}
+    {% liquid
+      assign quantity_variant = 0
+      for variant in product.variants
+        assign quantity = variant.inventory_quantity
+        if quantity > 0 and variant.available != false
+          assign quantity_variant = quantity_variant | plus: 1
+        elsif variant.available == true
+          assign quantity_variant = quantity_variant | plus: 1
+        endif
+      endfor
+    %}
+    {%- if quantity_variant > 1 -%}
+      <variant-swatch-select
+        class="block"
+        section-id="{{ section.id }}"
+        handle="{{ product.handle }}"
+      >
+        <label class="field__label visually-hidden" for="VariantSwatchSelect-{{ section.id }}-{{ product.id }}">
+          {{ 'templates.bundle.form.name' | t -}}
+        </label>
+        <select
+          id="VariantSwatchSelect-{{ section.id }}-{{ product.id }}"
+          name="VariantSwatchSelect-{{ section.id }}-{{ product.id }}"
+          class="show-placehoder{% if select_type == 'default' %} fs-small-1 max-w-custom{% else %} border-0 h-auto max-w-100 fs-small lh-global{% endif %}{{ select_class }} bundle-product-select"
+          style="--max-width: 25rem;"
+        >
+          {% for variant in product.variants %}
+            {% assign quantity = variant.inventory_quantity %}
+            {%- if show_available == false and quantity < 1 and variant.available == false -%}
+              {% continue %}
+            {%- endif -%}
+            <option
+              class="swatch-option"
+              value="{{ variant.id }}"
+              data-product-url="{{ product.url }}?variant={{ variant.id }}"
+              data-price="{{ variant.price }}"
+              data-price-compare="{{ variant.compare_at_price }}"
+              {% if variant.id == product.selected_or_first_available_variant.id %}
+                selected
+              {% endif %}
+            >
+              {% for option in product.options_with_values %}
+                {{ option.name }}:
+                {% liquid
+                  if option.name == product.options[0]
+                    assign option_value = variant.option1
+                  elsif option.name == product.options[1]
+                    assign option_value = variant.option2
+                  elsif option.name == product.options[2]
+                    assign option_value = variant.option3
+                  endif
+                %}
+                {{ option_value -}}
+                {%- unless forloop.last %} / {% endunless -%}
+              {% endfor %}
+            </option>
+          {% endfor %}
+        </select>
+        <script class="productVariantsJson" type="application/json">
+          {{ product.variants | json }}
+        </script>
+      </variant-swatch-select>
+    {%- endif -%}
+  {%- endif -%}
+{% else %}
+  {%- unless product.has_only_default_variant -%}
+    {%- liquid
+      assign show_size_guide = block_st.show_size_guide
+      assign size_guide_label = block_st.size_guide_label
+      assign size_guide_page = block_st.size_guide_page
+      assign size_guide_footer = block_st.size_guide_footer
+      if size_trigger != blank
+        assign size_name = size_trigger | split: ','
+      else
+        assign size_name = 'Size'
+      endif
+    -%}
+    <variant-input
+      class="product-variants-js flex column wrap{% if type != 'shopable' %} gap-sp-4 gap-1025-sp-6{% else %} gap-15{% endif %}"
+      data-section-id="{{ section.id }}"
+      {% if type == 'shopable' %}
+        data-block-id="{{ block_id }}"
+      {% endif %}
+      data-product-url="{{ product.url }}"
+      data-product-id="{{ product.id }}"
+      data-product-title="{{ product.title | escape }}"
+      data-option-names="{{ product.options | json | escape }}"
+      handle="{{ product.handle }}"
+    >
+      {%- for option in product.options_with_values -%}
+        {%- liquid
+          assign op = 'option' | append: option.position
+          assign value = product.selected_or_first_available_variant[op]
+          assign has_size = false
+          for size in size_name
+            if option.name == size
+              assign has_size = true
+            endif
+          endfor
+        -%}
+        <fieldset
+          class="product-card-variant-js product-variants__input m-0 p-0 border-0 relative"
+          id="fieldset-{{ section.id }}-product-{{ product.id }}-position-{{ forloop.index0 }}"
+        >
+          <div class="product-variants-info mb-sp-2{%- if has_size -%}{% if size_guide_page != blank or product.metafields.custom.size_chart != blank or collection_size_chart != '' %} flex wrap gap-5 space-between{% endif %}{% endif %}">
+            <legend class="form__label p-0">
+              <span class="heading-color">{{ option.name }}:</span> <span class="option_value">{{ value }}</span>
+            </legend>
+            {%- if has_size and show_size_guide -%}
+              {%- liquid
+                assign product_collections = product.collections
+                assign collection_size_chart = ''
+                for productCollection in product_collections
+                  if productCollection.metafields.custom.size_chart != blank
+                    assign collection_size_chart = productCollection.metafields.custom.size_chart
+                  endif
+                endfor
+              -%}
+              {% if size_guide_page != blank
+                or product.metafields.custom.size_chart != blank
+                or collection_size_chart != ''
+              %}
+                <button
+                  type="button"
+                  class="button open-size-chart btn-reset btn-link border-animation pointer text-size body_weight"
+                  title="{{ size_guide_label }}"
+                  aria-label="{{ size_guide_label }}"
+                >
+                  {{ size_guide_label }}
+                </button>
+                <div class="popup-size-chart d-none">
+                  <template>
+                    <size-chart-popup class="size-chart-popup modal modal_type_popup active-modal-js invisible-1025 fixed inset-0 z-22 flex align-center invisible-1025 transition-drawer">
+                      <modal-overlay class="modal-overlay invisible transition-drawer cursor-crosshair"></modal-overlay>
+                      <div
+                        class="modal-popup-inner invisible-1025 flex column modal-focus transition modal-draggable rounded max-w-custom m-auto bg-white w-full z-15"
+                        tabindex="-1"
+                        style="--max-width: 108.1rem;"
+                      >
+                        <draggable-modal
+                          class="drawer__header draggable-modal drawer__header-cart flex gap-10 space-between align-center drawer-spacing border-bottom sticky"
+                          style="--padding-block-desktop: 1.5rem;--padding-block:1.2rem;--padding-inline-desktop:3.2rem;"
+                        >
+                          <div
+                            class="drawer__heading h5 flex gap align-center body-font  body-style"
+                            style="--gap-desktop: 8px;--gap: 8px"
+                          >
+                            {{ size_guide_label }}
+                          </div>
+                          <button
+                            is="button-close-model"
+                            class="modal__close pointer modal-button-close rounded-50 btn-reset h-full inline-flex content-center"
+                            aria-label="{{ 'accessibility.close' | t }}"
+                          >
+                            <svg
+                              width="12"
+                              height="12"
+                              viewBox="0 0 14 14"
+                              fill="none"
+                              class="transition-short will-change icon-zoom"
+                            >
+                              <use href="#icon-close"></use>
+                            </svg>
+                          </button>
+                        </draggable-modal>
+                        <div
+                          class="drawer__body grow-1 rte h-full overflow-y-auto custom-scrollbar drawer-spacing"
+                          style="--padding-block-desktop: 2.4rem;"
+                        >
+                          {% if product.metafields.custom.size_chart != blank %}
+                            {% assign size_chart_html = product.metafields.custom.size_chart
+                              | replace: '&lt;', '<'
+                              | replace: '&gt;', '>'
+                            %}
+                            {{ size_chart_html }}
+                          {%- elsif collection_size_chart != '' -%}
+                            {% assign size_chart_html = collection_size_chart
+                              | replace: '&lt;', '<'
+                              | replace: '&gt;', '>'
+                            %}
+                            {{ size_chart_html }}
+                          {%- else -%}
+                            {{ pages[size_guide_page].content }}
+                          {% endif %}
+                        </div>
+                        {% if size_guide_footer %}
+                          <div class="modal__footer size_guide-footer bg-primary color-white text-center px-gutter-x py-sp-4 py-1025-sp-6 prose fs-small border-top">
+                            {{ size_guide_footer }}
+                          </div>
+                        {% endif %}
+                      </div>
+                    </size-chart-popup>
+                  </template>
+                </div>
+              {% endif %}
+            {%- endif -%}
+          </div>
+          <div class="product-variants-option{% if is_dropdown %} relative{% endif %}">
+            {%- liquid
+              assign is_color_option = false
+              for cl in option_name
+                if option.name == cl
+                  assign is_color_option = true
+                endif
+              endfor
+              if is_color_option
+                assign is_swatch_image = false
+                assign swatch_image = ''
+                assign swatch_color = value
+                if color_swatch_type == 'color'
+                  if color_swatch_custom != blank
+                    assign string_value = color_swatch_custom
+                    assign pairs = string_value | split: ','
+                    for pair in pairs
+                      assign key_and_value = pair | split: ':'
+                      assign key = key_and_value[0] | strip
+                      assign v = key_and_value[1] | strip
+                      if key == value
+                        if v contains '.png' or v contains '.jpg' or v contains '.webp'
+                          assign image_url = v | file_img_url: 'medium'
+                          assign swatch_image = 'url(' | append: image_url | append: ')'
+                          assign is_swatch_image = true
+                        else
+                          assign swatch_color = v
+                        endif
+                      endif
+                    endfor
+                  endif
+                  if value.swatch.image
+                    assign image_url = value.swatch.image | image_url: width: 120
+                    assign swatch_image = 'url(' | append: image_url | append: ')'
+                    assign is_swatch_image = true
+                  elsif value.swatch.color
+                    assign swatch_color = value.swatch.color
+                  endif
+                else
+                  assign image_url = false
+                  for variant in variants
+                    if variant.featured_image.src
+                      assign image_url = variant.featured_image.src | image_url: width: 120
+                      break
+                    endif
+                  endfor
+                  if image_url == false
+                    assign image_url = product.featured_image.src | image_url: width: 120
+                  endif
+                  assign swatch_image = 'url(' | append: image_url | append: ')'
+                  assign is_swatch_image = true
+                endif
+              endif
+            -%}
+            {%- if is_dropdown -%}
+              <button
+                type="button"
+                class="rotate-animate variants__option-dropdown pointer input-style w-full inline-flex gap-10 align-center"
+                title="{{ 'products.product.variant_select' | t }}"
+              >
+                <span class="flex-1 flex align-center gap-10">
+                  {%- if is_color_option -%}
+                    <span
+                      class="color-variant-input fs-0{% if is_swatch_image %} swatch-image{% endif %}"
+                      style="--swatch-background: {{ swatch_color }};{% if is_swatch_image %}--swatch-background-image: {{ swatch_image }};{% endif %}--color-swatch-width: 2rem;--color-swatch-height: 2rem;{% if color_swatch_shape == 'round' %}--radius: 50%;{% else %}--radius: 3px;{% endif %}"
+                    >
+                      {{ value }}
+                    </span>
+                  {%- endif -%}
+                  <span class="option_value">
+                    {{ value }}
+                  </span>
+                </span>
+                <svg class="icon icon-down icon-rotate transition-short ms-10" width="9" height="6" viewBox="0 0 9 6">
+                  <use href="#icon-arrow-down"></use>
+                </svg>
+              </button>
+              <variants-dropdown
+                id="dropdown-{{ section.id }}-product-{{ product.id }}-position-{{ forloop.index0 }}"
+                class="variants-dropdown transition-short active-show pointer-none bg-white block shadow invisible py-10 absolute z-5 inset-x-0 left-0 w-full top-100"
+              >
+                <ul class="dropdown-options list-unstyled">
+                  {% render 'variant-options',
+                    product: product,
+                    option: option,
+                    option_name: option_name,
+                    scope: scope,
+                    is_color: is_color_option,
+                    is_dropdown: is_dropdown
+                  %}
+                </ul>
+              </variants-dropdown>
+            {%- else -%}
+              <ul class="list-unstyled flex wrap gap-sp-2 gap-1025-sp-3 {% if is_color_option %}swatch-color{% else %}swatch-text{% endif %}">
+                {% render 'variant-options',
+                  product: product,
+                  option: option,
+                  option_name: option_name,
+                  scope: scope,
+                  is_color: is_color_option,
+                  is_dropdown: is_dropdown,
+                  is_show_sale_variant: is_show_sale_variant
+                %}
+              </ul>
+            {%- endif -%}
+          </div>
+        </fieldset>
+      {%- endfor -%}
+      <script type="application/json" class="productVariantSelected">
+        {{ product.selected_or_first_available_variant | json }}
+      </script>
+    </variant-input>
+  {% endunless %}
+{% endif %}

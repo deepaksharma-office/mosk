@@ -1,0 +1,54 @@
+.form-group input {
+  width: 100%;
+}
+.show-pass-word.text .icon-hide,
+.addresses [aria-expanded="false"] ~ div[id] {
+  display: none;
+}
+.show-pass-word.text .icon-view,
+label[for="AddressCountryNew"],
+label[for="AddressProvinceNew"],
+.order .properties span,
+.addresses [aria-expanded="true"] ~ div[id] {
+  display: block;
+}
+
+#recover[hidden="true"],
+#login[hidden="true"] {
+  display: none;
+  opacity: 0;
+}
+#recover,
+#login {
+  display: block;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@media screen and (min-width: 990px) {
+  :is(.account, .order) > div:nth-of-type(2) {
+    display: flex;
+    margin-top: 5rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .order td .cart-discount {
+    display: none;
+  }
+}
+.responsive-table,
+.order-history {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: start;
+}
+.order-history thead th,
+.order-details thead th {
+  padding: 1.1rem 2rem;
+  font-weight: 500;
+  color: var(--color-dark);
+  border-collapse: collapse;
+  background-color: rgba(var(--color-text-rgb), 0.2);
+}

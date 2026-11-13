@@ -1,0 +1,233 @@
+{% liquid
+  assign section_st = section.settings
+  assign block_st = block.settings
+  assign image_ratio = block_st.image_ratio
+  assign border_radius_type = block_st.border_radius_type
+  assign border_radius_custom = block_st.border_radius_custom
+  if border_radius_type == 'inherit'
+    assign border_radius_custom = settings.rounded_image
+  elsif border_radius_type == 'none'
+    assign border_radius_custom = 0
+  else
+    assign border_radius_custom = block_st.border_radius_custom
+  endif
+
+  if image_ratio != 'adapt'
+    case image_ratio
+      when 'square'
+        assign ratio = '1/1'
+      when 'landscape'
+        assign ratio = '4/3'
+      when 'portrait'
+        assign ratio = '3/4'
+    endcase
+  else
+    if block_st.before_image != blank
+      assign ratio = block_st.before_image.aspect_ratio
+    elsif block_st.after_image != blank
+      assign ratio = block_st.after_image.aspect_ratio
+    else
+      assign ratio = '4/3'
+    endif
+  endif
+%}
+
+<div
+  class="flexible-block group-block--width-fill group-block--width-mb-fill size-style group-block--height-fill slide-image-comparison rounded switch-slide__mobile{% if request.visual_preview_mode %} bg-white w-500 p-sp-5 rounded-5{% endif %}"
+  {{ block.shopify_attributes }}
+  style="--width-size-mobile: 100%;--width-size: 100%; --img-rounded: {{ border_radius_custom }}px;"
+>
+  <div
+    class="testimonial-media relative w-full h-full"
+    style="--aspect-ratio: {{ ratio }}"
+  >
+    <image-comparison class="block">
+      <div class="image-container">
+        <div
+          class="image-before image-comparison absolute w-full h-full object-fit-cover"
+          style="--aspect-ratio: {{ ratio }}"
+        >
+          {% if block_st.before_image != blank %}
+            {% liquid
+              assign image_alt = block_st.before_image.alt
+              if image_alt == blank
+                assign image_alt = 'general.image.image_alt_default' | t
+              endif
+            %}
+            {% render 'responsive-image',
+              type: 'banner',
+              container: section_st.section_width,
+              image: block_st.before_image,
+              image_alt: image_alt,
+              motion: true
+            %}
+          {% else %}
+            {% render 'placeholder-render', type: 'blog', class: 'img-placeholder' %}
+          {% endif %}
+          {% if block_st.show_after_before_text %}
+            <span
+              class="text-before absolute left-20 bottom-20 px-sp-5 py-7 z-1 bg-white rounded-30 fs-small"
+            >
+              {{ block_st.before_text }}
+            </span>
+          {% endif %}
+        </div>
+        <div
+          class="image-after image-comparison absolute w-full h-full object-fit-cover"
+          style="--aspect-ratio: {{ ratio }}"
+        >
+          {% if block_st.after_image != blank %}
+            {% liquid
+              assign image_alt = block_st.after_image.alt
+              if image_alt == blank
+                assign image_alt = 'general.image.image_alt_default' | t
+              endif
+            %}
+            {% render 'responsive-image',
+              type: 'banner',
+              container: section_st.section_width,
+              image: block_st.after_image,
+              image_alt: image_alt,
+              motion: true
+            %}
+          {% else %}
+            {% render 'placeholder-render', type: 'blog', class: 'img-placeholder' %}
+          {% endif %}
+          {% if block_st.show_after_before_text %}
+            <span
+              class="text-after absolute right-sp-5 bottom-20 px-sp-5 py-7 z-1 bg-white shadow-glass-2 rounded-30 fs-small"
+            >
+              {{ block_st.after_text }}
+            </span>
+          {% endif %}
+        </div>
+      </div>
+      <div class="slider absolute top-0 bottom-0 w-custom" tabindex="0" style="--width: 1px;">
+        <div
+          class="handle absolute w-custom h-custom bg-white rounded flex content-center text-color"
+          style="--width: 2.6rem;--height: 4.6rem;--img-rounded: 1.5rem;--color-text: #1d1d1f;"
+        >
+          <svg
+            width="10"
+            height="12"
+            viewBox="0 0 10 12"
+            fill="none"
+          >
+            <rect width="2" height="12" rx="1" fill="currentColor"/>
+            <rect x="4" width="2" height="12" rx="1" fill="currentColor"/>
+            <rect x="8" width="2" height="12" rx="1" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+    </image-comparison>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.product_testimonials.blocks.type.image_comparison.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.product_testimonials.blocks.type.image_comparison.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.product_testimonials.blocks.settings.media.before_after_image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "before_image",
+      "label": "t:sections.product_testimonials.blocks.settings.media.before_image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "after_image",
+      "label": "t:sections.product_testimonials.blocks.settings.media.after_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_after_before_text",
+      "label": "t:sections.product_testimonials.blocks.type.image_comparison.show_after_before_text.label",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "before_text",
+      "label": "t:sections.before_after_result.before_text.label",
+      "default": "t:sections.before_after_result.before_text.default",
+      "visible_if": "{{ block.settings.show_after_before_text }}"
+    },
+    {
+      "type": "text",
+      "id": "after_text",
+      "label": "t:sections.before_after_result.after_text.label",
+      "default": "t:sections.before_after_result.after_text.default",
+      "visible_if": "{{ block.settings.show_after_before_text }}"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.all.image.aspect_ratio.adapt"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.all.image.aspect_ratio.options__1"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.all.image.aspect_ratio.options__2"
+        },
+        {
+          "value": "landscape",
+          "label": "t:sections.all.image.aspect_ratio.options__3"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.all.image.aspect_ratio.label"
+    },
+    {
+      "type": "select",
+      "id": "border_radius_type",
+      "label": "t:sections.custom_section.settings.appearance.settings.corner_radius.label",
+      "options": [
+        {
+          "value": "inherit",
+          "label": "t:sections.custom_section.settings.appearance.settings.corner_radius.options.inherit.label"
+        },
+        {
+          "value": "none",
+          "label": "t:sections.custom_section.settings.appearance.settings.corner_radius.options.none.label"
+        },
+        {
+          "value": "custom",
+          "label": "t:sections.custom_section.settings.appearance.settings.corner_radius.options.custom.label"
+        }
+      ],
+      "info": "t:sections.custom_section.settings.appearance.settings.corner_radius.options.inherit.info",
+      "default": "inherit"
+    },
+    {
+      "type": "range",
+      "id": "border_radius_custom",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.custom_section.settings.appearance.settings.corner_radius.custom_radius.label",
+      "default": 20,
+      "visible_if": "{{ block.settings.border_radius_type == 'custom' }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.product_testimonials.blocks.type.image_comparison.name",
+      "category": "t:sections.group.decorative.name"
+    }
+  ]
+}
+{% endschema %}

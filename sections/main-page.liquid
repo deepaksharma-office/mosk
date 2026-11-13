@@ -1,0 +1,67 @@
+{%- liquid
+  assign section_st = section.settings
+-%}
+{% style %}
+  .page-content ul {
+    margin: 0;
+    padding-inline-start: 15px;
+  }
+{% endstyle %}
+{%- capture style -%}
+  --section-pt: {{ section_st.padding_top }}; --section-pb: {{ section_st.padding_bottom }};
+{%- endcapture -%}
+<div
+  class="section-padding section stretch_width w-full max-w-custom-all mx-auto"
+  style="{{ style | strip | strip_newlines }};--max-width: 66rem;--bs-gutter-x: 3rem;"
+>
+  <div class="page-title text-center">
+    <div class="page-content">
+      <h1 class="heading-title mb-60">
+        {{ page.title }}
+      </h1>
+    </div>
+  </div>
+  <div class="rte section-spacing page-content">
+    {{ page.content }}
+  </div>
+</div>
+
+{% stylesheet %}
+  .page-title {
+    text-align: center;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.main-page.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 48
+    }
+  ]
+}
+{% endschema %}

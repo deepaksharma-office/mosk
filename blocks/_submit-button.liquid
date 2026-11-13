@@ -1,0 +1,52 @@
+<button
+  type="submit"
+  class="pointer btn-{{ block.settings.button_type }} btn w-1200-custom w-full max-w-100 relative flex gap-sp-2 content-center"
+  aria-label="{{ block.settings.button_label }}"
+  {{ block.shopify_attributes }}
+>
+  {% if block.settings.icon_button %}
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" class="hidden-on-load transition-short">
+      <path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5" d="M10 5.366v2.775M10.017 1.667a5.548 5.548 0 0 0-5.55 5.55v1.75c0 .567-.233 1.417-.525 1.9l-1.058 1.767c-.65 1.091-.2 2.308 1 2.708a19.45 19.45 0 0 0 12.275 0 1.85 1.85 0 0 0 1-2.708L16.1 10.867c-.291-.483-.525-1.342-.525-1.9v-1.75c-.008-3.05-2.508-5.55-5.558-5.55Z"/><path stroke="currentColor" stroke-miterlimit="10" stroke-width="1.5" d="M12.775 15.684A2.785 2.785 0 0 1 10 18.459a2.78 2.78 0 0 1-1.959-.817c-.5-.5-.816-1.2-.816-1.958"/>
+    </svg>
+  {% endif %}
+  <span class="hidden-on-load transition-short">{{ block.settings.button_label }}</span>
+  {%- render 'loader' -%}
+</button>
+
+{% schema %}
+{
+  "name": "t:sections.custom_section.blocks.contact_form.settings.submit_button",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "t:sections.custom_section.blocks.contact_form.settings.default_submit_button",
+      "label": "t:sections.all.content_setting.first_button_label.label"
+    },
+    {
+      "type": "select",
+      "id": "button_type",
+      "label": "t:sections.all.content_setting.button_type.label",
+      "default": "primary",
+      "options": [
+        {
+          "value": "primary",
+          "label": "t:sections.all.content_setting.button_type.primary.label"
+        },
+        {
+          "value": "outline",
+          "label": "t:sections.all.content_setting.button_type.outline.label"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "icon_button",
+      "label": "t:sections.announcement-bar.settings.marquee_settings.show_icon.label",
+      "default": false
+    }
+  ],
+  "presets": [{ "name": "t:sections.custom_section.blocks.contact_form.settings.submit_button" }]
+}
+{% endschema %}

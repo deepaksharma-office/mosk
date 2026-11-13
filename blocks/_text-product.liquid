@@ -1,0 +1,16 @@
+<div {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+{% schema %}
+{
+  "name": "t:sections.all.text.label",
+  "class": "block-product__text mb-custom prose",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "<p>Text block</p>",
+      "label": "t:sections.all.text.label"
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.text.label" }]
+}
+{% endschema %}

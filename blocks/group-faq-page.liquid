@@ -1,0 +1,146 @@
+{% liquid
+  assign block_st = block.settings
+%}
+{% style %}
+  .group__faqs-content .shopify-block:first-of-type {
+    border-top: 1px solid var(--color-border);
+  }
+  .group__faqs-content .shopify-block:last-of-type details {
+    padding-bottom: 0;
+  }
+  .group__faqs-content .shopify-block:last-of-type .section__faq-items {
+    border-bottom: 0;
+  }
+
+  #shopify-block-{{ block.id }} {
+    --col-width: {{ block.settings.width }};
+  }
+{% endstyle %}
+<div
+  class="group__faqs-content w-full"
+  {{ block.shopify_attributes }}
+>
+  <div class="w-full{% if block_st.framed %} rounded border color-{{ block_st.color_scheme }} gradient p-sp-5 p-1025-40{% endif %}">
+    <div class="section-subheading fs-big-2 mb-5 mb-1025-10 heading-color subheading_weight">
+      {{ block.settings.subheading }}
+    </div>
+    <h2
+      class="group__faq-heading mb-25 fs-22"
+    >
+      <span>{{ block.settings.heading }}</span>
+    </h2>
+    {% content_for 'blocks' %}
+  </div>
+</div>
+<script>
+  const faqContainer_item = document.querySelector('.group__faqs-content');
+  if (faqContainer_item) {
+    const firstDetails_item = faqContainer_item.querySelector('details');
+
+    if (firstDetails_item) {
+      firstDetails_item.classList.add('detail-open');
+      firstDetails_item.setAttribute('open', '');
+    }
+  }
+</script>
+{% schema %}
+{
+  "name": "t:sections.faq.name",
+  "class": "w-full col-md-w-custom col-md-w-custom-50",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "_item-faq"
+    }
+  ],
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.all.content_setting.subheading.label"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.all.content_setting.heading.label",
+      "default": "Questions heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "framed",
+      "label": "t:sections.faq.settings.framed",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "t:sections.all.width.label",
+      "default": "50%",
+      "options": [
+        {
+          "value": "16.666%",
+          "label": "t:sections.footer.settings.width.options__1"
+        },
+        {
+          "value": "20%",
+          "label": "t:sections.footer.settings.width.options__2"
+        },
+        {
+          "value": "25%",
+          "label": "t:sections.footer.settings.width.options__3"
+        },
+        {
+          "value": "33.333%",
+          "label": "t:sections.footer.settings.width.options__4"
+        },
+        {
+          "value": "50%",
+          "label": "t:sections.footer.settings.width.options__5"
+        },
+        {
+          "value": "66.666%",
+          "label": "t:sections.footer.settings.width.options__6"
+        },
+        {
+          "value": "75%",
+          "label": "t:sections.footer.settings.width.options__7"
+        },
+        {
+          "value": "86%",
+          "label": "t:sections.footer.settings.width.options__8"
+        },
+        {
+          "value": "100%",
+          "label": "t:sections.footer.settings.width.options__9"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.faq.name",
+      "category": "t:sections.group.blocks.basic",
+      "blocks": [
+        {
+          "type": "_item-faq"
+        },
+        {
+          "type": "_item-faq"
+        },
+        {
+          "type": "_item-faq"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

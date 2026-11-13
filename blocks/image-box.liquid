@@ -1,0 +1,296 @@
+{%- liquid
+  assign block_st = block.settings
+  assign image = block_st.image
+  assign link = block_st.link
+  assign image_ratio = block_st.image_ratio
+  assign type_preset = block_st.type_preset
+  assign ratio = '3/4'
+  if image_ratio != 'adapt'
+    case image_ratio
+      when 'square'
+        assign ratio = '1/1'
+      when 'landscape'
+        assign ratio = '4/3'
+      when 'portrait'
+        assign ratio = '3/4'
+    endcase
+  else
+    if image != blank
+      assign ratio = block_st.image.aspect_ratio
+    else
+      assign ratio = '3/4'
+    endif
+  endif
+-%}
+
+<div
+  class="{% if request.visual_preview_mode %}bg-white p-sp-5 w-500 rounded-5{% endif %} pb-custom pt-custom spacing-style flex{% if block.settings.image_position == 'position-top' %} column{% elsif block.settings.image_position == 'position-right' %} row-reverse align-{{ block_st.vertical_alignment_group }}{% elsif block.settings.image_position == 'position-left' %} row align-{{ block_st.vertical_alignment_group }}{% endif %}"
+  style="--space-bottom: {{ block.settings.padding_bottom }};--space-top: {{ block.settings.padding_top }}; gap: {{ block.settings.image_spacing }}px;"
+>
+  <div
+    class="image-box w-full"
+    {{ block.shopify_attributes }}
+  >
+    <a
+      class="rounded block{% if image == blank %} placeholder{% endif %}"
+      {% if link != blank %}
+        href="{{ link }}"
+      {% else %}
+        role="link"
+      {% endif %}
+      aria-label="{{ 'general.image.image_alt_default' | t }}"
+      style=" --aspect-ratio: {{ ratio }};"
+    >
+      {%- if image != blank -%}
+        {%- liquid
+          assign image_alt_default = 'general.image.image_alt_default' | t
+          assign image_alt = image.alt | default: image_alt_default | escape
+        -%}
+        {% render 'responsive-image',
+          type: 'banner',
+          container: section.settings.section_width,
+          image: image,
+          image_alt: image_alt,
+          animate: 'zoom-out-small',
+          motion: true
+        %}
+      {%- else -%}
+        {%- render 'placeholder-render', type: 'lifestyle-1', class: 'img-placeholder h-full w-full' -%}
+      {%- endif -%}
+    </a>
+  </div>
+  {%- if block.settings.heading != blank or block.settings.description != blank -%}
+    <div class="image-box-content text-{{ block.settings.text_alignment }}">
+      {%- if block.settings.heading != blank -%}
+        <div
+          class="block__heading {{ type_preset }}{% if request.visual_preview_mode %} h4 mb-sp-3{% endif %}"
+        >
+          {{ block.settings.heading }}
+        </div>
+      {%- endif -%}
+      {%- if block.settings.description != blank -%}
+        <div
+          class="section-description {% if request.visual_preview_mode %} text-size{% endif %}"
+        >
+          {{ block.settings.description }}
+        </div>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.group.general.image_box",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.group.general.image_box_use.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.all.image.label"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "t:sections.all.content_setting.link.label"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.all.image.aspect_ratio.adapt"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.all.image.aspect_ratio.options__1"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.all.image.aspect_ratio.options__2"
+        },
+        {
+          "value": "landscape",
+          "label": "t:sections.all.image.aspect_ratio.options__3"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.all.image.aspect_ratio.label"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "t:sections.main-collection-banner.settings.image_position.label",
+      "default": "position-right",
+      "options": [
+        {
+          "value": "position-top",
+          "label": "t:sections.all.padding.padding_top"
+        },
+        {
+          "value": "position-left",
+          "label": "t:sections.main-collection-banner.settings.image_position.option__1"
+        },
+        {
+          "value": "position-right",
+          "label": "t:sections.main-collection-banner.settings.image_position.option__2"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment_group",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.top"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.middle"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.bottom"
+        }
+      ],
+      "default": "start",
+      "label": "t:sections.image-with-text.settings.vertical_alignment",
+      "visible_if": "{{ block.settings.image_position != 'position-top' }}"
+    },
+    {
+      "type": "range",
+      "id": "image_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.all.padding.image_spacing",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content.label"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Heading",
+      "label": "t:sections.all.content_setting.heading.label"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.all.content_setting.description.label",
+      "default": "<p>Add a short description for this section.</p>"
+    },
+    {
+      "type": "header",
+      "content": "t:settings_schema.typography.name"
+    },
+    {
+      "type": "select",
+      "id": "type_preset",
+      "label": "t:sections.custom_section.blocks.heading.label",
+      "options": [
+        {
+          "value": "rte",
+          "label": "t:sections.custom_section.blocks.heading.default"
+        },
+        {
+          "value": "paragraph",
+          "label": "t:sections.custom_section.blocks.heading.paragraph"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.custom_section.blocks.heading.h1"
+        },
+        {
+          "value": "h2",
+          "label": "t:sections.custom_section.blocks.heading.h2"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.custom_section.blocks.heading.h3"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.custom_section.blocks.heading.h4"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.custom_section.blocks.heading.h5"
+        },
+        {
+          "value": "h6",
+          "label": "t:sections.custom_section.blocks.heading.h6"
+        },
+        {
+          "value": "custom",
+          "label": "t:sections.custom_section.blocks.heading.custom"
+        }
+      ],
+      "default": "h2",
+      "info": "t:sections.custom_section.blocks.heading.info.edit_presets_in_theme_settings"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "start",
+      "label": "t:sections.all.text_alignment.alignment"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.page.spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 48
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.group.general.image_box",
+      "category": "t:sections.group.general.name"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,1105 @@
+{%- liquid
+  assign section_st = section.settings
+  assign theme_st = settings
+  assign scroll_animation = theme_st.scroll_animation
+  assign heading_size = section_st.heading_size
+  assign text_alignment = section_st.text_alignment
+  assign header_size = ''
+  if heading_size == 'small'
+    assign header_size = 'h3'
+  elsif heading_size == 'large'
+    assign header_size = 'h1'
+  endif
+  assign animate_delay = 25
+  assign heading = section_st.title
+  assign drawn_underline = section_st.drawn_underline
+  assign drawn_underline_type = section_st.drawn_underline_type
+  assign drawn_underline_color = section_st.drawn_underline_color
+-%}
+{% comment %}theme-check-disable RemoteAsset{% endcomment %}
+<script
+  src="https://maps.googleapis.com/maps/api/js?key={{ section_st.key_google_map }}&libraries=places"
+  defer
+></script>
+{% comment %}theme-check-enable RemoteAsset{% endcomment %}
+<script src="{{ 'markerclusterer-location.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'section-store-location.js' | asset_url }}" defer="defer"></script>
+{{ 'section-store-location.css' | asset_url | stylesheet_tag }}
+{%- capture style -%}
+  --section-pt: {{ section_st.padding_top }}; --section-pb: {{ section_st.padding_bottom }};
+{%- endcapture -%}
+{%- render 'section-divider', position: 'top', style: section_st.divider_top, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+<div
+  class="section color-{{ section_st.color_scheme }} gradient{% if section_st.show_divider and section_st.divider_top == 'line' %} border-top{% endif %}{% if section_st.show_divider and section_st.divider_bottom == 'line' %} border-bottom{% endif %}"
+  style="{{ style | strip | strip_newlines }}"
+>
+  <div class="container">
+    {%- if section_st.title != blank or section_st.description != blank or section_st.subheading != blank -%}
+      <div
+        class="section-header text-{{ text_alignment }}"
+      >
+        {%- if section_st.subheading != blank -%}
+          {% if scroll_animation != 'disable' %}
+            <motion-effect
+              data-animate="fade-up"
+              data-animate-delay="{{ animate_delay }}"
+              class="block"
+            >
+          {% endif %}
+          <div class="section-subheading h7 mb-sp-1 mb-md-sp-2 subheading_weight fs-big-2">
+            {{ section.settings.subheading }}
+          </div>
+          {% if scroll_animation != 'disable' %}
+            </motion-effect>
+          {% endif %}
+        {%- endif -%}
+        {%- if section_st.title != blank -%}
+          {% if scroll_animation != 'disable' or drawn_underline %}
+            {% assign animate_delay = animate_delay | plus: 50 %}
+            <motion-effect
+              data-animate="{% if scroll_animation != 'disable' %}fade-up{% else %}highlighted-text{% endif %}"
+              data-animate-delay="{{ animate_delay }}"
+              class="block"
+            >
+          {% endif %}
+          <h2 class="block section-heading {{ header_size }}">
+            {% if drawn_underline %}
+              {%- capture squiggle_svg_1 -%}
+                <svg viewBox="0 0 184 26" fill="none"><use href="#squiggle-svg-1" /></svg>
+              {%- endcapture -%}
+              {%- capture squiggle_svg_2 -%}
+               <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-2" /></svg>
+              {%- endcapture -%}
+              {%- capture squiggle_svg_3 -%}
+                 <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-3" /></svg>
+              {%- endcapture -%}
+              {%- capture squiggle_svg_4 -%}
+                <svg viewBox="0 0 220 20"fill="none"><use href="#squiggle-svg-4" /></svg>
+              {%- endcapture -%}
+              {%- capture squiggle_svg_5 -%}
+                <svg viewBox="0 0 140 24" fill="none" role="presentation" preserveAspectRatio="none"><use href="#squiggle-svg-5" /></svg>
+              {%- endcapture -%}
+              {%- assign result = heading -%}
+              {%- assign parts = result | split: '<em>' -%}
+              {%- assign em_count = parts | size | minus: 1 -%}
+
+              {%- for i in (1..em_count) -%}
+                {%- assign idx = i | plus: 0 -%}
+                {%- assign chunk = parts[idx] | default: '' -%}
+                {%- assign text = chunk | split: '</em>' | first | strip_html | strip -%}
+                {%- assign len_text = text | size -%}
+                {%- capture open_em -%}
+                {%- liquid
+                  if drawn_underline_type == 'simple_underline'
+                    assign svg = squiggle_svg_4 | append: '</em>'
+                  elsif drawn_underline_type == 'curve_underline'
+                    assign svg = squiggle_svg_5 | append: '</em>'
+                  else
+                    if len_text <= 4
+                      assign svg = squiggle_svg_1 | append: '</em>'
+                    elsif len_text <= 6
+                      assign svg = squiggle_svg_2 | append: '</em>'
+                    else
+                      assign svg = squiggle_svg_3 | append: '</em>'
+                    endif
+                  endif
+                -%}
+                <em class="highlighted-text relative inline-flex{% if drawn_underline_type == 'simple_underline' %} simple_underline{% endif %} {{ drawn_underline_type }} not-italic" style="--animate-color:{{ drawn_underline_color }}">{{ svg }}</em>
+              {%- endcapture -%}
+                {%- assign open_em = open_em | remove: '</em>' -%}
+                {%- assign heading = heading | replace_first: '<em>', open_em -%}
+              {%- endfor -%}
+            {% endif %}
+            {{- heading -}}
+          </h2>
+          {% if scroll_animation != 'disable' or drawn_underline %}
+            </motion-effect>
+          {% endif %}
+        {%- endif -%}
+        {%- if section_st.description != blank -%}
+          {% if scroll_animation != 'disable' %}
+            {% assign animate_delay = animate_delay | plus: 50 %}
+            <motion-effect
+              data-animate="fade-up"
+              data-animate-delay="{{ animate_delay }}"
+              class="block"
+            >
+          {% endif %}
+          <div class="section-description mt-sp-4 prose">
+            {{ section.settings.description }}
+          </div>
+          {% if scroll_animation != 'disable' %}
+            </motion-effect>
+          {% endif %}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+    <store-location
+      data-section-id="{{ section.id }}"
+      data-countries="{{ section_st.allowed_countries }}"
+      data-radius="{{ section_st.radius_km }}"
+      class="store-location-section flex column-reverse row-1025 gap-sp-6 w-full"
+      style="--col-width: 32.5%;"
+    >
+      <div class="location-container col-1025-w-custom flex column">
+        <div class="location-search relative mb-sp-4 mb-1025-sp-6">
+          <div class="location-input-wrapper flex align-center space-between border input-rounded relative transition">
+            <div class="absolute left-25 flex align-center pointer-events-none z-1">
+              <svg width="21" height="21" fill="none" class="heading-color">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10.546 19.167a8.62 8.62 0 1 0 0-17.241 8.62 8.62 0 0 0 0 17.241ZM20.075 20.074 18.26 18.26"/>
+              </svg>
+            </div>
+            <div class="relative flex-1 overflow-hidden">
+              <input
+                type="text"
+                id="location-input"
+                name="location"
+                class="location-input border-0 w-full"
+                autocomplete="off"
+                autocorrect="off"
+                spellcheck="false"
+                aria-describedby="location-helper"
+                aria-autocomplete="list"
+                aria-expanded="false"
+                role="combobox"
+                placeholder="{{ 'sections.store_location.input.label' | t -}}"
+                style="--input-padding-start: 6rem;--input-padding-end: 2.5rem;--input-padding-top: 0;--input-padding-bottom: 0;"
+              >
+              <label
+                class="hidden location-label"
+                for="location-input"
+              >
+                {{ 'sections.store_location.input.label' | t -}}
+              </label>
+            </div>
+            <div class="divider"></div>
+            <button
+              type="button"
+              class="location-detect-btn h-full flex align-center gap-sp-2 btn-reset pointer mx-25"
+              aria-label="{{ 'sections.store_location.my_location.label' | t }}"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                class="location-icon heading-color"
+              >
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15Z"/><path stroke="#1D1D1F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12 4V2M4 12H2M12 20v2M20 12h2"/>
+              </svg>
+            </button>
+          </div>
+          <ul
+            class="location-suggestions mt-sp-1 shadow hidden p-10 absolute z-30 w-full list-unstyled bg-white flex column gap-2 text-start list-unstyled overflow-auto custom-scrollbar rounded"
+          ></ul>
+        </div>
+        <div class="location-store-list flex column overflow-y-auto custom-scrollbar rounded"></div>
+      </div>
+      <div class="location-map col-1025-remaining w-full rounded overflow-hidden"></div>
+      <template class="location-template">
+        <div class="store-card p-sp-5 p-1025-sp-8 pointer hover-bg_second transition">
+          <div class="store-header border-bottom-dashed">
+            <h3 class="store-name h6 mb-sp-3"></h3>
+            <div class="mb-sp-3">
+              <p class="store-info mb-sp-1">
+                <span>{{ 'sections.store_location.my_location.address' | t }}:</span>
+                <span class="store-address"></span>
+              </p>
+              <p class="store-info mb-sp-1">
+                <span>{{ 'sections.store_location.my_location.phone' | t }}:</span> <span class="store-phone" dir="auto"></span>
+              </p>
+              <p class="store-info">
+                <span>{{ 'sections.store_location.my_location.email' | t }}:</span> <span class="store-email"></span>
+              </p>
+            </div>
+          </div>
+          <div class="store-hours my-sp-4">
+            <details
+              class="collapsible-row"
+              is="collapsible-row"
+            >
+              <summary class="collapsible-row__summary">
+                <div class="collapsible-heading flex space-between align-center w-full">
+                  <div>
+                    <span class="store-hours-title heading-style">
+                      {{- 'sections.store_location.my_location.opening_hours' | t }}:</span
+                    >
+                  </div>
+                  <div class="flex align-center gap-sp-3">
+                    <span class="store-hours-today store-status" dir="auto"></span>
+                    <span
+                      class="toggle-menu w-30 h-custom inline-flex flex-end align-center relative icon-carret{% if request.visual_preview_mode %} hidden-important{% endif %}"
+                    >
+                      <svg class="icon icon-down icon-rotate transition-short" width="11" height="6" viewBox="0 0 14 8">
+                        <use href="#icon-arrow-down-facet" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </summary>
+              <div class="collapsible-row__content overflow-hidden">
+                <ul class="store-hours-list list-unstyled mt-sp-2">
+                  <li data-day="monday">
+                    <span>{{ 'sections.store_location.my_location.monday' | t }}</span>
+                    <span class="time" dir="auto"></span>
+                  </li>
+                  <li data-day="tuesday">
+                    <span>{{ 'sections.store_location.my_location.tuesday' | t }}</span>
+                    <span class="time" dir="auto"></span>
+                  </li>
+                  <li data-day="wednesday">
+                    <span>{{ 'sections.store_location.my_location.wednesday' | t }}</span>
+                    <span class="time" dir="auto"></span>
+                  </li>
+                  <li data-day="thursday">
+                    <span>{{ 'sections.store_location.my_location.thursday' | t }}</span>
+                    <span class="time" dir="auto"></span>
+                  </li>
+                  <li data-day="friday">
+                    <span>{{ 'sections.store_location.my_location.friday' | t }}</span>
+                    <span class="time" dir="auto"></span>
+                  </li>
+                  <li data-day="saturday">
+                    <span>{{ 'sections.store_location.my_location.saturday' | t }}</span>
+                    <span class="time" dir="auto"></span>
+                  </li>
+                  <li data-day="sunday">
+                    <span>{{ 'sections.store_location.my_location.sunday' | t }}</span>
+                    <span class="time" dir="auto"></span>
+                  </li>
+                </ul>
+              </div>
+            </details>
+          </div>
+          <a
+            href="#"
+            class="store-direction-btn btn btn-outline w-full block text-center"
+            target="_blank"
+            rel="noopener"
+          >
+            {{ 'sections.store_location.my_location.get_direction' | t }}
+          </a>
+        </div>
+        <button class="store-load-more btn btn-primary w-full mt-sp-3 mt-1025-sp-6">
+          <span class="hidden-on-load transition-short">{{ 'sections.store_location.my_location.load_more' | t }}</span>
+          {%- render 'loader' -%}
+        </button>
+      </template>
+      <template class="location-template-infowindow">
+        <div class="map-infowindow max-w-custom-all p-sp-4 p-1025-sp-6 rounded" style="--max-width: 38rem;">
+          <h3 class="store-name h6 mb-sp-2 me-30"></h3>
+          <div class="pb-sp-2 border-bottom-dashed mb-sp-2">
+            <p class="store-info fs-small body_weight lh-global mb-sp-1">
+              <span>{{ 'sections.store_location.my_location.address' | t }}: <span class="store-address"></span></span>
+            </p>
+            <p class="store-info fs-small body_weight lh-global mb-sp-1">
+              <span>{{ 'sections.store_location.my_location.phone' | t }}: <span class="store-phone" dir="auto"></span></span>
+            </p>
+            <p class="store-info fs-small body_weight lh-global">
+              <span>{{ 'sections.store_location.my_location.email' | t }}: <span class="store-email"></span></span>
+            </p>
+          </div>
+          <p class="store-status fs-small body_weight mb-sp-4 lh-global">
+            {{ 'sections.store_location.my_location.opening_hours' | t }}: <span class="opening-hours" dir="auto"></span>
+          </p>
+          <a
+            class="store-direction-btn btn btn-outline w-full block text-center"
+            href="#"
+            target="_blank"
+            rel="noopener"
+          >
+            {{ 'sections.store_location.my_location.get_direction' | t }}
+          </a>
+        </div>
+      </template>
+      <script type="application/json" class="dataStoreLocation">
+        [
+          {% assign store_add = false %}
+          {%- for block in section.blocks -%}
+            {% assign block_st = block.settings %}
+            {% if block_st.store_lat != blank and block_st.store_lng != blank %}
+              {% if store_add %},{% endif %}
+              {% assign store_add = true %}
+            {
+              "index": {{ forloop.index | json }},
+              "name": {{ block_st.store_name | json }},
+              "address": {{ block_st.store_address | json }},
+              "phone": {{ block_st.store_phone | json }},
+              "email": {{ block_st.store_email | json }},
+              "lat": {{ block_st.store_lat | default: 0 }},
+              "lng": {{ block_st.store_lng | default: 0 }},
+              "monday": {
+                "schedule": {{ block_st.schedule_monday | json }},
+                "open_hour": {{ block_st.monday_open_time_hour | json }},
+                "open_minute": {{ block_st.monday_open_time_minute | json }},
+                "close_hour": {{ block_st.monday_close_time_hour | json }},
+                "close_minute": {{ block_st.monday_close_time_minute | json }}
+              },
+              "tuesday": {
+                "schedule": {{ block_st.schedule_tuesday | json }},
+                "open_hour": {{ block_st.tuesday_open_time_hour | json }},
+                "open_minute": {{ block_st.tuesday_open_time_minute | json }},
+                "close_hour": {{ block_st.tuesday_close_time_hour | json }},
+                "close_minute": {{ block_st.tuesday_close_time_minute | json }}
+              },
+              "wednesday": {
+                "schedule": {{ block_st.schedule_wednesday | json }},
+                "open_hour": {{ block_st.wednesday_open_time_hour | json }},
+                "open_minute": {{ block_st.wednesday_open_time_minute | json }},
+                "close_hour": {{ block_st.wednesday_close_time_hour | json }},
+                "close_minute": {{ block_st.wednesday_close_time_minute | json }}
+              },
+              "thursday": {
+                "schedule": {{ block_st.schedule_thursday | json }},
+                "open_hour": {{ block_st.thursday_open_time_hour | json }},
+                "open_minute": {{ block_st.thursday_open_time_minute | json }},
+                "close_hour": {{ block_st.thursday_close_time_hour | json }},
+                "close_minute": {{ block_st.thursday_close_time_minute | json }}
+              },
+              "friday": {
+                "schedule": {{ block_st.schedule_friday | json }},
+                "open_hour": {{ block_st.friday_open_time_hour | json }},
+                "open_minute": {{ block_st.friday_open_time_minute | json }},
+                "close_hour": {{ block_st.friday_close_time_hour | json }},
+                "close_minute": {{ block_st.friday_close_time_minute | json }}
+              },
+              "saturday": {
+                "schedule": {{ block_st.schedule_saturday | json }},
+                "open_hour": {{ block_st.saturday_open_time_hour | json }},
+                "open_minute": {{ block_st.saturday_open_time_minute | json }},
+                "close_hour": {{ block_st.saturday_close_time_hour | json }},
+                "close_minute": {{ block_st.saturday_close_time_minute | json }}
+              },
+              "sunday": {
+                "schedule": {{ block_st.schedule_sunday | json }},
+                "open_hour": {{ block_st.sunday_open_time_hour | json }},
+                "open_minute": {{ block_st.sunday_open_time_minute | json }},
+                "close_hour": {{ block_st.sunday_close_time_hour | json }},
+                "close_minute": {{ block_st.sunday_close_time_minute | json }}
+              }
+            }
+            {% endif %}
+          {%- endfor -%}
+        ]
+      </script>
+    </store-location>
+  </div>
+</div>
+{%- render 'section-divider', position: 'bottom', style: section_st.divider_bottom, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+{% schema %}
+{
+  "name": "t:sections.store-location.name",
+  "limit": 1,
+  "tag": "section",
+  "class": "section store-location",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.store-location.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_header.label"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.all.content_setting.subheading.label"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "t:sections.all.content_setting.heading.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "drawn_underline",
+      "default": true,
+      "label": "t:sections.all.content_setting.drawn_underline.label",
+      "info": "t:sections.all.content_setting.heading.info"
+    },
+    {
+      "type": "select",
+      "id": "drawn_underline_type",
+      "label": "t:sections.all.content_setting.drawn_underline.type",
+      "default": "squiggle_underline",
+      "visible_if": "{{ section.settings.drawn_underline != false }}",
+      "options": [
+        {
+          "value": "simple_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.simple_underline"
+        },
+        {
+          "value": "curve_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.curve_underline"
+        },
+        {
+          "value": "squiggle_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.squiggle_underline"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "drawn_underline_color",
+      "label": "t:sections.all.content_setting.drawn_underline.color",
+      "default": "#FFB005",
+      "alpha": true,
+      "visible_if": "{{ section.settings.drawn_underline != false }}"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.all.content_setting.description.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "large",
+          "label": "t:sections.all.content_header.heading_size.options__1.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.all.content_header.heading_size.options__2.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.all.content_header.heading_size.options__3.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.all.content_header.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.all.text_alignment.alignment"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.store-location.settings.map_settings.header"
+    },
+    {
+      "type": "text",
+      "id": "key_google_map",
+      "label": "t:sections.store-location.settings.key_google_map.label",
+      "info": "t:sections.store-location.settings.key_google_map.info"
+    },
+    {
+      "type": "text",
+      "id": "allowed_countries",
+      "label": "t:sections.store-location.settings.allowed_countries.label",
+      "info": "t:sections.store-location.settings.allowed_countries.info"
+    },
+    {
+      "type": "text",
+      "id": "radius_km",
+      "label": "t:sections.store-location.settings.radius_km.label",
+      "info": "t:sections.store-location.settings.radius_km.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.divider.section_divider_heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "t:sections.all.divider.show_divider",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "divider_top",
+      "label": "t:sections.all.divider.top",
+      "info": "t:sections.all.divider.top_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "line",
+      "visible_if": "{{ section.settings.show_divider }}"
+    },
+    {
+      "type": "select",
+      "id": "divider_bottom",
+      "label": "t:sections.all.divider.bottom",
+      "info": "t:sections.all.divider.bottom_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.show_divider }}"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "store",
+      "name": "t:sections.store-location.blocks.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "store_name",
+          "label": "t:sections.store-location.blocks.settings.store_name.label"
+        },
+        {
+          "type": "text",
+          "id": "store_lat",
+          "label": "t:sections.store-location.blocks.settings.store_lat.label",
+          "info": "t:sections.store-location.blocks.settings.store_lat.info"
+        },
+        {
+          "type": "text",
+          "id": "store_lng",
+          "label": "t:sections.store-location.blocks.settings.store_lng.label",
+          "info": "t:sections.store-location.blocks.settings.store_lng.info"
+        },
+        {
+          "type": "textarea",
+          "id": "store_address",
+          "label": "t:sections.store-location.blocks.settings.store_address.label"
+        },
+        {
+          "type": "text",
+          "id": "store_phone",
+          "label": "t:sections.store-location.blocks.settings.store_phone.label"
+        },
+        {
+          "type": "text",
+          "id": "store_email",
+          "label": "t:sections.store-location.blocks.settings.store_email.label"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.store-location.blocks.settings.time_location.monday"
+        },
+        {
+          "type": "select",
+          "id": "schedule_monday",
+          "options": [
+            {
+              "value": "open",
+              "label": "t:sections.store-location.blocks.settings.time_location.open"
+            },
+            {
+              "value": "closed",
+              "label": "t:sections.store-location.blocks.settings.time_location.closed"
+            }
+          ],
+          "default": "open",
+          "label": "t:sections.store-location.blocks.settings.time_schedule.monday"
+        },
+        {
+          "type": "range",
+          "id": "monday_open_time_hour",
+          "min": 0,
+          "max": 23,
+          "step": 1,
+          "unit": "h",
+          "visible_if": "{{ block.settings.schedule_monday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.open_time_hour",
+          "default": 8
+        },
+        {
+          "type": "range",
+          "id": "monday_open_time_minute",
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "unit": "i",
+          "visible_if": "{{ block.settings.schedule_monday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.open_time_minute",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "monday_close_time_hour",
+          "min": 0,
+          "max": 23,
+          "step": 1,
+          "unit": "h",
+          "visible_if": "{{ block.settings.schedule_monday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.close_time_hour",
+          "default": 17
+        },
+        {
+          "type": "range",
+          "id": "monday_close_time_minute",
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "unit": "i",
+          "visible_if": "{{ block.settings.schedule_monday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.close_time_minute",
+          "default": 30
+        },
+        {
+          "type": "header",
+          "content": "t:sections.store-location.blocks.settings.time_location.tuesday"
+        },
+        {
+          "type": "select",
+          "id": "schedule_tuesday",
+          "options": [
+            {
+              "value": "open",
+              "label": "t:sections.store-location.blocks.settings.time_location.open"
+            },
+            {
+              "value": "closed",
+              "label": "t:sections.store-location.blocks.settings.time_location.closed"
+            }
+          ],
+          "default": "open",
+          "label": "t:sections.store-location.blocks.settings.time_schedule.tuesday"
+        },
+        {
+          "type": "range",
+          "id": "tuesday_open_time_hour",
+          "min": 0,
+          "max": 23,
+          "step": 1,
+          "unit": "h",
+          "visible_if": "{{ block.settings.schedule_tuesday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.open_time_hour",
+          "default": 8
+        },
+        {
+          "type": "range",
+          "id": "tuesday_open_time_minute",
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "unit": "i",
+          "visible_if": "{{ block.settings.schedule_tuesday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.open_time_minute",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "tuesday_close_time_hour",
+          "min": 0,
+          "max": 23,
+          "step": 1,
+          "unit": "h",
+          "visible_if": "{{ block.settings.schedule_tuesday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.close_time_hour",
+          "default": 17
+        },
+        {
+          "type": "range",
+          "id": "tuesday_close_time_minute",
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "unit": "i",
+          "visible_if": "{{ block.settings.schedule_tuesday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.close_time_minute",
+          "default": 30
+        },
+        {
+          "type": "header",
+          "content": "t:sections.store-location.blocks.settings.time_location.wednesday"
+        },
+        {
+          "type": "select",
+          "id": "schedule_wednesday",
+          "options": [
+            {
+              "value": "open",
+              "label": "t:sections.store-location.blocks.settings.time_location.open"
+            },
+            {
+              "value": "closed",
+              "label": "t:sections.store-location.blocks.settings.time_location.closed"
+            }
+          ],
+          "default": "open",
+          "label": "t:sections.store-location.blocks.settings.time_schedule.wednesday"
+        },
+        {
+          "type": "range",
+          "id": "wednesday_open_time_hour",
+          "min": 0,
+          "max": 23,
+          "step": 1,
+          "unit": "h",
+          "visible_if": "{{ block.settings.schedule_wednesday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.open_time_hour",
+          "default": 8
+        },
+        {
+          "type": "range",
+          "id": "wednesday_open_time_minute",
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "unit": "i",
+          "visible_if": "{{ block.settings.schedule_wednesday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.open_time_minute",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "wednesday_close_time_hour",
+          "min": 0,
+          "max": 23,
+          "step": 1,
+          "unit": "h",
+          "visible_if": "{{ block.settings.schedule_wednesday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.close_time_hour",
+          "default": 17
+        },
+        {
+          "type": "range",
+          "id": "wednesday_close_time_minute",
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "unit": "i",
+          "visible_if": "{{ block.settings.schedule_wednesday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.close_time_minute",
+          "default": 30
+        },
+        {
+          "type": "header",
+          "content": "t:sections.store-location.blocks.settings.time_location.thursday"
+        },
+        {
+          "type": "select",
+          "id": "schedule_thursday",
+          "options": [
+            {
+              "value": "open",
+              "label": "t:sections.store-location.blocks.settings.time_location.open"
+            },
+            {
+              "value": "closed",
+              "label": "t:sections.store-location.blocks.settings.time_location.closed"
+            }
+          ],
+          "default": "open",
+          "label": "t:sections.store-location.blocks.settings.time_schedule.thursday"
+        },
+        {
+          "type": "range",
+          "id": "thursday_open_time_hour",
+          "min": 0,
+          "max": 23,
+          "step": 1,
+          "unit": "h",
+          "visible_if": "{{ block.settings.schedule_thursday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.open_time_hour",
+          "default": 8
+        },
+        {
+          "type": "range",
+          "id": "thursday_open_time_minute",
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "unit": "i",
+          "visible_if": "{{ block.settings.schedule_thursday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.open_time_minute",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "thursday_close_time_hour",
+          "min": 0,
+          "max": 23,
+          "step": 1,
+          "unit": "h",
+          "visible_if": "{{ block.settings.schedule_thursday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.close_time_hour",
+          "default": 17
+        },
+        {
+          "type": "range",
+          "id": "thursday_close_time_minute",
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "unit": "i",
+          "visible_if": "{{ block.settings.schedule_thursday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.close_time_minute",
+          "default": 30
+        },
+        {
+          "type": "header",
+          "content": "t:sections.store-location.blocks.settings.time_location.friday"
+        },
+        {
+          "type": "select",
+          "id": "schedule_friday",
+          "options": [
+            {
+              "value": "open",
+              "label": "t:sections.store-location.blocks.settings.time_location.open"
+            },
+            {
+              "value": "closed",
+              "label": "t:sections.store-location.blocks.settings.time_location.closed"
+            }
+          ],
+          "default": "open",
+          "label": "t:sections.store-location.blocks.settings.time_schedule.friday"
+        },
+        {
+          "type": "range",
+          "id": "friday_open_time_hour",
+          "min": 0,
+          "max": 23,
+          "step": 1,
+          "unit": "h",
+          "visible_if": "{{ block.settings.schedule_friday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.open_time_hour",
+          "default": 8
+        },
+        {
+          "type": "range",
+          "id": "friday_open_time_minute",
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "unit": "i",
+          "visible_if": "{{ block.settings.schedule_friday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.open_time_minute",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "friday_close_time_hour",
+          "min": 0,
+          "max": 23,
+          "step": 1,
+          "unit": "h",
+          "visible_if": "{{ block.settings.schedule_friday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.close_time_hour",
+          "default": 17
+        },
+        {
+          "type": "range",
+          "id": "friday_close_time_minute",
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "unit": "i",
+          "visible_if": "{{ block.settings.schedule_friday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.close_time_minute",
+          "default": 30
+        },
+        {
+          "type": "header",
+          "content": "t:sections.store-location.blocks.settings.time_location.saturday"
+        },
+        {
+          "type": "select",
+          "id": "schedule_saturday",
+          "options": [
+            {
+              "value": "open",
+              "label": "t:sections.store-location.blocks.settings.time_location.open"
+            },
+            {
+              "value": "closed",
+              "label": "t:sections.store-location.blocks.settings.time_location.closed"
+            }
+          ],
+          "default": "closed",
+          "label": "t:sections.store-location.blocks.settings.time_schedule.saturday"
+        },
+        {
+          "type": "range",
+          "id": "saturday_open_time_hour",
+          "min": 0,
+          "max": 23,
+          "step": 1,
+          "unit": "h",
+          "visible_if": "{{ block.settings.schedule_saturday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.open_time_hour",
+          "default": 8
+        },
+        {
+          "type": "range",
+          "id": "saturday_open_time_minute",
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "unit": "i",
+          "visible_if": "{{ block.settings.schedule_saturday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.open_time_minute",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "saturday_close_time_hour",
+          "min": 0,
+          "max": 23,
+          "step": 1,
+          "unit": "h",
+          "visible_if": "{{ block.settings.schedule_saturday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.close_time_hour",
+          "default": 17
+        },
+        {
+          "type": "range",
+          "id": "saturday_close_time_minute",
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "unit": "i",
+          "visible_if": "{{ block.settings.schedule_saturday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.close_time_minute",
+          "default": 30
+        },
+        {
+          "type": "header",
+          "content": "t:sections.store-location.blocks.settings.time_location.sunday"
+        },
+        {
+          "type": "select",
+          "id": "schedule_sunday",
+          "options": [
+            {
+              "value": "open",
+              "label": "t:sections.store-location.blocks.settings.time_location.open"
+            },
+            {
+              "value": "closed",
+              "label": "t:sections.store-location.blocks.settings.time_location.closed"
+            }
+          ],
+          "default": "closed",
+          "label": "t:sections.store-location.blocks.settings.time_schedule.sunday"
+        },
+        {
+          "type": "range",
+          "id": "sunday_open_time_hour",
+          "min": 0,
+          "max": 23,
+          "step": 1,
+          "unit": "h",
+          "visible_if": "{{ block.settings.schedule_sunday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.open_time_hour",
+          "default": 8
+        },
+        {
+          "type": "range",
+          "id": "sunday_open_time_minute",
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "unit": "i",
+          "visible_if": "{{ block.settings.schedule_sunday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.open_time_minute",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "sunday_close_time_hour",
+          "min": 0,
+          "max": 23,
+          "step": 1,
+          "unit": "h",
+          "visible_if": "{{ block.settings.schedule_sunday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.close_time_hour",
+          "default": 17
+        },
+        {
+          "type": "range",
+          "id": "sunday_close_time_minute",
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "unit": "i",
+          "visible_if": "{{ block.settings.schedule_sunday == 'open' }}",
+          "label": "t:sections.store-location.blocks.settings.time_location.close_time_minute",
+          "default": 30
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.store-location.name",
+      "category": "t:sections.group.storytelling",
+      "blocks": [
+        {
+          "type": "store"
+        },
+        {
+          "type": "store"
+        },
+        {
+          "type": "store"
+        },
+        {
+          "type": "store"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

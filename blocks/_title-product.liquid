@@ -1,0 +1,107 @@
+{%- liquid
+  assign heading_tag = block.settings.heading_tag
+  assign type_preset = block.settings.type_preset
+-%}
+{%- if heading_tag == 'h1' -%}
+  <{{ heading_tag }}
+    class="title {{ type_preset }}"
+    {{ block.shopify_attributes }}
+  >
+{%- else -%}
+  <{{ heading_tag }}
+    class="title {{ type_preset }}"
+    {{ block.shopify_attributes }}
+  >
+    <a href="{{ closest.product.url }}">
+{%- endif -%}
+{%- if closest.product.title != blank -%}
+  {{ closest.product.title | escape }}
+{%- else -%}
+  {{ 'onboarding.product_title' | t }}
+{%- endif -%}
+{%- if heading_tag == 'h1' -%}
+  </{{ heading_tag }}>
+{%- else -%}
+  </a>
+  </{{ heading_tag }}>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.all.product_setting.title.name",
+  "class": "block-product__title mb-sp-3 slideIn-animate",
+  "settings": [
+    {
+      "type": "select",
+      "id": "type_preset",
+      "label": "t:sections.custom_section.blocks.heading.label",
+      "options": [
+        {
+          "value": "h1",
+          "label": "t:sections.custom_section.blocks.heading.h1"
+        },
+        {
+          "value": "h2",
+          "label": "t:sections.custom_section.blocks.heading.h2"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.custom_section.blocks.heading.h3"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.custom_section.blocks.heading.h4"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.custom_section.blocks.heading.h5"
+        },
+        {
+          "value": "h6",
+          "label": "t:sections.custom_section.blocks.heading.h6"
+        },
+        {
+          "value": "h7",
+          "label": "t:sections.custom_section.blocks.heading.h7"
+        }
+      ],
+      "default": "h2",
+      "info": "t:sections.custom_section.blocks.heading.info.edit_presets_in_theme_settings"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "t:sections.custom_section.blocks.heading.heading_tag.label",
+      "info": "t:sections.custom_section.blocks.heading.heading_tag.info",
+      "options": [
+        {
+          "value": "h1",
+          "label": "t:sections.custom_section.blocks.heading.heading_tag.h1"
+        },
+        {
+          "value": "h2",
+          "label": "t:sections.custom_section.blocks.heading.heading_tag.h2"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.custom_section.blocks.heading.heading_tag.h3"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.custom_section.blocks.heading.heading_tag.h4"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.custom_section.blocks.heading.heading_tag.h5"
+        },
+        {
+          "value": "h6",
+          "label": "t:sections.custom_section.blocks.heading.heading_tag.h6"
+        }
+      ],
+      "default": "h2"
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.product_setting.title.name" }]
+}
+{% endschema %}

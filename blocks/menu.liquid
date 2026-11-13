@@ -1,0 +1,67 @@
+{%- if block.settings.menu != blank or block.settings.heading != blank -%}
+  <details
+    class="mobile-collapsible-row detail-open text-start{% if request.visual_preview_mode %} bg-white rounded-5 p-sp-5{% endif %}"
+    hidden-mobile
+    is="collapsible-row"
+    open
+  >
+    <summary tabindex="-1" class="collapsible-row__summary pointer-md-none pb-sp-6 pb-1025-20 not-highlight-tap">
+      <h3 class="footer__block-heading h6 flex space-between align-center collapsible-heading relative">
+        <span>
+          {{ block.settings.heading }}
+        </span>
+        {%- if block.settings.menu != blank -%}
+          <span class="open-children-toggle icon transition hidden-md">
+            <span class="icon_plus-animation heading-color"> </span>
+          </span>
+        {%- endif -%}
+      </h3>
+    </summary>
+    {%- if block.settings.menu != blank -%}
+      <ul class="footer__block-content menu-list-footer collapsible-row__content list-unstyled overflow-hidden-mb">
+        {%- for link in block.settings.menu.links -%}
+          <li class="mb-10">
+            <a
+              href="{{ link.url }}"
+              aria-label="{{ link.title }}"
+              class="{% if link.active %}list-menu__item--active{% endif %} outlined-border"
+            >
+              {{ link.title }}
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </details>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.group.links.menu",
+  "class": "w-full",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.group.links.how_to_use_menu"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Menu",
+      "label": "t:sections.all.content_setting.heading.label"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "t:settings_schema.typography.settings.menu.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.group.links.menu",
+      "category": "t:sections.group.links.name"
+    }
+  ]
+}
+{% endschema %}

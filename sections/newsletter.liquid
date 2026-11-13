@@ -1,0 +1,422 @@
+{% liquid
+  assign theme_st = settings
+  assign section_st = section.settings
+  assign scroll_animation = theme_st.scroll_animation
+  assign section_width = ''
+  if section_st.section_width == 'fix_width'
+    assign section_width = 'container'
+  elsif section_st.section_width == 'full_width'
+    assign section_width = 'full-width'
+  else
+    assign section_width = 'fluid_container'
+  endif
+  assign text_alignment = section_st.text_alignment
+  assign button_label = section_st.button_label
+  assign heading_size = section_st.heading_size
+  assign header_size = ''
+  if heading_size == 'small'
+    assign header_size = 'h3'
+  elsif heading_size == 'large'
+    assign header_size = 'h1'
+  endif
+  assign heading = section_st.heading
+  assign drawn_underline = section_st.drawn_underline
+  assign drawn_underline_type = section_st.drawn_underline_type
+  assign drawn_underline_color = section_st.drawn_underline_color
+  if drawn_underline
+    assign scroll_animation = 'disable'
+  endif
+%}
+{%- capture style -%}
+  --section-pt: {{ section_st.padding_top }}; --section-pb: {{ section_st.padding_bottom }};
+  
+{%- endcapture -%}
+{%- render 'section-divider', position: 'top', style: section_st.divider_top, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+<div
+  class="section section__newsletter color-{{ section_st.color_scheme }} gradient{% if section_st.show_divider and section_st.divider_top == 'line' %} border-top{% endif %}{% if section_st.show_divider and section_st.divider_bottom == 'line' %} border-bottom{% endif %}"
+  style="{{ style | strip | strip_newlines }}"
+>
+  <div class="{{ section_width }}">
+    {%- if section.settings.heading != blank or section.settings.description != blank -%}
+      {% assign animate_delay = 25 %}
+      <div class="section-header text-{{ text_alignment }}">
+        {%- if section.settings.heading != blank -%}
+          {% assign animate_delay = animate_delay | plus: 50 %}
+          {% if scroll_animation != 'disable' or drawn_underline %}
+            <motion-effect
+              data-animate="{% if scroll_animation != 'disable' %}fade-up{% else %}highlighted-text{% endif %}"
+              data-animate-delay="{{ animate_delay }}"
+              class="block"
+            >
+          {%- endif -%}
+          <h2 class="block section-heading {{ header_size }}">
+            {% if drawn_underline %}
+              {%- capture squiggle_svg_1 -%}
+                <svg viewBox="0 0 184 26" fill="none"><use href="#squiggle-svg-1" /></svg>
+              {%- endcapture -%}
+              {%- capture squiggle_svg_2 -%}
+               <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-2" /></svg>
+              {%- endcapture -%}
+              {%- capture squiggle_svg_3 -%}
+                 <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-3" /></svg>
+              {%- endcapture -%}
+              {%- capture squiggle_svg_4 -%}
+                <svg viewBox="0 0 220 20"fill="none"><use href="#squiggle-svg-4" /></svg>
+              {%- endcapture -%}
+              {%- capture squiggle_svg_5 -%}
+                <svg viewBox="0 0 140 24" fill="none" role="presentation" preserveAspectRatio="none"><use href="#squiggle-svg-5" /></svg>
+              {%- endcapture -%}
+              {%- assign result = heading -%}
+              {%- assign parts = result | split: '<em>' -%}
+              {%- assign em_count = parts | size | minus: 1 -%}
+
+              {%- for i in (1..em_count) -%}
+                {%- assign idx = i | plus: 0 -%}
+                {%- assign chunk = parts[idx] | default: '' -%}
+                {%- assign text = chunk | split: '</em>' | first | strip_html | strip -%}
+                {%- assign len_text = text | size -%}
+                {%- capture open_em -%}
+                {%- liquid
+                  if drawn_underline_type == 'simple_underline'
+                    assign svg = squiggle_svg_4 | append: '</em>'
+                  elsif drawn_underline_type == 'curve_underline'
+                    assign svg = squiggle_svg_5 | append: '</em>'
+                  else
+                    if len_text <= 4
+                      assign svg = squiggle_svg_1 | append: '</em>'
+                    elsif len_text <= 6
+                      assign svg = squiggle_svg_2 | append: '</em>'
+                    else
+                      assign svg = squiggle_svg_3 | append: '</em>'
+                    endif
+                  endif
+                -%}
+                <em class="highlighted-text relative inline-flex{% if drawn_underline_type == 'simple_underline' %} simple_underline{% endif %} {{ drawn_underline_type }} not-italic" style="--animate-color:{{ drawn_underline_color }}">{{ svg }}</em>
+              {%- endcapture -%}
+                {%- assign open_em = open_em | remove: '</em>' -%}
+                {%- assign heading = heading | replace_first: '<em>', open_em -%}
+              {%- endfor -%}
+            {% endif %}
+            {{- heading -}}
+          </h2>
+          {% if scroll_animation != 'disable' or drawn_underline %}
+            </motion-effect>
+          {%- endif -%}
+        {%- endif -%}
+        {%- if section.settings.description != blank -%}
+          {% assign animate_delay = animate_delay | plus: 50 %}
+          {%- if scroll_animation != 'disable' -%}
+            <motion-effect
+              data-animate="fade-up"
+              data-animate-delay="{{ animate_delay }}"
+              class="block"
+            >
+          {%- endif -%}
+          <div
+            class="section-description mt-sp-4 prose"
+          >
+            {{ section.settings.description }}
+          </div>
+          {%- if scroll_animation != 'disable' -%}
+            </motion-effect>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+    <div
+      class="newsletter__form-container flex column text-{{ text_alignment }} justify-content-{{ text_alignment }}"
+    >
+      {%- assign newsletter_id = 'NewsletterForm--' | append: section.id -%}
+      {%- form 'customer', id: newsletter_id, class: 'form-validation newsletter__form flex column' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <div class="field relative w-full flex wrap gap-10 justify-content-{{ text_alignment }}">
+          <div class="flex wrap gap-10 relative justify-content-{{ text_alignment }}">
+            <input
+              id="NewsletterForm-email--{{ section.id }}"
+              type="email"
+              required
+              name="contact[email]"
+              autocomplete="email"
+              aria-required="true"
+              autocorrect="off"
+              autocapitalize="off"
+              value="{% if customer %}{{ customer.email }}{% endif %}"
+              placeholder="{% if section_st.email_placeholder != blank %}{{section_st.email_placeholder}}{% else %}{{ 'newsletter.label' | t }}{% endif %}"
+              class="field__input newsletter__input grow-1 js-custom-input"
+              {% if form.errors %}
+                aria-invalid="true"
+                aria-describedby="Newsletter-error--{{ section.id }}"
+              {% elsif form.posted_successfully? %}
+                aria-describedby="Newsletter-success--{{ section.id }}"
+              {% endif %}
+              pattern=".+\.[a-zA-Z]{2,6}"
+            >
+            <label
+              class="field__label max-w-100 whitespace-nowrap overflow-hidden right-sp-5"
+              for="NewsletterForm-email--{{ section.id }}"
+            >
+              {% if section_st.email_placeholder != blank -%}
+                {{- section_st.email_placeholder | truncate: 25 -}}
+                *
+              {%- else -%}
+                {{- 'newsletter.label' | t -}}
+                *
+              {%- endif %}
+            </label>
+            <button
+              class="btn btn-primary newsletter__button"
+              aria-label="{%- if button_label != blank -%}{{ button_label }}{%- else -%}{{ 'subscribe.button_label' | t }}{% endif %}"
+            >
+              <span class="hidden-on-load transition-short">
+                {%- if button_label != blank -%}
+                  {{ button_label }}
+                {%- else -%}
+                  {{ 'newsletter.button_label' | t }}
+                {% endif -%}
+              </span>
+              {%- render 'loader' -%}
+            </button>
+          </div>
+        </div>
+        {%- if form.errors -%}
+          <small
+            class="newsletter__message newsletter__message--error error mt-10"
+            id="Newsletter-error--{{ section.id }}"
+          >
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" class="flex-auto w-18">
+              <use href="#icon-error"></use>
+            </svg>
+            {{- form.errors.translated_fields.email | capitalize }}
+            {{ form.errors.messages.email -}}
+          </small>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+{%- render 'section-divider', position: 'bottom', style: section_st.divider_bottom, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+{% schema %}
+{
+  "name": "t:sections.newsletter.name",
+  "tag": "section",
+  "class": "section section-newsletter",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.newsletter.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "options": [
+        {
+          "value": "fix_width",
+          "label": "t:sections.all.layout.fix_width"
+        },
+        {
+          "value": "stretch_width",
+          "label": "t:sections.all.layout.stretch_width"
+        },
+        {
+          "value": "full_width",
+          "label": "t:sections.all.layout.full_width"
+        }
+      ],
+      "default": "fix_width",
+      "label": "t:sections.all.layout.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_header.label"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "default": "<p>Newsletter</p>",
+      "label": "t:sections.all.content_setting.heading.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "drawn_underline",
+      "default": true,
+      "label": "t:sections.all.content_setting.drawn_underline.label",
+      "info": "t:sections.all.content_setting.heading.info"
+    },
+    {
+      "type": "select",
+      "id": "drawn_underline_type",
+      "label": "t:sections.all.content_setting.drawn_underline.type",
+      "default": "squiggle_underline",
+      "visible_if": "{{ section.settings.drawn_underline != false }}",
+      "options": [
+        {
+          "value": "simple_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.simple_underline"
+        },
+        {
+          "value": "curve_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.curve_underline"
+        },
+        {
+          "value": "squiggle_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.squiggle_underline"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "drawn_underline_color",
+      "label": "t:sections.all.content_setting.drawn_underline.color",
+      "default": "#FFB005",
+      "alpha": true,
+      "visible_if": "{{ section.settings.drawn_underline != false }}"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.all.content_setting.description.label",
+      "default": "<p>Add a short description for this section.</p>"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "large",
+          "label": "t:sections.all.content_header.heading_size.options__1.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.all.content_header.heading_size.options__2.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.all.content_header.heading_size.options__3.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.all.content_header.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "left",
+      "label": "t:sections.all.text_alignment.alignment"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.newsletter.settings.header.heading_setting"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "t:sections.all.newsletter_setting.email_placeholder",
+      "default": "Enter your email"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.all.content_setting.button_label.label",
+      "default": "Subscribe"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.divider.section_divider_heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "t:sections.all.divider.show_divider",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "divider_top",
+      "label": "t:sections.all.divider.top",
+      "info": "t:sections.all.divider.top_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "line",
+      "visible_if": "{{ section.settings.show_divider }}"
+    },
+    {
+      "type": "select",
+      "id": "divider_bottom",
+      "label": "t:sections.all.divider.bottom",
+      "info": "t:sections.all.divider.bottom_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.show_divider }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.newsletter.name",
+      "category": "t:sections.group.form"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,114 @@
+<script src="{{ 'pagination.js' | asset_url }}" defer></script>
+{%- liquid
+  assign t = template | split: '.' | first
+-%}
+{%- if paginate.parts.size > 0 -%}
+  {%- if pagination == 'default' or pagination == blank -%}
+    <div class="pagination-wrapper mt-60">
+      <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
+        <ul
+          class="pagination__list list-unstyled flex justify-self-center justify-center wrap gap-10 body_weight"
+          role="list"
+        >
+          {%- if paginate.previous -%}
+            <li class="w-auto pagination__item--next">
+              <a
+                href="{{ paginate.previous.url }}{{ anchor }}"
+                class="px-sp-5 pagination__item pagination__item--next pagination__item-arrow w-50 h-50 border flex content-center rounded-50 btn p-0 btn-outline"
+                aria-label="{{ 'general.pagination.previous' | t }}"
+              >
+                <svg width="10" height="9" viewBox="0 0 10 9" fill="none" class="rtl-mirror">
+                  <use href="#icon-back-pagination" />
+                </svg>
+              </a>
+            </li>
+          {%- endif -%}
+          {%- for part in paginate.parts -%}
+            <li>
+              {%- if part.is_link -%}
+                <a
+                  href="{{ part.url }}{{ anchor }}"
+                  class="pagination__item w-50 h-50 border flex content-center rounded-50 btn p-0 btn-outline body_weight"
+                  aria-label="{{ 'general.pagination.page' | t: number: part.title }}"
+                >
+                  {{- part.title -}}
+                </a>
+              {%- else -%}
+                {%- if part.title == paginate.current_page -%}
+                  <a
+                    role="link"
+                    aria-disabled="true"
+                    class="pagination__item pagination__item--current w-50 h-50 border flex content-center rounded-50 btn p-0 btn-primary body_weight"
+                    aria-current="page"
+                    aria-label="{{ 'general.pagination.page' | t: number: part.title }}"
+                  >
+                    {{- part.title -}}
+                  </a>
+                {%- else -%}
+                  <span class="pagination__item w-50 h-50 border flex content-center rounded-50 btn p-0 btn-outline body_weight">
+                    {{- part.title -}}
+                  </span>
+                {%- endif -%}
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+          {%- if paginate.next -%}
+            <li class="pagination__item--prev">
+              <a
+                href="{{ paginate.next.url }}{{ anchor }}"
+                class="pagination__item pagination__item--prev pagination__item-arrow w-50 h-50 border flex content-center rounded-50 btn p-0 btn-outline"
+                aria-label="{{ 'general.pagination.next' | t }}"
+              >
+                <svg width="10" height="9" viewBox="0 0 10 9" fill="none" class="rtl-mirror">
+                  <use href="#icon-next-pagination" />
+                </svg>
+              </a>
+            </li>
+          {%- endif -%}
+        </ul>
+      </nav>
+    </div>
+  {%- else -%}
+    <loadmore-button class="pagination-load-more mt-60 block text-center">
+      <div class="load-more-bar">
+        {%- liquid
+          assign paginate_size = paginate.parts.size | times: 1
+          assign cur_page = paginate.current_page | times: 1
+          if t == 'blog'
+            assign number_page = section_st.maximum_posts_to_show | times: 1
+            assign count = blog.articles_count
+          endif
+          if t == 'list-collections'
+            assign count = collections.size
+          endif
+          if t == 'collection' and collection.handle
+            assign count = collection.products_count
+            assign number_page = section_st.items_to_show | times: 1
+          endif
+          assign amount = number_page | times: cur_page
+          if cur_page == paginate_size or amount > count
+            assign amount = count
+          endif
+        -%}
+        <p class="load-more-amount mb-sp-5" id="load-more-container" data-count="{{ count }}">
+          {{- 'general.pagination.result' | t: amount: amount, count: count -}}
+        </p>
+        <div
+          class="load-more-progress-bar relative mx-auto h-custom rounded max-w-custom-all bg-custom"
+          style="--percent: {{ amount | times: 100 | divided_by: count | round: 1 }}%; --amount: {{ amount }}; --count: {{ count }};--height: 3px;--img-rounded: 5px;--max-width: 32rem;--bg-color-custom: #e5e5e5;"
+        ></div>
+      </div>
+      {%- if paginate.next -%}
+        <a
+          href="{{ paginate.next.url }}"
+          class="relative actions-load-more btn btn-primary inline-flex content-center pointer transition load-more w-custom max-w-100{% if pagination == 'infinity' %} infinit-scrolling{% endif %} mt-25"
+          aria-label="{{ 'general.pagination.next' | t }}"
+          style="--width: 20rem;"
+        >
+          <span class="hidden-on-load transition-short">{{ 'general.pagination.load_more' | t }}</span>
+          {%- render 'loader' -%}
+        </a>
+      {%- endif -%}
+    </loadmore-button>
+  {%- endif -%}
+{%- endif -%}

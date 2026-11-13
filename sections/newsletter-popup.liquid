@@ -1,0 +1,530 @@
+{% liquid
+  assign section_st = section.settings
+  assign enable_on_homepage = section_st.enable_on_homepage
+  assign banner_image = section_st.newsletter_banner
+  assign sections_width = section_st.sections_width
+  assign enable_collections_selector = section_st.enable_collections_selector
+  assign show_page = ''
+  if enable_on_homepage
+    if request.page_type == 'index'
+      assign show_page = 'show-on-homepage'
+    endif
+  else
+    assign show_page = 'show-all-page'
+  endif
+  assign design_mode = false
+  if request.design_mode
+    assign show_page = ''
+    assign design_mode = true
+  endif
+  assign email_placeholder = section_st.newsletter_email_placeholder
+  assign button_label = section_st.newsletter_button_label
+  assign show_discount_sticky = section_st.show_discount_sticky
+  assign discount_sticky_heading = section_st.discount_sticky_heading
+
+  assign class_button_close_position = ' right-sp-3'
+  if section_st.image_desktop_position == 'right'
+    if banner_image != blank
+      assign class_button_close_position = ' right-sp-3 left-1025-sp-3'
+    else
+      assign class_button_close_position = ' right-sp-3 right-1025-sp-3'
+    endif
+  else
+    assign class_button_close_position = ' right-sp-3 right-1025-sp-3'
+  endif
+%}
+{% style %}
+  @media (min-width: 768px) {
+    newsletter-popup .image-with-text__media,
+    .newsletter_inner {
+      max-height: 80vh;
+    }
+    .section_width_fullscreen .modal-popup-inner {
+      max-width: 100%;
+      height: 100%;
+      max-height: 100%;
+      width: 100%;
+    }
+    .section_width_fullscreen :is(newsletter-popup .image-with-text__media, .newsletter_inner) {
+      max-height: 100%;
+    }
+    .section_width_fullscreen .modal__close {
+      top: 3rem;
+      background-color: rgba(var(--color-white), var(--opacity, 1));
+      --color-grey: #1d1d1f;
+      width: 5rem;
+      height: 5rem;
+    }
+    .section_width_fullscreen .modal__close.right-1025-sp-3 {
+      inset-inline-end: 3rem;
+    }
+    .section_width_fullscreen .modal__close.left-1025-sp-3 {
+      inset-inline-start: 3rem;
+    }
+    .section_width_fullscreen .section-heading {
+      font-size: var(--h2);
+    }
+    .min-height-popup {
+      min-height: 51rem;
+    }
+  }
+  @media (min-width: 1025px) {
+    .modal-popup-inner.w-1025-fit:not(.modal-popup-inner-fullwidth) {
+      width: fit-content;
+    }
+  }
+  newsletter-modal-popup.active {
+    visibility: visible;
+    opacity: 1;
+  }
+  @media (max-width: 1024.98px) {
+    .newsletter-discount-sticky {
+      display: none;
+    }
+  }
+{% endstyle %}
+{% if request.design_mode == false %}
+  <template class="lazy-template-modal"><div class="content-element">
+{% endif %}
+<newsletter-popup
+  data-enable="{{ show_page }}"
+  data-section-id="{{ section.id }}"
+  data-sticky-enabled="{{ show_discount_sticky }}"
+  data-sticky-heading="{{ discount_sticky_heading | escape }}"
+  data-design-mode="{{ design_mode }}"
+>
+  <newsletter-modal-popup
+    data-remove-after="true"
+    drawer
+    class="newsletter-modal-popup modal modal_type_popup active-modal-js modal-newsletter-popup section_width_{{ sections_width }} fixed inset-0 z-31 flex align-center invisible transition content-hidden"
+  >
+    <modal-overlay class="modal-overlay invisible transition-drawer cursor-crosshair"></modal-overlay>
+    <div
+      class="modal-popup-inner invisible-1025 modal-focus modal-body modal-draggable transition-drawer{% if sections_width == 'auto' %} rounded {% else %} modal-popup-inner-fullwidth{% endif %} min-w-custom-md max-w-custom-md{% if banner_image == blank %} w-1025-fit{% endif %} m-auto w-full z-15"
+      style="{% if sections_width == 'auto' and banner_image != blank %}--max-width: 86rem;{% endif %};{% if sections_width == 'auto' and banner_image == blank %}--min-width: 43rem;--max-width: 86rem;{% endif %}"
+      tabindex="-1"
+    >
+      <button
+        is="button-close-model"
+        class="modal__close modal-button-close z-5 pointer btn-reset flex content-center absolute rounded-50 absolute top-sp-3{{ class_button_close_position }}{% if sections_width == 'fullscreen' %} border{% endif %}"
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 14 14"
+          fill="none"
+          class="transition-short will-change icon-zoom"
+        >
+          <use href="#icon-close"></use>
+        </svg>
+      </button>
+      <div class="drawer__body drawer__body-item h-full">
+        <div
+          class="flex gap{% if section_st.image_desktop_position == 'right' %} row-reverse-md{% endif %}{% if sections_width == 'fullscreen' %} h-full{% endif %}"
+          style="--col-width: {% if banner_image != blank %}{{ section_st.desktop_image_width }}{% else %}0{% endif %}%;--gap-desktop: 0px;--gap: 0px;"
+        >
+          {% if banner_image != blank %}
+            <div class="image-with-text__media-item w-full col-1025-w-custom block-1025 hidden">
+              <div
+                class="image-with-text__media banner__media h-full hidden block-md"
+                style="--aspect-ratio: {{ banner_image.aspect_ratio }}"
+              >
+                {%- liquid
+                  assign alt = 'general.image.image_alt_default' | t
+                  if banner_image.alt
+                    assign alt = banner_image.alt | escape
+                  endif
+                -%}
+                {%- if banner_image != blank -%}
+                  {% render 'responsive-image', type: 'other', image: banner_image, image_alt: alt %}
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+          <div class="newsletter_inner w-full col-1025-remaining relative flex bg-white{% if sections_width == 'fullscreen' %} content-center{% endif %}">
+            <div
+              class="newsletter_content-inner content-center text-center w-full flex column max-h-100 p-gutter-x p-md-40 overflow-y-auto custom-scrollbar align-self-center{% if sections_width == 'auto' and banner_image == blank %} min-height-popup{% endif %}{% if sections_width == 'fullscreen' %} max-w-custom-md mx-auto{% endif %}"
+              style="{% if banner_image != blank and sections_width != 'fullscreen' %}--max-width: 43rem;{% endif %}{% if sections_width == 'fullscreen' %}--max-width: 52rem;{% endif %}"
+            >
+              {%- if section.settings.newsletter_heading != blank or section.settings.newsletter_sub_title != blank -%}
+                <div
+                  class="newsletter-header{% if enable_collections_selector %} hidden{% endif %}"
+                >
+                  {%- if section.settings.newsletter_heading != blank -%}
+                    <div
+                      class="section-heading h2"
+                    >
+                      {{ section.settings.newsletter_heading }}
+                    </div>
+                  {%- endif -%}
+                  {%- if section.settings.newsletter_sub_title != blank -%}
+                    <div
+                      class="section-description mt-sp-3"
+                    >
+                      {{ section.settings.newsletter_sub_title }}
+                    </div>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+              {%- if enable_collections_selector -%}
+                <div
+                  class="collection-selector-header max-w-1025 w-full mx-auto"
+                  style="{% if banner_image != blank and sections_width != 'fullscreen' %}--max-width: 35rem;{% endif %}{% if banner_image != blank and sections_width == 'fullscreen' %}--max-width: 43rem;{% endif %}"
+                >
+                  {%- if section.settings.collections_selector_heading != blank -%}
+                    <div
+                      class="section-heading h2 mb-sp-3"
+                    >
+                      {{ section.settings.collections_selector_heading }}
+                    </div>
+                  {%- endif -%}
+                  {%- if section.settings.collections_selector_sub_title != blank -%}
+                    <div
+                      class="section-description{% if sections_width == 'fullscreen' %} mb-sp-4 mb-1025-sp-8{% else %} mb-sp-6{% endif %}"
+                    >
+                      {{ section.settings.collections_selector_sub_title }}
+                    </div>
+                  {%- endif -%}
+                  {%- if section.settings.collections_selector_instructional_text != blank -%}
+                    <div
+                      class="section-description mb-sp-2{% if sections_width == 'fullscreen' %} mb-1025-sp-8{% else %} mb-1025-sp-6{% endif %}"
+                    >
+                      {{ section.settings.collections_selector_instructional_text }}
+                    </div>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+              <div
+                class="newsletter__form-container flex column gap-sp-3 gap-1025-sp-4 w-full"
+              >
+                {%- assign newsletter_popup_id = 'NewsletterForm--' | append: section.id -%}
+                {%- form 'customer', class: 'form-validation newsletter__form newsletter__form--popup flex' -%}
+                  <input type="hidden" name="contact[tags]" value="newsletter">
+                  {% assign collections_selector = false %}
+                  {% if enable_collections_selector %}
+                    {%- for i in (1..5) -%}
+                      {%- capture collection -%}newsletter_collection_{{ i }}{%- endcapture -%}
+                      {%- liquid
+                        assign collection_selector = section.settings[collection]
+                        if collection_selector != blank
+                          assign collections_selector = true
+                          break
+                        endif
+                      -%}
+                    {%- endfor -%}
+                    {% if collections_selector %}
+                      <collections-selector
+                        class="collections-selector flex gap-sp-3{% if sections_width == 'fullscreen' %} gap-1025-sp-4{% else %} gap-1025-sp-3{% endif %} column w-full mx-auto"
+                      >
+                        <input
+                          type="hidden"
+                          class="collection-input"
+                          name="contact[note][Collection selector]"
+                          value=""
+                        >
+                        {%- for i in (1..5) -%}
+                          {%- capture collection -%}newsletter_collection_{{ i }}{%- endcapture -%}
+                          {%- liquid
+                            assign collection_selector = section.settings[collection]
+                          -%}
+                          {% if collection_selector != blank %}
+                            <button
+                              type="button"
+                              name="{{ collection_selector }}"
+                              class="btn w-full button-newletter-collection btn-primary w-full"
+                              aria-label="{{ collection_selector }}"
+                            >
+                              {{ collection_selector }}
+                            </button>
+                          {% endif %}
+                        {%- endfor -%}
+                      </collections-selector>
+                    {% endif %}
+                  {% endif %}
+                  <div
+                    class="flex column max-w-1025 w-full mx-auto{% if collections_selector %} field-contact hidden-important{% endif %}{% if sections_width == 'fullscreen' %} mt-sp-4 mt-1025-sp-8 gap-sp-4{% else %} mt-sp-6 gap-sp-3{% endif %}"
+                  >
+                    <div class="field relative flex wrap w-full">
+                      <input
+                        id="{{ newsletter_popup_id }}"
+                        type="email"
+                        required
+                        class="field__input w-full newsletter-form-popup-input"
+                        name="contact[email]"
+                        autocomplete="email"
+                        aria-required="true"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        value="{% if customer %}{{ customer.email }}{% endif %}"
+                        placeholder="{% if email_placeholder != blank %}{{ email_placeholder }}{% else %}{{ 'newsletter.label' | t }}{% endif %}"
+                        pattern=".+\.[a-zA-Z]{2,6}"
+                      >
+                      <label class="field__label" for="NewsletterForm--{{ section.id }}">
+                        {% if email_placeholder != blank -%}
+                          {{- email_placeholder -}}
+                        {%- else -%}
+                          {{- 'newsletter.label' | t -}}
+                        {%- endif %}
+                      </label>
+                    </div>
+                    <button
+                      type="submit"
+                      name=" {{ 'newsletter.button_label' | t }}"
+                      class="btn w-full button-newletter-popup btn-primary newsletter__button w-full"
+                      aria-label="{%- if button_label != blank -%}{{ button_label }} {%- else -%} {{ 'subscribe.button_label' | t }} {% endif %}"
+                    >
+                      <span
+                        class="hidden-on-load"
+                        {% if design_mode %}
+                          data-live-text-setting="section.{{ section.id }}.newsletter_button_label"
+                        {% endif %}
+                      >
+                        {%- if button_label != blank -%}
+                          {{ section.settings.newsletter_button_label }}
+                        {%- else -%}
+                          {{ 'newsletter.button_label' | t }}
+                        {% endif -%}
+                      </span>
+                      {%- render 'loader' -%}
+                    </button>
+                  </div>
+                {%- endform -%}
+              </div>
+              <div
+                class="pointer flex content-center gap-5 address-check not-highlight-tap{% if sections_width == 'fullscreen' %} mt-sp-4 mt-1025-sp-8{% else %} mt-sp-6{% endif %}"
+                tabindex="0"
+              >
+                <input
+                  type="checkbox"
+                  id="newsletter-popup-do-not-show-again"
+                  aria-label="{{ 'newsletter_popup.do_not_show_again' | t }}"
+                  class="m-0 newsletter-action"
+                >
+                <label for="newsletter-popup-do-not-show-again" class="fs-small pointer">
+                  {{- 'newsletter_popup.do_not_show_again' | t -}}
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </newsletter-modal-popup>
+  <div
+    class="newsletter-discount-sticky hidden-important left-15 left-1025-30 bottom-15 bottom-1025-30 z-32 fixed transition"
+    aria-hidden="true"
+  >
+    <button
+      type="button"
+      class="newsletter-discount-sticky__open btn-reset flex content-center text-center relative color-white pointer"
+      aria-label="{{ discount_sticky_heading | escape }}"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" fill="none">
+        <path fill="#C03E35" d="M40.6.79a6.44 6.44 0 0 1 8.11 1.6 6.47 6.47 0 0 0 5.7 2.38 6.45 6.45 0 0 1 6.88 4.59 6.46 6.46 0 0 0 4.37 4.37 6.45 6.45 0 0 1 4.6 6.87 6.47 6.47 0 0 0 2.36 5.71 6.46 6.46 0 0 1 1.59 8.1 6.45 6.45 0 0 0 0 6.2 6.46 6.46 0 0 1-1.62 8.1 6.46 6.46 0 0 0-2.36 5.71 6.45 6.45 0 0 1-4.6 6.88 6.45 6.45 0 0 0-4.36 4.37 6.45 6.45 0 0 1-6.88 4.59 6.47 6.47 0 0 0-5.7 2.36 6.44 6.44 0 0 1-8.08 1.6 6.48 6.48 0 0 0-6.18 0 6.44 6.44 0 0 1-8.11-1.62 6.47 6.47 0 0 0-5.7-2.37 6.45 6.45 0 0 1-6.88-4.59 6.45 6.45 0 0 0-4.37-4.37 6.45 6.45 0 0 1-4.6-6.87 6.46 6.46 0 0 0-2.36-5.7A6.45 6.45 0 0 1 .8 40.6a6.48 6.48 0 0 0 0-6.17A6.45 6.45 0 0 1 2.4 26.3a6.46 6.46 0 0 0 2.37-5.7 6.46 6.46 0 0 1 4.6-6.88 6.45 6.45 0 0 0 4.36-4.37 6.45 6.45 0 0 1 6.87-4.6 6.47 6.47 0 0 0 5.71-2.36 6.44 6.44 0 0 1 8.1-1.61 6.48 6.48 0 0 0 6.2 0Z"/>
+      </svg>
+      <span class="absolute px-5">{{ discount_sticky_heading | truncate: 25 }}</span>
+    </button>
+    <button
+      type="button"
+      class="newsletter-discount-sticky__close btn-reset border bg-white flex content-center w-custom h-custom rounded-50 absolute top-custom right-custom pointer"
+      style="--width: 28px;--height: 28px;--top-custom: -1.6rem;--right-custom: -1.6rem;"
+      aria-label="{{ 'accessibility.close' | t }}"
+    >
+      <svg
+        width="8"
+        height="8"
+        viewBox="0 0 14 14"
+        fill="none"
+        class="transition-short will-change icon-zoom"
+      >
+        <use href="#icon-close"></use>
+      </svg>
+    </button>
+  </div>
+</newsletter-popup>
+{% if request.design_mode == false %}
+  </div>
+  </template>
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.newsletter_popup.name",
+  "tag": "section",
+  "class": "overlay-section overlay-newsletter",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.newsletter_popup.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.newsletter_popup.header.heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_on_homepage",
+      "label": "t:sections.newsletter_popup.settings.show_on_homepage",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "sections_width",
+      "options": [
+        {
+          "value": "fullscreen",
+          "label": "t:sections.newsletter_popup.settings.sections_width.options.options__1"
+        },
+        {
+          "value": "auto",
+          "label": "t:sections.newsletter_popup.settings.sections_width.options.options__2"
+        }
+      ],
+      "default": "auto",
+      "label": "t:sections.newsletter_popup.settings.sections_width.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "newsletter_banner",
+      "label": "t:sections.newsletter_popup.settings.banner_image",
+      "info": "t:sections.discount_popup.settings.info_image"
+    },
+    {
+      "type": "range",
+      "id": "desktop_image_width",
+      "min": 30,
+      "max": 60,
+      "step": 1,
+      "unit": "%",
+      "default": 40,
+      "label": "t:sections.all.image.width"
+    },
+    {
+      "type": "select",
+      "id": "image_desktop_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.all.image.desktop_position.left"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.all.image.desktop_position.right"
+        }
+      ],
+      "default": "left",
+      "label": "t:sections.all.image.desktop_position.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.newsletter_popup.settings.collections_selector.setting"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_collections_selector",
+      "label": "t:sections.newsletter_popup.settings.collections_selector.label",
+      "default": false
+    },
+    {
+      "type": "textarea",
+      "id": "collections_selector_heading",
+      "label": "t:sections.newsletter_popup.settings.heading",
+      "visible_if": "{{ section.settings.enable_collections_selector != false }}",
+      "default": "Claim Your <br> Beauty Bonus — 15%"
+    },
+    {
+      "type": "richtext",
+      "id": "collections_selector_sub_title",
+      "label": "t:sections.newsletter_popup.settings.short_description",
+      "visible_if": "{{ section.settings.enable_collections_selector != false }}",
+      "default": "<p>A special beauty offer is waiting for you with your first order.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "collections_selector_instructional_text",
+      "label": "t:sections.newsletter_popup.settings.instructional_text",
+      "visible_if": "{{ section.settings.enable_collections_selector != false }}",
+      "default": "<p>Tell us what you're shopping for:</p>"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_collection_1",
+      "label": "t:sections.newsletter_popup.settings.collections_selector.collection.label_1",
+      "visible_if": "{{ section.settings.enable_collections_selector != false }}",
+      "default": "Skincare Glow"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_collection_2",
+      "label": "t:sections.newsletter_popup.settings.collections_selector.collection.label_2",
+      "visible_if": "{{ section.settings.enable_collections_selector != false }}",
+      "default": "Everyday Makeup"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_collection_3",
+      "label": "t:sections.newsletter_popup.settings.collections_selector.collection.label_3",
+      "visible_if": "{{ section.settings.enable_collections_selector != false }}",
+      "default": "Body Care"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_collection_4",
+      "label": "t:sections.newsletter_popup.settings.collections_selector.collection.label_4",
+      "visible_if": "{{ section.settings.enable_collections_selector != false }}"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_collection_5",
+      "label": "t:sections.newsletter_popup.settings.collections_selector.collection.label_5",
+      "visible_if": "{{ section.settings.enable_collections_selector != false }}"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.newsletter_popup.settings.discount_sticky.setting"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_discount_sticky",
+      "label": "t:sections.newsletter_popup.settings.discount_sticky.label",
+      "default": false
+    },
+    {
+      "type": "textarea",
+      "id": "discount_sticky_heading",
+      "label": "t:sections.newsletter_popup.settings.discount_sticky.heading",
+      "visible_if": "{{ section.settings.show_discount_sticky != false }}",
+      "info": "t:sections.newsletter_popup.settings.discount_sticky.info",
+      "default": "Get<br>15% Off"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.newsletter_popup.settings.newsletter_heading"
+    },
+    {
+      "type": "textarea",
+      "id": "newsletter_heading",
+      "label": "t:sections.newsletter_popup.settings.heading",
+      "default": "Enjoy 10% Off Your First Order"
+    },
+    {
+      "type": "richtext",
+      "id": "newsletter_sub_title",
+      "label": "t:sections.newsletter_popup.settings.short_description",
+      "default": "<p>Just enter your email. No spam, only skincare magic</p>"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_email_placeholder",
+      "label": "t:sections.newsletter_popup.settings.email_placeholder",
+      "default": "Email placeholder"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_button_label",
+      "label": "t:sections.newsletter_popup.settings.button_label",
+      "default": "Unlock My 10% Off"
+    }
+  ]
+}
+{% endschema %}

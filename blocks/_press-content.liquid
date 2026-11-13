@@ -1,0 +1,182 @@
+{% liquid
+  assign block_st = block.settings
+  assign section_st = section.settings
+  assign show_pagination = section_st.show_pagination
+  assign show_navigation = section_st.show_navigation
+  assign slide_auto_change = section_st.slide_auto_change
+  assign change_slide_every = section_st.change_slide_every
+%}
+
+{%- style -%}
+  .justify-content-start .justify_block {
+    justify-content: start;
+  }
+  .justify-content-center .justify_block {
+    justify-content: center;
+  }
+  .justify-content-end .justify_block {
+    justify-content: end;
+  }
+{%- endstyle -%}
+
+<div class="w-full h-full color-{{ block_st.color_scheme }} gradient">
+  <div
+    class="flex wrap w-full h-full align-{{ block_st.vertical_alignment }} justify-content-{{ block_st.text_alignment }} text-{{ block_st.text_alignment }} px-custom py-custom"
+    style="--padding-inline: {{ block_st.padding_content_inline }};--padding-block: {{ block_st.padding_content_block }};--responsive-min-rate: 0.4"
+  >
+    <slide-section
+      id="swiper-{{ block.id }}"
+      class="swiper slide-press-content h-fit"
+      data-section-id="{{ block.id }}"
+      data-autoplay="{{ slide_auto_change }}"
+      data-auto-play-speed="{{ change_slide_every | times: 1000 }}"
+      data-loop="false"
+      data-speed="300"
+      data-spacing="40"
+      data-mobile="1"
+      data-desktop="1"
+      data-tablet="1"
+      data-pagination="progressbar"
+      data-custom-next="swiper-button-custom-next-{{ block.id }}"
+      data-custom-prev="swiper-button-custom-prev-{{ block.id }}"
+    >
+      <div class="swiper-wrapper">
+        {% content_for 'blocks' %}
+      </div>
+      {% if show_navigation or show_pagination %}
+        <div class="swiper-footer gap mt-sp-4 mt-1025-50 align-center flex" style="--gap-desktop: 8rem;--gap: 4.6rem;">
+          {% if show_navigation %}
+            <div
+              class="swiper-navigation flex gap-sp-3"
+            >
+              <div
+                class="swiper-button-custom-prev-{{ block.id }} swiper-button-custom-prev btn btn-reset btn-outline wh-48 wh-1025-52 border flex content-center rounded-50 pointer heading-color rtl-mirror"
+                style="--color-border: var(--color-heading);"
+              >
+                <svg width="6" height="11" viewBox="0 0 6 11" fill="none">
+                  <use href="#icon-back" />
+                </svg>
+              </div>
+              <div
+                class="swiper-button-custom-next-{{ block.id }} swiper-button-custom-next btn btn-reset btn-outline wh-48 wh-1025-52 border flex content-center rounded-50 pointer heading-color rtl-mirror"
+                style="--color-border: var(--color-heading);"
+              >
+                <svg width="6" height="11" viewBox="0 0 6 11" fill="none">
+                  <use href="#icon-next"></use>
+                </svg>
+              </div>
+            </div>
+          {% endif %}
+          {% if show_pagination %}
+            <div
+              class="swiper-pagination rounded-10"
+              style="--swiper-pagination-progressbar-bg-color: var(--color-border);--swiper-pagination-progressbar-size: 1px;--swiper-pagination-color: var(--color-heading);--margin-pagination-top: 0;--margin-pagination-top-dk: 0;"
+            ></div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </slide-section>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "t:sections.press_card.blocks.content",
+  "class": "w-full col-md-w-custom col-md-w-custom-50",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_setting.label"
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.top"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.middle"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.bottom"
+        }
+      ],
+      "default": "start",
+      "label": "t:sections.image-with-text.settings.vertical_alignment"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "start",
+      "label": "t:sections.all.text_alignment.label"
+    },
+    {
+      "type": "range",
+      "id": "padding_content_inline",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_inline.label",
+      "info": "t:sections.all.padding.padding_inline.info",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_content_block",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_block.label",
+      "info": "t:sections.all.padding.padding_block.info",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "_group-press-content"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.press_card.blocks.content",
+      "blocks": [
+        {
+          "type": "_group-press-content"
+        },
+        {
+          "type": "_group-press-content"
+        },
+        {
+          "type": "_group-press-content"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

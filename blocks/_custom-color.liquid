@@ -1,0 +1,240 @@
+{% assign product_placement = product.metafields.custom.product_placement.value %}
+{% if product_placement != blank %}
+  <div class="custom-color-list w-full">
+    {%- if block.settings.title != blank -%}
+      <h3 id="custom-color-title-{{ block.id }}" class="color-title mb-3">{{ block.settings.title }}</h3>
+    {%- else -%}
+      <h3 id="custom-color-title-{{ block.id }}" class="visually-hidden">Select color</h3>
+    {%- endif -%}
+
+    <div
+      class="color-options grid-cols grid gap"
+      role="radiogroup"
+      aria-labelledby="custom-color-title-{{ block.id }}"
+      style="--col: 4;--gap: 12px;--gap-desktop: 16px;"
+    >
+      {%- for i in (1..10) -%}
+        {%- assign color_image_key = 'color_' | append: i | append: '_image' -%}
+        {%- assign color_name_key = 'color_' | append: i | append: '_name' -%}
+        {%- assign color_image = block.settings[color_image_key] -%}
+        {%- assign color_name = block.settings[color_name_key] -%}
+        {%- if color_name != blank -%}
+          {%- assign color_label = color_name -%}
+        {%- else -%}
+          {%- assign color_label = 'Color ' | append: i -%}
+        {%- endif -%}
+
+        {%- if color_image != blank or color_name != blank -%}
+          <div class="color-option-item w-full">
+            <label class="color-option-label block pointer relative h-full" for="custom-color-{{ block.id }}-{{ forloop.index }}">
+              <input
+                type="radio"
+                id="custom-color-{{ block.id }}-{{ forloop.index }}"
+                name="custom_color"
+                class="absolute opacity-0"
+                tabindex="0"
+                value="{{ color_label }}"
+                required
+                aria-required="true"
+                aria-label="{{ color_label | escape }}"
+                data-color-index="{{ i }}"
+              >
+
+              <div class="color-option-content pointer">
+                {%- if color_image != blank -%}
+                  <div
+                    class="color-option-image relative w-full h-full rounded-15 clip-path-unset relative overflow-hidden border"
+                    style="--aspect-ratio: 1;"
+                  >
+                    {% render 'responsive-image',
+                      type: 'other',
+                      image: color_image,
+                      image_alt: color_name,
+                      class: 'w-full h-full object-cover rounded-15 overflow-hidden'
+                    %}
+                  </div>
+                {% else %}
+                  <div
+                    class="color-option-image relative w-full h-full rounded-15 clip-path-unset relative overflow-hidden border"
+                    style="--aspect-ratio: 1;"
+                  >
+                    {% render 'placeholder-render',
+                      type: 'collection-6',
+                      class: 'w-full h-full object-cover rounded-15 overflow-hidden',
+                      motion: false
+                    %}
+                  </div>
+                {%- endif -%}
+
+                {%- if color_name != blank -%}
+                  <div class="color-option-info mt-sp-2">
+                    <h4 class="color-option-name heading-color text-size body_weight lh-global">{{ color_name }}</h4>
+                  </div>
+                {%- endif -%}
+              </div>
+            </label>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+{% elsif request.design_mode %}
+  {%- render 'editor-metafield-hint', id: 'custom_color', source: 'custom.product_placement' -%}
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.main-product.blocks.custom_product.color.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.main-product.blocks.custom_product.color.options.color_1"
+    },
+    {
+      "type": "image_picker",
+      "id": "color_1_image",
+      "label": "t:sections.all.content_setting.image.label"
+    },
+    {
+      "type": "text",
+      "id": "color_1_name",
+      "label": "t:sections.all.text.label",
+      "default": "Color 1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-product.blocks.custom_product.color.options.color_2"
+    },
+    {
+      "type": "image_picker",
+      "id": "color_2_image",
+      "label": "t:sections.all.content_setting.image.label"
+    },
+    {
+      "type": "text",
+      "id": "color_2_name",
+      "label": "t:sections.all.text.label",
+      "default": "Color 2"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-product.blocks.custom_product.color.options.color_3"
+    },
+    {
+      "type": "image_picker",
+      "id": "color_3_image",
+      "label": "t:sections.all.content_setting.image.label"
+    },
+    {
+      "type": "text",
+      "id": "color_3_name",
+      "label": "t:sections.all.text.label",
+      "default": "Color 3"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-product.blocks.custom_product.color.options.color_4"
+    },
+    {
+      "type": "image_picker",
+      "id": "color_4_image",
+      "label": "t:sections.all.content_setting.image.label"
+    },
+    {
+      "type": "text",
+      "id": "color_4_name",
+      "label": "t:sections.all.text.label",
+      "default": "Color 4"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-product.blocks.custom_product.color.options.color_5"
+    },
+    {
+      "type": "image_picker",
+      "id": "color_5_image",
+      "label": "t:sections.all.content_setting.image.label"
+    },
+    {
+      "type": "text",
+      "id": "color_5_name",
+      "label": "t:sections.all.text.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-product.blocks.custom_product.color.options.color_6"
+    },
+    {
+      "type": "image_picker",
+      "id": "color_6_image",
+      "label": "t:sections.all.content_setting.image.label"
+    },
+    {
+      "type": "text",
+      "id": "color_6_name",
+      "label": "t:sections.all.text.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-product.blocks.custom_product.color.options.color_7"
+    },
+    {
+      "type": "image_picker",
+      "id": "color_7_image",
+      "label": "t:sections.all.content_setting.image.label"
+    },
+    {
+      "type": "text",
+      "id": "color_7_name",
+      "label": "t:sections.all.text.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-product.blocks.custom_product.color.options.color_8"
+    },
+    {
+      "type": "image_picker",
+      "id": "color_8_image",
+      "label": "t:sections.all.content_setting.image.label"
+    },
+    {
+      "type": "text",
+      "id": "color_8_name",
+      "label": "t:sections.all.text.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-product.blocks.custom_product.color.options.color_9"
+    },
+    {
+      "type": "image_picker",
+      "id": "color_9_image",
+      "label": "t:sections.all.content_setting.image.label"
+    },
+    {
+      "type": "text",
+      "id": "color_9_name",
+      "label": "t:sections.all.text.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-product.blocks.custom_product.color.options.color_10"
+    },
+    {
+      "type": "image_picker",
+      "id": "color_10_image",
+      "label": "t:sections.all.content_setting.image.label"
+    },
+    {
+      "type": "text",
+      "id": "color_10_name",
+      "label": "t:sections.all.text.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.main-product.blocks.custom_product.color.name"
+    }
+  ]
+}
+{% endschema %}

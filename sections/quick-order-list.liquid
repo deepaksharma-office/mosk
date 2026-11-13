@@ -1,0 +1,677 @@
+{{ 'section-quick-order-list.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer" type="module"></script>
+{%- liquid
+  assign theme_st = settings
+  assign section_st = section.settings
+  if section_st.section_width == 'fix_width'
+    assign section_width = 'container'
+  elsif section_st.section_width == 'full_width'
+    assign section_width = 'full-width'
+  else
+    assign section_width = 'fluid_container'
+  endif
+  assign heading_size = section_st.heading_size
+  assign text_alignment = section_st.text_alignment
+  assign scroll_animation = theme_st.scroll_animation
+  assign header_size = ''
+  if heading_size == 'small'
+    assign header_size = ' h3'
+  elsif heading_size == 'large'
+    assign header_size = ' h1'
+  endif
+
+  assign heading = section_st.title
+  assign drawn_underline = section_st.drawn_underline
+  assign drawn_underline_type = section_st.drawn_underline_type
+  assign drawn_underline_color = section_st.drawn_underline_color
+  if drawn_underline
+    assign scroll_animation = 'disable'
+  endif
+  assign items_in_cart = cart | line_items_for: product | sum: 'quantity'
+-%}
+{% if product.variants.size > 1 and product.available != false %}
+  {%- capture style -%}
+  --section-pt: {{ section_st.padding_top }}; --section-pb: {{ section_st.padding_bottom }};
+  {%- endcapture -%}
+  {%- render 'section-divider', position: 'top', style: section_st.divider_top, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+  <div
+    class="section color-{{ section_st.color_scheme }} gradient{% if section_st.show_divider and section_st.divider_top == 'line' %} border-top{% endif %}{% if section_st.show_divider and section_st.divider_bottom == 'line' %} border-bottom{% endif %}"
+    style="{{ style | strip | strip_newlines }}"
+  >
+    <div class="{{ section_width }} relative">
+      {% assign animate_delay = 25 %}
+      {%- if section_st.title != blank or section_st.description != blank -%}
+        <div class="section-header text-{{ text_alignment }}">
+          {%- if section_st.title != blank -%}
+            {% if scroll_animation != 'disable' or drawn_underline %}
+              <motion-effect
+                data-animate="{% if scroll_animation != 'disable' %}fade-up{% else %}highlighted-text{% endif %}"
+                data-animate-delay="{{ animate_delay }}"
+                class="block"
+              >
+            {% endif %}
+            <h2 class="section-heading {{ header_size }}">
+              {% if drawn_underline %}
+                {%- capture squiggle_svg_1 -%}
+                    <svg viewBox="0 0 184 26" fill="none"><use href="#squiggle-svg-1" /></svg>
+                  {%- endcapture -%}
+                {%- capture squiggle_svg_2 -%}
+                   <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-2" /></svg>
+                  {%- endcapture -%}
+                {%- capture squiggle_svg_3 -%}
+                     <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-3" /></svg>
+                  {%- endcapture -%}
+                {%- capture squiggle_svg_4 -%}
+                    <svg viewBox="0 0 220 20" fill="none" role="presentation" preserveAspectRatio="none"><use href="#squiggle-svg-4" /></svg>
+                  {%- endcapture -%}
+                {%- capture squiggle_svg_5 -%}
+                    <svg viewBox="0 0 140 24" fill="none"><use href="#squiggle-svg-5" /></svg>
+                  {%- endcapture -%}
+                {%- assign result = heading -%}
+                {%- assign parts = result | split: '<em>' -%}
+                {%- assign em_count = parts | size | minus: 1 -%}
+
+                {%- for i in (1..em_count) -%}
+                  {%- assign idx = i | plus: 0 -%}
+                  {%- assign chunk = parts[idx] | default: '' -%}
+                  {%- assign text = chunk | split: '</em>' | first | strip_html | strip -%}
+                  {%- assign len_text = text | size -%}
+                  {%- capture open_em -%}
+                    {%- liquid
+                      if drawn_underline_type == 'simple_underline'
+                        assign svg = squiggle_svg_4 | append: '</em>'
+                      elsif drawn_underline_type == 'curve_underline'
+                        assign svg = squiggle_svg_5 | append: '</em>'
+                      else
+                        if len_text <= 4
+                          assign svg = squiggle_svg_1 | append: '</em>'
+                        elsif len_text <= 6
+                          assign svg = squiggle_svg_2 | append: '</em>'
+                        else
+                          assign svg = squiggle_svg_3 | append: '</em>'
+                        endif
+                      endif
+                    -%}
+                    <em class="highlighted-text relative inline-flex{% if drawn_underline_type == 'simple_underline' %} simple_underline{% endif %} {{ drawn_underline_type }} not-italic" style="--animate-color:{{ drawn_underline_color }}">{{ svg }}</em>
+                  {%- endcapture -%}
+                  {%- assign open_em = open_em | remove: '</em>' -%}
+                  {%- assign heading = heading | replace_first: '<em>', open_em -%}
+                {%- endfor -%}
+              {% endif %}
+              {{- heading -}}
+            </h2>
+            {% if scroll_animation != 'disable' or drawn_underline %}
+              </motion-effect>
+            {% endif %}
+          {%- endif -%}
+          {%- if section_st.description != blank -%}
+            {% assign animate_delay = animate_delay | plus: 50 %}
+            {% if scroll_animation != 'disable' %}
+              <motion-effect
+                data-animate="fade-up"
+                data-animate-delay="{{ animate_delay }}"
+                class="block"
+              >
+            {% endif %}
+            <div class="section-description mt-sp-4 prose">
+              {{ section.settings.description }}
+            </div>
+            {% if scroll_animation != 'disable' %}
+              </motion-effect>
+            {% endif %}
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+      <quick-order-list
+        class="quick-order-list-product flex gap column row-1025 relative loading-smooth"
+        style="--col-width: 66.05%;--gap-desktop: 24px"
+        id="quick-order-list-{{ product.id }}"
+        data-section="{{ section.id }}"
+        data-product-id="{{ product.id }}"
+        data-url="{{ product.url }}"
+      >
+        <form
+          action="{{ routes.cart_update_url }}"
+          class="quick-order-list__form w-full col-1025-w-custom"
+          method="post"
+          id="QuickOrderList"
+        >
+          <div class="quick-order-list__container" id="main-variant-items">
+            <div class="js-contents">
+              <div class="quick-order-list_table">
+                <div class="quick-order-list_wrapper rounded border">
+                  <div class="quick-order-list_header grid px-sp-5 gap-sp-1">
+                    <div class="grid-col grid-col--variant text-start heading-color">
+                      {{ 'products.product.quick_order_list.variant' | t }}
+                    </div>
+                    <div class="grid-col grid-col--quantity text-start heading-color hidden block-1025">
+                      {{ 'products.product.quick_order_list.quantity' | t }}
+                    </div>
+                    <div class="grid-col grid-col--price text-start heading-color hidden block-1025">
+                      {{ 'products.product.quick_order_list.price' | t }}
+                    </div>
+                    <div class="grid-col grid-col--total text-start heading-color hidden block-1025">
+                      {{ 'products.product.quick_order_list.variant_total' | t }}
+                    </div>
+                  </div>
+
+                  <div class="quick-order-list_body flex column">
+                    {%- for variant in product.variants -%}
+                      {% liquid
+                        assign cart_qty = cart | item_count_for_variant: variant.id
+                        assign variant_image = variant.image | default: product.featured_media
+                      %}
+
+                      <div class="variant-item-wrapper flex gap-sp-4 block-1025 mx-sp-5 mx-1025-0 py-sp-5 py-1025-0{% if forloop.index > 5 %} hidden{% endif %}">
+                        <div class="variant-item_inner-mobile hidden-1025">
+                          <div
+                            class="variant-item__image w-custom w-custom-mb rounded-10"
+                            style="--width: 9rem;--width-mb: 7rem;"
+                          >
+                            {%- assign alt_features = variant.image.alt | default: product.title | escape -%}
+                            {% render 'responsive-image',
+                              type: 'product',
+                              class: 'center_swiper-arrow product__img featured-image w-full h-full object-fit-cover rounded-10',
+                              image: variant_image,
+                              image_alt: alt_features
+                            %}
+                          </div>
+                        </div>
+                        <div
+                          class="variant-item flex column grid-1025 w-full w-1025-auto mx-0 mx-1025-sp-5 py-0 py-1025-sp-5 gap-0 gap-1025-sp-1"
+                          id="Variant-{{ variant.id }}"
+                          data-variant-id="{{ variant.id }}"
+                          data-cart-qty="{{ cart_qty }}"
+                        >
+                          <div class="grid-col grid-col--variant flex align-start align-1025-center gap-sp-4 row mb-sp-3 mb-1025-0">
+                            <div
+                              class="variant-item__image w-custom w-custom-mb rounded-10 hidden flex-1025"
+                              style="--width: 9rem;--width-mb: 7rem;"
+                            >
+                              {%- assign alt_features = variant.image.alt | default: product.title | escape -%}
+                              {% render 'responsive-image',
+                                type: 'product',
+                                class: 'center_swiper-arrow product__img featured-image w-full h-full object-fit-cover rounded-10',
+                                image: variant_image,
+                                image_alt: alt_features
+                              %}
+                            </div>
+                            <div class="variant-item__infor w-full flex-1">
+                              <div class="item__name heading-color">{{ product.title | escape }}</div>
+                              <div class="variant-item__name mt-0 mt-1025-sp-1">{{ variant.title | escape }}</div>
+                              {% assign cart_qty = cart | item_count_for_variant: variant.id %}
+                            </div>
+                          </div>
+
+                          <div class="grid-col grid-col--quantity variant-item_quantity align-center flex">
+                            {% assign cart_qty = cart | item_count_for_variant: variant.id %}
+                            <div class="cart-item__quantity-wrapper product-form__input product-form__quantity flex align-center gap-sp-2">
+                              <quantity-input
+                                class="quantity cart-quantity input-rounded inline-flex align-center input-style px-0"
+                              >
+                                <button
+                                  class="quantity__button no-js-hidden relative flex align-center btn-reset ps-sp-5 pe-10 pointer heading-color"
+                                  name="minus"
+                                  type="button"
+                                >
+                                  <span class="visually-hidden border-0 p-0 text-center">
+                                    {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                                  </span>
+                                  <svg
+                                    width="10"
+                                    height="2"
+                                    viewBox="0 0 9 2"
+                                    fill="none"
+                                  >
+                                    <use href="#icon-minus"></use>
+                                  </svg>
+                                </button>
+                                <input
+                                  class="quantity__input border-0 p-0 text-center w-custom heading-color"
+                                  type="number"
+                                  style="--input-height: auto;"
+                                  data-quantity-variant-id="{{ variant.id }}"
+                                  name="updates[]"
+                                  value="{{ cart_qty }}"
+                                  {% # theme-check-disable %}
+                                  data-cart-quantity="{{ cart | item_count_for_variant: variant.id }}"
+                                  min="0"
+                                  {% if variant.quantity_rule.max != null %}
+                                    max="{{ variant.quantity_rule.max }}"
+                                  {% endif %}
+                                  step="{{ variant.quantity_rule.increment }}"
+                                  {% # theme-check-enable %}
+                                  aria-label="{{ 'products.product.quantity.input_label' | t: product: product.title | escape }}"
+                                >
+                                <button
+                                  class="quantity__button no-js-hidden relative flex align-center btn-reset ps-10 pe-sp-5 pointer heading-color"
+                                  name="plus"
+                                  type="button"
+                                >
+                                  <span class="visually-hidden">
+                                    {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                                  </span>
+                                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                    <use href="#icon-plus"></use>
+                                  </svg>
+                                </button>
+                              </quantity-input>
+                              {% if cart_qty > 0 %}
+                                <quick-order-list-remove-button
+                                  id="Remove-{{ variant.id }}"
+                                  data-index="{{ variant.id }}"
+                                >
+                                  <button
+                                    type="button"
+                                    class="button btn-reset pointer p-sp-1"
+                                    aria-label="{{ 'products.product.quick_order_list.remove_title' | t }}"
+                                  >
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 20 20"
+                                      fill="none"
+                                      class="icon-zoom transition-short will-change text-color hidden-on-load transition-short"
+                                    >
+                                      <use href="#icon-trash-cart"/>
+                                    </svg>
+                                    <span class="capitalize currentColor lh-1 visually-hidden">
+                                      {{- 'sections.cart.remove_title' | t -}}
+                                    </span>
+                                    <span
+                                      class="icon-rotator absolute right-0 m-auto rounded-50 opacity-0 w-custom h-custom"
+                                      style="--width: 1.5rem;--height: 1.5rem;"
+                                    ></span>
+                                  </button>
+                                </quick-order-list-remove-button>
+                              {% endif %}
+                            </div>
+                          </div>
+                          <div class="grid-col grid-col--price align-center flex space-between py-sp-2 py-1025-0 border-top-dashed mt-sp-4 mt-1025-0">
+                            <div class="block hidden-1025">
+                              <span> Price </span>
+                            </div>
+                            <div class="wrapper-price">
+                              {%- if variant.compare_at_price -%}
+                                <div class="cart-item__discounted-prices">
+                                  <span class="visually-hidden">
+                                    {{ 'products.product.price.regular_price' | t }}
+                                  </span>
+                                  <s class="cart-item__old-price price price--end product-option text-color body_weight">
+                                    {{- variant.compare_at_price | money -}}
+                                  </s>
+                                  <span class="visually-hidden">
+                                    {{ 'products.product.price.sale_price' | t }}
+                                  </span>
+                                  <span class="price price--end sale-color">
+                                    {{ variant.price | money }}
+                                  </span>
+                                </div>
+                              {%- else -%}
+                                <span class="visually-hidden">
+                                  {{ 'products.product.price.regular_price' | t }}
+                                </span>
+                                <span class="price price--end">
+                                  {{ variant.price | money }}
+                                </span>
+                              {%- endif -%}
+                              {%- if variant.available and product.unit_price_measurement -%}
+                                <small class="unit-price caption block">
+                                  <span class="visually-hidden">
+                                    {{- 'products.product.price.unit_price' | t -}}
+                                  </span>
+                                  {{ variant.unit_price | money }}
+                                  <span aria-hidden="true">/</span>
+                                  <span class="visually-hidden"
+                                    >&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span
+                                  >
+                                  {%- if variant.unit_price_measurement.reference_value != 1 -%}
+                                    {{- variant.unit_price_measurement.reference_value -}}
+                                  {%- endif -%}
+                                  {{ variant.unit_price_measurement.reference_unit }}
+                                </small>
+                              {%- endif -%}
+                            </div>
+                          </div>
+                          <div class="variant-item_totals grid-col grid-col--total align-center flex space-between pt-sp-2 pt-1025-0 border-top-dashed">
+                            {% comment %} TODO: enable theme-check once `line_items_for` is accepted as valid filter {% endcomment %}
+                            {% # theme-check-disable %}
+                            <span class="hidden-1025"> Total </span>
+                            <span class="price">
+                              {{- cart | line_items_for: variant | sum: 'original_line_price' | money -}}
+                            </span>
+                            {% # theme-check-enable %}
+                          </div>
+                        </div>
+                      </div>
+                    {%- endfor -%}
+                  </div>
+                </div>
+                {% if product.variants.size > 5 %}
+                  <div class="variant-load-more-wrap text-center mt-sp-4 mt-1025-sp-6">
+                    <button id="load-more-variants" class="btn-load-more btn btn-outline pointer w-full w-1025-fit">
+                      {{ 'products.product.quick_order_list.show_all' | t }}
+                    </button>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="quick-order-list_info w-full col-1025-remaining bg-secondary h-fit p-40 rounded top-30 sticky-1025">
+          <div class="relative price-info">
+            <div class="total-items flex-1025 gap-sp-2 mb-sp-4 hidden">
+              <p>{{ 'products.product.quick_order_list.total_items' | t }}</p>
+              <span>
+                {{ items_in_cart }}
+              </span>
+            </div>
+            <div class="totals__product-price">
+              <div class="product-subtotal heading-style h5 body-font body-style  flex gap-sp-2 space-between flex-1025-start">
+                <p>
+                  {{ 'products.product.quick_order_list.product_subtotal' | t }}
+                  <span class="ms-sp-1 hidden-1025 text-color fw-500 text-size">
+                    {% if items_in_cart > 1 %}
+                      {{ 'products.product.quick_order_list.items.other' | t: count: items_in_cart }}
+                    {% else %}
+                      {{ 'products.product.quick_order_list.items.one' | t: count: items_in_cart }}
+                    {% endif %}
+                  </span>
+                </p>
+                <span class="relative">
+                  <span class="hidden-on-load transition-short">
+                    {% # theme-check-disable %}
+                    {%- if settings.currency_code_enabled %}
+                      {{ cart | line_items_for: product | sum: 'original_line_price' | money_with_currency }}
+                    {% else %}
+                      {{ cart | line_items_for: product | sum: 'original_line_price' | money }}
+                    {% endif -%}
+                    {% # theme-check-enable %}
+                  </span>
+                  {%- render 'loader' -%}
+                </span>
+              </div>
+              <small class="tax-note caption-large word-break block rte mt-sp-3 mt-1025-sp-1 fs-small">
+                {%- if cart.duties_included and cart.taxes_included -%}
+                  {%- if shop.shipping_policy.body == blank -%}
+                    {{ 'sections.cart.duties_and_taxes_included_shipping_at_checkout_without_policy' | t }}
+                  {%- else -%}
+                    {{
+                      'sections.cart.duties_and_taxes_included_shipping_at_checkout_with_policy_html'
+                      | t: link: shop.shipping_policy.url
+                    }}
+                  {%- endif -%}
+                {%- elsif cart.duties_included == false and cart.taxes_included -%}
+                  {%- if shop.shipping_policy.body == blank -%}
+                    {{ 'sections.cart.taxes_included_shipping_at_checkout_without_policy' | t }}
+                  {%- else -%}
+                    {{
+                      'sections.cart.taxes_included_shipping_at_checkout_with_policy_html'
+                      | t: link: shop.shipping_policy.url
+                    }}
+                  {%- endif -%}
+                {%- elsif cart.duties_included and cart.taxes_included == false -%}
+                  {%- if shop.shipping_policy.body == blank -%}
+                    {{ 'sections.cart.duties_included_taxes_at_checkout_shipping_at_checkout_without_policy' | t }}
+                  {%- else -%}
+                    {{
+                      'sections.cart.duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html'
+                      | t: link: shop.shipping_policy.url
+                    }}
+                  {%- endif -%}
+                {%- elsif cart.duties_included == false and cart.taxes_included == false -%}
+                  {%- if shop.shipping_policy.body == blank -%}
+                    {{ 'sections.cart.taxes_at_checkout_shipping_at_checkout_without_policy' | t }}
+                  {%- else -%}
+                    {{
+                      'sections.cart.taxes_at_checkout_shipping_at_checkout_with_policy_html'
+                      | t: link: shop.shipping_policy.url
+                    }}
+                  {%- endif -%}
+                {%- endif -%}
+              </small>
+            </div>
+          </div>
+          <div class="quick-order-list-total__column">
+            <div
+              class="quick-order-list-buttons flex column-1025 gap-10 gap-1025-sp-4 mt-sp-3 mt-1025-sp-6"
+              style="--col-width: 49%;"
+            >
+              <a
+                href="{{ routes.cart_url }}"
+                aria-label="{{ 'sections.cart.view_cart' | t }}"
+                class="btn pointer block relative btn-primary text-center view-cart col-w-custom w-1025-full"
+              >
+                <span class="">{{ 'sections.cart.view_cart' | t }}</span>
+              </a>
+              {% if items_in_cart > 0 %}
+                <div class="product-clear-all col-w-custom w-1025-full">
+                  <product-clear-all>
+                    <button
+                      class="button pointer clear-all btn btn-outline w-full"
+                      type="button"
+                      aria-label="{{ 'products.product.quick_order_list.remove_all' | t }}"
+                    >
+                      <span lass="hidden-on-load transition-short">
+                        {{- 'products.product.quick_order_list.remove_all' | t -}}
+                      </span>
+                    </button>
+                  </product-clear-all>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </quick-order-list>
+    </div>
+  </div>
+  {%- render 'section-divider', position: 'bottom', style: section_st.divider_bottom, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.quick-order-list.name",
+  "tag": "section",
+  "class": "section section-quick-order-list",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.similar-color.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "options": [
+        {
+          "value": "fix_width",
+          "label": "t:sections.all.layout.fix_width"
+        },
+        {
+          "value": "stretch_width",
+          "label": "t:sections.all.layout.stretch_width"
+        },
+        {
+          "value": "full_width",
+          "label": "t:sections.all.layout.full_width"
+        }
+      ],
+      "default": "fix_width",
+      "label": "t:sections.all.layout.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_header.label"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "default": "<p>Quick order list</p>",
+      "label": "t:sections.all.content_setting.heading.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "drawn_underline",
+      "default": true,
+      "label": "t:sections.all.content_setting.drawn_underline.label",
+      "info": "t:sections.all.content_setting.heading.info"
+    },
+    {
+      "type": "select",
+      "id": "drawn_underline_type",
+      "label": "t:sections.all.content_setting.drawn_underline.type",
+      "default": "squiggle_underline",
+      "visible_if": "{{ section.settings.drawn_underline != false }}",
+      "options": [
+        {
+          "value": "simple_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.simple_underline"
+        },
+        {
+          "value": "curve_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.curve_underline"
+        },
+        {
+          "value": "squiggle_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.squiggle_underline"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "drawn_underline_color",
+      "label": "t:sections.all.content_setting.drawn_underline.color",
+      "default": "#FFB005",
+      "alpha": true,
+      "visible_if": "{{ section.settings.drawn_underline != false }}"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.all.content_setting.description.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "large",
+          "label": "t:sections.all.content_header.heading_size.options__1.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.all.content_header.heading_size.options__2.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.all.content_header.heading_size.options__3.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.all.content_header.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "left",
+      "label": "t:sections.all.text_alignment.alignment"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.divider.section_divider_heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "t:sections.all.divider.show_divider",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "divider_top",
+      "label": "t:sections.all.divider.top",
+      "info": "t:sections.all.divider.top_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "line",
+      "visible_if": "{{ section.settings.show_divider }}"
+    },
+    {
+      "type": "select",
+      "id": "divider_bottom",
+      "label": "t:sections.all.divider.bottom",
+      "info": "t:sections.all.divider.bottom_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.show_divider }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.quick-order-list.name",
+      "category": "t:sections.group.product"
+    }
+  ],
+  "enabled_on": {
+    "templates": ["product"]
+  }
+}
+{% endschema %}

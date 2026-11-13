@@ -1,0 +1,237 @@
+{%- liquid
+  assign block_st = block.settings
+  assign image = block_st.image
+  assign image_after = block_st.image_after
+  assign media_width = block_st.media_width
+  assign button_type = block_st.button_type
+  assign scroll_animation = settings.scroll_animation
+  if request.visual_preview_mode
+    assign scroll_animation = 'disable'
+  endif
+
+  assign is_first = false
+  if section.blocks.first.id == block.id
+    assign is_first = true
+  endif
+
+  assign tab_label = block_st.tab_label | strip
+  if tab_label == blank
+    for item in section.blocks
+      if item.id == block.id
+        assign tab_label = 'sections.benefit-tabs.tab_fallback' | t: number: forloop.index
+        break
+      endif
+    endfor
+  endif
+
+  assign media_alt = tab_label | escape
+  capture sizes
+    echo '(min-width: 1025px) ' | append: media_width | append: 'px, min(calc(100vw - 30px), ' | append: media_width | append: 'px)'
+  endcapture
+-%}
+<div
+  class="benefit-tabs__tab tab-heading border btn-rounded px-sp-6 py-custom lh-global text-center whitespace-nowrap flex-auto pointer transition min-w-md-custom{% if is_first %} active{% endif %}"
+  data-target-content-id="BenefitTabContent-{{ block.id }}"
+  tabindex="0"
+  role="tab"
+  aria-selected="{{ is_first }}"
+  aria-controls="tab-content-display"
+  {{ block.shopify_attributes }}
+  style="--padding-block: 10; --width: 16.5rem;"
+>
+  {{- tab_label | escape -}}
+</div>
+
+<template id="BenefitTabContent-{{ block.id }}">
+  <div>
+    <div
+      class="product-benefits__wrapper align-center grid-1025"
+      style="--ring-gap: 0px; --media-width: {{ media_width }}px;"
+    >
+      <div
+        class="benefit-tabs__media relative z-2 w-full max-w-custom mx-auto rounded"
+        style="--max-width: {{ media_width }}px;"
+      >
+        {%- if image != blank and image_after != blank -%}
+          {%- liquid
+            assign image_alt = image.alt | default: media_alt | escape
+            assign image_after_alt = image_after.alt | default: media_alt | escape
+          -%}
+          <image-comparison-benefits
+            class="benefit-tabs__compare block relative w-full"
+            style="--aspect-ratio: {{ image.aspect_ratio }}; --reveal: 100%;"
+          >
+            <div class="benefit-tabs__compare-before absolute inset-0 z-2">
+              {% render 'responsive-image',
+                type: 'banner',
+                image: image,
+                image_alt: image_alt,
+                sizes: sizes,
+                class: 'w-full h-full object-fit-cover block z-1 relative'
+              %}
+            </div>
+            <div class="absolute inset-0">
+              {% render 'responsive-image',
+                type: 'banner',
+                image: image_after,
+                image_alt: image_after_alt,
+                sizes: sizes,
+                class: 'w-full h-full object-fit-cover block z-1 relative'
+              %}
+            </div>
+            <div class="benefit-tabs__compare-line-track absolute inset-0 z-2 pointer-none" aria-hidden="true">
+              <div
+                class="benefit-tabs__compare-line absolute top-0 bottom-0 w-custom rounded-custom"
+                style="--width: 4px; --radius: 15px;"
+              ></div>
+            </div>
+          </image-comparison-benefits>
+        {%- elsif image != blank or image_after != blank -%}
+          {%- liquid
+            assign single_image = image | default: image_after
+            assign image_alt = single_image.alt | default: media_alt | escape
+          -%}
+          {% render 'responsive-image',
+            type: 'banner',
+            image: single_image,
+            image_alt: image_alt,
+            sizes: sizes,
+            class: 'w-full h-full object-fit-cover block z-1 relative'
+          %}
+        {%- else -%}
+          {%- render 'placeholder-render',
+            type: 'product',
+            motion: false,
+            class: 'img-placeholder w-full h-full object-fit-cover block z-1 relative'
+          -%}
+        {%- endif -%}
+      </div>
+
+      {%- if scroll_animation != 'disable' -%}
+        <motion-items-effect class="product-benefits__icons-container block">
+      {%- endif -%}
+      <carousel-mobile
+        class="benefit-tabs__list{% if scroll_animation == 'disable' %} product-benefits__icons-container{% endif %} product-benefits__icon-list grid-1025 mt-sp-4 mt-1025-0 carousel-mb dis_scroll"
+        data-enable-carousel-mobile="true"
+        data-mobile="1"
+        data-tablet="2"
+        data-spacing="24"
+        data-show-pagination="true"
+        data-mobile-screen="1024"
+      >
+        {% content_for 'blocks' %}
+      </carousel-mobile>
+      {%- if scroll_animation != 'disable' -%}
+        </motion-items-effect>
+      {%- endif -%}
+    </div>
+
+    {%- if block_st.button_label != blank -%}
+      <div class="flex justify-content-center mt-40">
+        <a
+          {% if block_st.button_link != blank %}
+            href="{{ block_st.button_link }}"
+          {% else %}
+            role="link"
+            aria-disabled="true"
+          {% endif %}
+          class="pointer text-center btn-{{ button_type }}{% if button_type == 'link' %} align-self-center border-animation{% else %} btn min-w-md-custom w-md-auto w-full max-w-100{% endif %}"
+          style="--width: 25rem;"
+        >
+          {{- block_st.button_label | escape -}}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</template>
+
+{% schema %}
+{
+  "name": "t:sections.benefit-tabs.blocks.tab.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.benefit-tabs.blocks.tab.how_to_use"
+    },
+    {
+      "type": "text",
+      "id": "tab_label",
+      "label": "t:sections.benefit-tabs.blocks.tab.settings.tab_label.label",
+      "default": "Tab title"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.product-benefits.settings.media_header"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.benefit-tabs.blocks.tab.settings.image.label",
+      "info": "t:sections.benefit-tabs.blocks.tab.settings.image.info"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_after",
+      "label": "t:sections.benefit-tabs.blocks.tab.settings.image_after.label",
+      "info": "t:sections.benefit-tabs.blocks.tab.settings.image_after.info"
+    },
+    {
+      "type": "range",
+      "id": "media_width",
+      "min": 300,
+      "max": 600,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.product-benefits.settings.media_width.label",
+      "default": 475
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_setting.link.label"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.all.content_setting.first_button_label.label",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.all.content_setting.first_button_label.link"
+    },
+    {
+      "type": "select",
+      "id": "button_type",
+      "label": "t:sections.all.content_setting.button_type.label",
+      "default": "primary",
+      "options": [
+        {
+          "value": "primary",
+          "label": "t:sections.all.content_setting.button_type.primary.label"
+        },
+        {
+          "value": "outline",
+          "label": "t:sections.all.content_setting.button_type.outline.label"
+        },
+        {
+          "value": "link",
+          "label": "t:sections.all.content_setting.button_type.link.label"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "_benefit"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.benefit-tabs.blocks.tab.name",
+      "blocks": [{ "type": "_benefit" }, { "type": "_benefit" }, { "type": "_benefit" }, { "type": "_benefit" }]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,154 @@
+{% if request.visual_preview_mode %}
+  <div
+    class="block_text h2 uppercase inline-block bg-white p-sp-5 rounded-5"
+    {{ block.shopify_attributes }}
+  >
+    {{ block.settings.text }}
+  </div>
+{% endif %}
+
+<div
+  class="pb-custom pt-custom"
+  style="--space-bottom: {{ block.settings.padding_bottom }};--space-top: {{ block.settings.padding_top }};"
+>
+  {% liquid
+    assign shown_text = block.settings.text
+    unless block.settings.case == 'uppercase'
+      if shown_text contains 'g' or shown_text contains 'j' or shown_text contains 'p' or shown_text contains 'q' or shown_text contains 'y'
+      endif
+    endunless
+    assign shown_text_with_line_breaks = shown_text | newline_to_br
+    assign text_with_lines = shown_text_with_line_breaks | split: '<br />'
+  %}
+
+  <div class="jumbo-text__container w-full">
+    <jumbo-text
+      class="{% if block.settings.uppercase %}uppercase {% endif %}block w-full"
+      {{ block.shopify_attributes }}
+      aria-label="{{ shown_text }}"
+    >
+      {%- assign char_index = 0 -%}
+      {%- for line in text_with_lines -%}
+        {%- if forloop.index > 1 -%}
+          <br>
+        {%- endif -%}
+        <span
+          class="jumbo-text-line"
+          style="--line-index: {{ forloop.index }};"
+          data-testid="jumbo-text-line"
+        >
+          {%- assign chars = line | split: ' ' | join: ' ' | split: '' -%}
+          {%- for char in chars -%}
+            {%- if char == ' ' -%}
+              <span
+                class="jumbo-text-space"
+                aria-hidden="true"
+              >
+                {{ char }}
+              </span>
+            {%- else -%}
+              <span
+                class="jumbo-text-char"
+                style="--char-index: {{ char_index }};"
+                aria-hidden="true"
+              >
+                <span class="jumbo-text-char-inner">{{ char }}</span>
+              </span>
+              {%- assign char_index = char_index | plus: 1 -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </span>
+      {%- endfor -%}
+    </jumbo-text>
+  </div>
+</div>
+
+<script
+  src="{{ 'jumbo-text.js' | asset_url }}"
+  type="module"
+></script>
+
+<script>
+  if (window.Shopify && Shopify.designMode) {
+    document.addEventListener('shopify:section:select', function (e) {
+      const block = e.target.closest('[data-block-id]');
+      if (!block) return;
+      const textArea = block.querySelector('textarea[name$="[text]"]');
+      const jumbo = block.querySelector('jumbo-text');
+      if (textArea && jumbo) {
+        textArea.addEventListener('input', function () {
+          jumbo.innerHTML = textArea.value;
+          if (typeof jumbo.#calculateOptimalFontSize === 'function') {
+            jumbo.#calculateOptimalFontSize();
+          }
+        });
+      }
+    });
+  }
+</script>
+
+{% stylesheet %}
+  .jumbo-text-space {
+    display: inline-flex;
+    width: 0.5ch;
+  }
+
+  :is(.jumbo-text-char, .jumbo-text-line) {
+    display: inline-flex;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.custom_section.blocks.jumbo_text.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.custom_section.blocks.jumbo_text.how_to_use"
+    },
+    {
+      "id": "text",
+      "type": "text",
+      "label": "t:settings_schema.colors.settings.fill_button_text.label",
+      "default": "bebold."
+    },
+    {
+      "type": "checkbox",
+      "id": "uppercase",
+      "default": false,
+      "label": "t:settings_schema.typography.settings.heading.text_transform.uppercase"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.page.spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.custom_section.blocks.jumbo_text.name",
+      "category": "t:sections.group.decorative.name"
+    }
+  ]
+}
+{% endschema %}

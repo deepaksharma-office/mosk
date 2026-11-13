@@ -1,0 +1,227 @@
+{% liquid
+  assign block_st = block.settings
+
+  assign justify_content_mobile = 'justify-content-left'
+  assign justify_content_desktop = 'flex-md-start'
+  assign justify_value_mobile = 'flex-start'
+  assign justify_value_desktop = 'flex-start'
+
+  if block_st.text_alignment_mobile == 'center'
+    assign justify_content_mobile = 'justify-content-center'
+    assign justify_value_mobile = 'center'
+  elsif block_st.text_alignment_mobile == 'end'
+    assign justify_content_mobile = 'justify-content-end'
+    assign justify_value_mobile = 'flex-end'
+  endif
+
+  if block_st.text_alignment == 'center'
+    assign justify_content_desktop = 'flex-md-center'
+    assign justify_value_desktop = 'center'
+  elsif block_st.text_alignment == 'end'
+    assign justify_content_desktop = 'flex-md-end'
+    assign justify_value_desktop = 'flex-end'
+  endif
+%}
+
+<div class="group__text w-full h-1025-full flex" data-scroll-image-id="{{ block.id }}">
+  <div
+    class="color-{{ block.settings.color_scheme }} gradient flex wrap w-full {{ justify_content_mobile }} {{ justify_content_desktop }} text-{{ block_st.text_alignment_mobile }} text-md-{{ block_st.text_alignment }}{% if block_st.padding_content_inline > 5 %} rounded{% endif %} px-custom py-custom{% if block_st.padding_content_inline < 15 %} x-min-value{% endif %}"
+    style="--padding-inline: {{ block_st.padding_content_inline }}; --padding-block: {{ block_st.padding_content_block }}; --text-group-justify-mobile: {{ justify_value_mobile }}; --text-group-justify-desktop: {{ justify_value_desktop }};"
+  >
+    {%- if section.settings.change_image_on_scroll and block_st.image != blank -%}
+      {%- assign scroll_alt = 'accessibility.promotion_banner' | t -%}
+      {%- if block_st.image.alt != blank -%}
+        {%- assign scroll_alt = block_st.image.alt | escape -%}
+      {%- endif -%}
+      <template data-scroll-slide-template>
+        <div
+          class="sticky-image-with-text__slide absolute inset-0 transition opacity-0"
+          style="--transition: 0.5s var(--ease-in);"
+          data-slide-id="{{ block.id }}"
+          data-aspect-ratio="{{ block_st.image.aspect_ratio }}"
+          aria-hidden="true"
+        >
+          {% render 'responsive-image',
+            type: 'banner',
+            container: section.settings.section_width,
+            image: block_st.image,
+            image_alt: scroll_alt,
+            motion: false
+          %}
+        </div>
+      </template>
+    {%- endif -%}
+    {% content_for 'blocks' %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.sticky_image_with_text.blocks.group_text.name",
+  "class": "sticky-image-with-text__group-text w-full switch-slide__mobile",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "image-media"
+    },
+    {
+      "type": "heading"
+    },
+    {
+      "type": "subheading"
+    },
+    {
+      "type": "highlight-text"
+    },
+    {
+      "type": "description"
+    },
+    {
+      "type": "list_tag"
+    },
+    {
+      "type": "button"
+    },
+    {
+      "type": "icon"
+    },
+    {
+      "type": "_countdown_timer"
+    }
+  ],
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.sticky_image_with_text.blocks.group_text.image.label",
+      "info": "t:sections.sticky_image_with_text.blocks.group_text.image.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_setting.label"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "start",
+      "label": "t:sections.all.text_alignment.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.mobile_options.label"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment_mobile",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "start",
+      "label": "t:sections.all.text_alignment.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.page.spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_content_inline",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_inline.label",
+      "info": "t:sections.all.padding.padding_inline.info",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_content_block",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_block.label",
+      "info": "t:sections.all.padding.padding_block.info",
+      "default": 30
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.sticky_image_with_text.blocks.group_text.name",
+      "blocks": [
+        {
+          "type": "image-media",
+          "settings": {
+            "border_radius_type": "rounded",
+            "image_width": 120,
+            "image_width_mb": 100
+          }
+        },
+        {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Soothing | Antioxidant"
+          }
+        },
+        {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Centella Extract</p>"
+          }
+        },
+        {
+          "type": "description",
+          "settings": {
+            "description": "<p>Madecassoside and asiaticoside in centella help calm redness and support the skin barrier while its antioxidant compounds help neutralize free radicals.</p>"
+          }
+        },
+        {
+          "type": "list_tag",
+          "settings": {
+            "tags": "Centella Asiatica, Hydrating, Plant-Based"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

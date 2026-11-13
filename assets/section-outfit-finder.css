@@ -1,0 +1,268 @@
+.outfit-finder {
+  --padding-gutter: var(--gutter-x, 3rem);
+  --default-height-bar: 0px;
+}
+
+.section-announcement-bar ~ .content-for-layout .outfit-finder {
+  --default-height-bar: 43px;
+}
+
+.outfit-finder-container,
+.outfit-finder-footer,
+.outfit-finder-collection {
+  height: calc(
+    100dvh - var(--header-height, 73px) -
+      var(--height-bar, var(--default-height-bar, 0px))
+  );
+}
+
+.outfit-finder-collection {
+  padding: 4rem var(--padding-gutter);
+}
+
+.outfit-finder-selections-preview {
+  height: calc(
+    100dvh - var(--header-height, 73px) -
+      var(--height-bar, var(--default-height-bar, 0px)) - 8rem -
+      var(--section-header-height, 0px) - var(--header-spacing-bottom, 0px)
+  );
+  background-image: radial-gradient(#c3c3c3 1px, transparent 1px);
+  background-size: 27px 27px;
+  background-clip: content-box;
+  background-origin: content-box;
+}
+
+.outfit-finder-list-mobile {
+  max-height: calc(
+    100dvh - var(--header-height, 84px) -
+      var(--height-bar, var(--default-height-bar, 0px)) - 5rem - 4.4rem -
+      var(--summary-height, 8rem) - var(--collection-height, 17.3rem) -
+      var(--section-header-height, 0px) - var(--header-spacing-bottom, 0px)
+  );
+}
+
+.outfit-preview {
+  transform: translate(
+      calc(var(--translate-x, 0px) * var(--flow-direction, 1)),
+      var(--translate-y, 0px)
+    )
+    scale(var(--rendering-scale, 1));
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+  cursor: grab;
+  z-index: var(--z-index);
+  opacity: 1;
+  touch-action: none;
+}
+
+.outfit-preview.not-rendered {
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.outfit-preview:not(.is-leaving):hover {
+  border: 1px dashed #ccc;
+  margin-inline-start: -1px;
+  margin-top: -1px;
+}
+
+.outfit-preview:not(.is-leaving):hover .item__controls {
+  visibility: visible;
+  opacity: 1;
+}
+
+.item__controls {
+  z-index: calc(var(--z-index) + 1);
+  transform: translateZ(0);
+}
+
+.outfit-preview .preview-image img {
+  pointer-events: none;
+}
+
+.outfit-preview.is-entering {
+  opacity: 0;
+  transform: translate(
+      calc(var(--translate-x, 0px) - 60px),
+      var(--translate-y, 0px)
+    )
+    scale(var(--rendering-scale, 1));
+}
+
+.outfit-preview__inner {
+  transform-origin: center center;
+  transform: scale(1);
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s ease;
+  will-change: transform, opacity;
+}
+
+.outfit-preview.is-leaving .outfit-preview__inner {
+  transform: scale(0.85);
+  opacity: 0;
+  pointer-events: none;
+}
+
+:is(
+    .outfit-finder-collection-mobile .collection.active,
+    .collection-outfit.active,
+    .collection-outfit:hover
+  )
+  .collection-information {
+  color: var(--color-heading);
+  opacity: 1;
+}
+
+.outfit-finder-list .product__inner {
+  border-radius: var(--img-rounded);
+  overflow: hidden;
+}
+
+.collection .collection-item__media--ratio::after {
+  content: "";
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  transition: var(--transition);
+  border-radius: 50%;
+}
+.collection.active .collection-item__media--ratio::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  left: 1px;
+  box-shadow:
+    0 0 0 1px #000000,
+    inset 0 0 0 4px rgb(var(--color-white));
+  border-radius: 50%;
+}
+
+.variant-outfit-active,
+.product-item__inner:hover
+  .outfit-add-container.active
+  ~ .variant-outfit-active,
+.outfit-add-container.active .outfit-add-variant-container,
+.variant-outfit-remove {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.variant-outfit-active,
+.product-item__inner:hover
+  .outfit-add-container.active
+  ~ .variant-outfit-active {
+  pointer-events: none;
+}
+
+.outfit-add-container.active .variant-outfit-remove {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+}
+
+.outfit-add-container {
+  background: transparent;
+}
+
+.variant-outfit-active .btn-tick {
+  margin-inline-end: 14px;
+  margin-bottom: 14px;
+}
+
+.bg-linear-outfit {
+  bottom: calc(var(--summary-height, 8rem) + 1px);
+  height: 6rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.notify-preview,
+.empty-collection {
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 48ch;
+  margin: auto;
+}
+.variant-outfit-active {
+  border-color: transparent;
+}
+
+.summary-outfit {
+  background-color: #fff;
+}
+
+.outfit-preview .notification_inline {
+  position: absolute;
+  inset-inline-start: 0;
+  margin: auto;
+  width: fit-content;
+}
+.outfit-preview .notification_inline svg {
+  display: none;
+}
+.warning-inline {
+  color: var(--color-error, #C03E35);
+}
+@media screen and (min-width: 1025px) {
+  /* Hover interactions for desktop product items */
+  .outfit-add-container {
+    transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  }
+
+  .product-item__inner:hover .outfit-add-container {
+    visibility: visible;
+    opacity: 1;
+    border-radius: var(--img-rounded);
+  }
+
+  .outfit-add-container.active ~ .variant-outfit-active {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    border-radius: var(--img-rounded);
+    border: var(--border-height, 1px) solid var(--color-border, #e0e0e0);
+  }
+  .summary-outfit:has(button.product_submit_button[disabled]) {
+    background-color: transparent;
+  }
+  .product_submit_button[disabled] {
+    visibility: hidden;
+  }
+
+  .outfit-finder-selections-preview {
+    height: 100%;
+  }
+  .outfit-finder {
+    height: calc(
+      100dvh - var(--header-height, 84px) -
+        var(--height-bar, var(--default-height-bar, 0px)) -
+        var(--section-header-height, 0px) - var(--header-spacing-bottom, 0px)
+    );
+  }
+  .item__controls.scale-zoom {
+    cursor: grab;
+  }
+  .item__controls.scale-zoom:active {
+    cursor: grabbing;
+  }
+  .summary-outfit {
+    background-color: transparent;
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  .outfit-finder .outfit-finder-list .grid {
+    --col: 2;
+  }
+}
+@media screen and (min-width: 1201px) and (max-width: 1440px) {
+  .outfit-finder .outfit-finder-list .grid {
+    --col: 3;
+  }
+}

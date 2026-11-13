@@ -1,0 +1,651 @@
+{% liquid
+  assign theme_st = settings
+  assign product_image_ratio = theme_st.product_image_ratio
+  assign enable_video_looping = section_st.enable_video_looping
+  assign enable_video_autoplay = section_st.enable_video_autoplay
+  assign enable_video_controls_default = section_st.enable_video_controls_default
+  assign enable_image_lightbox = section_st.enable_image_lightbox
+  assign enable_image_zoom = section_st.enable_image_zoom
+  assign ratio = '3/4'
+  if product_image_ratio != 'adapt'
+    case product_image_ratio
+      when 'square'
+        assign ratio = '1/1'
+      when 'landscape'
+        assign ratio = '4/3'
+      when 'portrait'
+        assign ratio = '3/4'
+    endcase
+  endif
+  assign fetchpriority = 'low'
+  if type_section == 'featured' or type_section == 'quick_view'
+    assign fetchpriority = 'low'
+  endif
+  assign type_product = 'productDetail'
+  if thumbnail == true
+    assign type_product = 'product'
+  endif
+%}
+{% if product.selected_or_first_available_variant.featured_media != null %}
+  {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
+  {%- assign media_position = 1 -%}
+  {% liquid
+    if product_image_ratio == 'adapt'
+      if featured_media.preview_image != blank
+        assign ratio = featured_media.preview_image.aspect_ratio
+      endif
+    endif
+    assign image_alt = featured_media.alt | default: 'product' | escape
+    if media_position == 1
+      assign fetchpriority = 'high'
+    endif
+  %}
+  {%- case featured_media.media_type -%}
+    {%- when 'external_video' -%}
+      {% liquid
+        assign video_id = featured_media.external_id
+      %}
+      <div
+        class="hover-action media-gallery__external-video{% if thumbnail != true %} rounded{% else %} rounded-thumbs{% endif %} {{ class }}"
+        data-position="{{ media_position }}"
+        {% if thumbnail != true %}
+          media-gallery="{{ featured_media.media_type }}"
+        {% else %}
+          style="--aspect-ratio: 16/9"
+        {% endif %}
+      >
+        {% if thumbnail == true %}
+          {% render 'responsive-image',
+            type: type_product,
+            image: featured_media,
+            image_alt: image_alt,
+            motion: motion
+          %}
+        {% else %}
+          <video-product-gallery
+            class="block external-video rounded"
+            {% if enable_video_autoplay %}
+              auto-play
+            {% endif %}
+            style="--aspect-ratio: 16/9"
+            width="{{ featured_media.preview_image.width }}"
+            height="{{ featured_media.preview_image.height }}"
+          >
+            <div class="video-thumbnail banner__media overflow-hidden rounded w-full h-full">
+              {% render 'responsive-image',
+                type: type_product,
+                image: featured_media.preview_image,
+                image_alt: image_alt,
+                motion: motion,
+                class: 'rounded-10 w-full h-full object-fit-cover'
+              %}
+              {% if enable_video_autoplay == blank %}
+                <div class="deferred-media__poster-button absolute z-3 flex content-center wh-52">
+                  <button
+                    class="play-video p-0 btn-white w-full h-full rounded-50 border-0 flex content-center pointer shadow transition"
+                    type="button"
+                    aria-label="{{ 'sections.video.alt_text' | t }}"
+                  >
+                    {% render 'icon-play' %}
+                  </button>
+                </div>
+              {% endif %}
+            </div>
+            <template>
+              {%- if featured_media.host == 'youtube' -%}
+                <iframe
+                  src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1&rel=0&autoplay=1&mute=1&loop={%- if enable_video_looping -%}1&playlist={{ video_id }}{%else%}0{% endif %}"
+                  class="js-youtube media-video"
+                ></iframe>
+              {%- else -%}
+                <iframe
+                  class="js-vimeo media-video"
+                  src="https://player.vimeo.com/video/{{ video_id }}?autoplay=1&muted=1&loop={%- if enable_video_looping -%}1{%else%}0{% endif %}"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+              {%- endif -%}
+            </template>
+            {% if thumbnail != true and enable_image_lightbox %}
+              <button
+                type="button"
+                is="media-zoom-button"
+                class="hover-action media-zoom-button btn-reset zoom-in transition absolute top-md-0 right-md-0 pointer"
+                aria-label="{{ 'products.product.zoom_button' | t }}"
+              >
+                <span class="show-on-hover invisible absolute pointer blur transition top-10 top-md-15 z-2{% if settings.rtl %} left-10 left-md-15{% else %} right-10 right-md-15{% endif %}{% if settings.rounded_button > 0 %} rounded-50{% endif %} inline-flex content-center shadow-glass-2 bg-white wh-52{% if desktop_layout == 'thumbnail_left' or desktop_layout == 'thumbnail_bottom' %} invisible show-on-hover{% endif %}">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M0.000357628 13.3636L0.000596046 10.1813C0.000596046 9.82984 0.28544 9.54512 0.636787 9.54512C0.988253 9.54512 1.27286 9.82984 1.27286 10.1814V11.8261L4.96974 8.12603C5.09417 8.00148 5.25721 7.93963 5.42013 7.93963C5.58281 7.93963 5.7455 8.0016 5.8698 8.12591C6.1183 8.37416 6.11853 8.77699 5.87016 9.02549L2.17208 12.7271H3.81643C4.16789 12.7271 4.45274 13.0121 4.45274 13.3637C4.45274 13.715 4.16777 14 3.81643 14H0.636787C0.467907 14 0.306178 13.9329 0.186758 13.8134C0.067338 13.6941 0.000357628 13.532 0.000357628 13.3636ZM0.636668 4.45524C0.988253 4.45524 1.27286 4.16992 1.27286 3.81869V2.17399L4.90777 5.77791C5.1565 6.02641 5.57638 6.02665 5.82487 5.77815C6.07348 5.53002 6.08206 5.12694 5.83381 4.87857L2.23561 1.27286H3.88174H3.88305C4.23452 1.27286 4.51972 0.988133 4.51984 0.636548C4.51995 0.285439 4.23559 0.000356674 3.884 0.000356674L0.70484 0C0.53584 0 0.339906 0.0670996 0.220843 0.186399C0.101542 0.3057 0.000238419 0.467548 0.000238419 0.636189V3.81881C0.000357628 4.17004 0.285321 4.45524 0.636668 4.45524ZM9.09271 5.80592L12.7273 2.17375V3.81881C12.7273 4.17028 13.0065 4.45452 13.3579 4.45452H13.3552C13.7067 4.45452 13.9902 4.16992 13.9902 3.81881L13.99 0.636667C13.99 0.467787 13.9227 0.305939 13.8034 0.186638C13.6838 0.0672178 13.5217 0.000237465 13.353 0.000237465H10.1732C9.82174 0.000237465 9.5369 0.285201 9.5369 0.636548C9.5369 0.988253 9.82186 1.2731 10.1732 1.2731H11.8171L8.18705 4.90646C7.93832 5.15483 7.94153 5.55826 8.19003 5.8064C8.43852 6.05453 8.84409 6.0543 9.09271 5.80592ZM11.8283 12.6698H10.1842C9.8327 12.6698 9.54798 12.9544 9.54798 13.3058C9.54798 13.6574 9.83282 13.9423 10.1842 13.9423L13.3636 13.9426H13.3637C13.5326 13.9426 13.6942 13.8758 13.8137 13.7565C13.9329 13.6372 14 13.4755 14 13.3064L13.9996 10.124C13.9996 9.77299 13.7148 9.48767 13.3635 9.48767C13.012 9.48767 12.7273 9.77299 12.7273 10.124V11.7689L9.05934 8.09802C8.93503 7.97359 8.77199 7.91138 8.60907 7.91138C8.4465 7.91138 8.28358 7.97335 8.1594 8.09766C7.91079 8.34592 7.91043 8.74911 8.15904 8.99784L11.8283 12.6698Z" fill="#111111"></path>
+                  </svg>
+                </span>
+              </button>
+            {% endif %}
+          </video-product-gallery>
+        {% endif %}
+      </div>
+    {%- when 'video' -%}
+      {%- capture video_attribute -%}
+        {%- if enable_video_looping -%}
+          loop 
+        {% endif %}
+        muted autoplay
+      {%- endcapture -%}
+      <div
+        class="hover-action media-gallery__local-video{% if thumbnail != true %} rounded{% else %} rounded-thumbs{% endif %} {{ class }} w-full"
+        data-position="{{ media_position }}"
+        {% if thumbnail != true %}
+          media-gallery="{{ featured_media.media_type }}"
+        {% endif %}
+        style="--aspect-ratio: {{ ratio }}"
+      >
+        {%- liquid
+          assign source = featured_media.sources
+          assign source_url = ''
+          for s in source
+            if s.format == 'mp4'
+              assign source_url = s.url
+              break
+            endif
+          endfor
+        -%}
+        {% if thumbnail == true %}
+          {% render 'responsive-image',
+            type: type_product,
+            image: featured_media,
+            image_alt: image_alt,
+            motion: motion
+          %}
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            class="absolute product_media-model-icon rounded-50 top-custom left-custom"
+            style="--top-custom: 4px; --left-custom: 4px;"
+          >
+            <rect width="20" height="20" rx="10" fill="#1D1D1F"/>
+            <path d="M11.8389 9.65608L8.61701 7.08174C8.49877 6.98753 8.34181 6.97334 8.21221 7.04655C8.08158 7.1192 8 7.26676 8 7.42623V12.5732C8 12.7344 8.08158 12.8814 8.21221 12.954C8.26746 12.9847 8.32787 13 8.3888 13C8.46831 13 8.54886 12.9722 8.61701 12.9171L11.8389 10.3451C11.9406 10.2628 12 10.1356 12 10.0006C12.0005 9.86323 11.9396 9.73667 11.8389 9.65608Z" fill="white"/>
+          </svg>
+        {% else %}
+          <video-product-gallery
+            class="block hover-action rounded"
+            width="{{ featured_media.preview_image.width }}"
+            height="{{ featured_media.preview_image.height }}"
+            {% if enable_video_autoplay %}
+              auto-play
+            {% endif %}
+          >
+            <div class="video-thumbnail banner__media overflow-hidden rounded w-full h-full">
+              {% render 'responsive-image',
+                type: type_product,
+                image: featured_media.preview_image,
+                image_alt: image_alt,
+                motion: motion,
+                class: 'rounded-10 w-full h-full object-fit-cover'
+              %}
+              {% if enable_video_autoplay == blank %}
+                <div class="deferred-media__poster-button absolute z-3 flex content-center wh-52">
+                  <button
+                    class="play-video p-0 btn-white w-full h-full rounded-50 border-0 flex content-center pointer shadow transition"
+                    type="button"
+                    aria-label="{{ 'sections.video.alt_text' | t }}"
+                  >
+                    {% render 'icon-play' %}
+                  </button>
+                </div>
+              {% endif %}
+            </div>
+            <template>
+              <video
+                playsinline="true"
+                muted="muted"
+                loop="loop"
+                {% if enable_video_controls_default == blank %}
+                  controls="controls"
+                {% endif %}
+                preload="metadata"
+                class="block w-full h-full absolute inset-0 media-video"
+                src="{{ source_url }}"
+                poster="{{ featured_media.preview_image | image_url: width: 800 }}"
+                {{ video_attribute }}
+              ></video>
+            </template>
+            {% if thumbnail != true and enable_image_lightbox %}
+              <button
+                type="button"
+                is="media-zoom-button"
+                class="hover-action media-zoom-button btn-reset zoom-in transition absolute top-md-0 right-md-0 pointer"
+                aria-label="{{ 'products.product.zoom_button' | t }}"
+              >
+                <span class="show-on-hover invisible absolute pointer blur transition top-10 top-md-15 z-2{% if settings.rtl %} left-10 left-md-15{% else %} right-10 right-md-15{% endif %}{% if settings.rounded_button > 0 %} rounded-50{% endif %} inline-flex content-center shadow-glass-2 bg-white wh-52{% if desktop_layout == 'thumbnail_left' or desktop_layout == 'thumbnail_bottom' %} invisible show-on-hover{% endif %}">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M0.000357628 13.3636L0.000596046 10.1813C0.000596046 9.82984 0.28544 9.54512 0.636787 9.54512C0.988253 9.54512 1.27286 9.82984 1.27286 10.1814V11.8261L4.96974 8.12603C5.09417 8.00148 5.25721 7.93963 5.42013 7.93963C5.58281 7.93963 5.7455 8.0016 5.8698 8.12591C6.1183 8.37416 6.11853 8.77699 5.87016 9.02549L2.17208 12.7271H3.81643C4.16789 12.7271 4.45274 13.0121 4.45274 13.3637C4.45274 13.715 4.16777 14 3.81643 14H0.636787C0.467907 14 0.306178 13.9329 0.186758 13.8134C0.067338 13.6941 0.000357628 13.532 0.000357628 13.3636ZM0.636668 4.45524C0.988253 4.45524 1.27286 4.16992 1.27286 3.81869V2.17399L4.90777 5.77791C5.1565 6.02641 5.57638 6.02665 5.82487 5.77815C6.07348 5.53002 6.08206 5.12694 5.83381 4.87857L2.23561 1.27286H3.88174H3.88305C4.23452 1.27286 4.51972 0.988133 4.51984 0.636548C4.51995 0.285439 4.23559 0.000356674 3.884 0.000356674L0.70484 0C0.53584 0 0.339906 0.0670996 0.220843 0.186399C0.101542 0.3057 0.000238419 0.467548 0.000238419 0.636189V3.81881C0.000357628 4.17004 0.285321 4.45524 0.636668 4.45524ZM9.09271 5.80592L12.7273 2.17375V3.81881C12.7273 4.17028 13.0065 4.45452 13.3579 4.45452H13.3552C13.7067 4.45452 13.9902 4.16992 13.9902 3.81881L13.99 0.636667C13.99 0.467787 13.9227 0.305939 13.8034 0.186638C13.6838 0.0672178 13.5217 0.000237465 13.353 0.000237465H10.1732C9.82174 0.000237465 9.5369 0.285201 9.5369 0.636548C9.5369 0.988253 9.82186 1.2731 10.1732 1.2731H11.8171L8.18705 4.90646C7.93832 5.15483 7.94153 5.55826 8.19003 5.8064C8.43852 6.05453 8.84409 6.0543 9.09271 5.80592ZM11.8283 12.6698H10.1842C9.8327 12.6698 9.54798 12.9544 9.54798 13.3058C9.54798 13.6574 9.83282 13.9423 10.1842 13.9423L13.3636 13.9426H13.3637C13.5326 13.9426 13.6942 13.8758 13.8137 13.7565C13.9329 13.6372 14 13.4755 14 13.3064L13.9996 10.124C13.9996 9.77299 13.7148 9.48767 13.3635 9.48767C13.012 9.48767 12.7273 9.77299 12.7273 10.124V11.7689L9.05934 8.09802C8.93503 7.97359 8.77199 7.91138 8.60907 7.91138C8.4465 7.91138 8.28358 7.97335 8.1594 8.09766C7.91079 8.34592 7.91043 8.74911 8.15904 8.99784L11.8283 12.6698Z" fill="#111111"></path>
+                  </svg>
+                </span>
+              </button>
+            {% endif %}
+            {% if thumbnail != true and enable_video_controls_default %}
+              <button
+                aria-label="{{ 'accessibility.play_button.video' | t }}"
+                class="play-button button-product-media-control absolute pointer border-0{% if enable_video_autoplay %} active{% else %} hidden{% endif %}"
+              >
+                <span class="play-button__icon play-button-popup play-button-product-media absolute transition pointer border-0 flex align-center justify-content-center">
+                  {% render 'icon-play' %}
+                  {% render 'icon-pause' %}
+                </span>
+              </button>
+            {% endif %}
+          </video-product-gallery>
+        {% endif %}
+      </div>
+    {%- when 'model' -%}
+      <div
+        class="hover-action media-gallery__model{% if thumbnail != true %} rounded{% else %} rounded-thumbs{% endif %} {{ class }}"
+        data-position="{{ media_position }}"
+        {% if thumbnail != true %}
+          media-gallery="{{ featured_media.media_type }}"
+        {% else %}
+          style="--aspect-ratio: {{ ratio }}"
+        {% endif %}
+      >
+        {% if thumbnail == true %}
+          {% render 'responsive-image',
+            type: type_product,
+            image: featured_media,
+            image_alt: image_alt,
+            motion: motion
+          %}
+          <svg width="22" height="22" fill="none" class="absolute product_media-model-icon">
+            <rect width="22" height="22" fill="#111" rx="2"/><path fill="#fff" d="M15.4 8.063 12.104 6.16a1.203 1.203 0 0 0-1.2 0L7.6 8.063A1.198 1.198 0 0 0 7 9.1v3.8a1.194 1.194 0 0 0 .6 1.037l3.304 1.903a1.203 1.203 0 0 0 1.2 0l3.296-1.903A1.198 1.198 0 0 0 16 12.9V9.1a1.193 1.193 0 0 0-.6-1.037Zm-4.096 7.087L8 13.247a.4.4 0 0 1-.2-.347V9.1a.398.398 0 0 1 .2-.347l3.304-1.903a.401.401 0 0 1 .2-.052c.07 0 .139.018.2.052L15 8.753c.064.036.115.09.148.155l-3.152 1.803a1.005 1.005 0 0 0-.492.873v3.626a.437.437 0 0 1-.2-.06Z"/>
+          </svg>
+        {% else %}
+          <div
+            class="responsive-image media-model"
+            style="--aspect-ratio: 1;"
+            width="{{ featured_media.preview_image.width }}"
+            height="{{ featured_media.preview_image.height }}"
+            media-model
+          >
+            <product-model
+              class="deferred-media media media--transparent"
+              data-media-id="{{ featured_media.id }}"
+              style="--aspect-ratio: 1;"
+            >
+              <button id="Deferred-Poster-Modal-{{ featured_media.id }}" class="deferred-media__poster" type="button">
+                <span class="deferred-media__poster-button motion-reduce wh-52 bg-white shadow inline-flex content-center absolute z-1 rounded-50 transition">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="66" height="65" viewBox="0 0 66 65" fill="none">
+                    <rect x="0.5" y="0.000976562" width="65" height="65" rx="32.5" fill="white"/>
+                    <path d="M42.1 25.7451L34.4093 21.3697C33.9837 21.1281 33.5008 21.001 33.0093 21.001C32.5178 21.001 32.035 21.1281 31.6093 21.3697L23.9 25.7451C23.4741 25.9868 23.1204 26.3345 22.8747 26.7532C22.6289 27.1718 22.4997 27.6467 22.5 28.1301V36.8719C22.4997 37.3552 22.6289 37.8301 22.8747 38.2488C23.1204 38.6675 23.4741 39.0151 23.9 39.2568L31.6093 43.6323C32.035 43.8738 32.5178 44.001 33.0093 44.001C33.5008 44.001 33.9837 43.8738 34.4093 43.6323L42.1 39.2568C42.5259 39.0151 42.8796 38.6675 43.1253 38.2488C43.3711 37.8301 43.5003 37.3552 43.5 36.8719V28.1301C43.5003 27.6467 43.3711 27.1718 43.1253 26.7532C42.8796 26.3345 42.5259 25.9868 42.1 25.7451ZM32.5427 42.0454L24.8333 37.6699C24.6909 37.5891 24.5727 37.4727 24.4908 37.3326C24.4088 37.1924 24.366 37.0335 24.3667 36.8719V28.1301C24.366 27.9685 24.4088 27.8095 24.4908 27.6694C24.5727 27.5292 24.6909 27.4129 24.8333 27.332L32.5427 22.9566C32.6849 22.8773 32.8458 22.8362 33.0093 22.8373C33.1728 22.8362 33.3338 22.8773 33.476 22.9566L41.1667 27.332C41.3151 27.4153 41.4352 27.5397 41.512 27.6898L34.1573 31.8359C33.8039 32.0429 33.512 32.3373 33.3105 32.6898C33.1091 33.0423 33.0052 33.4405 33.0093 33.8448V42.183C32.8447 42.1749 32.6846 42.1277 32.5427 42.0454Z" fill="#111111"/>
+                  </svg>
+                </span>
+                {% render 'responsive-image',
+                  type: type_product,
+                  image: featured_media.preview_image,
+                  image_alt: image_alt,
+                  motion: motion
+                %}
+              </button>
+              <template>
+                {%- liquid
+                  echo featured_media | media_tag: image_size: '1100x', toggleable: true
+                -%}
+              </template>
+            </product-model>
+          </div>
+          <button
+            class="btn btn-primary w-full product__xr-button text-center"
+            type="button"
+            aria-label="{{ 'products.product.xr_button_label' | t }}"
+            data-shopify-xr
+            data-shopify-xr-hidden
+            data-shopify-model3d-id="{{ featured_media.id }}"
+            data-shopify-title="{{ product.title | escape }}"
+          >
+            {{ 'products.product.xr_button' | t }}
+          </button>
+        {% endif %}
+      </div>
+    {%- else -%}
+      {% liquid
+        if thumbnail != true
+          assign img_thumb_class = ' rounded'
+        else
+          assign img_thumb_class = ' rounded-thumbs'
+        endif
+      %}
+      <div
+        class="media-gallery__image{{ class }} hover-action{% if enable_image_zoom and enable_image_zoom != 'none' and thumbnail != true %} gallery_zoom_image{% endif %} {{ img_thumb_class }}"
+        data-position="{{ media_position }}"
+        style="--aspect-ratio: {{ ratio }}"
+        {% if thumbnail != true %}
+          media-gallery="{{ featured_media.media_type }}"
+        {% endif %}
+      >
+        {% render 'responsive-image',
+          type: type_product,
+          image: featured_media,
+          image_alt: image_alt,
+          motion: motion,
+          fetchpriority: fetchpriority,
+          class: img_thumb_class
+        %}
+        {% if thumbnail != true and enable_image_lightbox %}
+          <button
+            type="button"
+            is="media-zoom-button"
+            class="hover-action media-zoom-button btn-reset zoom-in transition absolute {% if enable_image_zoom == 'none' %} inset-0{% else %} top-md-0 right-md-0{% endif %} pointer"
+            aria-label="{{ 'products.product.zoom_button' | t }}"
+          >
+            <span class="show-on-hover invisible absolute pointer blur transition top-10 top-md-15 z-2{% if settings.rtl %} left-10 left-md-15{% else %} right-10 right-md-15{% endif %}{% if settings.rounded_button > 0 %} rounded-50{% endif %} inline-flex content-center shadow-glass-2 bg-white wh-52{% if desktop_layout == 'thumbnail_left' or desktop_layout == 'thumbnail_bottom' %} invisible show-on-hover{% endif %}">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M0.000357628 13.3636L0.000596046 10.1813C0.000596046 9.82984 0.28544 9.54512 0.636787 9.54512C0.988253 9.54512 1.27286 9.82984 1.27286 10.1814V11.8261L4.96974 8.12603C5.09417 8.00148 5.25721 7.93963 5.42013 7.93963C5.58281 7.93963 5.7455 8.0016 5.8698 8.12591C6.1183 8.37416 6.11853 8.77699 5.87016 9.02549L2.17208 12.7271H3.81643C4.16789 12.7271 4.45274 13.0121 4.45274 13.3637C4.45274 13.715 4.16777 14 3.81643 14H0.636787C0.467907 14 0.306178 13.9329 0.186758 13.8134C0.067338 13.6941 0.000357628 13.532 0.000357628 13.3636ZM0.636668 4.45524C0.988253 4.45524 1.27286 4.16992 1.27286 3.81869V2.17399L4.90777 5.77791C5.1565 6.02641 5.57638 6.02665 5.82487 5.77815C6.07348 5.53002 6.08206 5.12694 5.83381 4.87857L2.23561 1.27286H3.88174H3.88305C4.23452 1.27286 4.51972 0.988133 4.51984 0.636548C4.51995 0.285439 4.23559 0.000356674 3.884 0.000356674L0.70484 0C0.53584 0 0.339906 0.0670996 0.220843 0.186399C0.101542 0.3057 0.000238419 0.467548 0.000238419 0.636189V3.81881C0.000357628 4.17004 0.285321 4.45524 0.636668 4.45524ZM9.09271 5.80592L12.7273 2.17375V3.81881C12.7273 4.17028 13.0065 4.45452 13.3579 4.45452H13.3552C13.7067 4.45452 13.9902 4.16992 13.9902 3.81881L13.99 0.636667C13.99 0.467787 13.9227 0.305939 13.8034 0.186638C13.6838 0.0672178 13.5217 0.000237465 13.353 0.000237465H10.1732C9.82174 0.000237465 9.5369 0.285201 9.5369 0.636548C9.5369 0.988253 9.82186 1.2731 10.1732 1.2731H11.8171L8.18705 4.90646C7.93832 5.15483 7.94153 5.55826 8.19003 5.8064C8.43852 6.05453 8.84409 6.0543 9.09271 5.80592ZM11.8283 12.6698H10.1842C9.8327 12.6698 9.54798 12.9544 9.54798 13.3058C9.54798 13.6574 9.83282 13.9423 10.1842 13.9423L13.3636 13.9426H13.3637C13.5326 13.9426 13.6942 13.8758 13.8137 13.7565C13.9329 13.6372 14 13.4755 14 13.3064L13.9996 10.124C13.9996 9.77299 13.7148 9.48767 13.3635 9.48767C13.012 9.48767 12.7273 9.77299 12.7273 10.124V11.7689L9.05934 8.09802C8.93503 7.97359 8.77199 7.91138 8.60907 7.91138C8.4465 7.91138 8.28358 7.97335 8.1594 8.09766C7.91079 8.34592 7.91043 8.74911 8.15904 8.99784L11.8283 12.6698Z" fill="#111111"></path>
+              </svg>
+            </span>
+          </button>
+        {% endif %}
+      </div>
+  {%- endcase -%}
+{% endif %}
+{% for image in images %}
+  {% liquid
+    if product_image_ratio == 'adapt'
+      if image.preview_image != blank
+        assign ratio = image.preview_image.aspect_ratio
+      endif
+    endif
+    assign image_alt = image.alt | default: 'product' | escape
+    assign fetchpriority = 'auto'
+  %}
+  {%- unless image.id == product.selected_or_first_available_variant.featured_media.id -%}
+    {% liquid
+      assign media_position = media_position | default: 0 | plus: 1
+      if media_position == 1
+        assign fetchpriority = 'high'
+      endif
+    %}
+    {%- case image.media_type -%}
+      {%- when 'external_video' -%}
+        {% liquid
+          assign video_id = image.external_id
+        %}
+        <div
+          class="hover-action media-gallery__external-video{% if thumbnail != true %} rounded{% else %} rounded-thumbs{% endif %} {{ class }}"
+          data-position="{{ media_position }}"
+          {% if thumbnail != true %}
+            media-gallery="{{ image.media_type }}"
+          {% else %}
+            style="--aspect-ratio: 16/9"
+          {% endif %}
+        >
+          {% if thumbnail == true %}
+            {% render 'responsive-image', type: type_product, image: image, image_alt: image_alt, motion: motion %}
+          {% else %}
+            <video-product-gallery
+              class="block external-video rounded"
+              width="{{ featured_media.preview_image.width }}"
+              height="{{ featured_media.preview_image.height }}"
+              {% if enable_video_autoplay %}
+                auto-play
+              {% endif -%}
+              style="--aspect-ratio: 16/9"
+            >
+              <div class="video-thumbnail banner__media overflow-hidden rounded w-full h-full">
+                {% render 'responsive-image',
+                  type: type_product,
+                  image: image.preview_image,
+                  image_alt: image_alt,
+                  motion: motion,
+                  class: 'rounded-10 w-full h-full object-fit-cover'
+                %}
+                {% if enable_video_autoplay == blank %}
+                  <div class="deferred-media__poster-button absolute z-3 flex content-center wh-52">
+                    <button
+                      class="play-video p-0 btn-white w-full h-full rounded-50 border-0 flex content-center pointer shadow transition"
+                      type="button"
+                      aria-label="{{ 'sections.video.alt_text' | t }}"
+                    >
+                      {% render 'icon-play' %}
+                    </button>
+                  </div>
+                {% endif %}
+              </div>
+              <template>
+                {%- if image.host == 'youtube' -%}
+                  <iframe
+                    src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1&rel=0&autoplay=1&mute=1&loop={%- if enable_video_looping -%}1&playlist={{ video_id }}{%else%}0{% endif %}"
+                    class="js-youtube media-video"
+                  ></iframe>
+                {%- else -%}
+                  <iframe
+                    class="js-vimeo media-video"
+                    src="https://player.vimeo.com/video/{{ video_id }}?autoplay=1&muted=1&loop={%- if enable_video_looping -%}1{%else%}0{% endif %}"
+                    frameborder="0"
+                    allowfullscreen
+                  ></iframe>
+                {%- endif -%}
+              </template>
+              {% if thumbnail != true and enable_image_lightbox %}
+                <button
+                  type="button"
+                  is="media-zoom-button"
+                  class="hover-action media-zoom-button btn-reset zoom-in transition absolute top-md-0 right-md-0 pointer"
+                  aria-label="{{ 'products.product.zoom_button' | t }}"
+                >
+                  <span class="show-on-hover invisible absolute pointer blur transition top-10 top-md-15 z-2{% if settings.rtl %} left-10 left-md-15{% else %} right-10 right-md-15{% endif %}{% if settings.rounded_button > 0 %} rounded-50{% endif %} inline-flex content-center shadow-glass-2 bg-white wh-52{% if desktop_layout == 'thumbnail_left' or desktop_layout == 'thumbnail_bottom' %} invisible show-on-hover{% endif %}">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M0.000357628 13.3636L0.000596046 10.1813C0.000596046 9.82984 0.28544 9.54512 0.636787 9.54512C0.988253 9.54512 1.27286 9.82984 1.27286 10.1814V11.8261L4.96974 8.12603C5.09417 8.00148 5.25721 7.93963 5.42013 7.93963C5.58281 7.93963 5.7455 8.0016 5.8698 8.12591C6.1183 8.37416 6.11853 8.77699 5.87016 9.02549L2.17208 12.7271H3.81643C4.16789 12.7271 4.45274 13.0121 4.45274 13.3637C4.45274 13.715 4.16777 14 3.81643 14H0.636787C0.467907 14 0.306178 13.9329 0.186758 13.8134C0.067338 13.6941 0.000357628 13.532 0.000357628 13.3636ZM0.636668 4.45524C0.988253 4.45524 1.27286 4.16992 1.27286 3.81869V2.17399L4.90777 5.77791C5.1565 6.02641 5.57638 6.02665 5.82487 5.77815C6.07348 5.53002 6.08206 5.12694 5.83381 4.87857L2.23561 1.27286H3.88174H3.88305C4.23452 1.27286 4.51972 0.988133 4.51984 0.636548C4.51995 0.285439 4.23559 0.000356674 3.884 0.000356674L0.70484 0C0.53584 0 0.339906 0.0670996 0.220843 0.186399C0.101542 0.3057 0.000238419 0.467548 0.000238419 0.636189V3.81881C0.000357628 4.17004 0.285321 4.45524 0.636668 4.45524ZM9.09271 5.80592L12.7273 2.17375V3.81881C12.7273 4.17028 13.0065 4.45452 13.3579 4.45452H13.3552C13.7067 4.45452 13.9902 4.16992 13.9902 3.81881L13.99 0.636667C13.99 0.467787 13.9227 0.305939 13.8034 0.186638C13.6838 0.0672178 13.5217 0.000237465 13.353 0.000237465H10.1732C9.82174 0.000237465 9.5369 0.285201 9.5369 0.636548C9.5369 0.988253 9.82186 1.2731 10.1732 1.2731H11.8171L8.18705 4.90646C7.93832 5.15483 7.94153 5.55826 8.19003 5.8064C8.43852 6.05453 8.84409 6.0543 9.09271 5.80592ZM11.8283 12.6698H10.1842C9.8327 12.6698 9.54798 12.9544 9.54798 13.3058C9.54798 13.6574 9.83282 13.9423 10.1842 13.9423L13.3636 13.9426H13.3637C13.5326 13.9426 13.6942 13.8758 13.8137 13.7565C13.9329 13.6372 14 13.4755 14 13.3064L13.9996 10.124C13.9996 9.77299 13.7148 9.48767 13.3635 9.48767C13.012 9.48767 12.7273 9.77299 12.7273 10.124V11.7689L9.05934 8.09802C8.93503 7.97359 8.77199 7.91138 8.60907 7.91138C8.4465 7.91138 8.28358 7.97335 8.1594 8.09766C7.91079 8.34592 7.91043 8.74911 8.15904 8.99784L11.8283 12.6698Z" fill="#111111"></path>
+                    </svg>
+                  </span>
+                </button>
+              {% endif %}
+            </video-product-gallery>
+          {% endif %}
+        </div>
+      {%- when 'video' -%}
+        {%- capture video_attribute -%}
+          {%- if enable_video_looping -%}
+            loop 
+          {% endif %}
+          muted autoplay
+        {%- endcapture -%}
+        <div
+          class="hover-action media-gallery__local-video{% if thumbnail != true %} rounded{% else %} rounded-thumbs{% endif %} {{ class }}"
+          data-position="{{ media_position }}"
+          {% if thumbnail != true %}
+            media-gallery="{{ image.media_type }}"
+          {% else %}
+            style="--aspect-ratio: {{ ratio }}"
+          {% endif %}
+        >
+          {%- liquid
+            assign source = image.sources
+            assign source_url = ''
+            for s in source
+              if s.format == 'mp4'
+                assign source_url = s.url
+                break
+              endif
+            endfor
+          -%}
+          {% if thumbnail == true %}
+            {% render 'responsive-image', type: type_product, image: image, image_alt: image_alt, motion: motion %}
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              class="absolute product_media-model-icon rounded-50 top-custom left-custom"
+              style="--top-custom: 4px; --left-custom: 4px;"
+            >
+              <rect width="20" height="20" rx="10" fill="#1D1D1F"/>
+              <path d="M11.8389 9.65608L8.61701 7.08174C8.49877 6.98753 8.34181 6.97334 8.21221 7.04655C8.08158 7.1192 8 7.26676 8 7.42623V12.5732C8 12.7344 8.08158 12.8814 8.21221 12.954C8.26746 12.9847 8.32787 13 8.3888 13C8.46831 13 8.54886 12.9722 8.61701 12.9171L11.8389 10.3451C11.9406 10.2628 12 10.1356 12 10.0006C12.0005 9.86323 11.9396 9.73667 11.8389 9.65608Z" fill="white"/>
+            </svg>
+          {% else %}
+            <video-product-gallery
+              class="block hover-action rounded"
+              width="{{ image.preview_image.width }}"
+              height="{{ image.preview_image.height }}"
+              {% if enable_video_autoplay %}
+                auto-play
+              {% endif %}
+              style="--aspect-ratio: {{ ratio }}"
+            >
+              <div class="video-thumbnail banner__media overflow-hidden rounded w-full h-full">
+                {% render 'responsive-image',
+                  type: type_product,
+                  image: image.preview_image,
+                  image_alt: image_alt,
+                  motion: motion,
+                  class: 'rounded-10 w-full h-full object-fit-cover'
+                %}
+                {% if enable_video_autoplay == blank %}
+                  <div class="deferred-media__poster-button absolute z-3 flex content-center wh-52">
+                    <button
+                      class="play-video p-0 btn-white w-full h-full rounded-50 border-0 flex content-center pointer shadow transition"
+                      type="button"
+                      aria-label="{{ 'sections.video.alt_text' | t }}"
+                    >
+                      {% render 'icon-play' %}
+                    </button>
+                  </div>
+                {% endif %}
+              </div>
+              <template>
+                <video
+                  playsinline="true"
+                  muted="muted"
+                  loop="loop"
+                  {% if enable_video_controls_default == blank %}
+                    controls="controls"
+                  {% endif %}
+                  preload="metadata"
+                  class="block w-full h-full absolute inset-0 media-video"
+                  src="{{ source_url }}"
+                  poster="{{ image.preview_image | image_url: width: 800 }}"
+                  {{ video_attribute }}
+                ></video>
+              </template>
+              {% if thumbnail != true and enable_image_lightbox %}
+                <button
+                  type="button"
+                  is="media-zoom-button"
+                  class="hover-action media-zoom-button btn-reset zoom-in transition absolute top-md-0 right-md-0 pointer"
+                  aria-label="{{ 'products.product.zoom_button' | t }}"
+                >
+                  <span class="show-on-hover invisible absolute pointer blur transition top-10 top-md-15 z-2{% if settings.rtl %} left-10 left-md-15{% else %} right-10 right-md-15{% endif %}{% if settings.rounded_button > 0 %} rounded-50{% endif %} inline-flex content-center shadow-glass-2 bg-white wh-52{% if desktop_layout == 'thumbnail_left' or desktop_layout == 'thumbnail_bottom' %} invisible show-on-hover{% endif %}">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M0.000357628 13.3636L0.000596046 10.1813C0.000596046 9.82984 0.28544 9.54512 0.636787 9.54512C0.988253 9.54512 1.27286 9.82984 1.27286 10.1814V11.8261L4.96974 8.12603C5.09417 8.00148 5.25721 7.93963 5.42013 7.93963C5.58281 7.93963 5.7455 8.0016 5.8698 8.12591C6.1183 8.37416 6.11853 8.77699 5.87016 9.02549L2.17208 12.7271H3.81643C4.16789 12.7271 4.45274 13.0121 4.45274 13.3637C4.45274 13.715 4.16777 14 3.81643 14H0.636787C0.467907 14 0.306178 13.9329 0.186758 13.8134C0.067338 13.6941 0.000357628 13.532 0.000357628 13.3636ZM0.636668 4.45524C0.988253 4.45524 1.27286 4.16992 1.27286 3.81869V2.17399L4.90777 5.77791C5.1565 6.02641 5.57638 6.02665 5.82487 5.77815C6.07348 5.53002 6.08206 5.12694 5.83381 4.87857L2.23561 1.27286H3.88174H3.88305C4.23452 1.27286 4.51972 0.988133 4.51984 0.636548C4.51995 0.285439 4.23559 0.000356674 3.884 0.000356674L0.70484 0C0.53584 0 0.339906 0.0670996 0.220843 0.186399C0.101542 0.3057 0.000238419 0.467548 0.000238419 0.636189V3.81881C0.000357628 4.17004 0.285321 4.45524 0.636668 4.45524ZM9.09271 5.80592L12.7273 2.17375V3.81881C12.7273 4.17028 13.0065 4.45452 13.3579 4.45452H13.3552C13.7067 4.45452 13.9902 4.16992 13.9902 3.81881L13.99 0.636667C13.99 0.467787 13.9227 0.305939 13.8034 0.186638C13.6838 0.0672178 13.5217 0.000237465 13.353 0.000237465H10.1732C9.82174 0.000237465 9.5369 0.285201 9.5369 0.636548C9.5369 0.988253 9.82186 1.2731 10.1732 1.2731H11.8171L8.18705 4.90646C7.93832 5.15483 7.94153 5.55826 8.19003 5.8064C8.43852 6.05453 8.84409 6.0543 9.09271 5.80592ZM11.8283 12.6698H10.1842C9.8327 12.6698 9.54798 12.9544 9.54798 13.3058C9.54798 13.6574 9.83282 13.9423 10.1842 13.9423L13.3636 13.9426H13.3637C13.5326 13.9426 13.6942 13.8758 13.8137 13.7565C13.9329 13.6372 14 13.4755 14 13.3064L13.9996 10.124C13.9996 9.77299 13.7148 9.48767 13.3635 9.48767C13.012 9.48767 12.7273 9.77299 12.7273 10.124V11.7689L9.05934 8.09802C8.93503 7.97359 8.77199 7.91138 8.60907 7.91138C8.4465 7.91138 8.28358 7.97335 8.1594 8.09766C7.91079 8.34592 7.91043 8.74911 8.15904 8.99784L11.8283 12.6698Z" fill="#111111"></path>
+                    </svg>
+                  </span>
+                </button>
+              {% endif %}
+              {% if thumbnail != true and enable_video_controls_default %}
+                <button
+                  aria-label="{{ 'accessibility.play_button.video' | t }}"
+                  class="play-button button-product-media-control absolute pointer z-3 border-0 w-full h-full{% if enable_video_autoplay %} active{% else %} hidden{% endif %}"
+                >
+                  <span class="play-button__icon play-button-popup play-button-product-media absolute transition pointer border-0 flex align-center justify-content-center">
+                    {% render 'icon-play' %}
+                    {% render 'icon-pause' %}
+                  </span>
+                </button>
+              {% endif %}
+            </video-product-gallery>
+          {% endif %}
+        </div>
+      {%- when 'model' -%}
+        <div
+          class="hover-action media-gallery__model{% if thumbnail != true %} rounded{% else %} rounded-thumbs{% endif %} {{ class }}"
+          data-position="{{ media_position }}"
+          {% if thumbnail != true %}
+            media-gallery="{{ image.media_type }}"
+          {% else %}
+            style="--aspect-ratio: {{ ratio }}"
+          {% endif %}
+        >
+          {% if thumbnail == true %}
+            {% render 'responsive-image', type: type_product, image: image, image_alt: image_alt, motion: motion %}
+            <svg width="22" height="22" fill="none" class="absolute left-0 top-0 product_media-model-icon rounded-3">
+              <rect width="22" height="22" fill="#111" rx="2"/><path fill="#fff" d="M15.4 8.063 12.104 6.16a1.203 1.203 0 0 0-1.2 0L7.6 8.063A1.198 1.198 0 0 0 7 9.1v3.8a1.194 1.194 0 0 0 .6 1.037l3.304 1.903a1.203 1.203 0 0 0 1.2 0l3.296-1.903A1.198 1.198 0 0 0 16 12.9V9.1a1.193 1.193 0 0 0-.6-1.037Zm-4.096 7.087L8 13.247a.4.4 0 0 1-.2-.347V9.1a.398.398 0 0 1 .2-.347l3.304-1.903a.401.401 0 0 1 .2-.052c.07 0 .139.018.2.052L15 8.753c.064.036.115.09.148.155l-3.152 1.803a1.005 1.005 0 0 0-.492.873v3.626a.437.437 0 0 1-.2-.06Z"/>
+            </svg>
+          {% else %}
+            <div
+              class="responsive-image media-model"
+              style="--aspect-ratio: 1;"
+              width="{{ image.preview_image.width }}"
+              height="{{ image.preview_image.height }}"
+              media-model
+            >
+              <product-model
+                class="deferred-media media media--transparent"
+                data-media-id="{{ image.id }}"
+                style="--aspect-ratio: 1;"
+              >
+                <button id="Deferred-Poster-Modal-{{ image.id }}" class="deferred-media__poster" type="button">
+                  <span class="deferred-media__poster-button motion-reduce wh-52 bg-white shadow inline-flex content-center absolute z-1 rounded-50 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="66" height="65" viewBox="0 0 66 65" fill="none">
+                      <rect x="0.5" y="0.000976562" width="65" height="65" rx="32.5" fill="white"/>
+                      <path d="M42.1 25.7451L34.4093 21.3697C33.9837 21.1281 33.5008 21.001 33.0093 21.001C32.5178 21.001 32.035 21.1281 31.6093 21.3697L23.9 25.7451C23.4741 25.9868 23.1204 26.3345 22.8747 26.7532C22.6289 27.1718 22.4997 27.6467 22.5 28.1301V36.8719C22.4997 37.3552 22.6289 37.8301 22.8747 38.2488C23.1204 38.6675 23.4741 39.0151 23.9 39.2568L31.6093 43.6323C32.035 43.8738 32.5178 44.001 33.0093 44.001C33.5008 44.001 33.9837 43.8738 34.4093 43.6323L42.1 39.2568C42.5259 39.0151 42.8796 38.6675 43.1253 38.2488C43.3711 37.8301 43.5003 37.3552 43.5 36.8719V28.1301C43.5003 27.6467 43.3711 27.1718 43.1253 26.7532C42.8796 26.3345 42.5259 25.9868 42.1 25.7451ZM32.5427 42.0454L24.8333 37.6699C24.6909 37.5891 24.5727 37.4727 24.4908 37.3326C24.4088 37.1924 24.366 37.0335 24.3667 36.8719V28.1301C24.366 27.9685 24.4088 27.8095 24.4908 27.6694C24.5727 27.5292 24.6909 27.4129 24.8333 27.332L32.5427 22.9566C32.6849 22.8773 32.8458 22.8362 33.0093 22.8373C33.1728 22.8362 33.3338 22.8773 33.476 22.9566L41.1667 27.332C41.3151 27.4153 41.4352 27.5397 41.512 27.6898L34.1573 31.8359C33.8039 32.0429 33.512 32.3373 33.3105 32.6898C33.1091 33.0423 33.0052 33.4405 33.0093 33.8448V42.183C32.8447 42.1749 32.6846 42.1277 32.5427 42.0454Z" fill="#111111"/>
+                    </svg>
+                  </span>
+                  {% render 'responsive-image',
+                    type: type_product,
+                    image: image.preview_image,
+                    image_alt: image_alt,
+                    motion: motion
+                  %}
+                </button>
+                <template>
+                  {%- liquid
+                    echo image | media_tag: image_size: '1100x', toggleable: true
+                  -%}
+                </template>
+              </product-model>
+            </div>
+            <button
+              class="btn btn-primary w-full product__xr-button text-center"
+              type="button"
+              aria-label="{{ 'products.product.xr_button_label' | t }}"
+              data-shopify-xr
+              data-shopify-xr-hidden
+              data-shopify-model3d-id="{{ image.id }}"
+              data-shopify-title="{{ product.title | escape }}"
+            >
+              {{ 'products.product.xr_button' | t }}
+            </button>
+          {% endif %}
+        </div>
+      {%- else -%}
+        <div
+          class="hover-action media-gallery__image{% if thumbnail != true %} rounded{% else %} rounded-thumbs{% endif %} {{ class }}{% if enable_image_zoom and enable_image_zoom != 'none' and thumbnail != true %} gallery_zoom_image{% endif %}"
+          data-position="{{ media_position }}"
+          {% if thumbnail != true %}
+            media-gallery="{{ image.media_type }}"
+          {% endif %}
+          style="--aspect-ratio: {{ ratio }}"
+        >
+          {% render 'responsive-image',
+            type: type_product,
+            image: image,
+            image_alt: image_alt,
+            motion: motion,
+            fetchpriority: fetchpriority
+          %}
+          {% if thumbnail != true and enable_image_lightbox %}
+            <button
+              type="button"
+              is="media-zoom-button"
+              class="btn-reset media-zoom-button zoom-in transition absolute{% if enable_image_zoom == 'none' %} inset-0{% else %} top-md-0 right-md-0{% endif %}"
+              aria-label="{{ 'products.product.zoom_button' | t }}"
+            >
+              <span class="show-on-hover invisible absolute pointer blur transition top-10 top-md-15 z-2{% if settings.rtl %} left-10 left-md-15{% else %} right-10 right-md-15{% endif %}{% if settings.rounded_button > 0 %} rounded-50{% endif %} inline-flex content-center shadow-glass-2 bg-white wh-52{% if desktop_layout == 'thumbnail_left' or desktop_layout == 'thumbnail_bottom' %} invisible show-on-hover{% endif %}">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M0.000357628 13.3636L0.000596046 10.1813C0.000596046 9.82984 0.28544 9.54512 0.636787 9.54512C0.988253 9.54512 1.27286 9.82984 1.27286 10.1814V11.8261L4.96974 8.12603C5.09417 8.00148 5.25721 7.93963 5.42013 7.93963C5.58281 7.93963 5.7455 8.0016 5.8698 8.12591C6.1183 8.37416 6.11853 8.77699 5.87016 9.02549L2.17208 12.7271H3.81643C4.16789 12.7271 4.45274 13.0121 4.45274 13.3637C4.45274 13.715 4.16777 14 3.81643 14H0.636787C0.467907 14 0.306178 13.9329 0.186758 13.8134C0.067338 13.6941 0.000357628 13.532 0.000357628 13.3636ZM0.636668 4.45524C0.988253 4.45524 1.27286 4.16992 1.27286 3.81869V2.17399L4.90777 5.77791C5.1565 6.02641 5.57638 6.02665 5.82487 5.77815C6.07348 5.53002 6.08206 5.12694 5.83381 4.87857L2.23561 1.27286H3.88174H3.88305C4.23452 1.27286 4.51972 0.988133 4.51984 0.636548C4.51995 0.285439 4.23559 0.000356674 3.884 0.000356674L0.70484 0C0.53584 0 0.339906 0.0670996 0.220843 0.186399C0.101542 0.3057 0.000238419 0.467548 0.000238419 0.636189V3.81881C0.000357628 4.17004 0.285321 4.45524 0.636668 4.45524ZM9.09271 5.80592L12.7273 2.17375V3.81881C12.7273 4.17028 13.0065 4.45452 13.3579 4.45452H13.3552C13.7067 4.45452 13.9902 4.16992 13.9902 3.81881L13.99 0.636667C13.99 0.467787 13.9227 0.305939 13.8034 0.186638C13.6838 0.0672178 13.5217 0.000237465 13.353 0.000237465H10.1732C9.82174 0.000237465 9.5369 0.285201 9.5369 0.636548C9.5369 0.988253 9.82186 1.2731 10.1732 1.2731H11.8171L8.18705 4.90646C7.93832 5.15483 7.94153 5.55826 8.19003 5.8064C8.43852 6.05453 8.84409 6.0543 9.09271 5.80592ZM11.8283 12.6698H10.1842C9.8327 12.6698 9.54798 12.9544 9.54798 13.3058C9.54798 13.6574 9.83282 13.9423 10.1842 13.9423L13.3636 13.9426H13.3637C13.5326 13.9426 13.6942 13.8758 13.8137 13.7565C13.9329 13.6372 14 13.4755 14 13.3064L13.9996 10.124C13.9996 9.77299 13.7148 9.48767 13.3635 9.48767C13.012 9.48767 12.7273 9.77299 12.7273 10.124V11.7689L9.05934 8.09802C8.93503 7.97359 8.77199 7.91138 8.60907 7.91138C8.4465 7.91138 8.28358 7.97335 8.1594 8.09766C7.91079 8.34592 7.91043 8.74911 8.15904 8.99784L11.8283 12.6698Z" fill="#111111"></path>
+                </svg>
+              </span>
+            </button>
+          {% endif %}
+        </div>
+    {%- endcase -%}
+  {%- endunless -%}
+{% endfor %}

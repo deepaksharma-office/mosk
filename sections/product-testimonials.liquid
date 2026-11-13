@@ -1,0 +1,1485 @@
+{%- liquid
+  assign section_st = section.settings
+  assign theme_st = settings
+  assign scroll_animation = theme_st.scroll_animation
+  if section_st.section_width == 'fix_width'
+    assign section_width = 'container'
+  elsif section_st.section_width == 'full_width'
+    assign section_width = 'full-width'
+  else
+    assign section_width = 'fluid_container'
+  endif
+
+  assign heading_size = section_st.heading_size
+  assign text_alignment = section_st.text_alignment
+  assign items_per_row = section_st.items_per_row
+  assign show_pagination = section_st.show_pagination
+  assign show_navigation = section_st.show_navigation
+  assign slide_auto_change = section_st.slide_auto_change
+  assign change_slide_every = section_st.change_slide_every
+  assign reveal_slide = section_st.reveal_slide
+  assign rating_color = section_st.rating_color
+  assign heading = section_st.title
+  assign drawn_underline = section_st.drawn_underline
+  assign drawn_underline_type = section_st.drawn_underline_type
+  assign drawn_underline_color = section_st.drawn_underline_color
+  if drawn_underline
+    assign scroll_animation = 'disable'
+  endif
+
+  assign header_size = ''
+  if heading_size == 'small'
+    assign header_size = 'h3'
+  elsif heading_size == 'large'
+    assign header_size = 'h1'
+  endif
+
+  assign column_gap_slide = 0
+  assign column_gap_mb = 0
+  if section_st.column_gap == 'large'
+    assign column_gap_slide = 32
+    assign column_gap_mb = 24
+  elsif section_st.column_gap == 'medium'
+    assign column_gap_slide = 24
+    assign column_gap_mb = 12
+  elsif section_st.column_gap == 'small'
+    assign column_gap_slide = 16
+    assign column_gap_mb = 8
+  endif
+
+  assign items_per_row_mobile = section_st.items_per_row_mobile
+  assign data_free_scroll = 'false'
+  if items_per_row_mobile > 1 and items_per_row_mobile < 2
+    assign data_free_scroll = 'true'
+  elsif items_per_row_mobile > 2 and items_per_row_mobile < 3
+    assign data_free_scroll = 'true'
+  endif
+
+  assign items_per_row_tablet = items_per_row
+  if items_per_row > 2
+    assign items_per_row_tablet = items_per_row | minus: 1
+  endif
+  assign animate_delay = 25
+
+  assign class_pagination = ''
+  if show_pagination == false
+    if items_per_row_mobile == 1 or items_per_row_mobile == 2
+      assign class_pagination = ' hidden-md block'
+    elsif items_per_row_mobile > 1 and items_per_row_mobile < 2
+      assign class_pagination = ' hidden'
+    endif
+  endif
+  assign product_ratio = ''
+  assign product_radius = ''
+  if section_st.product_type == 'rounded'
+    assign product_ratio = '1/1'
+    assign product_radius = ' rounded-50'
+  endif
+-%}
+{%- capture style -%}
+      --section-pt: {{ section_st.padding_top }}; --section-pb: {{ section_st.padding_bottom }};
+      --rate-color: {{ rating_color }};
+{%- endcapture -%}
+{%- capture col_style -%}
+  --gap-desktop: {{ column_gap_slide }}px;--gap: {{ column_gap_mb }}px;--item-desktop: {{ items_per_row }};--item-tablet: {{ items_per_row_tablet }};--item-mb: {{ items_per_row_mobile }};
+{%- endcapture -%}
+
+{% stylesheet %}
+  .testimonials-quote ul {
+    list-style: none;
+    margin: 12px 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .testimonials-quote ul:first-child {
+    margin-top: 0;
+  }
+  .testimonials-quote ul:last-child {
+    margin-bottom: 0;
+  }
+  .testimonials-quote li {
+    display: flex;
+    align-items: start;
+    gap: 0.5rem;
+    margin: 0;
+    background: var(--color-background);
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+  .testimonials-quote li::before {
+    content: '';
+    width: 1.6rem;
+    height: 1.6rem;
+    flex-shrink: 0;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath fill='%23888' fill-rule='evenodd' d='M8 0a8.001 8.001 0 0 1 0 16A8.001 8.001 0 0 1 8 0M6.339 10.599 4.38 8.639a.86.86 0 0 1 0-1.213.86.86 0 0 1 1.212 0l1.381 1.382 3.435-3.435a.86.86 0 0 1 1.212 0 .86.86 0 0 1 0 1.212l-4.042 4.042a.86.86 0 0 1-1.24-.029' clip-rule='evenodd'%3E%3C/path%3E%3C/svg%3E")
+      center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath fill='%23888' fill-rule='evenodd' d='M8 0a8.001 8.001 0 0 1 0 16A8.001 8.001 0 0 1 8 0M6.339 10.599 4.38 8.639a.86.86 0 0 1 0-1.213.86.86 0 0 1 1.212 0l1.381 1.382 3.435-3.435a.86.86 0 0 1 1.212 0 .86.86 0 0 1 0 1.212l-4.042 4.042a.86.86 0 0 1-1.24-.029' clip-rule='evenodd'%3E%3C/path%3E%3C/svg%3E")
+      center / contain no-repeat;
+    background-color: #888;
+    margin-top: 5px;
+  }
+{% endstylesheet %}
+{%- render 'section-divider', position: 'top', style: section_st.divider_top, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+<div
+  class="section color-{{ section_st.color_scheme }} gradient{% if data_free_scroll == 'true' or reveal_slide %} overflow-hidden{% endif %}{% if section_st.show_divider and section_st.divider_top == 'line' %} border-top{% endif %}{% if section_st.show_divider and section_st.divider_bottom == 'line' %} border-bottom{% endif %}"
+  style="{{ style | strip | strip_newlines }}"
+>
+  <div class="{{ section_width }}">
+    {%- if heading != blank or section_st.description != blank or section_st.subheading != blank -%}
+      <div
+        class="section-header text-{{ text_alignment }}"
+      >
+        {%- if section_st.subheading != blank -%}
+          {% if scroll_animation != 'disable' %}
+            <motion-effect
+              data-animate="fade-up"
+              data-animate-delay="{{ animate_delay }}"
+              class="block"
+            >
+          {% endif %}
+          <div class="section-subheading fs-big-2 mb-5 mb-1025-10 heading-color subheading_weight">
+            {{ section.settings.subheading }}
+          </div>
+          {% if scroll_animation != 'disable' %}
+            </motion-effect>
+          {% endif %}
+        {%- endif -%}
+        {%- if heading != blank -%}
+          {% if scroll_animation != 'disable' or drawn_underline %}
+            {% assign animate_delay = animate_delay | plus: 50 %}
+            <motion-effect
+              data-animate="{% if scroll_animation != 'disable' %}fade-up{% else %}highlighted-text{% endif %}"
+              data-animate-delay="{{ animate_delay }}"
+              class="block"
+            >
+          {% endif %}
+          <h2 class="block section-heading {{ header_size }}">
+            {% if drawn_underline %}
+              {%- capture squiggle_svg_1 -%}
+                <svg viewBox="0 0 184 26" fill="none"><use href="#squiggle-svg-1" /></svg>
+              {%- endcapture -%}
+              {%- capture squiggle_svg_2 -%}
+                <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-2" /></svg>
+              {%- endcapture -%}
+              {%- capture squiggle_svg_3 -%}
+                  <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-3" /></svg>
+              {%- endcapture -%}
+              {%- capture squiggle_svg_4 -%}
+                <svg viewBox="0 0 220 20"fill="none"><use href="#squiggle-svg-4" /></svg>
+              {%- endcapture -%}
+              {%- capture squiggle_svg_5 -%}
+                <svg viewBox="0 0 500 130" fill="none" role="presentation" preserveAspectRatio="none"><use href="#squiggle-svg-5" /></svg>
+              {%- endcapture -%}
+              {%- assign result = heading -%}
+              {%- assign parts = result | split: '<em>' -%}
+              {%- assign em_count = parts | size | minus: 1 -%}
+
+              {%- for i in (1..em_count) -%}
+                {%- assign idx = i | plus: 0 -%}
+                {%- assign chunk = parts[idx] | default: '' -%}
+                {%- assign text = chunk | split: '</em>' | first | strip_html | strip -%}
+                {%- assign len_text = text | size -%}
+                {%- capture open_em -%}
+                {%- liquid
+                  if drawn_underline_type == 'simple_underline'
+                    assign svg = squiggle_svg_4 | append: '</em>'
+                  elsif drawn_underline_type == 'curve_underline'
+                    assign svg = squiggle_svg_5 | append: '</em>'
+                  else
+                    if len_text <= 4
+                      assign svg = squiggle_svg_1 | append: '</em>'
+                    elsif len_text <= 6
+                      assign svg = squiggle_svg_2 | append: '</em>'
+                    else
+                      assign svg = squiggle_svg_3 | append: '</em>'
+                    endif
+                  endif
+                -%}
+                <em class="highlighted-text relative inline-flex{% if drawn_underline_type == 'simple_underline' %} simple_underline{% endif %} {{ drawn_underline_type }} not-italic" style="--animate-color:{{ drawn_underline_color }}">{{ svg }}</em>
+              {%- endcapture -%}
+                {%- assign open_em = open_em | remove: '</em>' -%}
+                {%- assign heading = heading | replace_first: '<em>', open_em -%}
+              {%- endfor -%}
+            {% endif %}
+            {{- heading -}}
+          </h2>
+          {% if scroll_animation != 'disable' or drawn_underline %}
+            </motion-effect>
+          {% endif %}
+        {%- endif -%}
+        {%- if section_st.description != blank -%}
+          {% if scroll_animation != 'disable' %}
+            {% assign animate_delay = animate_delay | plus: 50 %}
+            <motion-effect
+              data-animate="fade-up"
+              data-animate-delay="{{ animate_delay }}"
+              class="block"
+            >
+          {% endif %}
+          <div class="section-description mt-sp-4 prose{% if section_st.hidden_des_mobile %} hidden block-1025{% endif %}">
+            {{ section.settings.description }}
+          </div>
+          {% if scroll_animation != 'disable' %}
+            </motion-effect>
+          {% endif %}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+    {%- if section.blocks.size > 0 -%}
+      <slide-section
+        id="swiper-{{ section.id }}"
+        class="swiper hover-action{% if reveal_slide %} reveal_on_scroll{% endif %}{% if data_free_scroll == 'true' %} overflow-visible-mb{% endif %}"
+        data-section-id="{{ section.id }}"
+        data-autoplay="{{ slide_auto_change }}"
+        data-auto-play-speed="{{ change_slide_every | times: 1000 }}"
+        data-loop="false"
+        data-speed="300"
+        data-spacing="{{ column_gap_slide }}"
+        data-mobile="{{ items_per_row_mobile }}"
+        data-desktop="{{ items_per_row }}"
+        data-tablet="{{ items_per_row_tablet }}"
+        {% if section_st.type_pagination == 'progress_bar' %}
+          data-pagination="progressbar"
+        {% endif %}
+        style="{{ col_style | strip | strip_newlines }}"
+      >
+        {% if show_navigation %}
+          {%- render 'swiper-navigation', show_on_hover: true -%}
+        {% endif %}
+        <div class="swiper-wrapper product-testimonial-swiper">
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign block_st = block.settings
+              assign image = block_st.testimonial_image
+              assign video = block_st.video_local
+              assign before_image = block_st.before_image
+              assign after_image = block_st.after_image
+              assign product = block_st.testimonial_product
+              assign author_name = block_st.testimonial_author
+              assign review_sumary = block_st.review_sumary
+              if block_st.use_richtext
+                assign quote = block_st.testimonial_quote_richtext
+              else
+                assign quote = block_st.testimonial_quote
+              endif
+              assign rating_star = block_st.rating_star
+              assign show_verified_buyer = section_st.show_verified_buyer
+              assign show_author_name = section_st.show_author_name
+              assign image_desktop_position = section_st.image_desktop_position
+              assign image_ratio = section_st.image_ratio
+              assign ratio_mobile = section_st.image_ratio_mobile
+              assign video_alt = block_st.video_alt_text
+              assign media_type = block_st.media_type
+              assign empty_content = true
+              if review_sumary != blank or quote != blank or show_verified_buyer
+                assign empty_content = false
+              elsif show_author_name
+                if author_name != blank
+                  assign empty_content = false
+                endif
+              endif
+
+              if video_alt != blank
+                assign video_alt = video_alt | escape
+              else
+                assign video_alt = video.alt | escape
+              else
+                assign video_alt = 'accessibility.video' | t
+              endif
+              assign ratio = '3/4'
+              if image_ratio != 'adapt'
+                case image_ratio
+                  when 'square'
+                    assign ratio = '1/1'
+                  when 'landscape'
+                    assign ratio = '4/3'
+                  when 'portrait'
+                    assign ratio = '3/4'
+                endcase
+              else
+                if media_type == 'video' and video != blank
+                  assign ratio = video.aspect_ratio
+                elsif media_type == 'image' and image != blank
+                  assign ratio = image.aspect_ratio
+                elsif before_image != blank
+                  assign ratio = before_image.aspect_ratio
+                else
+                  assign ratio = '4/3'
+                endif
+              endif
+              assign ratio_mobile_value = ratio
+              if ratio_mobile and ratio_mobile != 'same_as_desktop'
+                case ratio_mobile
+                  when 'square'
+                    assign ratio_mobile_value = '1/1'
+                  when 'landscape'
+                    assign ratio_mobile_value = '4/3'
+                  when 'portrait'
+                    assign ratio_mobile_value = '3/4'
+                  when 'adapt'
+                    if media_type == 'video' and video != blank
+                      assign ratio_mobile_value = video.aspect_ratio
+                    elsif media_type == 'image' and image != blank
+                      assign ratio_mobile_value = image.aspect_ratio
+                    elsif before_image != blank
+                      assign ratio_mobile_value = before_image.aspect_ratio
+                    else
+                      assign ratio_mobile_value = '4/3'
+                    endif
+                endcase
+              endif
+              assign image_alt = image.alt
+              if image_alt == blank
+                assign image_alt = 'general.image.image_alt_default' | t
+              endif
+            -%}
+            {% case block.type %}
+              {% when 'testimonial' %}
+                <div class="swiper-slide" {{ block.shopify_attributes }}>
+                  <div
+                    class="testimonial-wrapper flex overflow-hidden column border-on-hover{% if image_desktop_position == 'top' %} flex-wrap{% else %} flex-1025-row{% endif %}"
+                    style="--col-width: 50%;--gap: 0;--gap-desktop: 0;"
+                  >
+                    <div
+                      class="testimonial-media relative w-full{% if empty_content %} rounded{% elsif image_desktop_position == 'left' %} col-1025-w-custom rounded-top media-1025-left{% else %} radius-bottom-0 rounded-top{% endif %}"
+                      style="--aspect-ratio: {{ ratio }};--aspect-ratio-mb: {{ ratio_mobile_value }};"
+                    >
+                      {% if media_type == 'video' %}
+                        {%- liquid
+                          assign source = video.sources
+                          assign source_url = ''
+                          for s in source
+                            if s.format == 'mp4'
+                              assign source_url = s.url
+                              break
+                            endif
+                          endfor
+                          assign video_poster = video.preview_image | image_url: width: 1100
+                        -%}
+                        {% if video != blank %}
+                          <video-local-scroll>
+                            <div class="video-thumbnail w-full h-full">
+                              {% render 'responsive-image',
+                                type: 'banner',
+                                container: section_st.section_width,
+                                image: video_poster,
+                                image_alt: image_alt,
+                                padding: column_gap_slide,
+                                column: items_per_row,
+                                motion: false,
+                                class: 'w-full h-full object-fit-cover'
+                              %}
+                            </div>
+                            <template>
+                              <video
+                                loop="true"
+                                src="{{ source_url }}"
+                                poster="{{ video_poster }}"
+                                playsinline="true"
+                                autoplay
+                                muted
+                                class="h-full w-full object-fit-cover"
+                                title="{{ video_alt }}"
+                              ></video>
+                            </template>
+                            <button
+                              aria-label="{{ 'accessibility.play_button.video' | t }}"
+                              class="play-button absolute invisible-1025 bottom-10 right-10 z-2 transition pointer border-0 inline-flex align-center justify-content-center active"
+                            >
+                              {% render 'icon-play' %}
+                              {% render 'icon-pause' %}
+                            </button>
+                          </video-local-scroll>
+                        {% else %}
+                          {% render 'placeholder-render', type: 'blog', class: 'img-placeholder', motion: false %}
+                        {% endif %}
+                      {% else %}
+                        {% if image != blank %}
+                          {% render 'responsive-image',
+                            type: 'banner',
+                            container: section_st.section_width,
+                            image: image,
+                            image_alt: image_alt,
+                            padding: column_gap_slide,
+                            column: items_per_row,
+                            motion: false
+                          %}
+                        {% else %}
+                          {% render 'placeholder-render', type: 'blog', class: 'img-placeholder' %}
+                        {% endif %}
+                      {% endif %}
+                      {% if image_desktop_position != 'left' or empty_content %}
+                        {% if section_st.show_rating != false %}
+                          {% if section_st.rating_type == 'default' %}
+                            <div class="rating-text caption flex color-dark gap-sp-1 content-center rounded rating-total absolute bottom-15 bg-white fs-13 subheading_weight right-15">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="11"
+                                height="12"
+                                viewBox="0 0 11 12"
+                                fill="none"
+                                class="text-color"
+                                style="--color-text: var(--rate-color);"
+                              >
+                                <path d="M10.9701 4.65957C11.006 4.77169 11.0096 4.88754 10.9809 5.00713C10.9522 5.12673 10.8913 5.22763 10.7982 5.30985L8.40165 7.50736L9.11094 10.7588C9.13243 10.8784 9.12169 10.9942 9.0787 11.1063C9.04288 11.2185 8.9784 11.3119 8.88526 11.3866C8.78495 11.4614 8.67749 11.4988 8.56285 11.4988C8.44822 11.5062 8.34075 11.4801 8.24045 11.4203L5.5 9.70487L2.75955 11.4203C2.71657 11.4427 2.66641 11.4614 2.6091 11.4763C2.55894 11.4913 2.50879 11.4988 2.45864 11.4988C2.40132 11.4988 2.34043 11.4875 2.27594 11.4651C2.21863 11.4502 2.16489 11.424 2.11474 11.3866C2.0216 11.3119 1.95354 11.2185 1.91055 11.1063C1.87473 10.9942 1.86756 10.8784 1.88906 10.7588L2.59835 7.50736L0.201802 5.30985C0.108663 5.22763 0.0477638 5.12673 0.0191055 5.00713C-0.00955276 4.88754 -0.00597047 4.77169 0.0298524 4.65957C0.0656752 4.53998 0.126574 4.44281 0.212549 4.36806C0.305688 4.29332 0.409574 4.24847 0.524208 4.23352L3.70528 3.94202L4.96266 0.869989C5.00564 0.757871 5.07729 0.668177 5.17759 0.600906C5.2779 0.533635 5.38537 0.5 5.5 0.5C5.61463 0.5 5.7221 0.533635 5.82241 0.600906C5.92271 0.668177 5.99435 0.757871 6.03734 0.869989L7.29472 3.94202L10.4758 4.23352C10.5904 4.24847 10.6907 4.29332 10.7767 4.36806C10.8698 4.44281 10.9343 4.53998 10.9701 4.65957Z" fill="currentColor"/>
+                              </svg>
+                              {{ rating_star | append: '.0' }}
+                            </div>
+                          {% else %}
+                            <div
+                              class="rating flex mb-sp-2 mb-1025-sp-3 absolute bottom-10 right-10 right-md-15 bottom-md-15 z-1"
+                              role="img"
+                            >
+                              <span
+                                aria-hidden="true"
+                                class="star-rating inline-flex align-center gap"
+                                style="--gap: 1px; --gap-desktop: 1px;"
+                              >
+                                {%- for i in (1..5) -%}
+                                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <use href="#icon-rate"></use>
+                                  </svg>
+                                {%- endfor -%}
+                              </span>
+                              <div
+                                class="absolute inset-0 z-1 inline-flex align-center gap"
+                                style="--gap: 1px; --gap-desktop: 1px;"
+                              >
+                                {%- for i in (1..rating_star) -%}
+                                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" class="rate-color">
+                                    <use href="#icon-rate"></use>
+                                  </svg>
+                                {%- endfor -%}
+                              </div>
+                            </div>
+                          {% endif -%}
+                        {% endif -%}
+                      {% endif %}
+                    </div>
+                    {% if empty_content == false %}
+                      <div class="testimonial_info flex align-center align-seft-center w-full">
+                        <div class="testimonial_info-content p-sp-5 p-1025-30 w-full h-full bg-secondary rounded-bottom-mb {% if image_desktop_position == 'left' %} rounded-1025-right flex column flex-end flex-1{% else %} rounded-bottom{% endif %} overflow-hidden">
+                          {% if image_desktop_position == 'left' %}
+                            {% if section_st.show_rating != false %}
+                              {% if section_st.rating_type == 'default' %}
+                                <div class="rating-text inline-flex w-fit border mb-sp-2 caption color-dark gap-sp-1 content-center rounded rating-total bg-white fs-13 subheading_weight z-1 lh-global product-testimonial-rating">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="11"
+                                    height="12"
+                                    viewBox="0 0 11 12"
+                                    fill="none"
+                                    class="text-color"
+                                    style="--color-text: var(--rate-color);"
+                                  >
+                                    <path d="M10.9701 4.65957C11.006 4.77169 11.0096 4.88754 10.9809 5.00713C10.9522 5.12673 10.8913 5.22763 10.7982 5.30985L8.40165 7.50736L9.11094 10.7588C9.13243 10.8784 9.12169 10.9942 9.0787 11.1063C9.04288 11.2185 8.9784 11.3119 8.88526 11.3866C8.78495 11.4614 8.67749 11.4988 8.56285 11.4988C8.44822 11.5062 8.34075 11.4801 8.24045 11.4203L5.5 9.70487L2.75955 11.4203C2.71657 11.4427 2.66641 11.4614 2.6091 11.4763C2.55894 11.4913 2.50879 11.4988 2.45864 11.4988C2.40132 11.4988 2.34043 11.4875 2.27594 11.4651C2.21863 11.4502 2.16489 11.424 2.11474 11.3866C2.0216 11.3119 1.95354 11.2185 1.91055 11.1063C1.87473 10.9942 1.86756 10.8784 1.88906 10.7588L2.59835 7.50736L0.201802 5.30985C0.108663 5.22763 0.0477638 5.12673 0.0191055 5.00713C-0.00955276 4.88754 -0.00597047 4.77169 0.0298524 4.65957C0.0656752 4.53998 0.126574 4.44281 0.212549 4.36806C0.305688 4.29332 0.409574 4.24847 0.524208 4.23352L3.70528 3.94202L4.96266 0.869989C5.00564 0.757871 5.07729 0.668177 5.17759 0.600906C5.2779 0.533635 5.38537 0.5 5.5 0.5C5.61463 0.5 5.7221 0.533635 5.82241 0.600906C5.92271 0.668177 5.99435 0.757871 6.03734 0.869989L7.29472 3.94202L10.4758 4.23352C10.5904 4.24847 10.6907 4.29332 10.7767 4.36806C10.8698 4.44281 10.9343 4.53998 10.9701 4.65957Z" fill="currentColor"/>
+                                  </svg>
+                                  {{ rating_star | append: '.0' }}
+                                </div>
+                              {% else %}
+                                <div
+                                  class="rating flex mb-sp-2 mb-1025-sp-3 relative me-3"
+                                  role="img"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                    class="star-rating inline-flex align-center gap"
+                                    style="--gap: 1px; --gap-desktop: 1px;"
+                                  >
+                                    {%- for i in (1..5) -%}
+                                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                        <use href="#icon-rate"></use>
+                                      </svg>
+                                    {%- endfor -%}
+                                  </span>
+                                  <div
+                                    class="absolute inset-0 z-1 inline-flex align-center gap"
+                                    style="--gap: 1px; --gap-desktop: 1px;"
+                                  >
+                                    {%- for i in (1..rating_star) -%}
+                                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" class="rate-color">
+                                        <use href="#icon-rate"></use>
+                                      </svg>
+                                    {%- endfor -%}
+                                  </div>
+                                </div>
+                              {% endif -%}
+                            {% endif -%}
+                          {% endif %}
+                          <div class="testimonials-group flex flex-wrap wrap gap-sp-3">
+                            {% if show_author_name %}
+                              {% if author_name != blank %}
+                                <span
+                                  class="max-w-custom-all heading-color"
+                                  style="--max-width: 65%;"
+                                >
+                                  {{ block.settings.testimonial_author }}
+                                </span>
+                              {% endif %}
+                            {% endif %}
+                            {% if show_verified_buyer -%}
+                              <span class="text-color gap-5 align-center fs-small flex">
+                                <svg width="14" height="10" viewBox="0 0 16 12" fill="none">
+                                  <use href="#icon-tick"></use>
+                                </svg>
+                                <i>{{ 'testimonials.verified_buyer.default' | t }}</i>
+                              </span>
+                            {%- endif %}
+                          </div>
+                          {% if review_sumary != blank %}
+                            <div class="h6{% if image_desktop_position == 'left' %} mt-1025-sp-6{% endif %} mt-sp-2">
+                              {{ review_sumary }}
+                            </div>
+                          {% endif %}
+                          <div class="testimonials-quote{% if quote != blank and image_desktop_position == 'top' %} pb-sp-4{% endif %}{% if quote != blank and image_desktop_position == 'left' %} pb-sp-4 pb-1025-sp-6{% endif %} mt-sp-4 mx-0 rich__text-m0{% if product != blank %} border-bottom{% else %} pb-0{% endif %}">
+                            {{ quote }}
+                          </div>
+                          {% if product != blank %}
+                            <div
+                              class="testimonial-product{% if image_desktop_position == 'left' %} pt-1025-sp-6{% endif %} pt-sp-4"
+                              style="--width: 6.5rem;--width-mb: 6rem;"
+                            >
+                              {%- liquid
+                                if section_st.product_type == 'rounded'
+                                  assign image_class = ' flex-auto w-custom w-custom-mb h-custom rounded-50'
+                                else
+                                  assign image_class = ' flex-auto w-custom w-custom-mb h-custom rounded-10'
+                                endif
+                              -%}
+                              {% render 'card-product',
+                                card_product: product,
+                                section_id: section.id,
+                                disable_show_video: true,
+                                disable_quickview: true,
+                                disable_badge: true,
+                                disable_rate: true,
+                                disable_tag: true,
+                                disable_vendor: true,
+                                disable_hover_image: true,
+                                show_quick_add: true,
+                                disable_color_swatches: true,
+                                image_class: image_class,
+                                image_rounded: product_radius,
+                                style_layout: ' flex gap-15 align-center',
+                                info_class: ' flex-1 mt-0 mt-1025-0 word-break',
+                                aspect_ratio: product_ratio,
+                                align_left_only: true,
+                                type: 'action_beside'
+                              %}
+                            </div>
+                          {% endif %}
+                        </div>
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+              {% when 'image_comparison' %}
+                <div class="swiper-slide slide-image-comparison" {{ block.shopify_attributes }}>
+                  <div
+                    class="testimonial-wrapper flex overflow-hidden column border-on-hover{% if image_desktop_position == 'top' %} flex-wrap{% else %} flex-1025-row{% endif %}"
+                    style="--col-width: 50%;--gap: 0;--gap-desktop: 0;"
+                  >
+                    <div
+                      class="testimonial-media relative w-full{% if empty_content %} rounded{% elsif image_desktop_position == 'left' %} col-1025-w-custom rounded-top media-1025-left{% else %} radius-bottom-0 rounded-top{% endif %}"
+                      style="--aspect-ratio: {{ ratio }};--aspect-ratio-mb: {{ ratio_mobile_value }};"
+                    >
+                      <image-comparison class="block ">
+                        <div class="image-container">
+                          <div
+                            class="image-before image-comparison absolute w-full h-full object-fit-cover"
+                            style="--aspect-ratio: {{ ratio }}"
+                          >
+                            {% if before_image != blank %}
+                              {% render 'responsive-image',
+                                type: 'banner',
+                                container: section_st.section_width,
+                                image: before_image,
+                                image_alt: image_alt,
+                                padding: column_gap_slide,
+                                column: items_per_row,
+                                motion: false
+                              %}
+                            {% else %}
+                              {% render 'placeholder-render', type: 'blog', class: 'img-placeholder', motion: false %}
+                            {% endif %}
+                          </div>
+                          {% if section_st.show_before_after_text %}
+                            <div
+                              class="absolute left-10 left-md-15 top-10 top-md-15 fs-small rounded-30 py-sp-1 px-sp-4 color-white bg-custom shadow-2 blur"
+                              style="--bg-color-custom: rgba(0, 0, 0, 0.3);"
+                            >
+                              {{ 'sections.button_comparison.before' | t }}
+                            </div>
+                          {% endif %}
+                          {% if image_desktop_position != 'left' or empty_content %}
+                            {% if section_st.show_rating != false %}
+                              {% if section_st.rating_type == 'default' %}
+                                <div class="rating-text flex caption color-dark gap-sp-1 content-center rounded rating-total bg-white fs-13 subheading_weight absolute bottom-10 right-10 right-md-15 bottom-md-15 z-1 lh-global product-testimonial-rating">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="11"
+                                    height="12"
+                                    viewBox="0 0 11 12"
+                                    fill="none"
+                                    class="text-color"
+                                    style="--color-text: var(--rate-color);"
+                                  >
+                                    <path d="M10.9701 4.65957C11.006 4.77169 11.0096 4.88754 10.9809 5.00713C10.9522 5.12673 10.8913 5.22763 10.7982 5.30985L8.40165 7.50736L9.11094 10.7588C9.13243 10.8784 9.12169 10.9942 9.0787 11.1063C9.04288 11.2185 8.9784 11.3119 8.88526 11.3866C8.78495 11.4614 8.67749 11.4988 8.56285 11.4988C8.44822 11.5062 8.34075 11.4801 8.24045 11.4203L5.5 9.70487L2.75955 11.4203C2.71657 11.4427 2.66641 11.4614 2.6091 11.4763C2.55894 11.4913 2.50879 11.4988 2.45864 11.4988C2.40132 11.4988 2.34043 11.4875 2.27594 11.4651C2.21863 11.4502 2.16489 11.424 2.11474 11.3866C2.0216 11.3119 1.95354 11.2185 1.91055 11.1063C1.87473 10.9942 1.86756 10.8784 1.88906 10.7588L2.59835 7.50736L0.201802 5.30985C0.108663 5.22763 0.0477638 5.12673 0.0191055 5.00713C-0.00955276 4.88754 -0.00597047 4.77169 0.0298524 4.65957C0.0656752 4.53998 0.126574 4.44281 0.212549 4.36806C0.305688 4.29332 0.409574 4.24847 0.524208 4.23352L3.70528 3.94202L4.96266 0.869989C5.00564 0.757871 5.07729 0.668177 5.17759 0.600906C5.2779 0.533635 5.38537 0.5 5.5 0.5C5.61463 0.5 5.7221 0.533635 5.82241 0.600906C5.92271 0.668177 5.99435 0.757871 6.03734 0.869989L7.29472 3.94202L10.4758 4.23352C10.5904 4.24847 10.6907 4.29332 10.7767 4.36806C10.8698 4.44281 10.9343 4.53998 10.9701 4.65957Z" fill="currentColor"/>
+                                  </svg>
+                                  {{ rating_star | append: '.0' }}
+                                </div>
+                              {% else %}
+                                <div
+                                  class="rating flex mb-sp-2 mb-1025-sp-3 absolute bottom-10 right-10 right-md-15 bottom-md-15 z-1"
+                                  role="img"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                    class="star-rating inline-flex align-center gap"
+                                    style="--gap: 1px; --gap-desktop: 1px;"
+                                  >
+                                    {%- for i in (1..5) -%}
+                                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                        <use href="#icon-rate"></use>
+                                      </svg>
+                                    {%- endfor -%}
+                                  </span>
+                                  <div
+                                    class="absolute inset-0 z-1 inline-flex align-center gap"
+                                    style="--gap: 1px; --gap-desktop: 1px;"
+                                  >
+                                    {%- for i in (1..rating_star) -%}
+                                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" class="rate-color">
+                                        <use href="#icon-rate"></use>
+                                      </svg>
+                                    {%- endfor -%}
+                                  </div>
+                                </div>
+                              {% endif -%}
+                            {% endif %}
+                          {% endif %}
+                          <div
+                            class="image-after image-comparison absolute w-full h-full object-fit-cover"
+                            style="--aspect-ratio: {{ ratio }}"
+                          >
+                            {% if after_image != blank %}
+                              {% render 'responsive-image',
+                                type: 'banner',
+                                container: section_st.section_width,
+                                image: after_image,
+                                image_alt: image_alt,
+                                padding: column_gap_slide,
+                                column: items_per_row,
+                                motion: false
+                              %}
+                            {% else %}
+                              {% render 'placeholder-render', type: 'blog', class: 'img-placeholder', motion: false %}
+                            {% endif %}
+                          </div>
+                          {% if section_st.show_before_after_text %}
+                            <div
+                              class="absolute right-10 right-md-15 top-10 top-md-15 fs-small rounded-30 py-sp-1 px-sp-4 color-white bg-custom shadow-2 blur"
+                              style="--bg-color-custom: rgba(0, 0, 0, 0.3);"
+                            >
+                              {{ 'sections.button_comparison.after' | t }}
+                            </div>
+                          {% endif %}
+                        </div>
+                        <div class="slider absolute top-0 bottom-0 w-custom" tabindex="0" style="--width: 1px;">
+                          <div
+                            class="handle absolute w-custom h-custom bg-white rounded flex content-center text-color"
+                            style="--width: 2.6rem;--height: 4.6rem;--img-rounded: 1.5rem;--color-text: #1d1d1f;"
+                          >
+                            <svg
+                              width="10"
+                              height="12"
+                              viewBox="0 0 10 12"
+                              fill="none"
+                            >
+                              <rect width="2" height="12" rx="1" fill="currentColor"/>
+                              <rect x="4" width="2" height="12" rx="1" fill="currentColor"/>
+                              <rect x="8" width="2" height="12" rx="1" fill="currentColor"/>
+                            </svg>
+                          </div>
+                        </div>
+                      </image-comparison>
+                    </div>
+                    {% if empty_content == false %}
+                      <div class="testimonial_info flex align-center align-seft-center w-full">
+                        <div class="testimonial_info-content p-sp-5 p-1025-30 w-full h-full bg-secondary rounded-bottom-mb{% if image_desktop_position == 'left' %} rounded-1025-right flex column flex-end flex-1{% else %} rounded-bottom{% endif %} overflow-hidden">
+                          {% if image_desktop_position == 'left' %}
+                            {% if section_st.show_rating != false %}
+                              {% if section_st.rating_type == 'default' %}
+                                <div class="rating-text inline-flex w-fit border mb-sp-2 caption color-dark gap-sp-1 content-center rounded rating-total bg-white fs-13 subheading_weight z-1 lh-global product-testimonial-rating">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="11"
+                                    height="12"
+                                    viewBox="0 0 11 12"
+                                    fill="none"
+                                    class="text-color"
+                                    style="--color-text: var(--rate-color);"
+                                  >
+                                    <path d="M10.9701 4.65957C11.006 4.77169 11.0096 4.88754 10.9809 5.00713C10.9522 5.12673 10.8913 5.22763 10.7982 5.30985L8.40165 7.50736L9.11094 10.7588C9.13243 10.8784 9.12169 10.9942 9.0787 11.1063C9.04288 11.2185 8.9784 11.3119 8.88526 11.3866C8.78495 11.4614 8.67749 11.4988 8.56285 11.4988C8.44822 11.5062 8.34075 11.4801 8.24045 11.4203L5.5 9.70487L2.75955 11.4203C2.71657 11.4427 2.66641 11.4614 2.6091 11.4763C2.55894 11.4913 2.50879 11.4988 2.45864 11.4988C2.40132 11.4988 2.34043 11.4875 2.27594 11.4651C2.21863 11.4502 2.16489 11.424 2.11474 11.3866C2.0216 11.3119 1.95354 11.2185 1.91055 11.1063C1.87473 10.9942 1.86756 10.8784 1.88906 10.7588L2.59835 7.50736L0.201802 5.30985C0.108663 5.22763 0.0477638 5.12673 0.0191055 5.00713C-0.00955276 4.88754 -0.00597047 4.77169 0.0298524 4.65957C0.0656752 4.53998 0.126574 4.44281 0.212549 4.36806C0.305688 4.29332 0.409574 4.24847 0.524208 4.23352L3.70528 3.94202L4.96266 0.869989C5.00564 0.757871 5.07729 0.668177 5.17759 0.600906C5.2779 0.533635 5.38537 0.5 5.5 0.5C5.61463 0.5 5.7221 0.533635 5.82241 0.600906C5.92271 0.668177 5.99435 0.757871 6.03734 0.869989L7.29472 3.94202L10.4758 4.23352C10.5904 4.24847 10.6907 4.29332 10.7767 4.36806C10.8698 4.44281 10.9343 4.53998 10.9701 4.65957Z" fill="currentColor"/>
+                                  </svg>
+                                  {{ rating_star | append: '.0' }}
+                                </div>
+                              {% else %}
+                                <div
+                                  class="rating flex mb-sp-2 mb-1025-sp-3 relative me-3"
+                                  role="img"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                    class="star-rating inline-flex align-center gap"
+                                    style="--gap: 1px; --gap-desktop: 1px;"
+                                  >
+                                    {%- for i in (1..5) -%}
+                                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                        <use href="#icon-rate"></use>
+                                      </svg>
+                                    {%- endfor -%}
+                                  </span>
+                                  <div
+                                    class="absolute inset-0 z-1 inline-flex align-center gap"
+                                    style="--gap: 1px; --gap-desktop: 1px;"
+                                  >
+                                    {%- for i in (1..rating_star) -%}
+                                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" class="rate-color">
+                                        <use href="#icon-rate"></use>
+                                      </svg>
+                                    {%- endfor -%}
+                                  </div>
+                                </div>
+                              {% endif %}
+                            {% endif %}
+                          {%- endif %}
+                          <div class="testimonials-group flex flex-wrap wrap gap-sp-3">
+                            {% if show_author_name %}
+                              {% if author_name != blank %}
+                                <span class="max-w-custom-all heading-color" style="--max-width: 65%;">
+                                  {{ block.settings.testimonial_author }}
+                                </span>
+                              {% endif %}
+                            {% endif %}
+                            {% if show_verified_buyer -%}
+                              <span class="text-color gap-5 align-center fs-small flex">
+                                <svg width="14" height="10" viewBox="0 0 16 12" fill="none">
+                                  <use href="#icon-tick"></use>
+                                </svg>
+                                <i>{{ 'testimonials.verified_buyer.default' | t }}</i>
+                              </span>
+                            {%- endif %}
+                          </div>
+                          {% if review_sumary != blank %}
+                            <div class="h6{% if image_desktop_position == 'left' %} mt-1025-sp-6{% endif %} mt-sp-2">
+                              {{ review_sumary }}
+                            </div>
+                          {% endif %}
+                          <div class="testimonials-quote{% if quote != blank and image_desktop_position == 'top' %} pb-sp-4{% endif %}{% if quote != blank and image_desktop_position == 'left' %} pb-sp-4 pb-1025-sp-6{% endif %} mt-sp-4 mx-0 rich__text-m0{% if product != blank %} border-bottom{% else %} pb-0{% endif %}">
+                            {{ quote }}
+                          </div>
+                          {% if product != blank %}
+                            <div
+                              class="testimonial-product{% if image_desktop_position == 'left' %} pt-1025-sp-6{% endif %} pt-sp-4"
+                              style="--width: 6.5rem;--width-mb: 6rem;"
+                            >
+                              {% liquid
+                                if section_st.product_type == 'rounded'
+                                  assign image_class = ' flex-auto w-custom w-custom-mb rounded-50'
+                                else
+                                  assign image_class = ' flex-auto w-custom w-custom-mb rounded-10'
+                                endif
+                              %}
+                              {% render 'card-product',
+                                card_product: product,
+                                section_id: section.id,
+                                disable_show_video: true,
+                                disable_quickview: true,
+                                disable_badge: true,
+                                disable_rate: true,
+                                disable_tag: true,
+                                disable_vendor: true,
+                                disable_hover_image: true,
+                                show_quick_add: true,
+                                disable_color_swatches: true,
+                                image_class: image_class,
+                                image_rounded: product_radius,
+                                style_layout: ' flex gap-15 align-center',
+                                info_class: ' flex-1 mt-0 mt-1025-0 word-break',
+                                aspect_ratio: product_ratio,
+                                align_left_only: true,
+                                type: 'action_beside'
+                              %}
+                            </div>
+                          {% endif %}
+                        </div>
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+            {% endcase %}
+          {%- endfor -%}
+        </div>
+        <div
+          class="swiper-pagination {{ class_pagination }}"
+          style="--swiper-pagination-progressbar-bg-color: #DDDAD0;--swiper-pagination-progressbar-size: 1px;--margin-pagination-top: 2.4rem;"
+        ></div>
+      </slide-section>
+    {%- endif -%}
+  </div>
+</div>
+{%- render 'section-divider', position: 'bottom', style: section_st.divider_bottom, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+
+{% schema %}
+{
+  "name": "t:sections.product_testimonials.name",
+  "tag": "section",
+  "class": "section section-product-testimonials",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.product_testimonials.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "options": [
+        {
+          "value": "fix_width",
+          "label": "t:sections.all.layout.fix_width"
+        },
+        {
+          "value": "stretch_width",
+          "label": "t:sections.all.layout.stretch_width"
+        },
+        {
+          "value": "full_width",
+          "label": "t:sections.all.layout.full_width"
+        }
+      ],
+      "default": "fix_width",
+      "label": "t:sections.all.layout.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_header.label"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.all.content_setting.subheading.label",
+      "default": "Subheading"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "default": "<p>Heading</p>",
+      "label": "t:sections.all.content_setting.heading.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "drawn_underline",
+      "default": true,
+      "label": "t:sections.all.content_setting.drawn_underline.label",
+      "info": "t:sections.all.content_setting.heading.info"
+    },
+    {
+      "type": "select",
+      "id": "drawn_underline_type",
+      "label": "t:sections.all.content_setting.drawn_underline.type",
+      "default": "squiggle_underline",
+      "visible_if": "{{ section.settings.drawn_underline != false }}",
+      "options": [
+        {
+          "value": "simple_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.simple_underline"
+        },
+        {
+          "value": "curve_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.curve_underline"
+        },
+        {
+          "value": "squiggle_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.squiggle_underline"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "drawn_underline_color",
+      "label": "t:sections.all.content_setting.drawn_underline.color",
+      "default": "#FFB005",
+      "alpha": true,
+      "visible_if": "{{ section.settings.drawn_underline != false }}"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.all.content_setting.description.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "large",
+          "label": "t:sections.all.content_header.heading_size.options__1.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.all.content_header.heading_size.options__2.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.all.content_header.heading_size.options__3.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.all.content_header.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.all.text_alignment.alignment"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.product_testimonials.settings.header"
+    },
+    {
+      "type": "select",
+      "id": "image_desktop_position",
+      "options": [
+        {
+          "value": "top",
+          "label": "t:sections.all.image.desktop_position.top"
+        },
+        {
+          "value": "left",
+          "label": "t:sections.all.image.desktop_position.left"
+        }
+      ],
+      "default": "top",
+      "label": "t:sections.all.image.desktop_position.label",
+      "info": "t:sections.all.image.desktop_position.info"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.all.image.aspect_ratio.adapt"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.all.image.aspect_ratio.options__1"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.all.image.aspect_ratio.options__2"
+        },
+        {
+          "value": "landscape",
+          "label": "t:sections.all.image.aspect_ratio.options__3"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.all.image.aspect_ratio.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author_name",
+      "default": true,
+      "label": "t:sections.product_testimonials.settings.show_author_name.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_verified_buyer",
+      "default": true,
+      "label": "t:sections.product_testimonials.settings.show_verified_buyer.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": true,
+      "label": "t:sections.product_testimonials.settings.rating_type.show"
+    },
+    {
+      "type": "select",
+      "id": "rating_type",
+      "label": "t:sections.product_testimonials.settings.rating_type.label",
+      "options": [
+        {
+          "value": "default",
+          "label": "t:sections.product_testimonials.settings.rating_type.default"
+        },
+        {
+          "value": "modern",
+          "label": "t:sections.product_testimonials.settings.rating_type.modern"
+        }
+      ],
+      "default": "default",
+      "visible_if": "{{  section.settings.show_rating == true }}"
+    },
+    {
+      "type": "color",
+      "id": "rating_color",
+      "label": "t:sections.product_testimonials.settings.rating_color.label",
+      "default": "#FF9C05",
+      "alpha": true,
+      "visible_if": "{{  section.settings.show_rating == true }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_before_after_text",
+      "default": true,
+      "label": "t:sections.product_testimonials.settings.rating_type.show_before_after"
+    },
+    {
+      "type": "select",
+      "id": "product_type",
+      "label": "t:sections.product_testimonials.settings.product_rounded.label",
+      "options": [
+        {
+          "value": "inherit",
+          "label": "t:sections.custom_section.settings.appearance.settings.corner_radius.options.inherit.label"
+        },
+        {
+          "value": "rounded",
+          "label": "t:sections.custom_section.settings.appearance.settings.corner_radius.options.rounded.label"
+        }
+      ],
+      "default": "inherit"
+    },
+    {
+      "type": "range",
+      "id": "items_per_row",
+      "label": "t:sections.all.columns_desktop.label",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "select",
+      "id": "column_gap",
+      "options": [
+        {
+          "value": "no_gap",
+          "label": "t:sections.all.padding.column_gap.no_gap"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.all.padding.column_gap.small"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.all.padding.column_gap.medium"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.all.padding.column_gap.large"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.all.padding.column_gap.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.carousel.header"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "default": true,
+      "label": "t:sections.all.carousel.show_navigation.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination",
+      "label": "t:sections.all.carousel.show_pagination.label",
+      "default": false,
+      "info": "t:sections.all.carousel.show_pagination.info"
+    },
+    {
+      "type": "select",
+      "id": "type_pagination",
+      "label": "t:sections.all.carousel.show_pagination.type.label",
+      "options": [
+        {
+          "value": "progress_bar",
+          "label": "t:sections.all.carousel.show_pagination.type.progress_bar"
+        },
+        {
+          "value": "dots",
+          "label": "t:sections.all.carousel.show_pagination.type.dot"
+        }
+      ],
+      "default": "dots",
+      "visible_if": "{{ section.settings.show_pagination == true}}"
+    },
+    {
+      "type": "checkbox",
+      "id": "slide_auto_change",
+      "default": false,
+      "label": "t:sections.all.carousel.slide_auto_change"
+    },
+    {
+      "type": "range",
+      "id": "change_slide_every",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "t:sections.all.carousel.change_slide_every",
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "reveal_slide",
+      "default": true,
+      "label": "t:sections.all.carousel.reveal_slide.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.mobile_options.label"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio_mobile",
+      "options": [
+        {
+          "value": "same_as_dk",
+          "label": "t:sections.all.image.aspect_ratio.options__4"
+        },
+        {
+          "value": "adapt",
+          "label": "t:sections.all.image.aspect_ratio.adapt"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.all.image.aspect_ratio.options__1"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.all.image.aspect_ratio.options__2"
+        },
+        {
+          "value": "landscape",
+          "label": "t:sections.all.image.aspect_ratio.options__3"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.all.image.aspect_ratio.label_mb"
+    },
+    {
+      "type": "range",
+      "id": "items_per_row_mobile",
+      "label": "t:sections.all.items.items_per_row_mobile",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.5
+    },
+    {
+      "type": "checkbox",
+      "id": "hidden_des_mobile",
+      "label": "t:sections.all.mobile_options.mobile_layout.hidden_description_on_mobile.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.divider.section_divider_heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "t:sections.all.divider.show_divider",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "divider_top",
+      "label": "t:sections.all.divider.top",
+      "info": "t:sections.all.divider.top_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "line",
+      "visible_if": "{{ section.settings.show_divider }}"
+    },
+    {
+      "type": "select",
+      "id": "divider_bottom",
+      "label": "t:sections.all.divider.bottom",
+      "info": "t:sections.all.divider.bottom_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.show_divider }}"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "t:sections.product_testimonials.blocks.type.media.label",
+      "settings": [
+        {
+          "type": "header",
+          "content": "t:sections.product_testimonials.blocks.settings.media.label"
+        },
+        {
+          "type": "select",
+          "id": "media_type",
+          "options": [
+            {
+              "value": "image",
+              "label": "t:sections.all.image.label"
+            },
+            {
+              "value": "video",
+              "label": "t:sections.all.video.label"
+            }
+          ],
+          "default": "image",
+          "label": "t:sections.all.media.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "testimonial_image",
+          "label": "t:sections.all.image.label",
+          "info": "t:sections.product_testimonials.blocks.settings.media.info",
+          "visible_if": "{{ block.settings.media_type == 'image' }}"
+        },
+        {
+          "type": "video",
+          "id": "video_local",
+          "label": "t:sections.all.video.label",
+          "info": "t:sections.product_testimonials.blocks.settings.media.info",
+          "visible_if": "{{ block.settings.media_type == 'video' }}"
+        },
+        {
+          "type": "text",
+          "id": "video_alt_text",
+          "label": "t:sections.video.settings.alt_description.label",
+          "info": "t:sections.video.settings.alt_description.info",
+          "default": "Video alt text",
+          "visible_if": "{{ block.settings.media_type == 'video' }}"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.product_testimonials.blocks.settings.information.label"
+        },
+        {
+          "type": "range",
+          "id": "rating_star",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "t:sections.product_testimonials.blocks.settings.information.rating_star.label",
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "testimonial_author",
+          "label": "t:sections.product_testimonials.blocks.settings.information.author_name.label",
+          "default": "Author's name"
+        },
+        {
+          "type": "text",
+          "id": "review_sumary",
+          "label": "t:sections.product_testimonials.blocks.settings.information.review_sumary.label",
+          "default": "Summary"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_richtext",
+          "label": "t:sections.product_testimonials.blocks.settings.information.use_richtext.label",
+          "default": false
+        },
+        {
+          "type": "textarea",
+          "id": "testimonial_quote",
+          "label": "t:sections.testimonials.blocks.settings.quote.label",
+          "default": "You can add text content from press comments, reviews, or testimonials here.",
+          "visible_if": "{{ block.settings.use_richtext == false }}"
+        },
+        {
+          "type": "richtext",
+          "id": "testimonial_quote_richtext",
+          "label": "t:sections.testimonials.blocks.settings.quote.label",
+          "default": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
+          "visible_if": "{{ block.settings.use_richtext }}"
+        },
+        {
+          "type": "product",
+          "id": "testimonial_product",
+          "label": "t:sections.product_testimonials.blocks.settings.information.select_product.label"
+        }
+      ]
+    },
+    {
+      "type": "image_comparison",
+      "name": "t:sections.product_testimonials.blocks.type.image_comparison.label",
+      "settings": [
+        {
+          "type": "header",
+          "content": "t:sections.product_testimonials.blocks.settings.media.before_after_image.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "before_image",
+          "label": "t:sections.product_testimonials.blocks.settings.media.before_image.label",
+          "info": "t:sections.product_testimonials.blocks.settings.media.info"
+        },
+        {
+          "type": "image_picker",
+          "id": "after_image",
+          "label": "t:sections.product_testimonials.blocks.settings.media.after_image.label",
+          "info": "t:sections.product_testimonials.blocks.settings.media.info"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.product_testimonials.blocks.settings.information.label"
+        },
+        {
+          "type": "range",
+          "id": "rating_star",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "t:sections.product_testimonials.blocks.settings.information.rating_star.label",
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "testimonial_author",
+          "label": "t:sections.product_testimonials.blocks.settings.information.author_name.label",
+          "default": "Author's name"
+        },
+        {
+          "type": "text",
+          "id": "review_sumary",
+          "label": "t:sections.product_testimonials.blocks.settings.information.review_sumary.label",
+          "default": "Summary"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_richtext",
+          "label": "t:sections.product_testimonials.blocks.settings.information.use_richtext.label",
+          "default": false
+        },
+        {
+          "type": "textarea",
+          "id": "testimonial_quote",
+          "label": "t:sections.testimonials.blocks.settings.quote.label",
+          "default": "You can add text content from press comments, reviews, or testimonials here.",
+          "visible_if": "{{ block.settings.use_richtext == false }}"
+        },
+        {
+          "type": "richtext",
+          "id": "testimonial_quote_richtext",
+          "label": "t:sections.testimonials.blocks.settings.quote.label",
+          "default": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
+          "visible_if": "{{ block.settings.use_richtext }}"
+        },
+        {
+          "type": "product",
+          "id": "testimonial_product",
+          "label": "t:sections.product_testimonials.blocks.settings.information.select_product.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.product_testimonials.name",
+      "category": "t:sections.group.product",
+      "blocks": [
+        {
+          "type": "image_comparison"
+        },
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "image_comparison"
+        },
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "image_comparison"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

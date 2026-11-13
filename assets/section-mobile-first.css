@@ -1,0 +1,30 @@
+.mobile-first__wrapper {
+  grid-template-columns: 4fr 6fr 4fr;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.mobile-first__item img {
+  transition: cubic-bezier(0.4, 0, 0.2, 1) 300ms;
+  transition-property: all;
+}
+.mobile-first__item img:hover {
+  scale: 102%;
+  translate: 0 -8px;
+}
+.mobile-first__text--item {
+  border-radius: calc(infinity * 1px);
+  padding: 0.8rem 1.6rem;
+  background-color: var(--color-background-2);
+  font-weight: 500;
+  color: var(--color-heading);
+}
+@media (width >= 1025px) {
+  .mobile-first__text--item {
+    padding: 1.2rem 2.4rem;
+  }
+  .mobile-first__wrapper {
+    grid-template-columns: 5fr 5fr 6fr 5fr 5fr;
+    align-items: stretch;
+  }
+}

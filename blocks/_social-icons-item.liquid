@@ -1,0 +1,103 @@
+{% liquid
+  assign section_st = section.settings
+  assign block_st = block.settings
+  assign image = block_st.image_block
+  assign link_image = block_st.link_image
+  assign image_alt_default = 'sections.scrolling_text.alt' | t
+  assign image_alt = image.alt | default: image_alt_default | escape
+%}
+
+{% style %}
+  .block-social-icon-item {
+    border: 1px solid var(--color-border);
+    background-color: {{ block.settings.background_color }};
+  }
+{% endstyle %}
+
+<a
+  class="block-social-icon-item flex align-center justify-center w-fit"
+  href="{{ link_image | default: "#" }}"
+  aria-label="{{ 'sections.scrolling_text.alt' | t }}"
+  {{ block.shopify_attributes }}
+  {% if block.settings.open_new_tab and link_image != blank %}
+    target="_blank"
+    rel="noopener noreferrer"
+  {% endif %}
+>
+  <div
+    class="scrolling-image-item relative overflow-hidden flex align-center rounded w-custom h-custom"
+    style="--width: {{ block_st.image_width }}px;--height: {{ block.settings.image_width }}px;"
+    {{ block.shopify_attributes }}
+  >
+    {%- if block_st.custom_svg != blank -%}
+      <span class="custom-svg w-custom w-custom-svg flex align-center justify-center">
+        {{ block_st.custom_svg }}
+      </span>
+    {%- elsif image != blank -%}
+      <div
+        class="scrolling-image image_scroll rounded flex w-full"
+        style="--image-width: {{ block_st.image_width }}px;--img-rounded:{{ block_st.rounded_image }}px;"
+      >
+        {% render 'responsive-image',
+          image: image,
+          type: 'other',
+          image_alt: image_alt,
+          container: section_st,
+          class: 'h-full w-full object-fit-cover'
+        %}
+      </div>
+    {% elsif image == blank and block_st.custom_svg == blank %}
+      <div
+        class="w-custom h-full rounded flex content-center"
+        style="--width: {{ block_st.image_width }}px;--img-rounded:{{ block_st.rounded_image }}px;"
+      >
+        {% render 'placeholder-render',
+          type: 'collection',
+          class: 'img-placeholder h-full w-full object-fit-cover',
+          class_motion: ' h-full w-full object-fit-cover'
+        %}
+      </div>
+    {%- endif -%}
+  </div>
+</a>
+
+{% schema %}
+{
+  "name": "t:sections.custom_section.blocks.icon_list.item",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_block",
+      "label": "t:sections.all.image.label"
+    },
+    {
+      "type": "textarea",
+      "id": "custom_svg",
+      "label": "t:sections.all.svg.custom_svg.label",
+      "info": "t:sections.all.svg.custom_svg.info"
+    },
+    {
+      "type": "url",
+      "id": "link_image",
+      "label": "t:sections.all.content_setting.link.label"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:sections.custom_section.blocks.social_icons.color",
+      "alpha": true
+    },
+    {
+      "type": "checkbox",
+      "id": "open_new_tab",
+      "default": true,
+      "label": "t:sections.custom_section.blocks.icon_list.open_new_tab"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.custom_section.blocks.icon_list.item"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,95 @@
+{% liquid
+  assign theme_st = settings
+  assign color_swatch_trigger = theme_st.color_swatch_trigger
+  assign product_image_ratio = theme_st.product_image_ratio
+  if color_swatch_trigger != blank
+    assign option_name = color_swatch_trigger | split: ','
+  else
+    assign option_name = 'Color'
+  endif
+%}
+{% if product and product != empty %}
+  {% liquid
+    assign option_position = 1
+    for option in product.options_with_values
+      assign has_color = false
+      for name in option_name
+        if option.name == name
+          assign has_color = true
+        endif
+      endfor
+      if has_color
+        assign option_position = 'option' | append: option.position
+        assign value_color = product.selected_or_first_available_variant[option_position]
+      endif
+    endfor
+  %}
+  <div class="product-item product__item-js">
+    <div class="product-item__inner">
+      <div class="product__inner">
+        <a
+          class="product-image"
+          draggable="false"
+          href="{{ product.url }}"
+          aria-label="{{ product.title }}"
+        >
+          {%- liquid
+            assign p_media = product.selected_or_first_available_variant.featured_media
+            assign alt_features = p_media.alt | default: product.title | escape
+            assign ratio = '3/4'
+            if product_image_ratio != 'adapt'
+              case product_image_ratio
+                when 'square'
+                  assign ratio = '1/1'
+                when 'landscape'
+                  assign ratio = '4/3'
+                when 'portrait'
+                  assign ratio = '3/4'
+              endcase
+            else
+              if p_media.media_type == 'model'
+                assign ratio = '3/4'
+              else
+                assign ratio = p_media.aspect_ratio
+              endif
+            endif
+          -%}
+          {%- if p_media -%}
+            <div class="image__media product__media" style="--aspect-ratio: {{ ratio }};">
+              {% render 'responsive-image',
+                type: 'product',
+                class: 'product__img featured-image',
+                image: p_media,
+                image_alt: alt_features,
+                disable_lazy_loading: true
+              %}
+            </div>
+          {%- endif -%}
+          {%- render 'variant-quickadd', product: product -%}
+          <div class="outfit-desktop-content">
+            {%- render 'variant-outfit', outfit: 'outfit-desktop-add-', product: product -%}
+          </div>
+          <div class="outfit-mobile-content">
+            {%- render 'variant-outfit', outfit: 'outfit-mobile-add-', product: product -%}
+          </div>
+          {% render 'product-badges',
+            scope: 'item',
+            first_available_variant: true,
+            card_product: product,
+            option_position: option_position,
+            value_color: value_color
+          %}
+        </a>
+      </div>
+      <div class="product__information">
+        <div class="product__price heading-color">
+          {%- render 'price', scope: 'item', first_available_variant: true, product: product -%}
+        </div>
+      </div>
+      {%- render 'variant-swatches', scope: 'item', type: 'action_bundle', product: product -%}
+    </div>
+  </div>
+  <script type="application/json" class="productVariantSelected">
+    {{ product.selected_or_first_available_variant | json }}
+  </script>
+{% endif %}

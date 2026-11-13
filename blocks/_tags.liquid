@@ -1,0 +1,70 @@
+{% liquid
+  assign block_st = block.settings
+  assign theme_st = settings
+  assign scroll_animation = theme_st.scroll_animation
+%}
+{% if block.settings.tags != blank %}
+  {% assign tags = block.settings.tags | split: ',' %}
+  {%- if scroll_animation != 'disable' -%}
+    <motion-effect
+      data-animate="fade-up"
+      class="block"
+    >
+  {%- endif -%}
+  <div
+    class="block-tags flex gap-10 wrap mb-custom{% if block_st.spacing_bottom > 10 %} mb_auto-rsp{% endif %}"
+    style="--space-bottom: {{ block_st.spacing_bottom }};"
+  >
+    {% for tag in tags %}
+      <span
+        class="tag inline-flex content-center border btn-rounded px-sp-5 py-10 gap-custom heading-color"
+        style="--gap: 8;"
+      >
+        {% if block.settings.show_verify_icon %}
+          <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+            <use href="#icon-tick"></use>
+          </svg>
+        {% endif %}
+        {{ tag | escape }}
+      </span>
+    {% endfor %}
+  </div>
+  {%- if scroll_animation != 'disable' -%}
+    </motion-effect>
+  {%- endif -%}
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.shopable-image.blocks.tags.name",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "tags",
+      "label": "t:sections.shopable-image.blocks.tags.name",
+      "info": "t:sections.shopable-image.blocks.tags.info",
+      "default": "Targeted, Glow-Boosting, Effective"
+    },
+    {
+      "type": "checkbox",
+      "label": "t:sections.shopable-image.blocks.tags.settings.show_verify_icon.label",
+      "id": "show_verify_icon",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.spacing_bottom",
+      "default": 10
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.shopable-image.blocks.tags.name"
+    }
+  ]
+}
+{% endschema %}

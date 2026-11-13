@@ -1,0 +1,68 @@
+.expandable-card__content {
+  background-color: color-mix(in srgb, var(--btn-primary-bg-color) 50%, transparent);
+  backdrop-filter: blur(40px);
+  color: var(--btn-primary-color);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  padding-inline: clamp(2rem, 3vw, 4rem);
+  padding-block: clamp(2rem, 2vw, 3.2rem);
+}
+
+.expandable-card__heading {
+  color: currentColor;
+}
+
+.expandable-card__description {
+  grid-template-rows: 0fr;
+  transform: translateY(1.2rem);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.expandable-card__description-inner {
+  min-height: 0;
+}
+
+.expandable-card__toggle {
+  --button-size: 4.4rem;
+  --icon-width: 12px;
+  width: var(--button-size);
+  height: var(--button-size);
+  min-width: var(--button-size);
+  color: rgb(var(--color-heading));
+  background: rgb(var(--color-white));
+}
+
+.expandable-card__toggle .open-children-toggle {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.expandable-card-section--hover .expandable-card.detail-open .expandable-card__description {
+  grid-template-rows: 1fr;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.expandable-card-section--hover .expandable-card.detail-open .expandable-card__description .expandable-card__description-inner {
+  padding-top: var(--sp-3);
+}
+
+@media screen and (min-width: 1025px) {
+  .expandable-card-section--hover .expandable-card.detail-open .expandable-card__media img {
+    transform: var(--zoom-transform, scale(1.06));
+  }
+}
+
+@media screen and (max-width: 1024.98px) {
+  .expandable-card-section--hover .expandable-card__toggle {
+    cursor: pointer;
+  }
+}
+.expandable-card-section--drawer .expandable-card__description {
+  display: none;
+}
+.expandable-card-section--drawer .expandable-card__toggle {
+  cursor: pointer;
+}
+.expandable-card-drawer__subheading {
+  color: rgb(var(--color-foreground));
+}

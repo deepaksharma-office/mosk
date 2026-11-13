@@ -1,0 +1,37 @@
+{%- if recommendations.products_count > 0 -%}
+  {%- render 'swiper-navigation', class-custom: 'hidden block-1025 vertical-arrow', show_on_hover: true -%}
+  <div class="swiper-wrapper">
+    {%- for product in recommendations.products -%}
+      {% liquid
+        assign hidden = false
+        for item_cart in cart.items
+          if item_cart.product_id == product.id
+            assign hidden = true
+          endif
+        endfor
+      %}
+      {%- if hidden == false -%}
+        {% render 'card-product',
+          card_product: product,
+          section_id: section.id,
+          disable_hover_image: true,
+          disable_show_video: true,
+          disable_lazy_loading: true,
+          disable_badge: true,
+          disable_rate: true,
+          disable_tag: true,
+          disable_countdown: true,
+          disable_scrolling_text: true,
+          disable_color_swatches: true,
+          show_quickadd: true,
+          class: ' swiper-slide mini-cart p-sp-4',
+          style_layout: ' flex gap-10 block-1025',
+          image_class: ' flex-auto w-custom w-full-1025 rounded-10',
+          image_rounded: ' rounded-10',
+          info_class: ' flex-1'
+        %}
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+  <div class="swiper-pagination mt-sp-5 hidden-1025"></div>
+{%- endif -%}

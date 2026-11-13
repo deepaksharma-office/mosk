@@ -1,0 +1,4686 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "settings_schema": {
+    "layout": {
+      "name": "Düzen",
+      "how_to_use": {
+        "label": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/theme-settings/layout)"
+      },
+      "settings": {
+        "page_width": {
+          "label": "Sayfa genişliği"
+        },
+        "site_style": {
+          "label": "Yuvarlatılmış köşeler",
+          "image": {
+            "label": "Image"
+          },
+          "button": {
+            "label": "Düğme köşe yarıçapı"
+          },
+          "input": {
+            "label": "Giriş köşe yarıçapı"
+          }
+        },
+        "select_preset": {
+          "label": "Ön ayarı seç",
+          "options__1": "Kozmetik",
+          "options__2": "Moda",
+          "options__3": "Evcil hayvanlar"
+        }
+      },
+      "rtl_support": {
+        "header": "Sağdan sola destek",
+        "enable_rtl": "RTL Desteğini Etkinleştir",
+        "rtl_language": {
+          "label": "RTL Dil Kodu",
+          "info": "Noktalı virgülle ayırarak ISO kodlarını girerek RTL düzenini kullanan dilleri belirtin. Örneğin: ar; fa; ku; baba; sd. Boş bırakılırsa RTL düzeni tüm dillere uygulanacaktır."
+        }
+      }
+    },
+    "logo_favicon": {
+      "name": "Logo ve favicon",
+      "how_to_use": {
+        "label": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/theme-settings/logo-and-favicon)"
+      },
+      "settings": {
+        "favicon": {
+          "label": "Site simgesi"
+        },
+        "favicon_image": {
+          "label": "Site ikonu resmi",
+          "info": "32 x 32 piksel .png önerilir"
+        },
+        "logo": {
+          "label": "Logo",
+          "logo_on_transparent": {
+            "label": "Şeffaf başlıkta logo"
+          }
+        },
+        "logo_width": {
+          "label": "Logo genişliği",
+          "info": "Logo genişliği mobil cihazlar için otomatik olarak optimize edilir."
+        }
+      }
+    },
+    "customer_account": {
+      "how_to_use": {
+        "label": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/theme-settings/customer-account)"
+      },
+      "name": "Müşteri hesabı",
+      "settings": {
+        "customer_account_menu": {
+          "label": "Menu"
+        },
+        "open_as": {
+          "label": "Farklı aç",
+          "options": {
+            "popup": "Aniden belirmek",
+            "link": "Bağlantı"
+          }
+        }
+      }
+    },
+    "colors": {
+      "name": "Renkler",
+      "how_to_use": {
+        "label": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/theme-settings/colors)"
+      },
+      "settings": {
+        "palette_header": {
+          "label": "Palet"
+        },
+        "palette_info": {
+          "label": "Tema genelinde daha kolay kullanım için paletin renklerini tanımlayın"
+        },
+        "general_header": {
+          "label": "Genel"
+        },
+        "general_text": {
+          "label": "Text"
+        },
+        "general_heading": {
+          "label": "Başlık"
+        },
+        "general_link": {
+          "label": "Bağlantı"
+        },
+        "general_border": {
+          "label": "Kenarlık"
+        },
+        "background_header": {
+          "label": "Arka plan"
+        },
+        "background": {
+          "label": "Arka plan"
+        },
+        "background_2": {
+          "label": "Arkaplan 2"
+        },
+        "background_gradient": {
+          "label": "Arka plan gradyanı",
+          "info": "Arka plan gradyanı, mümkün olduğunda arka planın yerini alır."
+        },
+        "fill_button_header": {
+          "label": "Doldur düğmesi"
+        },
+        "fill_button_background": {
+          "label": "Arka plan"
+        },
+        "fill_button_text": {
+          "label": "Text"
+        },
+        "fill_button_background_hover": {
+          "label": "Arka planda vurgulu"
+        },
+        "fill_button_text_hover": {
+          "label": "Metin vurgulu"
+        },
+        "outline_button_header": {
+          "label": "Anahat düğmesi"
+        },
+        "outline_button_outline": {
+          "label": "Text"
+        },
+        "outline_button_outline_border": {
+          "label": "Kenarlık"
+        }
+      }
+    },
+    "typography": {
+      "name": "Tipografi",
+      "how_to_use": {
+        "label": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)"
+      },
+      "settings": {
+        "font_weight": {
+          "default": "Default",
+          "inline": "Çizgide",
+          "regular": "Düzenli",
+          "medium": "Orta"
+        },
+        "font_size": "Yazı boyutu",
+        "body": {
+          "label": "Vücut",
+          "font": {
+            "label": "Yazı tipi",
+            "info": "Farklı bir yazı tipi seçmek mağazanızın hızını etkileyebilir. [Sistem yazı tipleri hakkında daha fazla bilgi edinin.](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "base_size": "Taban boyutu"
+        },
+        "heading": {
+          "label": "Başlık",
+          "font": {
+            "label": "Yazı tipi",
+            "info": "Farklı bir yazı tipi seçmek mağazanızın hızını etkileyebilir. [Sistem yazı tipleri hakkında daha fazla bilgi edinin.](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "sub_heading": {
+            "sub_heading_weight": "Alt başlık yazı tipi ağırlığı"
+          },
+          "text_transform": {
+            "label": "Metin dönüşümü",
+            "unset": "Ayarını kaldır",
+            "capitalize": "Büyük harfle yaz",
+            "uppercase": "Büyük harf"
+          },
+          "heading_letter_spacing": {
+            "label": "Harf aralığı"
+          }
+        },
+        "menu": {
+          "label": "Menu",
+          "font": {
+            "label": "Yazı tipi",
+            "body_font": "Vücut",
+            "heading_font": "Başlık"
+          },
+          "uppercase": {
+            "label": "Büyük harf birinci seviye"
+          }
+        },
+        "button": {
+          "label": "Düğme",
+          "font": {
+            "label": "Yazı tipi",
+            "body_font": "Vücut",
+            "heading_font": "Başlık"
+          }
+        },
+        "text_preset": {
+          "header": "Metin hazır ayarları",
+          "name": {
+            "heading_1": "Başlık 1",
+            "heading_2": "Başlık 2",
+            "heading_3": "Başlık 3",
+            "heading_4": "Başlık 4",
+            "heading_5": "Başlık 5",
+            "heading_6": "Başlık 6"
+          },
+          "settings": {
+            "size": {
+              "label": "Size",
+              "18px": "18 piksel",
+              "20px": "20 piksel",
+              "22px": "22 piksel",
+              "24px": "24 piksel",
+              "26px": "26 piksel",
+              "30px": "30 piksel",
+              "36px": "36 piksel",
+              "40px": "40 piksel",
+              "46px": "46 piksel",
+              "50px": "50 piksel",
+              "56px": "56 piksel",
+              "60px": "60 piksel",
+              "80px": "80 piksel"
+            },
+            "line_height": {
+              "label": "Satır yüksekliği",
+              "original": "Orijinal",
+              "small": "Küçük",
+              "medium": "Orta",
+              "large": "Büyük",
+              "x_large": "X-Large"
+            }
+          }
+        }
+      }
+    },
+    "browser_tab_notifications": {
+      "name": "Tarayıcı sekmesi bildirimleri",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/theme-settings/browser-tab-notifications)",
+      "settings": {
+        "notification_info": "Orijinal sayfa başlığınızı kullanmak için boş bırakın",
+        "enable_browser_tab_notifications": {
+          "label": "Etkinleştir"
+        },
+        "first_notification": {
+          "label": "İlk bildirim"
+        },
+        "secondary_notification": {
+          "label": "İkincil bildirim"
+        }
+      }
+    },
+    "animation": {
+      "name": "Animasyon",
+      "how_to_use": {
+        "label": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/theme-settings/animation)"
+      },
+      "settings": {
+        "scroll_animation": {
+          "label": "Kaydırma animasyonu",
+          "options__1": {
+            "label": "Devre dışı bırak"
+          },
+          "options__2": {
+            "label": "Yalnızca masaüstü"
+          },
+          "options__3": {
+            "label": "Tüm ekranlar"
+          }
+        },
+        "enable_loading_page_effect": {
+          "heading": "Sayfa yükleme efekti",
+          "label": "Efekti etkinleştir",
+          "loading": "Yükleniyor simgesi",
+          "info": "Önerilen resim genişliği 100x100 piksel"
+        },
+        "image_lazy_loading": {
+          "label": "Görüntü yavaş yüklemeyi etkinleştir"
+        },
+        "hover_effect": {
+          "label": "Vurgulu efekti",
+          "info": "Ürün, banner, koleksiyon, blog gibi vurgulu kartları etkiler...",
+          "fade_in": "Soldur",
+          "zoom": "Yakınlaştır"
+        }
+      }
+    },
+    "product": {
+      "name": "Ürün kartları",
+      "how_to_use": {
+        "label": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/theme-settings/product-cards)"
+      },
+      "settings": {
+        "enable_quickview": "Hızlı görüntülemeyi etkinleştir",
+        "enable_quickadd": "Hızlı eklemeyi etkinleştir",
+        "enable_color_swatches": "Renk örneklerini etkinleştir",
+        "show_tag": {
+          "hidden": "Gizlenmiş",
+          "desktop": "Yalnızca masaüstü",
+          "all_devices": "Tüm ekranlar"
+        },
+        "show_scrolling_text": "Kayan metni göster",
+        "show_rate": {
+          "label": "Oranı göster",
+          "info": "Bir derecelendirmeyi görüntülemek için bir ürün derecelendirme uygulaması ekleyin. [Daha fazla bilgi edinin](https://help.shopify.com/en/manual/products/product-reviews/installation)"
+        },
+        "alignment": {
+          "label": "Hizalama",
+          "left": "Sol",
+          "center": "Orta"
+        },
+        "product_image": {
+          "label": "Ürün resmi"
+        },
+        "show_image_hover": {
+          "label": "İkincil resmi göster"
+        },
+        "show_video_featured": {
+          "label": "Vurguluyken videoyu oynat",
+          "info": "Yalnızca MP4 videoyla çalışır."
+        },
+        "product_image_ratio": {
+          "label": "Görüntü oranı",
+          "adapt_to_image": "Resme uyum sağlayın",
+          "square": "Kare (1:1)",
+          "portrait": "Portre (3:4)",
+          "landscape": "Manzara (4:3)"
+        },
+        "mobile_options": {
+          "label": "Mobil ayarlar"
+        },
+        "show_quick_add_mobile": {
+          "label": "Mobil cihazda hızlı ekleme düğmesini göster"
+        },
+        "highlights_scrolling_text_metafield": {
+          "label": "Kayan metin Metafield",
+          "info": "Ürün metafield. Ürün kartlarında kayan metin olarak gösterilir. Format: namespace.key. Default: custom.highlights_scrolling_text."
+        }
+      }
+    },
+    "badges": {
+      "name": "Rozetler",
+      "how_to_use": {
+        "label": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/theme-settings/badges)"
+      },
+      "settings": {
+        "badge_color": {
+          "label": "Metin rengi"
+        },
+        "show_badge": {
+          "label": "Rozeti göster"
+        },
+        "background_color": {
+          "label": "Arka plan rengi"
+        },
+        "sale": {
+          "label": "Satış",
+          "format": {
+            "label": "Biçim",
+            "text": "Text",
+            "percentage": "Yüzde",
+            "fixed": "Sabit tutar"
+          }
+        },
+        "new": {
+          "label": "Yeni",
+          "new_badge_display_period": {
+            "label": "Yeni rozet görüntüleme dönemi",
+            "info": "Ürünlerin oluşturuldukları günden itibaren ne kadar süreyle 'Yeni' olarak etiketleneceğini seçin."
+          }
+        },
+        "sold_out": {
+          "label": "Hepsi satıldı"
+        },
+        "custom_badge": {
+          "label": "Özel rozet",
+          "info": "[Özel rozetin nasıl ayarlanacağını] (https://nextsky.gitbook.io/purity-theme/theme-settings/badges#id-5.-custom-badge) görmek için lütfen belgeyi takip edin."
+        }
+      }
+    },
+    "color_swatches": {
+      "name": "Renk örnekleri",
+      "how_to_use": {
+        "label": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/theme-settings/color-swatch)"
+      },
+      "settings": {
+        "hide_sold_out_variant": {
+          "label": "Tükenen çeşitleri gizle"
+        },
+        "show_sale_in_variant_swatch": {
+          "label": "İndirimi varyant örneğinde göster"
+        },
+        "color_limit": {
+          "label": "Gösterilecek maksimum renk örneği"
+        },
+        "color_swatch_trigger": {
+          "label": "Renk örneği tetikleyicisi",
+          "info": "Renk seçeneğinin adını tanımlayın. Virgülle ayırın. Örneğin. Renk,Renk"
+        },
+        "color_swatch_type": {
+          "label": "Renk örneği türü",
+          "options__1": {
+            "label": "Varyant resmi"
+          },
+          "options__2": {
+            "label": "Color"
+          }
+        },
+        "color_swatch_shape": {
+          "label": "Renk şekli",
+          "options__1": {
+            "label": "Yuvarlak"
+          },
+          "options__2": {
+            "label": "Kare"
+          }
+        },
+        "color_swatch_custom": {
+          "label": "Özel renkler",
+          "info": "Geçerli format: Müsli: #ddd5bc veya Müsli: image.png virgülle ayırın"
+        }
+      }
+    },
+    "cart": {
+      "name": "Sepet",
+      "how_to_use": {
+        "label": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/theme-settings/cart)"
+      },
+      "settings": {
+        "cart_action_desktop": {
+          "label": "Masaüstüne sepet ekledikten sonraki eylem",
+          "drawer": "Çekmece",
+          "page": "Sayfa"
+        },
+        "cart_mobile": {
+          "label": "Mobil ayarlar",
+          "action": {
+            "label": "Sepet ekledikten sonraki işlem",
+            "info": "Bir müşterinin mobil cihazda sepete ürün eklemesinin ardından ne olacağını seçin.",
+            "option_1": "Mini sepeti aç",
+            "option_2": "Mesajı bildir",
+            "option_3": "Sepeti bir kere aç, sonra haber ver"
+          },
+          "open_cart": {
+            "label": "Sepeti şu şekilde aç:",
+            "info": "Başlıktaki ve mobil gezinme çubuğundaki sepet simgesine dokunduğunuzda sepetin nasıl açılacağını seçin.",
+            "option_1": "Çekmece",
+            "option_2": "Aniden belirmek"
+          }
+        },
+        "free_shipping": {
+          "label": "Ücretsiz kargo mesajı",
+          "paragraph": "[Gönderim ücretlerinizi](/admin/settings/shipping) doğru şekilde yapılandırdığınızdan emin olun.",
+          "message": {
+            "label": "Mesaj",
+            "info": "Ücretsiz gönderime hak kazanma yolunda ilerlemenizi takip etmek için [miktar] değerini kullanın."
+          },
+          "minimum_amount": {
+            "label": "Ücretsiz gönderim minimum tutarı",
+            "info": "Yuvarlak sayıları kullanın. Para birimini, sembolleri ve harfleri hariç tutun."
+          }
+        },
+        "term_and_conditions": {
+          "label": "Şartlar ve koşullar",
+          "enable": "Mini sepette ve sepet sayfasında onay kutusunu göster.",
+          "text": "Text"
+        },
+        "cart_count_down": {
+          "label": "Sepet geri sayımı",
+          "show_duration": {
+            "label": "Minicart ve sepet sayfasında göster"
+          },
+          "duration": {
+            "label": "Süre"
+          }
+        },
+        "product_recommendations": {
+          "label": "Ürün önerileri",
+          "heading": "Başlık",
+          "enable_product_recommendations": "Ürün önerilerini etkinleştir",
+          "enable_product_recommendations_info": "Ürün önerileri mini sepet ve sepet sayfasında gösterilecektir.",
+          "recommendation_product_type": {
+            "label": "Ürün önerileri türü",
+            "auto": "Otomatik",
+            "selected": "Seçildi"
+          },
+          "select_product_recommendation": "Product",
+          "show_on_mobile": {
+            "label": "Mobil cihazda göster"
+          }
+        },
+        "gift_wrap": {
+          "label": "Ürün hediye paketi",
+          "select_product_gift_wrap": {
+            "label": "Product",
+            "info": "Yalnızca çeşitleri olmayan ürünlerle çalışır."
+          }
+        },
+        "empty": {
+          "label": "Sepet ayarlarını boşalt",
+          "heading": "Başlık",
+          "description": "Açıklama",
+          "collection": {
+            "label": "Koleksiyon listesi",
+            "info": "Collections will display their featured image by default. Use metafield to change image and text. Learn more"
+          },
+          "button_text": "Düğme etiketi",
+          "button_link": {
+            "label": "Düğme bağlantısı",
+            "info": "Varsayılan Koleksiyon tüm sayfasıdır"
+          },
+          "free_shipping": {
+            "label": "Ücretsiz kargo mesajı"
+          },
+          "empty_cart_layout": {
+            "label": "Boş sepet düzeni",
+            "option_1": "Liste",
+            "option_2": "Izgara"
+          },
+          "collection_metafield": {
+            "label": "Boş sepet koleksiyonu Metafield",
+            "info": "Koleksiyon metafield. (metaobject) boş sepet görseli ve açıklaması için. Format: namespace.key. Default: custom.collection_empty. Fields: collection_image, collection_description."
+          }
+        },
+        "discount_progress_bar": {
+          "label": "İndirim ilerleme çubuğu",
+          "paragraph": "Sepette en fazla 3 harcama kilometre taşı gösterin. Eşleşen bir indirim kodunun veya otomatik indirimin [Shopify yönetici panelinizde.](/admin/discounts) oluşturulduğundan emin olun",
+          "currency_info": "Kilometre taşı tutarlarını mağazanızın varsayılan para biriminde girin. Yerel para birimleri için otomatik olarak dönüştürülürler.",
+          "enable": {
+            "label": "İndirim ilerleme çubuğunu etkinleştir",
+            "info": "Etkinleştirildiğinde, sepet çekmecesi ve sepet sayfasındaki yukarıdaki tek ücretsiz kargo çubuğunun yerini alır."
+          },
+          "milestone_1": {
+            "label": "Kilometre taşı 1"
+          },
+          "milestone_2": {
+            "label": "Kilometre taşı 2"
+          },
+          "milestone_3": {
+            "label": "Kilometre taşı 3"
+          },
+          "milestone": {
+            "amount": {
+              "label": "Eşik",
+              "info": "Para birimi simgeleri veya harfler olmadan yuvarlak sayılar kullanın."
+            },
+            "label_text": {
+              "label": "Etiket"
+            },
+            "icon": {
+              "label": "Simge",
+              "option_none": "Yok",
+              "option_tag": "Etiket",
+              "option_truck": "Kamyon",
+              "option_box": "Kutu"
+            }
+          },
+          "message": {
+            "text": {
+              "label": "İlerleme mesajı",
+              "info": "Kalan tutarı ve sonraki ödülün etiketini göstermek için [amount] ve [label] kullanın."
+            },
+            "success": {
+              "label": "Tüm kilometre taşlarına ulaşıldı mesajı"
+            }
+          }
+        }
+      }
+    },
+    "search": {
+      "name": "Arama davranışı",
+      "how_to_use": {
+        "label": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/theme-settings/search-behavior)"
+      },
+      "settings": {
+        "type": {
+          "label": "Tür",
+          "info": "Çekmece mobil cihazlarda varsayılan düzendir.",
+          "option_1": "Aniden belirmek",
+          "option_2": "Çekmece",
+          "option_3": "Arama çubuğu"
+        },
+        "search_placeholder": {
+          "label": "Yer tutucuyu ara"
+        },
+        "speech_search": {
+          "label": "Sesli arama",
+          "enable": {
+            "label": "Sesli aramayı etkinleştir"
+          }
+        },
+        "search_results": {
+          "label": "Sonuçları göster",
+          "option_1": "Default",
+          "option_2": "Sekme"
+        },
+        "recommendations": {
+          "popular_keywords": {
+            "label": "Popüler arama",
+            "info": "Mağazanızda popüler olarak aranan anahtar kelimeleri müşterilerinize önerin. Örneğin: tişört, elbise, siyah."
+          },
+          "products_recommended": {
+            "label": "Ürün önerisi",
+            "info": "Müşterilere önereceğiniz bir ürün seçin."
+          },
+          "collections_recommended": {
+            "label": "Koleksiyon önerisi"
+          }
+        },
+        "results": {
+          "label": "Arama sonuçları"
+        },
+        "predictive_search": {
+          "label": "Tahmine dayalı aramayı etkinleştir",
+          "info": "Canlı arama sonuçları. Tüm dillerde mevcut değildir. [Daha fazla bilgi edinin](https://shopify.dev/themes/navigation-search/search/predictive-search#general-requirements-and-limitations)"
+        },
+        "show_search_history": {
+          "label": "Arama geçmişini göster"
+        },
+        "show_price": {
+          "label": "Ürün fiyatını göster"
+        }
+      }
+    },
+    "social_media": {
+      "name": "Sosyal medya",
+      "how_to_use": {
+        "label": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/theme-settings/social-media)"
+      },
+      "settings": {
+        "social_account": {
+          "label": "Sosyal hesaplar",
+          "facebook": {
+            "label": "Facebook",
+            "info": "https://facebook.com/shopify"
+          },
+          "instagram": {
+            "label": "Instagram",
+            "info": "http://instagram.com/shopify"
+          },
+          "twitter": {
+            "label": "Twitter",
+            "info": "https://twitter.com/shopify"
+          },
+          "tiktok": {
+            "label": "Tiktok",
+            "info": "https://tiktok.com/@shopify"
+          },
+          "pinterest": {
+            "label": "Pinterest",
+            "info": "https://pinterest.com/shopify"
+          },
+          "youtube": {
+            "label": "youtube",
+            "info": "https://www.youtube.com/shopify"
+          },
+          "vimeo": {
+            "label": "Vimeo",
+            "info": "https://vimeo.com/shopify"
+          },
+          "linkedin": {
+            "label": "LinkedIn",
+            "info": "https://linkedin.com/company/shopify"
+          },
+          "whatsapp": {
+            "label": "Whatsapp",
+            "info": "https://www.whatsapp.com/shopify"
+          },
+          "snapchat": {
+            "label": "Snapchat",
+            "info": "https://www.snapchat.com/add/shopify"
+          }
+        },
+        "sharing_options": {
+          "label": "Paylaşım seçenekleri",
+          "facebook": {
+            "label": "Facebook'ta paylaş"
+          },
+          "pinterest": {
+            "label": "Pinterest'te Paylaş"
+          },
+          "twitter": {
+            "label": "Twitter'da paylaş"
+          },
+          "whatsapp": {
+            "label": "WhatsApp'te paylaş"
+          },
+          "email": {
+            "label": "E-postayla Paylaş"
+          }
+        }
+      }
+    },
+    "currency": {
+      "name": "Para birimi biçimi",
+      "how_to_use": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/theme-settings/currency-format)",
+      "settings": {
+        "code": {
+          "label": "Para birimi kodları",
+          "show_code": {
+            "label": "Para birimi kodlarını göster",
+            "info": "Sepet ve ödeme fiyatları her zaman para birimi kodlarını gösterir. Örnek: 1,00 ABD Doları."
+          }
+        }
+      }
+    },
+    "script_tracking": {
+      "name": "Takip ve Analizler",
+      "settings": {
+        "how_to_use": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/theme-settings/tracking-and-insights)",
+        "scripts_tracking": {
+          "label": "Kod pasajı",
+          "info": "İzleme ve analizler için kod pasajınızı ekleyin"
+        },
+        "appended_scripts": {
+          "label": "Pozisyon eklendi",
+          "body": "Gövde etiketi",
+          "head": "Kafa etiketi"
+        }
+      }
+    }
+  },
+  "content": {
+    "manage_customer_accounts": "Müşteri hesabı ayarlarında [Manage visibility](/admin/settings/customer_accounts). Eski hesaplar desteklenmiyor."
+  },
+  "sections": {
+    "all": {
+      "general": "Genel",
+      "layout": {
+        "label": "Bölüm genişliği",
+        "fix_width": "Sabit genişlik",
+        "stretch_width": "Streç genişliği",
+        "full_width": "Tam genişlik"
+      },
+      "colors": {
+        "label": "Renk şeması",
+        "info": "Temanızın tüm renklerini düzenlemek için [color theme settings](/editor?context=theme&category=colors)'inize gidin. Daha iyi kullanıcı deneyimi için net metin kontrastı sağlayın."
+      },
+      "desktop_content_position": {
+        "label": "Masaüstü içerik konumu",
+        "info": "Konum mobil cihazlar için otomatik olarak optimize edilir.",
+        "info_2": "Önce içerik varsayılan mobil düzendir.",
+        "group": {
+          "top": {
+            "label": "Üst"
+          },
+          "middle": {
+            "label": "Orta"
+          },
+          "bottom": {
+            "label": "Alt"
+          }
+        },
+        "options__1": {
+          "label": "Sol üst"
+        },
+        "options__2": {
+          "label": "Üst orta"
+        },
+        "options__3": {
+          "label": "Sağ üst"
+        },
+        "options__4": {
+          "label": "Orta sol"
+        },
+        "options__5": {
+          "label": "Orta merkez"
+        },
+        "options__6": {
+          "label": "Orta sağ"
+        },
+        "options__7": {
+          "label": "Sol alt"
+        },
+        "options__8": {
+          "label": "Alt orta"
+        },
+        "options__9": {
+          "label": "Sağ alt"
+        }
+      },
+      "padding": {
+        "section_padding_heading": "Bölüm dolgusu",
+        "padding_inline": {
+          "label": "Satır içi dolgu",
+          "info": "Satır içi dolgu, mobil cihazlar için otomatik olarak optimize edilir."
+        },
+        "padding_block": {
+          "label": "Dolgu bloğu",
+          "info": "Dolgu bloğu mobil cihazlar için otomatik olarak optimize edilir."
+        },
+        "padding_top": "Üst",
+        "padding_bottom": "Alt",
+        "spacing_bottom": "Alt boşluk",
+        "image_spacing": "Resim aralığı",
+        "space_between": "Aradaki Boşluk",
+        "column_gap": {
+          "label": "Sütun boşluğu",
+          "no_gap": "Boşluk yok",
+          "small": "Küçük",
+          "medium": "Orta",
+          "large": "Büyük",
+          "x_large": "X-Large"
+        }
+      },
+      "space_between": {
+        "label": "Öğeler arasındaki boşluk"
+      },
+      "width": {
+        "label": "Genişlik",
+        "fill": "Doldur",
+        "fit": "Sığdır"
+      },
+      "columns": {
+        "label": "Sütun sayısı"
+      },
+      "items_to_show": {
+        "label": "Gösterilecek maksimum öğe"
+      },
+      "product_to_show": {
+        "label": "Gösterilecek maksimum ürün"
+      },
+      "text_alignment": {
+        "label": "İçerik hizalaması",
+        "alignment": "Hizalama",
+        "options__1": {
+          "label": "Sol"
+        },
+        "options__2": {
+          "label": "Orta"
+        },
+        "options__3": {
+          "label": "Sağ"
+        }
+      },
+      "content": {
+        "label": "İçerik"
+      },
+      "text": {
+        "label": "Text"
+      },
+      "content_position": {
+        "label": "İçerik konumu",
+        "options__1": {
+          "label": "Yer paylaşımlı resim",
+          "top": "Üst",
+          "middle": "Orta",
+          "bottom": "Alt",
+          "text_above_button": "Yukarıdaki metin düğmesi"
+        },
+        "options__2": {
+          "label": "Aşağıdaki resim"
+        }
+      },
+      "section_setting": {
+        "page_heading": {
+          "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "description": {
+            "label": "İçerik"
+          },
+          "heading": {
+            "label": "Başlık"
+          },
+          "breadcrumb": {
+            "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/breadcrumb)",
+            "label": "Ekmek kırıntısı"
+          }
+        },
+        "enable_rounded_style": {
+          "label": "Yuvarlak stili etkinleştir"
+        }
+      },
+      "content_setting": {
+        "label": "İçerik ayarları",
+        "image": {
+          "label": "Image"
+        },
+        "subheading": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "Alt başlık",
+          "info": "Öğeler arasında bir nokta görüntülemek için her metin öğesini dikey bir çubukla (|) ayırın."
+        },
+        "highlight_text": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/highlight-text)",
+          "label": "Metni vurgula",
+          "settings": {
+            "icons": {
+              "label": "Simge seç",
+              "options__1": {
+                "label": "None"
+              },
+              "options__2": {
+                "label": "Yıldız"
+              },
+              "options__3": {
+                "label": "Nokta"
+              }
+            }
+          }
+        },
+        "heading": {
+          "label": "Başlık",
+          "info": "Metni italik olarak kaydırarak alt çizgi ekleyin. Uygulamak için düzenleyicideki İtalik (I) düğmesini kullanın."
+        },
+        "heading_highlight": {
+          "label": "Başlık vurgulama metni",
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading-highlight-text)"
+        },
+        "detail_list": {
+          "label": "Detay listesi",
+          "detail_row": {
+            "label": "Detail row",
+            "row_title": "Row title",
+            "row_details": "Row details"
+          },
+          "layout": {
+            "label": "Düzen",
+            "specifications": "Özellikler",
+            "information_cards": "Bilgi kartları"
+          }
+        },
+        "description": {
+          "label": "Açıklama",
+          "hide_on_mobile": {
+            "label": "Mobil cihazda açıklamayı gizle"
+          },
+          "description": "Ürün açıklamanızı görüntüleyin. Varsa kısa açıklama meta alanını kullanır, aksi takdirde varsayılan ürün açıklamasına geri döner. Daha fazla bilgi için [Support page](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-7.-description) sayfamızı ziyaret edin."
+        },
+        "content": "İçerik",
+        "button_label": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "Düğme etiketi",
+          "info": "Düğmeyi gizlemek için etiketi boş bırakın."
+        },
+        "button_label-block": {
+          "name": "Etiket",
+          "label": "Düğme"
+        },
+        "link": {
+          "label": "Bağlantı",
+          "info": "Not: Bu bağlantı ayarı yalnızca görseller için çalışır, videolar için geçerli değildir."
+        },
+        "first_button_label": {
+          "name": "İlk düğme",
+          "label": "Düğme etiketi",
+          "link": "Düğme bağlantısı"
+        },
+        "second_button_label": {
+          "name": "İkinci düğme",
+          "label": "Düğme etiketi",
+          "link": "Düğme bağlantısı"
+        },
+        "button_type": {
+          "label": "Tür",
+          "primary": {
+            "label": "Öncelik"
+          },
+          "outline": {
+            "label": "Taslak"
+          },
+          "link": {
+            "label": "Bağlantı"
+          }
+        },
+        "show_view_all_button": {
+          "label": "Tümünü görüntüle düğmesini göster",
+          "label_text": "Düğme etiketi",
+          "default_text": "Tüm Ürünleri Görüntüle",
+          "default": "Tümünü görüntüle"
+        },
+        "open_link_in_new_tab": {
+          "label": "Bağlantıyı yeni sekmede aç"
+        },
+        "drawn_underline": {
+          "label": "Başlık altı çizgi animasyonunu etkinleştir",
+          "type": "Altı çizili stil",
+          "value": {
+            "simple_underline": "Basit alt çizgi",
+            "curve_underline": "Eğri vuruşu",
+            "squiggle_underline": "Altı çizili çizgi"
+          },
+          "color": "Alt çizgi rengi"
+        },
+        "metrics": {
+          "label": "Ölçümler",
+          "item": {
+            "label": "Ölçüm öğesi",
+            "value": "Değer",
+            "description": "Etiket"
+          }
+        },
+        "citation": {
+          "label": "Alıntı"
+        },
+        "heading_block_highlight": {
+          "label": "Başlık vurgusunu etkinleştir",
+          "info": "Metni italik yaparak vurgu ekleyin. Uygulamak için düzenleyicideki İtalik (I) düğmesini kullanın.",
+          "type": "Vurgu stili",
+          "text_highlight": "Metin vurgusu",
+          "color": "Vurgu rengi"
+        }
+      },
+      "content_header": {
+        "label": "Bölüm başlığı",
+        "heading_size": {
+          "label": "Başlık boyutu",
+          "size": "Size",
+          "xs_small": {
+            "label": "XS-Küçük"
+          },
+          "x_small": {
+            "label": "X-Küçük"
+          },
+          "small": {
+            "label": "Küçük"
+          },
+          "large": {
+            "label": "Büyük"
+          },
+          "x_large": {
+            "label": "X-Large"
+          },
+          "base": {
+            "label": "Taban boyutu"
+          },
+          "options__1": {
+            "label": "Başlık 1"
+          },
+          "options__2": {
+            "label": "Başlık 2"
+          },
+          "options__3": {
+            "label": "Başlık 3"
+          },
+          "options__4": {
+            "label": "Başlık 4"
+          },
+          "options__5": {
+            "label": "Başlık 5"
+          },
+          "options__7": {
+            "label": "Başlık 7"
+          },
+          "options__0": {
+            "label": "Başlık 0"
+          }
+        }
+      },
+      "blog_setting": {
+        "show_category": "Kategoriyi göster",
+        "show_tags": "Etiketleri göster",
+        "show_date": "Tarihi göster",
+        "show_author": "Yazarı göster",
+        "show_excerpt": "Alıntıları göster"
+      },
+      "media": {
+        "label": "Tür"
+      },
+      "image": {
+        "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/image)",
+        "label": "Image",
+        "image_setting": "Görüntü ayarları",
+        "width": "Resim genişliği",
+        "info_width": "Resim mobil cihazlar için otomatik olarak optimize edilir.",
+        "mobile_image": "Mobil resim",
+        "mobile_image_width": "Mobil resim genişliği",
+        "aspect_ratio": {
+          "label": "Görüntü oranı",
+          "label_mb": "Mobil cihazlarda görüntü oranı",
+          "label_video": "Video oranı",
+          "options__1": "Kare (1:1)",
+          "options__2": "Portre (3:4)",
+          "options__3": "Manzara (4:3)",
+          "options__4": "Masaüstü ile aynı",
+          "adapt": "Resme uyum sağlayın"
+        },
+        "desktop_position": {
+          "label": "Masaüstü görüntü konumu",
+          "top": "Üst",
+          "right": "Sağ",
+          "bottom": "Alt",
+          "left": "Sol",
+          "info": "Resim mobil cihazda metnin üzerinde gösterilecektir."
+        },
+        "desktop_image_width": {
+          "label": "Masaüstü resim genişliği"
+        }
+      },
+      "video": {
+        "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)",
+        "label": "Video",
+        "info": "Görüntü ayarını geçersiz kılar",
+        "settings": {
+          "source": {
+            "label": "Kaynak",
+            "uploaded_video": {
+              "label": "Yerel video"
+            },
+            "external_link": {
+              "label": "Harici video bağlantısı"
+            }
+          }
+        },
+        "width": "Video genişliği",
+        "width_unit_type": {
+          "label": "Genişlik birimi türü",
+          "options": {
+            "percent": {
+              "label": "Yüzde (%)"
+            },
+            "px": {
+              "label": "Piksel (px)"
+            }
+          }
+        }
+      },
+      "video_mobile": {
+        "label": "Mobil video"
+      },
+      "svg": {
+        "label": "Svg simgesi",
+        "custom_svg": {
+          "label": "Özel svg",
+          "info": "Görüntü ayarını geçersiz kılar."
+        }
+      },
+      "icon": {
+        "none": {
+          "label": "None"
+        },
+        "cruelty": {
+          "label": "Zulüm"
+        },
+        "paraben": {
+          "label": "Paraben"
+        },
+        "privacy-protection": {
+          "label": "Gizlilik Koruması"
+        },
+        "secure-shopping": {
+          "label": "Güvenli Alışveriş"
+        },
+        "guarantee": {
+          "label": "Garanti"
+        },
+        "account": {
+          "label": "Hesap"
+        },
+        "leaf": {
+          "label": "Yaprak"
+        },
+        "moon": {
+          "label": "Ay"
+        },
+        "hive": {
+          "label": "Kovan"
+        },
+        "comb": {
+          "label": "Tarak"
+        },
+        "free_shipping": {
+          "label": "Ücretsiz kargo"
+        },
+        "check_badge": {
+          "label": "Rozeti kontrol et"
+        },
+        "message_communications": {
+          "label": "Mesaj iletişimi"
+        },
+        "circular-text": {
+          "label": "Dairesel metin"
+        },
+        "beauty": {
+          "label": "Yüz"
+        },
+        "line": {
+          "label": "Astar"
+        },
+        "droplet": {
+          "label": "Damlacık"
+        },
+        "smooth": {
+          "label": "Düz"
+        },
+        "shield": {
+          "label": "Kalkan"
+        },
+        "balloon": {
+          "label": "Balon"
+        },
+        "brightening": {
+          "label": "Parlatıcı"
+        },
+        "hydration": {
+          "label": "Hidrasyon"
+        },
+        "coptic_cross": {
+          "label": "Kıpti haçı"
+        },
+        "coil": {
+          "label": "Bobin"
+        },
+        "verified": {
+          "label": "Doğrulandı"
+        },
+        "security": {
+          "label": "Güvenlik"
+        },
+        "package": {
+          "label": "Paket"
+        },
+        "cat": {
+          "label": "Kedi"
+        }
+      },
+      "carousel": {
+        "header": "Karusel ayarları",
+        "enable_carousel": {
+          "label": "Karuseli etkinleştir",
+          "description": "Atlıkarınca yalnızca toplam koleksiyonların masaüstündeki satır başına öğe sayısından büyük olması durumunda gösterilir."
+        },
+        "show_navigation": {
+          "label": "Gezinmeyi göster"
+        },
+        "show_pagination": {
+          "label": "Sayfalendirmeyi göster",
+          "info": "Mobil cihazdaki öğe sayısını 1 veya 2 olarak görüntülerseniz sayfalandırma otomatik olarak mobil cihazda gösterilir",
+          "info_single": "Sayfalandırma mobil cihazlarda otomatik olarak gösterilecektir.",
+          "type": {
+            "label": "Sayfalandırma stili",
+            "progress_bar": "İlerleme çubuğu",
+            "dot": "Noktalar"
+          }
+        },
+        "reveal_slide": {
+          "label": "Sonraki slaydı göster",
+          "info": "Gelecek slaydın bir bölümünü görüntüleyin."
+        },
+        "enable_carousel_mobile": {
+          "label": "Mobil cihazlarda atlı karıncayı etkinleştir"
+        },
+        "change_slide_every": "Slaytları her defasında değiştir",
+        "slide_auto_change": "Slaydı otomatik değiştir"
+      },
+      "mobile_options": {
+        "label": "Mobil ayarlar",
+        "mobile_layout": {
+          "label": "Mobil düzen",
+          "show_text_bellow": {
+            "label": "Aşağıdaki metni mobil cihazda göster",
+            "info": "Metin mobil cihazda görselin altında gösterilecektir."
+          },
+          "hidden_description_on_mobile": {
+            "label": "Mobil cihazda açıklamayı gizle"
+          }
+        }
+      },
+      "items": {
+        "items_per_row": "Satır başına öğe sayısı",
+        "items_per_row_mobile": "Mobil cihazda satır başına öğe sayısı"
+      },
+      "columns_desktop": {
+        "label": "Masaüstünde satır başına öğe sayısı"
+      },
+      "newsletter_setting": {
+        "email_placeholder": "E-posta yer tutucusu",
+        "button_label": "Düğme etiketi"
+      },
+      "pagination_type": {
+        "label": "Sayfalandırma türü",
+        "options__1": {
+          "label": "Sayfa numarası"
+        },
+        "options__2": {
+          "label": "Daha fazla yükle düğmesi"
+        },
+        "options__3": {
+          "label": "Sonsuz kaydırma"
+        }
+      },
+      "product_setting": {
+        "badges": {
+          "name": "Rozetler"
+        },
+        "notify": {
+          "name": "Ürünün yeniden stoklanmasını bildir"
+        },
+        "live_view": {
+          "name": "Canlı görünüm",
+          "settings": {
+            "min_number": "Minimum sayı",
+            "max_number": "Maksimum sayı",
+            "interval_time": "Aralık süresi",
+            "content": "İçerik",
+            "show_icon_eye": {
+              "label": "Simgeyi göster"
+            }
+          },
+          "info": "Canlı görüntüleme sayılarını göstererek ürün etkinliğini simüle eder, aciliyetin, sosyal kanıtın ve dönüşüm oranlarının artırılmasına yardımcı olur."
+        },
+        "shop_the_look": {
+          "name": "Görünümü satın alın",
+          "settings": {
+            "heading": {
+              "label": "Başlık"
+            }
+          },
+          "description": "Görünümü tamamlamak için ilgili ürünleri önerin. Daha fazla bilgi için [Support page](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information) sayfamızı ziyaret edin"
+        },
+        "stock_countdown": {
+          "name": "Stok geri sayımı",
+          "settings": {
+            "message": {
+              "label": "Mesaj",
+              "info": "Stoktaki kalan ürün miktarını görüntülemek için kısa kodu [count] kullanın. Bu kısa kodu herhangi bir yere kaldırabilir veya koyabilirsiniz"
+            },
+            "stock_items": {
+              "label": "Stok öğeleri",
+              "info": "Stokta (X) adetten az ürün olduğunda göster"
+            }
+          }
+        },
+        "product_meta": {
+          "name": "Ürün metası",
+          "settings": {
+            "show_sku": {
+              "label": "SKU'yu göster"
+            },
+            "show_collections": {
+              "label": "Koleksiyonları göster"
+            },
+            "show_tags": {
+              "label": "Etiketleri göster"
+            },
+            "show_type": {
+              "label": "Türü göster"
+            }
+          }
+        },
+        "collapsible_row": {
+          "name": "Akordeon sırası",
+          "settings": {
+            "info": "İçeriği açıklayan bir başlık ekleyin.",
+            "content": "Satır içeriği",
+            "content_page": "İçeriği sayfadan satırla"
+          }
+        },
+        "accordion_row_drawer": {
+          "name": "Akordeon sıralı çekmece",
+          "settings": {
+            "info": "İçeriği açıklayan bir başlık ekleyin.",
+            "content": "Satır içeriği",
+            "content_page": "İçeriği sayfadan satırla"
+          }
+        },
+        "model_size": {
+          "name": "Modeli boyutu",
+          "settings": {
+            "paragraph": {
+              "content": "Boy, kilo ve ölçülerle birlikte modelin giydiği bedeni görün. [Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)"
+            }
+          }
+        },
+        "title": {
+          "name": "Ürün başlığı"
+        },
+        "price": {
+          "name": "Fiyat"
+        },
+        "rating": {
+          "name": "Ürün derecelendirmesi"
+        },
+        "variant_picker": {
+          "name": "Varyant seçici",
+          "settings": {
+            "picker_type": {
+              "label": "Tür",
+              "options__1": {
+                "label": "Yıkılmak"
+              },
+              "options__2": {
+                "label": "Haplar"
+              }
+            },
+            "size_guide": {
+              "heading": "Boyut tablosu",
+              "info": "Seçilen sayfadan beden tablosu bilgilerini alın.",
+              "settings": {
+                "size_trigger": {
+                  "label": "Boyut tetikleyicisi",
+                  "info": "Boyut seçeneğinin adını tanımlayın. Virgülle ayırın. Örneğin. Boyut, Misurare"
+                },
+                "show_size_guide": "Boyut tablosunu göster",
+                "size_guide_label": "Boyut tablosu etiketi",
+                "size_guide_page": "Beden tablosu sayfası",
+                "footer_content": "Altbilgi içeriği",
+                "custom_size_guide": {
+                  "label": "Özel boyut tablosu",
+                  "info__1": "Her koleksiyon veya ürün için özel beden tablolarının kullanılması.",
+                  "info__2": "Ürün veya koleksiyon için özel boyut grafikleri kullanmak için ad alanı ve anahtarla meta alan oluşturun: \"custom.size_chart\".[Learn more](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/size-chart)"
+                }
+              }
+            }
+          }
+        },
+        "buy_buttons": {
+          "name": "Düğme satın al",
+          "settings": {
+            "show_dynamic_checkout": {
+              "label": "Dinamik ödeme düğmelerini göster",
+              "info": "Müşteriler, mağazanızda bulunan ödeme yöntemlerini kullanarak PayPal veya Apple Pay gibi tercih ettikleri seçeneği görür. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+            },
+            "show_gift_card_recipient": {
+              "label": "Hediye kartları için alıcı bilgi formunu göster",
+              "info": "Alıcıların, kişisel bir mesajla birlikte planlanan bir tarihte hediye kartları göndermesine olanak tanır. [Learn more](https://help.shopify.com/manual/online-store/themes/customizing-themes/add-gift-card-recipient-fields)"
+            }
+          }
+        },
+        "subscription_widget": {
+          "name": "Abonelik widget'ı",
+          "settings": {
+            "info": "Tek seferlik satın alma işlemini ve her satış planı grubu için ayrı bir kartı görüntüler. Bu bloğu Satın al düğmelerinin üzerine yerleştirin.",
+            "one_time_purchase_title": {
+              "label": "Tek seferlik satın alma başlığı"
+            },
+            "one_time_purchase_description": {
+              "label": "Tek seferlik satın alma açıklaması"
+            },
+            "subscription_description": {
+              "label": "Abonelik açıklaması"
+            },
+            "show_price": {
+              "label": "Fiyatı göster"
+            }
+          }
+        },
+        "share": {
+          "name": "Paylaşmak"
+        },
+        "complementary_products": {
+          "name": "Tamamlayıcı ürünler",
+          "settings": {
+            "paragraph": {
+              "content": "Tamamlayıcı ürünleri seçmek için Arama ve Keşif uygulamasını ekleyin. [Learn more](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+            },
+            "product_list_limit": {
+              "label": "Gösterilecek maksimum ürün"
+            }
+          }
+        },
+        "pickup_avaiability": {
+          "name": "Teslim alma kullanılabilirliği"
+        },
+        "media_lightbox": {
+          "name": "Çalışırken görün",
+          "settings": {
+            "enable_sticky": {
+              "label": "Masaüstünde yapışkanlığı etkinleştir"
+            }
+          },
+          "description": "Ürününüzün kullanımdaki gerçek fotoğraflarını veya videolarını gösterin. Daha fazla bilgi için [Support page](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-16.-media-lightbox) sayfamızı ziyaret edin"
+        },
+        "highlights": {
+          "name": "Öne Çıkanlar",
+          "description": "Ürününüzün önemli satış noktalarını sergileyin. Daha fazla bilgi için [Support page](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-8.-highlights) sayfamızı ziyaret edin"
+        },
+        "key_features": {
+          "name": "Temel özellikler",
+          "description": "Ürününüzün temel özelliklerini ve faydalarını listeleyin. Daha fazla bilgi için [Support page](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-9.-key-features) sayfamızı ziyaret edin"
+        },
+        "ask_question": {
+          "name": "Bir soru sor"
+        },
+        "promotion_countdown": {
+          "name": "Promosyon geri sayımı",
+          "show_countdown_units": {
+            "label": "Geri sayım birimlerini göster"
+          },
+          "description": "Ürününüzün tanıtımına aciliyet kazandırmak için bir geri sayım sayacı ekleyin. Daha fazla bilgi için [Support page](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-11.-promotion-countdown) sayfamızı ziyaret edin."
+        },
+        "promotion_alert": {
+          "name": "Promosyon uyarısı",
+          "heading": {
+            "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+            "label": "Başlık"
+          },
+          "description": {
+            "label": "Açıklama"
+          },
+          "text_color": {
+            "label": "Metin rengi"
+          }
+        },
+        "icon_with_text": {
+          "name": "Metin içeren simge",
+          "heading": {
+            "label_1": "Metin içeren simge 1",
+            "label_2": "Metin 2 içeren simge",
+            "label_3": "Metinli simge 3",
+            "label_4": "Metinli simge 4",
+            "label_5": "Metinli simge 5"
+          },
+          "info": "Bu içerik mobilde otomatik olarak gizlenecektir.",
+          "svg": {
+            "label": "Svg simgesi"
+          },
+          "content": {
+            "label": "İçerik"
+          },
+          "icon": {
+            "none": {
+              "label": "None"
+            },
+            "free_shipping": {
+              "label": "Ücretsiz kargo"
+            },
+            "check_badge": {
+              "label": "Rozeti kontrol et"
+            },
+            "message_communications": {
+              "label": "Mesaj iletişimi"
+            },
+            "truck": {
+              "label": "Kamyon"
+            },
+            "question": {
+              "label": "Soru"
+            },
+            "location": {
+              "label": "Konum"
+            },
+            "leaf": {
+              "label": "Yaprak"
+            },
+            "blossom": {
+              "label": "Çiçeği"
+            },
+            "payment": {
+              "label": "Ödeme"
+            },
+            "discount": {
+              "label": "Discount"
+            },
+            "order": {
+              "label": "Emir"
+            },
+            "return": {
+              "label": "Geri dönmek"
+            },
+            "return_package": {
+              "label": "İade paketi"
+            }
+          }
+        },
+        "inventory_status": {
+          "name": "Envanter durumu",
+          "settings": {
+            "inventory_threshold": {
+              "label": "Düşük envanter eşiği",
+              "info": "Bir ürün stokta kalmamak üzere olduğunda müşterileri uyarmak için bu değeri ayarlayın."
+            },
+            "inventory_base": {
+              "label": "Envanter baz miktarı",
+              "info": "İlerleme çubuğu için ürün envanterinizin başlangıç ​​miktarını ayarlayın."
+            }
+          }
+        },
+        "disclosures": {
+          "name": "Açıklamalar",
+          "description": "Bu ürün için zorunlu güvenlik uyarıları ve düzenleyici açıklamalar. Daha fazla bilgi için [Destek sayfamızı](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information) ziyaret edin.",
+          "settings": {
+            "heading": {
+              "label": "Başlık",
+              "default": "Önemli bilgiler"
+            },
+            "open_by_default": {
+              "label": "Varsayılan olarak açık"
+            }
+          }
+        }
+      },
+      "divider": {
+        "section_divider_heading": "Bölüm bölücü",
+        "show_divider": "Ayırıcıyı göster",
+        "top": "Üst ayırıcı",
+        "top_info": "Üstteki bölümün alt ayırıcısı Dalga veya Kavis ise gizlenir",
+        "bottom_info": "Alttaki bölümün üst ayırıcısı Dalga veya Kavis ise çizgi gizlenir",
+        "bottom": "Alt ayırıcı",
+        "none": "Yok",
+        "line": "Çizgi",
+        "wave": "Dalga",
+        "curve_out": "Dışa kavis",
+        "curve_in": "İçe kavis"
+      },
+      "metafield": {
+        "short_description": {
+          "label": "Kısa açıklama Metafield",
+          "info": "Ürün metafield. Kısa açıklama varsa kullanılır. Format: namespace.key. Default: custom.short_description."
+        },
+        "highlights": {
+          "label": "Öne çıkanlar Metafield",
+          "info": "Ürün metafield. Vurgu simge/başlık listesi. Format: namespace.key. Default: custom.highlights."
+        },
+        "key_features": {
+          "label": "Temel özellikler Metafield",
+          "info": "Ürün metafield. Başlık/açıklama öğeleri listesi. Format: namespace.key. Default: custom.key_features."
+        },
+        "media_lightbox": {
+          "label": "Medya lightbox Metafield",
+          "info": "Ürün metafield. Galeri için görsel/video listesi. Format: namespace.key. Default: custom.media_lightbox."
+        },
+        "model_size": {
+          "label": "Model bedeni Metafield",
+          "info": "Ürün metafield. (metaobject) model ölçüleriyle. Format: namespace.key. Default: custom.model_size."
+        },
+        "product_sizing": {
+          "label": "Ürün bedenleri Metafield",
+          "info": "Ürün metafield. Beden ölçeği için liste. Format: namespace.key. Default: custom.product_sizing."
+        },
+        "shop_the_look": {
+          "label": "Görünümü satın al Metafield",
+          "info": "Ürün metafield. Look görselleri ve ürün listesi. Format: namespace.key. Default: custom.shop_the_look."
+        },
+        "similar_products": {
+          "label": "Benzer ürünler Metafield",
+          "info": "Ürün metafield. Benzer ürün listesi. Format: namespace.key. Default: custom.similar_products."
+        },
+        "frequently_bought_together": {
+          "label": "Sıkça birlikte alınanlar Metafield",
+          "info": "Ürün metafield. Birlikte alınacak ürün listesi. Format: namespace.key. Default: custom.frequently_bought_together."
+        },
+        "complete_the_look": {
+          "label": "Görünümü tamamla Metafield",
+          "info": "Ürün metafield. Kombin ürün listesi. Format: namespace.key. Default: custom.complete_the_look."
+        },
+        "info_gallery": {
+          "label": "Bilgi galerisi Metafield",
+          "info": "Ürün metafield. Galeri kartları listesi (görsel + metin). Format: namespace.key. Default: custom.info_gallery."
+        },
+        "compare_items": {
+          "label": "Ürünleri karşılaştır Metafield",
+          "info": "Ürün metafield. Karşılaştırılacak ürün listesi. Format: namespace.key. Default: custom.compare_items."
+        },
+        "ingredient_highlights": {
+          "label": "Öne çıkan içerikler Metafield",
+          "info": "Ürün metafield. Karşılaştırma satırında gösterilir. Format: namespace.key. Default: custom.ingredient_highlights."
+        },
+        "subcollection": {
+          "label": "Alt koleksiyon Metafield",
+          "info": "Koleksiyon metafield. Alt koleksiyon listesi. Format: namespace.key. Default: custom.subcollection."
+        }
+      }
+    },
+    "group": {
+      "product": "Products",
+      "collection": "Koleksiyonlar",
+      "storytelling": "Hikaye Anlatımı",
+      "banners": "Afişler",
+      "blog": "Blog",
+      "form": "Formlar",
+      "shopable": "Alışveriş yapılabilecekler",
+      "blocks": {
+        "basic": "Temel",
+        "layout": "Yardımcı Programlar ve Düzen",
+        "custom": "Custom",
+        "forms": "Formlar"
+      },
+      "decorative": {
+        "name": "Dekoratif",
+        "marquee": "Marquee",
+        "how_to_use_maquee": "[Bu blok nasıl kullanılır](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/marquee)"
+      },
+      "links": {
+        "name": "Bağlantılar",
+        "menu": "Menu",
+        "how_to_use_menu": "[Bu blok nasıl kullanılır](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)",
+        "how_to_use_popup_link": "[Bu blok nasıl kullanılır](https://nextsky.gitbook.io/purity-theme/group-blocks/links/popup-link)",
+        "popup_link": "Açılır bağlantı"
+      },
+      "general": {
+        "name": "Genel",
+        "image_box": "Resim kutusu",
+        "image_box_use": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/overlay-group/search)"
+        }
+      }
+    },
+    "overlay_group": {
+      "name": "Kaplama grubu"
+    },
+    "search": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/overlay-group/search)",
+      "name": "Ara"
+    },
+    "footer": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/footer-group/footer)",
+      "name": "Alt bilgi",
+      "settings": {
+        "enable_back_top": {
+          "label": "Başa dönmeyi etkinleştir"
+        },
+        "show_policy": {
+          "label": "Politika bağlantıları",
+          "info": "[Politikaları yönet](/admin/settings/legal)"
+        },
+        "country_language": {
+          "content": "Ülke/dil seçici",
+          "info": "Bir ülke/bölge eklemek için [market settings.](/admin/settings/markets)'inize gidin. Dil eklemek için [language settings.](/admin/settings/languages)'inize gidin"
+        },
+        "enable_country_selector": {
+          "label": "Ülke/bölge seçiciyi etkinleştir"
+        },
+        "width": {
+          "options__1": "16%",
+          "options__2": "20%",
+          "options__3": "25%",
+          "options__4": "33%",
+          "options__5": "50%",
+          "options__6": "66%",
+          "options__7": "75%",
+          "options__8": "86%",
+          "options__9": "100%"
+        },
+        "enable_language_selector": {
+          "label": "Dil seçiciyi etkinleştir"
+        },
+        "payment": {
+          "content": "Ödeme yöntemleri"
+        },
+        "payment_enable": {
+          "label": "Ödeme simgelerini göster"
+        },
+        "menu_policies": {
+          "label": "Altbilgi alt kısmı"
+        },
+        "header_follow": {
+          "content": "Shop'ta takip edin",
+          "info": "Müşterilerin Shop uygulamasında mağazanızı vitrininizden takip etmesine izin vermek için Shop Pay'in etkinleştirilmesi gerekir. [Learn more](https://help.shopify.com/manual/online-store/themes/customizing-themes/follow-on-shop)"
+        },
+        "enable_follow_on_shop": {
+          "label": "Mağazada Takip Etmeyi Etkinleştir"
+        }
+      },
+      "blocks": {
+        "menu_block": {
+          "label": "Menu"
+        },
+        "newsletter_block": {
+          "name": "Bülten",
+          "info": "Aboneler otomatik olarak \"kabul edilen pazarlama\" müşteri listenize eklenir. [Learn more](https://help.shopify.com/manual/customers/manage-customers)",
+          "settings": {
+            "note": {
+              "label": "Not"
+            }
+          }
+        },
+        "contact_bar_block": {
+          "name": "İletişim çubuğu",
+          "settings": {
+            "store_address": "Adres",
+            "store_phone": "Telefon",
+            "store_email": "Email",
+            "show_social": {
+              "label": "Sosyal medya simgelerini göster",
+              "info": "Sosyal medya hesaplarınızı görüntülemek için tema ayarlarınıza bağlayın."
+            }
+          }
+        }
+      }
+    },
+    "header": {
+      "name": "Üst bilgi",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header)",
+      "settings": {
+        "sticky_header_type": {
+          "label": "Yapışkan başlık",
+          "options__1": {
+            "label": "None"
+          },
+          "options__2": {
+            "label": "Kaydır"
+          },
+          "options__3": {
+            "label": "Her zaman"
+          }
+        },
+        "menu": {
+          "label": "Menu",
+          "menu_trigger": {
+            "label": "Masaüstü açılır menü tetikleyicisi",
+            "options__1": {
+              "label": "Tıkla"
+            },
+            "options__2": {
+              "label": "Üzerine gelince"
+            }
+          },
+          "dropdowns_animation": {
+            "label": "Açılır listeler animasyonu",
+            "options__1": {
+              "label": "Soldur"
+            },
+            "options__3": {
+              "label": "Aşağıdan yukarıya"
+            }
+          }
+        },
+        "menu_mobile": {
+          "label": "Mobil Menu Ayarları",
+          "menu_icon": {
+            "label": "Hamburger simgesi konumu",
+            "info": "Mobil cihazlarda hamburger menüsünün nerede görüneceğini seçin."
+          }
+        },
+        "addons": {
+          "label": "Eklentiler",
+          "show_account": {
+            "label": "Hesap simgesini göster"
+          },
+          "show_search": {
+            "label": "Aramayı göster"
+          },
+          "show_cart": {
+            "label": "Alışveriş sepetini göster"
+          },
+          "show_offer": {
+            "label": "Teklifi göster"
+          },
+          "show_language": {
+            "label": "Dili göster"
+          },
+          "show_currency": {
+            "label": "Para birimini göster"
+          }
+        },
+        "transparent": {
+          "content": "Şeffaf header",
+          "info": "Ana sayfanızdaki ilk bölümün aşağıdakilerden biri olarak yapılandırıldığından emin olun: Slayt gösterisi, metin bindirmeli bir Video veya metin bindirmeli bir Görüntü.",
+          "transparent": {
+            "label": "Saydam Başlığı etkinleştir"
+          },
+          "text_icon_transparent": {
+            "label": "Metin ve simge rengi"
+          }
+        },
+        "blocks": {
+          "mega_menu": {
+            "name": "Banner (Mega menü)",
+            "how_to_use": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#banner-mega-menu)",
+            "banners": {
+              "label": "Banner ayarları"
+            },
+            "promotion_1": {
+              "label": "Sancak #1"
+            },
+            "promotion_2": {
+              "label": "Afişler 2"
+            },
+            "promotion_3": {
+              "label": "Sancak #3"
+            },
+            "promotion_4": {
+              "label": "Sancak #4"
+            },
+            "promotion_5": {
+              "label": "Sancak #5"
+            },
+            "info": "448 piksel x 260 piksel önerilir"
+          },
+          "menu_item": {
+            "label": "Menü ögesi",
+            "info": "Mega menü açılır menüsünü uygulamak için menü öğesini girin. Lütfen büyük ve küçük harfleri birbirinden ayırın."
+          },
+          "menu_column": {
+            "label": "Masaüstü menü sütunları"
+          },
+          "product": {
+            "name": "Ürünler (Mega menü)",
+            "how_to_use": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#product-mega-menu)",
+            "header": "Products"
+          },
+          "collection": {
+            "name": "Koleksiyonlar (Mega menü)",
+            "how_to_use": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#collection-mega-menu)",
+            "header": "Koleksiyonlar"
+          },
+          "menu_highlight": {
+            "name": "Menü Vurgulaması",
+            "menu_items": {
+              "label": "Vurgulanacak menü öğeleri",
+              "info": "Vurgulanacak menü öğelerinin adlarını virgülle ayırarak girin (örn. Satış, Yeni Gelenler). Lütfen büyük ve küçük harfleri birbirinden ayırın."
+            },
+            "highlight_color": {
+              "label": "Vurgu rengi"
+            },
+            "highlight_icon": {
+              "label": "Vurgu simgesi",
+              "options": {
+                "unset": "Ayarını kaldır",
+                "star": "Yıldız",
+                "custom": "Custom"
+              }
+            },
+            "custom_icon": {
+              "label": "Özel İkon",
+              "info": "Vurgulanan menü öğelerinin yanında görüntülenecek isteğe bağlı simge (önerilen boyut: 24x24 piksel)"
+            }
+          }
+        },
+        "header_layout": {
+          "label": "Masaüstü üst bilgi düzeni",
+          "info": "Düzen mobil için otomatik olarak optimize edilir.",
+          "options__1": {
+            "label": "Logo / menü merkezi"
+          },
+          "options__2": {
+            "label": "Logo merkezi, sol menü"
+          },
+          "options__3": {
+            "label": "Logo ortada, menü altta"
+          },
+          "options__4": {
+            "label": "Logo solda, menü altta"
+          },
+          "options__5": {
+            "label": "Logo solda, menü solda"
+          }
+        }
+      }
+    },
+    "custom_liquid": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "how_to_use_block": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "name": "Özel Liquid",
+      "liquid_code": "Sıvı kodu",
+      "info": "Gelişmiş özelleştirmeler oluşturmak için uygulama parçacıkları veya başka Liquid kodları ekleyin.",
+      "info_custom_liquid": "Gelişmiş özelleştirmeler oluşturmak için uygulama parçacıkları veya başka kodlar ekleyin. [Learn more](https://shopify.dev/docs/api/liquid)"
+    },
+    "blog-posts": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/blog-posts)",
+      "name": "Blog gönderileri",
+      "settings": {
+        "blog-post": {
+          "label": "Blog yazısı",
+          "blog_post_type": {
+            "label": "Blog yazısı türü",
+            "category": "Kategori",
+            "select_blog": "Seçilen bloglar"
+          }
+        },
+        "blog": {
+          "label": "Blog"
+        }
+      }
+    },
+    "multi_content": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/multi-content)",
+      "name": "Çoklu içerik",
+      "blocks": {
+        "label": "Ayarları engelle",
+        "bellow_image": "Rozet ayarları",
+        "badge": "Arma",
+        "equal_height_adjustment": {
+          "label": "Eşit yükseklik ayarı"
+        },
+        "social_icon": "Sosyal simgeler",
+        "grid_info": "Izgara bilgisi",
+        "grid_info_1": "Tablo bilgisi 1",
+        "grid_info_2": "Tablo bilgisi 2",
+        "grid_info_3": "Izgara bilgisi 3",
+        "grid_info_4": "Izgara bilgisi 4"
+      }
+    },
+    "grid_banner": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/banners/grid-banner)",
+      "name": "Izgara banner",
+      "settings": {
+        "hidden_block_des_mobile": {
+          "label": "Mobil cihazda öğe açıklamasını gizle"
+        }
+      },
+      "blocks": {
+        "item": {
+          "name": "Banner öğesi",
+          "show_arrow": "Ok simgesini göster"
+        }
+      }
+    },
+    "scrolling_text": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/scrolling-text)",
+      "name": "Kayan metin",
+      "settings": {
+        "direction": {
+          "label": "Yön",
+          "left": {
+            "label": "Sağdan sola"
+          },
+          "right": {
+            "label": "Soldan sağa"
+          }
+        },
+        "speed": {
+          "label": "Hız"
+        },
+        "text_size": {
+          "label": "Size"
+        },
+        "blocks": {
+          "image": {
+            "rounded_image": {
+              "label": "Resim köşe yarıçapı"
+            },
+            "image_height": {
+              "label": "Resim yüksekliği"
+            },
+            "image_width": {
+              "label": "Genişlik"
+            }
+          }
+        }
+      }
+    },
+    "shopby-outfit": {
+      "name": "Kıyafete göre alışveriş yapın",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-by-outfit)",
+      "blocks": {
+        "outfit": {
+          "name": "Kıyafet",
+          "settings": {
+            "product": {
+              "label": "Ürün listesi"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Kıyafete göre alışveriş yapın"
+      },
+      "setting": {
+        "media": {
+          "label": "Medya türü"
+        },
+        "video_autoplay": {
+          "info": "Yalnızca Medya Türü blok ayarlarında Video seçildiğinde çalışır."
+        }
+      }
+    },
+    "collection-list": {
+      "name": "Koleksiyon listesi",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/collection-list)",
+      "settings": {
+        "header": {
+          "collection": "Collection",
+          "collection_title": "Koleksiyon başlığı",
+          "collection_card": "Koleksiyon kartı",
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "how_to_use_collection_title": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/page-heading)"
+        },
+        "collection_title_style": {
+          "label": "Koleksiyon başlığı stili",
+          "text": "Text",
+          "button": "Düğme"
+        },
+        "show_product_count": {
+          "label": "Ürün sayısını göster"
+        },
+        "overlay_image_settings": "Yer paylaşımlı görüntü ayarları",
+        "overlay_image_color": "Metin rengi",
+        "collection_overlay_image_color": "Koleksiyon metin rengi"
+      },
+      "blocks": {
+        "featured_collection": {
+          "name": "Collection",
+          "settings": {
+            "collection": {
+              "label": "Collection"
+            },
+            "image": {
+              "label": "Image",
+              "info": "Koleksiyon görselini kullanmak için boş bırakın",
+              "info_highlight": "Koleksiyon görselini kullanmak için boş bırakın. 330 piksel x 520 piksel önerilir",
+              "info_suitable": "Koleksiyon görselini kullanmak için boş bırakın. 147 piksel x 72 piksel önerilir",
+              "info_collection_item": "444 piksel x 444 piksel önerilir"
+            },
+            "title": {
+              "label": "Başlık",
+              "info": "Koleksiyonun başlığını kullanmak için boş bırakın"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Koleksiyon listesi"
+      }
+    },
+    "quickview": {
+      "name": "Quickview",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/overlay-group/quickview)",
+      "settings": {
+        "paragraph": "Bu bölüm hızlı görünüm açılır penceresini özelleştirmenize olanak tanır."
+      }
+    },
+    "featured-collection": {
+      "name": "Öne çıkan koleksiyon",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/featured-collection)"
+    },
+    "expandable_card": {
+      "name": "Genişletilebilir kart",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/expandable-card)",
+      "settings": {
+        "card_header": "Kart ayarları",
+        "interaction_behavior": {
+          "label": "Etkileşim davranışı",
+          "options": {
+            "hover": "Fareyle üzerine gelindiğinde göster",
+            "drawer": "Çekmeceyi aç'a tıklayın"
+          }
+        }
+      },
+      "blocks": {
+        "layered_card": {
+          "name": "Katmanlı kartlar",
+          "settings": {
+            "media_header": "Image",
+            "description": "Açıklama",
+            "drawer_page": "Sayfadan açıklama"
+          }
+        }
+      }
+    },
+    "featured-product": {
+      "name": "Öne çıkan ürün",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/featured-product)",
+      "settings": {
+        "product": "Product"
+      }
+    },
+    "slideshow": {
+      "name": "Slideshow",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/slideshow)",
+      "settings": {
+        "loading_background_color": {
+          "label": "Arka plan yükleniyor",
+          "info": "Video slaytı yüklenirken gösterilen arka plan rengi."
+        },
+        "slide_height": {
+          "label": "Slayt yüksekliği",
+          "full_screen": "Tam ekran",
+          "adapt_to_first_image": "İlk resme uyarla",
+          "small": "Küçük",
+          "medium": "Orta",
+          "large": "Büyük"
+        },
+        "info": "1920px x 840px önerilir",
+        "info_mobile": "390px x 572px önerilir",
+        "blocks": {
+          "image": {
+            "label": "Resim slaytı",
+            "image_overlay_opacity": {
+              "label": "Görüntü yer paylaşımı opaklığı",
+              "overlay_opacity": "Kaplama opaklığı"
+            }
+          },
+          "video": {
+            "label": "Video slaytı",
+            "video_setting": "Video ayarları",
+            "video_overlay_opacity": {
+              "label": "Video yer paylaşımı opaklığı"
+            }
+          }
+        }
+      }
+    },
+    "related-products": {
+      "name": "İlgili ürünler",
+      "how_to_use": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/related-products)"
+    },
+    "similar-products": {
+      "name": "Benzer ürünü satın alın",
+      "how_to_use": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-product)"
+    },
+    "complete-the-look": {
+      "name": "Görünümü tamamlayın",
+      "how_to_use": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/group-sections/products/complete-the-look)"
+    },
+    "similar-color": {
+      "name": "Benzer Renkleri Satın Al",
+      "how_to_use": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-color)"
+    },
+    "quick-order-list": {
+      "name": "Hızlı sipariş listesi"
+    },
+    "newsletter": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/newsletter)",
+      "name": "Bülten",
+      "settings": {
+        "header": {
+          "heading_setting": "Bülten ayarı"
+        }
+      }
+    },
+    "rich-text": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/rich-text)",
+      "name": "Zengin metin",
+      "settings": {
+        "max_width": {
+          "label": "Maksimum genişlik",
+          "info": "Maksimum genişlik mobil cihazlar için otomatik olarak optimize edilir."
+        },
+        "rotating_text": "Dairesel metin",
+        "separator_spacing": {
+          "label": "Ayırıcı aralığı",
+          "info": "İfadeler arasındaki - veya • gibi ayırıcıların iki yanına boşluk ekler."
+        }
+      }
+    },
+    "recently-viewed-products": {
+      "name": "Son görüntülenen ürünler",
+      "info": "Son görüntülenen ürünleri yüklemek için sayfayı kaydedin",
+      "how_to_use": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/recently-product)"
+    },
+    "info-gallery-products": {
+      "name": "ANA İÇERİK ",
+      "how_to_use": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metaobjects/info-gallery)"
+    },
+    "product-benefits": {
+      "name": "Ürün avantajları",
+      "how_to_use": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/product-benefits)",
+      "settings": {
+        "media_header": "Merkezi medya",
+        "image": {
+          "label": "Image",
+          "info": "Boş olduğunda ürünün öne çıkan görselini kullanır. 640 x 900 piksel önerilir."
+        },
+        "media_width": {
+          "label": "Masaüstünde resim genişliği"
+        },
+        "video": {
+          "label": "Video"
+        },
+        "video_poster": {
+          "label": "Video poster resmi"
+        }
+      },
+      "blocks": {
+        "benefit": {
+          "name": "Fayda",
+          "settings": {
+            "icon": {
+              "label": "Simge"
+            }
+          }
+        }
+      }
+    },
+    "quiz-results-products": {
+      "name": "Test sonuçları ürünleri"
+    },
+    "quiz": {
+      "name": "Quiz",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/utilities-and-layout/quiz)",
+      "settings": {
+        "intro_header": "Giriş",
+        "enable_intro_step": {
+          "label": "Giriş adımını etkinleştir"
+        },
+        "intro_button_label": {
+          "label": "Başlat düğmesi etiketi"
+        },
+        "show_retake_button": {
+          "label": "Tekrar çekme düğmesini göster"
+        },
+        "retake_label": {
+          "label": "Yeniden al düğmesi etiketi"
+        },
+        "results_display_header": "Sonuçlar ekranı",
+        "content_max_width": {
+          "label": "İçerik maksimum genişliği"
+        },
+        "show_back_button": {
+          "label": "Geri düğmesini göster"
+        },
+        "email_header": "E-posta adımı",
+        "enable_email_step": {
+          "label": "E-posta adımını etkinleştir"
+        },
+        "email_heading": {
+          "label": "E-posta başlığı"
+        },
+        "email_placeholder": {
+          "label": "E-posta yer tutucusu"
+        },
+        "continue_label": {
+          "label": "Devam düğmesi etiketi"
+        },
+        "skip_label": {
+          "label": "Düğme etiketini atla"
+        },
+        "results_banner_image": {
+          "label": "Sonuçlar banner resmi"
+        },
+        "fallback_products": {
+          "label": "Geri dönüş ürünleri",
+          "info": "Yalnızca test yanıtları sırasında gösterilen ürünler herhangi bir güçlü veya kısmi eşleşme döndürmez. Yedek olarak kullanın, böylece sonuçlar sayfası asla boş kalmaz."
+        },
+        "results_products_limit": {
+          "label": "Gösterilecek maksimum ürün"
+        }
+      }
+    },
+    "compare-products": {
+      "name": "Ürünleri karşılaştırın",
+      "how_to_use": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/compare-items)",
+      "settings": {
+        "header": {
+          "label": "Ayarları karşılaştır"
+        },
+        "show_price": "Fiyat",
+        "show_ratings": "Derecelendirmeler",
+        "show_vendor": "Satıcı",
+        "show_color": "Color",
+        "show_size": "Size",
+        "show_highlights": "Öne Çıkanlar",
+        "show_availability": "Kullanılabilirlik"
+      }
+    },
+    "bought-together-products": {
+      "name": "Birlikte satın alınan ürünler",
+      "how_to_use": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/frequently-bought-together)"
+    },
+    "media-with-text": {
+      "name": "Metin içeren medya",
+      "info_image": {
+        "info_desktop": "950 piksel x 844 piksel önerilir",
+        "info_mobile": "475 piksel x 422 piksel önerilir",
+        "info_video": "Görüntü ayarını geçersiz kılar. 950 piksel x 844 piksel önerilir"
+      }
+    },
+    "product-specifications": {
+      "name": "Ürün özellikleri",
+      "item_name": "Product specifications item",
+      "specifications_layout": "Özellik düzeni",
+      "grid_gap": "Izgara boşluğu",
+      "mobile_rows_shown": "Satırlar",
+      "view_more_label": "Daha fazla göster düğmesi etiketi",
+      "view_less_label": "Daha az göster düğmesi etiketi",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-specifications)"
+    },
+    "image-with-text": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/image-with-text)",
+      "name": "Görüntüyü ve metni göster",
+      "settings": {
+        "desktop_vertical_alignment": {
+          "label": "Masaüstü dikey hizalama",
+          "top": "Üst",
+          "middle": "Orta",
+          "bottom": "Alt"
+        },
+        "vertical_alignment": "Dikey hizalama",
+        "background_type": {
+          "label": "Arka plan türü",
+          "image": "Image",
+          "color": "Color"
+        },
+        "background_color": "Arka plan rengi",
+        "background_image": "Arkapşan görüntüsü",
+        "text_color": "Metin rengi",
+        "image_info": "696 piksel x 500 piksel önerilir",
+        "offer_image_with_text_info": "360 piksel x 200 piksel önerilir",
+        "image_caption": {
+          "label": "Görsel başlığı",
+          "heading": "Başlık",
+          "description": "Açıklama",
+          "position": "Konum"
+        }
+      }
+    },
+    "before_after_result": {
+      "name": "Önce sonra",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/banners/before-after)",
+      "before_text": {
+        "label": "Metinden önce",
+        "default": "Önce"
+      },
+      "after_text": {
+        "label": "Metinden sonra",
+        "default": "Sonrasında"
+      }
+    },
+    "parallax-image-with-text": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/banners/parallax-split)",
+      "name": "Paralaks bölünmesi",
+      "settings": {
+        "image": {
+          "image_1": {
+            "label": "Görsel 1"
+          },
+          "image_2": {
+            "label": "Görsel 2"
+          },
+          "image_3": {
+            "label": "Görsel 3"
+          }
+        },
+        "parallax_image": {
+          "label": "Paralaks Görüntü"
+        }
+      }
+    },
+    "discount_popup": {
+      "info": "Bu bölüm abonelikten sonra açılır pencereyi görüntülemek için kullanılır.",
+      "name": "İndirim açılır penceresi",
+      "how_to_use": "[Bu ayarın kullanımı](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/discount-popup)",
+      "settings": {
+        "discount_code": {
+          "label": "Promosyon bağlantısı",
+          "info": "Promosyon bağlantısı nasıl alınır? [Learn more](https://help.shopify.com/en/manual/discounts/managing-discount-codes#promote-a-discount-using-a-shareable-link)"
+        },
+        "discount_button": {
+          "label": "Promosyon düğmesi etiketi",
+          "default": "👉%10 İndirimle Alışveriş Yapın"
+        },
+        "sub_heading": {
+          "default": "Yaşasın! Abone oldun"
+        },
+        "info_image": "Bu resim mobil cihazlarda otomatik olarak gizlenecek. 350 piksel x 410 piksel önerilir"
+      }
+    },
+    "image-with-text-overlay": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/image-with-text-overlay)",
+      "name": "Metin bindirmeli görüntü",
+      "countdown": "Geri Sayım Saati",
+      "count_down": "Geri Sayım",
+      "how_to_use_count_down": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/countdown)",
+      "end_time": {
+        "label": "Bitiş Zamanı",
+        "info": "örn. aa - gg - yyyy"
+      },
+      "message": {
+        "label": "Form zaman aşımı mesajı",
+        "info": "Süre dolduğunda bu mesaj görüntülenecektir."
+      },
+      "image_info": {
+        "info_desktop": "1392 piksel x 500 piksel önerilir",
+        "info_mobile": "400 piksel x 469 piksel önerilir"
+      }
+    },
+    "media-hero": {
+      "name": "Medya kahramanı",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/media-hero)",
+      "media": "Medya",
+      "info": "Görüntü ayarını geçersiz kılar."
+    },
+    "video": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/video)",
+      "name": "Video",
+      "settings": {
+        "video_local": {
+          "label": "Yerel video",
+          "info_2": "Video URL'si ayarını geçersiz kılar.",
+          "info_multi_content_video": "Video URL'si ayarını geçersiz kılar. 684 piksel x 500 piksel önerilir.",
+          "info_poster": "Videoyla aynı boyutları kullan"
+        },
+        "video_link": {
+          "label": "Video URL'si",
+          "info": "YouTube veya Vimeo URL'sini kabul eder"
+        },
+        "video_poster": {
+          "label": "Video posteri"
+        },
+        "alt_description": {
+          "label": "Video alternatif metni",
+          "info": "Ekran okuyucu kullanan müşteriler için videoyu açıklayın. [Daha fazla bilgi edinin](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#video-block)"
+        },
+        "autoplay": {
+          "label": "Videonun otomatik oynatılması",
+          "info": "Otomatik oynatmaya izin vermek için videoların sesi otomatik olarak kapatılır"
+        },
+        "looping": {
+          "label": "Video döngüsü"
+        },
+        "show_action": {
+          "label": "Video kontrollerini göster"
+        },
+        "aspect_ratio": {
+          "label": "En boy oranı",
+          "option__1": "16:9",
+          "option__2": "21:9",
+          "option__3": "Videoya uyarlayın"
+        },
+        "show_text_bellow": {
+          "label": "Mobil cihazda videonun altındaki metni göster",
+          "info": "Metin, mobil cihazdaki videonun altında gösterilecektir."
+        }
+      }
+    },
+    "main-password-content": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/other-pages/password-page)",
+      "name": "Şifre Sayfası",
+      "settings": {
+        "header__2": {
+          "content": "İçerik Ayarı"
+        }
+      },
+      "blocks": {
+        "countdown_bn": {
+          "settings": {
+            "countdown_design": {
+              "label": "Tasarım",
+              "options__1": {
+                "label": "Default"
+              },
+              "options__2": {
+                "label": "Modern"
+              }
+            }
+          }
+        },
+        "form_subscribe": {
+          "name": "Form aboneliği",
+          "settings": {
+            "email_placeholder": {
+              "label": "E-posta yer tutucu metni"
+            },
+            "btn_label": {
+              "label": "Düğme etiketi"
+            }
+          }
+        }
+      }
+    },
+    "divider": {
+      "settings": {
+        "height": {
+          "label": "Height"
+        },
+        "color": {
+          "label": "Color"
+        }
+      }
+    },
+    "faq": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/faqs)",
+      "name": "SSS",
+      "main-faq": "Ana SSS sayfası",
+      "heading": {
+        "content": "SSS mesajı"
+      },
+      "info_image": "646 piksel x 700 piksel önerilir",
+      "settings": {
+        "show_faqs_message": "SSS mesajını göster",
+        "show_image": "Resmi göster",
+        "open_all_question": "Tüm soruları aç",
+        "framed": "Çerçeveli",
+        "faq_style": "SSS stili",
+        "desktop_layout": {
+          "label": "Masaüstü düzeni",
+          "horizontal": "Yatay",
+          "vertical": "Dikey"
+        }
+      },
+      "blocks": {
+        "name": "SSS öğeleri",
+        "settings": {
+          "question": {
+            "question": "Soru",
+            "answer": "Cevap"
+          }
+        }
+      }
+    },
+    "page-faq": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/other-pages/faq-page)"
+    },
+    "video-with-text-overlay": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/video-with-text-overlay)",
+      "name": "Metin kaplamalı video",
+      "settings": {
+        "video_local": {
+          "label": "Yerel video",
+          "info": "Video URL'si ayarını geçersiz kılar. 1392 piksel x 550 piksel önerilir",
+          "info_mobile": "390px x 550px önerilir"
+        },
+        "video_link": {
+          "label": "Video bağlantısı"
+        },
+        "video_poster": {
+          "info": "Videoyla aynı boyutlar"
+        },
+        "overlay_opacity": "Kaplama opaklığı",
+        "video_height": {
+          "label": "Video yüksekliği",
+          "options__1": {
+            "label": "Videoya uyarlayın"
+          },
+          "options__2": {
+            "label": "Küçük"
+          },
+          "options__3": {
+            "label": "Orta"
+          },
+          "options__4": {
+            "label": "Büyük"
+          }
+        }
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "Ürün Izgarası",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/product-grid)",
+      "settings": {
+        "items_per_page": {
+          "label": "Sayfa başına gösterilecek öğeler"
+        },
+        "columns_desktop": {
+          "label": "Masaüstünde satır başına sütun"
+        },
+        "show_product_counts": {
+          "label": "Ürün sayılarını göster"
+        }
+      }
+    },
+    "main-collection": {
+      "settings": {
+        "items_per_page": {
+          "label": "Sayfa başına gösterilecek öğeler"
+        },
+        "columns_desktop": {
+          "label": "Masaüstünde satır başına sütun"
+        },
+        "enable_filtering": {
+          "label": "Filtrelemeyi etkinleştirin",
+          "info": "Search & Discovery uygulamasıyla filtreleri özelleştirin. [Daha fazla bilgi edinin ]( https://help.shopify.com/manual/online-store/search-and-discovery/filters)"
+        },
+        "filter_type": {
+          "label": "Masaüstü filtre düzeni",
+          "options__1": {
+            "label": "Horizontal"
+          },
+          "options__2": {
+            "label": "Vertical"
+          },
+          "options__3": {
+            "label": "Çekmece"
+          }
+        },
+        "enable_sorting": {
+          "label": "Sıralamayı aktif yap"
+        },
+        "show_product_counts": {
+          "label": "Ürün sayılarını göster"
+        },
+        "header__1": {
+          "content": "Filtreleme ve sıralama"
+        }
+      },
+      "blocks": {
+        "promotion": {
+          "name": "Teşvik",
+          "promotion_position": {
+            "label": "Terfi pozisyonu"
+          },
+          "info": "330px 550px önerilir"
+        },
+        "steps": {
+          "name": "Adım adım alışveriş yapın",
+          "info": "337 piksel x 200 piksel önerilir"
+        }
+      }
+    },
+    "main-search": {
+      "name": "Arama sonuçları",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/other-pages/search-page)",
+      "settings": {
+        "search_results": {
+          "label": "Sonuçları göster",
+          "option_1": "Default",
+          "option_2": "Sekme"
+        }
+      }
+    },
+    "main-article": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/other-pages/blog-post-page)",
+      "name": "Blog yazısı",
+      "settings": {
+        "show_date": "Gönderi Tarihini Göster",
+        "show_comment": "Yorumu göster",
+        "show_excerpt": "Gönderi alıntısını göster",
+        "show_share": "Paylaş düğmesini göster",
+        "blocks": {
+          "featured_image": "Öne Çıkan Görsel",
+          "content_article": "İçerik",
+          "addons": "Eklentiler",
+          "prev_next_articles": "Önceki ve sonraki makaleler"
+        }
+      },
+      "related": {
+        "heading": "İlginizi çekebilir",
+        "articles": {
+          "label": "Yazılar",
+          "info": "Bu sırayla gösterilir. Bu blogun en yeni yazılarını göstermek için boş bırakın."
+        }
+      },
+      "blocks": {
+        "featured_image": {
+          "settings": {
+            "image_height": {
+              "label": "Resim yüksekliği",
+              "options__1": {
+                "label": "Resme uyum sağlayın"
+              },
+              "options__2": {
+                "label": "Küçük"
+              },
+              "options__3": {
+                "label": "Orta"
+              },
+              "options__4": {
+                "label": "Büyük"
+              }
+            }
+          }
+        }
+      },
+      "related_product": {
+        "heading": "İlgili ürünler",
+        "products": {
+          "label": "Ürünler"
+        }
+      }
+    },
+    "cart-drawer": {
+      "name": "Sepet çekmecesi",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/overlay-group/cart-drawer)",
+      "settings": {
+        "info": "Sepet çekmecesini görüntülemek için lütfen Tema ayarlarına gidin ve [cart settings.](/editor?context=theme&category=cart)'te sepet türü olarak Çekmeceyi seçin.",
+        "content": "",
+        "show_free_shipping_message": {
+          "label": "Ücretsiz gönderim mesajını göster",
+          "info": "Tema ayarlarında Ücretsiz Kargo için minimum tutarı belirleyin."
+        },
+        "show_cart_note": "Sepet notunu göster",
+        "show_estimate_shipping": "Tahmini gönderim bedelini göster",
+        "show_discount": "İndirim kodunu göster",
+        "hide_check_badge_on_mobile": "Mobil cihazda Güven rozetleri bloğunu gizle",
+        "hide_icon_with_text_on_mobile": "Mobil cihazda metin bloklu Simgeyi Gizle",
+        "show_gift_wrap": {
+          "label": "Hediye paketini göster",
+          "info": "Lütfen tema ayarlarından hediye paketi ürünlerini seçin."
+        },
+        "discount_progress_bar_active": "İndirim ilerleme çubuğu Tema ayarlarında etkinleştirildi ve ücretsiz kargo mesajının yerini alıyor."
+      }
+    },
+    "main-list-collections": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-list-page)",
+      "name": "Koleksiyon Listesi",
+      "blocks": {
+        "name": "Collection",
+        "settings": {
+          "collection_image": "Koleksiyon görüntüsü"
+        }
+      },
+      "settings": {
+        "information_position": {
+          "label": "Bilgi konumu",
+          "options__1": {
+            "label": "Yer paylaşımlı resim"
+          },
+          "options__2": {
+            "label": "Körük resmi"
+          }
+        },
+        "collection_to_show": {
+          "label": "Gösterilecek koleksiyonlar",
+          "options__1": {
+            "label": "Tümü"
+          },
+          "options__2": {
+            "label": "Seçildi"
+          }
+        },
+        "sort": {
+          "label": "Koleksiyonları sıralama ölçütü",
+          "options__1": {
+            "label": "Alfabetik: A-Z"
+          },
+          "options__2": {
+            "label": "Alfabetik olarak Z-A"
+          },
+          "options__3": {
+            "label": "Yeniden Eskiye"
+          },
+          "options__4": {
+            "label": "Tarihi Eskiden Yeniye"
+          },
+          "options__5": {
+            "label": "Ürün sayıları, yüksekten düşüğe"
+          },
+          "options__6": {
+            "label": "Ürün sayıları, düşükten yükseğe"
+          }
+        }
+      }
+    },
+    "main-blog": {
+      "name": "Blog gönderileri",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/other-pages/blog-page)",
+      "settings": {
+        "header": {
+          "content_post": "Mesaj ayarları"
+        },
+        "maximum_posts_to_show": {
+          "label": "Gösterilecek maksimum gönderi sayısı:"
+        },
+        "post_per_row_desktop": {
+          "label": "Masaüstünde satır başına gönderi"
+        },
+        "show_all_tags": {
+          "label": "Etiket listesini göster"
+        }
+      },
+      "blocks": {
+        "name": "Kayıt formu",
+        "settings": {
+          "show_email_icon": "E-posta simgesi",
+          "form_position": "Form Konumu"
+        }
+      }
+    },
+    "main-product": {
+      "name": "Ürün Bilgisi",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "settings": {
+        "header": {
+          "content": "Medya"
+        },
+        "enable_sticky_desktop": {
+          "label": "Masaüstünde yapışkan sepeti eklemeyi etkinleştir"
+        },
+        "desktop_layout": {
+          "label": "Masaüstü düzeni",
+          "group": {
+            "static": "Izgara",
+            "carousel": "Atlıkarınca"
+          },
+          "one_columns": {
+            "label": "1 sütun"
+          },
+          "options__1": {
+            "label": "2 sütun"
+          },
+          "options__2": {
+            "label": "Yatay küçük resimler"
+          },
+          "options__3": {
+            "label": "Yığın"
+          },
+          "options__4": {
+            "label": "Dikey küçük resimler"
+          },
+          "options__5": {
+            "label": "Dikey küçük resimler (Kaydırma)"
+          },
+          "options__6": {
+            "label": "2 sütun"
+          }
+        },
+        "thumbnail_carousel_setting": {
+          "label": "Küçük resim karusel ayarı",
+          "number_thumbs": "Küçük Resim Sayısı"
+        },
+        "media_position": {
+          "label": "Masaüstü medya konumu"
+        },
+        "media_width": {
+          "label": "Masaüstü medya genişliği"
+        },
+        "mobile_thumbnails": {
+          "options__1": {
+            "label": "Küçük resimleri göster"
+          },
+          "options__2": {
+            "label": "Küçük resimleri gizle"
+          }
+        },
+        "enable_video_looping": {
+          "label": "Video döngüsünü etkinleştir"
+        },
+        "enable_image_zoom": {
+          "label": "Görüntü Yakınlaştırma",
+          "options__1": {
+            "label": "Devre dışı bırak"
+          },
+          "options__2": {
+            "label": "İçini yakınlaştır"
+          },
+          "options__3": {
+            "label": "Uzaklaştır"
+          }
+        },
+        "enable_image_lightbox": {
+          "label": "Lightbox'ı Aktif et"
+        },
+        "enable_video_autoplay": {
+          "label": "Videoyu otomatik oynatmayı etkinleştir",
+          "info": "Otomatik oynatmaya izin vermek için videolar otomatik olarak sessize alınır. YouTube/Vimeo için çalışmaz."
+        },
+        "enable_video_controls_default": {
+          "label": "Özel video kontrollerini etkinleştir",
+          "info": "YouTube/Vimeo için çalışmaz."
+        }
+      },
+      "blocks": {
+        "custom_product": {
+          "name": "Özel seçenekler",
+          "tab_setting": {
+            "label": "Sekme etiketleri",
+            "tab_1": {
+              "label": "Tab 1"
+            },
+            "tab_2": {
+              "label": "Tab 2"
+            },
+            "tab_3": {
+              "label": "Sekme 3"
+            }
+          },
+          "description": "Müşterilerin sepete eklemeden önce 3 adımlı bir açılır pencere aracılığıyla ürünü (konum, metin ve renk) kişiselleştirmelerine izin verin. Daha fazla bilgi için [Destek sayfamızı ]( https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/custom-options) ziyaret edin",
+          "placement": "Atama",
+          "text": "Text",
+          "text_limit": "Metin Sınırı",
+          "note": "Not",
+          "color": {
+            "name": "Color",
+            "options": {
+              "color_1": "Renk 1",
+              "color_2": "Renk 2",
+              "color_3": "Renk 3",
+              "color_4": "Renk 4",
+              "color_5": "Renk 5",
+              "color_6": "Renk 6",
+              "color_7": "Renk 7",
+              "color_8": "Renk 8",
+              "color_9": "Renk 9:",
+              "color_10": "Renk 10:"
+            }
+          }
+        }
+      }
+    },
+    "main-cart-items": {
+      "name": "Ana araba",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/other-pages/cart-page)",
+      "block": {
+        "icon_with_text": "Metin içeren simge",
+        "trust_badges": "Trust Me rozetleri"
+      }
+    },
+    "main-collection-banner": {
+      "name": "Koleksiyon afişi",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/collection-banner)",
+      "settings": {
+        "heading": {
+          "label": "Ayarlar"
+        },
+        "use_collection_image": {
+          "label": "Koleksiyon resmini kullan",
+          "info": "Arka plan görüntüsü ayarını geçersiz kıl"
+        },
+        "image_height": {
+          "option__2": "İçerik Üzerine"
+        },
+        "image_position": {
+          "label": "Görsel konumu",
+          "option__1": "Sol",
+          "option__2": "Sağ"
+        },
+        "image_opacity": {
+          "label": "Resim matlığı"
+        }
+      }
+    },
+    "contact-form": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/contact-form)",
+      "name": "İletişim formu",
+      "settings": {
+        "name": "Ad",
+        "email_placeholder": "Email",
+        "message": "Mesaj",
+        "option": "Seçenek",
+        "info_option": "Seçeneğin adını tanımlayın. Seçenekleri virgülle ayırın. Örn. Ürün, Sipariş, Basın, Diğer"
+      }
+    },
+    "main-404": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/other-pages/404-page)",
+      "name": "Ana 404",
+      "info_image": "500 piksel x 288 piksel önerilir"
+    },
+    "main-activate-account": {
+      "name": "Hesap etkinleştirme"
+    },
+    "main-password-footer": {
+      "name": "Parola alt bilgisi"
+    },
+    "main-account": {
+      "name": "Hesap"
+    },
+    "main-register": {
+      "name": "Kayıt"
+    },
+    "main-login": {
+      "name": "Oturum Aç"
+    },
+    "main-reset-password": {
+      "name": "Şifre sıfırlama"
+    },
+    "main-order": {
+      "name": "Emir"
+    },
+    "main-addresses": {
+      "name": "Adresler"
+    },
+    "announcement-bar": {
+      "how_to_use": {
+        "label": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/announcement-bar)"
+      },
+      "name": "Duyuru çubuğu",
+      "settings": {
+        "type": {
+          "name": "Tür",
+          "options": {
+            "slide": {
+              "label": "Atlıkarınca"
+            },
+            "marquee": {
+              "label": "Marquee"
+            }
+          }
+        },
+        "show_only_homepage": {
+          "label": "Yalnızca ana sayfada göster"
+        },
+        "show_close_button": {
+          "label": "Kapat düğmesini göster"
+        },
+        "enable_on_mobile": {
+          "label": "Mobil cihazda etkinleştir"
+        },
+        "marquee_settings": {
+          "label": "Seçim çerçevesi ayarları",
+          "speed": {
+            "label": "Hız"
+          },
+          "show_icon": {
+            "label": "Simgeyi göster"
+          }
+        }
+      },
+      "blocks": {
+        "name": "Duyuru",
+        "setting": {
+          "label": "Text"
+        }
+      }
+    },
+    "multimedia_with_text": {
+      "blocks": {
+        "settings": {
+          "header": "Medya ayarları",
+          "media_style": {
+            "label": "Medya stili",
+            "options__1": {
+              "label": "Yuvarlak"
+            },
+            "options__2": {
+              "label": "Oval"
+            },
+            "options__3": {
+              "label": "Default"
+            }
+          }
+        }
+      }
+    },
+    "product-tabs": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/vertical-product-tabs)",
+      "name": "Ürün sekmeleri",
+      "setting": {
+        "layout": {
+          "label": "Masaüstü düzeni",
+          "vertical": "Vertical",
+          "horizontal": "Horizontal"
+        },
+        "banner_header": "Banner",
+        "show_banner": "Bannerı göster",
+        "sticky_banner": "Sabit banner",
+        "portrait_4_5": "Dikey (4:5)",
+        "enable_carousel_info": "Mobil cihazda ürün düzeni her zaman karusel olarak gösterilir."
+      },
+      "blocks": {
+        "name": "Sekme",
+        "header": "Ayarları engelle",
+        "settings": {
+          "hidden_des_mobile": {
+            "label": "Mobil cihazda sekme açıklamasını gizle"
+          },
+          "collection": {
+            "label": "Collection",
+            "description": "Açıklama"
+          }
+        }
+      },
+      "presets": {
+        "product_tabs_with_banner": "Bannerlı ürün sekmeleri"
+      }
+    },
+    "collection-highlights": {
+      "name": "Koleksiyonun öne çıkanları",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/collection-highlights)",
+      "settings": {
+        "highlight_collection_width": {
+          "label": "Koleksiyon genişliği öne çıkarıyor"
+        }
+      },
+      "blocks": {
+        "header": "Ayarları engelle",
+        "type": {
+          "type_highlight": {
+            "header": "Koleksiyonda öne çıkan ayarlar",
+            "name": "Koleksiyonun öne çıkanları"
+          }
+        }
+      }
+    },
+    "collection-pills": {
+      "name": "Koleksiyon hapları",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/collections/collection-pills)",
+      "settings": {
+        "pill_style": {
+          "label": "Hap stili"
+        },
+        "show_image_on_hover": {
+          "label": "Üzerine gelindiğinde görseli göster",
+          "info": "Üzerine gelinen görsel mobil cihazda gizlenir."
+        },
+        "horizontal_scroll": {
+          "label": "Yatay kaydırma"
+        }
+      }
+    },
+    "suitable_products_finder": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/suitable-products-finder)",
+      "name": "Uygun ürün bulucu",
+      "settings": {
+        "collection_tab_header": {
+          "label": "Koleksiyon sekmesi"
+        },
+        "collection_tab_style": {
+          "label": "Koleksiyon sekmesi stili"
+        },
+        "collection_tab_style_options": {
+          "range_slider": {
+            "label": "Aralık kaydırıcısı"
+          },
+          "pill_tabs": {
+            "label": "Hap sekmeleri"
+          }
+        },
+        "show_pill_tabs_with_heading": {
+          "label": "Başlıkla satır içi",
+          "info": "Renk seçiciyi başlıkla aynı satırda gösterin."
+        },
+        "show_pill_tabs_color": {
+          "label": "Renkli noktayı göster"
+        },
+        "pill_tabs_color": {
+          "label": "Color"
+        },
+        "pill_tabs_image": {
+          "info": "Bir resim yüklendiğinde Desen resmi, Rengi geçersiz kılacaktır."
+        },
+        "image_collection_width": {
+          "label": "Resim genişliği"
+        },
+        "range_slider": {
+          "settings": {
+            "show_range_slider": {
+              "label": "Aralık kaydırıcısını göster",
+              "info": "Menzil kaydırıcısı mobil cihazda otomatik olarak gizlenecektir."
+            }
+          }
+        }
+      },
+      "preset": {
+        "ranger_slider": "Ürün bulucu: Aralık kaydırıcısı",
+        "pill_tabs": "Ürün bulucu: Hap tabletleri",
+        "color_dots": "Ürün bulucu: Renkli noktalar"
+      }
+    },
+    "icon-box": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/icon-box)",
+      "name": "Simge kutusu",
+      "settings": {
+        "icon_settings": {
+          "header": "Simge ayarları",
+          "icon_position": {
+            "label": "Konum"
+          },
+          "icon_size": {
+            "label": "Size"
+          },
+          "radius_image": {
+            "label": "Yuvarlak Resim?",
+            "info": "Bu ayar yalnızca simge bir görüntü olduğunda çalışır."
+          }
+        }
+      }
+    },
+    "metric-banner": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/metric-banner)",
+      "name": "Metrik afiş",
+      "settings": {
+        "metric_setting": "METRİK AYARLAR",
+        "metric_font_size": "Metrik yazı tipi boyutu",
+        "enable_metric_animation": "Metrik animasyonu etkinleştir",
+        "metric_value": {
+          "start": "Metrik başlangıç değeri",
+          "end": "Metrik bitiş değeri"
+        },
+        "metric_unit": "METRİK BİRİMİ"
+      },
+      "block": {
+        "name": "Metrik madde"
+      }
+    },
+    "compact_product_bundle": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/compact-product-bundle)",
+      "name": "Kompakt ürün paketi",
+      "settings": {
+        "image": {
+          "label": "Image",
+          "info_desktop": "696 piksel x 750 piksel önerilir",
+          "info_mobile": "350 piksel x 303 piksel önerilir"
+        },
+        "enable_quick_add_for_items": {
+          "label": "Öğeler için hızlı eklemeyi etkinleştir"
+        },
+        "hidden_button_mobile": {
+          "label": "Mobil cihazda gizli düğme"
+        },
+        "products_show": {
+          "label": "Ürünler şu şekilde gösteriliyor:",
+          "options__1": {
+            "label": "Liste"
+          },
+          "options__2": {
+            "label": "Izgara"
+          }
+        }
+      },
+      "presets": {
+        "name": "Kompakt ürün paketi"
+      },
+      "blocks": {
+        "settings": {
+          "name": "Product",
+          "select_product": "Product",
+          "position_top": "Dikey konum",
+          "position_left": "Yatay konum"
+        }
+      }
+    },
+    "mobile-navigation-bar": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/overlay-group/mobile-navigation-bar)",
+      "name": "Mobile navigation",
+      "info": "Bu bölüm yalnızca mobil cihazlarda gösterilir. Lütfen mobil görünüme geçin.",
+      "settings": {
+        "show_section": "Mobil Navigasyon Etkinleştir",
+        "show_shop": "Mağazayı göster",
+        "show_account": "Hesabı göster",
+        "show_cart": "Sepeti görüntüle",
+        "show_homepage": "Anasayfamı Göster@ item: inlistbox"
+      }
+    },
+    "mobile_first": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/mobile-first)",
+      "name": "Öne çıkan galeri",
+      "image_1": "Spot görüntü",
+      "image_2": "Spot görüntü",
+      "image_3": "Görsel 3",
+      "image_4": "Görsel 4",
+      "image_5": "Image 5",
+      "text_1": "Spot metin 1",
+      "text_2": "Spot metin 2",
+      "text_3": "Spot metin 3",
+      "text_4": "Spot metin 4",
+      "text_5": "Spot metin 5"
+    },
+    "shopable_video": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/shopable-video)",
+      "name": "Alışveriş yapılabilir video",
+      "settings": {
+        "video_settings": {
+          "header": "Video ayarları"
+        },
+        "enable_sticky": {
+          "label": "Video yapışkanlığını etkinleştir",
+          "option_1": {
+            "label": "Devre dışı bırak"
+          },
+          "option_2": {
+            "label": "Yalnızca masaüstü"
+          },
+          "option_3": {
+            "label": "Tüm ekranlar"
+          }
+        },
+        "ratio": {
+          "adapt": {
+            "label": "İlk videoya uyarlayın"
+          }
+        },
+        "video": {
+          "auto_play": {
+            "info": "Bu blok etkin olduğunda veya ekranda göründüğünde video otomatik olarak oynatılacaktır"
+          }
+        },
+        "show_product_card": {
+          "label": "Ürün kartını göster"
+        }
+      },
+      "blocks": {
+        "name": "Video",
+        "settings": {
+          "poster_image": {
+            "label": "Poster resmi",
+            "info": "1080px x 1920px önerilir"
+          },
+          "local_video": {
+            "label": "Yerel video"
+          },
+          "select_product": {
+            "label": "Product"
+          }
+        }
+      }
+    },
+    "image_card": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/image-cards)",
+      "name": "Görüntü kartları",
+      "blocks": {
+        "header": "Kart ayarları",
+        "group_name": "Kart",
+        "info": "451 piksel x 453 piksel önerilir"
+      }
+    },
+    "testimonials": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonials)",
+      "name": "Basmak",
+      "settings": {
+        "header": "Ayarlara basın",
+        "show_icon_quote": {
+          "label": "Alıntı simgesini göster"
+        }
+      },
+      "blocks": {
+        "name": "Öğeye basın",
+        "settings": {
+          "quote": {
+            "label": "Alıntı"
+          },
+          "info_image": "180 piksel 60 piksel önerilir"
+        }
+      }
+    },
+    "press_card": {
+      "name": "Basın Kartı",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/press-card)",
+      "blocks": {
+        "content": "İçerik",
+        "media": "Medya",
+        "quote": "Alıntı",
+        "settings": {
+          "show_icon_quote": "Alıntı simgesini göster",
+          "author_name": "Yazar adı",
+          "quote_content": "Alıntı içeriği",
+          "press-image": {
+            "info": "Arka plan rengi ayarını geçersiz kılar"
+          }
+        }
+      }
+    },
+    "scrolling_image": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/scrolling-image)",
+      "name": "Galeri resmi",
+      "settings": {
+        "show_background_blur": {
+          "label": "Bulanık arka planı göster"
+        },
+        "show_icon_hover": {
+          "label": "Fareyle üzerine gelindiğinde instagram simgesini göster"
+        },
+        "info_image": "303px x 303px önerilir"
+      }
+    },
+    "featured_product_banner": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/featured-product-banner)",
+      "name": "Öne çıkan ürün banner'ı",
+      "hide_icon_text": "Mobil cihazda metin bloklarıyla simgeyi gizle",
+      "blocks": {
+        "name": "Metin içeren simge"
+      },
+      "info": {
+        "info_desktop": "400 piksel x 400 piksel önerilir",
+        "info_mobile": "300 piksel x 300 piksel önerilir"
+      }
+    },
+    "product_testimonials": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-testimonials)",
+      "name": "Ürün referansları",
+      "settings": {
+        "header": "Görüş ayarları",
+        "rating_color": {
+          "label": "Derecelendirme rengi"
+        },
+        "rating_type": {
+          "label": "Derecelendirme türü",
+          "default": "Default",
+          "modern": "Modern",
+          "show": "Derecelendirmeyi göster",
+          "show_before_after": "Metinden öncesini göster"
+        },
+        "product_rounded": {
+          "label": "Ürün resmi köşe yarıçapı"
+        },
+        "show_verified_buyer": {
+          "label": "Doğrulanmış alıcıyı göster"
+        },
+        "show_author_name": {
+          "label": "Yazar adını göster"
+        }
+      },
+      "blocks": {
+        "type": {
+          "media": {
+            "label": "Referans medyası"
+          },
+          "image_comparison": {
+            "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/image-comparison)",
+            "label": "Referans görseli karşılaştırması",
+            "name": "Resim karşılaştırması",
+            "show_after_before_text": {
+              "label": "Metnin öncesini/sonrasını göster"
+            }
+          }
+        },
+        "settings": {
+          "media": {
+            "label": "Medya ayarları",
+            "info": "448px x 246px önerilir",
+            "before_after_image": {
+              "label": "Önce sonrası görselleri"
+            },
+            "before_image": {
+              "label": "Önce"
+            },
+            "after_image": {
+              "label": "Sonrasında"
+            }
+          },
+          "information": {
+            "label": "Bilgi ayarları",
+            "rating_star": {
+              "label": "Derecelendirme yıldızı"
+            },
+            "select_product": {
+              "label": "Product"
+            },
+            "author_name": {
+              "label": "Yazar adı"
+            },
+            "review_sumary": {
+              "label": "Özet"
+            },
+            "use_richtext": {
+              "label": "Zengin metin kullan"
+            }
+          }
+        }
+      }
+    },
+    "routine-builder": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/routine-builder)",
+      "name": "Adım adım alışveriş yapın",
+      "blocks": {
+        "name": "Adım",
+        "settings": {
+          "text_step": {
+            "label": "Adım başlığı"
+          },
+          "product_in_step": {
+            "label": "Adımdaki ürün"
+          }
+        }
+      }
+    },
+    "newsletter_popup": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/overlay-group/newsletter-popup)",
+      "name": "E-Bülten açılır pencere",
+      "header": {
+        "heading": "Genel ayarlar"
+      },
+      "settings": {
+        "sections_width": {
+          "label": "Genişlik",
+          "options": {
+            "options__1": "Tam genişlik",
+            "options__2": "Otomatik"
+          }
+        },
+        "collections_selector": {
+          "setting": "Koleksiyon seçici ayarları",
+          "label": "Koleksiyon seçiciyi etkinleştir",
+          "collection": {
+            "label_1": "COLLECTION 1",
+            "label_2": "COLLECTION 2",
+            "label_3": "COLLECTION 3",
+            "label_4": "COLLECTION 4",
+            "label_5": "COLLECTION 5"
+          }
+        },
+        "newsletter_heading": "Bülten Ayarları",
+        "show_on_homepage": "Yalnızca ana sayfada göster",
+        "discount_sticky": {
+          "setting": "İndirim yapışkan",
+          "label": "Yapışkan indirimi göster",
+          "heading": "İçerik",
+          "info": "İçerik, HTML etiketleri de dahil olmak üzere 25 karakterde otomatik olarak kesilecektir."
+        },
+        "heading": "Başlık",
+        "short_description": "Açıklama",
+        "instructional_text": "Öğretim metni",
+        "email_placeholder": "E-posta yer tutucusu",
+        "button_label": "Düğme etiketi",
+        "banner_image": "Banner resmi"
+      }
+    },
+    "featured-blog": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/featured-blog)",
+      "name": "Öne çıkan blog"
+    },
+    "recommended_collection": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/recommended-collection)",
+      "name": "Önerilen koleksiyon",
+      "blocks": {
+        "button": {
+          "info": "[koleksiyon] ve [başlık] otomatik olarak değiştirilecek değişken adlarıdır. İsimleri değiştirmeyin ancak metindeki konumlarını değiştirebilirsiniz. [title] isteğe bağlıdır; yalnızca koleksiyon seçiciyi istiyorsanız onu kaldırın.",
+          "first_button_info": "Görselli form: seçilen filtrelerle sonuç koleksiyonunu açar"
+        },
+        "featured_collection": {
+          "title_info": "Yalnızca satır içi metin: [Başlık] açılır menüsünde bir seçenek olarak gösterilir. Koleksiyon blokları Görselli form düzeninde kullanılmaz"
+        },
+        "filter_dropdown": {
+          "name": "Filtre açılır menüsü",
+          "info": "Görselli form düzeniyle çalışır. Filtreyi önce Shopify Search & Discovery uygulamasında ayarlayın.",
+          "filter_name": {
+            "label": "Filtre adı",
+            "info": "Filtre etiketini koleksiyon sayfalarında göründüğü gibi girin, örneğin «Köpek yaş grubu». Birden fazla dil için etiketleri ; ile ayırın. Fiyat filtreleri desteklenmez."
+          },
+          "placeholder": "Yer tutucu"
+        },
+        "text": {
+          "name": "Metin"
+        }
+      },
+      "background": {
+        "label": "Arka plan resmini göster",
+        "header": "Arkapşan görüntüsü"
+      },
+      "image_info": {
+        "info_desktop": "1920px x 700px önerilir",
+        "info_mobile": "390px x 407px önerilir"
+      },
+      "layout": {
+        "label": "Düzen",
+        "inline": "Satır içi metin",
+        "form": "Görselli form"
+      },
+      "content_color_scheme": "İçerik renk şeması",
+      "results_collection": {
+        "label": "Sonuç koleksiyonu",
+        "info": "Yalnızca Görselli form için. Filtre açılır menüleri bu koleksiyonun filtrelerini gösterir ve ilk düğme koleksiyonu açar. Tüm ürünleri kullanmak için boş bırakın."
+      },
+      "presets": {
+        "form": "Görselli önerilen koleksiyon"
+      }
+    },
+    "offers-popup": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/overlay-group/offers-popup)",
+      "name": "Teklifler açılır penceresi",
+      "popup": {
+        "label": "Başlık teklifi açılır penceresi",
+        "info": "Yer Paylaşımı Grubundaki Teklifler Açılır Pencere blok içeriğini özelleştirin."
+      }
+    },
+    "outfit-finder": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/products/outfit-finder)",
+      "name": "Kıyafet bulucu",
+      "settings": {
+        "product_listing": {
+          "label": "Ürün listesi Düğme Ayarları"
+        },
+        "outfit_finder_logic": {
+          "label": "Önizleme ayarları"
+        },
+        "max_items_to_show": {
+          "label": "Sayfa başına ürünler",
+          "info": "Başlangıçta görüntülenen ürün sayısı. Aşağı kaydırıldığında daha fazla öğe yüklenir."
+        },
+        "max_items": {
+          "label": "Kıyafet başına maksimum ürün",
+          "info": "Bir müşterinin önizleme alanına kaç öğe ekleyebileceğini sınırlar."
+        },
+        "product": {
+          "label": "Önerilen kıyafet",
+          "info": "Sayfa yüklendiğinde önizleme alanında görüntülenecek en fazla 3 ürün seçin."
+        },
+        "notify_preview": {
+          "label": "Boş durum bildirimi",
+          "info": "Herhangi bir öğe eklenmeden önce önizleme alanında gösterilen kılavuz metni."
+        }
+      }
+    },
+    "scrolling-card": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scrolling-card)",
+      "name": "Kaydırma kartı"
+    },
+    "scroll-scatter": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scroll-scatter)",
+      "name": "Saçılımı kaydır"
+    },
+    "store-location": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/other-pages/store-location)",
+      "name": "Mağaza konumu",
+      "settings": {
+        "key_google_map": {
+          "label": "Google Maps API anahtarı",
+          "info": "'Haritalar JavaScript', 'Yerler' ve 'Coğrafi Kodlama' API'lerini gerektirir. [Anahtarı Al](https://console.cloud.google.com/google/maps-apis/credentials)."
+        },
+        "map_settings": {
+          "header": "Harita ayarları"
+        },
+        "allowed_countries": {
+          "label": "İzin verilen ülkeler",
+          "info": "Müşterilerin nerede mağaza arayabileceğini kontrol edin. Virgülle ayırarak ISO ülke kodlarını (ör. ABD, İngiltere, CA) kullanın. Genel olarak arama yapmak için boş bırakın."
+        },
+        "radius_km": {
+          "label": "Arama yarıçapı (km)",
+          "info": "Mağaza sonuçları için maksimum mesafe."
+        }
+      },
+      "blocks": {
+        "name": "Mağaza",
+        "settings": {
+          "store_name": {
+            "label": "Mağaza adı"
+          },
+          "store_address": {
+            "label": "Mağaza adresi"
+          },
+          "store_email": {
+            "label": "E-postayı saklayın"
+          },
+          "store_phone": {
+            "label": "Telefonu sakla"
+          },
+          "store_lat": {
+            "label": "Mağaza enlemi",
+            "info": "Google Maps koordinatlarından ilk sayıyı kopyalayın."
+          },
+          "store_lng": {
+            "label": "Mağaza boylamı",
+            "info": "İkinci sayıyı Google Maps koordinatlarından kopyalayın."
+          },
+          "time_location": {
+            "monday": "Pazartesi",
+            "tuesday": "Salı",
+            "wednesday": "Çarşamba",
+            "thursday": "Perşembe",
+            "friday": "Cuma",
+            "saturday": "Cumartesi",
+            "sunday": "Pazar",
+            "open": "Open",
+            "closed": "Closed",
+            "open_time_hour": "Açılış saati",
+            "open_time_minute": "Açılış saati dakikası",
+            "close_time_hour": "Kapatma saati",
+            "close_time_minute": "Kapatma zamanı dakikası"
+          },
+          "time_schedule": {
+            "monday": "Schedule",
+            "tuesday": "Schedule",
+            "wednesday": "Schedule",
+            "thursday": "Schedule",
+            "friday": "Schedule",
+            "saturday": "Schedule",
+            "sunday": "Schedule"
+          }
+        }
+      }
+    },
+    "product-bundle": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/product-bundle)",
+      "name": "Ürün paketi",
+      "settings": {
+        "discount": {
+          "name": "Discount",
+          "info": "İndirimin nasıl oluşturulacağını [buradan] öğrenin(https://help.shopify.com/manual/discounts)",
+          "minimum": "Gereken minimum öğeler",
+          "maximum": "Maksimum öğe",
+          "edit_quantity": "Her ürün için miktar değişikliğine izin ver",
+          "discount_title": "İndirim kodu",
+          "discount_value": {
+            "name": "İndirim değeri",
+            "option": {
+              "fixed": {
+                "label": "Sabit tutar",
+                "once_per_order": "Sipariş Başına Bir Kez"
+              },
+              "percentage": {
+                "label": "Yüzde"
+              }
+            }
+          }
+        },
+        "your_bundle": {
+          "name": "Discount",
+          "settings": {
+            "show_progress_bar": {
+              "label": "İlerleme çubuğunu göster"
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "product_discount": {
+            "name": "Ürün paketi",
+            "info": "Seçildiğinde koleksiyonun yerini alır."
+          }
+        }
+      }
+    },
+    "shopable-image": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/shopable-image)",
+      "name": "Alışveriş yapılabilir resim",
+      "blocks": {
+        "tags": {
+          "name": "Etiketler",
+          "info": "Etiketlerin adını tanımlayın. Virgülle ayırın. Örneğin. Etiket 1, Etiket 2",
+          "info_image": "448px x 600px önerilir",
+          "settings": {
+            "show_verify_icon": {
+              "label": "Simge işaretini göster"
+            }
+          }
+        },
+        "lookbook": {
+          "name": "Lookbook",
+          "settings": {
+            "products": {
+              "label": "Products",
+              "position_top": "Dikey konum",
+              "position_left": "Yatay konum",
+              "products": {
+                "otpion__1": {
+                  "label": "Ürün 1"
+                },
+                "otpion__2": {
+                  "label": "Ürün 2"
+                },
+                "otpion__3": {
+                  "label": "Ürün 3"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parallax-image": {
+      "blocks": {
+        "icon": {
+          "name": "Simge",
+          "info": "Svg simgesi ayarını geçersiz kılar"
+        }
+      }
+    },
+    "main-page": {
+      "name": "Sayfa"
+    },
+    "subcollection-list": {
+      "name": "Alt koleksiyon",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/sub-collection)"
+    },
+    "before-you-leave": {
+      "name": "Ayrılmadan önce",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/before-you-leave)",
+      "settings": {
+        "header": {
+          "recommended_products": "Önerilen ürünler"
+        },
+        "show_time": {
+          "label": "Şundan sonraki süreyi göster (saniye)"
+        },
+        "banner": {
+          "label": "Banner resmi",
+          "info": "380 piksel x 423 piksel önerilir"
+        },
+        "collection": {
+          "label": "Collection"
+        },
+        "code": {
+          "label": "İndirim kodu"
+        }
+      }
+    },
+    "advanced-slideshow": {
+      "block": {
+        "slide": "Slayt",
+        "settings": {
+          "type": {
+            "label": "Tür",
+            "image": {
+              "label": "Image"
+            },
+            "video": {
+              "label": "Video"
+            }
+          },
+          "media_overlay": {
+            "label": "Medya yer paylaşımı"
+          }
+        }
+      }
+    },
+    "custom_section": {
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/advanced/flexible-section)",
+      "name": "Esnek bölüm",
+      "settings": {
+        "layout": {
+          "label": "Düzen",
+          "direction": {
+            "label": "Yön",
+            "options__1": {
+              "label": "Vertical"
+            },
+            "options__2": {
+              "label": "Horizontal"
+            }
+          },
+          "vertical_on_mobile": {
+            "label": "Mobil cihazlarda dikey"
+          },
+          "content_wrap": {
+            "label": "İçerik sarma"
+          },
+          "height": {
+            "label": "Height",
+            "options": {
+              "auto": {
+                "label": "Otomatik"
+              },
+              "custom": {
+                "label": "Custom"
+              }
+            },
+            "custom_height": {
+              "label": "Özel yükseklik"
+            }
+          },
+          "gap": {
+            "label": "Boşluk"
+          },
+          "position": {
+            "label": "Konum",
+            "options__1": {
+              "label": "Üst"
+            },
+            "options__2": {
+              "label": "Orta"
+            },
+            "options__3": {
+              "label": "Alt"
+            }
+          },
+          "alignment": {
+            "label": "Hizalama",
+            "label_mobile": "Mobil hizalama",
+            "options__1": {
+              "label": "Sol"
+            },
+            "options__2": {
+              "label": "Orta"
+            },
+            "options__3": {
+              "label": "Sağ"
+            },
+            "options__4": {
+              "label": "Aradaki boşluk"
+            }
+          },
+          "hide_on_mobile": {
+            "label": "Mobilde gizli"
+          }
+        },
+        "appearance": {
+          "header": "Dış görünüş",
+          "settings": {
+            "background_media": {
+              "label": "Arka plan medyası",
+              "options__2": {
+                "label": "Image"
+              },
+              "options__3": {
+                "label": "Video"
+              },
+              "options__1": {
+                "label": "None"
+              }
+            },
+            "border": {
+              "label": "Kenarlıklar",
+              "options": {
+                "none": "None",
+                "solid": "Sağlam"
+              },
+              "border_color": {
+                "label": "Kenarlık rengi"
+              },
+              "border_thickness": {
+                "label": "Kenar kalınlığı"
+              }
+            },
+            "corner_radius": {
+              "label": "Köşe yarıçapı",
+              "options": {
+                "none": {
+                  "label": "None"
+                },
+                "rounded": {
+                  "label": "Yuvarlak"
+                },
+                "custom": {
+                  "label": "Custom"
+                },
+                "inherit": {
+                  "label": "Devral",
+                  "info": "\"Devral\" olarak ayarlanırsa bu blok, Tema ayarları ▸ Düzen ▸ Yuvarlatılmış resim bölümündeki genel yuvarlatılmış köşeler ayarını izleyecektir."
+                }
+              },
+              "custom_radius": {
+                "label": "Özel yarıçap"
+              }
+            },
+            "background_overlay": {
+              "label": "Arka plan kaplaması",
+              "overlay_color": {
+                "label": "Kaplama rengi"
+              },
+              "overlay_style": {
+                "label": "Kaplama stili",
+                "options__1": {
+                  "label": "Sağlam"
+                },
+                "options__2": {
+                  "label": "Gradyan"
+                }
+              },
+              "gradient_direction": {
+                "label": "Gradyan yönü",
+                "options__1": {
+                  "label": "Yukarı"
+                },
+                "options__2": {
+                  "label": "Aşağı"
+                }
+              }
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "size": {
+            "label": "Size",
+            "height": {
+              "label": "Height"
+            },
+            "width": {
+              "label": "Genişlik",
+              "custom_width": {
+                "label": "Özel genişlik"
+              }
+            },
+            "mobile_width": {
+              "label": "Mobil genişlik"
+            },
+            "options": {
+              "options__1": {
+                "label": "Sığdır"
+              },
+              "options__2": {
+                "label": "Doldur"
+              },
+              "options__3": {
+                "label": "Custom"
+              },
+              "options__4": {
+                "label": "Medya arka planına uyum sağlayın"
+              }
+            }
+          },
+          "background": {
+            "label": "Arka plan"
+          },
+          "background_color": {
+            "label": "Arka plan rengi"
+          }
+        },
+        "heading": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading)",
+          "label": "Ön ayar",
+          "heading_tag": {
+            "label": "Başlık etiketi",
+            "info": "İçerik hiyerarşisini kontrol etmek ve arama motorları için SEO okunabilirliğini geliştirmek için başlık etiketini (H1–H6) ayarlayın.",
+            "h1": "H1",
+            "h2": "H2",
+            "h3": "H3",
+            "h4": "H4",
+            "h5": "H5",
+            "h6": "H6"
+          },
+          "custom": "Custom",
+          "default": "Default",
+          "paragraph": "Paragraf",
+          "h1": "Başlık 1",
+          "h2": "Başlık 2",
+          "h3": "Başlık 3",
+          "h4": "Başlık 4",
+          "h5": "Başlık 5",
+          "h6": "Başlık 6",
+          "h7": "Başlık 7",
+          "info": {
+            "edit_presets_in_theme_settings": "[theme settings](/editor?context=theme&category=typography)'te ön ayarları düzenleyin",
+            "label": "Yazı boyutu"
+          },
+          "text_alignment": {
+            "desktop": "Hizalama",
+            "mobile": "Mobil hizalama"
+          }
+        },
+        "logo": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Logo",
+          "settings": {
+            "size": {
+              "name": "Size",
+              "unit": {
+                "label": "Birim",
+                "option__1": {
+                  "label": "Piksel"
+                },
+                "option__2": {
+                  "label": "Yüzde"
+                }
+              },
+              "custom_mobile_size": {
+                "label": "Özel mobil boyut"
+              },
+              "height": {
+                "label": "Height"
+              },
+              "mobile": {
+                "name": "Mobil boyut"
+              }
+            }
+          }
+        },
+        "email_subscription": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/newsletter)",
+          "name": "Bülten"
+        },
+        "contact_form": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/contact-form)",
+          "name": "İletişim formu",
+          "settings": {
+            "name": "Ad",
+            "email": "Email",
+            "message": "Mesaj",
+            "select_label": "Etiket seçin",
+            "default_select_label": "Ders",
+            "option": "Seçenek",
+            "default_option": "Ürün, Sipariş, Basın, Diğer",
+            "phone": "Telefon",
+            "submit_button": "Gönder düğmesi",
+            "default_submit_button": "Göndermek"
+          }
+        },
+        "accordion": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/accordion)",
+          "name": "Akordeon",
+          "settings": {
+            "icon_style": {
+              "style": "Stil",
+              "label": "Simge stili",
+              "caret": "Kartela",
+              "plus": "Artı"
+            },
+            "row_style": {
+              "label": "Satır stili",
+              "background": "Arka plan",
+              "divider": "Bölücü"
+            },
+            "background_color": "Arka plan rengi",
+            "row_spacing": "Öğe aralığı",
+            "gap_row": "Boşluk",
+            "padding_row": "İç boşluk",
+            "gap_content": "Aradaki boşluk",
+            "accordion_row": "Akordeon sırası",
+            "default_accordion_row": "Akordeon başlığı",
+            "accordion_content": "Akordeon içeriği",
+            "settings": {
+              "heading": "Başlık",
+              "heading_size": "Başlık boyutu",
+              "heading_weight": "Başlık ağırlığı",
+              "body_weight": "Vücut ağırlığı",
+              "open_default": {
+                "label": "Varsayılanı aç"
+              }
+            }
+          }
+        },
+        "group": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/group)",
+          "name": "Grup",
+          "settings": {
+            "link": "Bağlantı",
+            "open_in_new_tab": {
+              "label": "Bağlantıyı yeni sekmede aç"
+            }
+          }
+        },
+        "carousel": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/carousel)",
+          "name": "Atlıkarınca"
+        },
+        "text": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/text)",
+          "name": "Text",
+          "default_text": "Daha iyi çalışan ve daha uzun ömürlü şeyler yapıyoruz. Ürünlerimiz temiz tasarım ve dürüst malzemelerle gerçek sorunları çözmektedir.",
+          "text_color": {
+            "label": "Metin rengi",
+            "body_color": "Gövde rengi",
+            "heading_color": "Başlık rengi"
+          }
+        },
+        "button": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/button)"
+        },
+        "icon": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/icon)"
+        },
+        "page": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Sayfa",
+          "inherit_color_scheme": "Renk şemasını devral",
+          "appearance": "Dış görünüş",
+          "spacing": "Boşluk"
+        },
+        "spacer": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/spacer)",
+          "name": "Ara parçası",
+          "mobile_settings": {
+            "label": "Mobil ayarlar"
+          }
+        },
+        "divider": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Bölücü",
+          "settings": {
+            "thickness": "Kalınlık",
+            "size": "Size",
+            "color": "Color"
+          }
+        },
+        "icon_list": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Simge listesi",
+          "item": "Öğe",
+          "open_new_tab": "Yeni sekme aç"
+        },
+        "alert": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Uyarı",
+          "dismiss_icon": "Simgeyi kapat",
+          "display_dismiss_icon": "Kapatma simgesini göster"
+        },
+        "social_icons": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Sosyal simgeler",
+          "circle": "Daire",
+          "rounded": "Yuvarlak",
+          "square": "Kare",
+          "shape": "Şekil",
+          "color": "Color",
+          "backgroup_color": "Arka grup rengi"
+        },
+        "progress_bar": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "İlerleme çubuğu",
+          "text_color": "Metin Rengi",
+          "percentage": "Yüzde",
+          "border_radius": "Sınır Yarıçapı",
+          "display_percentage": "Görüntü Yüzdesi",
+          "inner_text": "İç Metin"
+        },
+        "counter": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/counter)",
+          "name": "Tezgah",
+          "counter_style": {
+            "label": "Sayaç stili",
+            "default": "Default",
+            "circle": "Daire"
+          },
+          "counter_layout": {
+            "label": "Sayaç düzeni",
+            "horizontal": "Horizontal",
+            "vertical": "Vertical"
+          },
+          "number_position": "Numara Konumu",
+          "space_between": "Aradaki boşluk",
+          "before_title": "Başlıktan önce",
+          "after_title": "Başlıktan sonra",
+          "number_alignment": "Sayı hizalaması",
+          "stroke_color": "Kontur Rengi",
+          "indicator_color": "Gösterge Rengi",
+          "background_color": "Arka plan rengi",
+          "text_color": "Metin rengi",
+          "ending_number": "Bitiş numarası",
+          "starting_number": "Başlangıç ​​numarası",
+          "animation": "Animasyon süresi (ms)"
+        },
+        "map": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/google-maps)",
+          "name": "Google haritaları",
+          "location": "Konum",
+          "longitude": "Boylam",
+          "latitude": "Enlem"
+        },
+        "jumbo_text": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+          "name": "Jumbo metin"
+        },
+        "tab": {
+          "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/tab)",
+          "name": "Sekme",
+          "tab_row": "Sekme öğesi",
+          "settings": {
+            "heading": "Başlık stili",
+            "heading_preset": "Başlık ön ayarı",
+            "heading_alignment": "Başlık hizalaması",
+            "heading_color": "Başlık rengi",
+            "content": "İçerik stili",
+            "content_alignment": "İçerik hizalaması"
+          }
+        },
+        "icon_with_text": {
+          "name": "Metin içeren simge",
+          "icon_first": "Önce simge",
+          "icon_second": "Simge ikinci",
+          "svg_custom": "SVG özel"
+        },
+        "popup_link": {
+          "button_type_link": {
+            "label": "Düğme türü",
+            "primary": {
+              "label": "Öncelik"
+            },
+            "outline": {
+              "label": "Taslak"
+            },
+            "link": {
+              "label": "Bağlantı"
+            }
+          },
+          "popup_style": {
+            "label": "Açılır pencere stili"
+          },
+          "popup_type": {
+            "label": "Açılır pencere türü"
+          },
+          "popup_width": {
+            "label": "Açılır pencere genişliğinde masaüstü"
+          },
+          "icon_type": {
+            "label": "Simge türü",
+            "none": "None",
+            "arrow": "Ok",
+            "image": {
+              "label": "Image",
+              "size": "Size"
+            }
+          }
+        }
+      },
+      "preset": {
+        "promotion_banner": "Esnek: Promosyon banner'ı",
+        "flexible_marquee": "Esnek: Seçim Çerçevesi",
+        "story_tabs": "Esnek: Sekme"
+      }
+    },
+    "text_image_pairing": {
+      "how_to_use": "[Bu bloğu nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/text-image-pairing)",
+      "name": "Metin görseli eşleştirme",
+      "settings": {
+        "text_default": "\"Işıltınıza sahip olun[image_1]kaydırarak karıştırın, parlatın <br/> güzel hissedin[image_2]tamamen görülün[image_3]kutlayın.\"",
+        "info": {
+          "label": "Resmin görünmesini istediğiniz yerde belirli bir yer tutucu biçimi `[image_X]` kullanın. X, görüntü indeksidir. Örneğin: `[image_1]` ilk resimle değiştirilecek."
+        },
+        "images": {
+          "label": "Görseller",
+          "image_style": {
+            "label": "Resim stili"
+          },
+          "image_1": {
+            "label": "Resim #1"
+          },
+          "image_2": {
+            "label": "Resim #2"
+          },
+          "image_3": {
+            "label": "Resim #3"
+          }
+        }
+      }
+    },
+    "product_sizing": {
+      "name": "Ürün boyutlandırma",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "info": "Müşterilerin ürünün nasıl uyduğunu anlamalarına ve doğru boyutu güvenle seçmelerine yardımcı olur."
+    },
+    "size_recommendation": {
+      "name": "Boyut önerisi",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/size-recommendation)",
+      "info": "Müşterilerin boy, kilo, vücut şekli, göğüs ölçüsü ve cup ölçüsü gibi basit girişleri kullanarak doğru bedeni bulmalarına yardımcı olur.",
+      "data_usage_notice": {
+        "label": "Veri kullanım bildirimi",
+        "info": "Bu mesajda müşteri ayrıntılarının beden önerileri için nasıl kullanıldığı açıklanmaktadır. İfadeleri mağazanızın gizlilik tonuna uyacak şekilde özelleştirebilirsiniz."
+      },
+      "no_size_match": {
+        "label": "Boyut eşleşmesi mesajı yok",
+        "info": "Müşterinin girişleriyle eşleşen boyut olmadığında görüntülenen mesaj."
+      },
+      "fit_recommendation_note": {
+        "label": "Uygun öneri notu",
+        "info": "Boyut öneri sonuçlarından sonra görüntülenir."
+      }
+    },
+    "sticky_image_with_text": {
+      "name": "Yapışkan görsel ve metin",
+      "blocks": {
+        "group_text": {
+          "name": "Metin grubu",
+          "image": {
+            "label": "Kaydırınca görsel",
+            "info": "Bu grup görünüme girdiğinde sabit görselde gösterilir. Önceki görseli korumak için boş bırakın. Bölüm ayarlarında «Kaydırınca görseli değiştir» gerekir."
+          }
+        },
+        "list_tag": {
+          "name": "Etiket listesi",
+          "tags": {
+            "label": "Etiketler",
+            "info": "Her etiketi virgülle ayırın."
+          },
+          "show_check": {
+            "label": "Onay simgesini göster"
+          },
+          "chip_style": {
+            "label": "Etiket stili"
+          }
+        }
+      },
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/banners/sticky-image-with-text)",
+      "settings": {
+        "hide_image_mobile": {
+          "label": "Mobilde görseli gizle"
+        },
+        "change_image_on_scroll": {
+          "label": "Kaydırınca görseli değiştir",
+          "info": "Her metin grubu görünüme girdikçe sabit görsel değişir. Görseli her metin grubunda ayarlayın; bölüm görseli kullanılmaz. Yalnızca masaüstü."
+        }
+      }
+    },
+    "testimonial-images": {
+      "name": "Görüş görselleri",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonial-images)",
+      "settings": {
+        "show_author_image": "Yazar görselini göster",
+        "hide_image_on_mobile": {
+          "label": "Mobilde görseli gizle"
+        }
+      },
+      "blocks": {
+        "review": "Görüş",
+        "settings": {
+          "author_image": "Yazar görseli"
+        }
+      }
+    },
+    "flow": {
+      "name": "Akış",
+      "blocks": {
+        "step": {
+          "name": "Adım",
+          "heading": {
+            "label": "Başlık"
+          },
+          "image": {
+            "label": "Görsel"
+          },
+          "product": {
+            "label": "Ürün"
+          }
+        }
+      },
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/flow)"
+    },
+    "parallax-scroll": {
+      "name": "Paralaks kaydırma",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/parallax-scroll)",
+      "instructions": "En fazla 7 kart ekleyin. Kartlar yanları değiştirir ve her üçüncü kart otomatik olarak içe kaydırılır.",
+      "blocks": {
+        "info_card": {
+          "name": "Bilgi kartı"
+        }
+      },
+      "settings": {
+        "card_width": {
+          "label": "Kart genişliği",
+          "info": "Masaüstünde maksimum kart genişliğini ayarlar. Kartlar daha küçük ekranlarda duyarlı kalır."
+        },
+        "button_link": {
+          "info": "Boş bırakılırsa düğme devre dışı olarak gösterilir."
+        },
+        "button_type": {
+          "info": "Temanın yapılandırdığı düğme stillerini kullanır."
+        }
+      }
+    },
+    "benefit-tabs": {
+      "name": "Avantaj sekmeleri",
+      "how_to_use": "Her sekme için bir Avantaj sekmesi bloğu ekleyin, ardından her sekmenin içine Avantaj blokları ekleyin.",
+      "settings": {
+        "text_alignment": {
+          "info": "Sekme düğmelerini de hizalar."
+        },
+        "mobile_alignment": {
+          "info": "Avantajları mobilde ve tablette hizalar. Masaüstünde avantajlar medyaya doğru hizalanır."
+        }
+      },
+      "blocks": {
+        "tab": {
+          "name": "Avantaj sekmesi",
+          "how_to_use": "Dengeli bir düzen için en fazla 6 Avantaj bloğu önerilir. Masaüstünde tek sayılı avantajlar medyanın solunda, çift sayılılar sağında yer alır.",
+          "settings": {
+            "tab_label": {
+              "label": "Sekme etiketi"
+            },
+            "image": {
+              "label": "Önceki görsel",
+              "info": "950 x 1060 piksel önerilir"
+            },
+            "image_after": {
+              "label": "Sonraki görsel",
+              "info": "Önceki görselle aynı boyutu kullanın. Sonraki görsel, ziyaretçi kaydırdıkça görünür."
+            }
+          }
+        },
+        "benefit": {
+          "settings": {
+            "icon": {
+              "info": "Boşsa yer tutucu gösterilir. 120 x 120 piksel önerilir"
+            }
+          }
+        }
+      }
+    },
+    "comparison-table": {
+      "name": "Karşılaştırma tablosu",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/products/comparison-table)",
+      "settings": {
+        "table": {
+          "label": "Tablo"
+        },
+        "comparison_heading": {
+          "label": "Karşılaştırma başlığı"
+        },
+        "show_column_images": {
+          "label": "Sütun görsellerini göster"
+        },
+        "color_column_highlight": {
+          "label": "Sütun vurgu rengi"
+        },
+        "table_notes": {
+          "label": "Tablo notları"
+        },
+        "show_labels": {
+          "label": "Etiketleri göster"
+        },
+        "first_label": {
+          "label": "Birinci etiket"
+        },
+        "second_label": {
+          "label": "İkinci etiket"
+        },
+        "button_link": {
+          "label": "Bağlantı"
+        }
+      },
+      "blocks": {
+        "column": {
+          "name": "Sütun",
+          "settings": {
+            "highlight": {
+              "label": "Bu sütunu vurgula"
+            }
+          }
+        },
+        "row": {
+          "name": "Satır",
+          "settings": {
+            "icon_info": "Bu sütundaki değerin nasıl gösterileceğini seçin.",
+            "image_info": "Görsel seçildiğinde gösterilecek bir görsel ekleyin.",
+            "value": {
+              "yes": "Evet",
+              "no": "Hayır"
+            },
+            "text_1": {
+              "label": "Sütun 1 metni",
+              "info": "Metin seçildiğinde gösterilir. Değerler sütun sırasını izler, bu yüzden Sütun bloklarının sırasını dikkatle değiştirin."
+            },
+            "icon_1": {
+              "label": "Sütun 1 simgesi"
+            },
+            "image_1": {
+              "label": "Sütun 1 görseli"
+            },
+            "text_2": {
+              "label": "Sütun 2 metni",
+              "info": "Metin seçildiğinde gösterilir."
+            },
+            "icon_2": {
+              "label": "Sütun 2 simgesi"
+            },
+            "image_2": {
+              "label": "Sütun 2 görseli"
+            },
+            "text_3": {
+              "label": "Sütun 3 metni",
+              "info": "Metin seçildiğinde gösterilir."
+            },
+            "icon_3": {
+              "label": "Sütun 3 simgesi"
+            },
+            "image_3": {
+              "label": "Sütun 3 görseli"
+            },
+            "text_4": {
+              "label": "Sütun 4 metni",
+              "info": "Metin seçildiğinde gösterilir. Yalnızca tabloda dört sütun olduğunda kullanılır."
+            },
+            "icon_4": {
+              "label": "Sütun 4 simgesi"
+            },
+            "image_4": {
+              "label": "Sütun 4 görseli"
+            },
+            "column_1": "Sütun 1",
+            "column_2": "Sütun 2",
+            "column_3": "Sütun 3",
+            "column_4": "Sütun 4"
+          }
+        }
+      }
+    },
+    "image-with-text-carousel": {
+      "name": "Metinli görsel karuseli",
+      "how_to_use": "[Bu bölümü nasıl kullanacağınızı öğrenin](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/image-with-text-carousel)",
+      "settings": {
+        "show_slide_counter": {
+          "label": "Slayt sayacını göster"
+        }
+      },
+      "blocks": {
+        "slide": {
+          "icon_info": "80 x 80 piksel .png veya .svg önerilir"
+        }
+      }
+    },
+    "recommended-collection-filters": {
+      "name": "Önerilen filtreler"
+    }
+  },
+  "blocks": {
+    "quiz-step": {
+      "name": "Sınav sorusu",
+      "settings": {
+        "stepper_label": {
+          "label": "Step etiketi",
+          "info": "İlerleme çubuğunda gösterilen kısa etiket. Örnek: Cilt tipi, Endişe."
+        },
+        "question_id": {
+          "label": "Soru Kimliği",
+          "info": "Bu soru için benzersiz kimlik. Seçeneklerdeki soruları atlayarak kullanılır (örn. q1, q2)."
+        },
+        "layout": {
+          "label": "Seçenek düzeni",
+          "options": {
+            "pill": "Hap düğmeleri",
+            "image": "Resim çevreleri"
+          }
+        }
+      }
+    },
+    "quiz-option": {
+      "name": "Quiz seçeneği",
+      "settings": {
+        "label": {
+          "label": "Etiket"
+        },
+        "image": {
+          "label": "Image",
+          "info": "Soru düzeni Görüntü daireleri olduğunda kullanılır."
+        },
+        "product_matching_header": "Sonuç ürünleri",
+        "strong_match": {
+          "label": "Birincil ürünler",
+          "info": "Alışveriş yapanlar bu yanıtı seçtiğinde test sonuçlarında ilk olarak gösterilir."
+        },
+        "partial_match": {
+          "label": "Ek ürünler",
+          "info": "Test sonuçlarında birincil ürünlerden sonra gösterilir."
+        },
+        "exclude": {
+          "label": "Asla önerme",
+          "info": "Alışveriş yapanlar bu yanıtı seçtiğinde, diğer yanıtlarda görünseler bile bu ürünlerin sonuçlarda görünmesini engelleyin."
+        },
+        "skip_questions_header": "Soru mantığı",
+        "skip_questions": {
+          "label": "Soruları atla",
+          "info": "Bu yanıt seçildiğinde atlanacak sınav sorularındaki soru kimliklerini girin. Örnek: q3, q4"
+        }
+      }
+    }
+  }
+}

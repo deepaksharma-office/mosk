@@ -1,0 +1,542 @@
+{{ 'scroll-scatter.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'scroll-scatter.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign section_st = section.settings
+  assign theme_st = settings
+  assign scroll_animation = theme_st.scroll_animation
+  assign heading = section_st.heading
+  assign header_size = section_st.heading_size
+  assign drawn_underline = section_st.drawn_underline
+  assign drawn_underline_color = section_st.drawn_underline_color
+  assign drawn_underline_type = section_st.drawn_underline_type
+  if drawn_underline_type == blank
+    assign drawn_underline_type = 'squiggle_underline'
+  endif
+
+  if drawn_underline
+    assign scroll_animation = 'disable'
+  endif
+-%}
+
+{%- capture style -%}
+  --section-pt: 0; --section-pb: 0; --parallax-section-pt: 0; --parallax-section-pb: 0;
+{%- endcapture -%}
+
+{%- render 'section-divider', position: 'top', style: section_st.divider_top, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+<div
+  class="section section__parallax-cards relative color-{{ section_st.color_scheme }} gradient{% if section_st.show_divider and section_st.divider_top == 'line' %} border-top{% endif %}{% if section_st.show_divider and section_st.divider_bottom == 'line' %} border-bottom{% endif %}"
+  style="{{ style | strip | strip_newlines }}"
+>
+  <scroll-scatter class="parallax-cards block relative h-custom" style="--height: 320vh">
+    <div class="parallax-cards__stage relative top-0 sticky grid">
+      <div class="parallax-cards__glow absolute z-1" data-parallax-cards-glow></div>
+
+      {%- assign block_count = section.blocks.size | plus: 0 -%}
+      {%- assign active_positions = '1,2,3,4,5' | split: ',' -%}
+      {%- case block_count -%}
+        {%- when 4 -%}
+          {%- assign active_positions = '1,2,4,5' | split: ',' -%}
+        {%- when 3 -%}
+          {%- assign active_positions = '1,3,4' | split: ',' -%}
+        {%- when 2 -%}
+          {%- assign active_positions = '2,5' | split: ',' -%}
+        {%- when 1 -%}
+          {%- assign active_positions = '3' | split: ',' -%}
+      {%- endcase -%}
+
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign block_st = block.settings
+          assign image = block_st.image
+          assign alt = 'general.image.image_alt_default' | t
+          if image.alt != blank
+            assign alt = image.alt | escape
+          endif
+
+          assign item_position_index = active_positions[forloop.index0] | default: 1 | plus: 0
+
+          case item_position_index
+            when 1
+              assign fx = '-0.40'
+              assign fy = '-0.28'
+              assign fr = '-3'
+              assign fs = '0.95'
+              assign sr = '-4'
+            when 2
+              assign fx = '-0.40'
+              assign fy = '0.30'
+              assign fr = '3'
+              assign fs = '0.95'
+              assign sr = '4'
+            when 3
+              assign fx = '0.00'
+              assign fy = '-0.41'
+              assign fr = '0'
+              assign fs = '0.97'
+              assign sr = '0'
+            when 4
+              assign fx = '0.40'
+              assign fy = '-0.28'
+              assign fr = '3'
+              assign fs = '0.95'
+              assign sr = '4'
+            else
+              assign fx = '0.40'
+              assign fy = '0.30'
+              assign fr = '-3'
+              assign fs = '0.95'
+              assign sr = '-4'
+          endcase
+
+          case block_count
+            when 1
+              assign sx = '0.00'
+            when 2
+              case forloop.index0
+                when 0
+                  assign sx = '-0.07'
+                else
+                  assign sx = '0.07'
+              endcase
+            when 3
+              case forloop.index0
+                when 0
+                  assign sx = '-0.12'
+                when 1
+                  assign sx = '0.00'
+                else
+                  assign sx = '0.12'
+              endcase
+            when 4
+              case forloop.index0
+                when 0
+                  assign sx = '-0.17'
+                when 1
+                  assign sx = '-0.06'
+                when 2
+                  assign sx = '0.06'
+                else
+                  assign sx = '0.17'
+              endcase
+            else
+              case forloop.index0
+                when 0
+                  assign sx = '-0.22'
+                when 1
+                  assign sx = '-0.11'
+                when 2
+                  assign sx = '0.00'
+                when 3
+                  assign sx = '0.11'
+                else
+                  assign sx = '0.22'
+              endcase
+          endcase
+
+          assign sy = '0.06'
+        -%}
+        <figure
+          class="parallax-cards__shot bg-white rounded overflow-hidden absolute m-0 z-3 parallax-cards__shot--{{ forloop.index }}"
+          data-parallax-cards-item
+          data-position-index="{{ item_position_index }}"
+          data-fx="{{ fx }}"
+          data-fy="{{ fy }}"
+          data-fr="{{ fr }}"
+          data-fs="{{ fs }}"
+          data-sx="{{ sx }}"
+          data-sy="{{ sy }}"
+          data-sr="{{ sr }}"
+          data-ss=".58"
+          {{ block.shopify_attributes }}
+        >
+          <div
+            class="parallax-cards__image rounded relative w-full"
+            style="--aspect-ratio: 3 / 4;"
+          >
+            {%- if image != blank -%}
+              {% render 'responsive-image',
+                type: 'banner',
+                container: 'fix_width',
+                image: image,
+                image_alt: alt,
+                class: 'parallax-cards__image-el',
+                motion: false
+              %}
+            {%- else -%}
+              {% render 'placeholder-render',
+                type: 'collection',
+                index: forloop.index,
+                class: 'img-placeholder parallax-cards__placeholder',
+                motion: false
+              %}
+            {%- endif -%}
+          </div>
+        </figure>
+      {%- endfor -%}
+
+      <div class="parallax-cards__head relative z-5 text-{{ section_st.text_alignment }}">
+        <span class="parallax-cards__veil opacity-0 z--1 absolute"></span>
+        <div class="max-w-custom mx-auto w-full p-25" style="--max-width: 58rem;">
+          <div class="mb-30">
+            {%- if section_st.subheading != blank -%}
+              {% if scroll_animation != 'disable' %}
+                <motion-effect data-animate="fade-up" data-animate-delay="50" class="block">
+              {% endif %}
+              <div class="section-subheading h7 mb-sp-1 mb-md-sp-2 subheading_weight fs-big-2">
+                {{ section_st.subheading }}
+              </div>
+              {% if scroll_animation != 'disable' %}
+                </motion-effect>
+              {% endif %}
+            {%- endif -%}
+
+            {%- if heading != blank -%}
+              {% if scroll_animation != 'disable' or drawn_underline %}
+                <motion-effect
+                  data-animate="{% if scroll_animation != 'disable' %}fade-up{% else %}highlighted-text{% endif %}"
+                  data-animate-delay="100"
+                  class="block"
+                >
+              {% endif %}
+              <h2 class="block section-heading {{ header_size }}">
+                {% if drawn_underline %}
+                  {%- capture squiggle_svg_1 -%}
+                    <svg viewBox="0 0 184 26" fill="none"><use href="#squiggle-svg-1" /></svg>
+                  {%- endcapture -%}
+                  {%- capture squiggle_svg_2 -%}
+                    <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-2" /></svg>
+                  {%- endcapture -%}
+                  {%- capture squiggle_svg_3 -%}
+                    <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-3" /></svg>
+                  {%- endcapture -%}
+                  {%- capture squiggle_svg_4 -%}
+                    <svg viewBox="0 0 220 20" fill="none"><use href="#squiggle-svg-4" /></svg>
+                  {%- endcapture -%}
+                  {%- capture squiggle_svg_5 -%}
+                    <svg viewBox="0 0 140 24" fill="none" role="presentation" preserveAspectRatio="none"><use href="#squiggle-svg-5" /></svg>
+                  {%- endcapture -%}
+                  {%- assign parts = heading | split: '<em>' -%}
+                  {%- assign em_count = parts | size | minus: 1 -%}
+
+                  {%- for i in (1..em_count) -%}
+                    {%- assign idx = i | plus: 0 -%}
+                    {%- assign chunk = parts[idx] | default: '' -%}
+                    {%- assign text = chunk | split: '</em>' | first | strip_html | strip -%}
+                    {%- assign len_text = text | size -%}
+                    {%- capture open_em -%}
+                      {%- liquid
+                        if drawn_underline_type == 'simple_underline'
+                          assign svg = squiggle_svg_4 | append: '</em>'
+                        elsif drawn_underline_type == 'curve_underline'
+                          assign svg = squiggle_svg_5 | append: '</em>'
+                        else
+                          if len_text <= 4
+                            assign svg = squiggle_svg_1 | append: '</em>'
+                          elsif len_text <= 6
+                            assign svg = squiggle_svg_2 | append: '</em>'
+                          else
+                            assign svg = squiggle_svg_3 | append: '</em>'
+                          endif
+                        endif
+                      -%}
+                      <em class="highlighted-text relative inline-flex{% if drawn_underline_type == 'simple_underline' %} simple_underline{% endif %} {{ drawn_underline_type }} not-italic" style="--animate-color:{{ drawn_underline_color }}">{{ svg }}</em>
+                    {%- endcapture -%}
+                    {%- assign open_em = open_em | remove: '</em>' -%}
+                    {%- assign heading = heading | replace_first: '<em>', open_em -%}
+                  {%- endfor -%}
+                {% endif %}
+                {{- heading -}}
+              </h2>
+              {% if scroll_animation != 'disable' or drawn_underline %}
+                </motion-effect>
+              {% endif %}
+            {%- endif -%}
+          </div>
+          <div class="parallax-cards__desc text-{{ section_st.text_alignment }}">
+            {%- if section_st.description != blank -%}
+              {% if scroll_animation != 'disable' %}
+                <motion-effect data-animate="fade-up" data-animate-delay="150" class="block">
+              {% endif %}
+              <div class="parallax-cards__lead section-description prose" data-parallax-cards-lead>
+                {{ section_st.description }}
+              </div>
+              {% if scroll_animation != 'disable' %}
+                </motion-effect>
+              {% endif %}
+            {%- endif -%}
+
+            {%- if section_st.button_label != blank -%}
+              <div class="parallax-cards__button w-full mt-sp-7 flex justify-content-{{ section_st.text_alignment }}">
+                <a
+                  {% if section_st.button_link == blank %}
+                    role="link" aria-disabled="true"
+                  {% else %}
+                    href="{{ section_st.button_link }}"
+                  {% endif %}
+                  class="pointer justify-center btn-{{ section_st.button_type }}{% if section_st.button_type == 'link' %} border-animation{% else %} btn min-w-md-custom w-md-auto{% endif %}"
+                  {% if section_st.button_type != 'link' %}
+                    style="--width: 23rem;"
+                  {% endif %}
+                  data-parallax-cards-cta
+                >
+                  {{ section_st.button_label }}
+                </a>
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+
+      
+
+      <div
+        class="parallax-cards__hint parallax__additional absolute bottom-20 z-8 flex fs-small column align-center heading-color heading_weight w-full flex gap-sp-1 column content-center animation-bounce-bottom"
+        data-parallax-cards-hint
+      >
+        {{ 'sections.parallax_image.additional' | t }}
+        <span class="icon-next inline-flex content-center heading-color icon-bounce-bottom">
+          <svg class="block" width="8" height="14" viewBox="0 0 6 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <use href="#icon-next"></use>
+          </svg>
+        </span>
+      </div>
+    </div>
+  </scroll-scatter>
+</div>
+{%- render 'section-divider', position: 'bottom', style: section_st.divider_bottom, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+
+{% schema %}
+{
+  "name": "t:sections.scroll-scatter.name",
+  "tag": "section",
+  "class": "section section-parallax-cards",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.scroll-scatter.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_header.label"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.all.content_setting.subheading.label",
+      "default": "Subheading"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "t:sections.all.content_setting.heading.label",
+      "default": "<p>Talk about <em>your brand</em></p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "drawn_underline",
+      "default": true,
+      "label": "t:sections.all.content_setting.drawn_underline.label",
+      "info": "t:sections.all.content_setting.heading.info"
+    },
+    {
+      "type": "select",
+      "id": "drawn_underline_type",
+      "label": "t:sections.all.content_setting.drawn_underline.type",
+      "default": "squiggle_underline",
+      "visible_if": "{{ section.settings.drawn_underline != false }}",
+      "options": [
+        {
+          "value": "simple_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.simple_underline"
+        },
+        {
+          "value": "curve_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.curve_underline"
+        },
+        {
+          "value": "squiggle_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.squiggle_underline"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "drawn_underline_color",
+      "label": "t:sections.all.content_setting.drawn_underline.color",
+      "default": "#FFB005",
+      "alpha": true,
+      "visible_if": "{{ section.settings.drawn_underline != false }}"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.all.content_setting.description.label",
+      "default": "<p>Add a short description for this section.</p>"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "t:sections.all.content_header.heading_size.label",
+      "default": "h2",
+      "options": [
+        {
+          "value": "h1",
+          "label": "t:sections.all.content_header.heading_size.options__1.label"
+        },
+        {
+          "value": "h2",
+          "label": "t:sections.all.content_header.heading_size.options__2.label"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.all.content_header.heading_size.options__3.label"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "t:sections.all.text_alignment.alignment",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.all.content_setting.button_label.label",
+      "info": "t:sections.all.content_setting.button_label.info",
+      "default": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.all.content_setting.first_button_label.link"
+    },
+    {
+      "type": "select",
+      "id": "button_type",
+      "label": "t:sections.all.content_setting.button_type.label",
+      "default": "primary",
+      "options": [
+        {
+          "value": "primary",
+          "label": "t:sections.all.content_setting.button_type.primary.label"
+        },
+        {
+          "value": "outline",
+          "label": "t:sections.all.content_setting.button_type.outline.label"
+        },
+        {
+          "value": "link",
+          "label": "t:sections.all.content_setting.button_type.link.label"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.divider.section_divider_heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "t:sections.all.divider.show_divider",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "divider_top",
+      "label": "t:sections.all.divider.top",
+      "info": "t:sections.all.divider.top_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "line",
+      "visible_if": "{{ section.settings.show_divider }}"
+    },
+    {
+      "type": "select",
+      "id": "divider_bottom",
+      "label": "t:sections.all.divider.bottom",
+      "info": "t:sections.all.divider.bottom_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.show_divider }}"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "t:sections.all.image.label",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.all.content_setting.image.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.scroll-scatter.name",
+      "category": "t:sections.group.storytelling",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

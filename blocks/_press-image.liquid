@@ -1,0 +1,96 @@
+{%- liquid
+  assign block_st = block.settings
+  assign section_st = section.settings
+  assign image = block_st.image
+  assign image_mobile = block_st.image_mobile | default: image
+  assign image_ratio = section_st.image_ratio
+  assign ratio = '3/4'
+  assign ratio_mobile = '3/4'
+  if image_ratio != 'adapt'
+    case image_ratio
+      when 'square'
+        assign ratio = '1/1'
+        assign ratio_mobile = '1/1'
+      when 'landscape'
+        assign ratio = '4/3'
+        assign ratio_mobile = '4/3'
+      when 'portrait'
+        assign ratio = '3/4'
+        assign ratio_mobile = '3/4'
+      else
+        assign ratio = '3/4'
+        assign ratio_mobile = '3/4'
+    endcase
+  else
+    if image != blank
+      assign ratio = block_st.image.aspect_ratio
+      assign ratio_mobile = block_st.image_mobile.aspect_ratio | default: ratio
+    else
+      assign ratio = '3/4'
+      assign ratio_mobile = '3/4'
+    endif
+  endif
+-%}
+{% style %}
+  .image-card-press {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, #fff 100%);
+    will-change: opacity;
+  }
+  .image-card-press img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+{% endstyle %}
+<div
+  class="image-card-press w-full transition rounded bg-white p-sp-3 overflow-hidden"
+  {{ block.shopify_attributes }}
+>
+  <div class="spacing-style h-full">
+    <div
+      class="rounded-15 h-full w-full object-fit-cover"
+      style="--aspect-ratio: {{ ratio }};--aspect-ratio-mb: {{ ratio_mobile }};"
+    >
+      {%- if image != blank -%}
+        {%- liquid
+          assign image_alt_default = 'general.image.image_alt_default' | t
+          assign image_alt = image.alt | default: image_alt_default | escape
+        -%}
+        {% render 'responsive-image',
+          type: 'banner',
+          container: section.settings.section_width,
+          image: image,
+          image_mobile: image_mobile,
+          image_alt: image_alt,
+          animate: 'zoom-out-small',
+          motion: false
+        %}
+      {%- else -%}
+        {%- render 'placeholder-render', type: 'lifestyle-1', class: 'img-placeholder h-full w-full' -%}
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "t:sections.all.image.label",
+  "class": "swiper-slide",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.all.image.how_to_use"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.all.image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "t:sections.all.image.mobile_image"
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.image.label" }]
+}
+{% endschema %}

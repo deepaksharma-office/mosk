@@ -1,0 +1,67 @@
+{% liquid
+  assign background_media = settings_bg.background_media
+  assign image_bg = settings_bg.image_bg
+  assign video_local = settings_bg.video_local
+%}
+<div
+  class="banner-background__image absolute inset-0 w-full h-full object-fit-cover overlay-bg-custom z-0 overflow-hidden"
+  style="{{ style | strip | strip_newlines }}"
+>
+  {% if background_media == 'image' %}
+    {%- liquid
+      assign alt_default = 'accessibility.promotion_banner' | t
+      assign alt = image_bg.alt | default: alt_default | escape
+    -%}
+    {% if image_bg != blank %}
+      {% render 'responsive-image',
+        type: 'banner',
+        container: section_st.section_width,
+        image: image_bg,
+        image_alt: alt,
+        motion: true,
+        class_motion: ' h-full'
+      -%}
+    {%- else %}
+      {%- render 'placeholder-render',
+        type: 'lifestyle-2',
+        class: 'img-placeholder h-full w-full',
+        class_motion: ' h-full'
+      -%}
+    {% endif %}
+  {% elsif background_media == 'video' %}
+    {% if video_local != blank %}
+      <video-local
+        class="block overflow-hidden h-full w-full"
+      >
+        {%- liquid
+          assign image_alt_default = 'general.image.image_alt_default' | t
+          assign image_alt = video_local.alt | default: image_alt_default | escape
+        -%}
+        <div class="video-thumbnail z-3 banner__media overflow-hidden rounded w-full h-full">
+          {% render 'responsive-image',
+            type: 'product',
+            image: video_local.preview_image,
+            image_alt: image_alt,
+            class_motion: ' h-full',
+            motion: true
+          %}
+        </div>
+        <div class="video-foreground video-has-bg">
+          <template>
+            {{
+              video_local
+              | video_tag: image_size: '800x', autoplay: true, controls: false, muted: true, alt: image_alt, loop: true, preload: 'metadata', class: 'h-full w-full object-fit-cover'
+            }}
+          </template>
+        </div>
+      </video-local>
+    {% else %}
+      {%- render 'placeholder-render',
+        type: 'lifestyle-2',
+        class: 'img-placeholder h-full w-full',
+        class_motion: ' h-full',
+        motion: true
+      -%}
+    {% endif %}
+  {% endif %}
+</div>

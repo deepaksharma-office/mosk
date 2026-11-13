@@ -1,0 +1,952 @@
+{%- liquid
+  assign theme_st = settings
+  assign section_st = section.settings
+  assign scroll_animation = theme_st.scroll_animation
+  assign heading = section_st.heading
+  assign heading_size = section_st.heading_size
+  assign drawn_underline = section_st.drawn_underline
+  assign drawn_underline_type = section_st.drawn_underline_type
+  assign drawn_underline_color = section_st.drawn_underline_color
+  assign specifications_layout = section_st.specifications_layout
+  assign show_image = false
+  if section_st.image != blank
+    assign show_image = true
+  endif
+  assign specifications_grid_gap = 0
+  if section_st.grid_gap == 'large'
+    assign specifications_grid_gap = 100
+  elsif section_st.grid_gap == 'medium'
+    assign specifications_grid_gap = 52
+  elsif section_st.grid_gap == 'small'
+    assign specifications_grid_gap = 32
+  endif
+  assign header_size = ''
+  assign show_section_header = false
+  if heading_size == 'small'
+    assign header_size = 'h3'
+  elsif heading_size == 'large'
+    assign header_size = 'h1'
+  endif
+  if drawn_underline
+    assign scroll_animation = 'disable'
+  endif
+  if section_st.subheading != blank
+    assign show_section_header = true
+  elsif heading != blank
+    assign show_section_header = true
+  elsif section_st.description != blank
+    assign show_section_header = true
+  endif
+  if section_st.section_width == 'fix_width'
+    assign section_width = 'container'
+  elsif section_st.section_width == 'full_width'
+    assign section_width = 'full-width'
+  else
+    assign section_width = 'fluid_container'
+  endif
+  assign column_gap_slide = 0
+  if section_st.column_gap == 'x-large'
+    assign column_gap_slide = 100
+    assign column_gap_mb = 16
+  elsif section_st.column_gap == 'large'
+    assign column_gap_slide = 32
+    assign column_gap_mb = 16
+  elsif section_st.column_gap == 'medium'
+    assign column_gap_slide = 24
+    assign column_gap_mb = 12
+  elsif section_st.column_gap == 'small'
+    assign column_gap_slide = 16
+    assign column_gap_mb = 8
+  endif
+  assign radius_image_class = ''
+  assign radius_content_class = ''
+  assign has_custom_background = false
+  assign background_color_alpha = section_st.background_color | color_extract: 'alpha'
+  assign background_color_hex = section_st.background_color | color_to_hex | downcase
+  if section_st.background_color != blank
+    if background_color_alpha != 0
+      if background_color_hex != '#ffffff'
+        assign has_custom_background = true
+      elsif background_color_alpha < 1
+        assign has_custom_background = true
+      endif
+    endif
+  endif
+
+  if column_gap_slide == 0
+    if has_custom_background
+      if section_st.image_desktop_position == 'left'
+        assign radius_image_class = 'rounded-1025-left rounded-top-mb'
+        assign radius_content_class = 'rounded-1025-right rounded-bottom-mb'
+      else
+        assign radius_image_class = 'rounded-1025-right rounded-top-mb'
+        assign radius_content_class = 'rounded-1025-left rounded-bottom-mb'
+      endif
+    else
+      assign radius_image_class = 'rounded'
+      assign radius_content_class = 'rounded'
+    endif
+  else
+    assign radius_image_class = 'rounded'
+    assign radius_content_class = 'rounded'
+  endif
+  if show_image == false
+    assign radius_content_class = 'rounded'
+  endif
+
+  assign padding_content_inline = section_st.padding_content_inline
+  assign padding_content_block = section_st.padding_content_block
+  assign padding_content_class = ''
+
+  if padding_content_inline > 20
+    assign padding_content_class = padding_content_class | append: ' px-custom'
+  else
+    assign padding_content_class = padding_content_class | append: ' x-min-value'
+  endif
+
+  if padding_content_block > 24
+    assign padding_content_class = padding_content_class | append: ' py-custom'
+  else
+    assign padding_content_class = padding_content_class | append: ' y-min-value'
+  endif
+
+  assign image_ratio = section_st.image_ratio
+  assign ratio = '1/1'
+  if image_ratio != 'adapt'
+    case image_ratio
+      when 'square'
+        assign ratio = '1/1'
+      when 'landscape'
+        assign ratio = '4/3'
+      when 'portrait'
+        assign ratio = '3/4'
+    endcase
+  elsif section_st.image != blank
+    assign ratio = section_st.image.aspect_ratio
+  endif
+-%}
+{%- capture style -%}
+  --section-pt: {{ section_st.padding_top }}; --section-pb: {{ section_st.padding_bottom }}; --col-width: {{ section_st.desktop_image_width }}%"
+  {%- endcapture -%}
+
+{%- capture col_style -%}
+    --gap: {{ column_gap_mb }}px;--gap-desktop: {{  column_gap_slide }}px;--padding-inline: {{ section_st.padding_content_inline }};--padding-block: {{ section_st.padding_content_block }};--responsive-min-rate: 0.6";
+{%- endcapture -%}
+
+{%- render 'section-divider', position: 'top', style: section_st.divider_top, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+<div
+  class="section color-{{ section_st.color_scheme }} gradient section__image-with-text{% if section_st.show_divider and section_st.divider_top == 'line' %} border-top{% endif %}{% if section_st.show_divider and section_st.divider_bottom == 'line' %} border-bottom{% endif %}"
+  style="{{ style | strip | strip_newlines }}"
+>
+  <div class="{{ section_width }}">
+    {%- if show_section_header and show_image == false -%}
+      <div class="section-header text-{{ section_st.heading_alignment }}">
+        {% assign animate_delay = 50 %}
+        {%- if section_st.subheading != blank -%}
+          {% if scroll_animation != 'disable' %}
+            <motion-effect
+              data-animate="fade-up"
+              data-animate-delay="{{ animate_delay }}"
+              class="block"
+            >
+          {% endif %}
+          <div class="section-subheading fs-big-2 mb-sp-1 mb-1025-sp-2 heading-color subheading_weight">
+            {{ section_st.subheading }}
+          </div>
+          {% if scroll_animation != 'disable' %}
+            </motion-effect>
+          {% endif %}
+        {%- endif -%}
+        {%- if heading != blank -%}
+          {% assign animate_delay = animate_delay | plus: 50 %}
+          {% if scroll_animation != 'disable' or drawn_underline %}
+            <motion-effect
+              data-animate="{% if scroll_animation != 'disable' %}fade-up{% else %}highlighted-text{% endif %}"
+              data-animate-delay="{{ animate_delay }}"
+              class="block"
+            >
+          {% endif %}
+          <h2 class="section-heading {{ header_size }}">
+            {% if drawn_underline %}
+              {%- capture squiggle_svg_1 -%}
+                <svg viewBox="0 0 184 26" fill="none"><use href="#squiggle-svg-1" /></svg>
+              {%- endcapture -%}
+              {%- capture squiggle_svg_2 -%}
+                <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-2" /></svg>
+              {%- endcapture -%}
+              {%- capture squiggle_svg_3 -%}
+                <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-3" /></svg>
+              {%- endcapture -%}
+              {%- capture squiggle_svg_4 -%}
+                <svg viewBox="0 0 220 20" fill="none"><use href="#squiggle-svg-4" /></svg>
+              {%- endcapture -%}
+              {%- capture squiggle_svg_5 -%}
+                <svg viewBox="0 0 140 24" fill="none" role="presentation" preserveAspectRatio="none"><use href="#squiggle-svg-5" /></svg>
+              {%- endcapture -%}
+              {%- assign heading_parts = heading | split: '<em>' -%}
+              {%- assign emphasized_count = heading_parts | size | minus: 1 -%}
+              {%- for i in (1..emphasized_count) -%}
+                {%- assign emphasized_index = i | plus: 0 -%}
+                {%- assign heading_chunk = heading_parts[emphasized_index] | default: '' -%}
+                {%- assign emphasized_text = heading_chunk | split: '</em>' | first | strip_html | strip -%}
+                {%- assign emphasized_length = emphasized_text | size -%}
+                {%- capture opening_em -%}
+                  {%- liquid
+                    if drawn_underline_type == 'simple_underline'
+                      assign underline_svg = squiggle_svg_4 | append: '</em>'
+                    elsif drawn_underline_type == 'curve_underline'
+                      assign underline_svg = squiggle_svg_5 | append: '</em>'
+                    else
+                      if emphasized_length <= 4
+                        assign underline_svg = squiggle_svg_1 | append: '</em>'
+                      elsif emphasized_length <= 6
+                        assign underline_svg = squiggle_svg_2 | append: '</em>'
+                      else
+                        assign underline_svg = squiggle_svg_3 | append: '</em>'
+                      endif
+                    endif
+                  -%}
+                  <em class="highlighted-text relative inline-flex{% if drawn_underline_type == 'simple_underline' %} simple_underline{% endif %} {{ drawn_underline_type }} not-italic" style="--animate-color: {{ drawn_underline_color }}">{{ underline_svg }}</em>
+                {%- endcapture -%}
+                {%- assign opening_em = opening_em | remove: '</em>' -%}
+                {%- assign heading = heading | replace_first: '<em>', opening_em -%}
+              {%- endfor -%}
+            {% endif %}
+            {{- heading -}}
+          </h2>
+          {% if scroll_animation != 'disable' or drawn_underline %}
+            </motion-effect>
+          {% endif %}
+        {%- endif -%}
+        {%- if section_st.description != blank -%}
+          {% assign animate_delay = animate_delay | plus: 50 %}
+          {% if scroll_animation != 'disable' %}
+            <motion-effect
+              data-animate="fade-up"
+              data-animate-delay="{{ animate_delay }}"
+              class="block"
+            >
+          {% endif %}
+          <div class="section-description mt-sp-4 prose">
+            {{ section_st.description }}
+          </div>
+          {% if scroll_animation != 'disable' %}
+            </motion-effect>
+          {% endif %}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+    <div
+      class="flex wrap gap{% if show_image %}{% if section_st.image_desktop_position == 'right' %} row-reverse-md{% endif %}{% endif %}"
+      style="{{ col_style | strip | strip_newlines }}"
+    >
+      {% if show_image %}
+        <div class="image-with-text__media-item w-full col-1025-w-custom">
+          <div
+            class="image-with-text__media banner__media {{ radius_image_class }} h-full"
+            style="--aspect-ratio: {{ ratio }};"
+          >
+            {%- liquid
+              assign alt = 'accessibility.promotion_banner' | t
+              if section_st.image.alt
+                assign alt = section_st.image.alt | escape
+              endif
+            -%}
+            {%- if section_st.image != blank -%}
+              {% render 'responsive-image',
+                type: 'banner',
+                container: section_width,
+                image: section_st.image,
+                image_alt: alt,
+                motion: true,
+                animate: 'zoom-out'
+              %}
+            {% else %}
+              {% render 'placeholder-render', type: 'collection-6', class: 'img-placeholder h-full w-full' %}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+      <div class="w-full{% if show_image %} col-1025-remaining{% endif %} flex text-{{ section_st.text_alignment_mobile }} text-md-{{ section_st.text_alignment }} relative">
+        {% if has_custom_background %}
+          <div
+            class="image-with-text__wrapper w-full flex bg-custom {{ radius_content_class }}"
+            style="--bg-color-custom: {{ section_st.background_color }};"
+          >
+        {% endif %}
+        <div class="image-with-text__text-item-inner w-full z-1 align-self-{{ section_st.desktop_vertical_alignment }}{{ padding_content_class }}">
+          {%- if show_section_header and show_image -%}
+            <div class="section-header text-{{ section_st.heading_alignment }}">
+              {% assign animate_delay = 50 %}
+              {%- if section_st.subheading != blank -%}
+                {% if scroll_animation != 'disable' %}
+                  <motion-effect
+                    data-animate="fade-up"
+                    data-animate-delay="{{ animate_delay }}"
+                    class="block"
+                  >
+                {% endif %}
+                <div class="section-subheading fs-big-2 mb-sp-1 mb-1025-sp-2 heading-color subheading_weight">
+                  {{ section_st.subheading }}
+                </div>
+                {% if scroll_animation != 'disable' %}
+                  </motion-effect>
+                {% endif %}
+              {%- endif -%}
+              {%- if heading != blank -%}
+                {% assign animate_delay = animate_delay | plus: 50 %}
+                {% if scroll_animation != 'disable' or drawn_underline %}
+                  <motion-effect
+                    data-animate="{% if scroll_animation != 'disable' %}fade-up{% else %}highlighted-text{% endif %}"
+                    data-animate-delay="{{ animate_delay }}"
+                    class="block"
+                  >
+                {% endif %}
+                <h2 class="section-heading {{ header_size }}">
+                  {% if drawn_underline %}
+                    {%- capture squiggle_svg_1 -%}
+                <svg viewBox="0 0 184 26" fill="none"><use href="#squiggle-svg-1" /></svg>
+              {%- endcapture -%}
+                    {%- capture squiggle_svg_2 -%}
+                <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-2" /></svg>
+              {%- endcapture -%}
+                    {%- capture squiggle_svg_3 -%}
+                <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-3" /></svg>
+              {%- endcapture -%}
+                    {%- capture squiggle_svg_4 -%}
+                <svg viewBox="0 0 220 20" fill="none"><use href="#squiggle-svg-4" /></svg>
+              {%- endcapture -%}
+                    {%- capture squiggle_svg_5 -%}
+                <svg viewBox="0 0 140 24" fill="none" role="presentation" preserveAspectRatio="none"><use href="#squiggle-svg-5" /></svg>
+              {%- endcapture -%}
+                    {%- assign heading_parts = heading | split: '<em>' -%}
+                    {%- assign emphasized_count = heading_parts | size | minus: 1 -%}
+                    {%- for i in (1..emphasized_count) -%}
+                      {%- assign emphasized_index = i | plus: 0 -%}
+                      {%- assign heading_chunk = heading_parts[emphasized_index] | default: '' -%}
+                      {%- assign emphasized_text = heading_chunk | split: '</em>' | first | strip_html | strip -%}
+                      {%- assign emphasized_length = emphasized_text | size -%}
+                      {%- capture opening_em -%}
+                  {%- liquid
+                    if drawn_underline_type == 'simple_underline'
+                      assign underline_svg = squiggle_svg_4 | append: '</em>'
+                    elsif drawn_underline_type == 'curve_underline'
+                      assign underline_svg = squiggle_svg_5 | append: '</em>'
+                    else
+                      if emphasized_length <= 4
+                        assign underline_svg = squiggle_svg_1 | append: '</em>'
+                      elsif emphasized_length <= 6
+                        assign underline_svg = squiggle_svg_2 | append: '</em>'
+                      else
+                        assign underline_svg = squiggle_svg_3 | append: '</em>'
+                      endif
+                    endif
+                  -%}
+                  <em class="highlighted-text relative inline-flex{% if drawn_underline_type == 'simple_underline' %} simple_underline{% endif %} {{ drawn_underline_type }} not-italic" style="--animate-color: {{ drawn_underline_color }}">{{ underline_svg }}</em>
+                {%- endcapture -%}
+                      {%- assign opening_em = opening_em | remove: '</em>' -%}
+                      {%- assign heading = heading | replace_first: '<em>', opening_em -%}
+                    {%- endfor -%}
+                  {% endif %}
+                  {{- heading -}}
+                </h2>
+                {% if scroll_animation != 'disable' or drawn_underline %}
+                  </motion-effect>
+                {% endif %}
+              {%- endif -%}
+              {%- if section_st.description != blank -%}
+                {% assign animate_delay = animate_delay | plus: 50 %}
+                {% if scroll_animation != 'disable' %}
+                  <motion-effect
+                    data-animate="fade-up"
+                    data-animate-delay="{{ animate_delay }}"
+                    class="block"
+                  >
+                {% endif %}
+                <div class="section-description mt-sp-4 prose">
+                  {{ section_st.description }}
+                </div>
+                {% if scroll_animation != 'disable' %}
+                  </motion-effect>
+                {% endif %}
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+          <div class="product-specifications-toggle">
+            <div
+              id="ProductSpecificationsItems-{{ section.id }}"
+              class="product-specifications__items product-specifications__items--{{ specifications_layout }}{% if specifications_layout == 'grid' %} product-specifications__items--columns-{{ section_st.grid_columns }}{% endif %} w-full overflow-hidden-mb transition{% if specifications_layout == 'grid' %} grid grid-cols gap{% else %} flex column{% endif %}"
+              data-mobile-rows="{{ section_st.mobile_rows_shown }}"
+              {% if specifications_layout == 'grid' %}
+                style="--col-number: 1; --col-tablet: 2; --col-desktop: {{ section_st.grid_columns }}; --row-gap: 0; --transition: max-height 0.4s ease; --gap: {% if specifications_grid_gap == 100 %}clamp(2rem, 6vw, 100px){% else %}{{ specifications_grid_gap }}px{% endif %}; --gap-desktop: {% if specifications_grid_gap == 100 %}clamp(2rem, 6vw, 100px){% else %}{{ specifications_grid_gap }}px{% endif %};"
+              {% else %}
+                style="--transition: max-height 0.4s ease;"
+              {% endif %}
+            >
+              {% content_for 'blocks' %}
+            </div>
+            {% if section.blocks.size > section_st.mobile_rows_shown %}
+              <div
+                class="product-specifications__toggle-wrapper bright_gradient relative hidden-md"
+                style="--height-blur: 100px;--bright-gradient-color: var(--bg-color-custom, var(--color-background));"
+              >
+                <button
+                  type="button"
+                  is="product-specifications-show-more"
+                  class="product-specifications__toggle button-show-more show-more btn-reset text-size pointer w-full inline-flex w-fit underline overflow-focus heading-style mt-sp-4"
+                  aria-expanded="false"
+                  aria-controls="ProductSpecificationsItems-{{ section.id }}"
+                >
+                  <span class="label-show-more label">{{ section_st.view_more_label }}</span>
+                  <span class="label-show-less label hidden">{{ section_st.view_less_label }}</span>
+                </button>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+        {% if has_custom_background %}</div>{% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{%- render 'section-divider', position: 'bottom', style: section_st.divider_bottom, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+
+{% stylesheet %}
+  .product-specifications__items--list > .product-specifications-item:first-child {
+    padding-top: 0;
+  }
+
+  .product-specifications__items--list > .product-specifications-item:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .product-specifications__items--grid > .product-specifications-item:first-child {
+    padding-top: 0;
+  }
+
+  .product-specifications__items--grid > .product-specifications-item:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  @media (min-width: 576px) and (max-width: 1024px) {
+    .product-specifications__items--grid > .product-specifications-item:nth-child(-n + 2) {
+      padding-top: 0;
+    }
+
+    .product-specifications__items--grid > .product-specifications-item:nth-child(2n + 1):nth-last-child(-n + 2),
+    .product-specifications__items--grid
+      > .product-specifications-item:nth-child(2n + 1):nth-last-child(-n + 2)
+      ~ .product-specifications-item {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    .product-specifications__items--columns-2 > .product-specifications-item:nth-child(-n + 2),
+    .product-specifications__items--columns-3 > .product-specifications-item:nth-child(-n + 3),
+    .product-specifications__items--columns-4 > .product-specifications-item:nth-child(-n + 4) {
+      padding-top: 0;
+    }
+
+    .product-specifications__items--columns-2 > .product-specifications-item:nth-child(2n + 1):nth-last-child(-n + 2),
+    .product-specifications__items--columns-2
+      > .product-specifications-item:nth-child(2n + 1):nth-last-child(-n + 2)
+      ~ .product-specifications-item,
+    .product-specifications__items--columns-3 > .product-specifications-item:nth-child(3n + 1):nth-last-child(-n + 3),
+    .product-specifications__items--columns-3
+      > .product-specifications-item:nth-child(3n + 1):nth-last-child(-n + 3)
+      ~ .product-specifications-item,
+    .product-specifications__items--columns-4 > .product-specifications-item:nth-child(4n + 1):nth-last-child(-n + 4),
+    .product-specifications__items--columns-4
+      > .product-specifications-item:nth-child(4n + 1):nth-last-child(-n + 4)
+      ~ .product-specifications-item {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.product-specifications.name",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "blocks": [
+    {
+      "type": "product-specifications-item"
+    }
+  ],
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.product-specifications.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "options": [
+        {
+          "value": "fix_width",
+          "label": "t:sections.all.layout.fix_width"
+        },
+        {
+          "value": "stretch_width",
+          "label": "t:sections.all.layout.stretch_width"
+        },
+        {
+          "value": "full_width",
+          "label": "t:sections.all.layout.full_width"
+        }
+      ],
+      "default": "fix_width",
+      "label": "t:sections.all.layout.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_header.label"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.all.content_setting.subheading.label",
+      "default": "Subheading"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "default": "<p>Product specifications</p>",
+      "label": "t:sections.all.content_setting.heading.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "drawn_underline",
+      "default": true,
+      "label": "t:sections.all.content_setting.drawn_underline.label",
+      "info": "t:sections.all.content_setting.heading.info"
+    },
+    {
+      "type": "select",
+      "id": "drawn_underline_type",
+      "label": "t:sections.all.content_setting.drawn_underline.type",
+      "default": "squiggle_underline",
+      "visible_if": "{{ section.settings.drawn_underline != false }}",
+      "options": [
+        {
+          "value": "simple_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.simple_underline"
+        },
+        {
+          "value": "curve_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.curve_underline"
+        },
+        {
+          "value": "squiggle_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.squiggle_underline"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "drawn_underline_color",
+      "label": "t:sections.all.content_setting.drawn_underline.color",
+      "default": "#FFB005",
+      "alpha": true,
+      "visible_if": "{{ section.settings.drawn_underline != false }}"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.all.content_setting.description.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "large",
+          "label": "t:sections.all.content_header.heading_size.options__1.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.all.content_header.heading_size.options__2.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.all.content_header.heading_size.options__3.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.all.content_header.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "start",
+      "label": "t:sections.all.text_alignment.alignment"
+    },
+    {
+      "type": "select",
+      "id": "column_gap",
+      "options": [
+        {
+          "value": "no_gap",
+          "label": "t:sections.all.padding.column_gap.no_gap"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.all.padding.column_gap.small"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.all.padding.column_gap.medium"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.all.padding.column_gap.large"
+        },
+        {
+          "value": "x-large",
+          "label": "t:sections.all.padding.column_gap.x_large"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.all.padding.column_gap.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.all.image.label",
+      "info": "t:sections.image-with-text.settings.image_info"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.all.image.aspect_ratio.adapt"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.all.image.aspect_ratio.options__1"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.all.image.aspect_ratio.options__2"
+        },
+        {
+          "value": "landscape",
+          "label": "t:sections.all.image.aspect_ratio.options__3"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.all.image.aspect_ratio.label"
+    },
+    {
+      "type": "range",
+      "id": "desktop_image_width",
+      "min": 40,
+      "max": 70,
+      "step": 1,
+      "unit": "%",
+      "default": 50,
+      "label": "t:sections.all.image.width",
+      "info": "t:sections.all.image.info_width"
+    },
+    {
+      "type": "select",
+      "id": "image_desktop_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.all.image.desktop_position.left"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.all.image.desktop_position.right"
+        }
+      ],
+      "default": "left",
+      "label": "t:sections.all.image.desktop_position.label",
+      "info": "t:sections.all.image.desktop_position.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_setting.label"
+    },
+    {
+      "type": "select",
+      "id": "specifications_layout",
+      "label": "t:sections.product-specifications.specifications_layout",
+      "options": [
+        {
+          "value": "list",
+          "label": "t:sections.compact_product_bundle.settings.products_show.options__1.label"
+        },
+        {
+          "value": "grid",
+          "label": "t:sections.compact_product_bundle.settings.products_show.options__2.label"
+        }
+      ],
+      "default": "list"
+    },
+    {
+      "type": "range",
+      "id": "grid_columns",
+      "label": "t:sections.all.columns.label",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3,
+      "visible_if": "{{ section.settings.specifications_layout == 'grid' }}"
+    },
+    {
+      "type": "select",
+      "id": "grid_gap",
+      "label": "t:sections.product-specifications.grid_gap",
+      "options": [
+        {
+          "value": "no_gap",
+          "label": "t:sections.all.padding.column_gap.no_gap"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.all.padding.column_gap.small"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.all.padding.column_gap.medium"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.all.padding.column_gap.large"
+        }
+      ],
+      "default": "medium",
+      "visible_if": "{{ section.settings.specifications_layout == 'grid' }}"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:sections.image-with-text.settings.background_color",
+      "alpha": true
+    },
+    {
+      "type": "select",
+      "id": "desktop_vertical_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.top"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.middle"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.bottom"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.label"
+    },
+
+    {
+      "type": "range",
+      "id": "padding_content_inline",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_inline.label",
+      "info": "t:sections.all.padding.padding_inline.info",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_content_block",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_block.label",
+      "info": "t:sections.all.padding.padding_block.info",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.mobile_options.label"
+    },
+    {
+      "type": "range",
+      "id": "mobile_rows_shown",
+      "label": "t:sections.product-specifications.mobile_rows_shown",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "text",
+      "id": "view_more_label",
+      "label": "t:sections.product-specifications.view_more_label",
+      "default": "See more"
+    },
+    {
+      "type": "text",
+      "id": "view_less_label",
+      "label": "t:sections.product-specifications.view_less_label",
+      "default": "See less"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.divider.section_divider_heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "t:sections.all.divider.show_divider",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "divider_top",
+      "label": "t:sections.all.divider.top",
+      "info": "t:sections.all.divider.top_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "line",
+      "visible_if": "{{ section.settings.show_divider }}"
+    },
+    {
+      "type": "select",
+      "id": "divider_bottom",
+      "label": "t:sections.all.divider.bottom",
+      "info": "t:sections.all.divider.bottom_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.show_divider }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.product-specifications.name",
+      "category": "t:sections.group.product",
+      "blocks": [
+        {
+          "type": "product-specifications-item",
+          "settings": {
+            "row_title": "Suited for",
+            "row_details": "<p>All skin types, including sensitive</p>"
+          }
+        },
+        {
+          "type": "product-specifications-item",
+          "settings": {
+            "row_title": "Benefits",
+            "row_details": "<p>Gentle cleansing, soothing, antioxidant care</p>"
+          }
+        },
+        {
+          "type": "product-specifications-item",
+          "settings": {
+            "row_title": "Target concerns",
+            "row_details": "<p>Excess oil, dullness, clogged pores</p>"
+          }
+        },
+        {
+          "type": "product-specifications-item",
+          "settings": {
+            "row_title": "Texture",
+            "row_details": "<p>Lightweight foam, soft finish</p>"
+          }
+        },
+        {
+          "type": "product-specifications-item",
+          "settings": {
+            "row_title": "Scent",
+            "row_details": "<p>Soft green tea, naturally derived</p>"
+          }
+        },
+        {
+          "type": "product-specifications-item",
+          "settings": {
+            "row_title": "When to use",
+            "row_details": "<p>Morning and evening</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

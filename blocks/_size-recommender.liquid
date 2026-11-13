@@ -1,0 +1,1203 @@
+{% liquid
+  assign theme_st = theme.settings
+  assign block_st = block.settings
+  assign product = closest.product
+  assign size_trigger = block_st.size_trigger
+  if size_trigger != blank
+    assign size_name = size_trigger | split: ','
+  else
+    assign size_name = 'Size'
+  endif
+%}
+<style>
+  .size-tab__btn.active {
+    margin: 0;
+    padding-inline-start: 8px;
+    border-color: var(--color-heading);
+  }
+  .size-tab__content.active {
+    position: relative;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .unit-switch__input:checked + .unit-switch__track .unit-switch__thumb {
+    transform: translateX(calc(22px * var(--flow-direction)));
+  }
+
+  .size-form__select:focus {
+    box-shadow: none;
+  }
+  .size-form__input:focus,
+  .size-form__select:focus {
+    outline: none;
+    border-color: var(--color-heading);
+  }
+
+  .size-form__checkboxes input[type='radio']:checked + .checkmark:before {
+    background-color: var(--color-dark);
+    border-color: var(--color-dark);
+  }
+  .size-form__checkboxes input[type='radio']:checked + .checkmark:after {
+    opacity: 1;
+  }
+  .size-form__checkbox-label:has(input:checked),
+  .size-form__checkbox-label:hover {
+    background: var(--color-heading);
+    color: rgb(var(--color-white));
+  }
+  .checkmark-custom::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    width: 14px;
+    height: 10px;
+    background-color: rgb(var(--color-white));
+    mask: url("data:image/svg+xml,%3Csvg width='14' height='10' viewBox='0 0 14 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.6693 0.216606C12.8273 0.0722022 13.0095 0 13.2161 0C13.4349 0 13.6172 0.0722022 13.763 0.216606C13.921 0.373045 14 0.559567 14 0.776173C14 0.980746 13.921 1.15523 13.763 1.29964L5.21354 9.78339C5.06771 9.9278 4.88542 10 4.66667 10C4.44792 10 4.26562 9.9278 4.11979 9.78339L0.236979 5.92058C0.0789931 5.77617 0 5.60168 0 5.39711C0 5.18051 0.0789931 4.99398 0.236979 4.83754C0.382812 4.69314 0.559028 4.62094 0.765625 4.62094C0.984375 4.62094 1.17274 4.69314 1.33073 4.83754L4.66667 8.14079L12.6693 0.216606Z'/%3E%3C/svg%3E")
+      no-repeat center / contain;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+    transition: var(--transition);
+  }
+  .size-form__select:valid + .field__label-custom {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .size-form__select:invalid + .field__label-custom {
+    opacity: 1;
+    visibility: visible;
+  }
+  input:checked + .checkmark-custom::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .size-form__radio-card:focus-visible {
+    outline: 1px solid var(--color-heading);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+  .checkmark-custom::before {
+    transition: var(--transition);
+  }
+  .size-form__radio-card:hover .checkmark-custom::before {
+    --color-border: var(--color-heading);
+  }
+  .image_shape_preference.is-active,
+  .image_fit_preference.is-active {
+    opacity: 1;
+  }
+</style>
+{% for option in product.options_with_values %}
+  {% for size in size_name %}
+    {% if option.name == size %}
+      {% assign has_size = true %}
+      {% assign size_value = option.values | join: ', ' %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+{% if has_size %}
+  <size-recommendation data-product-id="{{ product.id }}">
+    <button
+      type="button"
+      class="button open-size-recommendation btn-reset py-11 px-sp-6 btn-rounded bg-custom w-full pointer flex space-between gap-sp-1 align-center heading-color"
+      title="{{ block_st.button_title }}"
+      aria-label="{{ block_st.button_title }}"
+      style="--bg-color-custom: {{ block_st.button_bg_color }};"
+    >
+      <span class="flex gap-sp-3 align-center text-size lh-global text-start">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none">
+            <path fill="currentColor" d="M7.63 10.78c1.77 0 3.22-1.09 3.22-2.42 0-1.34-1.44-2.43-3.22-2.43-1.79 0-3.23 1.09-3.23 2.43 0 1.33 1.45 2.42 3.23 2.42Zm0-3.99c1.29 0 2.36.72 2.36 1.57 0 .84-1.08 1.56-2.36 1.56-1.29 0-2.37-.72-2.37-1.56 0-.85 1.08-1.57 2.37-1.57Z"/>
+          <path fill="currentColor" d="M21.3 12.84h-6.37V8.35C14.93 5.4 11.65 3 7.6 3 3.55 3 .27 5.4.27 8.35v5.3c0 2.72 2.78 4.96 6.37 5.3h.07c.3.03.6.05.9.05H21.3c.23 0 .43-.2.43-.43v-5.3c0-.24-.2-.43-.43-.43ZM7.62 3.87c3.56 0 6.47 2.01 6.47 4.48 0 2.48-2.9 4.5-6.47 4.5s-6.46-2.02-6.46-4.5c0-2.47 2.91-4.48 6.46-4.48Zm6.47 7v1.97h-2.5a6.5 6.5 0 0 0 2.48-1.97h.02Zm6.78 7.27H20v-2.18a.43.43 0 0 0-.86 0v2.18h-1.72v-1.18a.43.43 0 0 0-.87 0v1.18h-1.72v-1.18a.43.43 0 0 0-.86 0v1.18h-1.73v-2.18a.43.43 0 0 0-.86 0v2.18H9.73v-1.18a.43.43 0 0 0-.86 0v1.18H7.14v-1.18a.43.43 0 0 0-.86 0v1.08c-2.91-.43-5.1-2.23-5.1-4.4v-2.77c1.23 1.68 3.66 2.83 6.47 2.83h13.22v4.44Z"/>
+        </svg>
+        <span class="size-recommendation-button-title">{{ block_st.button_title }}</span>
+        <span class="recommended-size-trigger-value hidden" data-recommended-size-trigger-value></span>
+      </span>
+      <span>
+        <svg width="6" height="11" fill="none">
+          <use href="#icon-next" />
+        </svg>
+      </span>
+    </button>
+    <div class="popup-size-recommendation d-none">
+      <template>
+        <size-recommendation-popup class="modal modal_type_popup size-recommendation-popup active-modal-js invisible-1025 fixed inset-0 z-22 flex align-center invisible-1025 transition-drawer">
+          <modal-overlay class="modal-overlay invisible transition-drawer cursor-crosshair"></modal-overlay>
+          <div
+            class="modal-popup-inner invisible-1025 flex column modal-focus transition modal-draggable rounded max-w-custom m-auto bg-white w-full z-15"
+            tabindex="-1"
+            style="--max-width: 87.7rem;"
+          >
+            <draggable-modal
+              class="drawer__header draggable-modal drawer__header-cart flex gap-10 space-between align-center drawer-spacing visible-drag-md"
+              style="--padding-block-desktop: 0rem;--padding-block: 0rem;--padding-inline-desktop:3.2rem;"
+            >
+              <button
+                is="button-close-model"
+                class="modal__close pointer modal-button-close rounded-50 btn-reset h-full inline-flex content-center absolute z-3 top-sp-3 right-sp-3"
+                aria-label="{{ 'accessibility.close' | t }}"
+              >
+                <svg
+                  width="10"
+                  height="10"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  class="transition-short will-change icon-zoom"
+                >
+                  <use href="#icon-close"></use>
+                </svg>
+              </button>
+            </draggable-modal>
+            <div class="drawer__body">
+              <div
+                class="size-recommendation-content flex column flex-1025-row overflow-hidden"
+              >
+                {% liquid
+                  assign product_image_ratio = theme_st.product_image_ratio
+                  assign featured_media = product.featured_media
+                  if product.selected_or_first_available_variant.featured_media != null
+                    assign featured_media = product.selected_or_first_available_variant.featured_media
+                  endif
+                  assign ratio = '3/4'
+                  if product_image_ratio != 'adapt'
+                    case product_image_ratio
+                      when 'square'
+                        assign ratio = '1/1'
+                      when 'landscape'
+                        assign ratio = '4/3'
+                      when 'portrait'
+                        assign ratio = '3/4'
+                    endcase
+                  else
+                    assign ratio = featured_media.preview_image.aspect_ratio
+                  endif
+                  assign image_alt = featured_media.alt | default: product.title
+                %}
+                {% if featured_media != blank %}
+                  <div
+                    class="size-recommendation-image col-1025-w-custom hidden block-1025"
+                    style="--col-width: 44%;"
+                  >
+                    <div
+                      class="product-image-container w-full h-full"
+                      style="--aspect-ratio: {{ ratio }}"
+                    >
+                      {% render 'responsive-image',
+                        type: 'product',
+                        image: featured_media,
+                        image_alt: image_alt,
+                        motion: false
+                      %}
+                    </div>
+                  </div>
+                {% endif %}
+                <size-recommendation-form
+                  class="size-recommendation-form w-full"
+                  data-product-id="{{ product.id }}"
+                  style="--color-background-2: #F2F2F2;--height-blur: 4rem;"
+                >
+                  <div class="size-tabs h-full flex column">
+                    <div
+                      class="size-tabs__nav flex column pointer-none px-sp-5 pt-sp-1 px-1025-sp-8 pt-1025-sp-8"
+                      style="--height: 4rem;"
+                    >
+                      <div
+                        class="flex h-custom relative"
+                        role="tablist"
+                        aria-label="{{ block_st.button_title | default: 'Size recommendation tabs' | escape }}"
+                        style="--border-height: 2px;"
+                      >
+                        <button
+                          type="button"
+                          id="size-tab-basics-{{ block.id }}"
+                          class="size-tab__btn btn-reset active flex-1 h-full border-bottom"
+                          data-tab="basics"
+                          role="tab"
+                          aria-selected="true"
+                          aria-controls="size-tabpanel-basics-{{ block.id }}"
+                          tabindex="0"
+                        >
+                          <span class="absolute hidden left-0 top-0 pointer-none h5">
+                            {{ 'products.product.size_recommendation_popup.tabs.basics' | t }}
+                          </span>
+                        </button>
+                        <button
+                          type="button"
+                          id="size-tab-tummy-shapes-{{ block.id }}"
+                          class="size-tab__btn btn-reset flex-1 h-full border-bottom ms-sp-1"
+                          data-tab="tummy_shapes"
+                          role="tab"
+                          aria-selected="false"
+                          aria-controls="size-tabpanel-tummy-shapes-{{ block.id }}"
+                          tabindex="-1"
+                        >
+                          <span class="absolute hidden left-0 top-0 pointer-none h5">
+                            {{ 'products.product.size_recommendation_popup.tabs.tummy_shapes' | t }}
+                          </span>
+                        </button>
+                        <button
+                          type="button"
+                          id="size-tab-hips-shapes-{{ block.id }}"
+                          class="size-tab__btn btn-reset flex-1 h-full border-bottom ms-sp-1"
+                          data-tab="hips_shapes"
+                          role="tab"
+                          aria-selected="false"
+                          aria-controls="size-tabpanel-hips-shapes-{{ block.id }}"
+                          tabindex="-1"
+                        >
+                          <span class="absolute hidden left-0 top-0 pointer-none h5">
+                            {{ 'products.product.size_recommendation_popup.tabs.hips_shapes' | t }}
+                          </span>
+                        </button>
+                        {%- liquid
+                          assign recommend_size_metaobject_nav = product.metafields.custom.size_recommend_sizing_system.value
+                        -%}
+                        {% if recommend_size_metaobject_nav != blank %}
+                          <button
+                            type="button"
+                            id="size-tab-measurements-{{ block.id }}"
+                            class="size-tab__btn btn-reset flex-1 h-full border-bottom ms-sp-1"
+                            data-tab="measurements"
+                            role="tab"
+                            aria-selected="false"
+                            aria-controls="size-tabpanel-measurements-{{ block.id }}"
+                            tabindex="-1"
+                          >
+                            <span class="absolute hidden left-0 top-0 pointer-none h5">
+                              {{ 'products.product.size_recommendation_popup.tabs.measurements' | t }}
+                            </span>
+                          </button>
+                        {% endif %}
+                        <button
+                          type="button"
+                          id="size-tab-result-{{ block.id }}"
+                          class="size-tab__btn btn-reset flex-1 h-full border-bottom ms-sp-1"
+                          data-tab="result"
+                          role="tab"
+                          aria-selected="false"
+                          aria-controls="size-tabpanel-result-{{ block.id }}"
+                          tabindex="-1"
+                        >
+                          <span class="absolute hidden left-0 top-0 pointer-none h5">
+                            {{ 'products.product.size_recommendation_popup.tabs.result' | t }}
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="relative flex-1 bright_gradient-top-to-bottom">
+                      <div
+                        id="size-tabpanel-basics-{{ block.id }}"
+                        class="size-tab__content inset-0 absolute invisible transition active flex-1 flex column h-full"
+                        data-tab-content="basics"
+                        role="tabpanel"
+                        aria-labelledby="size-tab-basics-{{ block.id }}"
+                        aria-hidden="false"
+                        tabindex="-1"
+                      >
+                        <div class="flex-1 flex gap-sp-3 column overflow-y-auto custom-scrollbar px-sp-5 px-1025-sp-8 py-sp-4 py-1025-sp-6">
+                          <div class="size-form__group">
+                            <div class="size-form__label-row flex space-between align-center mb-sp-1">
+                              <label class="heading-color" for="size-height">
+                                {{- 'products.product.size_recommendation_popup.basics.height' | t -}}
+                              </label>
+                              <div
+                                class="unit-switch inline-flex align-center gap-sp-4"
+                                data-unit-toggle="height"
+                              >
+                                <span class="unit-label left">cm</span>
+
+                                <input
+                                  type="checkbox"
+                                  id="unit-toggle-height"
+                                  class="unit-switch__input absolute opacity-0 pointer-none"
+                                  role="switch"
+                                  aria-label="Toggle unit between cm and in"
+                                >
+
+                                <label
+                                  for="unit-toggle-height"
+                                  class="unit-switch__track relative w-custom h-custom bg-custom pointer transition rounded-custom mt-2"
+                                  style="--width: 2rem;--height: 1rem;--bg-color-custom: #c4c4c4;--radius: 16px;"
+                                >
+                                  <span
+                                    class="unit-switch__thumb absolute top-custom left-custom w-custom h-custom bg-custom transition rounded-50"
+                                    style="--top-custom: -4.5px;--left-custom: -1rem;--width: 18px;--height: 18px;--bg-color-custom: #1d1d1f;"
+                                  ></span>
+                                </label>
+
+                                <span class="unit-label right">in</span>
+                              </div>
+                            </div>
+                            <div class="height-cm-input relative">
+                              <input
+                                type="number"
+                                id="size-height"
+                                name="height"
+                                class="size-form__input w-full"
+                                data-unit-input="height"
+                                data-value-cm=""
+                                min="140"
+                                max="205"
+                                step="1"
+                                placeholder="170"
+                                required
+                                aria-required="true"
+                              >
+                              <span
+                                class="absolute right-25 h-custom flex align-center top-0"
+                                style="--height: var(--input-height);"
+                                >cm</span
+                              >
+                            </div>
+                            <div class="height-ft-in-inputs hidden flex gap-sp-3">
+                              <div class="relative flex-1">
+                                <input
+                                  type="number"
+                                  id="size-height-ft"
+                                  name="height-ft"
+                                  class="size-form__input w-full"
+                                  data-unit-input="height-ft"
+                                  placeholder="5"
+                                  min="4"
+                                  max="6"
+                                  step="1"
+                                >
+                                <span
+                                  class="flex align-center absolute top-0 h-custom right-25"
+                                  style="--height: var(--input-height);"
+                                  >ft</span
+                                >
+                              </div>
+                              <div class="relative flex-1">
+                                <input
+                                  type="number"
+                                  id="size-height-in"
+                                  name="height-in"
+                                  class="size-form__input w-full"
+                                  data-unit-input="height-in"
+                                  placeholder="7"
+                                  min="1"
+                                  max="11"
+                                  step="1"
+                                >
+                                <span
+                                  class="flex align-center absolute top-0 h-custom right-25"
+                                  style="--height: var(--input-height);"
+                                  >in</span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                          <div class="size-form__group">
+                            <div class="size-form__label-row flex space-between align-center mb-sp-1">
+                              <label class="heading-color" for="size-weight">
+                                {{- 'products.product.size_recommendation_popup.basics.weight' | t -}}
+                              </label>
+                              <div
+                                class="unit-switch inline-flex align-center gap-sp-4"
+                                data-unit-toggle="weight"
+                              >
+                                <span class="unit-label left">kg</span>
+
+                                <input
+                                  type="checkbox"
+                                  id="unit-toggle-weight"
+                                  class="unit-switch__input absolute opacity-0 pointer-none"
+                                  role="switch"
+                                  aria-label="Toggle unit between kg and lbs"
+                                >
+
+                                <label
+                                  for="unit-toggle-weight"
+                                  class="unit-switch__track relative w-custom h-custom bg-custom pointer transition rounded-custom mt-2"
+                                  style="--width: 2rem;--height: 1rem;--bg-color-custom: #c4c4c4;--radius: 16px;"
+                                >
+                                  <span
+                                    class="unit-switch__thumb absolute top-custom left-custom w-custom h-custom bg-custom transition rounded-50"
+                                    style="--top-custom: -4.5px;--left-custom: -1rem;--width: 18px;--height: 18px;--bg-color-custom: #1d1d1f;"
+                                  ></span>
+                                </label>
+
+                                <span class="unit-label right">lbs</span>
+                              </div>
+                            </div>
+                            <div class="relative">
+                              <input
+                                type="number"
+                                id="size-weight"
+                                name="weight"
+                                class="size-form__input w-full"
+                                data-unit-input="weight"
+                                data-value-kg=""
+                                min="40"
+                                max="120"
+                                step="0.1"
+                                placeholder="65"
+                                required
+                                aria-required="true"
+                              >
+                              <span
+                                class="unit-weight-kg absolute right-25 h-custom flex align-center top-0"
+                                style="--height: var(--input-height);"
+                                >kg</span
+                              >
+                              <span
+                                class="unit-weight-kg absolute right-25 h-custom hidden align-center top-0"
+                                style="--height: var(--input-height);"
+                                >lbs</span
+                              >
+                            </div>
+                          </div>
+                          <div class="size-form__group field relative w-full hidden">
+                            <label class="heading-color mb-sp-1" for="size-gender">
+                              {{- 'products.product.size_recommendation_popup.basics.gender' | t -}}
+                            </label>
+                            <div class="relative w-full">
+                              <select
+                                id="size-gender"
+                                name="gender"
+                                class="size-form__select select-size-gender w-full select show-placehoder not-change-color"
+                                required
+                                placeholder="{{ 'products.product.size_recommendation_popup.basics.select_gender' | t }}"
+                              >
+                                <option value="male">
+                                  {{ 'products.product.size_recommendation_popup.basics.male' | t }}
+                                </option>
+                                <option value="female" selected>
+                                  {{ 'products.product.size_recommendation_popup.basics.female' | t }}
+                                </option>
+                                <option value="other">
+                                  {{ 'products.product.size_recommendation_popup.basics.other' | t }}
+                                </option>
+                              </select>
+                              <label
+                                class="field__label-custom text-color fs-small-1 absolute left-25 top-0 h-custom pointer-events-none transition-opacity lh-global pointer-none"
+                                style="--height: var(--input-height);--color-text: #555555;--body-line-height: var(--input-height);"
+                              >
+                                {{ 'products.product.size_recommendation_popup.basics.select_gender' | t }}
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="size-form__actions px-sp-5 px-1025-sp-8 pb-sp-5 pb-1025-sp-8 border-top bright_gradient relative">
+                          <div class="py-sp-4 py-1025-sp-6 prose fs-small">
+                            {{ block_st.policy_text }}
+                          </div>
+                          <button
+                            type="button"
+                            class="size-form__btn size-form__btn--next w-full btn btn-primary flex gap-sp-3 content-center"
+                            data-next-tab="tummy_shapes"
+                          >
+                            {{ 'products.product.size_recommendation_popup.basics.next' | t }}
+                          </button>
+                        </div>
+                      </div>
+
+                      <div
+                        id="size-tabpanel-tummy-shapes-{{ block.id }}"
+                        class="size-tab__content inset-0 absolute invisible transition tab-shapes flex flex-1 column h-full"
+                        data-tab-content="tummy_shapes"
+                        role="tabpanel"
+                        aria-labelledby="size-tab-tummy-shapes-{{ block.id }}"
+                        aria-hidden="true"
+                        tabindex="-1"
+                        hidden
+                      >
+                        <div class="pt-sp-6 pb-sp-8 overflow-y-auto custom-scrollbar grow-1">
+                          <div
+                            class="size-form__group size-form__group-has-images flex column h-full flex-center"
+                            style="--checkmark_width: 4.2rem;--check_width: 8px;--check_height: 14px;--min-width: 7rem;--min-width-1025: 8rem;"
+                          >
+                            <div
+                              class="images_shape_preference relative flex gap-sp-2 mb-sp-4 mb-1025-sp-6 flex-center h-custom pointer-none w-full shrink-0"
+                              style="--height: 18rem;"
+                            >
+                              <div class="image_shape_preference absolute transition pointer flex image_shape_preference--flatter opacity-0">
+                                <img
+                                  src="{{ 'tummy-shape-1.png' | asset_url }}"
+                                  alt="{{ 'products.product.size_recommendation_popup.shapes.slim' | t }}"
+                                  width="150"
+                                  height="150"
+                                  class="block h-custom w-fit"
+                                  style="--height: 18rem;"
+                                >
+                              </div>
+                              <div class="image_shape_preference absolute transition pointer flex image_shape_preference--average opacity-0">
+                                <img
+                                  src="{{ 'tummy-shape-2.png' | asset_url }}"
+                                  alt="{{ 'products.product.size_recommendation_popup.shapes.regular' | t }}"
+                                  width="150"
+                                  height="150"
+                                  class="block h-custom w-fit"
+                                  style="--height: 18rem;"
+                                >
+                              </div>
+                              <div class="image_shape_preference absolute transition pointer flex image_shape_preference--curvier opacity-0">
+                                <img
+                                  src="{{ 'tummy-shape-3.png' | asset_url }}"
+                                  alt="{{ 'products.product.size_recommendation_popup.shapes.curvy' | t }}"
+                                  width="150"
+                                  height="150"
+                                  class="block h-custom w-fit"
+                                  style="--height: 18rem;"
+                                >
+                              </div>
+                            </div>
+                            <div id="size-body-shape-label-{{ block.id }}" class="visually-hidden">
+                              {{ 'products.product.size_recommendation_popup.tabs.tummy_shapes' | t }}
+                            </div>
+                            <div
+                              class="size-form__checkboxes flex wrap gap-sp-6 flex-center"
+                              role="radiogroup"
+                              aria-labelledby="size-body-shape-label-{{ block.id }}"
+                            >
+                              <div
+                                class="size-form__radio-card flex column gap-sp-1 relative align-center pointer min-w-custom min-w-1025-custom"
+                                data-size-radio-card
+                                role="radio"
+                                aria-checked="true"
+                                tabindex="0"
+                              >
+                                <input
+                                  type="radio"
+                                  name="body_shape"
+                                  value="flatter"
+                                  checked
+                                  class="opacity-0 absolute inset-0 w-full h-full m-0 pointer"
+                                  id="body_shape_slim"
+                                  tabindex="-1"
+                                >
+                                <span
+                                  class="checkmark-custom checkmark relative pointer-none hidden inline-flex w-custom h-custom"
+                                  style="--width: 4.2rem; --height: 4.2rem;"
+                                ></span>
+                                <label class="text-center" for="body_shape_slim">
+                                  <span>
+                                    {{- 'products.product.size_recommendation_popup.shapes.slim' | t -}}
+                                  </span>
+                                </label>
+                              </div>
+                              <div
+                                class="size-form__radio-card flex column gap-sp-1 relative align-center pointer min-w-custom min-w-1025-custom"
+                                data-size-radio-card
+                                role="radio"
+                                aria-checked="false"
+                                tabindex="0"
+                              >
+                                <input
+                                  type="radio"
+                                  name="body_shape"
+                                  value="average"
+                                  class="opacity-0 absolute inset-0 w-full h-full m-0 pointer"
+                                  id="body_shape_regular"
+                                  tabindex="-1"
+                                >
+                                <span
+                                  class="checkmark-custom checkmark relative pointer-none hidden inline-flex w-custom h-custom"
+                                  style="--width: 4.2rem; --height: 4.2rem;"
+                                ></span>
+                                <label
+                                  for="body_shape_regular"
+                                  class="size-form__checkboxes flex wrap gap-sp-2 flex-center"
+                                >
+                                  <span>
+                                    {{- 'products.product.size_recommendation_popup.shapes.regular' | t -}}
+                                  </span>
+                                </label>
+                              </div>
+                              <div
+                                class="size-form__radio-card flex column gap-sp-1 relative align-center pointer min-w-custom min-w-1025-custom"
+                                data-size-radio-card
+                                role="radio"
+                                aria-checked="false"
+                                tabindex="0"
+                              >
+                                <input
+                                  type="radio"
+                                  name="body_shape"
+                                  value="curvier"
+                                  class="opacity-0 absolute inset-0 w-full h-full m-0 pointer"
+                                  id="body_shape_curvy"
+                                  tabindex="-1"
+                                >
+                                <span
+                                  class="checkmark-custom checkmark relative pointer-none hidden inline-flex w-custom h-custom"
+                                  style="--width: 4.2rem; --height: 4.2rem;"
+                                ></span>
+                                <label
+                                  for="body_shape_curvy"
+                                  class="size-form__checkboxes flex wrap gap-sp-2 flex-center "
+                                >
+                                  <span>
+                                    {{- 'products.product.size_recommendation_popup.shapes.curvy' | t -}}
+                                  </span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="size-form__actions flex gap-sp-3 pt-sp-4 pt-1025-sp-6 px-sp-5 px-1025-sp-8 pb-sp-5 pb-1025-sp-8 border-top bright_gradient relative">
+                          <div class="flex-1">
+                            <button
+                              type="button"
+                              class="size-form__btn size-form__btn--next w-full btn btn-outline flex gap-sp-3 content-center max-w-custom min-w-custom"
+                              style="--max-width: 15rem;--min-width: 13rem;"
+                              data-next-tab="basics"
+                            >
+                              {{ 'products.product.size_recommendation_popup.basics.back' | t }}
+                            </button>
+                          </div>
+                          <button
+                            type="button"
+                            class="size-form__btn size-form__btn--next w-full btn btn-primary flex gap-sp-3 content-center"
+                            data-next-tab="hips_shapes"
+                          >
+                            {{ 'products.product.size_recommendation_popup.shapes.next' | t }}
+                          </button>
+                        </div>
+                      </div>
+
+                      <div
+                        id="size-tabpanel-hips-shapes-{{ block.id }}"
+                        class="size-tab__content inset-0 absolute invisible transition tab-shapes flex flex-1 column h-full"
+                        data-tab-content="hips_shapes"
+                        role="tabpanel"
+                        aria-labelledby="size-tab-hips-shapes-{{ block.id }}"
+                        aria-hidden="true"
+                        tabindex="-1"
+                        hidden
+                      >
+                        <div class="pt-sp-6 pb-sp-8 overflow-y-auto custom-scrollbar grow-1">
+                          <div
+                            class="size-form__group size-form__group-has-images flex column h-full flex-center"
+                            style="--checkmark_width: 4.2rem;--check_width: 8px;--check_height: 14px;--min-width: 7rem;--min-width-1025: 8rem;"
+                          >
+                            <div
+                              class="images_fit_preference relative flex gap-sp-2 mb-sp-4 mb-1025-sp-6 flex-center h-custom pointer-none w-full"
+                              style="--height: 18rem;"
+                            >
+                              <div class="image_fit_preference relative image_fit_preference--straights absolute transition pointer flex opacity-0">
+                                <img
+                                  src="{{ 'hip-shape-1.png' | asset_url }}"
+                                  alt="{{ 'products.product.size_recommendation_popup.shapes.fitted' | t }}"
+                                  width="150"
+                                  height="150"
+                                  class="block h-custom w-fit"
+                                  style="--height: 18rem;"
+                                >
+                              </div>
+                              <div class="image_fit_preference transition pointer absolute flex image_fit_preference--average opacity-0">
+                                <img
+                                  src="{{ 'hip-shape-2.png' | asset_url }}"
+                                  alt="{{ 'products.product.size_recommendation_popup.shapes.regular' | t }}"
+                                  width="150"
+                                  height="150"
+                                  class="block h-custom w-fit"
+                                  style="--height: 18rem;"
+                                >
+                              </div>
+                              <div class="image_fit_preference transition pointer absolute flex image_fit_preference--wider opacity-0">
+                                <img
+                                  src="{{ 'hip-shape-3.png' | asset_url }}"
+                                  alt="{{ 'products.product.size_recommendation_popup.shapes.oversized' | t }}"
+                                  width="150"
+                                  height="150"
+                                  class="block h-custom w-fit"
+                                  style="--height: 18rem;"
+                                >
+                              </div>
+                            </div>
+                            <div id="size-fit-preference-label-{{ block.id }}" class="visually-hidden">
+                              {{ 'products.product.size_recommendation_popup.tabs.hips_shapes' | t }}
+                            </div>
+                            <div
+                              class="size-form__checkboxes flex wrap gap-sp-6 flex-center"
+                              role="radiogroup"
+                              aria-labelledby="size-fit-preference-label-{{ block.id }}"
+                            >
+                              <div
+                                class="size-form__radio-card flex column gap-sp-1 relative align-center pointer min-w-custom min-w-1025-custom"
+                                data-size-radio-card
+                                role="radio"
+                                aria-checked="true"
+                                tabindex="0"
+                              >
+                                <input
+                                  type="radio"
+                                  name="fit_preference"
+                                  value="straights"
+                                  checked
+                                  class="opacity-0 absolute inset-0 w-full h-full m-0 pointer"
+                                  id="fit_preference_fitted"
+                                  tabindex="-1"
+                                >
+                                <span
+                                  class="checkmark-custom checkmark relative pointer-none hidden inline-flex w-custom h-custom"
+                                  style="--width: 4.2rem; --height: 4.2rem;"
+                                ></span>
+                                <label class="text-center" for="fit_preference_fitted">
+                                  <span>
+                                    {{- 'products.product.size_recommendation_popup.shapes.fitted' | t -}}
+                                  </span>
+                                </label>
+                              </div>
+                              <div
+                                class="size-form__radio-card flex column gap-sp-1 relative align-center pointer min-w-custom min-w-1025-custom"
+                                data-size-radio-card
+                                role="radio"
+                                aria-checked="false"
+                                tabindex="0"
+                              >
+                                <input
+                                  type="radio"
+                                  name="fit_preference"
+                                  value="average"
+                                  class="opacity-0 absolute inset-0 w-full h-full m-0 pointer"
+                                  id="fit_preference_regular"
+                                  tabindex="-1"
+                                >
+                                <span
+                                  class="checkmark-custom checkmark relative pointer-none hidden inline-flex w-custom h-custom"
+                                  style="--width: 4.2rem; --height: 4.2rem;"
+                                ></span>
+                                <label
+                                  for="fit_preference_regular"
+                                  class="size-form__checkboxes flex wrap gap-sp-2 flex-center"
+                                >
+                                  <span>
+                                    {{- 'products.product.size_recommendation_popup.shapes.regular' | t -}}
+                                  </span>
+                                </label>
+                              </div>
+                              <div
+                                class="size-form__radio-card flex column gap-sp-1 relative align-center pointer min-w-custom min-w-1025-custom"
+                                data-size-radio-card
+                                role="radio"
+                                aria-checked="false"
+                                tabindex="0"
+                              >
+                                <input
+                                  type="radio"
+                                  name="fit_preference"
+                                  value="wider"
+                                  class="opacity-0 absolute inset-0 w-full h-full m-0 pointer"
+                                  id="fit_preference_oversized"
+                                  tabindex="-1"
+                                >
+                                <span
+                                  class="checkmark-custom checkmark relative pointer-none hidden inline-flex w-custom h-custom"
+                                  style="--width: 4.2rem; --height: 4.2rem;"
+                                ></span>
+                                <label
+                                  for="fit_preference_oversized"
+                                  class="size-form__checkboxes flex wrap gap-sp-2 flex-center "
+                                >
+                                  <span>
+                                    {{- 'products.product.size_recommendation_popup.shapes.oversized' | t -}}
+                                  </span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="size-form__actions flex gap-sp-3 pt-sp-4 pt-1025-sp-6 px-sp-5 px-1025-sp-8 pb-sp-5 pb-1025-sp-8 border-top border-top bright_gradient relative">
+                          <div class="flex-1">
+                            <button
+                              type="button"
+                              class="size-form__btn size-form__btn--next w-full btn btn-outline flex gap-sp-3 content-center max-w-custom min-w-custom"
+                              style="--max-width: 15rem;--min-width: 13rem;"
+                              data-next-tab="tummy_shapes"
+                            >
+                              {{ 'products.product.size_recommendation_popup.basics.back' | t }}
+                            </button>
+                          </div>
+                          {%- liquid
+                            assign recommend_size_metaobject_shapes = product.metafields.custom.size_recommend_sizing_system.value
+                          -%}
+                          {% if recommend_size_metaobject_shapes != blank %}
+                            <button
+                              type="button"
+                              class="size-form__btn size-form__btn--next w-full btn btn-primary flex gap-sp-3 content-center"
+                              data-next-tab="measurements"
+                            >
+                              {{ 'products.product.size_recommendation_popup.shapes.next' | t }}
+                            </button>
+                          {% else %}
+                            <button
+                              type="button"
+                              class="size-form__btn size-form__btn--submit w-full btn btn-primary flex gap-sp-3 content-center"
+                              data-submit-size
+                              data-section-id="{{ section.id }}"
+                            >
+                              {{ 'products.product.size_recommendation_popup.shapes.next' | t }}
+                            </button>
+                          {% endif %}
+                        </div>
+                      </div>
+
+                      {%- liquid
+                        assign recommend_size_metaobject = product.metafields.custom.size_recommend_sizing_system.value
+                        assign entries_count = recommend_size_metaobject.size | default: 0
+                      -%}
+                      {% if recommend_size_metaobject != blank %}
+                        <div
+                          id="size-tabpanel-measurements-{{ block.id }}"
+                          class="size-tab__content inset-0 absolute invisible transition tab-shapes flex flex-1 column h-full"
+                          data-tab-content="measurements"
+                          role="tabpanel"
+                          aria-labelledby="size-tab-measurements-{{ block.id }}"
+                          aria-hidden="true"
+                          tabindex="-1"
+                          hidden
+                        >
+                          <div
+                            class="flex-1 flex gap-sp-3 column overflow-y-auto custom-scrollbar px-sp-5 px-1025-sp-8 py-sp-4 py-1025-sp-6"
+                          >
+                            {% if entries_count > 1 %}
+                              <div class="size-form__group flex column w-full">
+                                <label for="size-system-sizing" class="heading-style mb-sp-1">
+                                  {{- 'products.product.size_recommendation_popup.measurements.sizing_system' | t -}}
+                                </label>
+                                <select
+                                  id="size-system-sizing"
+                                  name="system_sizing"
+                                  class="size-form__select w-full select show-placehoder"
+                                  data-system-sizing
+                                >
+                                  {% for entry in recommend_size_metaobject %}
+                                    <option
+                                      value="{{ forloop.index0 }}"
+                                      data-system="{{ entry.sizing_system }}"
+                                      {% if forloop.first %}
+                                        selected
+                                      {% endif %}
+                                    >
+                                      {{ entry.sizing_system }}
+                                    </option>
+                                  {% endfor %}
+                                </select>
+                              </div>
+                            {% endif %}
+
+                            <div class="size-form__group" data-bust-group>
+                              <div class="heading-style size-form__label mb-sp-1">
+                                {{- 'products.product.size_recommendation_popup.measurements.bust_size' | t -}}
+                              </div>
+                              {% for entry in recommend_size_metaobject %}
+                                <div
+                                  class="size-form__checkboxes wrap gap-sp-1{% unless forloop.first %} hidden{% else %} flex{% endunless %}"
+                                  data-bust-options="{{ forloop.index0 }}"
+                                >
+                                  {% assign bust_values = entry.bust_size | split: ',' %}
+                                  {% for bust in bust_values %}
+                                    {% assign bust_trimmed = bust | strip %}
+                                    {% if bust_trimmed != blank %}
+                                      <label
+                                        class="size-form__radio-card size-form__checkbox-label btn-rounded py-6 flex content-center border pointer transition bg-white heading-color relative min-w-custom min-w-1025-custom"
+                                        style="--min-width: 6rem;--min-width-1025: 8rem;"
+                                        data-size-radio-card
+                                        role="radio"
+                                        aria-checked="false"
+                                        tabindex="0"
+                                      >
+                                        <input
+                                          type="radio"
+                                          class="overflow-hidden absolute h-custom w-custom"
+                                          style="--height: 1px;--width: 1px;"
+                                          name="bust_size_{{ forloop.parentloop.index0 }}"
+                                          value="{{ bust_trimmed }}"
+                                          tabindex="-1"
+                                        >
+                                        <span>{{ bust_trimmed }}</span>
+                                      </label>
+                                    {% endif %}
+                                  {% endfor %}
+                                </div>
+                              {% endfor %}
+                            </div>
+
+                            {%- comment -%} Cup Size Options {%- endcomment -%}
+                            <div class="size-form__group" data-cup-group>
+                              <div class="heading-style size-form__label mb-sp-1">
+                                {{- 'products.product.size_recommendation_popup.measurements.cup_size' | t -}}
+                              </div>
+                              {% for entry in recommend_size_metaobject %}
+                                <div
+                                  class="size-form__checkboxes wrap gap-sp-1{% unless forloop.first %} hidden {% else %} flex{% endunless %}"
+                                  data-cup-options="{{ forloop.index0 }}"
+                                >
+                                  {% assign cup_values = entry.cup | split: ',' %}
+                                  {% for cup in cup_values %}
+                                    {% assign cup_trimmed = cup | strip %}
+                                    {% if cup_trimmed != blank %}
+                                      <label
+                                        class="size-form__radio-card size-form__checkbox-label btn-rounded py-6 flex content-center border pointer transition bg-white heading-color relative min-w-custom min-w-1025-custom"
+                                        style="--min-width: 6rem;--min-width-1025: 8rem;"
+                                        data-size-radio-card
+                                        role="radio"
+                                        aria-checked="false"
+                                        tabindex="0"
+                                      >
+                                        <input
+                                          type="radio"
+                                          class="overflow-hidden absolute h-custom w-custom"
+                                          style="--height: 1px;--width: 1px;"
+                                          name="cup_size_{{ forloop.parentloop.index0 }}"
+                                          value="{{ cup_trimmed }}"
+                                          tabindex="-1"
+                                        >
+                                        <span>{{ cup_trimmed }}</span>
+                                      </label>
+                                    {% endif %}
+                                  {% endfor %}
+                                </div>
+                              {% endfor %}
+                            </div>
+                          </div>
+                          <div class="size-form__actions flex gap-sp-3 pt-sp-4 pt-1025-sp-6 px-sp-5 px-1025-sp-8 pb-sp-5 pb-1025-sp-8 border-top bright_gradient relative">
+                            <div class="flex-1">
+                              <button
+                                type="button"
+                                class="size-form__btn size-form__btn--next w-full btn btn-outline flex gap-sp-3 content-center max-w-custom min-w-custom"
+                                style="--max-width: 15rem;--min-width: 13rem;"
+                                data-next-tab="hips_shapes"
+                              >
+                                {{ 'products.product.size_recommendation_popup.basics.back' | t }}
+                              </button>
+                            </div>
+                            <button
+                              type="button"
+                              class="size-form__btn size-form__btn--submit w-full btn btn-primary flex gap-sp-3 content-center"
+                              data-submit-size
+                              data-section-id="{{ section.id }}"
+                            >
+                              {{ 'products.product.size_recommendation_popup.shapes.next' | t }}
+                            </button>
+                          </div>
+                        </div>
+                      {% endif %}
+                      <div
+                        id="size-tabpanel-result-{{ block.id }}"
+                        class="size-tab__content inset-0 absolute invisible transition flex flex-1 column h-full"
+                        data-tab-content="result"
+                        hidden
+                      >
+                        <div
+                          class="size-recommendation-result flex-1 flex column overflow-y-auto custom-scrollbar px-sp-5 px-1025-sp-8 py-sp-4 py-1025-sp-6"
+                        >
+                          <div class="recommend-size-available">
+                            <div class="recommended-size-label-stock ">
+                              <span>
+                                {{ 'products.product.size_recommendation_popup.result.label' | t }}
+                              </span>
+                              <span
+                                class="recommended-size-in-stock-status text-color whitespace-nowrap"
+                                style="--color-text: #14854E"
+                              >
+                                {{ 'products.product.size_recommendation_popup.result.label_instock' | t }}
+                              </span>
+                              <span class="recommended-size-out-stock-status hidden">
+                                {{ 'products.product.size_recommendation_popup.result.label_soldout' | t }}
+                              </span>
+                            </div>
+                            <div class="h3 py-sp-4 border-dash-bottom text-transform-none">
+                              {{ 'products.product.size_recommendation_popup.result.result' | t -}}
+                              <span class="recommended-size-value"></span>
+                            </div>
+                          </div>
+                          <div class="recommend-size-not-available hidden border-dash-bottom">
+                            <div class="warning relative flex gap-sp-2">
+                              <svg width="18" height="18" fill="none" class="flex-auto w-18">
+                                <use href="#icon-warning"></use>
+                              </svg>
+                              <span>
+                                {{- 'products.product.size_recommendation_popup.measurements.not_available_noti' | t -}}
+                              </span>
+                            </div>
+                            <div class="text_not_available prose py-sp-4">
+                              {{ block_st.text_not_available }}
+                            </div>
+                          </div>
+                          <div class="recommended-size-note py-sp-4">
+                            <div class="flex space-between align-center">
+                              <span class="size-recommendation-note heading-style mb-sp-2">
+                                {{ 'products.product.size_recommendation_popup.result.note' | t }}
+                              </span>
+                            </div>
+                            <div
+                              class="size-recommendation-details flex row gap"
+                              style="--gap-desktop: 10rem;--gap: 2.4rem;"
+                            >
+                              <div class="details-left flex-1 flex column gap-sp-1">
+                                <p class="detail-height">
+                                  {{ 'products.product.size_recommendation_popup.result.height' | t }}
+                                  <span class="detail-value" id="heightValue"></span>&nbsp;<span
+                                    class="detail-unit"
+                                  ></span>
+                                </p>
+                                <p class="detail-weight">
+                                  {{ 'products.product.size_recommendation_popup.result.weight' | t }}
+                                  <span class="detail-value" id="weightValue"></span>&nbsp;<span
+                                    class="detail-unit"
+                                  ></span>
+                                </p>
+                                <p class="detail-gender hidden">
+                                  {{ 'products.product.size_recommendation_popup.result.gender' | t }}
+                                  <span class="detail-value capitalize" id="genderValue"></span>
+                                </p>
+                                <p class="detail-body-shape">
+                                  {{ 'products.product.size_recommendation_popup.result.body_shape' | t }}
+                                  <span class="detail-value capitalize" id="bodyShapeValue"></span>
+                                </p>
+                              </div>
+                              <div class="details-right flex-1 flex column gap-sp-1">
+                                <p class="detail-fit-preference">
+                                  {{ 'products.product.size_recommendation_popup.result.fit_preference' | t }}
+                                  <span class="detail-value capitalize" id="fitPreferenceValue"></span>
+                                </p>
+                                <p class="detail-bust-size">
+                                  {{ 'products.product.size_recommendation_popup.result.bust_size' | t }}
+                                  <span class="detail-value" id="bustSizeValue"></span>
+                                </p>
+                                <p class="detail-cup-size">
+                                  {{ 'products.product.size_recommendation_popup.result.cup_size' | t }}
+                                  <span class="detail-value" id="cupSizeValue"></span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="recommend-size-info_html pt-sp-4 border-dash-top prose">
+                            {{ block_st.fit_recommendation_note }}
+                          </div>
+                        </div>
+                        <div class="size-form__actions flex gap-sp-3 pt-sp-4 pt-1025-sp-6 px-sp-5 px-1025-sp-8 pb-sp-6 pb-1025-sp-8 border-top wrap row-gap-sp-2 w-full bright_gradient relative">
+                          <div class="w-full w-1025-auto">
+                            <button
+                              type="button"
+                              class="size-form__btn size-form__btn--next w-full btn btn-outline text-center min-w-custom whitespace-nowrap h-full"
+                              style="--min-width: 15rem;"
+                              data-reset-form
+                              data-section-id="{{ section.id }}"
+                            >
+                              {{ 'products.product.size_recommendation_popup.result.start_over' | t }}
+                            </button>
+                          </div>
+                          <div class="flex-1">
+                            <button
+                              type="button"
+                              class="size-form__btn btn btn-primary w-full relative whitespace-nowrap relative"
+                              data-add-to-cart-size
+                              disabled
+                              aria-disabled="true"
+                              tabindex="-1"
+                            >
+                              <span
+                                class="btn-label btn-label-size hidden-on-load transition-short text-center"
+                                aria-live="polite"
+                                aria-atomic="true"
+                              >
+                                {{ 'products.product.add_to_cart' | t }}
+                                <span class="dot-total mx-sp-1"> - </span>
+                                <span class="total-price__size">
+                                  {{ 0 | money }}
+                                </span></span
+                              >
+                              {%- render 'loader' -%}
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <script type="application/json" class="size-recommendation-data">
+                    {
+                      "product_size": "{{ size_value }}",
+                      "product_id": "{{ product.id }}",
+                      "product_handle": "{{ product.handle }}"
+                    }
+                  </script>
+                  <script type="application/json" class="size-chart-data">
+                    {{ recommend_size_metaobject | json }}
+                  </script>
+                  <script type="application/json" class="product-variants-data">
+                    {{ product.selected_or_first_available_variant | json }}
+                  </script>
+                </size-recommendation-form>
+              </div>
+            </div>
+          </div>
+        </size-recommendation-popup>
+      </template>
+    </div>
+  </size-recommendation>
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.size_recommendation.name",
+  "class": "my-custom block-size-recommendation",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.size_recommendation.how_to_use"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.size_recommendation.info"
+    },
+    {
+      "type": "text",
+      "id": "size_trigger",
+      "label": "t:sections.all.product_setting.variant_picker.settings.size_guide.settings.size_trigger.label",
+      "info": "t:sections.all.product_setting.variant_picker.settings.size_guide.settings.size_trigger.info",
+      "default": "Size,Größe,Misurare,مقاس"
+    },
+    {
+      "type": "header",
+      "content": "Button settings"
+    },
+    {
+      "type": "text",
+      "id": "button_title",
+      "label": "t:sections.all.content_setting.button_label-block.name",
+      "default": "Find your fit assistant size"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button background color",
+      "default": "#E7EAF6"
+    },
+    {
+      "type": "header",
+      "content": "Content in modal"
+    },
+    {
+      "type": "richtext",
+      "id": "policy_text",
+      "label": "t:sections.size_recommendation.data_usage_notice.label",
+      "info": "t:sections.size_recommendation.data_usage_notice.info",
+      "default": "<p>By continuing, you agree to the use of your details for size recommendations. Privacy Policy.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "fit_recommendation_note",
+      "label": "t:sections.size_recommendation.fit_recommendation_note.label",
+      "default": "<p>This recommendation is based on the size that <strong>people like you</strong> bought, and whether they returned it.</p>",
+      "info": "t:sections.size_recommendation.fit_recommendation_note.info"
+    },
+    {
+      "type": "richtext",
+      "id": "text_not_available",
+      "label": "t:sections.size_recommendation.no_size_match.label",
+      "default": "<p>*Adjust measurements or check the size guide.</p>",
+      "info": "t:sections.size_recommendation.no_size_match.info"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.size_recommendation.name"
+    }
+  ]
+}
+{% endschema %}

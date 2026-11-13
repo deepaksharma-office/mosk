@@ -1,0 +1,69 @@
+{% comment %}
+  Renders a collection card
+
+  Accepts:
+  - card_collection: {Object} collection Liquid object (optional)
+  - section: {String} Section (required)
+  - block: {String} block (required)
+  - class: {String} custom class (optional)
+
+  Usage:
+  {% render 'card-collection', section: section, block: block %}
+{% endcomment %}
+{% liquid
+  assign block_st = block.settings
+  assign collection_image = block_st.collection_image
+  assign collection_title = block_st.collection_title
+
+  if collection_image.alt != blank
+    assign alt_text = collection_image.alt
+  elsif card_collection.featured_image.alt != blank
+    assign alt_text = card_collection.featured_image.alt
+  elsif collection_title != blank
+    assign alt_text = collection_title
+  elsif card_collection.title != blank
+    assign alt_text = card_collection.title
+  else
+    assign alt_text = 'sections.collection_list.sample_name' | t
+  endif
+%}
+<div class="collection-item__wrapper flex column content-center w-custom w-1025-custom" style="--width-1025: 10rem;">
+  <div class="collection-item__media">
+    <div
+      class="collection-item__media--ratio rounded-50 bg-custom w-custom w-1025-custom h-custom h-1025-custom hidden block-1025"
+      style="--aspect-ratio: 1/1;--bg-color-custom: #F2F2F2;--width: 8rem;--width-1025: 10rem;--height-1025: 10rem;--height: 8rem;"
+    >
+      {% assign collection_media = card_collection.featured_image %}
+      {%- if collection_media or collection_image != blank -%}
+        {% if collection_image != blank %}
+          {% render 'responsive-image', type: 'other', image: collection_image, image_alt: alt_text %}
+        {% else %}
+          {% render 'responsive-image', type: 'other', image: collection_media, image_alt: alt_text %}
+        {% endif %}
+      {%- else -%}
+        {% render 'placeholder-render', type: 'collection', class: 'img-placeholder h-full w-full' %}
+      {%- endif -%}
+    </div>
+  </div>
+  <div class="collection-information transition mt-0 mt-1025-sp-2 fw-500 w-full text-color opacity" style="--opacity: 0.7;">
+    {%- if block_st.collection_title == blank -%}
+      {%- if block_st.collection != blank -%}
+        <div class="collection_title">
+          {{ block_st.collection.title }}
+        </div>
+      {%- elsif block_st.collection == blank and card_collection.title -%}
+        <div class="collection_title">
+          {{- card_collection.title -}}
+        </div>
+      {%- else -%}
+        <div class="collection_title">
+          {{ 'sections.collection_list.sample_name' | t }}
+        </div>
+      {%- endif -%}
+    {%- else -%}
+      <div class="collection_title">
+        {{ block_st.collection_title }}
+      </div>
+    {%- endif -%}
+  </div>
+</div>

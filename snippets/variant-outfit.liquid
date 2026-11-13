@@ -1,0 +1,231 @@
+{% liquid
+  assign theme_st = settings
+  assign color_swatch_trigger = theme_st.color_swatch_trigger
+  if color_swatch_trigger != blank
+    assign option_name = color_swatch_trigger | split: ','
+  else
+    assign option_name = 'Color'
+  endif
+  assign has_color = false
+  for opt in product.options_with_values
+    for c in option_name
+      if opt.name == c
+        assign has_color = true
+      endif
+    endfor
+  endfor
+%}
+<outfit-add
+  class="outfit-add-container block absolute inset-0 h-full bg-custom visibility-hidden-1025 opacity-0-1025"
+  data-product-id="{{ product.id }}"
+>
+  <div
+    class="outfit-add-variant-container{% if product.variants.size > 1 %} overflow-visible-mb overflow-hidden{% endif %} flex rounded-top w-full absolute bottom-0 left-0 right-0 max-h-custom{% if outfit_mobile %} flex flex-end align-end{% endif %}"
+    style="--max-height: 80%;"
+  >
+    {%- if product.variants.size > 1 -%}
+      {%- if outfit_mobile -%}
+        <button
+          type="button"
+          class="btn btn__quick-outfit-add btn__quick-outfit-add-action wh-42 btn-white p-0 rounded-50 flex content-center mb-10 me-10 shadow-glass-2"
+          data-url="{{ product.url }}"
+          aria-label="{{ 'products.product.quickadd' | t }}"
+          {% if product.selected_or_first_available_variant.available == false %}
+            disabled
+          {% endif %}
+        >
+          <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
+            <use href="#icon-plus"></use>
+          </svg>
+        </button>
+        <template class="quick-outfit-popup">
+          <quick-outfit-popup
+            class="modal outfit-add-variant-container transition-drawer invisible fixed inset-0 z-20 pointer-none active-modal-js content-hidden"
+            drawer
+          >
+            <modal-overlay class="modal-overlay cursor-crosshair"></modal-overlay>
+            <div
+              class="modal-inner transition-drawer modal-body modal-draggable color-default drawer drawer-right fixed right-0 z-2 inset-y-0 w-full"
+              tabindex="-1"
+              style="--max-width: 60rem;"
+            >
+              <draggable-modal
+                class="drawer__header draggable-modal flex gap-10 space-between align-center drawer-spacing border-bottom border-bottom-md-0 sticky"
+                style="--padding-block:1.2rem;--padding-block-desktop: 2rem;--padding-inline-desktop:3.2rem;"
+              >
+                <div class="drawer__heading h5 flex gap align-center body-font  body-style" style="--gap-desktop: 8px;--gap: 8px">
+                  {{ 'products.product.choose_options' | t }}
+                </div>
+                <button
+                  is="button-close-model"
+                  class="modal__close will-change pointer modal-button-close rounded-50 clip-path-unset btn-reset w-30 h-full flex content-center flex-end mb-10 me-10"
+                  aria-label="{{ 'accessibility.close' | t }}"
+                >
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    class="transition-short will-change icon-zoom"
+                  >
+                    <use href="#icon-close"></use>
+                  </svg>
+                </button>
+              </draggable-modal>
+              <div class="quick-outfit-form drawer__body h-full overflow-y-auto drawer-spacing">
+                <variant-outfit-add
+                  class="product-variants-js variant-outfit-add-js flex column wrap gap-sp-3{% if has_color %} has-color{% endif %}"
+                  data-section-id="{{ section.id }}"
+                  data-product-url="{{ product.url }}"
+                  data-product-id="{{ product.id }}"
+                  data-options-size="{{ product.options.size }}"
+                  data-position-color="{{ color_position }}"
+                >
+                  {%- for option in product.options_with_values -%}
+                    {%- liquid
+                      assign is_color_option = false
+                      for cl in option_name
+                        if option.name == cl
+                          assign is_color_option = true
+                        endif
+                      endfor
+                    %}
+                    <fieldset
+                      class="product-card-variant-js w-full product-variants__input variants-fieldset-{{ option.position }} m-0 p-0 border-0 relative{% if is_color_option %} options-color{% endif %}"
+                      id="fieldset-{{ section.id }}-product-variant-outfit-add-{{ product.id }}-position-{{ forloop.index0 }}"
+                      data-position-option="{{ option.position }}"
+                    >
+                      <div class="product-variants-info mb-sp-2">
+                        <legend class="form__label p-0 fs-small lh-global">
+                          <span class="heading-color">{{ option.name }}:</span>
+                          <span
+                            class="option_value heading-color transition-short"
+                            data-option="{{ 'sections.outfit.select' | t }}"
+                          ></span>
+                        </legend>
+                      </div>
+                      <div class="product-variants-option">
+                        <ul class="list-unstyled flex wrap gap-sp-1 swatch-text wrap">
+                          {% render 'variant-options',
+                            product: product,
+                            option: option,
+                            is_color: is_color_option,
+                            disable_select: true,
+                            scope: 'detail',
+                            is_dropdown: false,
+                            quick_add: outfit,
+                            outfit: true,
+                            type: 'action_bundle'
+                          %}
+                        </ul>
+                      </div>
+                    </fieldset>
+                  {%- endfor -%}
+                </variant-outfit-add>
+              </div>
+            </div>
+          </quick-outfit-popup>
+        </template>
+      {%- else -%}
+        <variant-outfit-add
+          class="product-variants-js variant-outfit-add-js flex column wrap bg-custom gap-15 p-sp-3 p-1025-sp-4 flex-nowrap w-full overflow-y-auto overflow-x-hidden custom-scrollbar{% if has_color %} has-color{% endif %}"
+          data-section-id="{{ section.id }}"
+          data-product-url="{{ product.url }}"
+          data-product-id="{{ product.id }}"
+          data-options-size="{{ product.options.size }}"
+          data-position-color="{{ color_position }}"
+          style="--bg-color-custom: rgba(255, 255, 255, 0.90);"
+        >
+          {%- for option in product.options_with_values -%}
+            {%- liquid
+              assign is_color_option = false
+              for cl in option_name
+                if option.name == cl
+                  assign is_color_option = true
+                endif
+              endfor
+            %}
+            <fieldset
+              class="product-card-variant-js w-full product-variants__input variants-fieldset-{{ option.position }} m-0 p-0 border-0 relative{% if is_color_option %} options-color{% endif %}"
+              id="fieldset-{{ section.id }}-product-variant-outfit-add-{{ product.id }}-position-{{ forloop.index0 }}"
+              data-position-option="{{ option.position }}"
+            >
+              <div class="product-variants-info mb-sp-2">
+                <legend class="form__label p-0 fs-small lh-global">
+                  <span class="heading-color">{{ option.name }}:</span>
+                  <span
+                    class="option_value heading-color transition-short"
+                    data-option="{{ 'sections.outfit.select' | t }}"
+                  ></span>
+                </legend>
+              </div>
+              <div class="product-variants-option">
+                <ul class="list-unstyled flex wrap gap-sp-1 swatch-text">
+                  {% render 'variant-options',
+                    product: product,
+                    option: option,
+                    is_color: is_color_option,
+                    disable_select: true,
+                    scope: 'detail',
+                    is_dropdown: false,
+                    quick_add: outfit,
+                    outfit: true,
+                    type: 'action_bundle'
+                  %}
+                </ul>
+              </div>
+            </fieldset>
+          {%- endfor -%}
+        </variant-outfit-add>
+      {%- endif -%}
+    {%- else -%}
+      <variant-outfit-add
+        class="variant-outfit-add flex flex-end h-full w-full"
+        data-product-id="{{ product.id }}"
+        data-product-variant-id="{{ product.selected_or_first_available_variant.id }}"
+        data-price="{{ product.selected_or_first_available_variant.price }}"
+        data-image="{{ product.selected_or_first_available_variant.image | image_url: width: 600 }}"
+      >
+        <button
+          class="button__add wh-42 btn-hover-custom btn-white pointer transition p-0 rounded-50 clip-path-unset flex content-center me-10 me-1025-15 mb-10 mb-1025-15 shadow-glass-2"
+          aria-label="{{ 'products.product.add' | t }}"
+          {% if product.selected_or_first_available_variant.available == false %}
+            disabled
+          {% endif %}
+        >
+          <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
+            <use href="#icon-plus"></use>
+          </svg>
+        </button>
+      </variant-outfit-add>
+    {%- endif -%}
+  </div>
+  <variant-outfit-remove
+    class="variant-outfit-remove absolute flex flex-end align-end h-full inset-0 w-full"
+    data-product-id="{{ product.id }}"
+  >
+    <button
+      class="button__remove btn-hover-custom pointer transition wh-42 btn-white p-0 rounded-50 clip-path-unset flex content-center me-10 me-1025-15 mb-10 mb-1025-15 shadow-glass-2"
+      style="--top-custom: 12px;--right-custom: 8px;--width: 3rem;--height: 3rem;"
+      aria-label="{{ 'accessibility.close' | t }}"
+    >
+      <svg width="12" height="12" viewBox="0 0 14 14" fill="none" class="transition-short will-change icon-zoom">
+        <use href="#icon-close"></use>
+      </svg>
+    </button>
+  </variant-outfit-remove>
+</outfit-add>
+<div
+  class="variant-outfit-active absolute flex-end align-end h-full inset-0 w-full flex"
+  data-product-id="{{ product.id }}"
+>
+  <div
+    class="btn wh-42 btn-white p-0 rounded-50 clip-path-unset flex content-center shadow-glass-2 btn-tick"
+    style="--top-custom: 12px;--right-custom: 8px;--width: 3rem;--height: 3rem;"
+    aria-label="{{ 'accessibility.close' | t }}"
+  >
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" class="transition-short will-change icon-zoom">
+      <use href="#icon-tick"></use>
+    </svg>
+  </div>
+</div>

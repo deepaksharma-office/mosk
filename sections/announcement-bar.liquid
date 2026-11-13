@@ -1,0 +1,418 @@
+{%- liquid
+  assign section_st = section.settings
+  assign color_scheme = section_st.color_scheme
+  if section_st.section_width == 'fix_width'
+    assign section_width = 'container'
+  elsif section_st.section_width == 'full_width'
+    assign section_width = 'full-width'
+  else
+    assign section_width = 'fluid_container'
+  endif
+  assign scrolling_size = section_st.scrolling_size
+  assign is_shown = false
+  if section_st.homepage_only
+    if request.page_type == 'index'
+      assign is_shown = true
+    endif
+  else
+    assign is_shown = true
+  endif
+  assign announcement_actions = section_st.announcement_actions
+  assign show_close = section_st.show_close
+  assign show_mobile = section_st.show_mobile
+  assign has_setting = false
+  for block in section.blocks
+    if block.settings.text != blank
+      assign has_setting = true
+    endif
+  endfor
+-%}
+
+{%- capture style -%}--section-pt: {{ section_st.padding_top }};--section-pb: {{ section_st.padding_bottom }};--speed: {{ section_st.marquee_speed }}s;--swiper-navigation-color:rgba(var(--color-text-rgb), 0.5);--swiper-navigation-size: 3rem;--swiper-navigation-sides-offset: 0rem;{%- endcapture -%}
+{%- capture col_style -%}
+  {% if section_st.space_between_text < 15 %}--gap: {{ section_st.space_between_text}}px;{% else %}--gap: clamp(4rem, calc({{ section_st.space_between_text}} * var(--responsive-rate)), calc({{ section_st.space_between_text}}*1px));{% endif %}
+{%- endcapture -%}
+{%- if section.blocks.size > 0 and has_setting and is_shown and section_st.announcement_actions == 'slide' -%}
+  {% style %}
+    html.announcement-bar-closed .section-announcement-bar {
+      display: none;
+    }
+    @media (min-width: 576px) {
+      announcement-bar slide-section {
+        width: 70%;
+        max-width: 44rem;
+      }
+    }
+    announcement-bar .swiper-arrow:hover {
+      --swiper-navigation-color: var(--color-text);
+    }
+    .announcement-bar__content > * {
+      max-width: 80%;
+      line-height: calc(calc(23 / 14) * var(--lh-body-rtl-multiplier));
+    }
+    .swiper:not([class*='initialized'])[data-direction='vertical'] .swiper-wrapper {
+      align-items: center;
+    }
+    .swiper:not([class*='initialized'])[data-direction='vertical'] .swiper-wrapper .swiper-slide {
+      max-width: unset;
+    }
+    .swiper:not([class*='initialized'])[data-direction='vertical'] .swiper-wrapper .swiper-slide:not(:first-child) {
+      opacity: 0;
+    }
+    {% if scrolling_size == 'small' %}
+      .announcement-bar__content-inner {
+        line-height: calc(2.3rem * var(--lh-body-rtl-multiplier));
+      }
+    {% endif %}
+  {% endstyle %}
+{%- endif -%}
+{%- if section.blocks.size > 0 and has_setting and is_shown -%}
+  {% if show_close %}
+    <script>
+      (() => {
+        const match = document.cookie.match('(^|;)\\s*announcement_closed\\s*=\\s*([^;]+)');
+        if (match && match[2] === 'true') {
+          document.documentElement.classList.add('announcement-bar-closed');
+          document.body.style.setProperty('--height-bar', '0px');
+        }
+      })();
+    </script>
+  {% endif %}
+  <announcement-bar
+    class="p-min section__announcement-bar {% if show_mobile %}block{% else %}d-none block-md{% endif %} color-{{ color_scheme }} gradient relative{% if section_st.homepage_only %} only_homepage{% endif %} z-15"
+    style="{{ style | strip | strip_newlines }}"
+  >
+    <div class="{{ section_width }}">
+      {%- if announcement_actions == 'marquee' -%}
+        <div
+          class="flex gap {% if section_st.uppercase %} uppercase{% endif %} fs-{{ scrolling_size }} marquee overflow-hidden w-full justify-center"
+          style="{{ col_style | strip | strip_newlines }}"
+        >
+          {%- for i in (0..5) -%}
+            <div class="flex animation-marquee animation__marquee-left whitespace-nowrap gap align-center lh-normal">
+              {%- for block in section.blocks -%}
+                <div class="announcement-bar__content" {{ block.shopify_attributes }}>
+                  {{ block.settings.text }}
+                </div>
+              {%- endfor -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <slide-section
+          id="swiper-{{ section.id }}"
+          class="mx-auto swiper lazy-loading-swiper-before"
+          data-section-id="{{ section.id }}"
+          data-loop="true"
+          data-speed="300"
+          data-mobile="1"
+          data-tablet="1"
+          data-desktop="1"
+          data-direction="vertical"
+          data-height-auto="true"
+          data-spacing="0"
+          data-auto-play-speed="{{ section_st.change_slide_every | times: 1000 }}"
+          data-autoplay="{{ section_st.slide_auto_change }}"
+          style="--item-desktop: 1;--item-tablet: 1;--item-mb: 1;--gap: 0px; --gap-desktop: 0px;"
+        >
+          <div class="swiper-wrapper {% if section_st.uppercase %}uppercase {% endif %}fs-{{ scrolling_size }}">
+            {%- for block in section.blocks -%}
+              <div
+                class="swiper-slide announcement-bar__content flex wrap content-center mx-auto text-center"
+                {{ block.shopify_attributes }}
+              >
+                <div class="announcement-bar__content-inner">{{ block.settings.text }}</div>
+              </div>
+            {%- endfor -%}
+          </div>
+          {% if section_st.show_navigation %}
+            <div class="swiper-actions" style="--swiper-navigation-sides-offset: -1rem;">
+              <div
+                class="inline-flex content-center overflow-hidden transition swiper-arrow swiper-button-prev"
+                style="--transform-x: 2rem;"
+              >
+                <svg width="6" height="11" fill="none">
+                  <use href="#icon-back" />
+                </svg>
+              </div>
+              <div
+                class="inline-flex content-center overflow-hidden transition swiper-arrow swiper-button-next"
+                style="--transform-x: -2rem;"
+              >
+                <svg width="6" height="11" fill="none">
+                  <use href="#icon-next" />
+                </svg>
+              </div>
+            </div>
+          {% endif %}
+        </slide-section>
+      {% endif %}
+    </div>
+    {%- if show_close -%}
+      <div
+        class="announcement-bar__close absolute {% if settings.rtl %}left-10{% else %}right-10{% endif %} top-0 w-30 h-full transition inline-flex content-center hover-svg-zoom pointer lh-normal"
+        tabindex="0"
+      >
+        <svg width="9" height="10" viewBox="0 0 9 10" fill="none">
+          <use href="#icon-close" />
+        </svg>
+      </div>
+    {% endif %}
+  </announcement-bar>
+  <script>
+    (() => {
+      const bar = document.querySelector('announcement-bar');
+      if (!bar) return;
+      const parentSection = document.querySelector('.section-announcement-bar');
+
+      const getCookieValue = () => {
+        const match = document.cookie.match('(^|;)\\s*announcement_closed\\s*=\\s*([^;]+)');
+        return match ? match[2] : null;
+      };
+      const canRestoreClosedState = {{ show_close | json }};
+      if (canRestoreClosedState && getCookieValue() === 'true') {
+        if (parentSection) {
+          parentSection.classList.add('announcement-closed');
+        }
+        bar.classList.add('d-none');
+        document.body.style.setProperty('--height-bar', '0px');
+        return;
+      }
+
+      const updateAnnouncementHeight = () => {
+        const height = bar.getBoundingClientRect().height || 0;
+        document.body.style.setProperty('--height-bar', `${Math.ceil(height)}px`);
+      };
+
+      updateAnnouncementHeight();
+
+      if ('ResizeObserver' in window) {
+        const resizeObserver = new ResizeObserver(updateAnnouncementHeight);
+        resizeObserver.observe(bar);
+      } else {
+        window.addEventListener('resize', updateAnnouncementHeight, { passive: true });
+        window.addEventListener('load', updateAnnouncementHeight, { once: true });
+      }
+    })();
+  </script>
+{%- endif -%}
+{% schema %}
+{
+  "name": "t:sections.announcement-bar.name",
+  "class": "section-announcement-bar",
+  "limit": 1,
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.announcement-bar.how_to_use.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "options": [
+        {
+          "value": "fix_width",
+          "label": "t:sections.all.layout.fix_width"
+        },
+        {
+          "value": "stretch_width",
+          "label": "t:sections.all.layout.stretch_width"
+        },
+        {
+          "value": "full_width",
+          "label": "t:sections.all.layout.full_width"
+        }
+      ],
+      "default": "fix_width",
+      "label": "t:sections.all.layout.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_close",
+      "default": false,
+      "label": "t:sections.announcement-bar.settings.show_close_button.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "homepage_only",
+      "default": true,
+      "label": "t:sections.announcement-bar.settings.show_only_homepage.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_mobile",
+      "default": true,
+      "label": "t:sections.announcement-bar.settings.enable_on_mobile.label"
+    },
+    {
+      "type": "select",
+      "id": "announcement_actions",
+      "options": [
+        {
+          "value": "slide",
+          "label": "t:sections.announcement-bar.settings.type.options.slide.label"
+        },
+        {
+          "value": "marquee",
+          "label": "t:sections.announcement-bar.settings.type.options.marquee.label"
+        }
+      ],
+      "default": "slide",
+      "label": "t:sections.announcement-bar.settings.type.name"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.carousel.header",
+      "visible_if": "{{ section.settings.announcement_actions == 'slide' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "default": true,
+      "label": "t:sections.all.carousel.show_navigation.label",
+      "visible_if": "{{ section.settings.announcement_actions == 'slide' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "slide_auto_change",
+      "default": false,
+      "label": "t:sections.all.carousel.slide_auto_change",
+      "visible_if": "{{ section.settings.announcement_actions == 'slide' }}"
+    },
+    {
+      "type": "range",
+      "id": "change_slide_every",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "t:sections.all.carousel.change_slide_every",
+      "default": 5,
+      "visible_if": "{{ section.settings.announcement_actions == 'slide' }}"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.announcement-bar.settings.marquee_settings.label",
+      "visible_if": "{{ section.settings.announcement_actions == 'marquee' }}"
+    },
+    {
+      "type": "range",
+      "id": "marquee_speed",
+      "default": 7,
+      "label": "t:sections.announcement-bar.settings.marquee_settings.speed.label",
+      "min": 1,
+      "max": 50,
+      "step": 1,
+      "unit": "s",
+      "visible_if": "{{ section.settings.announcement_actions == 'marquee' }}"
+    },
+    {
+      "type": "range",
+      "id": "space_between_text",
+      "label": "t:sections.all.space_between.label",
+      "min": 10,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 50,
+      "visible_if": "{{ section.settings.announcement_actions == 'marquee' }}"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_setting.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "uppercase",
+      "default": false,
+      "label": "t:settings_schema.typography.settings.heading.text_transform.uppercase"
+    },
+    {
+      "type": "select",
+      "id": "scrolling_size",
+      "options": [
+        {
+          "value": "small",
+          "label": "t:sections.all.content_header.heading_size.x_small.label"
+        },
+        {
+          "value": "",
+          "label": "t:sections.all.content_header.heading_size.base.label"
+        },
+        {
+          "value": "big-2",
+          "label": "t:sections.all.content_header.heading_size.large.label"
+        }
+      ],
+      "default": "small",
+      "label": "t:sections.all.content_header.heading_size.size"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 10
+    }
+  ],
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "t:sections.announcement-bar.blocks.name",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Welcome to our store</p>",
+          "label": "t:sections.announcement-bar.blocks.setting.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.announcement-bar.name",
+      "blocks": [
+        {
+          "type": "announcement"
+        },
+        {
+          "type": "announcement"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

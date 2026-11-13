@@ -1,0 +1,4686 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "settings_schema": {
+    "layout": {
+      "name": "Rozloženie",
+      "how_to_use": {
+        "label": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/theme-settings/layout)"
+      },
+      "settings": {
+        "page_width": {
+          "label": "Šírka strany"
+        },
+        "site_style": {
+          "label": "Zaoblené rohy",
+          "image": {
+            "label": "Image"
+          },
+          "button": {
+            "label": "Polomer rohu tlačidla"
+          },
+          "input": {
+            "label": "Polomer vstupného rohu"
+          }
+        },
+        "select_preset": {
+          "label": "Vyberte predvoľbu",
+          "options__1": "Kozmetika",
+          "options__2": "Móda",
+          "options__3": "Zvieratá"
+        }
+      },
+      "rtl_support": {
+        "header": "podpora RTL",
+        "enable_rtl": "Povoliť podporu RTL",
+        "rtl_language": {
+          "label": "RTL jazykový kód",
+          "info": "Zadajte jazyky, ktoré používajú rozloženie RTL, zadaním ich kódov ISO oddelených bodkočiarkami. Napríklad: ar; fa; ku; pa; sd. Ak ponecháte prázdne, rozloženie RTL sa použije na všetky jazyky."
+        }
+      }
+    },
+    "logo_favicon": {
+      "name": "Logo a favicon",
+      "how_to_use": {
+        "label": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/theme-settings/logo-and-favicon)"
+      },
+      "settings": {
+        "favicon": {
+          "label": "Favicon"
+        },
+        "favicon_image": {
+          "label": "Obrázok ikony favicon",
+          "info": "Odporúča sa 32 x 32 px .png"
+        },
+        "logo": {
+          "label": "Logo",
+          "logo_on_transparent": {
+            "label": "Logo na priehľadnej hlavičke"
+          }
+        },
+        "logo_width": {
+          "label": "Šírka loga",
+          "info": "Šírka loga je automaticky optimalizovaná pre mobilné zariadenia."
+        }
+      }
+    },
+    "customer_account": {
+      "how_to_use": {
+        "label": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/theme-settings/customer-account)"
+      },
+      "name": "Zákaznícky účet",
+      "settings": {
+        "customer_account_menu": {
+          "label": "Menu"
+        },
+        "open_as": {
+          "label": "Otvoriť ako",
+          "options": {
+            "popup": "Popup",
+            "link": "Odkaz"
+          }
+        }
+      }
+    },
+    "colors": {
+      "name": "Farby",
+      "how_to_use": {
+        "label": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/theme-settings/colors)"
+      },
+      "settings": {
+        "palette_header": {
+          "label": "Paleta"
+        },
+        "palette_info": {
+          "label": "Definujte farby pre paletu pre jednoduchšie použitie v rámci témy"
+        },
+        "general_header": {
+          "label": "generál"
+        },
+        "general_text": {
+          "label": "Text"
+        },
+        "general_heading": {
+          "label": "Nadpis"
+        },
+        "general_link": {
+          "label": "Odkaz"
+        },
+        "general_border": {
+          "label": "Hranica"
+        },
+        "background_header": {
+          "label": "Pozadie"
+        },
+        "background": {
+          "label": "Pozadie"
+        },
+        "background_2": {
+          "label": "Pozadie 2"
+        },
+        "background_gradient": {
+          "label": "Prechod pozadia",
+          "info": "Gradient pozadia nahradí pozadie tam, kde je to možné."
+        },
+        "fill_button_header": {
+          "label": "Tlačidlo naplniť"
+        },
+        "fill_button_background": {
+          "label": "Pozadie"
+        },
+        "fill_button_text": {
+          "label": "Text"
+        },
+        "fill_button_background_hover": {
+          "label": "Umiestnite kurzor na pozadie"
+        },
+        "fill_button_text_hover": {
+          "label": "Umiestnite kurzor myši"
+        },
+        "outline_button_header": {
+          "label": "Tlačidlo Obrys"
+        },
+        "outline_button_outline": {
+          "label": "Text"
+        },
+        "outline_button_outline_border": {
+          "label": "Hranica"
+        }
+      }
+    },
+    "typography": {
+      "name": "Typografia",
+      "how_to_use": {
+        "label": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)"
+      },
+      "settings": {
+        "font_weight": {
+          "default": "Default",
+          "inline": "Inline",
+          "regular": "Pravidelné",
+          "medium": "Stredná"
+        },
+        "font_size": "Veľkosť písma",
+        "body": {
+          "label": "Telo",
+          "font": {
+            "label": "Písmo",
+            "info": "Výber iného písma môže ovplyvniť rýchlosť vášho obchodu. [Viac informácií o systémových písmach.](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "base_size": "Veľkosť základne"
+        },
+        "heading": {
+          "label": "Nadpis",
+          "font": {
+            "label": "Písmo",
+            "info": "Výber iného písma môže ovplyvniť rýchlosť vášho obchodu. [Viac informácií o systémových písmach.](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "sub_heading": {
+            "sub_heading_weight": "Hrúbka písma podnadpisu"
+          },
+          "text_transform": {
+            "label": "Transformácia textu",
+            "unset": "Nenastavené",
+            "capitalize": "Veľké písmená",
+            "uppercase": "Veľké písmená"
+          },
+          "heading_letter_spacing": {
+            "label": "Rozstup medzi písmenami"
+          }
+        },
+        "menu": {
+          "label": "Menu",
+          "font": {
+            "label": "Písmo",
+            "body_font": "Telo",
+            "heading_font": "Nadpis"
+          },
+          "uppercase": {
+            "label": "Prvá úroveň veľkých písmen"
+          }
+        },
+        "button": {
+          "label": "Tlačidlo",
+          "font": {
+            "label": "Písmo",
+            "body_font": "Telo",
+            "heading_font": "Nadpis"
+          }
+        },
+        "text_preset": {
+          "header": "Textové predvoľby",
+          "name": {
+            "heading_1": "Nadpis 1",
+            "heading_2": "Nadpis 2",
+            "heading_3": "Nadpis 3",
+            "heading_4": "Nadpis 4",
+            "heading_5": "Nadpis 5",
+            "heading_6": "Nadpis 6"
+          },
+          "settings": {
+            "size": {
+              "label": "Size",
+              "18px": "18px",
+              "20px": "20px",
+              "22px": "22px",
+              "24px": "24px",
+              "26px": "26px",
+              "30px": "30px",
+              "36px": "36px",
+              "40px": "40px",
+              "46px": "46px",
+              "50px": "50px",
+              "56px": "56px",
+              "60px": "60px",
+              "80px": "80px"
+            },
+            "line_height": {
+              "label": "Výška čiary",
+              "original": "Originál",
+              "small": "Malý",
+              "medium": "Stredná",
+              "large": "Veľký",
+              "x_large": "X-Large"
+            }
+          }
+        }
+      }
+    },
+    "browser_tab_notifications": {
+      "name": "Upozornenia na karte prehliadača",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/theme-settings/browser-tab-notifications)",
+      "settings": {
+        "notification_info": "Ak chcete použiť pôvodný názov stránky, nechajte pole prázdne",
+        "enable_browser_tab_notifications": {
+          "label": "Povoliť"
+        },
+        "first_notification": {
+          "label": "Prvé oznámenie"
+        },
+        "secondary_notification": {
+          "label": "Sekundárne oznámenie"
+        }
+      }
+    },
+    "animation": {
+      "name": "Animácia",
+      "how_to_use": {
+        "label": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/theme-settings/animation)"
+      },
+      "settings": {
+        "scroll_animation": {
+          "label": "Animácia rolovania",
+          "options__1": {
+            "label": "Zakázať"
+          },
+          "options__2": {
+            "label": "Iba pre stolné počítače"
+          },
+          "options__3": {
+            "label": "Všetky obrazovky"
+          }
+        },
+        "enable_loading_page_effect": {
+          "heading": "Efekt načítania stránky",
+          "label": "Povoliť efekt",
+          "loading": "Ikona načítavania",
+          "info": "Odporúčaná šírka obrázka 100x100px"
+        },
+        "image_lazy_loading": {
+          "label": "Povoliť lenivé načítanie obrázkov"
+        },
+        "hover_effect": {
+          "label": "Efekt vznášania",
+          "info": "Ovplyvňuje vznášacie karty, ako sú: produkt, banner, zbierka, blog...",
+          "fade_in": "Plynulé zobrazenie",
+          "zoom": "Zoom"
+        }
+      }
+    },
+    "product": {
+      "name": "Produktové karty",
+      "how_to_use": {
+        "label": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/theme-settings/product-cards)"
+      },
+      "settings": {
+        "enable_quickview": "Povoliť rýchle zobrazenie",
+        "enable_quickadd": "Povoliť rýchle pridávanie",
+        "enable_color_swatches": "Povoliť vzorky farieb",
+        "show_tag": {
+          "hidden": "Skryté",
+          "desktop": "Iba pre stolné počítače",
+          "all_devices": "Všetky obrazovky"
+        },
+        "show_scrolling_text": "Zobraziť rolujúci text",
+        "show_rate": {
+          "label": "Zobraziť mieru",
+          "info": "Ak chcete zobraziť hodnotenie, pridajte aplikáciu na hodnotenie produktov. [Viac informácií](https://help.shopify.com/en/manual/products/product-reviews/installation)"
+        },
+        "alignment": {
+          "label": "Zarovnanie",
+          "left": "Vľavo",
+          "center": "centrum"
+        },
+        "product_image": {
+          "label": "Obrázok produktu"
+        },
+        "show_image_hover": {
+          "label": "Zobraziť sekundárny obrázok"
+        },
+        "show_video_featured": {
+          "label": "Prehrať video pri umiestnení kurzora myši",
+          "info": "Funguje iba s videom vo formáte MP4."
+        },
+        "product_image_ratio": {
+          "label": "Pomer obrazu",
+          "adapt_to_image": "Prispôsobte sa obrazu",
+          "square": "Štvorec (1:1)",
+          "portrait": "Portrét (3:4)",
+          "landscape": "Na šírku (4:3)"
+        },
+        "mobile_options": {
+          "label": "Nastavenia mobilu"
+        },
+        "show_quick_add_mobile": {
+          "label": "Zobraziť tlačidlo rýchleho pridania na mobile"
+        },
+        "highlights_scrolling_text_metafield": {
+          "label": "Posúvajúci sa text Metapole",
+          "info": "Metapole produktu. Zobrazené ako bežiaci text na produktových kartách. Format: namespace.key. Default: custom.highlights_scrolling_text."
+        }
+      }
+    },
+    "badges": {
+      "name": "Odznaky",
+      "how_to_use": {
+        "label": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/theme-settings/badges)"
+      },
+      "settings": {
+        "badge_color": {
+          "label": "Farba textu"
+        },
+        "show_badge": {
+          "label": "Zobraziť odznak"
+        },
+        "background_color": {
+          "label": "Farba pozadia"
+        },
+        "sale": {
+          "label": "Predaj",
+          "format": {
+            "label": "Formátovať",
+            "text": "Text",
+            "percentage": "Percento",
+            "fixed": "Pevná suma"
+          }
+        },
+        "new": {
+          "label": "Nové",
+          "new_badge_display_period": {
+            "label": "Nové obdobie zobrazovania odznaku",
+            "info": "Vyberte, ako dlho budú produkty označené ako „Nové“ odo dňa ich vytvorenia."
+          }
+        },
+        "sold_out": {
+          "label": "Vypredané"
+        },
+        "custom_badge": {
+          "label": "Vlastný odznak",
+          "info": "Postupujte podľa dokumentu a zistite [ako nastaviť vlastný odznak](https://nextsky.gitbook.io/purity-theme/theme-settings/badges#id-5.-custom-badge)"
+        }
+      }
+    },
+    "color_swatches": {
+      "name": "Vzorkovníky farieb",
+      "how_to_use": {
+        "label": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/theme-settings/color-swatch)"
+      },
+      "settings": {
+        "hide_sold_out_variant": {
+          "label": "Skryť vypredané varianty"
+        },
+        "show_sale_in_variant_swatch": {
+          "label": "Ukázať predaj vo vzorkovníku variantov"
+        },
+        "color_limit": {
+          "label": "Maximálny počet vzoriek na zobrazenie"
+        },
+        "color_swatch_trigger": {
+          "label": "Spúšť vzorkovníka farieb",
+          "info": "Definujte názov farebnej možnosti. Oddeľte čiarkou. Napr. Farba, Farba"
+        },
+        "color_swatch_type": {
+          "label": "Typ vzorkovníka",
+          "options__1": {
+            "label": "Variantný obrázok"
+          },
+          "options__2": {
+            "label": "Color"
+          }
+        },
+        "color_swatch_shape": {
+          "label": "Farebný tvar",
+          "options__1": {
+            "label": "Okrúhle"
+          },
+          "options__2": {
+            "label": "Štvorcový"
+          }
+        },
+        "color_swatch_custom": {
+          "label": "Vlastné farby",
+          "info": "Platný formát: Müsli: #ddd5bc alebo Müsli: image.png oddelené čiarkou"
+        }
+      }
+    },
+    "cart": {
+      "name": "Košík",
+      "how_to_use": {
+        "label": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/theme-settings/cart)"
+      },
+      "settings": {
+        "cart_action_desktop": {
+          "label": "Akcia po pridaní košíka na plochu",
+          "drawer": "Zásuvka",
+          "page": "Stránka"
+        },
+        "cart_mobile": {
+          "label": "Nastavenia mobilu",
+          "action": {
+            "label": "Akcia po pridaní košíka",
+            "info": "Vyberte, čo sa stane, keď zákazník pridá produkt do košíka na mobile.",
+            "option_1": "Otvorte mini košík",
+            "option_2": "Upozorniť správu",
+            "option_3": "Raz otvorte košík, potom upozornite"
+          },
+          "open_cart": {
+            "label": "Otvoriť košík ako",
+            "info": "Po klepnutí na ikonu košíka v hlavičke a mobilnej navigačnej lište vyberte, ako sa košík otvorí.",
+            "option_1": "Zásuvka",
+            "option_2": "Popup"
+          }
+        },
+        "free_shipping": {
+          "label": "Správa o bezplatnej doprave",
+          "paragraph": "Uistite sa, že ste správne nakonfigurovali svoje [sadzby za dopravu.](/admin/settings/shipping)",
+          "message": {
+            "label": "Správa",
+            "info": "Využite [suma] na sledovanie svojho postupu smerom k kvalifikácii na bezplatnú dopravu."
+          },
+          "minimum_amount": {
+            "label": "Minimálna suma dopravy zadarmo",
+            "info": "Použite okrúhle čísla. Vylúčte menu, symboly a písmená."
+          }
+        },
+        "term_and_conditions": {
+          "label": "Podmienky",
+          "enable": "Zobraziť začiarkavacie políčko v mini košíku a na stránke košíka.",
+          "text": "Text"
+        },
+        "cart_count_down": {
+          "label": "Odpočítavanie košíka",
+          "show_duration": {
+            "label": "Zobraziť na stránke minikošíka a košíka"
+          },
+          "duration": {
+            "label": "Trvanie"
+          }
+        },
+        "product_recommendations": {
+          "label": "Odporúčania produktov",
+          "heading": "Nadpis",
+          "enable_product_recommendations": "Povoliť odporúčania produktov",
+          "enable_product_recommendations_info": "Odporúčania produktov sa zobrazia na stránke minikošíka a košíka.",
+          "recommendation_product_type": {
+            "label": "Typ odporúčaní produktu",
+            "auto": "Auto",
+            "selected": "Vybrané"
+          },
+          "select_product_recommendation": "Product",
+          "show_on_mobile": {
+            "label": "Zobraziť na mobile"
+          }
+        },
+        "gift_wrap": {
+          "label": "Darčekové balenie produktu",
+          "select_product_gift_wrap": {
+            "label": "Product",
+            "info": "Funguje iba s produktmi bez variantov."
+          }
+        },
+        "empty": {
+          "label": "Nastavenia prázdneho košíka",
+          "heading": "Nadpis",
+          "description": "Popis",
+          "collection": {
+            "label": "Zoznam zbierok",
+            "info": "Collections will display their featured image by default. Use metafield to change image and text. Learn more"
+          },
+          "button_text": "Text tlačidla",
+          "button_link": {
+            "label": "Odkaz tlačidla",
+            "info": "Predvolená je stránka Collection all"
+          },
+          "free_shipping": {
+            "label": "Správa o bezplatnej doprave"
+          },
+          "empty_cart_layout": {
+            "label": "Rozloženie prázdneho košíka",
+            "option_1": "Zoznam",
+            "option_2": "Mriežka"
+          },
+          "collection_metafield": {
+            "label": "Kolekcia prázdneho košíka Metapole",
+            "info": "Metapole kolekcie. (metaobjekt) pre obrázok a popis prázdneho košíka. Format: namespace.key. Default: custom.collection_empty. Fields: collection_image, collection_description."
+          }
+        },
+        "discount_progress_bar": {
+          "label": "Indikátor postupu zľavy",
+          "paragraph": "Zobrazte až 3 míľniky útraty v košíku. Uistite sa, že je vytvorený zodpovedajúci zľavový kód alebo automatická zľava v [administrácii Shopify.](/admin/discounts)",
+          "currency_info": "Zadávajte sumy míľnikov v predvolenej mene obchodu. Pre miestne meny sa automaticky prepočítajú.",
+          "enable": {
+            "label": "Povoliť indikátor postupu zľavy",
+            "info": "Po zapnutí nahradí jeden pruh bezplatnej dopravy vyššie v zásuvke košíka a na stránke košíka."
+          },
+          "milestone_1": {
+            "label": "Míľnik 1"
+          },
+          "milestone_2": {
+            "label": "Míľnik 2"
+          },
+          "milestone_3": {
+            "label": "Míľnik 3"
+          },
+          "milestone": {
+            "amount": {
+              "label": "Prah",
+              "info": "Používajte okrúhle čísla bez symbolov meny alebo písmen."
+            },
+            "label_text": {
+              "label": "Označenie"
+            },
+            "icon": {
+              "label": "Ikona",
+              "option_none": "Žiadna",
+              "option_tag": "Štítok",
+              "option_truck": "Nákladné auto",
+              "option_box": "Krabica"
+            }
+          },
+          "message": {
+            "text": {
+              "label": "Správa o postupe",
+              "info": "Použite [amount] a [label] na zobrazenie zostávajúcej sumy a označenia ďalšej odmeny."
+            },
+            "success": {
+              "label": "Správa po dosiahnutí všetkých míľnikov"
+            }
+          }
+        }
+      }
+    },
+    "search": {
+      "name": "Správanie pri vyhľadávaní",
+      "how_to_use": {
+        "label": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/theme-settings/search-behavior)"
+      },
+      "settings": {
+        "type": {
+          "label": "Typ",
+          "info": "Zásuvka je predvolené rozloženie na mobile.",
+          "option_1": "Popup",
+          "option_2": "Zásuvka",
+          "option_3": "Vyhľadávací panel"
+        },
+        "search_placeholder": {
+          "label": "Hľadať zástupný symbol"
+        },
+        "speech_search": {
+          "label": "Hlasové vyhľadávanie",
+          "enable": {
+            "label": "Povoliť hlasové vyhľadávanie"
+          }
+        },
+        "search_results": {
+          "label": "Zobraziť výsledky",
+          "option_1": "Default",
+          "option_2": "Tab"
+        },
+        "recommendations": {
+          "popular_keywords": {
+            "label": "Populárne vyhľadávanie",
+            "info": "Odporučte zákazníkom obľúbené hľadané kľúčové slová vo vašom obchode. Napríklad: tričko, šaty, čierna."
+          },
+          "products_recommended": {
+            "label": "Odporúčanie produktov",
+            "info": "Vyberte produkt, ktorý odporučíte zákazníkom."
+          },
+          "collections_recommended": {
+            "label": "Odporúčanie zbierok"
+          }
+        },
+        "results": {
+          "label": "Výsledky vyhľadávania"
+        },
+        "predictive_search": {
+          "label": "Povoliť prediktívne vyhľadávanie",
+          "info": "Živé výsledky vyhľadávania. Nie je k dispozícii vo všetkých jazykoch. [Viac informácií](https://shopify.dev/themes/navigation-search/search/predictive-search#general-requirements-and-limitations)"
+        },
+        "show_search_history": {
+          "label": "Zobraziť históriu vyhľadávania"
+        },
+        "show_price": {
+          "label": "Zobraziť cenu produktu"
+        }
+      }
+    },
+    "social_media": {
+      "name": "sociálne médiá",
+      "how_to_use": {
+        "label": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/theme-settings/social-media)"
+      },
+      "settings": {
+        "social_account": {
+          "label": "Sociálne účty",
+          "facebook": {
+            "label": "Facebook",
+            "info": "https://facebook.com/shopify"
+          },
+          "instagram": {
+            "label": "Instagram",
+            "info": "http://instagram.com/shopify"
+          },
+          "twitter": {
+            "label": "Twitter",
+            "info": "https://twitter.com/shopify"
+          },
+          "tiktok": {
+            "label": "Tiktok",
+            "info": "https://tiktok.com/@shopify"
+          },
+          "pinterest": {
+            "label": "Pinterest",
+            "info": "https://pinterest.com/shopify"
+          },
+          "youtube": {
+            "label": "YouTube",
+            "info": "https://www.youtube.com/shopify"
+          },
+          "vimeo": {
+            "label": "Vimeo",
+            "info": "https://vimeo.com/shopify"
+          },
+          "linkedin": {
+            "label": "Linkedin",
+            "info": "https://linkedin.com/company/shopify"
+          },
+          "whatsapp": {
+            "label": "Whatsapp",
+            "info": "https://www.whatsapp.com/shopify"
+          },
+          "snapchat": {
+            "label": "Snapchat",
+            "info": "https://www.snapchat.com/add/shopify"
+          }
+        },
+        "sharing_options": {
+          "label": "Možnosti zdieľania",
+          "facebook": {
+            "label": "Zdieľať s Facebook"
+          },
+          "pinterest": {
+            "label": "Zdieľať s Pinterest"
+          },
+          "twitter": {
+            "label": "Zdieľať s Twitter"
+          },
+          "whatsapp": {
+            "label": "Zdieľať s WhatsApp"
+          },
+          "email": {
+            "label": "Zdieľať na e-mail"
+          }
+        }
+      }
+    },
+    "currency": {
+      "name": "Formát meny",
+      "how_to_use": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/theme-settings/currency-format)",
+      "settings": {
+        "code": {
+          "label": "Kódy mien",
+          "show_code": {
+            "label": "Zobraziť kódy mien",
+            "info": "Ceny košíka a pokladne vždy zobrazujú kódy meny. Príklad: 1,00 USD."
+          }
+        }
+      }
+    },
+    "script_tracking": {
+      "name": "Sledovanie a štatistiky",
+      "settings": {
+        "how_to_use": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/theme-settings/tracking-and-insights)",
+        "scripts_tracking": {
+          "label": "Útržok kódu",
+          "info": "Pridajte útržok kódu na sledovanie a štatistiky"
+        },
+        "appended_scripts": {
+          "label": "Pozícia je pripojená",
+          "body": "Značka tela",
+          "head": "Značka hlavy"
+        }
+      }
+    }
+  },
+  "content": {
+    "manage_customer_accounts": "[Spravujte viditeľnosť](/admin/settings/customer_accounts)v nastaveniach zákazníckeho účtu. Staršie účty nie sú podporované."
+  },
+  "sections": {
+    "all": {
+      "general": "generál",
+      "layout": {
+        "label": "Šírka sekcie",
+        "fix_width": "Pevná šírka",
+        "stretch_width": "Šírka roztiahnutia",
+        "full_width": "Plná šírka"
+      },
+      "colors": {
+        "label": "Farebná schéma",
+        "info": "Ak chcete upraviť všetky farby motívu, prejdite na svoj[nastavenia farebných motívov](/editor?context=theme&category=colors). Zabezpečte jasný kontrast textu pre lepšiu používateľskú skúsenosť."
+      },
+      "desktop_content_position": {
+        "label": "Pozícia obsahu pracovnej plochy",
+        "info": "Pozícia je automaticky optimalizovaná pre mobilné zariadenia.",
+        "info_2": "Obsah na prvom mieste je predvolené mobilné rozloženie.",
+        "group": {
+          "top": {
+            "label": "Hore"
+          },
+          "middle": {
+            "label": "Stredný"
+          },
+          "bottom": {
+            "label": "Spodná časť"
+          }
+        },
+        "options__1": {
+          "label": "Vľavo hore"
+        },
+        "options__2": {
+          "label": "Horný stred"
+        },
+        "options__3": {
+          "label": "Vpravo hore"
+        },
+        "options__4": {
+          "label": "Stred vľavo"
+        },
+        "options__5": {
+          "label": "Stredný stred"
+        },
+        "options__6": {
+          "label": "Vpravo uprostred"
+        },
+        "options__7": {
+          "label": "Vľavo dole"
+        },
+        "options__8": {
+          "label": "Stred dole"
+        },
+        "options__9": {
+          "label": "Vpravo dole"
+        }
+      },
+      "padding": {
+        "section_padding_heading": "Výplň sekcie",
+        "padding_inline": {
+          "label": "Vložená výplň",
+          "info": "Inline výplň je automaticky optimalizovaná pre mobilné zariadenia."
+        },
+        "padding_block": {
+          "label": "Výplňový blok",
+          "info": "Výplňový blok je automaticky optimalizovaný pre mobilné zariadenia."
+        },
+        "padding_top": "Hore",
+        "padding_bottom": "Spodná časť",
+        "spacing_bottom": "Rozostup dole",
+        "image_spacing": "Medzery medzi obrázkami",
+        "space_between": "Priestor medzi",
+        "column_gap": {
+          "label": "Medzera v stĺpci",
+          "no_gap": "Žiadna medzera",
+          "small": "Malý",
+          "medium": "Stredná",
+          "large": "Veľký",
+          "x_large": "X-Large"
+        }
+      },
+      "space_between": {
+        "label": "Medzera medzi položkami"
+      },
+      "width": {
+        "label": "šírka",
+        "fill": "Vyplňte",
+        "fit": "Fit"
+      },
+      "columns": {
+        "label": "Počet stĺpcov"
+      },
+      "items_to_show": {
+        "label": "Maximálny počet položiek na zobrazenie"
+      },
+      "product_to_show": {
+        "label": "Maximálny počet produktov na zobrazenie"
+      },
+      "text_alignment": {
+        "label": "Zarovnanie obsahu",
+        "alignment": "Zarovnanie",
+        "options__1": {
+          "label": "Vľavo"
+        },
+        "options__2": {
+          "label": "centrum"
+        },
+        "options__3": {
+          "label": "Správne"
+        }
+      },
+      "content": {
+        "label": "Obsah"
+      },
+      "text": {
+        "label": "Text"
+      },
+      "content_position": {
+        "label": "Pozícia obsahu",
+        "options__1": {
+          "label": "Prekryvný obrázok",
+          "top": "Hore",
+          "middle": "Stredný",
+          "bottom": "Spodná časť",
+          "text_above_button": "Text nad tlačidlom"
+        },
+        "options__2": {
+          "label": "Obrázok nižšie"
+        }
+      },
+      "section_setting": {
+        "page_heading": {
+          "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "description": {
+            "label": "Obsah"
+          },
+          "heading": {
+            "label": "Názov"
+          },
+          "breadcrumb": {
+            "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/breadcrumb)",
+            "label": "strúhanka"
+          }
+        },
+        "enable_rounded_style": {
+          "label": "Povoliť zaoblený štýl"
+        }
+      },
+      "content_setting": {
+        "label": "Nastavenia obsahu",
+        "image": {
+          "label": "Image"
+        },
+        "subheading": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "Podnadpis",
+          "info": "Jednotlivé textové položky oddeľte zvislou čiarou (|), aby sa medzi položkami zobrazila bodka."
+        },
+        "highlight_text": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/highlight-text)",
+          "label": "Zvýraznite text",
+          "settings": {
+            "icons": {
+              "label": "Vyberte ikonu",
+              "options__1": {
+                "label": "None"
+              },
+              "options__2": {
+                "label": "Star"
+              },
+              "options__3": {
+                "label": "Bodka"
+              }
+            }
+          }
+        },
+        "heading": {
+          "label": "Nadpis",
+          "info": "Pridajte podčiarknutie zalomením textu kurzívou. Na jeho použitie použite tlačidlo Kurzíva (I) v editore."
+        },
+        "heading_highlight": {
+          "label": "Text zvýraznenia nadpisu",
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading-highlight-text)"
+        },
+        "detail_list": {
+          "label": "Podrobný zoznam",
+          "detail_row": {
+            "label": "Detail row",
+            "row_title": "Row title",
+            "row_details": "Row details"
+          },
+          "layout": {
+            "label": "Rozloženie",
+            "specifications": "Špecifikácie",
+            "information_cards": "Informačné karty"
+          }
+        },
+        "description": {
+          "label": "Popis",
+          "hide_on_mobile": {
+            "label": "Skryť popis v mobile"
+          },
+          "description": "Zobrazte popis produktu. Použije metapole krátkeho popisu, ak je k dispozícii, inak sa vráti k predvolenému popisu produktu. Pre viac informácií navštívte naše[Stránka podpory](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-7.-description)."
+        },
+        "content": "Obsah",
+        "button_label": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "Text tlačidla",
+          "info": "Ak chcete tlačidlo skryť, nechajte štítok prázdny."
+        },
+        "button_label-block": {
+          "name": "Štítok",
+          "label": "Tlačidlo"
+        },
+        "link": {
+          "label": "Odkaz",
+          "info": "Poznámka: Toto nastavenie prepojenia funguje iba pre obrázky, nie videá."
+        },
+        "first_button_label": {
+          "name": "Prvé tlačidlo",
+          "label": "Text tlačidla",
+          "link": "Odkaz tlačidla"
+        },
+        "second_button_label": {
+          "name": "Druhé tlačidlo",
+          "label": "Text tlačidla",
+          "link": "Odkaz tlačidla"
+        },
+        "button_type": {
+          "label": "Typ",
+          "primary": {
+            "label": "Primárne"
+          },
+          "outline": {
+            "label": "Obrys"
+          },
+          "link": {
+            "label": "Odkaz"
+          }
+        },
+        "show_view_all_button": {
+          "label": "Zobraziť tlačidlo Zobraziť všetko",
+          "label_text": "Text tlačidla",
+          "default_text": "Zobraziť všetky produkty",
+          "default": "Zobraziť všetky"
+        },
+        "open_link_in_new_tab": {
+          "label": "Otvoriť odkaz na novej karte"
+        },
+        "drawn_underline": {
+          "label": "Povoliť animáciu podčiarknutia nadpisu",
+          "type": "Štýl podčiarknutia",
+          "value": {
+            "simple_underline": "Jednoduché podčiarknutie",
+            "curve_underline": "Zdvih krivky",
+            "squiggle_underline": "Podčiarknutie vlnovky"
+          },
+          "color": "Farba podčiarknutia"
+        },
+        "metrics": {
+          "label": "Metriky",
+          "item": {
+            "label": "Položka metriky",
+            "value": "Hodnota",
+            "description": "Menovka"
+          }
+        },
+        "citation": {
+          "label": "Citácia"
+        },
+        "heading_block_highlight": {
+          "label": "Povoliť zvýraznenie nadpisu",
+          "info": "Pridajte zvýraznenie tak, že text označíte kurzívou. Použite tlačidlo Kurzíva (I) v editore.",
+          "type": "Štýl zvýraznenia",
+          "text_highlight": "Zvýraznenie textu",
+          "color": "Farba zvýraznenia"
+        }
+      },
+      "content_header": {
+        "label": "Hlavička sekcie",
+        "heading_size": {
+          "label": "Veľkosť nadpisu",
+          "size": "Size",
+          "xs_small": {
+            "label": "XS-malé"
+          },
+          "x_small": {
+            "label": "X-Small"
+          },
+          "small": {
+            "label": "Malý"
+          },
+          "large": {
+            "label": "Veľký"
+          },
+          "x_large": {
+            "label": "X-Large"
+          },
+          "base": {
+            "label": "Veľkosť základne"
+          },
+          "options__1": {
+            "label": "Nadpis 1"
+          },
+          "options__2": {
+            "label": "Nadpis 2"
+          },
+          "options__3": {
+            "label": "Nadpis 3"
+          },
+          "options__4": {
+            "label": "Nadpis 4"
+          },
+          "options__5": {
+            "label": "Nadpis 5"
+          },
+          "options__7": {
+            "label": "Nadpis 7"
+          },
+          "options__0": {
+            "label": "Nadpis 0"
+          }
+        }
+      },
+      "blog_setting": {
+        "show_category": "Zobraziť kategóriu",
+        "show_tags": "Zobraziť značky",
+        "show_date": "Zobraziť dátum",
+        "show_author": "Zobraziť autora",
+        "show_excerpt": "Zobraziť úryvky"
+      },
+      "media": {
+        "label": "Typ"
+      },
+      "image": {
+        "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/image)",
+        "label": "Image",
+        "image_setting": "Nastavenia obrazu",
+        "width": "Šírka obrázka",
+        "info_width": "Obrázok sa automaticky optimalizuje pre mobilné zariadenia.",
+        "mobile_image": "Mobilný obrázok",
+        "mobile_image_width": "Šírka mobilného obrázka",
+        "aspect_ratio": {
+          "label": "Pomer obrazu",
+          "label_mb": "Pomer obrázkov na mobile",
+          "label_video": "Pomer videa",
+          "options__1": "Štvorec (1:1)",
+          "options__2": "Portrét (3:4)",
+          "options__3": "Na šírku (4:3)",
+          "options__4": "Rovnako ako desktop",
+          "adapt": "Prispôsobte sa obrazu"
+        },
+        "desktop_position": {
+          "label": "Umiestnenie obrázka na pracovnej ploche",
+          "top": "Hore",
+          "right": "Správne",
+          "bottom": "Spodná časť",
+          "left": "Vľavo",
+          "info": "Obrázok sa na mobile zobrazí nad textom."
+        },
+        "desktop_image_width": {
+          "label": "Šírka obrázka na pracovnej ploche"
+        }
+      },
+      "video": {
+        "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)",
+        "label": "Video",
+        "info": "Prepíše nastavenie obrazu",
+        "settings": {
+          "source": {
+            "label": "Zdroj",
+            "uploaded_video": {
+              "label": "Miestne video"
+            },
+            "external_link": {
+              "label": "Externý odkaz na video"
+            }
+          }
+        },
+        "width": "Šírka videa",
+        "width_unit_type": {
+          "label": "Typ jednotky šírky",
+          "options": {
+            "percent": {
+              "label": "Percento (%)"
+            },
+            "px": {
+              "label": "Pixely (px)"
+            }
+          }
+        }
+      },
+      "video_mobile": {
+        "label": "Video mobil"
+      },
+      "svg": {
+        "label": "ikona svg",
+        "custom_svg": {
+          "label": "Vlastné svg",
+          "info": "Prepíše nastavenie obrazu."
+        }
+      },
+      "icon": {
+        "none": {
+          "label": "None"
+        },
+        "cruelty": {
+          "label": "Krutosť"
+        },
+        "paraben": {
+          "label": "Paraben"
+        },
+        "privacy-protection": {
+          "label": "Ochrana súkromia"
+        },
+        "secure-shopping": {
+          "label": "Bezpečné nakupovanie"
+        },
+        "guarantee": {
+          "label": "Záruka"
+        },
+        "account": {
+          "label": "účtu"
+        },
+        "leaf": {
+          "label": "List"
+        },
+        "moon": {
+          "label": "Mesiac"
+        },
+        "hive": {
+          "label": "Úľ"
+        },
+        "comb": {
+          "label": "Hrebeň"
+        },
+        "free_shipping": {
+          "label": "Doprava zdarma"
+        },
+        "check_badge": {
+          "label": "Kontrolný odznak"
+        },
+        "message_communications": {
+          "label": "Komunikácia správ"
+        },
+        "circular-text": {
+          "label": "Kruhový text"
+        },
+        "beauty": {
+          "label": "Tvár"
+        },
+        "line": {
+          "label": "Linka"
+        },
+        "droplet": {
+          "label": "Kvapôčka"
+        },
+        "smooth": {
+          "label": "Hladký"
+        },
+        "shield": {
+          "label": "Štít"
+        },
+        "balloon": {
+          "label": "Balón"
+        },
+        "brightening": {
+          "label": "Rozjasnenie"
+        },
+        "hydration": {
+          "label": "Hydratácia"
+        },
+        "coptic_cross": {
+          "label": "Koptský kríž"
+        },
+        "coil": {
+          "label": "Cievka"
+        },
+        "verified": {
+          "label": "Overené"
+        },
+        "security": {
+          "label": "Bezpečnosť"
+        },
+        "package": {
+          "label": "Balíček"
+        },
+        "cat": {
+          "label": "Mačka"
+        }
+      },
+      "carousel": {
+        "header": "Nastavenia karuselu",
+        "enable_carousel": {
+          "label": "Povoliť karusel",
+          "description": "Carousel sa zobrazuje iba vtedy, keď je celkový počet kolekcií väčší ako počet položiek na riadok na pracovnej ploche."
+        },
+        "show_navigation": {
+          "label": "Zobraziť navigáciu"
+        },
+        "show_pagination": {
+          "label": "Zobraziť stránkovanie",
+          "info": "Stránkovanie sa na mobile automaticky zobrazí, ak počet položiek na mobile zobrazíte ako 1 alebo 2",
+          "info_single": "Stránkovanie sa automaticky zobrazí na mobile.",
+          "type": {
+            "label": "Štýl stránkovania",
+            "progress_bar": "Ukazovateľ pokroku",
+            "dot": "Bodky"
+          }
+        },
+        "reveal_slide": {
+          "label": "Odhaliť ďalšiu snímku",
+          "info": "Zobrazte časť nadchádzajúcej snímky."
+        },
+        "enable_carousel_mobile": {
+          "label": "Povoliť karusel v mobile"
+        },
+        "change_slide_every": "Zmeňte snímky každý",
+        "slide_auto_change": "Automatická výmena posúvača"
+      },
+      "mobile_options": {
+        "label": "Nastavenia mobilu",
+        "mobile_layout": {
+          "label": "Mobilné rozloženie",
+          "show_text_bellow": {
+            "label": "Zobraziť text nižšie na mobile",
+            "info": "Text sa na mobile zobrazí pod obrázkom."
+          },
+          "hidden_description_on_mobile": {
+            "label": "Skryť popis v mobile"
+          }
+        }
+      },
+      "items": {
+        "items_per_row": "Položky na riadok",
+        "items_per_row_mobile": "Položky na riadok v mobile"
+      },
+      "columns_desktop": {
+        "label": "Položky na riadok na pracovnej ploche"
+      },
+      "newsletter_setting": {
+        "email_placeholder": "Zástupný symbol e-mailu",
+        "button_label": "Text tlačidla"
+      },
+      "pagination_type": {
+        "label": "Typ stránkovania",
+        "options__1": {
+          "label": "Číslo strany"
+        },
+        "options__2": {
+          "label": "Tlačidlo načítať viac"
+        },
+        "options__3": {
+          "label": "Nekonečný zvitok"
+        }
+      },
+      "product_setting": {
+        "badges": {
+          "name": "Odznaky"
+        },
+        "notify": {
+          "name": "Informujte o opätovnom naskladnení produktu"
+        },
+        "live_view": {
+          "name": "Živý náhľad",
+          "settings": {
+            "min_number": "Číslo min",
+            "max_number": "Maximálny počet",
+            "interval_time": "Časový interval",
+            "content": "Obsah",
+            "show_icon_eye": {
+              "label": "Zobraziť ikonu"
+            }
+          },
+          "info": "Simuluje aktivitu produktu zobrazením počtu živých zobrazení, čím pomáha zvýšiť naliehavosť, sociálne zabezpečenie a miery konverzie."
+        },
+        "shop_the_look": {
+          "name": "Nakupujte vzhľad",
+          "settings": {
+            "heading": {
+              "label": "Nadpis"
+            }
+          },
+          "description": "Na dokončenie vzhľadu navrhnite súvisiace produkty. Pre viac informácií navštívte našu[Stránka podpory](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)"
+        },
+        "stock_countdown": {
+          "name": "Odpočítavanie zásob",
+          "settings": {
+            "message": {
+              "label": "Správa",
+              "info": "Na zobrazenie zostávajúceho množstva produktov na sklade použite krátky kód [počet]. Tento krátky kód môžete odstrániť alebo umiestniť kdekoľvek"
+            },
+            "stock_items": {
+              "label": "Skladové položky",
+              "info": "Zobraziť, keď bude na sklade menej ako (X) položiek"
+            }
+          }
+        },
+        "product_meta": {
+          "name": "Meta produktu",
+          "settings": {
+            "show_sku": {
+              "label": "Zobraziť SKU"
+            },
+            "show_collections": {
+              "label": "Zobraziť zbierky"
+            },
+            "show_tags": {
+              "label": "Zobraziť značky"
+            },
+            "show_type": {
+              "label": "Zobraziť typ"
+            }
+          }
+        },
+        "collapsible_row": {
+          "name": "Riadok na akordeón",
+          "settings": {
+            "info": "Zahrňte nadpis, ktorý vysvetľuje obsah.",
+            "content": "Obsah riadkov",
+            "content_page": "Riadok obsahu zo stránky"
+          }
+        },
+        "accordion_row_drawer": {
+          "name": "Zásuvka na akordeón",
+          "settings": {
+            "info": "Zahrňte nadpis, ktorý vysvetľuje obsah.",
+            "content": "Obsah riadkov",
+            "content_page": "Riadok obsahu zo stránky"
+          }
+        },
+        "model_size": {
+          "name": "Veľkosť modelu",
+          "settings": {
+            "paragraph": {
+              "content": "Pozrite sa, akú veľkosť má modelka na sebe, spolu s výškou, hmotnosťou a mierami.[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)"
+            }
+          }
+        },
+        "title": {
+          "name": "Názov produktu"
+        },
+        "price": {
+          "name": "Cena"
+        },
+        "rating": {
+          "name": "Hodnotenie produktu"
+        },
+        "variant_picker": {
+          "name": "Výber variantov",
+          "settings": {
+            "picker_type": {
+              "label": "Typ",
+              "options__1": {
+                "label": "Rozbaľovacia ponuka"
+              },
+              "options__2": {
+                "label": "Tabletky"
+              }
+            },
+            "size_guide": {
+              "heading": "Tabuľka veľkostí",
+              "info": "Získajte informácie z tabuľky veľkostí z vybranej stránky.",
+              "settings": {
+                "size_trigger": {
+                  "label": "Veľkosť spúšťača",
+                  "info": "Definujte názov možnosti veľkosti. Oddeľte čiarkou. Napr. Veľkosť, Misurare"
+                },
+                "show_size_guide": "Zobraziť tabuľku veľkostí",
+                "size_guide_label": "Štítok tabuľky veľkostí",
+                "size_guide_page": "Stránka tabuľky veľkostí",
+                "footer_content": "Obsah päty",
+                "custom_size_guide": {
+                  "label": "Tabuľka vlastných veľkostí",
+                  "info__1": "Použitie špecifických veľkostných tabuliek pre každú kolekciu alebo produkt.",
+                  "info__2": "Ak chcete použiť vlastné tabuľky veľkostí pre produkt alebo kolekciu, vytvorte metapole s priestorom názvov a kľúčom: \"custom.size_chart\".[Zistite viac](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/size-chart)"
+                }
+              }
+            }
+          }
+        },
+        "buy_buttons": {
+          "name": "Kúpiť tlačidlá",
+          "settings": {
+            "show_dynamic_checkout": {
+              "label": "Zobraziť tlačidlá dynamickej platby",
+              "info": "Pomocou spôsobov platby dostupných vo vašom obchode sa zákazníkom zobrazí ich preferovaná možnosť, napríklad PayPal alebo Apple Pay.[Zistite viac](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+            },
+            "show_gift_card_recipient": {
+              "label": "Zobraziť formulár s informáciami o príjemcovi pre darčekové karty",
+              "info": "Umožňuje kupujúcim odoslať darčekové karty v naplánovaný dátum spolu s osobnou správou.[Zistite viac](https://help.shopify.com/manual/online-store/themes/customizing-themes/add-gift-card-recipient-fields)"
+            }
+          }
+        },
+        "subscription_widget": {
+          "name": "Miniaplikácia odberu",
+          "settings": {
+            "info": "Zobrazuje jednorazový nákup a samostatnú kartu pre každú skupinu plánov predaja. Umiestnite tento blok nad tlačidlá Kúpiť.",
+            "one_time_purchase_title": {
+              "label": "Jednorazový nákupný titul"
+            },
+            "one_time_purchase_description": {
+              "label": "Popis jednorazového nákupu"
+            },
+            "subscription_description": {
+              "label": "Popis predplatného"
+            },
+            "show_price": {
+              "label": "Zobraziť cenu"
+            }
+          }
+        },
+        "share": {
+          "name": "zdieľať"
+        },
+        "complementary_products": {
+          "name": "Doplnkové produkty",
+          "settings": {
+            "paragraph": {
+              "content": "Ak chcete vybrať doplnkové produkty, pridajte aplikáciu Search & Discovery.[Zistite viac](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+            },
+            "product_list_limit": {
+              "label": "Maximálny počet produktov na zobrazenie"
+            }
+          }
+        },
+        "pickup_avaiability": {
+          "name": "Dostupnosť vyzdvihnutia"
+        },
+        "media_lightbox": {
+          "name": "Vidieť to v akcii",
+          "settings": {
+            "enable_sticky": {
+              "label": "Povoliť funkciu Sticky na pracovnej ploche"
+            }
+          },
+          "description": "Zobrazte skutočné fotografie alebo videá vášho používaného produktu. Pre viac informácií navštívte naše[Stránka podpory](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-16.-media-lightbox)"
+        },
+        "highlights": {
+          "name": "Zvýraznenie",
+          "description": "Ukážte kľúčové prednosti vášho produktu. Pre viac informácií navštívte naše[Stránka podpory](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-8.-highlights)"
+        },
+        "key_features": {
+          "name": "Kľúčové vlastnosti",
+          "description": "Uveďte hlavné vlastnosti a výhody vášho produktu. Pre viac informácií navštívte našu[Stránka podpory](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-9.-key-features)"
+        },
+        "ask_question": {
+          "name": "položiť otázku"
+        },
+        "promotion_countdown": {
+          "name": "Odpočítavanie propagácie",
+          "show_countdown_units": {
+            "label": "Zobraziť jednotky odpočítavania"
+          },
+          "description": "Pridajte časovač na odpočítavanie, aby ste dosiahli naliehavosť propagácie vášho produktu. Pre viac informácií navštívte našu[Stránka podpory](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-11.-promotion-countdown)."
+        },
+        "promotion_alert": {
+          "name": "Upozornenie na propagáciu",
+          "heading": {
+            "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+            "label": "Nadpis"
+          },
+          "description": {
+            "label": "Popis"
+          },
+          "text_color": {
+            "label": "Farba textu"
+          }
+        },
+        "icon_with_text": {
+          "name": "Ikona s textom",
+          "heading": {
+            "label_1": "Ikona s textom 1",
+            "label_2": "Ikona s textom 2",
+            "label_3": "Ikona s textom 3",
+            "label_4": "Ikona s textom 4",
+            "label_5": "Ikona s textom 5"
+          },
+          "info": "Tento obsah bude v mobile automaticky skrytý.",
+          "svg": {
+            "label": "ikona svg"
+          },
+          "content": {
+            "label": "Obsah"
+          },
+          "icon": {
+            "none": {
+              "label": "None"
+            },
+            "free_shipping": {
+              "label": "Doprava zdarma"
+            },
+            "check_badge": {
+              "label": "Kontrolný odznak"
+            },
+            "message_communications": {
+              "label": "Komunikácia správ"
+            },
+            "truck": {
+              "label": "Nákladné auto"
+            },
+            "question": {
+              "label": "Otázka"
+            },
+            "location": {
+              "label": "Poloha"
+            },
+            "leaf": {
+              "label": "List"
+            },
+            "blossom": {
+              "label": "Rozkvitnúť"
+            },
+            "payment": {
+              "label": "Platba"
+            },
+            "discount": {
+              "label": "Discount"
+            },
+            "order": {
+              "label": "Objednať"
+            },
+            "return": {
+              "label": "Návrat"
+            },
+            "return_package": {
+              "label": "Späť balík"
+            }
+          }
+        },
+        "inventory_status": {
+          "name": "Stav zásob",
+          "settings": {
+            "inventory_threshold": {
+              "label": "Nízky prah zásob",
+              "info": "Nastavte túto hodnotu, aby ste upozornili zákazníkov, keď sa produkt čoskoro vypredá."
+            },
+            "inventory_base": {
+              "label": "Základné množstvo zásob",
+              "info": "Nastavte počiatočné množstvo inventára produktov pre indikátor priebehu."
+            }
+          }
+        },
+        "disclosures": {
+          "name": "Zverejnenia",
+          "description": "Povinné bezpečnostné upozornenia a regulačné zverejnenia pre tento produkt. Viac informácií nájdete na našej [stránke podpory](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information).",
+          "settings": {
+            "heading": {
+              "label": "Nadpis",
+              "default": "Dôležité informácie"
+            },
+            "open_by_default": {
+              "label": "Predvolene otvorené"
+            }
+          }
+        }
+      },
+      "divider": {
+        "section_divider_heading": "Rozdeľovač sekcií",
+        "show_divider": "Zobraziť rozdeľovač",
+        "top": "Horný rozdeľovač",
+        "top_info": "Skrytý, keď má sekcia nad ním dolný rozdeľovač Vlna alebo Krivka",
+        "bottom_info": "Čiara je skrytá, keď má sekcia pod ňou horný rozdeľovač Vlna alebo Krivka",
+        "bottom": "Dolný rozdeľovač",
+        "none": "Žiadna",
+        "line": "Čiara",
+        "wave": "Vlna",
+        "curve_out": "Krivka von",
+        "curve_in": "Krivka dovnútra"
+      },
+      "metafield": {
+        "short_description": {
+          "label": "Krátky popis Metapole",
+          "info": "Metapole produktu. Použije sa, ak je dostupný krátky popis. Format: namespace.key. Default: custom.short_description."
+        },
+        "highlights": {
+          "label": "Zvýraznenia Metapole",
+          "info": "Metapole produktu. Zoznam ikon/názvov zvýraznení. Format: namespace.key. Default: custom.highlights."
+        },
+        "key_features": {
+          "label": "Kľúčové vlastnosti Metapole",
+          "info": "Metapole produktu. Zoznam položiek názov/popis. Format: namespace.key. Default: custom.key_features."
+        },
+        "media_lightbox": {
+          "label": "Mediálny lightbox Metapole",
+          "info": "Metapole produktu. Zoznam obrázkov/videí pre galériu. Format: namespace.key. Default: custom.media_lightbox."
+        },
+        "model_size": {
+          "label": "Veľkosť modela Metapole",
+          "info": "Metapole produktu. (metaobjekt) s mierami modela. Format: namespace.key. Default: custom.model_size."
+        },
+        "product_sizing": {
+          "label": "Veľkosti produktu Metapole",
+          "info": "Metapole produktu. Zoznam pre veľkostnú škálu. Format: namespace.key. Default: custom.product_sizing."
+        },
+        "shop_the_look": {
+          "label": "Nakúpte look Metapole",
+          "info": "Metapole produktu. Zoznam obrázkov looku a produktov. Format: namespace.key. Default: custom.shop_the_look."
+        },
+        "similar_products": {
+          "label": "Podobné produkty Metapole",
+          "info": "Metapole produktu. Zoznam podobných produktov. Format: namespace.key. Default: custom.similar_products."
+        },
+        "frequently_bought_together": {
+          "label": "Často kupované spolu Metapole",
+          "info": "Metapole produktu. Zoznam produktov na spoločný nákup. Format: namespace.key. Default: custom.frequently_bought_together."
+        },
+        "complete_the_look": {
+          "label": "Doplňte look Metapole",
+          "info": "Metapole produktu. Zoznam produktov outfitu. Format: namespace.key. Default: custom.complete_the_look."
+        },
+        "info_gallery": {
+          "label": "Informačná galéria Metapole",
+          "info": "Metapole produktu. Zoznam kariet galérie (obrázok + text). Format: namespace.key. Default: custom.info_gallery."
+        },
+        "compare_items": {
+          "label": "Porovnať položky Metapole",
+          "info": "Metapole produktu. Zoznam produktov na porovnanie. Format: namespace.key. Default: custom.compare_items."
+        },
+        "ingredient_highlights": {
+          "label": "Zvýraznené zložky Metapole",
+          "info": "Metapole produktu. Zobrazené v riadku porovnania. Format: namespace.key. Default: custom.ingredient_highlights."
+        },
+        "subcollection": {
+          "label": "Podkolekcia Metapole",
+          "info": "Metapole kolekcie. Zoznam podriadených kolekcií. Format: namespace.key. Default: custom.subcollection."
+        }
+      }
+    },
+    "group": {
+      "product": "Products",
+      "collection": "Kolekcie",
+      "storytelling": "Rozprávanie príbehov",
+      "banners": "Bannery",
+      "blog": "Blog",
+      "form": "Formuláre",
+      "shopable": "Nákupný tovar",
+      "blocks": {
+        "basic": "Základné",
+        "layout": "Nástroje a rozloženie",
+        "custom": "Custom",
+        "forms": "Formuláre"
+      },
+      "decorative": {
+        "name": "Dekoratívne",
+        "marquee": "Markíza",
+        "how_to_use_maquee": "[Ako používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/marquee)"
+      },
+      "links": {
+        "name": "Odkazy",
+        "menu": "Menu",
+        "how_to_use_menu": "[Ako používať tento blok](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)",
+        "how_to_use_popup_link": "[Ako používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/links/popup-link)",
+        "popup_link": "Vyskakovací odkaz"
+      },
+      "general": {
+        "name": "generál",
+        "image_box": "Obrázkový box",
+        "image_box_use": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/overlay-group/search)"
+        }
+      }
+    },
+    "overlay_group": {
+      "name": "Prekryvná skupina"
+    },
+    "search": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/overlay-group/search)",
+      "name": "Hľadať"
+    },
+    "footer": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/footer-group/footer)",
+      "name": "Päta",
+      "settings": {
+        "enable_back_top": {
+          "label": "Povoliť späť na začiatok"
+        },
+        "show_policy": {
+          "label": "Odkazy na pravidlá",
+          "info": "[Spravovať pravidlá](/admin/settings/legal)"
+        },
+        "country_language": {
+          "content": "Výber krajiny/jazyka",
+          "info": "Ak chcete pridať krajinu/región, prejdite do [nastavenia trhu](/admin/settings/markets). Ak chcete pridať jazyk, prejdite do [nastavenia jazyka.](/admin/settings/languages)"
+        },
+        "enable_country_selector": {
+          "label": "Povoliť výber krajiny/regiónu"
+        },
+        "width": {
+          "options__1": "16%",
+          "options__2": "20%",
+          "options__3": "25%",
+          "options__4": "33%",
+          "options__5": "50%",
+          "options__6": "66%",
+          "options__7": "75%",
+          "options__8": "86%",
+          "options__9": "100%"
+        },
+        "enable_language_selector": {
+          "label": "Povoliť výber jazyka"
+        },
+        "payment": {
+          "content": "Spôsoby platby"
+        },
+        "payment_enable": {
+          "label": "Zobraziť ikony platieb"
+        },
+        "menu_policies": {
+          "label": "Spodná časť päty"
+        },
+        "header_follow": {
+          "content": "Sledujte v obchode",
+          "info": "Ak chcete zákazníkom umožniť sledovať váš obchod v aplikácii Shop z vášho výkladu, musíte povoliť službu Shop Pay. [Viac informácií](https://help.shopify.com/manual/online-store/themes/customizing-themes/follow-on-shop)"
+        },
+        "enable_follow_on_shop": {
+          "label": "Povoliť sledovanie v obchode"
+        }
+      },
+      "blocks": {
+        "menu_block": {
+          "label": "Menu"
+        },
+        "newsletter_block": {
+          "name": "Newsletter",
+          "info": "Odberatelia sa automaticky pridávajú do vášho zoznamu zákazníkov „akceptovaných marketingových“. [Viac informácií](https://help.shopify.com/manual/customers/manage-customers)",
+          "settings": {
+            "note": {
+              "label": "Poznámka"
+            }
+          }
+        },
+        "contact_bar_block": {
+          "name": "Lišta kontaktov",
+          "settings": {
+            "store_address": "Adresa",
+            "store_phone": "Telefón",
+            "store_email": "Email",
+            "show_social": {
+              "label": "Zobraziť ikony sociálnych médií",
+              "info": "Ak chcete zobraziť svoje účty sociálnych médií, prepojte ich v nastaveniach témy."
+            }
+          }
+        }
+      }
+    },
+    "header": {
+      "name": "Hlavička",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header)",
+      "settings": {
+        "sticky_header_type": {
+          "label": "Lepiaca hlavička",
+          "options__1": {
+            "label": "None"
+          },
+          "options__2": {
+            "label": "Pri posúvaní nahor"
+          },
+          "options__3": {
+            "label": "Vždy"
+          }
+        },
+        "menu": {
+          "label": "Menu",
+          "menu_trigger": {
+            "label": "Spúšťač rozbaľovacej ponuky na pracovnej ploche",
+            "options__1": {
+              "label": "Kliknite"
+            },
+            "options__2": {
+              "label": "Umiestnite kurzor myši"
+            }
+          },
+          "dropdowns_animation": {
+            "label": "Animácia rozbaľovacích ponúk",
+            "options__1": {
+              "label": "Plynulé zobrazenie"
+            },
+            "options__3": {
+              "label": "Dolu až hore"
+            }
+          }
+        },
+        "menu_mobile": {
+          "label": "Nastavenia mobilného menu",
+          "menu_icon": {
+            "label": "Umiestnenie ikony hamburgera",
+            "info": "Vyberte, kde sa na mobile zobrazí ponuka hamburgerov."
+          }
+        },
+        "addons": {
+          "label": "Addons",
+          "show_account": {
+            "label": "Zobraziť ikonu účtu"
+          },
+          "show_search": {
+            "label": "Zobraziť vyhľadávanie"
+          },
+          "show_cart": {
+            "label": "Zobraziť nákupný košík"
+          },
+          "show_offer": {
+            "label": "Zobraziť ponuku"
+          },
+          "show_language": {
+            "label": "Zobraziť jazyk"
+          },
+          "show_currency": {
+            "label": "Zobraziť menu"
+          }
+        },
+        "transparent": {
+          "content": "Priehľadná hlavička",
+          "info": "Uistite sa, že prvá sekcia na vašej domovskej stránke je nakonfigurovaná ako jedna z nasledujúcich: Prezentácia, Video s textovým prekrytím alebo Obrázok s textovým prekrytím.",
+          "transparent": {
+            "label": "Povoliť priehľadnú hlavičku"
+          },
+          "text_icon_transparent": {
+            "label": "Farba textu a ikony"
+          }
+        },
+        "blocks": {
+          "mega_menu": {
+            "name": "Banner (mega menu)",
+            "how_to_use": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#banner-mega-menu)",
+            "banners": {
+              "label": "Nastavenia bannerov"
+            },
+            "promotion_1": {
+              "label": "Bannery #1"
+            },
+            "promotion_2": {
+              "label": "Bannery #2"
+            },
+            "promotion_3": {
+              "label": "Bannery #3"
+            },
+            "promotion_4": {
+              "label": "Bannery #4"
+            },
+            "promotion_5": {
+              "label": "Bannery #5"
+            },
+            "info": "Odporúča sa 448 pixelov x 260 pixelov"
+          },
+          "menu_item": {
+            "label": "Položka menu",
+            "info": "Ak chcete použiť rozbaľovaciu ponuku mega, zadajte položku ponuky. Prosím rozlišujte medzi veľkými a malými písmenami."
+          },
+          "menu_column": {
+            "label": "Stĺpce ponuky pracovnej plochy"
+          },
+          "product": {
+            "name": "Produkty (Mega menu)",
+            "how_to_use": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#product-mega-menu)",
+            "header": "Products"
+          },
+          "collection": {
+            "name": "Kolekcie (mega menu)",
+            "how_to_use": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#collection-mega-menu)",
+            "header": "Kolekcie"
+          },
+          "menu_highlight": {
+            "name": "Zvýraznenie ponuky",
+            "menu_items": {
+              "label": "Položky ponuky na zvýraznenie",
+              "info": "Zadajte názvy položiek ponuky, ktoré sa majú zvýrazniť, oddelené čiarkami (napr. Výpredaj, Nové položky). Prosím rozlišujte medzi veľkými a malými písmenami."
+            },
+            "highlight_color": {
+              "label": "Farba zvýraznenia"
+            },
+            "highlight_icon": {
+              "label": "Zvýraznite ikonu",
+              "options": {
+                "unset": "Nenastavené",
+                "star": "Star",
+                "custom": "Custom"
+              }
+            },
+            "custom_icon": {
+              "label": "Vlastná ikona",
+              "info": "Voliteľná ikona na zobrazenie vedľa zvýraznených položiek ponuky (odporúčaná veľkosť: 24x24px)"
+            }
+          }
+        },
+        "header_layout": {
+          "label": "Rozloženie hlavičky na počítači",
+          "info": "Rozloženie je automaticky optimalizované pre mobilné zariadenia.",
+          "options__1": {
+            "label": "Logo vľavo, stred ponuky"
+          },
+          "options__2": {
+            "label": "Stred loga, ponuka vľavo"
+          },
+          "options__3": {
+            "label": "Logo v strede, menu pod ním"
+          },
+          "options__4": {
+            "label": "Logo vľavo, menu pod ním"
+          },
+          "options__5": {
+            "label": "Logo vľavo, menu vľavo"
+          }
+        }
+      }
+    },
+    "custom_liquid": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "how_to_use_block": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "name": "Vlastná kvapalina",
+      "liquid_code": "Tekutý kód",
+      "info": "Pridajte útržky aplikácie alebo iný tekutý kód a vytvorte pokročilé prispôsobenia.",
+      "info_custom_liquid": "Pridajte útržky aplikácie alebo iný kód a vytvorte pokročilé prispôsobenia.[Zistite viac](https://shopify.dev/docs/api/liquid)"
+    },
+    "blog-posts": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/blog-posts)",
+      "name": "Blogové príspevky",
+      "settings": {
+        "blog-post": {
+          "label": "Blogový príspevok",
+          "blog_post_type": {
+            "label": "Typ blogového príspevku",
+            "category": "Kategória",
+            "select_blog": "Vybrané blogy"
+          }
+        },
+        "blog": {
+          "label": "Blog"
+        }
+      }
+    },
+    "multi_content": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/multi-content)",
+      "name": "Viacnásobný obsah",
+      "blocks": {
+        "label": "Nastavenia blokovania",
+        "bellow_image": "Nastavenia odznaku",
+        "badge": "Odznak",
+        "equal_height_adjustment": {
+          "label": "Rovnaké nastavenie výšky"
+        },
+        "social_icon": "Sociálne ikony",
+        "grid_info": "Informácie o mriežke",
+        "grid_info_1": "Informácie o mriežke 1",
+        "grid_info_2": "Informácie o mriežke 2",
+        "grid_info_3": "Informácie o mriežke 3",
+        "grid_info_4": "Informácie o mriežke 4"
+      }
+    },
+    "grid_banner": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/banners/grid-banner)",
+      "name": "Mriežka bannerov",
+      "settings": {
+        "hidden_block_des_mobile": {
+          "label": "Skryť popis položky v mobile"
+        }
+      },
+      "blocks": {
+        "item": {
+          "name": "Položka bannera",
+          "show_arrow": "Zobraziť ikonu šípky"
+        }
+      }
+    },
+    "scrolling_text": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/scrolling-text)",
+      "name": "Posúvanie textu",
+      "settings": {
+        "direction": {
+          "label": "Smer",
+          "left": {
+            "label": "Sprava doľava"
+          },
+          "right": {
+            "label": "Zľava doprava"
+          }
+        },
+        "speed": {
+          "label": "Rýchlosť"
+        },
+        "text_size": {
+          "label": "Size"
+        },
+        "blocks": {
+          "image": {
+            "rounded_image": {
+              "label": "Polomer rohu obrázka"
+            },
+            "image_height": {
+              "label": "Výška obrázka"
+            },
+            "image_width": {
+              "label": "šírka"
+            }
+          }
+        }
+      }
+    },
+    "shopby-outfit": {
+      "name": "Nakupujte podľa oblečenia",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-by-outfit)",
+      "blocks": {
+        "outfit": {
+          "name": "Oblečenie",
+          "settings": {
+            "product": {
+              "label": "Zoznam produktov"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Nakupujte podľa oblečenia"
+      },
+      "setting": {
+        "media": {
+          "label": "Typ média"
+        },
+        "video_autoplay": {
+          "info": "Funguje iba vtedy, keď je v nastaveniach bloku Media Type vybratá možnosť Video."
+        }
+      }
+    },
+    "collection-list": {
+      "name": "Zoznam zbierok",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/collection-list)",
+      "settings": {
+        "header": {
+          "collection": "Collection",
+          "collection_title": "Názov zbierky",
+          "collection_card": "Zberná karta",
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "how_to_use_collection_title": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)"
+        },
+        "collection_title_style": {
+          "label": "Štýl názvu zbierky",
+          "text": "Text",
+          "button": "Tlačidlo"
+        },
+        "show_product_count": {
+          "label": "Zobraziť počet produktov"
+        },
+        "overlay_image_settings": "Nastavenia prekryvného obrazu",
+        "overlay_image_color": "Farba textu",
+        "collection_overlay_image_color": "Farba textu kolekcie"
+      },
+      "blocks": {
+        "featured_collection": {
+          "name": "Collection",
+          "settings": {
+            "collection": {
+              "label": "Collection"
+            },
+            "image": {
+              "label": "Image",
+              "info": "Ak chcete použiť obrázok zbierky, nechajte pole prázdne",
+              "info_highlight": "Ak chcete použiť obrázok zbierky, nechajte pole prázdne. Odporúča sa 330 x 520 pixelov",
+              "info_suitable": "Ak chcete použiť obrázok zbierky, nechajte pole prázdne. Odporúča sa 147 x 72 pixelov",
+              "info_collection_item": "Odporúča sa 444 pixelov x 444 pixelov"
+            },
+            "title": {
+              "label": "Názov",
+              "info": "Ak chcete použiť názov zbierky, nechajte pole prázdne"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Zoznam zbierok"
+      }
+    },
+    "quickview": {
+      "name": "Rýchly náhľad",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/overlay-group/quickview)",
+      "settings": {
+        "paragraph": "Táto časť vám umožňuje prispôsobiť kontextové okno rýchleho prehľadu."
+      }
+    },
+    "featured-collection": {
+      "name": "Odporúčaná kolekcia",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/featured-collection)"
+    },
+    "expandable_card": {
+      "name": "Rozšíriteľná karta",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/expandable-card)",
+      "settings": {
+        "card_header": "Nastavenia karty",
+        "interaction_behavior": {
+          "label": "Interakčné správanie",
+          "options": {
+            "hover": "Zobraziť pri umiestnení kurzora myši",
+            "drawer": "Kliknite na otvorenie zásuvky"
+          }
+        }
+      },
+      "blocks": {
+        "layered_card": {
+          "name": "Vrstvené karty",
+          "settings": {
+            "media_header": "Image",
+            "description": "Popis",
+            "drawer_page": "Popis zo stránky"
+          }
+        }
+      }
+    },
+    "featured-product": {
+      "name": "Odporúčaný produkt",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/featured-product)",
+      "settings": {
+        "product": "Product"
+      }
+    },
+    "slideshow": {
+      "name": "Prezentácia",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/slideshow)",
+      "settings": {
+        "loading_background_color": {
+          "label": "Načítava sa pozadie",
+          "info": "Farba pozadia sa zobrazuje počas načítavania snímky videa."
+        },
+        "slide_height": {
+          "label": "Výška šmykľavky",
+          "full_screen": "Celá obrazovka",
+          "adapt_to_first_image": "Prispôsobte sa prvému obrázku",
+          "small": "Malý",
+          "medium": "Stredná",
+          "large": "Veľký"
+        },
+        "info": "Odporúča sa 1920 x 840 pixelov",
+        "info_mobile": "Odporúča sa 390 x 572 pixelov",
+        "blocks": {
+          "image": {
+            "label": "Obrazová snímka",
+            "image_overlay_opacity": {
+              "label": "Nepriehľadnosť prekrytia obrázka",
+              "overlay_opacity": "Nepriehľadnosť prekrytia"
+            }
+          },
+          "video": {
+            "label": "Video snímka",
+            "video_setting": "Nastavenia videa",
+            "video_overlay_opacity": {
+              "label": "Nepriehľadnosť prekrytia videa"
+            }
+          }
+        }
+      }
+    },
+    "related-products": {
+      "name": "Súvisiace produkty",
+      "how_to_use": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/related-products)"
+    },
+    "similar-products": {
+      "name": "Nakupujte podobný produkt",
+      "how_to_use": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-product)"
+    },
+    "complete-the-look": {
+      "name": "Dokončite vzhľad",
+      "how_to_use": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/group-sections/products/complete-the-look)"
+    },
+    "similar-color": {
+      "name": "Nakupujte podobné farby",
+      "how_to_use": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-color)"
+    },
+    "quick-order-list": {
+      "name": "Rýchly zoznam objednávok"
+    },
+    "newsletter": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/newsletter)",
+      "name": "Newsletter",
+      "settings": {
+        "header": {
+          "heading_setting": "Nastavenie bulletinu"
+        }
+      }
+    },
+    "rich-text": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/rich-text)",
+      "name": "Bohatý text",
+      "settings": {
+        "max_width": {
+          "label": "Maximálna šírka",
+          "info": "Maximálna šírka je automaticky optimalizovaná pre mobilné zariadenia."
+        },
+        "rotating_text": "Kruhový text",
+        "separator_spacing": {
+          "label": "Medzera oddeľovača",
+          "info": "Pridá medzeru na obe strany oddeľovačov, ako je - alebo •, medzi frázami."
+        }
+      }
+    },
+    "recently-viewed-products": {
+      "name": "Naposledy prezerané produkty",
+      "info": "Uložte stránku a načítajte naposledy zobrazené produkty",
+      "how_to_use": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/recently-product)"
+    },
+    "info-gallery-products": {
+      "name": "Kľúčové ingrediencie",
+      "how_to_use": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metaobjects/info-gallery)"
+    },
+    "product-benefits": {
+      "name": "Výhody produktu",
+      "how_to_use": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/product-benefits)",
+      "settings": {
+        "media_header": "Stredové médium",
+        "image": {
+          "label": "Image",
+          "info": "Keď je prázdny, použije sa obrázok s odporúčaným produktom. Odporúča sa 640 x 900 pixelov."
+        },
+        "media_width": {
+          "label": "Šírka obrázka na pracovnej ploche"
+        },
+        "video": {
+          "label": "Video"
+        },
+        "video_poster": {
+          "label": "Obrázok video plagátu"
+        }
+      },
+      "blocks": {
+        "benefit": {
+          "name": "úžitok",
+          "settings": {
+            "icon": {
+              "label": "Ikona"
+            }
+          }
+        }
+      }
+    },
+    "quiz-results-products": {
+      "name": "Produkty s výsledkami kvízu"
+    },
+    "quiz": {
+      "name": "Kvíz",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/utilities-and-layout/quiz)",
+      "settings": {
+        "intro_header": "Úvod",
+        "enable_intro_step": {
+          "label": "Povoliť úvodný krok"
+        },
+        "intro_button_label": {
+          "label": "Štítok tlačidla Štart"
+        },
+        "show_retake_button": {
+          "label": "Zobraziť tlačidlo opätovného snímania"
+        },
+        "retake_label": {
+          "label": "Štítok tlačidla Opätovné snímanie"
+        },
+        "results_display_header": "Zobrazenie výsledkov",
+        "content_max_width": {
+          "label": "Maximálna šírka obsahu"
+        },
+        "show_back_button": {
+          "label": "Zobraziť tlačidlo späť"
+        },
+        "email_header": "Krok e-mailu",
+        "enable_email_step": {
+          "label": "Povoliť krok e-mailu"
+        },
+        "email_heading": {
+          "label": "Hlavička e-mailu"
+        },
+        "email_placeholder": {
+          "label": "Zástupný symbol e-mailu"
+        },
+        "continue_label": {
+          "label": "Označenie tlačidla Pokračovať"
+        },
+        "skip_label": {
+          "label": "Označenie tlačidla preskočiť"
+        },
+        "results_banner_image": {
+          "label": "Obrázok bannera výsledkov"
+        },
+        "fallback_products": {
+          "label": "Záložné produkty",
+          "info": "Produkty sa zobrazujú iba vtedy, keď odpovede na kvíz nevracajú žiadne silné alebo čiastočné zhody. Použite ako zálohu, takže stránka s výsledkami nebude nikdy prázdna."
+        },
+        "results_products_limit": {
+          "label": "Maximálny počet produktov na zobrazenie"
+        }
+      }
+    },
+    "compare-products": {
+      "name": "Porovnajte produkty",
+      "how_to_use": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/compare-items)",
+      "settings": {
+        "header": {
+          "label": "Porovnajte nastavenia"
+        },
+        "show_price": "Cena",
+        "show_ratings": "hodnotenia",
+        "show_vendor": "Predajca",
+        "show_color": "Color",
+        "show_size": "Size",
+        "show_highlights": "Zvýraznenie",
+        "show_availability": "Dostupnosť"
+      }
+    },
+    "bought-together-products": {
+      "name": "Spolu kupované produkty",
+      "how_to_use": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/frequently-bought-together)"
+    },
+    "media-with-text": {
+      "name": "Médiá s textom",
+      "info_image": {
+        "info_desktop": "Odporúča sa 950 x 844 pixelov",
+        "info_mobile": "Odporúča sa 475 x 422 pixelov",
+        "info_video": "Prepíše nastavenie obrazu. Odporúča sa 950 x 844 pixelov"
+      }
+    },
+    "product-specifications": {
+      "name": "Špecifikácie produktu",
+      "item_name": "Product specifications item",
+      "specifications_layout": "Rozloženie špecifikácií",
+      "grid_gap": "Medzera mriežky",
+      "mobile_rows_shown": "Riadky",
+      "view_more_label": "Menovka tlačidla Zobraziť viac",
+      "view_less_label": "Menovka tlačidla Zobraziť menej",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-specifications)"
+    },
+    "image-with-text": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/image-with-text)",
+      "name": "Obrázok s textom",
+      "settings": {
+        "desktop_vertical_alignment": {
+          "label": "Vertikálne zarovnanie pracovnej plochy",
+          "top": "Hore",
+          "middle": "Stredný",
+          "bottom": "Spodná časť"
+        },
+        "vertical_alignment": "Vertikálne zarovnanie",
+        "background_type": {
+          "label": "Typ pozadia",
+          "image": "Image",
+          "color": "Color"
+        },
+        "background_color": "Farba pozadia",
+        "background_image": "Obrázok na pozadí",
+        "text_color": "Farba textu",
+        "image_info": "Odporúča sa 696 x 500 pixelov",
+        "offer_image_with_text_info": "Odporúča sa 360 x 200 pixlov",
+        "image_caption": {
+          "label": "Popisok obrázka",
+          "heading": "Nadpis",
+          "description": "Popis",
+          "position": "Pozícia"
+        }
+      }
+    },
+    "before_after_result": {
+      "name": "Pred po",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/banners/before-after)",
+      "before_text": {
+        "label": "Pred textom",
+        "default": "Predtým"
+      },
+      "after_text": {
+        "label": "Po texte",
+        "default": "Po"
+      }
+    },
+    "parallax-image-with-text": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/banners/parallax-split)",
+      "name": "Paralaxné rozdelenie",
+      "settings": {
+        "image": {
+          "image_1": {
+            "label": "Obrázok 1"
+          },
+          "image_2": {
+            "label": "Obrázok 2"
+          },
+          "image_3": {
+            "label": "Obrázok 3"
+          }
+        },
+        "parallax_image": {
+          "label": "Paralaxný obraz"
+        }
+      }
+    },
+    "discount_popup": {
+      "info": "Táto sekcia sa používa na zobrazenie kontextového okna po predplatení.",
+      "name": "Vyskakovacie okno so zľavou",
+      "how_to_use": "[Ako používať toto nastavenie](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/discount-popup)",
+      "settings": {
+        "discount_code": {
+          "label": "Propagačný odkaz",
+          "info": "Ako získať propagačný odkaz? [Viac informácií](https://help.shopify.com/en/manual/discounts/managing-discount-codes#promote-a-discount-using-a-shareable-link)"
+        },
+        "discount_button": {
+          "label": "Štítok tlačidla propagácie",
+          "default": "👉 Nakupujte so zľavou 10 %."
+        },
+        "sub_heading": {
+          "default": "Hurá! Ste prihlásený/-á"
+        },
+        "info_image": "Tento obrázok sa v mobile automaticky skryje. Odporúča sa 350 x 410 pixelov"
+      }
+    },
+    "image-with-text-overlay": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/image-with-text-overlay)",
+      "name": "Obrázok s prekrytím textu",
+      "countdown": "Časovač odpočítavania",
+      "count_down": "Odpočítavanie",
+      "how_to_use_count_down": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/countdown)",
+      "end_time": {
+        "label": "Čas ukončenia",
+        "info": "napr. mm-dd-yyyy"
+      },
+      "message": {
+        "label": "Platnosť správy vypršala",
+        "info": "Táto správa sa zobrazí po uplynutí času."
+      },
+      "image_info": {
+        "info_desktop": "Odporúča sa 1392 x 500 pixelov",
+        "info_mobile": "Odporúča sa 400 x 469 pixelov"
+      }
+    },
+    "media-hero": {
+      "name": "Mediálny hrdina",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/media-hero)",
+      "media": "Médiá",
+      "info": "Prepíše nastavenie Obrázok."
+    },
+    "video": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/video)",
+      "name": "Video",
+      "settings": {
+        "video_local": {
+          "label": "Miestne video",
+          "info_2": "Prepíše nastavenie webovej adresy videa.",
+          "info_multi_content_video": "Prepíše nastavenie webovej adresy videa. Odporúča sa 684 pixelov x 500 pixelov.",
+          "info_poster": "Použite rovnaké rozmery ako video"
+        },
+        "video_link": {
+          "label": "URL videa",
+          "info": "Akceptuje URL YouTube alebo Vimeo"
+        },
+        "video_poster": {
+          "label": "Video plagát"
+        },
+        "alt_description": {
+          "label": "Alternatívny text videa",
+          "info": "Opíšte video pre zákazníkov používajúcich čítačky obrazovky. [Viac informácií](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#video-block)"
+        },
+        "autoplay": {
+          "label": "Automatické prehrávanie videa",
+          "info": "Videá sú automaticky stlmené, aby sa umožnilo automatické prehrávanie"
+        },
+        "looping": {
+          "label": "Slučovanie videa"
+        },
+        "show_action": {
+          "label": "Zobraziť ovládacie prvky videa"
+        },
+        "aspect_ratio": {
+          "label": "Pomer strán",
+          "option__1": "16:9",
+          "option__2": "21:9",
+          "option__3": "Prispôsobte sa videu"
+        },
+        "show_text_bellow": {
+          "label": "Zobraziť text pod videom na mobile",
+          "info": "Text sa zobrazí pod videom na mobile."
+        }
+      }
+    },
+    "main-password-content": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/other-pages/password-page)",
+      "name": "Hlavná stránka hesla",
+      "settings": {
+        "header__2": {
+          "content": "Nastavenie obsahu"
+        }
+      },
+      "blocks": {
+        "countdown_bn": {
+          "settings": {
+            "countdown_design": {
+              "label": "Dizajn",
+              "options__1": {
+                "label": "Default"
+              },
+              "options__2": {
+                "label": "Moderné"
+              }
+            }
+          }
+        },
+        "form_subscribe": {
+          "name": "Formulár na odber",
+          "settings": {
+            "email_placeholder": {
+              "label": "Zástupný text e-mailu"
+            },
+            "btn_label": {
+              "label": "Text tlačidla"
+            }
+          }
+        }
+      }
+    },
+    "divider": {
+      "settings": {
+        "height": {
+          "label": "Height"
+        },
+        "color": {
+          "label": "Color"
+        }
+      }
+    },
+    "faq": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/faqs)",
+      "name": "Časté otázky",
+      "main-faq": "Hlavná stránka často kladených otázok",
+      "heading": {
+        "content": "Často kladené otázky"
+      },
+      "info_image": "Odporúča sa 646 x 700 pixelov",
+      "settings": {
+        "show_faqs_message": "Zobraziť často kladené otázky",
+        "show_image": "Zobraziť obrázok",
+        "open_all_question": "Otvorte všetky otázky",
+        "framed": "Zarámované",
+        "faq_style": "Faq štýl",
+        "desktop_layout": {
+          "label": "Rozloženie na počítači",
+          "horizontal": "Vodorovne",
+          "vertical": "Zvisle"
+        }
+      },
+      "blocks": {
+        "name": "Časté otázky",
+        "settings": {
+          "question": {
+            "question": "Otázka",
+            "answer": "Odpoveď"
+          }
+        }
+      }
+    },
+    "page-faq": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/other-pages/faq-page)"
+    },
+    "video-with-text-overlay": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/video-with-text-overlay)",
+      "name": "Video s prekrytím textu",
+      "settings": {
+        "video_local": {
+          "label": "Miestne video",
+          "info": "Prepíše nastavenie webovej adresy videa. Odporúča sa 1392 x 550 pixelov",
+          "info_mobile": "Odporúčané 390px x 550px"
+        },
+        "video_link": {
+          "label": "Odkaz na video"
+        },
+        "video_poster": {
+          "info": "Rovnaké rozmery ako video"
+        },
+        "overlay_opacity": "Nepriehľadnosť prekrytia",
+        "video_height": {
+          "label": "Výška videa",
+          "options__1": {
+            "label": "Prispôsobte sa videu"
+          },
+          "options__2": {
+            "label": "Malý"
+          },
+          "options__3": {
+            "label": "Stredná"
+          },
+          "options__4": {
+            "label": "Veľký"
+          }
+        }
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "Mriežka produktu",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/product-grid)",
+      "settings": {
+        "items_per_page": {
+          "label": "Položky na zobrazenie na stránke"
+        },
+        "columns_desktop": {
+          "label": "Stĺpce na riadok na pracovnej ploche"
+        },
+        "show_product_counts": {
+          "label": "Zobraziť počty produktov"
+        }
+      }
+    },
+    "main-collection": {
+      "settings": {
+        "items_per_page": {
+          "label": "Položky na zobrazenie na stránke"
+        },
+        "columns_desktop": {
+          "label": "Stĺpce na riadok na pracovnej ploche"
+        },
+        "enable_filtering": {
+          "label": "Povoliť filtrovanie",
+          "info": "Prispôsobte si filtre pomocou aplikácie Search & Discovery. [Viac informácií](https://help.shopify.com/manual/online-store/search-and-discovery/filters)"
+        },
+        "filter_type": {
+          "label": "Rozloženie filtra pracovnej plochy",
+          "options__1": {
+            "label": "Horizontal"
+          },
+          "options__2": {
+            "label": "Vertical"
+          },
+          "options__3": {
+            "label": "Zásuvka"
+          }
+        },
+        "enable_sorting": {
+          "label": "Povoliť triedenie"
+        },
+        "show_product_counts": {
+          "label": "Zobraziť počty produktov"
+        },
+        "header__1": {
+          "content": "Filtrovanie a triedenie"
+        }
+      },
+      "blocks": {
+        "promotion": {
+          "name": "Propagácia",
+          "promotion_position": {
+            "label": "Propagačná pozícia"
+          },
+          "info": "330px Odporúča sa 550px"
+        },
+        "steps": {
+          "name": "Nakupujte krok za krokom",
+          "info": "Odporúča sa 337 x 200 pixelov"
+        }
+      }
+    },
+    "main-search": {
+      "name": "Výsledky vyhľadávania",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/other-pages/search-page)",
+      "settings": {
+        "search_results": {
+          "label": "Zobraziť výsledky",
+          "option_1": "Default",
+          "option_2": "Tab"
+        }
+      }
+    },
+    "main-article": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/other-pages/blog-post-page)",
+      "name": "Blogový príspevok",
+      "settings": {
+        "show_date": "Zobraziť dátum zverejnenia",
+        "show_comment": "Zobraziť komentár",
+        "show_excerpt": "Zobraziť úryvok z príspevku",
+        "show_share": "Zobraziť tlačidlo zdieľania",
+        "blocks": {
+          "featured_image": "Odporúčaný obrázok",
+          "content_article": "Obsah",
+          "addons": "Addons",
+          "prev_next_articles": "Predchádzajúce a nasledujúce články"
+        }
+      },
+      "related": {
+        "heading": "Súvisiace články",
+        "articles": {
+          "label": "Články",
+          "info": "Zobrazené v tomto poradí. Nechajte prázdne, aby sa zobrazili najnovšie články z tohto blogu."
+        }
+      },
+      "blocks": {
+        "featured_image": {
+          "settings": {
+            "image_height": {
+              "label": "Výška obrázka",
+              "options__1": {
+                "label": "Prispôsobte sa obrazu"
+              },
+              "options__2": {
+                "label": "Malý"
+              },
+              "options__3": {
+                "label": "Stredná"
+              },
+              "options__4": {
+                "label": "Veľký"
+              }
+            }
+          }
+        }
+      },
+      "related_product": {
+        "heading": "Súvisiace produkty",
+        "products": {
+          "label": "Produkty"
+        }
+      }
+    },
+    "cart-drawer": {
+      "name": "Zásuvka košíka",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/overlay-group/cart-drawer)",
+      "settings": {
+        "info": "Ak chcete zobraziť zásuvku košíka, prejdite do nastavení motívu a ako typ košíka vyberte možnosť Zásuvka[nastavenia košíka.](/editor?context=theme&category=cart)",
+        "content": "",
+        "show_free_shipping_message": {
+          "label": "Zobraziť správu o bezplatnej doprave",
+          "info": "V nastaveniach motívu nastavte minimálnu sumu pre dopravu zdarma."
+        },
+        "show_cart_note": "Zobraziť poznámku v košíku",
+        "show_estimate_shipping": "Zobraziť odhadovanú dopravu",
+        "show_discount": "Zobraziť zľavový kód",
+        "hide_check_badge_on_mobile": "Skryť blok odznakov dôvery v mobile",
+        "hide_icon_with_text_on_mobile": "Skryť ikonu s textovým blokom na mobile",
+        "show_gift_wrap": {
+          "label": "Ukážte darčekové balenie",
+          "info": "V nastaveniach motívu vyberte produkty darčekového balenia."
+        },
+        "discount_progress_bar_active": "Indikátor postupu zľavy je povolený v nastaveniach témy a nahrádza správu o bezplatnej doprave."
+      }
+    },
+    "main-list-collections": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-list-page)",
+      "name": "Stránka so zoznamom zbierok",
+      "blocks": {
+        "name": "Collection",
+        "settings": {
+          "collection_image": "Obrázok zbierky"
+        }
+      },
+      "settings": {
+        "information_position": {
+          "label": "Informačná pozícia",
+          "options__1": {
+            "label": "Prekryvný obrázok"
+          },
+          "options__2": {
+            "label": "Nižšie uvedený obrázok"
+          }
+        },
+        "collection_to_show": {
+          "label": "Zbierky na zobrazenie",
+          "options__1": {
+            "label": "Všetky"
+          },
+          "options__2": {
+            "label": "Vybrané"
+          }
+        },
+        "sort": {
+          "label": "Zoradiť zbierky podľa",
+          "options__1": {
+            "label": "Abecedne, A-Z"
+          },
+          "options__2": {
+            "label": "Abecedne Z-A"
+          },
+          "options__3": {
+            "label": "Dátum, od nového k starému"
+          },
+          "options__4": {
+            "label": "Dátum, od starého k novému"
+          },
+          "options__5": {
+            "label": "Počty produktov od najvyššej po najnižšiu"
+          },
+          "options__6": {
+            "label": "Počty produktov, od nízkej po vysokú"
+          }
+        }
+      }
+    },
+    "main-blog": {
+      "name": "Blogové príspevky",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/other-pages/blog-page)",
+      "settings": {
+        "header": {
+          "content_post": "Nastavenia príspevku"
+        },
+        "maximum_posts_to_show": {
+          "label": "Maximálny počet príspevkov na zobrazenie"
+        },
+        "post_per_row_desktop": {
+          "label": "Príspevok na riadok na pracovnej ploche"
+        },
+        "show_all_tags": {
+          "label": "Zobraziť zoznam značiek"
+        }
+      },
+      "blocks": {
+        "name": "Formulár na odber",
+        "settings": {
+          "show_email_icon": "Zobraziť ikonu e-mailu",
+          "form_position": "Poloha formulára"
+        }
+      }
+    },
+    "main-product": {
+      "name": "Informácie o produkte",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "settings": {
+        "header": {
+          "content": "Médiá"
+        },
+        "enable_sticky_desktop": {
+          "label": "Povoliť pridanie košíka s pevným umiestnením na pracovnej ploche"
+        },
+        "desktop_layout": {
+          "label": "Rozloženie pracovnej plochy",
+          "group": {
+            "static": "Mriežka",
+            "carousel": "Kolotoč"
+          },
+          "one_columns": {
+            "label": "1 stĺpec"
+          },
+          "options__1": {
+            "label": "2 stĺpce"
+          },
+          "options__2": {
+            "label": "Horizontálne miniatúry"
+          },
+          "options__3": {
+            "label": "Zásobník"
+          },
+          "options__4": {
+            "label": "Vertikálne miniatúry"
+          },
+          "options__5": {
+            "label": "Zvislé miniatúry (posúvanie)"
+          },
+          "options__6": {
+            "label": "2 stĺpce"
+          }
+        },
+        "thumbnail_carousel_setting": {
+          "label": "Nastavenie karuselu miniatúr",
+          "number_thumbs": "Počet miniatúr"
+        },
+        "media_position": {
+          "label": "Pozícia média na pracovnej ploche"
+        },
+        "media_width": {
+          "label": "Šírka stolného média"
+        },
+        "mobile_thumbnails": {
+          "options__1": {
+            "label": "Zobraziť miniatúry"
+          },
+          "options__2": {
+            "label": "Skryť miniatúry"
+          }
+        },
+        "enable_video_looping": {
+          "label": "Povoliť opakovanie videa"
+        },
+        "enable_image_zoom": {
+          "label": "Priblíženie obrázka",
+          "options__1": {
+            "label": "Zakázať"
+          },
+          "options__2": {
+            "label": "Vnútorné priblíženie"
+          },
+          "options__3": {
+            "label": "Oddialiť"
+          }
+        },
+        "enable_image_lightbox": {
+          "label": "Povoliť lightbox"
+        },
+        "enable_video_autoplay": {
+          "label": "Povoliť automatické prehrávanie videa",
+          "info": "Videá sú automaticky stlmené, aby sa umožnilo automatické prehrávanie. Nebude fungovať pre YouTube/Vimeo."
+        },
+        "enable_video_controls_default": {
+          "label": "Povoliť vlastné ovládanie videa",
+          "info": "Nebude fungovať pre YouTube/Vimeo."
+        }
+      },
+      "blocks": {
+        "custom_product": {
+          "name": "Vlastné možnosti",
+          "tab_setting": {
+            "label": "Štítky kariet",
+            "tab_1": {
+              "label": "Karta 1"
+            },
+            "tab_2": {
+              "label": "Karta 2"
+            },
+            "tab_3": {
+              "label": "Karta 3"
+            }
+          },
+          "description": "Umožnite zákazníkom prispôsobiť si produkt – pozíciu, text a farbu – prostredníctvom 3-krokového kontextového okna pred pridaním do košíka. Pre viac informácií navštívte našu [stránku podpory](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/custom-options)",
+          "placement": "Umiestnenie",
+          "text": "Text",
+          "text_limit": "Limit textu",
+          "note": "Poznámka",
+          "color": {
+            "name": "Color",
+            "options": {
+              "color_1": "Farba 1",
+              "color_2": "Farba 2",
+              "color_3": "Farba 3",
+              "color_4": "Farba 4",
+              "color_5": "Farba 5",
+              "color_6": "Farba 6",
+              "color_7": "Farba 7",
+              "color_8": "Farba 8",
+              "color_9": "Farba 9",
+              "color_10": "Farba 10"
+            }
+          }
+        }
+      }
+    },
+    "main-cart-items": {
+      "name": "Hlavný košík",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/other-pages/cart-page)",
+      "block": {
+        "icon_with_text": "Ikona s textom",
+        "trust_badges": "Odznaky dôvery"
+      }
+    },
+    "main-collection-banner": {
+      "name": "Banner kolekcie",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/collection-banner)",
+      "settings": {
+        "heading": {
+          "label": "Nastavenia"
+        },
+        "use_collection_image": {
+          "label": "Použiť obrázok zbierky",
+          "info": "Prepísať nastavenie obrázka na pozadí"
+        },
+        "image_height": {
+          "option__2": "Založiť na obsahu"
+        },
+        "image_position": {
+          "label": "Pozícia obrázka",
+          "option__1": "Vľavo",
+          "option__2": "Správne"
+        },
+        "image_opacity": {
+          "label": "Nepriehľadnosť obrazu"
+        }
+      }
+    },
+    "contact-form": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/contact-form)",
+      "name": "Kontaktný formulár",
+      "settings": {
+        "name": "Meno",
+        "email_placeholder": "Email",
+        "message": "Správa",
+        "option": "Možnosť",
+        "info_option": "Define the name of option. Separate options with a comma. napr. Product, Order, Press, Other"
+      }
+    },
+    "main-404": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/other-pages/404-page)",
+      "name": "Hlavná 404",
+      "info_image": "Odporúča sa 500 x 288 pixelov"
+    },
+    "main-activate-account": {
+      "name": "Aktivácia účtu"
+    },
+    "main-password-footer": {
+      "name": "Päta hesla"
+    },
+    "main-account": {
+      "name": "účtu"
+    },
+    "main-register": {
+      "name": "Registrácia"
+    },
+    "main-login": {
+      "name": "Prihláste sa"
+    },
+    "main-reset-password": {
+      "name": "Obnovenie hesla"
+    },
+    "main-order": {
+      "name": "Objednať"
+    },
+    "main-addresses": {
+      "name": "adresy"
+    },
+    "announcement-bar": {
+      "how_to_use": {
+        "label": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/announcement-bar)"
+      },
+      "name": "Oznamovacia lišta",
+      "settings": {
+        "type": {
+          "name": "Typ",
+          "options": {
+            "slide": {
+              "label": "Kolotoč"
+            },
+            "marquee": {
+              "label": "Markíza"
+            }
+          }
+        },
+        "show_only_homepage": {
+          "label": "Zobraziť iba na domovskej stránke"
+        },
+        "show_close_button": {
+          "label": "Zobraziť tlačidlo zatvorenia"
+        },
+        "enable_on_mobile": {
+          "label": "Povoliť v mobile"
+        },
+        "marquee_settings": {
+          "label": "Nastavenia markízy",
+          "speed": {
+            "label": "Rýchlosť"
+          },
+          "show_icon": {
+            "label": "Zobraziť ikonu"
+          }
+        }
+      },
+      "blocks": {
+        "name": "Oznámenie",
+        "setting": {
+          "label": "Text"
+        }
+      }
+    },
+    "multimedia_with_text": {
+      "blocks": {
+        "settings": {
+          "header": "Nastavenia médií",
+          "media_style": {
+            "label": "Mediálny štýl",
+            "options__1": {
+              "label": "Zaoblené"
+            },
+            "options__2": {
+              "label": "Oválny"
+            },
+            "options__3": {
+              "label": "Default"
+            }
+          }
+        }
+      }
+    },
+    "product-tabs": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/vertical-product-tabs)",
+      "name": "Karty produktu",
+      "setting": {
+        "layout": {
+          "label": "Rozloženie pracovnej plochy",
+          "vertical": "Vertical",
+          "horizontal": "Horizontal"
+        },
+        "banner_header": "Banner",
+        "show_banner": "Zobraziť banner",
+        "sticky_banner": "Pripnutý banner",
+        "portrait_4_5": "Na výšku (4:5)",
+        "enable_carousel_info": "V mobile sa rozloženie produktov vždy zobrazí ako karusel."
+      },
+      "blocks": {
+        "name": "Tab",
+        "header": "Nastavenia blokovania",
+        "settings": {
+          "hidden_des_mobile": {
+            "label": "Skryť popis karty v mobile"
+          },
+          "collection": {
+            "label": "Collection",
+            "description": "Popis"
+          }
+        }
+      },
+      "presets": {
+        "product_tabs_with_banner": "Karty produktu s bannerom"
+      }
+    },
+    "collection-highlights": {
+      "name": "To najlepšie z kolekcie",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/collection-highlights)",
+      "settings": {
+        "highlight_collection_width": {
+          "label": "Kolekcia zvýrazňuje šírku"
+        }
+      },
+      "blocks": {
+        "header": "Nastavenia blokovania",
+        "type": {
+          "type_highlight": {
+            "header": "Zbierka zdôrazňuje nastavenia",
+            "name": "To najlepšie z kolekcie"
+          }
+        }
+      }
+    },
+    "collection-pills": {
+      "name": "Kolekcia v štítkoch",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/collections/collection-pills)",
+      "settings": {
+        "pill_style": {
+          "label": "Štýl štítku"
+        },
+        "show_image_on_hover": {
+          "label": "Zobraziť obrázok pri ukázaní",
+          "info": "Obrázok pri ukázaní bude v mobile skrytý."
+        },
+        "horizontal_scroll": {
+          "label": "Vodorovné posúvanie"
+        }
+      }
+    },
+    "suitable_products_finder": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/suitable-products-finder)",
+      "name": "Vyhľadávač vhodných produktov",
+      "settings": {
+        "collection_tab_header": {
+          "label": "Karta Zbierka"
+        },
+        "collection_tab_style": {
+          "label": "Štýl karty kolekcie"
+        },
+        "collection_tab_style_options": {
+          "range_slider": {
+            "label": "Posuvník rozsahu"
+          },
+          "pill_tabs": {
+            "label": "Tabletky"
+          }
+        },
+        "show_pill_tabs_with_heading": {
+          "label": "Zarovnané s nadpisom",
+          "info": "Zobrazte výber farieb v rovnakom riadku ako nadpis."
+        },
+        "show_pill_tabs_color": {
+          "label": "Zobraziť farebný bod"
+        },
+        "pill_tabs_color": {
+          "label": "Color"
+        },
+        "pill_tabs_image": {
+          "info": "Obrázok vzoru prepíše farbu pri odovzdaní obrázka."
+        },
+        "image_collection_width": {
+          "label": "Šírka obrázka"
+        },
+        "range_slider": {
+          "settings": {
+            "show_range_slider": {
+              "label": "Zobraziť posúvač rozsahu",
+              "info": "Posuvník rozsahu sa v mobile automaticky skryje."
+            }
+          }
+        }
+      },
+      "preset": {
+        "ranger_slider": "Vyhľadávač produktov: Posuvník rozsahu",
+        "pill_tabs": "Vyhľadávač produktov: Tabletky",
+        "color_dots": "Vyhľadávač produktov: Farebné bodky"
+      }
+    },
+    "icon-box": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/icon-box)",
+      "name": "Pole s ikonami",
+      "settings": {
+        "icon_settings": {
+          "header": "Nastavenia ikon",
+          "icon_position": {
+            "label": "pozícia"
+          },
+          "icon_size": {
+            "label": "Size"
+          },
+          "radius_image": {
+            "label": "Zaoblený obrázok",
+            "info": "Toto nastavenie funguje len vtedy, keď je ikona obrázok."
+          }
+        }
+      }
+    },
+    "metric-banner": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/metric-banner)",
+      "name": "Metrický banner",
+      "settings": {
+        "metric_setting": "Nastavenia metrík",
+        "metric_font_size": "Metrická veľkosť písma",
+        "enable_metric_animation": "Povoliť metrickú animáciu",
+        "metric_value": {
+          "start": "Metrická počiatočná hodnota",
+          "end": "Metrická koncová hodnota"
+        },
+        "metric_unit": "Metrická jednotka"
+      },
+      "block": {
+        "name": "Metrická položka"
+      }
+    },
+    "compact_product_bundle": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/compact-product-bundle)",
+      "name": "Kompaktný balík produktov",
+      "settings": {
+        "image": {
+          "label": "Image",
+          "info_desktop": "Odporúča sa 696 x 750 pixelov",
+          "info_mobile": "Odporúča sa 350 x 303 pixelov"
+        },
+        "enable_quick_add_for_items": {
+          "label": "Povoliť rýchle pridávanie položiek"
+        },
+        "hidden_button_mobile": {
+          "label": "Skryté tlačidlo na mobile"
+        },
+        "products_show": {
+          "label": "Produkty sa zobrazujú ako",
+          "options__1": {
+            "label": "Zoznam"
+          },
+          "options__2": {
+            "label": "Mriežka"
+          }
+        }
+      },
+      "presets": {
+        "name": "Kompaktný balík produktov"
+      },
+      "blocks": {
+        "settings": {
+          "name": "Product",
+          "select_product": "Product",
+          "position_top": "Vertikálna poloha",
+          "position_left": "Horizontálna poloha"
+        }
+      }
+    },
+    "mobile-navigation-bar": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/overlay-group/mobile-navigation-bar)",
+      "name": "Mobilná navigačná lišta",
+      "info": "Táto sekcia sa zobrazuje iba na mobilných zariadeniach. Prepnite na mobilné zobrazenie.",
+      "settings": {
+        "show_section": "Povoliť mobilný navigačný panel",
+        "show_shop": "Zobraziť obchod",
+        "show_account": "Zobraziť účet",
+        "show_cart": "Zobraziť košík",
+        "show_homepage": "Zobraziť domovskú stránku"
+      }
+    },
+    "mobile_first": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/mobile-first)",
+      "name": "Galéria reflektorov",
+      "image_1": "Bodový obrázok 1",
+      "image_2": "Bodový obrázok 2",
+      "image_3": "Bodový obrázok 3",
+      "image_4": "Bodový obrázok 4",
+      "image_5": "Bodový obrázok 5",
+      "text_1": "Bodový text 1",
+      "text_2": "Bodový text 2",
+      "text_3": "Bodový text 3",
+      "text_4": "Bodový text 4",
+      "text_5": "Bodový text 5"
+    },
+    "shopable_video": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/shopable-video)",
+      "name": "Video s možnosťou nákupu",
+      "settings": {
+        "video_settings": {
+          "header": "Nastavenia videa"
+        },
+        "enable_sticky": {
+          "label": "Povoliť fixné video",
+          "option_1": {
+            "label": "Zakázať"
+          },
+          "option_2": {
+            "label": "Iba pre stolné počítače"
+          },
+          "option_3": {
+            "label": "Všetky obrazovky"
+          }
+        },
+        "ratio": {
+          "adapt": {
+            "label": "Prispôsobte sa prvému videu"
+          }
+        },
+        "video": {
+          "auto_play": {
+            "info": "Video sa automaticky prehrá, keď je tento blok aktívny alebo viditeľný na obrazovke"
+          }
+        },
+        "show_product_card": {
+          "label": "Zobraziť kartu produktu"
+        }
+      },
+      "blocks": {
+        "name": "Video",
+        "settings": {
+          "poster_image": {
+            "label": "Plagátový obrázok",
+            "info": "Odporúča sa 1080 x 1920 pixelov"
+          },
+          "local_video": {
+            "label": "Miestne video"
+          },
+          "select_product": {
+            "label": "Product"
+          }
+        }
+      }
+    },
+    "image_card": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/image-cards)",
+      "name": "Obrazové karty",
+      "blocks": {
+        "header": "Nastavenia karty",
+        "group_name": "kard",
+        "info": "Odporúča sa 451 x 453 pixelov"
+      }
+    },
+    "testimonials": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonials)",
+      "name": "Stlačte tlačidlo",
+      "settings": {
+        "header": "Stlačte nastavenia",
+        "show_icon_quote": {
+          "label": "Zobraziť ikonu ponuky"
+        }
+      },
+      "blocks": {
+        "name": "Stlačte položku",
+        "settings": {
+          "quote": {
+            "label": "Citovať"
+          },
+          "info_image": "Odporúča sa 180px 60px"
+        }
+      }
+    },
+    "press_card": {
+      "name": "Stlačte Card",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/press-card)",
+      "blocks": {
+        "content": "Obsah",
+        "media": "Médiá",
+        "quote": "Citovať",
+        "settings": {
+          "show_icon_quote": "Zobraziť ikonu ponuky",
+          "author_name": "Meno autora",
+          "quote_content": "Obsah citácie",
+          "press-image": {
+            "info": "Prepíše nastavenie farby pozadia"
+          }
+        }
+      }
+    },
+    "scrolling_image": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/scrolling-image)",
+      "name": "Obrázok galérie",
+      "settings": {
+        "show_background_blur": {
+          "label": "Zobraziť rozmazané pozadie"
+        },
+        "show_icon_hover": {
+          "label": "Zobraziť ikonu instagramu umiestnením kurzora myši"
+        },
+        "info_image": "Odporúča sa 303 pixelov x 303 pixelov"
+      }
+    },
+    "featured_product_banner": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/featured-product-banner)",
+      "name": "Banner s odporúčaným produktom",
+      "hide_icon_text": "Skryť ikonu s textovými blokmi na mobile",
+      "blocks": {
+        "name": "Ikona s textom"
+      },
+      "info": {
+        "info_desktop": "Odporúča sa 400 x 400 pixelov",
+        "info_mobile": "Odporúča sa 300 x 300 pixelov"
+      }
+    },
+    "product_testimonials": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-testimonials)",
+      "name": "Ohlasy produktov",
+      "settings": {
+        "header": "Nastavenia referencií",
+        "rating_color": {
+          "label": "Hodnotiaca farba"
+        },
+        "rating_type": {
+          "label": "Typ hodnotenia",
+          "default": "Default",
+          "modern": "Moderné",
+          "show": "Zobraziť hodnotenie",
+          "show_before_after": "Zobraziť text pred textom"
+        },
+        "product_rounded": {
+          "label": "Polomer rohu obrázka produktu"
+        },
+        "show_verified_buyer": {
+          "label": "Zobraziť overeného kupujúceho"
+        },
+        "show_author_name": {
+          "label": "Zobraziť meno autora"
+        }
+      },
+      "blocks": {
+        "type": {
+          "media": {
+            "label": "Médiá s posudkami"
+          },
+          "image_comparison": {
+            "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/image-comparison)",
+            "label": "Porovnanie výpovedných obrázkov",
+            "name": "Porovnanie obrázkov",
+            "show_after_before_text": {
+              "label": "Zobraziť text pred/za"
+            }
+          }
+        },
+        "settings": {
+          "media": {
+            "label": "Nastavenia médií",
+            "info": "Odporúča sa 448 pixelov x 246 pixelov",
+            "before_after_image": {
+              "label": "Obrázky pred po"
+            },
+            "before_image": {
+              "label": "Predtým"
+            },
+            "after_image": {
+              "label": "Po"
+            }
+          },
+          "information": {
+            "label": "Nastavenia informácií",
+            "rating_star": {
+              "label": "Hodnotenie hviezdičkou"
+            },
+            "select_product": {
+              "label": "Product"
+            },
+            "author_name": {
+              "label": "Meno autora"
+            },
+            "review_sumary": {
+              "label": "Zhrnutie"
+            },
+            "use_richtext": {
+              "label": "Použite formátovaný text"
+            }
+          }
+        }
+      }
+    },
+    "routine-builder": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/routine-builder)",
+      "name": "Nakupujte krok za krokom",
+      "blocks": {
+        "name": "Krok",
+        "settings": {
+          "text_step": {
+            "label": "Názov kroku"
+          },
+          "product_in_step": {
+            "label": "Produkt v kroku"
+          }
+        }
+      }
+    },
+    "newsletter_popup": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/overlay-group/newsletter-popup)",
+      "name": "Vyskakovacie okno bulletinu",
+      "header": {
+        "heading": "Všeobecné nastavenia"
+      },
+      "settings": {
+        "sections_width": {
+          "label": "šírka",
+          "options": {
+            "options__1": "Plná šírka",
+            "options__2": "Auto"
+          }
+        },
+        "collections_selector": {
+          "setting": "Nastavenia výberu kolekcie",
+          "label": "Povoliť výber zbierok",
+          "collection": {
+            "label_1": "Zbierka 1",
+            "label_2": "Zbierka 2",
+            "label_3": "Zbierka 3",
+            "label_4": "Zbierka 4",
+            "label_5": "Zbierka 5"
+          }
+        },
+        "newsletter_heading": "Nastavenia bulletinu",
+        "show_on_homepage": "Zobraziť iba na domovskej stránke",
+        "discount_sticky": {
+          "setting": "Zľava lepkavá",
+          "label": "Zobraziť zľavu nalepené",
+          "heading": "Obsah",
+          "info": "Obsah sa automaticky skráti na 25 znakov vrátane značiek HTML."
+        },
+        "heading": "Nadpis",
+        "short_description": "Popis",
+        "instructional_text": "Inštruktážny text",
+        "email_placeholder": "Zástupný symbol e-mailu",
+        "button_label": "Text tlačidla",
+        "banner_image": "Bannerový obrázok"
+      }
+    },
+    "featured-blog": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/featured-blog)",
+      "name": "Odporúčaný blog"
+    },
+    "recommended_collection": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/recommended-collection)",
+      "name": "Odporúčaná kolekcia",
+      "blocks": {
+        "button": {
+          "info": "[collection] a [title] sú názvy premenných, ktoré budú automaticky nahradené. Mená nemeňte, ale môžete zmeniť ich umiestnenie v texte. [title] je voliteľný – odstráňte ho, ak chcete iba selektor kolekcie.",
+          "first_button_info": "Formulár s obrázkom: otvorí kolekciu výsledkov s vybranými filtrami"
+        },
+        "featured_collection": {
+          "title_info": "Iba vložený text: zobrazené ako možnosť rozbaľovacieho zoznamu [Názov]. Bloky kolekcií sa v rozložení Formulár s obrázkom nepoužívajú"
+        },
+        "filter_dropdown": {
+          "name": "Rozbaľovací filter",
+          "info": "Funguje s rozložením Formulár s obrázkom. Filter najprv nastavte v aplikácii Shopify Search & Discovery.",
+          "filter_name": {
+            "label": "Názov filtra",
+            "info": "Zadajte popis filtra presne tak, ako sa zobrazuje na stránkach kolekcií, napríklad „Veková skupina psa“. Pri viacerých jazykoch oddeľte popisy znakom ;. Cenové filtre nie sú podporované."
+          },
+          "placeholder": "Zástupný text"
+        },
+        "text": {
+          "name": "Text"
+        }
+      },
+      "background": {
+        "label": "Zobraziť obrázok na pozadí",
+        "header": "Obrázok na pozadí"
+      },
+      "image_info": {
+        "info_desktop": "Odporúča sa 1920 x 700 pixelov",
+        "info_mobile": "Odporúča sa 390 x 407 pixelov"
+      },
+      "layout": {
+        "label": "Rozloženie",
+        "inline": "Vložený text",
+        "form": "Formulár s obrázkom"
+      },
+      "content_color_scheme": "Farebná schéma obsahu",
+      "results_collection": {
+        "label": "Kolekcia výsledkov",
+        "info": "Iba pre rozloženie Formulár s obrázkom. Rozbaľovacie filtre zobrazujú filtre tejto kolekcie a prvé tlačidlo ju otvorí. Nechajte prázdne, ak chcete použiť všetky produkty."
+      },
+      "presets": {
+        "form": "Odporúčaná kolekcia s obrázkom"
+      }
+    },
+    "offers-popup": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/overlay-group/offers-popup)",
+      "name": "Vyskakovacie okno s ponukami",
+      "popup": {
+        "label": "Vyskakovacie okno ponuky nadpisu",
+        "info": "Prispôsobte obsah bloku ponuky Ponuky v skupine prekrytia."
+      }
+    },
+    "outfit-finder": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/products/outfit-finder)",
+      "name": "Vyhľadávač oblečenia",
+      "settings": {
+        "product_listing": {
+          "label": "Nastavenia záznamu o produkte"
+        },
+        "outfit_finder_logic": {
+          "label": "Nastavenia ukážky"
+        },
+        "max_items_to_show": {
+          "label": "Produkty na stránku",
+          "info": "Počet produktov zobrazených na začiatku. Posúvaním nadol sa načítajú ďalšie položky."
+        },
+        "max_items": {
+          "label": "Maximálny počet produktov na oblečenie",
+          "info": "Obmedzuje počet položiek, ktoré môže zákazník pridať do oblasti ukážky."
+        },
+        "product": {
+          "label": "Odporúčaný outfit",
+          "info": "Vyberte až 3 produkty, ktoré sa majú predvolene zobraziť v oblasti náhľadu pri načítaní stránky."
+        },
+        "notify_preview": {
+          "label": "Oznámenie o prázdnom stave",
+          "info": "Navádzací text zobrazený v oblasti náhľadu pred pridaním akýchkoľvek položiek."
+        }
+      }
+    },
+    "scrolling-card": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scrolling-card)",
+      "name": "Rolovacia karta"
+    },
+    "scroll-scatter": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scroll-scatter)",
+      "name": "Posúvanie rozptylu"
+    },
+    "store-location": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/other-pages/store-location)",
+      "name": "Umiestnenie obchodu",
+      "settings": {
+        "key_google_map": {
+          "label": "Google Maps API kľúč",
+          "info": "Vyžaduje rozhrania API „Maps JavaScript“, „Miesta“ a „Geokódovanie“. [Získať kľúč](https://console.cloud.google.com/google/maps-apis/credentials)."
+        },
+        "map_settings": {
+          "header": "Nastavenia mapy"
+        },
+        "allowed_countries": {
+          "label": "Povolené krajiny",
+          "info": "Ovládajte, kde môžu zákazníci vyhľadávať obchody. Použite kódy krajín ISO (napr. USA, Spojené kráľovstvo, CA) oddelené čiarkami. Ak chcete hľadať globálne, ponechajte pole prázdne."
+        },
+        "radius_km": {
+          "label": "Vyhľadávací okruh (km)",
+          "info": "Maximálna vzdialenosť pre výsledky obchodu."
+        }
+      },
+      "blocks": {
+        "name": "Obchod",
+        "settings": {
+          "store_name": {
+            "label": "Názov obchodu"
+          },
+          "store_address": {
+            "label": "Adresa predajne"
+          },
+          "store_email": {
+            "label": "Uložiť e-mail"
+          },
+          "store_phone": {
+            "label": "Uložiť telefón"
+          },
+          "store_lat": {
+            "label": "Uložiť zemepisnú šírku",
+            "info": "Skopírujte prvé číslo zo súradníc v Mapách Google."
+          },
+          "store_lng": {
+            "label": "Uložiť zemepisnú dĺžku",
+            "info": "Skopírujte druhé číslo zo súradníc v Mapách Google."
+          },
+          "time_location": {
+            "monday": "pondelok",
+            "tuesday": "utorok",
+            "wednesday": "streda",
+            "thursday": "štvrtok",
+            "friday": "piatok",
+            "saturday": "sobota",
+            "sunday": "nedeľa",
+            "open": "OTVORENÉ",
+            "closed": "ZATVORENÉ",
+            "open_time_hour": "Hodina otvoreného času",
+            "open_time_minute": "Minúta otvoreného času",
+            "close_time_hour": "Hodina uzavretého času",
+            "close_time_minute": "Minúta uzavretého času"
+          },
+          "time_schedule": {
+            "monday": "Schedule",
+            "tuesday": "Schedule",
+            "wednesday": "Schedule",
+            "thursday": "Schedule",
+            "friday": "Schedule",
+            "saturday": "Schedule",
+            "sunday": "Schedule"
+          }
+        }
+      }
+    },
+    "product-bundle": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/product-bundle)",
+      "name": "Balík produktov",
+      "settings": {
+        "discount": {
+          "name": "Discount",
+          "info": "Zistite, ako vytvoriť zľavu [tu](https://help.shopify.com/manual/discounts)",
+          "minimum": "Minimálne požadované položky",
+          "maximum": "Maximálny počet položiek",
+          "edit_quantity": "Povoliť zmenu množstva pre každý produkt",
+          "discount_title": "Zľavový kód",
+          "discount_value": {
+            "name": "Hodnota zľavy",
+            "option": {
+              "fixed": {
+                "label": "Pevná suma",
+                "once_per_order": "Raz na objednávku"
+              },
+              "percentage": {
+                "label": "Percento"
+              }
+            }
+          }
+        },
+        "your_bundle": {
+          "name": "Discount",
+          "settings": {
+            "show_progress_bar": {
+              "label": "Zobraziť indikátor priebehu"
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "product_discount": {
+            "name": "Balík produktov",
+            "info": "Pri výbere nahradí kolekciu."
+          }
+        }
+      }
+    },
+    "shopable-image": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/sections/shopable-image)",
+      "name": "Obrázok s možnosťou nákupu",
+      "blocks": {
+        "tags": {
+          "name": "Tagy",
+          "info": "Definujte názvy značiek. Oddeľte čiarkou. Napr. Značka 1, značka 2",
+          "info_image": "Odporúča sa 448 pixelov x 600 pixelov",
+          "settings": {
+            "show_verify_icon": {
+              "label": "Zobraziť začiarknutie ikony"
+            }
+          }
+        },
+        "lookbook": {
+          "name": "Lookbook",
+          "settings": {
+            "products": {
+              "label": "Products",
+              "position_top": "Vertikálna poloha",
+              "position_left": "Horizontálna poloha",
+              "products": {
+                "otpion__1": {
+                  "label": "Produkt 1"
+                },
+                "otpion__2": {
+                  "label": "Produkt 2"
+                },
+                "otpion__3": {
+                  "label": "Produkt 3"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parallax-image": {
+      "blocks": {
+        "icon": {
+          "name": "Ikona",
+          "info": "Prepíše nastavenie ikony svg"
+        }
+      }
+    },
+    "main-page": {
+      "name": "Stránka"
+    },
+    "subcollection-list": {
+      "name": "Podkolekcia",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/sub-collection)"
+    },
+    "before-you-leave": {
+      "name": "Pred odchodom",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/before-you-leave)",
+      "settings": {
+        "header": {
+          "recommended_products": "Odporúčané produkty"
+        },
+        "show_time": {
+          "label": "Zobraziť čas po (sekundách)"
+        },
+        "banner": {
+          "label": "Bannerový obrázok",
+          "info": "Odporúča sa 380 x 423 pixelov"
+        },
+        "collection": {
+          "label": "Collection"
+        },
+        "code": {
+          "label": "Zľavový kód"
+        }
+      }
+    },
+    "advanced-slideshow": {
+      "block": {
+        "slide": "Snímka",
+        "settings": {
+          "type": {
+            "label": "Typ",
+            "image": {
+              "label": "Image"
+            },
+            "video": {
+              "label": "Video"
+            }
+          },
+          "media_overlay": {
+            "label": "Prekrytie médií"
+          }
+        }
+      }
+    },
+    "custom_section": {
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/advanced/flexible-section)",
+      "name": "Flexibilná sekcia",
+      "settings": {
+        "layout": {
+          "label": "Rozloženie",
+          "direction": {
+            "label": "Smer",
+            "options__1": {
+              "label": "Vertical"
+            },
+            "options__2": {
+              "label": "Horizontal"
+            }
+          },
+          "vertical_on_mobile": {
+            "label": "Vertikálne na mobile"
+          },
+          "content_wrap": {
+            "label": "Obal obsahu"
+          },
+          "height": {
+            "label": "Height",
+            "options": {
+              "auto": {
+                "label": "Auto"
+              },
+              "custom": {
+                "label": "Custom"
+              }
+            },
+            "custom_height": {
+              "label": "Vlastná výška"
+            }
+          },
+          "gap": {
+            "label": "Medzera"
+          },
+          "position": {
+            "label": "pozícia",
+            "options__1": {
+              "label": "Hore"
+            },
+            "options__2": {
+              "label": "centrum"
+            },
+            "options__3": {
+              "label": "Spodná časť"
+            }
+          },
+          "alignment": {
+            "label": "Zarovnanie",
+            "label_mobile": "Mobilné zarovnanie",
+            "options__1": {
+              "label": "Vľavo"
+            },
+            "options__2": {
+              "label": "centrum"
+            },
+            "options__3": {
+              "label": "Správne"
+            },
+            "options__4": {
+              "label": "Priestor medzi"
+            }
+          },
+          "hide_on_mobile": {
+            "label": "Skryté v mobile"
+          }
+        },
+        "appearance": {
+          "header": "Vzhľad",
+          "settings": {
+            "background_media": {
+              "label": "Médiá na pozadí",
+              "options__2": {
+                "label": "Image"
+              },
+              "options__3": {
+                "label": "Video"
+              },
+              "options__1": {
+                "label": "None"
+              }
+            },
+            "border": {
+              "label": "Hranice",
+              "options": {
+                "none": "None",
+                "solid": "Pevné"
+              },
+              "border_color": {
+                "label": "Farba okraja"
+              },
+              "border_thickness": {
+                "label": "Hrúbka okraja"
+              }
+            },
+            "corner_radius": {
+              "label": "Polomer rohu",
+              "options": {
+                "none": {
+                  "label": "None"
+                },
+                "rounded": {
+                  "label": "Zaoblené"
+                },
+                "custom": {
+                  "label": "Custom"
+                },
+                "inherit": {
+                  "label": "Zdediť",
+                  "info": "Ak je nastavený na „Zdediť“, bude tento blok nasledovať globálne nastavenie zaoblených rohov v nastaveniach motívu ▸ Rozloženie ▸ Zaoblený obrázok."
+                }
+              },
+              "custom_radius": {
+                "label": "Vlastný polomer"
+              }
+            },
+            "background_overlay": {
+              "label": "Prekrytie pozadia",
+              "overlay_color": {
+                "label": "Farba prekrytia"
+              },
+              "overlay_style": {
+                "label": "Štýl prekrytia",
+                "options__1": {
+                  "label": "Pevné"
+                },
+                "options__2": {
+                  "label": "Gradient"
+                }
+              },
+              "gradient_direction": {
+                "label": "Smer gradientu",
+                "options__1": {
+                  "label": "Hore"
+                },
+                "options__2": {
+                  "label": "Dole"
+                }
+              }
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "size": {
+            "label": "Size",
+            "height": {
+              "label": "Height"
+            },
+            "width": {
+              "label": "šírka",
+              "custom_width": {
+                "label": "Vlastná šírka"
+              }
+            },
+            "mobile_width": {
+              "label": "Mobilná šírka"
+            },
+            "options": {
+              "options__1": {
+                "label": "Fit"
+              },
+              "options__2": {
+                "label": "Vyplňte"
+              },
+              "options__3": {
+                "label": "Custom"
+              },
+              "options__4": {
+                "label": "Prispôsobte sa mediálnemu pozadiu"
+              }
+            }
+          },
+          "background": {
+            "label": "Pozadie"
+          },
+          "background_color": {
+            "label": "Farba pozadia"
+          }
+        },
+        "heading": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading)",
+          "label": "Prednastavené",
+          "heading_tag": {
+            "label": "Značka nadpisu",
+            "info": "Nastavte značku nadpisu (H1–H6), aby ste ovládali hierarchiu obsahu a zlepšili čitateľnosť SEO pre vyhľadávače.",
+            "h1": "H1",
+            "h2": "H2",
+            "h3": "H3",
+            "h4": "H4",
+            "h5": "H5",
+            "h6": "H6"
+          },
+          "custom": "Custom",
+          "default": "Default",
+          "paragraph": "Odsek",
+          "h1": "Nadpis 1",
+          "h2": "Nadpis 2",
+          "h3": "Nadpis 3",
+          "h4": "Nadpis 4",
+          "h5": "Nadpis 5",
+          "h6": "Nadpis 6",
+          "h7": "Nadpis 7",
+          "info": {
+            "edit_presets_in_theme_settings": "Upravte predvoľby v[nastavenia témy](/editor?context=theme&category=typography)",
+            "label": "Veľkosť písma"
+          },
+          "text_alignment": {
+            "desktop": "Zarovnanie",
+            "mobile": "Mobilné zarovnanie"
+          }
+        },
+        "logo": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Logo",
+          "settings": {
+            "size": {
+              "name": "Size",
+              "unit": {
+                "label": "Jednotka",
+                "option__1": {
+                  "label": "Pixel"
+                },
+                "option__2": {
+                  "label": "Percento"
+                }
+              },
+              "custom_mobile_size": {
+                "label": "Vlastná veľkosť mobilu"
+              },
+              "height": {
+                "label": "Height"
+              },
+              "mobile": {
+                "name": "Mobilná veľkosť"
+              }
+            }
+          }
+        },
+        "email_subscription": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/newsletter)",
+          "name": "Newsletter"
+        },
+        "contact_form": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/contact-form)",
+          "name": "Kontaktný formulár",
+          "settings": {
+            "name": "Meno",
+            "email": "Email",
+            "message": "Správa",
+            "select_label": "Vyberte štítok",
+            "default_select_label": "Predmet",
+            "option": "Možnosť",
+            "default_option": "Produkt, objednávka, tlač, iné",
+            "phone": "Telefón",
+            "submit_button": "tlačidlo Odoslať",
+            "default_submit_button": "Odoslať"
+          }
+        },
+        "accordion": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/accordion)",
+          "name": "Akordeón",
+          "settings": {
+            "icon_style": {
+              "style": "štýl",
+              "label": "Štýl ikony",
+              "caret": "Carret",
+              "plus": "Navyše"
+            },
+            "row_style": {
+              "label": "Štýl riadkov",
+              "background": "Pozadie",
+              "divider": "Rozdeľovač"
+            },
+            "background_color": "Farba pozadia",
+            "row_spacing": "Rozstup položiek",
+            "gap_row": "Medzera",
+            "padding_row": "Výplň",
+            "gap_content": "Priestor medzi",
+            "accordion_row": "Riadok na akordeón",
+            "default_accordion_row": "Hlavička harmoniky",
+            "accordion_content": "Obsah akordeónu",
+            "settings": {
+              "heading": "Nadpis",
+              "heading_size": "Veľkosť nadpisu",
+              "heading_weight": "Hmotnosť hlavy",
+              "body_weight": "Telesná hmotnosť",
+              "open_default": {
+                "label": "Otvoriť predvolené"
+              }
+            }
+          }
+        },
+        "group": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/group)",
+          "name": "Skupina",
+          "settings": {
+            "link": "Odkaz",
+            "open_in_new_tab": {
+              "label": "Otvoriť odkaz na novej karte"
+            }
+          }
+        },
+        "carousel": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/carousel)",
+          "name": "Kolotoč"
+        },
+        "text": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/text)",
+          "name": "Text",
+          "default_text": "Vyrábame veci, ktoré fungujú lepšie a vydržia dlhšie. Naše produkty riešia skutočné problémy čistým dizajnom a poctivými materiálmi.",
+          "text_color": {
+            "label": "Farba textu",
+            "body_color": "Farba tela",
+            "heading_color": "Farba nadpisu"
+          }
+        },
+        "button": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/button)"
+        },
+        "icon": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/icon)"
+        },
+        "page": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Stránka",
+          "inherit_color_scheme": "Zdediť farebnú schému",
+          "appearance": "Vzhľad",
+          "spacing": "Medzery"
+        },
+        "spacer": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/spacer)",
+          "name": "Rozperka",
+          "mobile_settings": {
+            "label": "Nastavenia mobilu"
+          }
+        },
+        "divider": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Rozdeľovač",
+          "settings": {
+            "thickness": "Hrúbka",
+            "size": "Size",
+            "color": "Color"
+          }
+        },
+        "icon_list": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Zoznam ikon",
+          "item": "Položka",
+          "open_new_tab": "Otvoriť novú kartu"
+        },
+        "alert": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Upozornenie",
+          "dismiss_icon": "Ikona odmietnutia",
+          "display_dismiss_icon": "Zobraziť ikonu zatvorenia"
+        },
+        "social_icons": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Sociálne ikony",
+          "circle": "Kruh",
+          "rounded": "Zaoblené",
+          "square": "Štvorcový",
+          "shape": "Tvar",
+          "color": "Color",
+          "backgroup_color": "Farba zadnej skupiny"
+        },
+        "progress_bar": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Ukazovateľ pokroku",
+          "text_color": "Farba textu",
+          "percentage": "Percento",
+          "border_radius": "Polomer okraja",
+          "display_percentage": "Zobrazované percento",
+          "inner_text": "Vnútorný text"
+        },
+        "counter": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/counter)",
+          "name": "Počítadlo",
+          "counter_style": {
+            "label": "Pultový štýl",
+            "default": "Default",
+            "circle": "Kruh"
+          },
+          "counter_layout": {
+            "label": "Rozloženie pultu",
+            "horizontal": "Horizontal",
+            "vertical": "Vertical"
+          },
+          "number_position": "Pozícia čísla",
+          "space_between": "Priestor medzi",
+          "before_title": "Pred titulom",
+          "after_title": "Po titule",
+          "number_alignment": "Zarovnanie čísel",
+          "stroke_color": "Farba ťahu",
+          "indicator_color": "Farba indikátora",
+          "background_color": "Farba pozadia",
+          "text_color": "Farba textu",
+          "ending_number": "Koncové číslo",
+          "starting_number": "Štartovné číslo",
+          "animation": "Trvanie animácie (ms)"
+        },
+        "map": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/google-maps)",
+          "name": "Google mapy",
+          "location": "Poloha",
+          "longitude": "Zemepisná dĺžka",
+          "latitude": "Zemepisná šírka"
+        },
+        "jumbo_text": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+          "name": "Obrovský text"
+        },
+        "tab": {
+          "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/tab)",
+          "name": "Tab",
+          "tab_row": "Položka karty",
+          "settings": {
+            "heading": "Štýl nadpisu",
+            "heading_preset": "Prednastavený nadpis",
+            "heading_alignment": "Zarovnanie nadpisov",
+            "heading_color": "Farba nadpisu",
+            "content": "Štýl obsahu",
+            "content_alignment": "Zarovnanie obsahu"
+          }
+        },
+        "icon_with_text": {
+          "name": "Ikona s textom",
+          "icon_first": "Najprv ikona",
+          "icon_second": "Druhá ikona",
+          "svg_custom": "Vlastné SVG"
+        },
+        "popup_link": {
+          "button_type_link": {
+            "label": "Typ tlačidla",
+            "primary": {
+              "label": "Primárne"
+            },
+            "outline": {
+              "label": "Obrys"
+            },
+            "link": {
+              "label": "Odkaz"
+            }
+          },
+          "popup_style": {
+            "label": "Štýl vyskakovacieho okna"
+          },
+          "popup_type": {
+            "label": "Typ kontextového okna"
+          },
+          "popup_width": {
+            "label": "Pracovná plocha so šírkou kontextového okna"
+          },
+          "icon_type": {
+            "label": "Typ ikony",
+            "none": "None",
+            "arrow": "Šípka",
+            "image": {
+              "label": "Image",
+              "size": "Size"
+            }
+          }
+        }
+      },
+      "preset": {
+        "promotion_banner": "Flexibilné: Propagačný banner",
+        "flexible_marquee": "Flexibilné: Marquee",
+        "story_tabs": "Flexibilné: Záložka"
+      }
+    },
+    "text_image_pairing": {
+      "how_to_use": "[Naučte sa používať tento blok](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/text-image-pairing)",
+      "name": "Párovanie textových obrázkov",
+      "settings": {
+        "text_default": "\"Osvojte si svoju žiaru[image_1]swipe blend lesk <br/> cítiť sa nádherne[image_2]byť videný naplno[image_3]oslavujte.\"",
+        "info": {
+          "label": "Použite konkrétny zástupný formát „[obrázok_X]“, kde sa má obrázok zobraziť. X je index obrázka. Napríklad: „[obrázok_1]“ bude nahradený prvým obrázkom."
+        },
+        "images": {
+          "label": "Obrázky",
+          "image_style": {
+            "label": "Štýl obrázka"
+          },
+          "image_1": {
+            "label": "Obrázok č. 1"
+          },
+          "image_2": {
+            "label": "Obrázok č. 2"
+          },
+          "image_3": {
+            "label": "Obrázok č. 3"
+          }
+        }
+      }
+    },
+    "product_sizing": {
+      "name": "Dimenzovanie produktu",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "info": "Pomáha zákazníkom pochopiť, ako produkt sedí, a s istotou vybrať správnu veľkosť."
+    },
+    "size_recommendation": {
+      "name": "Odporúčanie veľkosti",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/size-recommendation)",
+      "info": "Pomáha zákazníkom nájsť správnu veľkosť pomocou jednoduchých vstupov, ako je výška, váha, tvar tela, veľkosť poprsia a veľkosť košíčkov.",
+      "data_usage_notice": {
+        "label": "Upozornenie o spotrebe dát",
+        "info": "Táto správa vysvetľuje, ako sa údaje o zákazníkovi používajú na odporúčanie veľkosti. Znenie si môžete prispôsobiť tak, aby zodpovedalo tónu ochrany osobných údajov vášho obchodu."
+      },
+      "no_size_match": {
+        "label": "Žiadna správa o zhode veľkosti",
+        "info": "Správa sa zobrazí, keď sa žiadna veľkosť nezhoduje so vstupmi zákazníka."
+      },
+      "fit_recommendation_note": {
+        "label": "Poznámka k odporúčaniu",
+        "info": "Zobrazí sa po výsledkoch odporúčania veľkosti."
+      }
+    },
+    "sticky_image_with_text": {
+      "name": "Priľnavý obrázok s textom",
+      "blocks": {
+        "group_text": {
+          "name": "Textová skupina",
+          "image": {
+            "label": "Obrázok pri posúvaní",
+            "info": "Zobrazí sa v prilepenom obrázku, keď sa táto skupina posunie do zobrazenia. Nechajte prázdne, ak chcete zachovať predchádzajúci obrázok. V nastaveniach sekcie je potrebná voľba „Meniť obrázok pri posúvaní“."
+          }
+        },
+        "list_tag": {
+          "name": "Zoznam štítkov",
+          "tags": {
+            "label": "Štítky",
+            "info": "Oddeľte jednotlivé štítky čiarkou."
+          },
+          "show_check": {
+            "label": "Zobraziť ikonu začiarknutia"
+          },
+          "chip_style": {
+            "label": "Štýl štítka"
+          }
+        }
+      },
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/banners/sticky-image-with-text)",
+      "settings": {
+        "hide_image_mobile": {
+          "label": "Skryť obrázok na mobile"
+        },
+        "change_image_on_scroll": {
+          "label": "Meniť obrázok pri posúvaní",
+          "info": "Vymení prilepený obrázok, keď sa každá textová skupina posunie do zobrazenia. Nastavte obrázok v každej textovej skupine. Obrázok sekcie sa nepoužíva. Iba na počítači."
+        }
+      }
+    },
+    "testimonial-images": {
+      "name": "Obrázky referencií",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonial-images)",
+      "settings": {
+        "show_author_image": "Zobraziť obrázok autora",
+        "hide_image_on_mobile": {
+          "label": "Skryť obrázok na mobile"
+        }
+      },
+      "blocks": {
+        "review": "Referencia",
+        "settings": {
+          "author_image": "Obrázok autora"
+        }
+      }
+    },
+    "flow": {
+      "name": "Postup",
+      "blocks": {
+        "step": {
+          "name": "Krok",
+          "heading": {
+            "label": "Nadpis"
+          },
+          "image": {
+            "label": "Obrázok"
+          },
+          "product": {
+            "label": "Produkt"
+          }
+        }
+      },
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/flow)"
+    },
+    "parallax-scroll": {
+      "name": "Parallaxové posúvanie",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/parallax-scroll)",
+      "instructions": "Pridajte až 7 kariet. Karty sa striedajú po stranách a každá tretia karta je automaticky vsadená.",
+      "blocks": {
+        "info_card": {
+          "name": "Informačná karta"
+        }
+      },
+      "settings": {
+        "card_width": {
+          "label": "Šírka karty",
+          "info": "Nastavuje maximálnu šírku karty na počítači. Na menších obrazovkách zostávajú karty responzívne."
+        },
+        "button_link": {
+          "info": "Ak ostane prázdne, tlačidlo sa zobrazí ako zakázané."
+        },
+        "button_type": {
+          "info": "Používa štýly tlačidiel nastavené témou."
+        }
+      }
+    },
+    "benefit-tabs": {
+      "name": "Karty výhod",
+      "how_to_use": "Pre každú kartu pridajte blok Karta výhod a do každej karty potom bloky Výhoda.",
+      "settings": {
+        "text_alignment": {
+          "info": "Zarovná aj tlačidlá kariet."
+        },
+        "mobile_alignment": {
+          "info": "Zarovná výhody na mobile a tablete. Na počítači sa výhody zarovnajú k médiu."
+        }
+      },
+      "blocks": {
+        "tab": {
+          "name": "Karta výhod",
+          "how_to_use": "Pre vyvážené rozloženie sa odporúča až 6 blokov výhod. Na počítači sú nepárne výhody vľavo od média a párne vpravo.",
+          "settings": {
+            "tab_label": {
+              "label": "Popis karty"
+            },
+            "image": {
+              "label": "Obrázok pred",
+              "info": "Odporúča sa 950 x 1060 px."
+            },
+            "image_after": {
+              "label": "Obrázok po",
+              "info": "Použite rovnakú veľkosť ako pri obrázku pred. Obrázok po sa odhalí pri posúvaní."
+            }
+          }
+        },
+        "benefit": {
+          "settings": {
+            "icon": {
+              "info": "Keď je prázdne, zobrazí sa zástupný symbol. Odporúča sa 120 x 120 px."
+            }
+          }
+        }
+      }
+    },
+    "comparison-table": {
+      "name": "Porovnávacia tabuľka",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/products/comparison-table)",
+      "settings": {
+        "table": {
+          "label": "Tabuľka"
+        },
+        "comparison_heading": {
+          "label": "Nadpis porovnania"
+        },
+        "show_column_images": {
+          "label": "Zobraziť obrázky stĺpcov"
+        },
+        "color_column_highlight": {
+          "label": "Farba zvýraznenia stĺpca"
+        },
+        "table_notes": {
+          "label": "Poznámky k tabuľke"
+        },
+        "show_labels": {
+          "label": "Zobraziť popisy"
+        },
+        "first_label": {
+          "label": "Prvý popis"
+        },
+        "second_label": {
+          "label": "Druhý popis"
+        },
+        "button_link": {
+          "label": "Odkaz"
+        }
+      },
+      "blocks": {
+        "column": {
+          "name": "Stĺpec",
+          "settings": {
+            "highlight": {
+              "label": "Zvýrazniť tento stĺpec"
+            }
+          }
+        },
+        "row": {
+          "name": "Riadok",
+          "settings": {
+            "icon_info": "Vyberte, ako zobraziť hodnotu v tomto stĺpci.",
+            "image_info": "Pridajte obrázok. Zobrazí sa pri výbere Obrázok.",
+            "value": {
+              "yes": "Áno",
+              "no": "Nie"
+            },
+            "text_1": {
+              "label": "Text stĺpca 1",
+              "info": "Zobrazí sa pri výbere Text. Hodnoty sledujú poradie stĺpcov, preto meňte poradie blokov Stĺpec opatrne."
+            },
+            "icon_1": {
+              "label": "Ikona stĺpca 1"
+            },
+            "image_1": {
+              "label": "Obrázok stĺpca 1"
+            },
+            "text_2": {
+              "label": "Text stĺpca 2",
+              "info": "Zobrazí sa pri výbere Text."
+            },
+            "icon_2": {
+              "label": "Ikona stĺpca 2"
+            },
+            "image_2": {
+              "label": "Obrázok stĺpca 2"
+            },
+            "text_3": {
+              "label": "Text stĺpca 3",
+              "info": "Zobrazí sa pri výbere Text."
+            },
+            "icon_3": {
+              "label": "Ikona stĺpca 3"
+            },
+            "image_3": {
+              "label": "Obrázok stĺpca 3"
+            },
+            "text_4": {
+              "label": "Text stĺpca 4",
+              "info": "Zobrazí sa pri výbere Text. Použije sa len vtedy, keď má tabuľka štyri stĺpce."
+            },
+            "icon_4": {
+              "label": "Ikona stĺpca 4"
+            },
+            "image_4": {
+              "label": "Obrázok stĺpca 4"
+            },
+            "column_1": "Stĺpec 1",
+            "column_2": "Stĺpec 2",
+            "column_3": "Stĺpec 3",
+            "column_4": "Stĺpec 4"
+          }
+        }
+      }
+    },
+    "image-with-text-carousel": {
+      "name": "Karusel obrázka s textom",
+      "how_to_use": "[Naučte sa používať túto sekciu](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/image-with-text-carousel)",
+      "settings": {
+        "show_slide_counter": {
+          "label": "Zobraziť počítadlo snímok"
+        }
+      },
+      "blocks": {
+        "slide": {
+          "icon_info": "Odporúča sa 80 x 80 px .png alebo .svg."
+        }
+      }
+    },
+    "recommended-collection-filters": {
+      "name": "Odporúčané filtre"
+    }
+  },
+  "blocks": {
+    "quiz-step": {
+      "name": "Kvízová otázka",
+      "settings": {
+        "stepper_label": {
+          "label": "Stepper štítok",
+          "info": "Krátky štítok zobrazený na indikátore priebehu. Príklad: Typ pleti, Obavy."
+        },
+        "question_id": {
+          "label": "ID otázky",
+          "info": "Jedinečné ID pre túto otázku. Používa sa pri preskakovaní otázok o možnostiach (napr. q1, q2)."
+        },
+        "layout": {
+          "label": "Možnosť rozloženia",
+          "options": {
+            "pill": "Tlačidlá na tabletky",
+            "image": "Obrázkové kruhy"
+          }
+        }
+      }
+    },
+    "quiz-option": {
+      "name": "Možnosť kvízu",
+      "settings": {
+        "label": {
+          "label": "Štítok"
+        },
+        "image": {
+          "label": "Image",
+          "info": "Používa sa, keď je rozloženie otázky kruhy obrázkov."
+        },
+        "product_matching_header": "Výsledné produkty",
+        "strong_match": {
+          "label": "Primárne produkty",
+          "info": "Keď kupujúci vyberú túto odpoveď, zobrazí sa ako prvé vo výsledkoch kvízu."
+        },
+        "partial_match": {
+          "label": "Ďalšie produkty",
+          "info": "Zobrazuje sa po primárnych produktoch vo výsledkoch kvízu."
+        },
+        "exclude": {
+          "label": "Nikdy neodporúčať",
+          "info": "Zablokujte tieto produkty vo výsledkoch, keď kupujúci vyberú túto odpoveď, aj keď sa objavia v iných odpovediach."
+        },
+        "skip_questions_header": "Logika otázok",
+        "skip_questions": {
+          "label": "Preskočiť otázky",
+          "info": "Zadajte ID otázok z kvízových otázok, ktoré sa majú preskočiť, keď je vybratá táto odpoveď. Príklad: q3, q4"
+        }
+      }
+    }
+  }
+}

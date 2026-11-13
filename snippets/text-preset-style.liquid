@@ -1,0 +1,28 @@
+{% assign theme_st = settings %}
+{% capture variable_text_preset_style %}
+  {% style %}
+    {% liquid
+      assign type_presets = "h1, h2, h3, h4, h5, h6" | split: ", "
+      for preset_name in type_presets
+       assign preset_size_id = 'type_size_' | append: preset_name
+        assign preset_line_height_id = 'type_line_height_' | append: preset_name
+        assign preset_letter_spacing_id = 'type_letter_spacing_' | append: preset_name
+        assign calculator_letter_spacing = theme_st[preset_letter_spacing_id] | divided_by: 100.0
+        assign preset_font_text_transform_id = 'type_text_transform_' | append: preset_name
+        assign preset_font_type_id = 'type_font_' | append: preset_name
+        if theme_st[preset_font_type_id] == 'heading'
+            assign preset_font_type = theme_st.heading_font.family | append: ',' | append: theme_st.heading_font.fallback_families
+        else
+            assign preset_font_type = theme_st.body_font.family | append: ',' | append: theme_st.body_font.fallback_families
+        endif
+        echo ':where(' | append: preset_name | append: '),.' | append: preset_name | append: '{font-size: var(--' | append: theme_st[preset_size_id] | append: ');text-transform:' | append: theme_st[preset_font_text_transform_id] | append: ';letter-spacing:' | append: calculator_letter_spacing | append: 'em;font-family:' | append: preset_font_type | append: ';line-height:' | append: theme_st[preset_line_height_id] | append: ';}'
+      endfor
+      assign calculator_letter_spacing_h0 = theme_st.type_letter_spacing_h1 | divided_by: 100.0
+      echo 'h0,.h0 {letter-spacing:' | append: calculator_letter_spacing_h0 | append: 'em;}'
+       assign calculator_letter_spacing_h3 = theme_st.type_letter_spacing_h3 | divided_by: 100.0
+      echo '.fs-34 {letter-spacing:' | append: calculator_letter_spacing_h3 | append: 'em;}'
+    %}
+  {% endstyle %}
+{% endcapture %}
+
+{% echo variable_text_preset_style %}

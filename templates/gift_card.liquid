@@ -1,0 +1,471 @@
+{% layout none %}
+{% liquid
+  assign theme_st = settings
+  assign rtl_codes = theme_st.language_code_rtl | split: ','
+  assign is_rtl_lang = false
+  for code in rtl_codes
+    assign code_value = code | strip
+    if code_value == request.locale.iso_code
+      assign is_rtl_lang = true
+    endif
+  endfor
+%}
+<!doctype html>
+<html
+  lang="{{ request.locale.iso_code }}"
+  {% if theme_st.enable_rtl and is_rtl_lang %}
+    dir="rtl"
+  {% endif %}
+>
+  <head>
+    <script src="{{ 'vendor/qrcode.js' | shopify_asset_url }}" defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="{{ settings.color_background }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+    {%- unless theme_st.heading_font.system? and theme_st.body_font.system? -%}
+      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    {%- endunless -%}
+
+    {%- assign formatted_balance = gift_card.balance | money_without_trailing_zeros | strip_html -%}
+
+    <title>{{ 'gift_cards.issued.title' | t: value: formatted_balance, shop: shop.name }}</title>
+
+    <meta name="description" content="{{ 'gift_cards.issued.subtext' | t }}">
+
+    {{ content_for_header }}
+
+    {% render 'meta-tags' %}
+    {%- unless settings.body_font.system? -%}
+      {% comment %}theme-check-disable AssetPreload{% endcomment %}
+      <link rel="preload" as="font" href="{{ settings.body_font | font_url }}" type="font/woff2" crossorigin>
+      {% comment %}theme-check-enable AssetPreload{% endcomment %}
+    {%- endunless -%}
+    {%- unless settings.heading_font.system? -%}
+      {% comment %}theme-check-disable AssetPreload{% endcomment %}
+      <link rel="preload" as="font" href="{{ settings.heading_font | font_url }}" type="font/woff2" crossorigin>
+      {% comment %}theme-check-enable AssetPreload{% endcomment %}
+    {%- endunless -%}
+    {% liquid
+      assign scheme_classes = ''
+      assign body_font_bold = settings.body_font | font_modify: 'weight', 'bold'
+      assign body_font_italic = settings.body_font | font_modify: 'style', 'italic'
+      assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+      assign heading_font_regular = settings.heading_font | font_modify: 'weight', 'normal'
+      assign heading_font_medium = settings.heading_font | font_modify: 'weight', '500'
+    %}
+
+    {% style %}
+        {{ settings.body_font | font_face: font_display: 'swap' }}
+        {{ body_font_bold | font_face: font_display: 'swap' }}
+        {{ body_font_italic | font_face: font_display: 'swap' }}
+        {{ body_font_bold_italic | font_face: font_display: 'swap' }}
+        {{ settings.heading_font | font_face: font_display: 'swap' }}
+          {% if settings.subheading_weight == '400' %}
+            {{ heading_font_regular | font_face: font_display: 'swap' }}
+          {% elsif settings.subheading_weight == '500' %}
+            {{ heading_font_medium | font_face: font_display: 'swap' }}
+          {% endif %}
+        {% for scheme in settings.color_schemes -%}
+          {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
+          {% if forloop.index == 1 -%}
+            :root,
+          {%- endif %}
+          .color-{{ scheme.id }}{
+            --color-background: {{ scheme.settings.background }};
+            --color-background-2: {{ scheme.settings.background_2 }};
+            {% if scheme.settings.background_gradient != empty %}
+            --gradient-background: {{ scheme.settings.background_gradient }};
+            --color-background: {{ scheme.settings.background_gradient }};
+            {% else %}
+            --gradient-background: {{ scheme.settings.background }};
+            {% endif %}
+            --color-text: {{ scheme.settings.text_color }};
+            --color-text-rgb: {{ scheme.settings.text_color.red }}, {{ scheme.settings.text_color.green }}, {{ scheme.settings.text_color.blue }};
+            --color-heading: {{ scheme.settings.heading_color }};
+            --color-heading-rgb:{{ scheme.settings.heading_color.red }}, {{ scheme.settings.heading_color.green }}, {{ scheme.settings.heading_color.blue }};
+            --color-border: {{ scheme.settings.border_color }};
+            --color-grey: rgba(var(--color-text-rgb), 0.85);
+            --color-grey-light: rgba(var(--color-text-rgb), 0.2);
+            /* Button primary */
+            --btn-primary-color: {{ scheme.settings.btn_primary_color }};
+            --btn-primary-hover-color: {{ scheme.settings.btn_primary_hover_color }};
+            --btn-primary-bg-color: {{ scheme.settings.btn_primary_background }};
+            --btn-primary-hover-bg-color: {{ scheme.settings.btn_primary_hover_background }};
+            /* Button outline */
+            --btn-outline-color: {{ scheme.settings.btn_outline_color }};
+            --btn-outline-border-color: {{ scheme.settings.btn_outline_border_color }};
+            /* Button link */
+            --btn-link-color: {{ scheme.settings.btn_outline_color }};
+            --btn-link-hover-color: {{ scheme.settings.btn_outline_color }};
+            --input-color: #1D1D1F;
+            --input-placeholder-color: #666666;
+          }
+        {% endfor %}
+        {{ scheme_classes | prepend: 'body' }} {
+          color: var(--color-text);
+          background-color: var(--color-background);
+        }
+        :root {
+          --body-font-size: {{ theme_st.base_size }}px;
+          --body-font-family: {{ theme_st.body_font.family }}, {{ theme_st.body_font.fallback_families }};
+          --body-font-style: {{ theme_st.body_font.style }};
+          --body-font-weight: {{ theme_st.body_font.weight }};
+          --body-font-weight-bold: {{ theme_st.body_font.weight | plus: 300 | at_most: 1000 }};
+          --body-line-height: 1.625;
+          --img-rounded: {{ theme_st.rounded_image }}px;
+          --drawer-rounded: {{ theme_st.rounded_image }}px;
+
+          --heading-font: {{ theme_st.heading_font.family }}, {{ theme_st.heading_font.fallback_families }};
+          --heading-font-style: {{ theme_st.heading_font.style }};
+          --heading-weight: {{ theme_st.heading_font.weight }};
+          --heading-font-scale: 1;
+          --subheading-weight:{% if theme_st.subheading_weight != 'default' %}{{ theme_st.subheading_weight }}{% else %}{{ theme_st.heading_font.weight }}{% endif %};
+          --menu-font: {% if theme_st.menu_font == 'menu_body_font' %}{{ theme_st.body_font.family }}{% else %}{{ theme_st.heading_font.family }}{% endif %}, {{ theme_st.body_font.fallback_families }};
+          --menu-weight: {% if theme_st.menu_font == 'menu_body_font' %}{{ theme_st.body_font.weight }}{% else %}{{ theme_st.heading_font.weight }}{% endif %};
+
+          --h0: clamp(4rem,calc(4rem + (60 - 40) * var(--responsive-rate)),  6rem);
+          --h1: clamp(3.6rem,calc(3.6rem + (50 - 36) * var(--responsive-rate)), 5rem);
+          --h2: clamp(3rem, calc(3rem + (40 - 30) * var(--responsive-rate)), 4rem);
+          --h3:  clamp(2.6rem, calc(2.6rem + (30 - 26) * var(--responsive-rate)), 3rem);
+          --h4: clamp(2.2rem, calc(2.2rem + (24 - 22) * var(--responsive-rate)),2.4rem);
+          --h5: clamp(2rem, calc(2rem + (22 - 20) * var(--responsive-rate)), 2.2rem);
+          --h6: clamp(1.8rem, calc(1.8rem + (20 - 18) * var(--responsive-rate)), 2rem);
+          --h7: 1.8rem;
+
+          --btn-font: {% if theme_st.button_font == 'button_body_font' %}{{ theme_st.body_font.family }}{% else %}{{ theme_st.heading_font.family }}{% endif %}, {{ theme_st.body_font.fallback_families }};
+          --btn-weight: {% if theme_st.button_font == 'button_body_font' %}{{ theme_st.body_font.weight }}{% else %}{{ theme_st.heading_font.weight }}{% endif %};
+          --btn-text-transform: {{ theme_st.button_text_transform }};
+          --btn-radius: {{ theme_st.rounded_button }}px;
+          --btn-padding-y: 1.3rem;
+          --btn-padding-x: 3rem;
+          --btn-font-size: {% if theme_st.button_text_transform == 'uppercase' %}calc(var(--body-font-size, 1.4rem) - 2px){% else %}var(--body-font-size, 1.4rem){% endif %};
+          --shopify-accelerated-checkout-button-border-radius: var(--btn-radius);
+          --input-padding-start: 2.5rem;
+          --input-padding-end: 2.5rem;
+          --input-padding-top: 0;
+          --input-padding-bottom: 0;
+          --input-border-width: 1px;
+          --input-border-color: var(--border-color);
+          --input-bg: rgb(var(--color-white));
+          --input-color: rgb(var(--color-heading-hsl));
+          --input-font-size: var(--body-font-size);
+          --input-placeholder-color: #666666;--input-border-radius: {{ theme_st.rounded_input }}px;
+          --input-height: 4.8rem;
+          --shopify-accelerated-checkout-button-block-size: var(--input-height);
+          --rate-color: #FF9C05;
+          --page-width: {{ theme_st.page_width }}px;
+          --page-width-margin: {% if theme_st.page_width == '1600' %}2{% else %}0{% endif %}rem;
+
+          --logo-width: {{ theme_st.logo_width }}px;
+          --bs-gutter-x: 2rem;
+          --bs-gutter-y: 0;
+          --color-white: 255, 255, 255;
+          --color-dark: #1D1D1F;
+
+          --sale-bg-rgb: {{ theme_st.sale_background.red }}, {{ theme_st.sale_background.green }}, {{ theme_st.sale_background.blue }};;
+          --sale-color: {{ theme_st.sale_color }};
+
+          --responsive-rate: ((100vw - 575px) / (1410 - 575));
+
+          --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+          --ease-in: cubic-bezier(0.4, 0, 0.2, 1);
+          --dur-in: 0.5s;
+          --dur-out: 0.48s;
+          --duration-short: 0.2s;
+          --duration-long: 0.5s;
+          --transition-drawer: all var(--timming, 0.4s) var(--timing-function, cubic-bezier(.5, -.03, .34, .83));
+          --overlay-bg: rgba(0, 0, 0, 0.60);
+          --responsive-ratio: 0.7;
+          --gap: 2rem;
+          --accent-color-second: #f5f5f5;
+          --border-color: #E5E5E5;
+          --section-spacing: 6rem;
+          --product-spacing-top: 2rem;
+          --product-name-size: 1.6rem;
+          --product-price-size: 1.6rem;
+          --product-item-spacing: 4rem;
+          --shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.15);
+          --header-spacing-bottom: calc(var(--sp) * 6);
+          --swiper-navigation-color: var(--color-dark);
+          --swiper-navigation-sides-offset: var(--sp-6);
+
+          --sp: 4px;
+          --sp-2: calc(var(--sp) * 2);
+          --sp-3: calc(var(--sp) * 3);
+          --sp-4: calc(var(--sp) * 4);
+          --sp-5: calc(var(--sp) * 5);
+          --sp-6: calc(var(--sp) * 6);
+          --sp-7: calc(var(--sp) * 7);
+          --sp-8: calc(var(--sp) * 8);
+          --sp-9: calc(var(--sp) * 9);
+          --sp-10: calc(var(--sp) * 10);
+
+          --start-side: left;
+          --end-side: right;
+          --transform-origin: left;
+          --lh-heading-rtl-multiplier: 1;
+          --lh-body-rtl-multiplier: 1;
+        }
+      {% if theme_st.enable_rtl and is_rtl_lang %}
+        [dir="rtl"] {
+          --flow-direction: -1;
+          --start-side: right;
+          --end-side: left;
+          --transform-origin: right;
+          --lh-heading-rtl-multiplier: 1.15;
+          --lh-body-rtl-multiplier: 1.2;
+        }
+        [dir="rtl"] .rtl-mirror {
+          transform: scaleX(-1);
+        }
+      {% endif %}
+        *,
+        *::before,
+        *::after {
+          box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          -webkit-tap-highlight-color: transparent;
+        }
+        html {
+          font-size: 62.5%;
+          margin: 0;
+          padding: 0;
+          border: 0;
+          height: 100%;
+          vertical-align: baseline;
+          overflow-x: hidden;
+          box-sizing: border-box;
+          -webkit-text-size-adjust: 100%;
+          touch-action: manipulation;
+        }
+        body {
+          min-height: 100vh;
+          margin: 0;
+          font-size: var(--body-font-size, 1.4rem);
+          font-family: var(--body-font-family);
+          font-style: var(--body-font-style);
+          font-weight: var(--body-font-weight);
+          line-height: var(--body-line-height, 1.625);
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          -webkit-text-size-adjust: 100%;
+          text-rendering: optimizespeed;
+          overflow-wrap: break-word;
+          display: flex;
+          -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+          flex-direction: column;
+        }
+        #MainContent{
+          -webkit-flex-grow: 1;
+          flex-grow: 1;
+        }
+        @media (min-width: 1025px) {
+          :root{
+            --btn-padding-y: 1.5rem;
+            --btn-padding-x: 3rem;
+            --input-height: 5.2rem;
+            --header-spacing-bottom: 4rem;
+          }
+        }
+        @media (max-width: 767.98px) {
+          :root {
+            --img-rounded: min({{ theme_st.rounded_image }}px, 15px);
+          }
+          *:not(.btn-primary, .btn-outline),
+          *:not(.btn-primary, .btn-outline)::before,
+          *:not(.btn-primary, .btn-outline)::after {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+          }
+          .not-highlight-tap {
+            -webkit-tap-highlight-color: transparent;
+          }
+        }
+    {% endstyle %}
+    {% render 'text-preset-style' %}
+    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+    {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}
+    <script defer="defer" src="{{ 'swiper-bundle.min.js' | asset_url }}"></script>
+    <script defer="defer" src="{{ 'motion.js' | asset_url }}"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "@NextSkyTheme/global": "{{ 'global.js' | asset_url }}",
+          "@NextSkyTheme/slide": "{{ 'module-slide.js' | asset_url }}",
+          "@NextSkyTheme/add-to-cart": "{{ 'module-add-to-cart.js' | asset_url }}",
+          "@NextSkyTheme/lazy-load": "{{ 'module-lazyload.js' | asset_url }}",
+          "@NextSkyTheme/variant-swatch": "{{ 'module-variant-swatch.js' | asset_url }}",
+          "@NextSkyTheme/safari-element-patch": "{{ 'safari-element-patch.js' | asset_url }}",
+          "@NextSkyTheme/photo-swipe-lightbox": "{{ 'photoswipe-lightbox.min.js' | asset_url }}",
+          "@NextSkyTheme/vertical-product-tabs": "{{ 'section-product-tabs.js' | asset_url }}",
+          "@NextSkyTheme/progress-video": "{{ 'module-progress-video.js' | asset_url }}",
+          "@NextSkyTheme/notification": "{{ 'module-notification.js' | asset_url }}",
+          "@NextSkyTheme/modal": "{{ 'modal.js' | asset_url }}"
+        }
+      }
+    </script>
+    <script type="module" src="{{ 'theme.js' | asset_url }}"></script>
+    <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="{{ 'theme.css' | asset_url }}"></noscript>
+
+    <script>
+      if (Shopify.designMode) {
+        document.documentElement.classList.add('shopify-design-mode');
+      }
+    </script>
+    <link
+      rel="stylesheet"
+      href="{{ 'component-deferred-media.css' | asset_url }}"
+      media="print"
+      onload="this.media='all'"
+    >
+    {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
+    <link
+      id="ModelViewerStyle"
+      rel="stylesheet"
+      href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css"
+      media="print"
+      onload="this.media='all'"
+    >
+    <link
+      id="ModelViewerOverride"
+      rel="stylesheet"
+      href="{{ 'component-model-viewer-ui.css' | asset_url }}"
+      media="print"
+      onload="this.media='all'"
+    >
+  </head>
+
+  <body class="gradient gift-card section p-gutter-x text-center" style="--section-pt: 50;--section-pb: 50;">
+    <header>
+      <div class="gift-card__price flex column content-center">
+        <h2 class="mb-sp-5">
+          {% if settings.currency_code_enabled %}
+            {{ gift_card.balance | money_with_currency }}
+          {% else %}
+            {{ gift_card.balance | money }}
+          {% endif %}
+        </h2>
+        {%- if gift_card.enabled == false or gift_card.expired -%}
+          <p class="badge badge--expired mb-sp-5">{{ 'gift_cards.issued.expired' | t }}</p>
+        {%- endif -%}
+      </div>
+      <h1 class="flex justify-center mb-30">{{ shop.name }}</h1>
+      {% if gift_card.expires_on %}
+        {%- assign gift_card_expiration_date = gift_card.expires_on | date: '%B %e, %Y' -%}
+        <p class="gift-card__text flex column content-center mb-sp-5">
+          {{ 'gift_cards.issued.expiration_date' | t: expires_on: gift_card_expiration_date }}
+        </p>
+      {% endif %}
+    </header>
+
+    <main>
+      <div class="gift-card__image-wrapper flex justify-center mb-sp-5">
+        {%- if settings.logo != blank -%}
+          {%- render 'logo' -%}
+        {%- else %}
+          <img
+            class="gift-card__image"
+            src="{{ 'gift-card/card.svg' | shopify_asset_url }}"
+            alt=""
+            height="{{ 570 | divided_by: 1.5 }}"
+            width="500"
+            loading="eager"
+          >
+        {%- endif %}
+      </div>
+      <div class="gift-card__text-wrapper flex justify-center mb-sp-5">
+        <p class="gift-card__text text-body text-size">{{ 'gift_cards.issued.how_to_use_gift_card' | t }}</p>
+      </div>
+      <div
+        class="gift-card__qr-code flex justify-center mb-sp-5 h-custom"
+        data-identifier="{{ gift_card.qr_identifier }}"
+        style="--height: 15rem;"
+      ></div>
+      <p id="gift-card-code" class="gift-card__number flex justify-center mb-sp-5">
+        {{ gift_card.code | format_code }}
+      </p>
+      {%- if gift_card.pass_url -%}
+        <a
+          href="{{ gift_card.pass_url }}"
+          aria-label="{{ 'gift_cards.issued.add_to_apple_wallet' | t }}"
+          class="gift_card__apple-wallet no-print"
+        >
+          <img
+            src="{{ 'gift-card/add-to-apple-wallet.svg' | shopify_asset_url }}"
+            width="120"
+            height="40"
+            alt="{{ 'gift_cards.issued.add_to_apple_wallet' | t }}"
+            loading="lazy"
+          >
+        </a>
+      {%- endif -%}
+      <div class="flex justify-center">
+        <span class="gift-card__copy-success form__message" role="status"></span>
+        <template>
+          <div
+            class="form-status form-status form__message success mb-10 flex align-center gap-10 mb-10"
+            tabindex="-1"
+            autofocus
+          >
+            <div class="flex content-center">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path stroke="#137F24" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10Z"/><path stroke="#137F24" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m7.75 12 2.83 2.83 5.67-5.66"/>
+              </svg>
+            </div>
+            {{ 'gift_cards.issued.copy_code_success' | t }}
+          </div>
+        </template>
+      </div>
+      <div class="gift-card__buttons no-print flex justify-center gap-20 row-gap-10 column flex-md-row">
+        <button class="btn btn-primary gift-card__copy-button">{{ 'gift_cards.issued.copy_code' | t }}</button>
+        <a
+          href="{{ shop.url }}"
+          class="btn btn-outline"
+          target="_blank"
+          rel="noopener"
+          aria-describedby="a11y-new-window-message"
+        >
+          {{ 'gift_cards.issued.shop_link' | t }}
+        </a>
+      </div>
+    </main>
+
+    <div hidden>
+      <span id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</span>
+    </div>
+  </body>
+</html>
+
+<script>
+  var string = { qrImageAlt: {{ 'gift_cards.issued.qr_image_alt' | t | json }} };
+  document.addEventListener('DOMContentLoaded', function() {
+   new QRCode( document.querySelector('.gift-card__qr-code'), {
+    text: document.querySelector('.gift-card__qr-code').dataset.identifier,
+    width: 72,
+    height: 72,
+    imageAltText: string.qrImageAlt
+    });
+  });
+  var template = document.getElementsByTagName("template")[0];
+  var clonedTemplate = template.content.cloneNode(true);
+  var isMessageDisplayed = false
+  document
+  .querySelector('.gift-card__copy-button')
+  .addEventListener('click', () => {
+    navigator.clipboard.writeText(document.getElementById('gift-card-code').innerText).then(function () {
+      if (!isMessageDisplayed) {
+        document.querySelector('.gift-card__copy-success').appendChild(clonedTemplate);
+        isMessageDisplayed = true
+      }
+    });
+  });
+</script>

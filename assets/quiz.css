@@ -1,0 +1,178 @@
+.quiz__stepper-rail {
+  --dot-size: 1.2rem;
+  --color-inactive: #e5e5e5;
+}
+
+.quiz__panel:not(.quiz__panel--results), .quiz__panel-content {
+  max-width: var(--quiz-content-width, 100%);
+  margin-inline: auto;
+}
+
+.quiz--post-quiz .quiz__stepper,
+.quiz--intro .quiz__stepper {
+  display: none;
+}
+
+.quiz__stepper[hidden] {
+  display: none !important;
+}
+
+.quiz__stepper-item {
+  width: var(--dot-size);
+  height: var(--dot-size);
+}
+
+.quiz__stepper-item.is-completed {
+  color: var(--color-heading);
+}
+
+.quiz__stepper-line {
+  top: calc(var(--dot-size) / 2);
+}
+
+.quiz__stepper-line--track {
+  inset-inline-start: calc(var(--dot-size) / 2);
+  inset-inline-end: calc(var(--dot-size) / 2);
+  background: var(--color-inactive);
+}
+
+.quiz__stepper-line--active {
+  inset-inline-start: calc(var(--dot-size) / 2);
+  width: calc(var(--quiz-progress, 0) * (100% - var(--dot-size)) / 100);
+  background-color: var(--color-heading);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quiz__stepper-dot {
+  width: var(--dot-size);
+  height: var(--dot-size);
+  background: var(--color-inactive);
+}
+
+.quiz__stepper-item.is-active .quiz__stepper-dot,
+.quiz__stepper-item.is-completed .quiz__stepper-dot {
+  background: var(--color-heading);
+  border-color: var(--color-heading);
+}
+
+.quiz__stepper-label {
+  top: calc(var(--dot-size) + 12px);
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+}
+
+.quiz__stepper-item:not(.is-active):not(.is-completed) .quiz__stepper-label {
+  --color-text: #666;
+  color: var(--color-text);
+}
+
+.quiz__options--pill {
+  max-width: 84rem;
+}
+
+.quiz__options--pill .quiz__option-media,
+.quiz__options--pill .quiz__option-label--image {
+  display: none;
+}
+
+.quiz__options--image .quiz__option-pill {
+  display: none;
+}
+
+.quiz__options--image .quiz__option-media {
+  aspect-ratio: 0.6521;
+  min-width: unset;
+  min-height: unset;
+  padding: 1px;
+}
+
+.quiz__option-media:hover::before,
+.quiz__options--image
+  .quiz__option:has(.quiz__option-input:checked)
+  .quiz__option-media::before {
+  --shadow-position: 3px;
+}
+.quiz__option-media:hover,
+.quiz__options--image
+  .quiz__option:has(.quiz__option-input:checked)
+  .quiz__option-media {
+  box-shadow: inset 0 0 0 1px var(--color-heading);
+}
+.quiz__option-media::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  top: 1px;
+  transition: box-shadow 0.3s ease;
+  box-shadow: inset 0 0 0 var(--shadow-position, 0)
+    rgb(var(--color-white, #fff));
+  border-radius: var(--radius, 50%);
+}
+.quiz__options--image
+  .quiz__option:has(.quiz__option-input:checked)
+  .quiz__option-label--image {
+  color: var(--color-heading);
+}
+
+.quiz__option-pill:hover,
+.quiz__options--pill
+  .quiz__option:has(.quiz__option-input:checked)
+  .quiz__option-pill {
+  border-color: transparent;
+  box-shadow: inset 0 0 0 1px var(--color-heading);
+  color: var(--color-heading);
+}
+
+.quiz__option-pill:hover .quiz__option-radio-ui,
+.quiz__options--pill
+  .quiz__option:has(.quiz__option-input:checked)
+  .quiz__option-radio-ui {
+  border-color: var(--color-heading);
+}
+
+.quiz__option-radio-ui::after {
+  content: "";
+  position: absolute;
+  inset: 0.5rem;
+  border-radius: 50%;
+  background-color: #f2f2f2;
+}
+
+.quiz__option-pill:hover .quiz__option-radio-ui::after,
+.quiz__options--pill
+  .quiz__option:has(.quiz__option-input:checked)
+  .quiz__option-radio-ui::after {
+  background: var(--color-heading);
+}
+
+.quiz__option[data-quiz-option-item][hidden],
+label.quiz__option[hidden] {
+  display: none;
+}
+
+.quiz__results-grid > * {
+  min-width: 0;
+}
+
+.quiz__results-loading {
+  grid-column: 1 / -1;
+  color: rgba(var(--color-text-rgb), 0.7);
+}
+
+.quiz__options--image {
+  display: flex;
+  gap: var(--sp-4);
+  max-width: 65rem;
+}
+
+.quiz__options--image > .quiz__option {
+  width: calc((100% - var(--sp-4)) / 2);
+}
+
+@media (min-width: 576px) {
+  .quiz__options--image > .quiz__option {
+    width: calc((100% - 3 * var(--sp-4)) / 4);
+  }
+}

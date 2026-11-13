@@ -1,0 +1,881 @@
+{%- liquid
+  assign metafield_path = section.settings.metafield | default: 'custom.frequently_bought_together' | strip
+  assign metafield_parts = metafield_path | split: '.'
+  assign metafield_namespace = metafield_parts[0] | default: 'custom'
+  assign metafield_key = metafield_parts[1] | default: 'frequently_bought_together'
+  assign frequently_bought_metafield = product.metafields[metafield_namespace][metafield_key]
+-%}
+{%- if frequently_bought_metafield.value -%}
+  {{ 'bought-together-product.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'section-bought-together-product.js' | asset_url }}" defer="defer" type="module"></script>
+  {%- liquid
+    assign section_st = section.settings
+    if section_st.section_width == 'fix_width'
+      assign section_width = 'container'
+    elsif section_st.section_width == 'full_width'
+      assign section_width = 'full-width'
+    else
+      assign section_width = 'fluid_container'
+    endif
+    assign frequently_bought_products = frequently_bought_metafield.value | default: blank
+    assign heading_size = section_st.heading_size
+    assign text_alignment = section_st.text_alignment
+    assign header_size = ''
+    if heading_size == 'small'
+      assign header_size = 'h3'
+    elsif heading_size == 'large'
+      assign header_size = 'h1'
+    endif
+    assign show_button_add_all = false
+    assign count = 1
+    for i in frequently_bought_products
+      if i.available
+        assign count = count | plus: 1
+      endif
+    endfor
+    assign price = product.selected_or_first_available_variant.price
+    assign compare_at_price = product.selected_or_first_available_variant.compare_at_price
+    if compare_at_price == blank
+      assign compare_at_price = price
+    endif
+    assign heading = section_st.heading
+    assign drawn_underline = section_st.drawn_underline
+    assign drawn_underline_type = section_st.drawn_underline_type
+    assign drawn_underline_color = section_st.drawn_underline_color
+    if drawn_underline
+      assign scroll_animation = 'disable'
+    endif
+  -%}
+  {%- capture style -%}
+  --section-pt: {{ section_st.padding_top }}; --section-pb: {{ section_st.padding_bottom }};
+{%- endcapture -%}
+  {% style %}
+  {% endstyle %}
+  {%- render 'section-divider', position: 'top', style: section_st.divider_top, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+  <div
+    class="section color-{{ section_st.color_scheme }} gradient section__bought-together-products gradient{% if section_st.show_divider and section_st.divider_top == 'line' %} border-top{% endif %}{% if section_st.show_divider and section_st.divider_bottom == 'line' %} border-bottom{% endif %} overflow-hidden"
+    style="{{ style | strip | strip_newlines }}"
+  >
+    <div class="{{ section_width }}">
+      {%- if section_st.subheading != blank or heading != blank or section.settings.description != blank -%}
+        <div
+          class="section-header text-{{ text_alignment }}"
+        >
+          {% assign animate_delay = 50 %}
+          {%- if section_st.subheading != blank -%}
+            {% if scroll_animation != 'disable' %}
+              <motion-effect
+                data-animate="fade-up"
+                data-animate-delay="{{ animate_delay }}"
+                class="block"
+              >
+            {% endif %}
+            <div class="section-subheading fs-big-2 mb-sp-1 mb-1025-sp-2 heading-color subheading_weight">
+              {{ section.settings.subheading }}
+            </div>
+            {% if scroll_animation != 'disable' %}
+              </motion-effect>
+            {% endif %}
+          {%- endif -%}
+          {%- if heading != blank -%}
+            {% assign animate_delay = animate_delay | plus: 50 %}
+            {% if scroll_animation != 'disable' or drawn_underline %}
+              <motion-effect
+                data-animate="{% if scroll_animation != 'disable' %}fade-up{% else %}highlighted-text{% endif %}"
+                data-animate-delay="{{ animate_delay }}"
+                class="block"
+              >
+            {% endif -%}
+            <h2 class="section-heading {{ header_size }}">
+              {% if drawn_underline %}
+                {%- capture squiggle_svg_1 -%}
+                <svg viewBox="0 0 184 26" fill="none"><use href="#squiggle-svg-1" /></svg>
+              {%- endcapture -%}
+                {%- capture squiggle_svg_2 -%}
+               <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-2" /></svg>
+              {%- endcapture -%}
+                {%- capture squiggle_svg_3 -%}
+                 <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-3" /></svg>
+              {%- endcapture -%}
+                {%- capture squiggle_svg_4 -%}
+                <svg viewBox="0 0 220 20"fill="none"><use href="#squiggle-svg-4" /></svg>
+              {%- endcapture -%}
+                {%- capture squiggle_svg_5 -%}
+                <svg viewBox="0 0 140 24" fill="none" role="presentation" preserveAspectRatio="none"><use href="#squiggle-svg-5" /></svg>
+              {%- endcapture -%}
+                {%- assign result = heading -%}
+                {%- assign parts = result | split: '<em>' -%}
+                {%- assign em_count = parts | size | minus: 1 -%}
+
+                {%- for i in (1..em_count) -%}
+                  {%- assign idx = i | plus: 0 -%}
+                  {%- assign chunk = parts[idx] | default: '' -%}
+                  {%- assign text = chunk | split: '</em>' | first | strip_html | strip -%}
+                  {%- assign len_text = text | size -%}
+                  {%- capture open_em -%}
+                {%- liquid
+                  if drawn_underline_type == 'simple_underline'
+                    assign svg = squiggle_svg_4 | append: '</em>'
+                  elsif drawn_underline_type == 'curve_underline'
+                    assign svg = squiggle_svg_5 | append: '</em>'
+                  else
+                    if len_text <= 4
+                      assign svg = squiggle_svg_1 | append: '</em>'
+                    elsif len_text <= 6
+                      assign svg = squiggle_svg_2 | append: '</em>'
+                    else
+                      assign svg = squiggle_svg_3 | append: '</em>'
+                    endif
+                  endif
+                -%}
+                <em class="highlighted-text relative inline-flex{% if drawn_underline_type == 'simple_underline' %} simple_underline{% endif %} {{ drawn_underline_type }} not-italic" style="--animate-color:{{ drawn_underline_color }}">{{ svg }}</em>
+              {%- endcapture -%}
+                  {%- assign open_em = open_em | remove: '</em>' -%}
+                  {%- assign heading = heading | replace_first: '<em>', open_em -%}
+                {%- endfor -%}
+              {% endif %}
+              {{- heading -}}
+            </h2>
+            {% if scroll_animation != 'disable' or drawn_underline %}
+              </motion-effect>
+            {% endif %}
+          {%- endif -%}
+          {%- if section_st.description != blank -%}
+            {% assign animate_delay = animate_delay | plus: 50 %}
+            {% if scroll_animation != 'disable' %}
+              <motion-effect
+                data-animate="fade-up"
+                data-animate-delay="{{ animate_delay }}"
+                class="block"
+              >
+            {% endif %}
+            <div class="section-description mt-sp-4 prose">
+              {{ section.settings.description }}
+            </div>
+            {% if scroll_animation != 'disable' %}
+              </motion-effect>
+            {% endif %}
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+      <div
+        class="bought-together-products__wrapper flex gap wrap flex-md-row-reverse max-w-custom mx-auto justify-center"
+        style="--max-width: 1253px;--col-width: clamp(27rem, 22vw, 38rem);--gap-desktop: 46px;--gap: var(--sp-4);"
+        data-price="{{ product.selected_or_first_available_variant.price }}"
+        data-price-compare="{{ compare_at_price }}"
+      >
+        <div class="box-total col-md-w-custom w-full">
+          <div class="sticky-md header-bought bg-secondary top-30 rounded p-sp-6 text-{{ text_alignment }}">
+            <div class="w-full sf-prod__block info-bought-together">
+              <product-form class="bought-together-products-form relative z-3 text-center">
+                <form
+                  method="post"
+                  action="{{ routes.cart_add_url }}"
+                  accept-charset="UTF-8"
+                  enctype="multipart/form-data"
+                  novalidate="novalidate"
+                  data-type="add-to-cart-form"
+                >
+                  <input type="hidden" name="form_type" value="product">
+                  <input type="hidden" name="utf8" value="✓">
+                  <div class="bought-together-products-list">
+                    <div class="variant-select current-product" product-id="{{ product.id }}">
+                      <input
+                        type="hidden"
+                        name="items[][id]"
+                        value="{{ product.selected_or_first_available_variant.id }}"
+                      >
+                      <input type="hidden" name="items[][quantity]" class="quantity" value="1">
+                    </div>
+
+                    {%- for item in frequently_bought_products -%}
+                      {% if item != blank and item.id != product.id and item.available %}
+                        {%- liquid
+                          assign product_available = item.variants | where: 'available'
+                          assign loop_index = forloop.index
+                        -%}
+                        <div class="variant-select" product-id="{{ item.id }}">
+                          {%- if item.variants.size > 1 -%}
+                            {% for variant in product_available %}
+                              {%- liquid
+                                assign selected = false
+                                assign quantity = variant.inventory_quantity
+                              -%}
+                              {% if quantity < 1 and variant.available == false %}
+                                {% continue %}
+                              {% else %}
+                                {% assign selected = true %}
+                                {% assign show_button_add_all = true %}
+                              {% endif %}
+                              <input
+                                type="hidden"
+                                name="items[][id]"
+                                data-index="{{ loop_index }}"
+                                value="{{ variant.id }}"
+                              >
+                              <input type="hidden" name="items[][quantity]" class="quantity" value="1">
+                              {% if selected %}
+                                {% break %}
+                              {% endif %}
+                            {% endfor %}
+                          {%- else -%}
+                            {%- if item.selected_or_first_available_variant.inventory_quantity > 0
+                              or item.selected_or_first_available_variant.available == true
+                            -%}
+                              {% assign show_button_add_all = true %}
+                              <input
+                                type="hidden"
+                                name="items[][id]"
+                                data-index="{{ loop_index }}"
+                                value="{{ item.selected_or_first_available_variant.id }}"
+                              >
+                              <input type="hidden" name="items[][quantity]" class="quantity" value="1">
+                            {% endif %}
+                          {% endif %}
+                        </div>
+                      {% endif %}
+                    {%- endfor -%}
+                  </div>
+                  <div class="total-price mb-sp-6 heading-style hidden-mobile">
+                    {%- liquid
+                      assign savings_percent = 0
+                      assign savings_amount = 0
+                      if compare_at_price > 0
+                        assign savings_amount = compare_at_price | minus: price
+                        assign savings_percent = savings_amount | times: 100.0 | divided_by: compare_at_price | round
+                        assign savings_percent_as_money = savings_percent | times: 100
+                        assign display_percent = false
+                        if savings_percent_as_money > savings_amount
+                          assign display_percent = true
+                        endif
+                        if settings.currency_code_enabled
+                          assign savings_amount_money = savings_amount | money_with_currency
+                        else
+                          assign savings_amount_money = savings_amount | money
+                        endif
+                      endif
+                    -%}
+                    {%- for item in frequently_bought_products -%}
+                      {% if item != blank and item.id != product.id and item.available %}
+                        {%- liquid
+                          assign current_variant = item.selected_or_first_available_variant
+                          assign price = current_variant.price | plus: price
+                          if current_variant.compare_at_price != blank
+                            assign compare_at_price = current_variant.compare_at_price | plus: compare_at_price
+                          else
+                            assign compare_at_price = current_variant.price | plus: compare_at_price
+                          endif
+                          if compare_at_price > 0
+                            assign savings_amount = compare_at_price | minus: price
+                            assign savings_percent = savings_amount | times: 100.0 | divided_by: compare_at_price | round
+                            assign savings_percent_as_money = savings_percent | times: 100
+                            assign display_percent = false
+                            if savings_percent_as_money > savings_amount
+                              assign display_percent = true
+                            endif
+                            if settings.currency_code_enabled
+                              assign savings_amount_money = savings_amount | money_with_currency
+                            else
+                              assign savings_amount_money = savings_amount | money
+                            endif
+                          endif
+                        -%}
+                      {% endif %}
+                    {%- endfor -%}
+                    <h3 class="mb-sp-4 h6">
+                      {{- 'products.product.total_price' | t -}}
+                    </h3>
+                    <div class="bundle-price flex gap-sp-1 content-center wrap">
+                      <span class="price h5 {% if compare_at_price > 0 %}sale-color{% endif %}">
+                        {%- if settings.currency_code_enabled %}
+                          {{ price | money_with_currency }}
+                        {% else %}
+                          {{ price | money }}
+                        {% endif -%}
+                      </span>
+                      {%- if compare_at_price > 0 -%}
+                        <s class="compare-price grey-color text-size subheading_weight">
+                          {%- if settings.currency_code_enabled -%}
+                            {{ compare_at_price | money_with_currency }}
+                          {%- else -%}
+                            {{ compare_at_price | money }}
+                          {%- endif -%}
+                        </s>
+                        <div class="saving-price saving-price-js product__badges flex">
+                          <span
+                            class="price-saving price-item compare-price product__badges-sale rounded fs-13 subheading_weight"
+                            style="--badges-bg: {{ settings.sale_background }}; --badges-color: {{ settings.sale_color }}"
+                          >
+                            {% if display_percent %}
+                              {{ 'products.product.sale_off' | t: discount: savings_percent }}
+                            {% else %}
+                              {{ 'products.product.sale_price' | t: price: savings_amount_money }}
+                            {% endif %}
+                          </span>
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                  {%- if show_button_add_all -%}
+                    {%- liquid
+                      assign price = product.selected_or_first_available_variant.price
+                    -%}
+                    {%- for item in frequently_bought_products -%}
+                      {% if item != blank and item.id != product.id and item.available %}
+                        {%- liquid
+                          assign current_variant = item.selected_or_first_available_variant
+                          assign price = current_variant.price | plus: price
+                        -%}
+                      {% endif %}
+                    {%- endfor -%}
+                    <button
+                      type="submit"
+                      name="add"
+                      class="btn pointer btn-primary w-full relative product_submit_button product-form__submit word-wrap relative hidden block-md btn-count-js"
+                      aria-label="{{ 'products.product.add_all_to_cart' | t }}"
+                    >
+                      <span class="btn-label hidden-on-load transition-short flex content-center" dir="auto">
+                        {{ 'products.product.add_all_to_cart_html' | t: count: count }}
+                      </span>
+                      {%- render 'loader' -%}
+                    </button>
+                  {% endif %}
+                </form>
+              </product-form>
+            </div>
+          </div>
+        </div>
+        <div
+          class="bought-together-list flex wrap row-gap-30 gap-sp-4 col-md-remaining w-full"
+          style="--width: 9rem;"
+        >
+          {%- render 'card-product',
+            card_product: product,
+            section_id: section.id,
+            disable_badge: true,
+            disable_hover_image: true,
+            disable_tag: true,
+            disable_show_video: true,
+            disable_quickview: true,
+            disable_vendor: true,
+            disable_rate: true,
+            variant_swatch: true,
+            container: section_width,
+            column: 4,
+            column_mobile: 1,
+            padding: 20,
+            indexFor: 1,
+            type: 'bought_together',
+            select_type: 'default',
+            select_class: ' mt-10 mt-1025-15 w-1025-full max-w-100',
+            class: ' w-full w-1025-auto',
+            style_layout: ' flex gap-sp-4 block-1025 w-full w-1025-auto',
+            image_class: ' flex-auto w-custom w-full-1025',
+            info_class: ' flex column justify-center flex-1',
+            main_product: true,
+            enable_motion: true
+          -%}
+
+          {%- for item in frequently_bought_products -%}
+            {% if item != blank and item.id != product.id and item.available %}
+              <div class="icon-plus flex align-center">
+                <svg width="14" height="14" fill="none">
+                  <path fill="#111" d="M1.16 8.001a.838.838 0 0 1-.586-.234.862.862 0 0 1-.234-.606c0-.221.078-.41.234-.566a.805.805 0 0 1 .586-.254h5v-5c0-.235.078-.43.235-.586A.827.827 0 0 1 7 .5c.234 0 .43.085.586.254.17.156.254.351.254.586v5h5c.221 0 .41.084.566.254.17.156.254.345.254.566a.827.827 0 0 1-.254.606.772.772 0 0 1-.566.234h-5v5a.826.826 0 0 1-.254.605.795.795 0 0 1-.586.235.862.862 0 0 1-.605-.235.862.862 0 0 1-.235-.605v-5h-5Z"/>
+                </svg>
+              </div>
+              {%- render 'card-product',
+                card_product: item,
+                section_id: section.id,
+                disable_badge: true,
+                disable_hover_image: true,
+                disable_tag: true,
+                disable_show_video: true,
+                disable_quickview: true,
+                disable_vendor: true,
+                disable_rate: true,
+                variant_swatch: true,
+                container: section_width,
+                column: 4,
+                column_mobile: 1,
+                padding: 20,
+                indexFor: forloop.index,
+                type: 'bought_together',
+                select_type: 'default',
+                select_class: ' mt-10 mt-1025-15 w-1025-full max-w-100',
+                class: ' w-full w-1025-auto',
+                style_layout: ' flex gap-sp-4 block-1025 w-full w-1025-auto',
+                image_class: ' flex-auto w-custom w-full-1025',
+                info_class: ' flex column justify-center flex-1'
+              -%}
+            {% endif %}
+          {%- endfor -%}
+        </div>
+        <div
+          class="bought-together-list__mobile flex hidden-md overflow-auto overflow-x-auto gap-10"
+        >
+          {%- render 'card-product',
+            card_product: product,
+            section_id: section.id,
+            disable_badge: true,
+            disable_hover_image: true,
+            disable_tag: true,
+            disable_show_video: true,
+            disable_quickview: true,
+            disable_vendor: true,
+            disable_rate: true,
+            variant_swatch: true,
+            container: section_width,
+            column: 4,
+            column_mobile: 1,
+            padding: 20,
+            indexFor: 1,
+            select_type: 'default',
+            select_class: ' mt-10 mt-1025-15 w-1025-full max-w-100',
+            class: ' w-1025-auto shrink-0',
+            style_layout: ' flex gap-sp-4 block-1025 w-full w-1025-auto',
+            image_class: ' flex-auto w-custom w-full-1025',
+            info_class: ' hidden always-remove'
+          -%}
+
+          {%- for item in frequently_bought_products -%}
+            {% if item != blank and item.id != product.id and item.available %}
+              <div class="icon-plus flex align-center">
+                <svg width="14" height="14" fill="none">
+                  <path fill="#111" d="M1.16 8.001a.838.838 0 0 1-.586-.234.862.862 0 0 1-.234-.606c0-.221.078-.41.234-.566a.805.805 0 0 1 .586-.254h5v-5c0-.235.078-.43.235-.586A.827.827 0 0 1 7 .5c.234 0 .43.085.586.254.17.156.254.351.254.586v5h5c.221 0 .41.084.566.254.17.156.254.345.254.566a.827.827 0 0 1-.254.606.772.772 0 0 1-.566.234h-5v5a.826.826 0 0 1-.254.605.795.795 0 0 1-.586.235.862.862 0 0 1-.605-.235.862.862 0 0 1-.235-.605v-5h-5Z"/>
+                </svg>
+              </div>
+              {%- render 'card-product',
+                card_product: item,
+                section_id: section.id,
+                disable_badge: true,
+                disable_hover_image: true,
+                disable_tag: true,
+                disable_show_video: true,
+                disable_quickview: true,
+                disable_vendor: true,
+                disable_rate: true,
+                variant_swatch: true,
+                container: section_width,
+                column: 4,
+                column_mobile: 1,
+                padding: 20,
+                indexFor: forloop.index,
+                select_type: 'default',
+                select_class: ' mt-10 mt-1025-15 w-1025-full max-w-100',
+                class: ' w-1025-auto shrink-0',
+                style_layout: ' flex gap-sp-4 block-1025 w-full w-1025-auto',
+                image_class: ' flex-auto w-custom w-full-1025',
+                info_class: ' hidden always-remove'
+              -%}
+            {% endif %}
+          {%- endfor -%}
+        </div>
+        {%- if show_button_add_all -%}
+          {%- liquid
+            assign price = product.selected_or_first_available_variant.price
+          -%}
+          {%- for item in frequently_bought_products -%}
+            {% if item != blank and item.id != product.id and item.available %}
+              {%- liquid
+                assign current_variant = item.selected_or_first_available_variant
+                assign price = current_variant.price | plus: price
+              -%}
+            {% endif %}
+          {%- endfor -%}
+          <button-bought-together-mobile
+            class="btn pointer btn-primary mt-sp-2 w-full relative word-wrap relative hidden-md block"
+          >
+            <span class="btn-label hidden-on-load transition-short flex content-center" dir="auto">
+              {{ 'products.product.add_all_to_cart_html' | t: count: count }}
+              <span class="dot-total mx-sp-1"> - </span>
+              <div class="total-price">
+                <span class="price">
+                  {%- if settings.currency_code_enabled %}
+                    {{ price | money_with_currency }}
+                  {% else %}
+                    {{ price | money }}
+                  {% endif -%}
+                </span>
+              </div>
+            </span>
+            {%- render 'loader' -%}
+          </button-bought-together-mobile>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {%- render 'section-divider', position: 'bottom', style: section_st.divider_bottom, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+  <div class="template-on-mobile">
+    <bought-together-popup
+      class="bought-together-products__wrapper modal modal_type_popup active-modal-js fixed inset-0 z-31 flex align-center invisible transition content-hidden"
+      data-price="{{ product.selected_or_first_available_variant.price }}"
+      drawer
+    >
+      <modal-overlay class="modal-overlay invisible transition-drawer cursor-crosshair"></modal-overlay>
+      <div
+        class="modal-popup-inner relative w-full invisible-1025 flex column modal-focus transition modal-draggable rounded max-w-custom m-auto z-15 bg-white"
+        tabindex="-1"
+        style="--max-width: 60rem;"
+      >
+        <draggable-modal
+          class="drawer__header draggable-modal drawer__header-cart flex gap-10 space-between align-center drawer-spacing border-bottom sticky"
+          style="--padding-block:1.2rem;--padding-block-desktop: 2rem;--padding-inline-desktop:3.2rem;"
+        >
+          {%- if section_st.heading != blank -%}
+            <div class="drawer__heading h5 flex gap align-center" style="--gap-desktop: 8px;--gap: 8px">
+              {{ section.settings.heading }}
+            </div>
+            <button
+              is="button-close-model"
+              class="modal__close pointer modal-button-close rounded-50 btn-reset w-30 h-full flex content-center flex-end hidden-1025"
+              aria-label="{{ 'accessibility.close' | t }}"
+            >
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 14 14"
+                fill="none"
+                class="transition-short will-change icon-zoom"
+              >
+                <use href="#icon-close"></use>
+              </svg>
+            </button>
+          {%- endif -%}
+        </draggable-modal>
+        <div class="drawer__body grow-1 h-full overflow-hidden overflow-y-auto custom-scrollbar p-sp-5"></div>
+        <span
+          class="absolute left-0 right-0 z-2 h-full pointer-none overlay-bought overlay-bought-container hidden-1025"
+        ></span>
+        <product-form class="bought-together-products-form px-sp-5 py-sp-4 border-top relative z-3">
+          <form
+            method="post"
+            action="{{ routes.cart_add_url }}"
+            accept-charset="UTF-8"
+            enctype="multipart/form-data"
+            novalidate="novalidate"
+            data-type="add-to-cart-form"
+          >
+            <input type="hidden" name="form_type" value="product">
+            <input type="hidden" name="utf8" value="✓">
+            <div class="bought-together-products-list">
+              <div class="variant-select current-product" product-id="{{ product.id }}">
+                <input
+                  type="hidden"
+                  name="items[][id]"
+                  value="{{ product.selected_or_first_available_variant.id }}"
+                >
+                <input type="hidden" name="items[][quantity]" class="quantity" value="1">
+              </div>
+
+              {%- for item in frequently_bought_products -%}
+                {% if item != blank and item.id != product.id and item.available %}
+                  {%- liquid
+                    assign product_available = item.variants | where: 'available'
+                    assign loop_index = forloop.index
+                  -%}
+                  <div class="variant-select" product-id="{{ item.id }}">
+                    {%- if item.variants.size > 1 -%}
+                      {% for variant in product_available %}
+                        {%- liquid
+                          assign selected = false
+                          assign quantity = variant.inventory_quantity
+                        -%}
+                        {% if quantity < 1 and variant.available == false %}
+                          {% continue %}
+                        {% else %}
+                          {% assign selected = true %}
+                          {% assign show_button_add_all = true %}
+                        {% endif %}
+                        <input
+                          type="hidden"
+                          name="items[][id]"
+                          data-index="{{ loop_index }}"
+                          value="{{ variant.id }}"
+                        >
+                        <input type="hidden" name="items[][quantity]" class="quantity" value="1">
+                        {% if selected %}
+                          {% break %}
+                        {% endif %}
+                      {% endfor %}
+                    {%- else -%}
+                      {%- if item.selected_or_first_available_variant.inventory_quantity > 0
+                        or item.selected_or_first_available_variant.available == true
+                      -%}
+                        {% assign show_button_add_all = true %}
+                        <input
+                          type="hidden"
+                          name="items[][id]"
+                          data-index="{{ loop_index }}"
+                          value="{{ item.selected_or_first_available_variant.id }}"
+                        >
+                        <input type="hidden" name="items[][quantity]" class="quantity" value="1">
+                      {% endif %}
+                    {% endif %}
+                  </div>
+                {% endif %}
+              {%- endfor -%}
+            </div>
+            {%- if show_button_add_all -%}
+              {%- liquid
+                assign price = product.selected_or_first_available_variant.price
+              -%}
+              {%- for item in frequently_bought_products -%}
+                {% if item != blank and item.id != product.id and item.available %}
+                  {%- liquid
+                    assign current_variant = item.selected_or_first_available_variant
+                    assign price = current_variant.price | plus: price
+                  -%}
+                {% endif %}
+              {%- endfor -%}
+              <button
+                type="submit"
+                name="add"
+                class="btn pointer btn-primary w-full relative product_submit_button product-form__submit word-wrap relative btn-count-js"
+                aria-label="{{ 'products.product.add_all_to_cart' | t }}"
+              >
+                <span class="btn-label hidden-on-load transition-short flex content-center" dir="auto">
+                  {{ 'products.product.add_all_to_cart_html' | t: count: count }}
+                  <span class="dot-total mx-sp-1"> - </span>
+                  <div class="total-price">
+                    <span class="price">
+                      {%- if settings.currency_code_enabled %}
+                        {{ price | money_with_currency }}
+                      {% else %}
+                        {{ price | money }}
+                      {% endif -%}
+                    </span>
+                  </div>
+                </span>
+                {%- render 'loader' -%}
+              </button>
+            {% endif %}
+          </form>
+        </product-form>
+      </div>
+    </bought-together-popup>
+  </div>
+{%- elsif request.design_mode -%}
+  {%- render 'editor-metafield-hint', id: 'bought_together', source: metafield_path, section_frame: true -%}
+{%- endif -%}
+{% schema %}
+{
+  "name": "t:sections.bought-together-products.name",
+  "tag": "section",
+  "class": "section",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.bought-together-products.how_to_use"
+    },
+    {
+      "type": "text",
+      "id": "metafield",
+      "label": "t:sections.all.metafield.frequently_bought_together.label",
+      "info": "t:sections.all.metafield.frequently_bought_together.info",
+      "default": "custom.frequently_bought_together"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "options": [
+        {
+          "value": "fix_width",
+          "label": "t:sections.all.layout.fix_width"
+        },
+        {
+          "value": "stretch_width",
+          "label": "t:sections.all.layout.stretch_width"
+        },
+        {
+          "value": "full_width",
+          "label": "t:sections.all.layout.full_width"
+        }
+      ],
+      "default": "fix_width",
+      "label": "t:sections.all.layout.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_header.label"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.all.content_setting.subheading.label",
+      "default": "Subheading"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "default": "<p>Heading</p>",
+      "label": "t:sections.all.content_setting.heading.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "drawn_underline",
+      "default": true,
+      "label": "t:sections.all.content_setting.drawn_underline.label",
+      "info": "t:sections.all.content_setting.heading.info"
+    },
+    {
+      "type": "select",
+      "id": "drawn_underline_type",
+      "label": "t:sections.all.content_setting.drawn_underline.type",
+      "default": "squiggle_underline",
+      "visible_if": "{{ section.settings.drawn_underline != false }}",
+      "options": [
+        {
+          "value": "simple_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.simple_underline"
+        },
+        {
+          "value": "curve_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.curve_underline"
+        },
+        {
+          "value": "squiggle_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.squiggle_underline"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "drawn_underline_color",
+      "label": "t:sections.all.content_setting.drawn_underline.color",
+      "default": "#FFB005",
+      "alpha": true,
+      "visible_if": "{{ section.settings.drawn_underline != false }}"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.all.content_setting.description.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "large",
+          "label": "t:sections.all.content_header.heading_size.options__1.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.all.content_header.heading_size.options__2.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.all.content_header.heading_size.options__3.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.all.content_header.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "left",
+      "label": "t:sections.all.text_alignment.alignment"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.divider.section_divider_heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "t:sections.all.divider.show_divider",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "divider_top",
+      "label": "t:sections.all.divider.top",
+      "info": "t:sections.all.divider.top_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "line",
+      "visible_if": "{{ section.settings.show_divider }}"
+    },
+    {
+      "type": "select",
+      "id": "divider_bottom",
+      "label": "t:sections.all.divider.bottom",
+      "info": "t:sections.all.divider.bottom_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.show_divider }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.bought-together-products.name",
+      "category": "t:sections.group.product"
+    }
+  ],
+  "enabled_on": {
+    "templates": ["product"]
+  }
+}
+{% endschema %}

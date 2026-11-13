@@ -1,0 +1,66 @@
+{% liquid
+  assign theme_st = settings
+  assign product_recommendations_heading = theme_st.product_recommendations_heading
+%}
+{%- if recommendations.products_count > 0 -%}
+  {% if product_recommendations_heading != blank %}
+    <div class="flex gap-10 align-center space-between mb-25">
+      <h4 class="cart-recommendations-title fs-20">
+        {{ product_recommendations_heading }}
+      </h4>
+      {%- render 'swiper-navigation', type: 'custom_nav', class-custom: 'flex align-center gap-15 heading-color' -%}
+    </div>
+  {%- endif -%}
+  <div class="main-cart-upsell-product">
+    <slide-section
+      class="swiper"
+      data-section-id="{{ section.id }}"
+      data-autoplay="false"
+      data-effect="slide"
+      data-loop="false"
+      data-speed="300"
+      data-pagination="custom"
+      data-spacing="24"
+      data-mobile="1"
+      data-desktop="2"
+      data-tablet="2"
+    >
+      <div class="swiper-wrapper">
+        {%- for item in recommendations.products -%}
+          {% liquid
+            assign hidden = false
+            for item_cart in cart.items
+              if item_cart.product_id == item.id
+                assign hidden = true
+              endif
+            endfor
+          %}
+          {%- if hidden == false -%}
+            {% render 'card-product',
+              card_product: item,
+              section_id: section.id,
+              disable_hover_image: true,
+              disable_show_video: true,
+              disable_lazy_loading: true,
+              disable_badge: true,
+              disable_rate: true,
+              disable_tag: true,
+              disable_countdown: true,
+              disable_scrolling_text: true,
+              disable_color_swatches: true,
+              show_quickadd: true,
+              class: ' swiper-slide',
+              style_layout: ' flex gap-16 align-center border rounded-15 p-sp-4',
+              image_class: ' flex-auto w-custom rounded-10',
+              image_rounded: ' rounded-10',
+              info_class: ' flex-1 mt-0 mt-1025-0',
+              type: 'action_beside',
+              align_left_only: true,
+              button_type: 'text'
+            %}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </slide-section>
+  </div>
+{%- endif -%}

@@ -1,0 +1,107 @@
+{% liquid
+  assign theme_st = settings
+  assign section_st = section.settings
+  assign block_st = block.settings
+  assign scroll_animation = theme_st.scroll_animation
+%}
+
+<div
+  class="block__form_subscribe mb-custom{% if block_st.spacing_bottom > 10 %} mb_auto-rsp{% endif %}"
+  style="--space-bottom: {{ block_st.spacing_bottom }};"
+  {{ block.shopify_attributes }}
+>
+  {%- if scroll_animation -%}
+    <motion-effect
+      data-animate="fade-up"
+      class="block"
+    >
+  {%- endif -%}
+  {%- form 'customer', class: 'form-validation form-password-page' -%}
+    <input
+      type="hidden"
+      name="contact[tags]"
+      value="newsletter"
+    >
+    <div
+      class="field relative flex wrap gap-10 justify-content-{{ section_st.text_align }}"
+      style="--max-width: 51rem;"
+    >
+      <label for="email_contact--{{ block.id }}" class="visually-hidden">
+        {{ 'customer.login_page.email' | t }}
+        <span class="required">*</span>
+      </label>
+      <input
+        id="email_contact--{{ block.id }}"
+        type="email"
+        required
+        name="contact[email]"
+        value="{% if customer %}{{ customer.email }}{% endif %}"
+        placeholder="{{ block.settings.email_placeholder }}"
+        class="password__subcribe-input btn-radius min-w-custom js-custom-input"
+        style="--min-width: 30rem;"
+        {% if form.errors %}
+          aria-invalid="true"
+          aria-describedby="Password-error--{{ section.id }}"
+        {% elsif form.posted_successfully? %}
+          aria-describedby="Password-success--{{ section.id }}"
+        {% endif %}
+      >
+      <button
+        type="submit"
+        class="btn pointer btn-primary relative word-wrap relative"
+        style="--width: 20rem;"
+      >
+        <span class="hidden-on-load"> {{ block.settings.btn_label }}</span>
+        {%- render 'loader' -%}
+      </button>
+    </div>
+    {%- if form.errors -%}
+      <div
+        id="RecoverEmail-email-error error"
+        class="error form__message fs-small inline-flex align-center gap-10 mt-20 mb-20 max-w-custom h-custom"
+        style="--height: 5.6rem;"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="flex-auto w-20">
+          <use href="#icon-error"></use>
+        </svg>
+        {{- form.errors.translated_fields.email | capitalize }}
+        {{ form.errors.messages.email -}}
+      </div>
+    {%- endif -%}
+  {%- endform -%}
+  {%- if scroll_animation -%}
+    </motion-effect>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-password-content.blocks.form_subscribe.name",
+  "class": "w-full",
+  "settings": [
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "t:sections.main-password-content.blocks.form_subscribe.settings.email_placeholder.label",
+      "default": "Enter your email..."
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "t:sections.main-password-content.blocks.form_subscribe.settings.btn_label.label",
+      "default": "Subscribe"
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.spacing_bottom",
+      "default": 15
+    }
+  ],
+  "presets": [{ "name": "t:sections.main-password-content.blocks.form_subscribe.name" }]
+}
+{% endschema %}

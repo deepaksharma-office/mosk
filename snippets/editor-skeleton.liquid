@@ -1,0 +1,135 @@
+{% doc %}
+  Draws the preview shape inside an editor-metafield-hint frame: neutral boxes and lines that
+  follow the layout of the real block, built from theme utility classes. editor-metafield-hint is
+  the only caller and already limits output to the theme editor.
+
+  @param {string} type - 'icons', 'list', 'media', 'sizing', 'model', 'looks', 'timer', 'rows', 'pill', 'paragraph', 'cards' or 'table'.
+
+  @example
+  {% render 'editor-skeleton', type: 'icons' %}
+{% enddoc %}
+{%- liquid
+  assign card_ratio = '3 / 4'
+  case settings.product_image_ratio
+    when 'square'
+      assign card_ratio = '1 / 1'
+    when 'landscape'
+      assign card_ratio = '4 / 3'
+  endcase
+  assign line = '<span class="block bg-secondary rounded h-custom w-custom" style="--height: 0.5rem; --width: 75%;"></span>'
+  assign short = line | replace: '75%', '43%'
+  assign full = line | replace: '75%', '100%'
+  assign arrow_down = '<svg width="14" height="8" viewBox="0 0 14 8"><use href="#icon-arrow-down-facet"></use></svg>'
+-%}
+{%- case type -%}
+  {%- when 'icons' -%}
+    <div class="flex wrap gap-sp-8">
+      {%- for i in (1..3) -%}
+        <div class="grid gap-sp-3 w-custom" style="--width: 6.5rem;">
+          <span class="block bg-secondary rounded" style="--aspect-ratio: 1;"></span>
+          {{- full -}}
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- when 'list' -%}
+    <div class="grid gap-sp-3">
+      {{- short -}}
+      {%- for i in (1..3) -%}
+        <div class="flex align-center gap-sp-3">
+          <svg width="14" height="10" viewBox="0 0 16 12" fill="none"><use href="#icon-tick"></use></svg>
+          {{- line -}}
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- when 'media' -%}
+    <div class="flex align-center space-between mb-sp-4">
+      {{- short -}}
+      <span class="flex gap-sp-4">
+        <svg width="6" height="11" fill="none"><use href="#icon-back" /></svg>
+        <svg width="6" height="11" fill="none"><use href="#icon-next" /></svg>
+      </span>
+    </div>
+    <div class="grid grid-cols gap" style="--col-number: 3; --col-tablet: 3; --col-desktop: 4; --gap: 1rem;">
+      {%- for i in (1..4) -%}
+        <span
+          class="block bg-secondary rounded{% if forloop.last %} hidden-1024{% endif %}"
+          style="--aspect-ratio: 2 / 3;"
+        >
+          <span class="play-button absolute inline-flex content-center" style="--button-width: 4rem; --button-height: 4rem;">
+            {%- render 'icon-play' -%}
+          </span>
+        </span>
+      {%- endfor -%}
+    </div>
+  {%- when 'sizing' -%}
+    <div class="grid grid-cols gap" style="--col-number: 3; --gap: 1.2rem;">
+      {%- for i in (1..3) -%}
+        <div class="flex column align-center gap-sp-3">{{ full }}<small class="fs-10">—</small></div>
+      {%- endfor -%}
+    </div>
+  {%- when 'model' -%}
+    <div class="border rounded p-sp-4 grid grid-cols gap" style="--col-number: 2; --gap: 1.6rem;">
+      {{- line }}{{ short }}{{ short }}{{ line -}}
+    </div>
+  {%- when 'looks' -%}
+    <div class="grid grid-cols gap" style="--col-number: 3; --gap: 1.2rem;">
+      {%- for i in (1..3) -%}
+        <span class="block bg-secondary rounded h-custom" style="--height: 8.6rem;"></span>
+      {%- endfor -%}
+    </div>
+  {%- when 'timer' -%}
+    <div class="border rounded p-sp-4 flex justify-center gap-sp-5">
+      {%- assign units = 'days,hours,mins,secs' | split: ',' -%}
+      {%- for unit in units -%}
+        {%- assign unit_key = 'sections.countdown.format.' | append: unit -%}
+        <div class="grid gap-5 text-center"><span class="fs-20">—</span><small class="fs-10">{{ unit_key | t }}</small></div>
+      {%- endfor -%}
+    </div>
+  {%- when 'rows' -%}
+    <div class="flex align-center space-between py-sp-4 border-bottom">{{ line }}{{ arrow_down }}</div>
+  {%- when 'pill' -%}
+    <div class="border rounded p-sp-4 flex align-center gap-sp-3">
+      <svg width="13" height="13" viewBox="0 0 10 10" fill="none"><use href="#icon-plus"></use></svg>
+      {{- line | replace: 'w-custom', 'flex-1' -}}
+      {{- arrow_down -}}
+    </div>
+  {%- when 'paragraph' -%}
+    <div class="grid gap-sp-3">{{ line }}{{ line }}{{ short }}</div>
+  {%- when 'cards' -%}
+    <div class="grid grid-cols gap" style="--col-number: 2; --col-tablet: 2; --col-desktop: 4; --gap: 1rem;">
+      {%- for i in (1..4) -%}
+        <div class="grid gap-sp-3{% if forloop.index > 2 %} hidden-1024{% endif %}">
+          <span class="block bg-secondary rounded" style="--aspect-ratio: {{ card_ratio }};"></span>
+          {{- line }}{{ short -}}
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- when 'table' -%}
+    {%- liquid
+      assign table_rows = 'show_price:products.product.price.label,show_ratings:products.product.ratings,show_vendor:products.product.vendor,show_color:products.product.color,show_size:products.product.size,show_highlights:products.product.highlights,show_availability:products.product.availability' | split: ','
+      assign current_line = line | replace: 'bg-secondary', 'bg-white'
+      capture row_cells
+        echo '<div class="p-sp-3 border-bottom bg-secondary">' | append: current_line | append: '</div>'
+        echo '<div class="p-sp-3 border-bottom">' | append: line | append: '</div>'
+        echo '<div class="p-sp-3 border-bottom hidden-1024">' | append: line | append: '</div>'
+      endcapture
+    -%}
+    <div class="grid grid-cols fs-12" style="--col-number: 3; --col-tablet: 3; --col-desktop: 4; --gap: 0px;">
+      <span class="p-sp-3 border-bottom">{{ 'products.product.product_compare' | t }}</span>
+      {%- capture product_cell -%}
+        <div class="grid gap-sp-3 p-sp-3 border-bottom">
+          <span class="block bg-secondary rounded" style="--aspect-ratio: {{ card_ratio }};"></span>
+          {{- short -}}
+        </div>
+      {%- endcapture -%}
+      {{- product_cell | replace: 'bg-secondary', 'bg-white' | replace: 'border-bottom', 'border-bottom bg-secondary' -}}
+      {{- product_cell }}{{ product_cell | replace: 'border-bottom', 'border-bottom hidden-1024' -}}
+      {%- for table_row in table_rows -%}
+        {%- assign row_parts = table_row | split: ':' -%}
+        {%- if section.settings[row_parts.first] -%}
+          <span class="p-sp-3 border-bottom">{{ row_parts.last | t }}</span>
+          {{- row_cells -}}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+{%- endcase -%}

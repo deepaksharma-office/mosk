@@ -1,0 +1,28 @@
+<div class="flexible-block switch-slide__mobile">
+  {{ block.settings.custom_liquid }}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.custom_liquid.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.custom_liquid.how_to_use_block"
+    },
+    {
+      "type": "liquid",
+      "id": "custom_liquid",
+      "label": "t:sections.custom_liquid.liquid_code",
+      "info": "t:sections.custom_liquid.info_custom_liquid"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.custom_liquid.name",
+      "category": "t:sections.group.blocks.custom"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,154 @@
+{%- if article and article != empty -%}
+  <div
+    class="article-card-wrapper item-load{{class}}{% if is_featured_blog %} color-{{ color_scheme }} gradient{% endif %}"
+  >
+    <div
+      class="card hover-afterload article-card{% if isPageBlog %} text-{{ content_alignment }}{% endif %}{{ featured-blog }}{% if is_featured_blog %} custom-blog-featured flex-1025 wrap gap rounded{% endif %}"
+      {% if is_featured_blog %}
+        style="--col-width: 66%;--gap: 0px;"
+      {% endif %}
+    >
+      <div class="{% if is_featured_blog %}col-1025-w-custom{% else %}article_post-image mb-sp-3 mb-1025-sp-5{% endif %} blog-meta-link">
+        {%- if show_image == true and article.image -%}
+          {%- liquid
+            assign alt = article.title | escape
+            if article.image.alt != blank
+              assign alt = article.image.alt | escape
+            endif
+          -%}
+          <a
+            class="{% if is_featured_blog %} block h-full{% else %} rounded block{% endif %} hover-effect"
+            href="{{ article.url }}"
+            class="remove-underline"
+            aria-label="{{ article.title | escape }}"
+            style="--aspect-ratio:{% if media_aspect_ratio != blank and media_aspect_ratio != 'adapt' %} {{ media_aspect_ratio }}{% else %} {{ article.image.aspect_ratio }}{% endif %};"
+          >
+            {% render 'responsive-image',
+              type: 'blog',
+              class: 'center_swiper-arrow blog__img w-full h-full object-fit-cover rounded',
+              image: article.image,
+              image_alt: alt,
+              container: container,
+              column: column,
+              column_mobile: column_mobile,
+              padding: padding,
+              disable_lazy_loading: disable_lazy_loading,
+              custom_widths: custom_widths,
+              animate: 'zoom-out-small',
+              motion: true
+            %}
+          </a>
+        {%- endif -%}
+      </div>
+      <div
+        class="card__content{% if is_featured_blog %} col-1025-remaining flex column p-30 p-1025-50 bg-secondary text-{{ content_alignment }} align-{{ content_alignment }} justify-content-{{ vertical_alignment }}{% endif %}"
+      >
+        {%- if show_tags or show_cate -%}
+          <ul class="list-meta-article list-unstyled p-0 mb-sp-2 mb-1025-sp-2 flex wrap gap-5{% if is_featured_blog %} text-{{ content_alignment }} justify-content-{{ content_alignment }}{% endif %}{% if isPageBlog %} text-{{ content_alignment }} justify-content-{{ content_alignment }}{% endif %}">
+            {%- if show_cate -%}
+              {% assign blog_name = article.handle | split: '/' | first %}
+              {% if blog_name != blank %}
+                <li class="blog-meta-link blog-cate inline-flex align-center">
+                  <a
+                    class="inline-block bg-white border btn-rounded fs-13 px-15 py-sp-1 pointer text-color"
+                    style="--color-text: #444444;"
+                    href="{{ blog.url }}"
+                    aria-label="blog category"
+                  >
+                    {{ blog_name | capitalize }}
+                  </a>
+                </li>
+              {% endif %}
+            {%- endif -%}
+            {% if show_tags %}
+              {% if article.tags.size > 0 %}
+                {% for tag in article.tags limit: 5 %}
+                  <li
+                    class="blog-meta-link blog-tag bg-white border inline-flex align-center btn-rounded fs-13 relative pointer-none text-color"
+                    style="--color-text: #444444;--color-heading: #444444;"
+                  >
+                    {% if current_tags contains tag %}
+                      {{ tag }}
+                    {% else %}
+                      {{ tag | link_to_tag: tag }}
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              {% endif %}
+            {% endif %}
+          </ul>
+        {%- endif -%}
+        <div class="card__heading lh-heading mb-sp-3 mb-1025-sp-3{% if is_featured_blog %} h2{% elsif is_custom %} h6{% else %} h5{% endif %}">
+          <a
+            href="{{ article.url }}"
+            class="heading-color remove-underline outlined-border"
+          >
+            {{ article.title | escape }}
+          </a>
+        </div>
+        {%- if show_excerpt and is_featured_blog != true -%}
+          {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
+            <p class="article-card__excerpt rte-width rte mb-15 header-color text-truncate" style="--line-clamp: 3;">
+              {%- if article.excerpt.size > 0 -%}
+                {{ article.excerpt | strip_html }}
+              {%- else -%}
+                {{ article.content | strip_html }}
+              {%- endif -%}
+            </p>
+          {%- endif -%}
+        {%- endif -%}
+        <div class="article-card__info fs-small grey-color capitalize list-unstyled inline-flex align-center gap-sp-4{% if is_featured_blog %} mb-sp-4 mb-1025-sp-5 text-{{ content_alignment }} justify-content-{{ content_alignment }}{% endif %}">
+          {%- if show_date -%}
+            <div class="post-date" dir="auto">
+              {{- article.published_at | date: '%b %d %Y' -}}
+            </div>
+          {%- endif -%}
+          {%- if show_author -%}
+            <svg width="5" height="5" viewBox="0 0 10 10" fill="none">
+              <use href="#icon-dot"></use>
+            </svg>
+            <div class="post-author">
+              {{ 'blogs.article.by_html' | t: author: article.author -}}
+            </div>
+          {%- endif -%}
+          {%- if show_comment_count and blog.comments_enabled? -%}
+            <div class="blog-comments">
+              <span dir="auto">
+                {{ 'blogs.article.comments' | t: count: article.comments_count -}}
+              </span>
+            </div>
+          {%- endif -%}
+        </div>
+        {%- if show_excerpt and is_featured_blog == true -%}
+          {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
+            <p class="article-card__excerpt rte-width rte mb-sp-7 mb-1025-25 text-truncate header-color">
+              {%- if article.excerpt.size > 0 -%}
+                {{ article.excerpt | strip_html }}
+              {%- else -%}
+                {{ article.content | strip_html }}
+              {%- endif -%}
+            </p>
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- if is_featured_blog -%}
+          <div class="flex wrap gap-10 w-full-mb text-center{% if is_featured_blog %}  justify-content-{{ content_alignment }}{% endif %}">
+            {% assign button_link = article.url %}
+            <a
+              {% if button_link == blank %}
+                role="link" aria-disabled="true"
+              {% else %}
+                href="{{ button_link | default: "#" }}"
+              {% endif %}
+              aria-label="{{ button_label }}"
+              class="text-center pointer btn-{{ button_type }}{% if button_type == "link" %} align-self-center outlined-border{% else %} btn w-md-custom w-full max-w-100{% endif %}"
+              style="--width: 20rem;"
+            >
+              {{ button_label }}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}

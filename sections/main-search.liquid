@@ -1,0 +1,1218 @@
+{{ 'search.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign theme_st = settings
+  assign section_st = section.settings
+  if section_st.section_width == 'fix_width'
+    assign section_width = 'container'
+  elsif section_st.section_width == 'full_width'
+    assign section_width = 'full-width'
+  else
+    assign section_width = 'fluid_container'
+  endif
+  assign product_enable_color_swatches = theme_st.product_enable_color_swatches
+  assign color_swatch_trigger = theme_st.color_swatch_trigger
+  if color_swatch_trigger != blank and product_enable_color_swatches != false
+    assign option_name = color_swatch_trigger | split: ','
+  else
+    assign option_name = 'Color'
+  endif
+  assign color_swatch_custom = theme_st.color_swatch_custom
+  assign color_swatch_shape = theme_st.color_swatch_shape
+  assign scroll_animation = theme_st.scroll_animation
+  assign items_per_row = section_st.items_per_row
+  assign pagination_type = section_st.pagination_type
+  assign filter_layout = section_st.filter_layout
+  assign products_to_show = 48
+  assign enable_sorting = section_st.enable_sorting
+  assign show_product_counts = section_st.show_product_counts
+  assign enable_filtering = section_st.enable_filtering
+  assign search_empty = true
+  assign search_placeholder = 'general.search.search' | t
+  assign search_placeholder = theme_st.search_placeholder | default: search_placeholder | escape
+  assign search_popular_keywords = theme_st.search_popular_keywords
+  assign all_product = search.results_count
+  if all_product <= products_to_show
+    assign products_to_show = all_product
+  endif
+  if all_product == 0 and search.filters.size == 0
+    assign enable_filtering = false
+  elsif search.filters.size > 0
+    assign search_empty = false
+  endif
+  if search.performed and search.results_count > 0
+    assign search_empty = false
+  endif
+  assign sort_by = search.sort_by | default: search.default_sort_by
+  if search.url
+    assign results_url = search.url
+  else
+    assign terms = search.terms | escape
+    assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
+  endif
+  assign items_per_row_tablet = items_per_row
+  if items_per_row > 3
+    assign items_per_row_tablet = items_per_row | minus: 1
+  endif
+  assign column_gap_slide = 0
+  assign column_gap_mb = 0
+  if section_st.column_gap == 'large'
+    assign column_gap_slide = 32
+    assign column_gap_mb = 24
+  elsif section_st.column_gap == 'medium'
+    assign column_gap_slide = 24
+    assign column_gap_mb = 12
+  elsif section_st.column_gap == 'small'
+    assign column_gap_slide = 16
+    assign column_gap_mb = 8
+  endif
+  assign total_active_values = 0
+  for filter in search.filters
+    assign total_active_values = total_active_values | plus: filter.active_values.size
+    if filter.type == 'price_range'
+      if filter.min_value.value != null or filter.max_value.value != null
+        assign total_active_values = total_active_values | plus: 1
+      endif
+    endif
+  endfor
+  assign show_search_results = section_st.show_search_results
+-%}
+{%- capture style -%}
+  --section-pt: {{ section_st.padding_top }}; --section-pb: {{ section_st.padding_bottom }};
+{%- endcapture -%}
+{%- capture col_style -%}
+  --col-desktop: {{ items_per_row }};--col-number:2;--col-tablet: {{ items_per_row_tablet }};--gap-desktop: {{ column_gap_slide }}px;--gap: {{ column_gap_mb }}px;
+{%- endcapture -%}
+{% style %}
+  .template-search--empty .search__results-value {
+    display: none;
+  }
+{% endstyle %}
+<div
+  id="Search-{{ section.id }}"
+  class="section-main-search{% if show_search_results == 'tab' %} content-tabs{% endif %}{% if search_empty %} template-search--empty{% endif %}"
+  style="{{ style | strip | strip_newlines }}"
+>
+  <div class="title-wrapper-with-link text-center page-title{{ section_width }}">
+    <div class="container pt-sp-4 breadcrumbs">
+      {%- render 'breadcrumbs' -%}
+    </div>
+    <div class="page-header mt-60{% if terms == blank %} mb_auto-rsp{% endif %}" style="--space-bottom: 100">
+      {% if scroll_animation != 'disable' %}
+        <motion-effect
+          data-animate="fade-up"
+          data-animate-delay="25"
+          class="block"
+        >
+      {% endif %}
+      <h1 class="mb-sp-4 h2">{{ 'templates.search.title' | t }}</h1>
+
+      {%- if terms != blank -%}
+        {% if search.performed %}
+          <p class="mb-sp-5 mb-1025-40 px-gutter-x">
+            {%- if search.results_count == 0 -%}
+              {{ 'general.search.no_results_html' | t: terms: terms }}
+            {%- elsif search.results_count == 1 -%}
+              {{
+                'templates.search.results_with_count_and_term.one_html'
+                | t: count: search.results_count, terms: terms
+              }}
+            {%- else -%}
+              {{
+                'templates.search.results_with_count_and_term.other_html'
+                | t: count: search.results_count, terms: terms
+              }}
+            {%- endif -%}
+          </p>
+        {% endif %}
+      {%- else -%}
+        <p class="mb-sp-5 mb-1025-40 px-gutter-x">
+          {{ 'templates.search.title_no_search' | t }}
+        </p>
+      {%- endif -%}
+      {% if scroll_animation != 'disable' %}
+        </motion-effect>
+      {% endif %}
+      <div class="container search-form">
+        <action-main-search class="block">
+          <div class="search-form">
+            <form
+              action="{{ routes.search_url }}"
+              method="get"
+              role="search"
+              class="search"
+              {% if theme_st.enable_speech_search %}
+                data-voice-submit
+              {% endif %}
+            >
+              <div
+                class="relative flex gap-10 mx-auto border border-transparent field bg-secondary px-25 btn-rounded btn-search align-center max-w-custom"
+                style="--max-width: 60rem;"
+              >
+                <button
+                  type="submit"
+                  class="relative button pointer btn-reset search__button fs-0"
+                  tabindex="0"
+                  aria-label="{{ search_placeholder }}"
+                >
+                  <svg width="22" height="22" fill="none" class="heading-color">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10.546 19.167a8.62 8.62 0 1 0 0-17.241 8.62 8.62 0 0 0 0 17.241ZM20.075 20.074 18.26 18.26"/>
+                  </svg>
+                </button>
+                <input
+                  class="flex-1 search__input field__input show-placehoder"
+                  style="--input-bg:transparent;--input-border-width: 0;--input-padding-start: 0;--input-padding-end: 0;--input-padding-top: 0;--input-padding-bottom: 0;--input-height: 6rem;--input-placeholder-color: var(--color-text);--input-border-radius: 0;--input-color:var(--color-heading);"
+                  type="search"
+                  name="q"
+                  value="{{ search.terms | escape }}"
+                  value=""
+                  placeholder="{{ search_placeholder }}"
+                  maxlength="128"
+                  role="combobox"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-autocomplete="list"
+                  autocorrect="off"
+                  autocomplete="off"
+                  autocapitalize="off"
+                  spellcheck="false"
+                  id="Search-In-Page"
+                >
+                <label class="visually-hidden" for="Search-In-Page"> {{ search_placeholder }}</label>
+                <input type="hidden" name="options[prefix]" value="last">
+                {%- if theme_st.enable_speech_search -%}
+                  {% render 'voice-search-button',
+                    classes: 'absolute inset-y-0 z-3 right-24 right-1025-26',
+                    filled_class: 'me-sp-8'
+                  %}
+                  <script type="module" src="{{ 'voice-search.js' | asset_url }}"></script>
+                {%- endif -%}
+                <div
+                  class="absolute inset-y-0 inline-flex search__action-right align-center right-24 right-1025-26 pointer-none clear-btn"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="absolute pointer z-3 opacity-0 transition icon-clear-search"
+                  >
+                    <rect width="20" height="20" rx="10" fill="#1D1D1F" fill-opacity="0.5"/>
+                    <path d="M7.13043 7.72362C7.04348 7.64322 7 7.54606 7 7.43216C7 7.31156 7.04348 7.20771 7.13043 7.1206C7.2107 7.0402 7.31104 7 7.43144 7C7.55184 7 7.65217 7.0402 7.73244 7.1206L10 9.39196L12.2676 7.1206C12.3478 7.0402 12.4482 7 12.5686 7C12.689 7 12.7893 7.0402 12.8696 7.1206C12.9565 7.20771 13 7.31156 13 7.43216C13 7.54606 12.9565 7.64322 12.8696 7.72362L10.602 9.99497L12.8696 12.2663C12.9565 12.3534 13 12.4573 13 12.5779C13 12.6918 12.9565 12.7889 12.8696 12.8693C12.7893 12.9564 12.689 13 12.5686 13C12.4482 13 12.3478 12.9564 12.2676 12.8693L10 10.608L7.73244 12.8693C7.65217 12.9564 7.55184 13 7.43144 13C7.31104 13 7.2107 12.9564 7.13043 12.8693C7.04348 12.7889 7 12.6918 7 12.5779C7 12.4573 7.04348 12.3534 7.13043 12.2663L9.39799 9.99497L7.13043 7.72362Z" fill="white"/>
+                  </svg>
+                  <span
+                    class="inline-flex opacity-0 icon-rotator bg-secondary w-custom h-custom rounded-50 transition-short"
+                    style="--width: 1.5rem;--height: 1.5rem;"
+                  ></span>
+                </div>
+              </div>
+            </form>
+          </div>
+          {% if search.performed and search.results_count == 0 %}
+            {%- if search_popular_keywords != blank -%}
+              {%- capture link_search_keyword -%}
+              {{ routes.search_url }}?type=product&options%5Bprefix%5D=last&q=
+            {%- endcapture -%}
+              <div
+                id="search-keyword"
+                class="search-keyword w-full max-w-custom mx-auto mt-sp-6 heading-color"
+              >
+                <ul
+                  class="flex justify-center search-keyword-list heading-color list-unstyled wrap gap"
+                  style="--row-gap: 10px;--gap: 3rem;"
+                >
+                  {%- assign search_popular_keywords = search_popular_keywords
+                    | replace: ' ,', ','
+                    | replace: ', ', ','
+                    | split: ','
+                  -%}
+                  {%- for qr in search_popular_keywords -%}
+                    {%- assign search_keywords = qr | strip -%}
+                    {%- if search_keywords -%}
+                      <li>
+                        <a
+                          class="recommend-search__item outlined-border"
+                          href="{{ link_search_keyword }}{{ search_keywords }}"
+                          aria-label="{{ search_keywords }}"
+                        >
+                          {{ search_keywords }}
+                        </a>
+                      </li>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </ul>
+              </div>
+            {%- endif -%}
+          {%- endif -%}
+        </action-main-search>
+      </div>
+    </div>
+  </div>
+  {%- if show_search_results == 'tab' -%}
+    {%- liquid
+      assign paginate_to_show = products_to_show
+      assign tab_paginate_to_show = 10000
+      if pagination_type == 'button' or pagination_type == 'infinity'
+        assign paginate_to_show = 10000
+      endif
+      paginate search.results by paginate_to_show
+        assign search_products = search.results | where: 'object_type', 'product'
+      endpaginate
+      paginate search.results by tab_paginate_to_show
+        assign search_articles = search.results | where: 'object_type', 'article'
+        assign search_pages = search.results | where: 'object_type', 'page'
+      endpaginate
+    -%}
+    <div class="main-search__tabs mt-60 container">
+      <inner-tab class="inner-tab reveal_on_scroll whitespace-nowrap overflow-x-auto flex justify-center">
+        {%- if search_products.size > 0 -%}
+          <button
+            data-id="search-products-{{ section.id }}"
+            type="button"
+            class="active fs-big-2 px-sp-6 btn-reset heading-font pointer heading_weight h7 pb-sp-2 lh-global button-focus-inside relative"
+            aria-label="{{ 'general.search.products' | t }}"
+            style="--body-line-height: 1.6;--top-focus:2px;"
+          >
+            {{ 'general.search.products' | t }}
+          </button>
+        {%- endif -%}
+        {%- if search_articles.size > 0 -%}
+          <button
+            data-id="search-articles-{{ section.id }}"
+            type="button"
+            class="h7 btn-reset pointer px-sp-6 heading_weight pb-sp-2 lh-global button-focus-inside relative{% if search_products.size == 0 %} active{% endif %}"
+            aria-label="{{ 'general.search.article' | t }}"
+            style="--body-line-height: 1.6;--top-focus:2px;"
+          >
+            {{ 'general.search.article' | t }}
+          </button>
+        {%- endif -%}
+        {%- if search_pages.size > 0 -%}
+          <button
+            data-id="search-pages-{{ section.id }}"
+            type="button"
+            class="h7 fs-big-2 px-sp-6 btn-reset pointer heading_weight pb-sp-2 lh-global button-focus-inside relative{% if search_products.size == 0 and search_articles.size == 0 %} active{% endif %}"
+            aria-label="{{ 'general.search.pages' | t }}"
+            style="--body-line-height: 1.6;--top-focus:2px;"
+          >
+            {{ 'general.search.pages' | t }}
+          </button>
+        {%- endif -%}
+      </inner-tab>
+    </div>
+  {%- endif -%}
+  {%- if show_search_results == 'tab' and search_products.size == 0 -%}
+    {%- if search_articles.size == 0 and search_pages.size == 0 -%}
+      <div
+        class="collection collection--empty mt-sp-8 mb_auto-rsp "
+        id="product-grid"
+        data-id="{{ section.id }}"
+        style="--space-bottom: 100;"
+      >
+        <div class="text-center title-wrapper">
+          <h2 class="title" style="--height-outline: 2px;">
+            {{ 'sections.collection_template.no_products_found' | t -}}
+            <br>
+            {{
+              'sections.collection_template.use_fewer_filters_html'
+              | t: link: results_url, class: 'heading-color btn-link btn-clear-all body-style border-animation'
+            }}
+          </h2>
+          <a
+            href="{{ routes.all_products_collection_url }}"
+            class="inline-block btn btn-primary mt-30"
+            aria-label="{{- 'general.continue_shopping' | t -}}"
+          >
+            {{- 'general.continue_shopping' | t -}}
+          </a>
+        </div>
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+  {%- if show_search_results == 'tab' -%}
+    <div id="search-products-{{ section.id }}" class="tab-content{% if search_products.size == 0 %} hidden{% endif %}">
+  {%- endif -%}
+  <div
+    id="ProductsGridContainer"
+    class="{{ section_width }} section filter-layout {{ filter_layout }}-filter{% if enable_filtering and filter_layout == 'vertical' %} flex gap{% endif %} search__results-value"
+    {% if enable_filtering and filter_layout == 'vertical' %}
+      style="--col-width: 29.4rem;--gap-desktop: 6rem;--gap: 3rem;"
+    {% endif %}
+  >
+    {%- paginate search.results by products_to_show -%}
+      {%- liquid
+        if show_search_results == 'tab'
+          assign filtered_products = search.results | where: 'object_type', 'product'
+        else
+          assign filtered_products = search.results
+        endif
+      %}
+      {%- if enable_filtering and filter_layout == 'vertical' -%}
+        <div id="CollectionSidebar" class="hidden collection__sidebar col-1025-w-custom block-1025">
+          <div class="sticky-md transition {% if pagination_type != 'infinity' %} top-30 {% else %} overflow-y-auto custom-scrollbar filter-infinite-scroll{% endif %}">
+            {% render 'facets',
+              results: search,
+              filter_layout: 'vertical',
+              paginate: paginate,
+              results_url: results_url,
+              total_active_values: total_active_values,
+              products_count: search.results_count
+            %}
+          </div>
+        </div>
+      {%- endif -%}
+      <div
+        id="CollectionResultsGird"
+        class="collection__results-gird w-full{% if enable_filtering and filter_layout == 'vertical' %} col-1025-remaining{% endif %}"
+      >
+        <div class="sticky-md top-30">
+          <sticky-toolbar
+            class="flex mb-sp-0 mb-1025-sp-6 facets-toolbar align-center gap space-between{% if enable_filtering == false %} pb-sp-6 pb-1025-sp-0{% endif %}"
+            style="--gap-desktop: 30px; --gap: 15px;"
+          >
+            {%- if enable_filtering -%}
+              <div class="facet-drawer flex grow-1{% if enable_filtering and filter_layout == 'drawer' %}{% else %} hidden-1025{% endif %} flex py-sp-4 py-1025-0">
+                <button
+                  id="FacetsDrawer"
+                  class="inline-flex gap-5 button heading color btn-reset body-font body-style pointer align-center body_weight text-size"
+                  aria-label="{{ 'products.facets.filter' | t }}"
+                >
+                  <svg width="22" height="22" fill="none">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-width="1.8" d="M2.75 6.417h16.5M5.5 11h11M9.164 15.583h3.667"/>
+                  </svg>
+                  <span class="hidden block-1025">{{ 'products.facets.filter' | t }}</span>
+                  <span class="block hidden-1025">{{ 'products.facets.filter_and_sort' | t }}</span>
+                </button>
+                <facet-drawer
+                  id="{{ section.id }}"
+                  data-layout="{{ filter_layout }}"
+                  class="fixed inset-0 invisible modal transition-drawer z-15 pointer-none active-modal-js content-hidden"
+                  style="--drawer-width: 45rem;"
+                  drawer
+                >
+                  <modal-overlay class="modal-overlay cursor-crosshair"></modal-overlay>
+                  <div
+                    class="fixed inset-y-0 left-0 w-full bg-white modal-inner transition-drawer draw-mb drawer-left drawer-left-mb color-default z-15 z-2"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label="{{ 'products.facets.filter' | t }}"
+                    tabindex="-1"
+                  >
+                    <div class="flex h-full drawer__body column">
+                      <div
+                        class="flex gap-10 drawer__header h5 space-between align-center drawer-spacing border-bottom"
+                        style="--padding-block-desktop: 1.7rem;--padding-block:1.2rem;"
+                      >
+                        <div class="flex content-center facets-filter js-filter-facet">
+                          <span class="hidden block-1025">{{ 'products.facets.filter' | t }}</span>
+                          <span class="block hidden-1025">{{ 'products.facets.filter_and_sort' | t }}</span>
+                          {% if total_active_values > 0 %}
+                            <span
+                              class="inline-flex content-center ms-8 fs-12 fw-500 w-custom h-custom bg-primary color-white rounded-50"
+                              style="--width: 2.3rem;--height: 2.3rem"
+                            >
+                              {{- total_active_values -}}
+                            </span>
+                          {%- endif -%}
+                        </div>
+                        <button
+                          type="button"
+                          is="button-close-model"
+                          class="modal__close modal-button-close rounded-50 pointer btn-reset w-30 h-full content-flex content-center"
+                          aria-label="{{ 'accessibility.close' | t }}"
+                        >
+                          <svg
+                            width="12"
+                            height="12"
+                            fill="none"
+                            class="icon-zoom transition-short will-change heading-color"
+                          >
+                            <use href="#icon-close"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <div class="flex overflow-y-auto drawer__inner custom-scrollbar grow-1 column">
+                        <div class="px-sp-5 facets-filters-drawer-active px-1025-32">
+                          {% if total_active_values > 0 %}
+                            <div class="filters-count active-facets flex wrap gap-sp-2 fs-small pt-sp-5 pb-sp-1 pt-1025-sp-8 pb-1025-sp-8 border-bottom-1025">
+                              {%- for filter in search.filters -%}
+                                {%- liquid
+                                  assign is_color_option = false
+                                  for cl in option_name
+                                    if filter.label == cl
+                                      assign is_color_option = true
+                                    endif
+                                  endfor
+                                -%}
+                                {%- for value in filter.active_values -%}
+                                  <div class="facet-remove">
+                                    <facet-remove>
+                                      <a
+                                        href="{{ value.url_to_remove }}"
+                                        class="flex content-center gap-sp-2 px-sp-4 overflow-hidden border h-custom btn-rounded pointer lh-normal hover-heading-color relative"
+                                        style="--height: 3.8rem;--color-swatch-width: 2rem;--color-swatch-height: 2rem;"
+                                      >
+                                        {%- if is_color_option == true -%}
+                                          {%- liquid
+                                            assign swatch_color = value.label
+                                            assign is_swatch_image = false
+                                            assign swatch_image = ''
+                                            if color_swatch_custom != blank and product_enable_color_swatches
+                                              assign string_value = color_swatch_custom
+                                              assign pairs = string_value | split: ','
+                                              for pair in pairs
+                                                assign key_and_value = pair | split: ':'
+                                                assign key = key_and_value[0] | strip
+                                                assign v = key_and_value[1] | strip
+                                                if key == value.label
+                                                  if v contains '.png' or v contains '.jpg' or v contains '.webp'
+                                                    assign image_url = v | file_img_url: 'medium'
+                                                    assign swatch_image = 'url(' | append: image_url | append: ')'
+                                                    assign is_swatch_image = true
+                                                  else
+                                                    assign swatch_color = v
+                                                  endif
+                                                endif
+                                              endfor
+                                            endif
+                                            if value.swatch.image
+                                              assign image_url = value.swatch.image | image_url: width: 120
+                                              assign swatch_image = 'url(' | append: image_url | append: ')'
+                                              assign is_swatch_image = true
+                                            elsif value.swatch.color
+                                              assign swatch_color = value.swatch.color
+                                            endif
+                                          -%}
+                                          <span
+                                            class="color-swatch-label pointer{% if is_swatch_image %} swatch-image{% endif %} filter-swatch hidden-before"
+                                            style="--swatch-background: {{ swatch_color }};{% if is_swatch_image %}--swatch-background-image: {{ swatch_image }};{% endif %}{% if color_swatch_shape == 'round' %}--radius: 50%;{% else %}--radius: 3px;{% endif %}"
+                                          >
+                                          </span>
+                                        {%- endif -%}
+                                        {{ value.label | escape }}
+                                        <span class="active-facets__button-inner">
+                                          <svg width="9" height="10" viewBox="0 0 9 10" fill="none">
+                                            <use href="#icon-close"></use>
+                                          </svg>
+                                          <span class="visually-hidden">
+                                            {{- 'products.facets.clear_filter' | t -}}
+                                          </span>
+                                        </span>
+                                      </a>
+                                    </facet-remove>
+                                  </div>
+                                {%- endfor -%}
+                                {% if filter.type == 'price_range' %}
+                                  {%- if filter.min_value.value != null or filter.max_value.value != null -%}
+                                    <div class="facet-remove">
+                                      <facet-remove>
+                                        <a
+                                          href="{{ filter.url_to_remove }}"
+                                          class="flex gap-10 px-sp-5 overflow-hidden border py-11 btn-rounded pointer lh-normal hover-heading-color relative"
+                                        >
+                                          {%- if filter.min_value.value -%}
+                                            {{ filter.min_value.value | money }}
+                                          {%- else -%}
+                                            {{ 0 | money }}
+                                          {%- endif -%}
+                                          -
+                                          {%- if filter.max_value.value -%}
+                                            {{ filter.max_value.value | money }}
+                                          {%- else -%}
+                                            {{ filter.range_max | money }}
+                                          {%- endif -%}
+                                          <span class="active-facets__button-inner">
+                                            <svg width="9" height="10" viewBox="0 0 9 10" fill="none">
+                                              <use href="#icon-close"></use>
+                                            </svg>
+                                            <span class="visually-hidden">
+                                              {{- 'products.facets.clear_filter' | t -}}
+                                            </span>
+                                          </span>
+                                        </a>
+                                      </facet-remove>
+                                    </div>
+                                  {%- endif -%}
+                                {% endif %}
+                              {%- endfor -%}
+                            </div>
+                          {% endif %}
+                        </div>
+                        {% if enable_sorting %}
+                          <facet-filters-form class="block facets facets-vertical-sort hidden-1025 px-gutter-x">
+                            <form class="relative facets-vertical-form" id="DrawerFacetSortForm">
+                              {%- assign sort_by = search.sort_by | default: search.default_sort_by -%}
+                              <div class="select-custom drawer-sort facet-filters heading-color mb-sp-1 pb-sp-6 pt-sp-5 border-bottom">
+                                <select-sorter
+                                  tabindex="0"
+                                  class="flex gap-10 select-selected align-center pointer rotate-animate relative not-highlight-tap"
+                                >
+                                  <span class="h7">
+                                    {{- 'products.facets.sort_by_label' | t }}
+                                  </span>
+                                  <span class="like-select border rounded-30 fs-small-1 hidden flex-1025 align-center grow-1">
+                                    {%- for option in search.sort_options -%}
+                                      {% if option.value == sort_by %}{{ option.name | escape }}{% endif %}
+                                    {%- endfor -%}
+                                  </span>
+                                  <svg
+                                    width="9"
+                                    height="6"
+                                    viewBox="0 0 9 6"
+                                    fill="none"
+                                    class="hidden flex-1025 flex-auto absolute icon icon-down icon-rotate transition-short w-custom"
+                                    style="--width: 9px;"
+                                  >
+                                    <use href="#icon-arrow-down"></use>
+                                  </svg>
+                                </select-sorter>
+                                <div
+                                  class="select-custom__content select-sort-custom-mobile facet-filters__sort active-show absolute-1025 bg-white p-10 rounded z-2 min-w-custom transition-short opacity-0 pointer-none"
+                                  id="DrawerSortBy"
+                                  style="--min-width: 22rem;"
+                                >
+                                  <div
+                                    class="facet-filters__select flex row wrap gap-sp-2 column-1025 gap-1025-2"
+                                  >
+                                    {%- for option in search.sort_options -%}
+                                      <filter-sort
+                                        class="filter-sort border border-1025-0 hover-bg_second pointer rounded-10 transition px-sp-3 py-7{% if option.value != sort_by %} text-color{% else %} heading-color{% endif %}"
+                                        value="{{ option.value | escape }}"
+                                        {% if option.value == sort_by %}
+                                          selected="selected"
+                                        {% endif %}
+                                      >
+                                        {{ option.name | escape }}
+                                      </filter-sort>
+                                    {%- endfor -%}
+                                  </div>
+                                </div>
+                              </div>
+                            </form>
+                          </facet-filters-form>
+                        {% endif %}
+                        {% render 'facets',
+                          results: search,
+                          filter_layout: 'drawer',
+                          paginate: paginate,
+                          results_url: results_url,
+                          total_active_values: total_active_values,
+                          products_count: search.results_count
+                        %}
+                      </div>
+                    </div>
+                  </div>
+                </facet-drawer>
+              </div>
+            {%- endif -%}
+            {%- if enable_filtering and filter_layout == 'horizontal' -%}
+              <div class="collection__horizontal-filter col-1025-w-custom hidden block-1025" style="--col-width: 75%;">
+                {% render 'facets',
+                  results: search,
+                  filter_layout: 'horizontal',
+                  paginate: paginate,
+                  results_url: results_url,
+                  total_active_values: total_active_values,
+                  products_count: search.products_count
+                %}
+              </div>
+            {%- endif -%}
+            {%- if show_product_counts and show_search_results == 'default' -%}
+              <div
+                class="collection-count whitespace-nowrap heading-color flex"
+                role="status"
+              >
+                <span>
+                  {%- if search.results_count -%}
+                    {{ 'templates.search.results_with_count' | t: terms: search.terms, count: search.results_count }}
+                  {%- elsif search.products_count == search.all_products_count -%}
+                    {{ 'products.facets.product_count_simple' | t: count: search.products_count }}
+                  {%- else -%}
+                    {{
+                      'products.facets.product_count'
+                      | t: product_count: search.products_count, count: search.all_products_count
+                    }}
+                  {%- endif -%}
+                </span>
+              </div>
+            {%- endif -%}
+            {% if enable_sorting %}
+              <facet-filters-form class="hidden facets facets-vertical-sort block-1025">
+                <form class="relative facets-vertical-form" id="FacetSortForm">
+                  {%- assign sort_by = search.sort_by | default: search.default_sort_by -%}
+                  <div class="select-custom select-sort facet-filters heading-color">
+                    <select-sorter
+                      tabindex="0"
+                      class="flex gap-10 select-selected align-center pointer rotate-animate not-highlight-tap"
+                    >
+                      <span class="whitespace-nowrap">
+                        {{- 'products.facets.sort_by_label' | t }}
+                      </span>
+                      <span class="inline-block-1025 whitespace-nowrap">
+                        {%- for option in search.sort_options -%}
+                          {% if option.value == sort_by %}{{ option.name | escape }}{% endif %}
+                        {%- endfor -%}
+                      </span>
+                      <svg
+                        width="9"
+                        height="6"
+                        viewBox="0 0 9 6"
+                        fill="none"
+                        class="flex-auto icon icon-down icon-rotate transition-short w-custom"
+                        style="--width: 9px;"
+                      >
+                        <use href="#icon-arrow-down"></use>
+                      </svg>
+                    </select-sorter>
+                    <div
+                      class="absolute right-0 p-10 bg-white shadow opacity-0 select-custom__content facet-filters__sort active-show top-100 rounded z-2 min-w-custom transition-short pointer-none"
+                      id="SortBy"
+                      style="--min-width: 22rem;"
+                    >
+                      <div
+                        class="flex facet-filters__select column gap-2"
+                      >
+                        {%- for option in search.sort_options -%}
+                          <filter-sort
+                            class="filter-sort hover-bg_second pointer rounded-10 transition px-sp-3 py-7{% if option.value != sort_by %} text-color{% else %} heading-color{% endif %}"
+                            value="{{ option.value | escape }}"
+                            {% if option.value == sort_by %}
+                              selected="selected"
+                            {% endif %}
+                          >
+                            {{ option.name | escape }}
+                          </filter-sort>
+                        {%- endfor -%}
+                      </div>
+                    </div>
+                  </div>
+                  <select
+                    name="sort_by"
+                    class="hidden facet-filters__select"
+                    aria-label="{{ 'products.facets.sort_button' | t }}"
+                    aria-describedby="a11y-refresh-page-message"
+                  >
+                    {%- for option in search.sort_options -%}
+                      <option
+                        value="{{ option.value | escape }}"
+                        {% if option.value == sort_by %}
+                          selected="selected"
+                        {% endif %}
+                      >
+                        {{ option.name | escape }}
+                      </option>
+                    {%- endfor -%}
+                  </select>
+                </form>
+              </facet-filters-form>
+            {% endif %}
+          </sticky-toolbar>
+          {%- if enable_filtering -%}
+            <div class="facets-filters-active">
+              {% if total_active_values > 0 %}
+                <div class="flex gap-10 filters-count active-facets wrap mb-30 fs-small">
+                  {%- for filter in search.filters -%}
+                    {%- liquid
+                      assign is_color_option = false
+                      for cl in option_name
+                        if filter.label == cl
+                          assign is_color_option = true
+                        endif
+                      endfor
+                    -%}
+                    {%- for value in filter.active_values -%}
+                      <div class="facet-remove">
+                        <facet-remove>
+                          <a
+                            href="{{ value.url_to_remove }}"
+                            class="flex content-center gap-sp-2 px-sp-4 overflow-hidden border h-custom btn-rounded pointer lh-normal hover-heading-color relative"
+                            style="--height: 3.8rem;--color-swatch-width: 2rem;--color-swatch-height: 2rem;"
+                          >
+                            {%- if is_color_option == true -%}
+                              {%- liquid
+                                assign swatch_color = value.label
+                                assign is_swatch_image = false
+                                assign swatch_image = ''
+                                if color_swatch_custom != blank and product_enable_color_swatches
+                                  assign string_value = color_swatch_custom
+                                  assign pairs = string_value | split: ','
+                                  for pair in pairs
+                                    assign key_and_value = pair | split: ':'
+                                    assign key = key_and_value[0] | strip
+                                    assign v = key_and_value[1] | strip
+                                    if key == value.label
+                                      if v contains '.png' or v contains '.jpg' or v contains '.webp'
+                                        assign image_url = v | file_img_url: 'medium'
+                                        assign swatch_image = 'url(' | append: image_url | append: ')'
+                                        assign is_swatch_image = true
+                                      else
+                                        assign swatch_color = v
+                                      endif
+                                    endif
+                                  endfor
+                                endif
+                                if value.swatch.image
+                                  assign image_url = value.swatch.image | image_url: width: 120
+                                  assign swatch_image = 'url(' | append: image_url | append: ')'
+                                  assign is_swatch_image = true
+                                elsif value.swatch.color
+                                  assign swatch_color = value.swatch.color
+                                endif
+                              -%}
+                              <span
+                                class="color-swatch-label pointer{% if is_swatch_image %} swatch-image{% endif %} filter-swatch hidden-before"
+                                style="--swatch-background: {{ swatch_color }};{% if is_swatch_image %}--swatch-background-image: {{ swatch_image }};{% endif %}{% if color_swatch_shape == 'round' %}--radius: 50%;{% else %}--radius: 3px;{% endif %}"
+                              >
+                              </span>
+                            {%- endif -%}
+                            {{ value.label | escape }}
+                            <span class="active-facets__button-inner">
+                              <svg width="9" height="10" viewBox="0 0 9 10" fill="none">
+                                <use href="#icon-close"></use>
+                              </svg>
+                              <span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span>
+                            </span>
+                          </a>
+                        </facet-remove>
+                      </div>
+                    {%- endfor -%}
+                    {% if filter.type == 'price_range' %}
+                      {%- if filter.min_value.value != null or filter.max_value.value != null -%}
+                        <div class="facet-remove">
+                          <facet-remove>
+                            <a
+                              href="{{ filter.url_to_remove }}"
+                              class="flex gap-10 px-sp-5 overflow-hidden border py-11 btn-rounded lh-normal pointer relative"
+                            >
+                              {%- if filter.min_value.value -%}
+                                {{ filter.min_value.value | money }}
+                              {%- else -%}
+                                {{ 0 | money }}
+                              {%- endif -%}
+                              -
+                              {%- if filter.max_value.value -%}
+                                {{ filter.max_value.value | money }}
+                              {%- else -%}
+                                {{ filter.range_max | money }}
+                              {%- endif -%}
+                              <span class="active-facets__button-inner">
+                                <svg width="9" height="10" viewBox="0 0 9 10" fill="none">
+                                  <use href="#icon-close"></use>
+                                </svg>
+                                <span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span>
+                              </span>
+                            </a>
+                          </facet-remove>
+                        </div>
+                      {%- endif -%}
+                    {% endif %}
+                  {%- endfor -%}
+                  <div class="facet-remove facet-clear-all">
+                    <facet-remove class="active-facets__button-wrapper">
+                      <a
+                        href="{{ results_url }}"
+                        class="underline overflow-hidden px-sp-2 h-custom heading-style pointer flex content-center gap-sp-2 lh-normal"
+                        style="--height: 3.8rem;--color-swatch-width: 2rem;--color-swatch-height: 2rem;"
+                      >
+                        <span>{{ 'products.facets.clear_all' | t }}</span>
+                      </a>
+                    </facet-remove>
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+          {%- endif -%}
+          <div id="CollectionGird" class="relative collection__gird">
+            {%- if search.results.size == 0 and search.filters != empty -%}
+              <div class="collection collection--empty" id="product-grid" data-id="{{ section.id }}">
+                <div class="title-wrapper text-center">
+                  <h2 class="title mt-50" style="--height-outline: 2px;">
+                    {{ 'sections.collection_template.no_products_found' | t -}}
+                    <br>
+                    {{
+                      'sections.collection_template.use_fewer_filters_html'
+                      | t: link: results_url, class: 'heading-color btn-link border-animation btn-clear-all'
+                    }}
+                  </h2>
+                  <a
+                    href="{{ routes.all_products_collection_url }}"
+                    class="inline-block btn btn-primary mt-30"
+                    aria-label="{{- 'general.continue_shopping' | t -}}"
+                  >
+                    {{- 'general.continue_shopping' | t -}}
+                  </a>
+                </div>
+              </div>
+            {%- else -%}
+              <div
+                class="grid collection grid-cols gap row-gap-30"
+                id="product-grid"
+                data-id="{{ section.id }}"
+                style="{{ col_style | strip | strip_newlines }}"
+              >
+                {%- for product in filtered_products -%}
+                  {%- if show_search_results == 'tab' -%}
+                    {% render 'card-product',
+                      enable_motion: true,
+                      card_product: product,
+                      section_id: section.id,
+                      container: section_width,
+                      column: items_per_row,
+                      column_mobile: 2,
+                      class: ' motion-item',
+                      padding: column_gap_slide,
+                      indexFor: forloop.index
+                    %}
+                  {%- else -%}
+                    {%- case product.object_type -%}
+                      {%- when 'product' -%}
+                        {% render 'card-product',
+                          enable_motion: true,
+                          card_product: product,
+                          section_id: section.id,
+                          container: section_width,
+                          column: items_per_row,
+                          column_mobile: 2,
+                          class: ' motion-item',
+                          padding: column_gap_slide,
+                          indexFor: forloop.index
+                        %}
+                      {%- when 'article' -%}
+                        {% render 'article-card',
+                          article: product,
+                          media_aspect_ratio: 1,
+                          show_image: true,
+                          show_date: true,
+                          show_author: true,
+                          show_excerpt: true,
+                          show_cate: false,
+                          show_tags: false,
+                          class: ' product-item grid-card-item motion-item',
+                          container: section_width,
+                          column: items_per_row,
+                          column_mobile: 2,
+                          padding: column_gap_slide,
+                          indexFor: forloop.index
+                        %}
+                      {%- when 'page' -%}
+                        <div class="product-item page-card-wrapper motion-item">
+                          <div
+                            class="card-page"
+                            style="--ratio-percent: 100%;"
+                          >
+                            <div class="card__content">
+                              <div class="card__information">
+                                <h3 class="card__heading">
+                                  <a href="{{ product.url }}" class="full-unstyled-link heading-color">
+                                    {{ product.title | escape }}
+                                  </a>
+                                </h3>
+                              </div>
+                              <div class="card__badge">
+                                <span class="badge">{{ 'templates.search.page' | t }}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    {%- endcase -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+              {%- liquid
+                assign paginate_size = paginate.parts.size | times: 1
+                assign cur_page = paginate.current_page | times: 1
+                assign amount_products = products_to_show | times: cur_page
+                if cur_page == paginate_size or amount_products > all_product
+                  assign amount_products = all_product
+                endif
+                assign collection_products_count = search.results_count | times: 1.0
+              -%}
+              {%- if pagination_type == 'button' or pagination_type == 'infinity' -%}
+                <div
+                  class="block text-center pagination-load-more mt-60"
+                >
+                  <div class="paginate-progress {{amount_products}}">
+                    <p class="mb-sp-5 counting_product load-more-amount">
+                      {{-
+                        'sections.collection_template.product_count.one'
+                        | t: count: amount_products, product_count: search.results_count
+                      -}}
+                    </p>
+                    <div
+                      class="relative mx-auto rounded load-more-progress-bar h-custom max-w-custom-all bg-custom"
+                      style="--percent: {{ amount_products | divided_by: collection_products_count | times: 100 }}%; --amount: {{ amount_products }}; --count: {{ amount_products }};--height: 3px;--img-rounded: 5px;--max-width: 32rem;--bg-color-custom: #e5e5e5;"
+                    ></div>
+                  </div>
+                  {% if all_product > products_to_show and amount_products < all_product %}
+                    <loadmore-button
+                      data-limit="{{ products_to_show }}"
+                      data-pagination="{{ pagination_type }}"
+                      data-limit="{{ products_to_show }}"
+                      data-url="?page={{ paginate.current_page | plus: 1 }}"
+                      class="relative inline-flex content-center transition btn btn-primary pointer w-custom max-w-100 mt-25"
+                      style="--width: 20rem;"
+                      aria-label="{{ 'sections.collection_template.load_more' | t }}"
+                      tabindex="0"
+                    >
+                      <span class="btn-label hidden-on-load transition-short">
+                        {{- 'sections.collection_template.load_more' | t -}}
+                      </span>
+                      {%- render 'loader' -%}
+                    </loadmore-button>
+                  {% endif %}
+                </div>
+              {%- else -%}
+                {%- if paginate.pages > 1 -%}
+                  {% render 'pagination', paginate: paginate, anchor: '' %}
+                {%- endif -%}
+              {%- endif -%}
+            {%- endif -%}
+            <div
+              class="absolute inset-0 transition bg-white opacity-0 loading-filter pointer-none"
+              style="--opacity: 0.6;"
+            >
+              {%- render 'loader' -%}
+            </div>
+          </div>
+        </div>
+      </div>
+    {%- endpaginate -%}
+    <script type="module" src="{{ 'facets.js' | asset_url }}"></script>
+  </div>
+  {%- if show_search_results == 'tab' -%}
+    </div>
+  {%- endif -%}
+  {%- if show_search_results == 'tab' -%}
+    {%- if search_articles.size > 0 -%}
+      <div
+        id="search-articles-{{ section.id }}"
+        class="tab-content{% if search_products.size > 0 %} hidden{% endif %} container section"
+      >
+        <div
+          class="grid collection grid-cols gap row-gap-30"
+          data-id="{{ section.id }}"
+          style="{{ col_style | strip | strip_newlines }}"
+        >
+          {%- for article in search_articles -%}
+            {% render 'article-card',
+              article: article,
+              media_aspect_ratio: 1,
+              show_image: true,
+              show_date: true,
+              show_author: true,
+              show_excerpt: true,
+              show_cate: false,
+              show_tags: false,
+              class: ' grid-card-item',
+              container: section_width,
+              column: items_per_row,
+              column_mobile: 2,
+              padding: column_gap_slide,
+              indexFor: forloop.index
+            %}
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+    {%- if search_pages.size > 0 -%}
+      <div
+        id="search-pages-{{ section.id }}"
+        class="tab-content{% if search_products.size > 0 or search_articles.size > 0 %} hidden{% endif %} container section"
+      >
+        <div
+          class="flex collection column gap content-center"
+          data-id="{{ section.id }}"
+          style="--row-gap: 0.8rem;"
+        >
+          {%- for page in search_pages -%}
+            <div class="page-card-wrapper ">
+              <div class="card-page">
+                <div class="card__content">
+                  <div class="card__information">
+                    <h3 class="card__heading">
+                      <a href="{{ page.url }}" class="full-unstyled-link text-color fw-500 h6 outlined-border">
+                        {{ page.title | escape }}
+                      </a>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+</div>
+{% schema %}
+{
+  "name": "t:sections.main-search.name",
+  "class": "section shopify-section-search",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.main-search.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "options": [
+        {
+          "value": "fix_width",
+          "label": "t:sections.all.layout.fix_width"
+        },
+        {
+          "value": "stretch_width",
+          "label": "t:sections.all.layout.stretch_width"
+        },
+        {
+          "value": "full_width",
+          "label": "t:sections.all.layout.full_width"
+        }
+      ],
+      "default": "fix_width",
+      "label": "t:sections.all.layout.label"
+    },
+    {
+      "type": "select",
+      "id": "show_search_results",
+      "label": "t:sections.main-search.settings.search_results.label",
+      "options": [
+        {
+          "value": "default",
+          "label": "t:sections.main-search.settings.search_results.option_1"
+        },
+        {
+          "value": "tab",
+          "label": "t:sections.main-search.settings.search_results.option_2"
+        }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "range",
+      "id": "items_per_row",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.main-collection.settings.columns_desktop.label"
+    },
+    {
+      "type": "select",
+      "id": "column_gap",
+      "options": [
+        {
+          "value": "no_gap",
+          "label": "t:sections.all.padding.column_gap.no_gap"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.all.padding.column_gap.small"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.all.padding.column_gap.medium"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.all.padding.column_gap.large"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.all.padding.column_gap.label"
+    },
+    {
+      "type": "select",
+      "id": "pagination_type",
+      "options": [
+        {
+          "value": "default",
+          "label": "t:sections.all.pagination_type.options__1.label"
+        },
+        {
+          "value": "button",
+          "label": "t:sections.all.pagination_type.options__2.label"
+        },
+        {
+          "value": "infinity",
+          "label": "t:sections.all.pagination_type.options__3.label"
+        }
+      ],
+      "default": "default",
+      "label": "t:sections.all.pagination_type.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-collection.settings.header__1.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "default": true,
+      "label": "t:sections.main-collection.settings.enable_sorting.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filtering",
+      "default": true,
+      "label": "t:sections.main-collection.settings.enable_filtering.label",
+      "info": "t:sections.main-collection.settings.enable_filtering.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_counts",
+      "default": true,
+      "label": "t:sections.main-collection.settings.show_product_counts.label"
+    },
+    {
+      "type": "select",
+      "id": "filter_layout",
+      "options": [
+        {
+          "value": "horizontal",
+          "label": "t:sections.main-collection.settings.filter_type.options__1.label"
+        },
+        {
+          "value": "vertical",
+          "label": "t:sections.main-collection.settings.filter_type.options__2.label"
+        },
+        {
+          "value": "drawer",
+          "label": "t:sections.main-collection.settings.filter_type.options__3.label"
+        }
+      ],
+      "default": "vertical",
+      "label": "t:sections.main-collection.settings.filter_type.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 48
+    }
+  ]
+}
+{% endschema %}

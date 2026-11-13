@@ -1,0 +1,452 @@
+{{ 'parallax-image-with-text.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign section_st = section.settings
+  if section_st.section_width == 'fix_width'
+    assign section_width = 'container'
+  elsif section_st.section_width == 'full_width'
+    assign section_width = 'full-width'
+  else
+    assign section_width = 'fluid_container'
+  endif
+  assign parallax_count = 0
+  for i in (1..3)
+    capture parallax
+      echo 'parallax_image_' | append: i
+    endcapture
+    if section.settings[parallax] != blank
+      assign parallax_count = parallax_count | plus: 1
+    endif
+  endfor
+  assign has_shape_divider = false
+  if section_st.show_divider
+    case section_st.divider_top
+      when 'wave', 'curve-out', 'curve-in'
+        assign has_shape_divider = true
+    endcase
+    case section_st.divider_bottom
+      when 'wave', 'curve-out', 'curve-in'
+        assign has_shape_divider = true
+    endcase
+  endif
+-%}
+{%- capture style -%}
+  --section-pt: {{ section_st.padding_top }}; --section-pb: {{ section_st.padding_bottom }}; --col-width: {{ section_st.desktop_image_width }}%;--gap: 0px;--gap-desktop: 0px;"
+{%- endcapture -%}
+
+{%- render 'section-divider', position: 'top', style: section_st.divider_top, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+<div
+  class="section section__parallax-image-with-text{% if section_st.show_divider and section_st.divider_top == 'line' %} border-top{% endif %}{% if section_st.show_divider and section_st.divider_bottom == 'line' %} border-bottom{% endif %} parallax{% if has_shape_divider %} color-{{ section_st.color_scheme }} gradient{% endif %}"
+  style="{{ style | strip | strip_newlines }}"
+>
+  <div class="{{ section_width }} color-{{ section_st.color_scheme }} gradient {% if section_st.image_desktop_position == 'right' %} main_image_right{% endif %}">
+    <div
+      class="flex wrap{% if section_st.image_desktop_position == 'right' %} row-reverse-md{% endif %} content-desktop-sticky sticky-1025 top-0"
+    >
+      <div
+        class="banner__media h-full w-full col-1025-w-custom"
+        {% if section_st.image != blank %}
+          style="--aspect-ratio: {{ section_st.image.aspect_ratio }}";
+        {% else %}
+          style="--aspect-ratio: 16/9";
+        {% endif %}
+      >
+        {%- liquid
+          assign alt = 'accessibility.promotion_banner' | t
+          if section_st.image.alt
+            assign alt = section_st.image.alt | escape
+          endif
+        -%}
+        {%- if section_st.image != blank -%}
+          {% render 'responsive-image',
+            type: 'banner',
+            container: section_width,
+            image: section_st.image,
+            image_alt: alt,
+            motion: false
+          %}
+        {% else %}
+          {% render 'placeholder-render', type: 'collection-6', class: 'img-placeholder h-full w-full rounded' %}
+        {% endif %}
+        <div class="content-banner-overlay fluid_container inset-0 absolute z-1 text-color flex column space-between" style="--max-width: 40rem;--color-text: {{ section_st.text_color }};">
+          <div class="content-subheading-text max-w-custom-md">
+            {{ section_st.subheading }}
+          </div>
+          <div class="content-heading-text fs-big-2 max-w-custom-md relative">
+            {{ section_st.heading }}
+          </div>
+        </div>
+      </div>
+      <div class="flex space-between gap-sp-4 column h-full w-full col-1025-remaining sticky-content-mobile top-0">
+        <div class="h-custom" style="--height: 9rem;"></div>
+        <div
+          class="parallax-content-container h-full px-sp-5 max-w-custom flex column text-{{ section_st.text_alignment }} flex-{{ section_st.desktop_vertical_alignment }} align-self-{{ section_st.text_alignment }}"
+          style="--max-width: 60rem;"
+        >
+          {% content_for 'blocks' %}
+        </div>
+        <div class="parallax__additional mb-50 flex gap-sp-2 column content-center animation-bounce-bottom">
+          <p class="lh-global fs-small heading-color">
+            {{ 'sections.parallax_image.additional' | t }}
+          </p>
+          <span class="icon-next inline-flex content-center heading-color icon-bounce-bottom">
+            <svg class="block" width="8" height="14" viewBox="0 0 6 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <use href="#icon-next"></use>
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      {% if parallax_count > 0 %}
+        <div class="parallax__image overflow-hidden pointer-none w-full parallax__image-mobile hidden-1025">
+          <ul class="parallax__image-list list-unstyled flex column gap" style="--gap: 40vh;">
+            {%- for i in (1..3) -%}
+              {%- capture parallax -%}parallax_image_{{ i }}{%- endcapture -%}
+              {%- if section.settings[parallax] != blank -%}
+                {%- liquid
+                  assign image = section.settings[parallax]
+                  assign banner_default = 'accessibility.promotion_banner' | t
+                  assign alt = image.alt | default: banner_default | escape
+                -%}
+                <li class="flex">
+                  {% render 'responsive-image',
+                    type: 'banner',
+                    container: section_width,
+                    image: image,
+                    image_alt: alt,
+                    class: 'rounded',
+                    motion: false
+                  %}
+                </li>
+              {% endif %}
+            {%- endfor -%}
+          </ul>
+        </div>
+      {% else %}
+        <div class="parallax__image overflow-hidden pointer-none w-full parallax__image-mobile hidden-1025">
+          <ul class="parallax__image-list list-unstyled flex column gap" style="--gap: 40vh;">
+            {%- for i in (1..3) -%}
+              <li class="flex">
+                <div class="w-full h-full img-container" style="--aspect-ratio: 3/4;">
+                  {% render 'placeholder-render',
+                    type: 'collection-6',
+                    class: 'img-placeholder h-full w-full rounded block',
+                    motion: false
+                  %}
+                </div>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+    {% if parallax_count > 0 %}
+      <div class="parallax__image pointer-none col-1025-remaining relative hidden block-1025">
+        <ul class="parallax__image-list flex column gap list-unstyled" style="--gap: 40vh;">
+          {%- for i in (1..3) -%}
+            {%- capture parallax -%}parallax_image_{{ i }}{%- endcapture -%}
+            {%- if section.settings[parallax] != blank -%}
+              {%- liquid
+                assign image = section.settings[parallax]
+                assign banner_default = 'accessibility.promotion_banner' | t
+                assign alt = image.alt | default: banner_default | escape
+              -%}
+              <li class="flex">
+                {% render 'responsive-image',
+                  type: 'banner',
+                  container: section_width,
+                  image: image,
+                  image_alt: alt,
+                  class: 'rounded'
+                %}
+              </li>
+            {% endif %}
+          {%- endfor -%}
+        </ul>
+      </div>
+    {% else %}
+      <div class="parallax__image pointer-none col-1025-remaining relative hidden block-1025">
+        <ul class="parallax__image-list flex column gap list-unstyled" style="--gap: 40vh;">
+          {%- for i in (1..3) -%}
+            <li class="flex">
+              <div class="w-full h-full img-container" style="--aspect-ratio: 3/4;">
+                {% render 'placeholder-render',
+                  type: 'collection-6',
+                  class: 'img-placeholder h-full w-full rounded',
+                  motion: false
+                %}
+              </div>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{%- render 'section-divider', position: 'bottom', style: section_st.divider_bottom, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+
+{% schema %}
+{
+  "name": "t:sections.parallax-image-with-text.name",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "heading"
+    },
+    {
+      "type": "subheading"
+    },
+    {
+      "type": "highlight-text"
+    },
+    {
+      "type": "description"
+    },
+    {
+      "type": "button"
+    }
+  ],
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.parallax-image-with-text.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "options": [
+        {
+          "value": "fix_width",
+          "label": "t:sections.all.layout.fix_width"
+        },
+        {
+          "value": "stretch_width",
+          "label": "t:sections.all.layout.stretch_width"
+        },
+        {
+          "value": "full_width",
+          "label": "t:sections.all.layout.full_width"
+        }
+      ],
+      "default": "fix_width",
+      "label": "t:sections.all.layout.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.all.image.label",
+      "info": "t:sections.image-with-text.settings.image_info"
+    },
+    {
+      "type": "range",
+      "id": "desktop_image_width",
+      "min": 40,
+      "max": 70,
+      "step": 1,
+      "unit": "%",
+      "default": 50,
+      "label": "t:sections.all.image.width",
+      "info": "t:sections.all.image.info_width"
+    },
+    {
+      "type": "select",
+      "id": "image_desktop_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.all.image.desktop_position.left"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.all.image.desktop_position.right"
+        }
+      ],
+      "default": "left",
+      "label": "t:sections.all.image.desktop_position.label",
+      "info": "t:sections.all.image.desktop_position.info"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "default": "Subheading",
+      "label": "t:sections.all.content_setting.subheading.label"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "heading",
+      "label": "t:sections.all.content_setting.heading.label"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:settings_schema.badges.settings.badge_color.label",
+      "default": "#fff"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.parallax-image-with-text.settings.parallax_image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "parallax_image_1",
+      "label": "t:sections.parallax-image-with-text.settings.image.image_1.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "parallax_image_2",
+      "label": "t:sections.parallax-image-with-text.settings.image.image_2.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "parallax_image_3",
+      "label": "t:sections.parallax-image-with-text.settings.image.image_3.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_setting.label"
+    },
+    {
+      "type": "select",
+      "id": "desktop_vertical_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.top"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.middle"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.bottom"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.label"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "start",
+      "label": "t:sections.all.text_alignment.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.divider.section_divider_heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "t:sections.all.divider.show_divider",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "divider_top",
+      "label": "t:sections.all.divider.top",
+      "info": "t:sections.all.divider.top_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "line",
+      "visible_if": "{{ section.settings.show_divider }}"
+    },
+    {
+      "type": "select",
+      "id": "divider_bottom",
+      "label": "t:sections.all.divider.bottom",
+      "info": "t:sections.all.divider.bottom_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.show_divider }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.parallax-image-with-text.name",
+      "category": "t:sections.group.banners",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "description"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

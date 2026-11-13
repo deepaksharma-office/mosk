@@ -1,0 +1,168 @@
+{% liquid
+  assign theme_st = settings
+  assign block_st = block.settings
+  assign has_custom_background = false
+  assign background_color_alpha = block_st.background_color | color_extract: 'alpha'
+  assign background_color_hex = block_st.background_color | color_to_hex | downcase
+  if block_st.background_color != blank
+    if background_color_alpha != 0
+      if background_color_hex != '#ffffff'
+        assign has_custom_background = true
+      elsif background_color_alpha < 1
+        assign has_custom_background = true
+      endif
+    endif
+  endif
+  assign scroll_animation = theme_st.scroll_animation
+  assign scroll_animation = 'disable'
+%}
+{% capture style %}
+--color-text: {{ block_st.text_color }};--bg-color-custom: {{ block_st.background_color }};--space-bottom: {{ block_st.padding_bottom }};--space-top: {{ block_st.padding_top }};--space-left: 0;--space-right: 0;--space-min-left: 0;--space-min-right: 0;
+{%- if block_st.padding_top > 20 -%}--space-min-top: {{ block_st.padding_top | times: 0.67 }};{%- else -%}--space-min-top: {{ block_st.padding_top }};{%- endif -%}
+{%- if block_st.padding_bottom > 20 -%}--space-min-bottom: {{ block_st.padding_bottom | times: 0.67 }};{%- else -%}--space-min-bottom: {{ block_st.padding_bottom }};{%- endif -%}
+{% endcapture %}
+{% if request.visual_preview_mode %}
+  <div
+    class="flexible-block block__highlight_text btn-rounded py-sp-2 px-15 inline-block mb-sp-5"
+    style="color: #ffffff; background-color: #C92419;"
+    {{ block.shopify_attributes }}
+  >
+    <div>{{ block.settings.highlight_text }}</div>
+  </div>
+{% else %}
+  {% if block_st.highlight_text_icon != 'none' or block_st.highlight_text != blank %}
+    <div
+      class="block__highlight_text spacing-style group-block--height switch-slide__mobile"
+      style="{{ style | strip | strip_newlines }};"
+      {{ block.shopify_attributes }}
+    >
+      <div
+        class="subheading_weight lh-1 {% if block_st.uppercase %} uppercase{% endif %} fs-{{ block_st.highlight_text_size }} text-color inline-flex align-center gap-sp-2{% if scroll_animation == 'disable' and has_custom_background %} bg-custom py-sp-2 px-15 btn-rounded{% endif %}"
+      >
+        {%- if block_st.highlight_text_icon == 'star' -%}
+          {%- render 'icon-star' -%}
+        {%- elsif block_st.highlight_text_icon == 'dot' -%}
+          <svg width="5" height="5" viewBox="0 0 8 8" fill="none">
+            <use href="#icon-dot"></use>
+          </svg>
+        {%- endif -%}
+        {% if block_st.highlight_text != blank %}
+          <div class="max-w-100 lh-normal">{{ block_st.highlight_text | escape }}</div>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.all.content_setting.highlight_text.label",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.all.content_setting.highlight_text.how_to_use"
+    },
+    {
+      "type": "text",
+      "id": "highlight_text",
+      "default": "t:sections.all.content_setting.highlight_text.label",
+      "label": "t:sections.all.content_setting.highlight_text.label"
+    },
+    {
+      "type": "select",
+      "id": "highlight_text_size",
+      "options": [
+        {
+          "value": "12",
+          "label": "t:sections.all.content_header.heading_size.xs_small.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.all.content_header.heading_size.x_small.label"
+        },
+        {
+          "value": "small-1",
+          "label": "t:sections.all.content_header.heading_size.small.label"
+        },
+        {
+          "value": "",
+          "label": "t:sections.all.content_header.heading_size.base.label"
+        },
+        {
+          "value": "big-2",
+          "label": "t:sections.all.content_header.heading_size.large.label"
+        }
+      ],
+      "default": "",
+      "label": "t:sections.all.content_header.heading_size.size"
+    },
+    {
+      "type": "select",
+      "id": "highlight_text_icon",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:settings_schema.typography.settings.heading.text_transform.unset"
+        },
+        {
+          "value": "star",
+          "label": "t:sections.all.content_setting.highlight_text.settings.icons.options__2.label"
+        },
+        {
+          "value": "dot",
+          "label": "t:sections.all.content_setting.highlight_text.settings.icons.options__3.label"
+        }
+      ],
+      "default": "star",
+      "label": "t:sections.all.content_setting.highlight_text.settings.icons.label"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:sections.image-with-text.settings.background_color",
+      "default": "#C03E35",
+      "alpha": true
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.image-with-text.settings.text_color",
+      "default": "#ffffff",
+      "alpha": true
+    },
+    {
+      "type": "checkbox",
+      "id": "uppercase",
+      "default": false,
+      "label": "t:settings_schema.typography.settings.heading.text_transform.uppercase"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.page.spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 8
+    }
+  ],
+  "presets": [
+    { "name": "t:sections.all.content_setting.highlight_text.label", "category": "t:sections.group.blocks.basic" }
+  ]
+}
+{% endschema %}

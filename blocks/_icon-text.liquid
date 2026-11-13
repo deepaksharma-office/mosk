@@ -1,0 +1,211 @@
+{% liquid
+    assign block_st = block.settings
+    assign icon_svg = block_st.icon_svg
+    assign icon_svg_second = block_st.icon_svg_second
+  %}
+  
+  <div class="flex block__icon-with-text">
+    {% if block_st.content != blank or block_st.custom_svg != blank or block_st.icon_svg != 'none' %}
+      <div
+        class="block__icon-box-content-icon flex"
+        style="--custom-width: {{ block_st.image_width }}px;"
+      >
+        {%- if block_st.custom_svg != blank -%}
+          <span class="custom-svg w-custom h-custom">
+            {{ block_st.custom_svg }}
+          </span>
+        {%- elsif block_st.icon_svg != 'none' -%}
+          {% render 'icon_svg_list',
+            icon: icon_svg,
+            custom_width: block_st.image_width,
+            custom_height: block_st.image_width
+          %}
+        {% endif %}
+        <div class="block__content-icon-text">
+          {{ block_st.content }}
+        </div>
+      </div>
+    {% endif %}
+    {% if block_st.content_second != blank or block_st.custom_svg_second != blank or block_st.icon_svg_second != 'none' %}
+      <div
+        class="block__icon-box-content-icon flex"
+        style="--custom-width: {{ block_st.image_width }}px"
+      >
+        {%- if block_st.custom_svg_second != blank -%}
+          <span class="custom-svg w-custom w-custom-svg">
+            {{ block_st.custom_svg_second }}
+          </span>
+        {%- elsif block_st.icon_svg != 'none' -%}
+          {% render 'icon_svg_list',
+            icon: icon_svg_second,
+            custom_width: block_st.image_width,
+            custom_height: block_st.image_width
+          %}
+        {% endif %}
+        <div class="block__content-icon-text">
+          {{ block_st.content_second }}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+  
+  {% schema %}
+  {
+    "name": "t:sections.custom_section.blocks.icon_with_text.name",
+    "tag": null,
+    "settings": [
+      {
+        "type": "range",
+        "id": "image_width",
+        "min": 20,
+        "max": 200,
+        "step": 5,
+        "label": "t:sections.scrolling_text.settings.blocks.image.image_width.label",
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.custom_section.blocks.icon_with_text.icon_first"
+      },
+      {
+        "type": "text",
+        "id": "content",
+        "label": "t:sections.custom_section.blocks.text.name",
+        "default": "This is description text"
+      },
+      {
+        "type": "select",
+        "id": "icon_svg",
+        "label": "t:sections.all.svg.label",
+        "info": "t:sections.all.svg.custom_svg.info",
+        "default": "beauty",
+        "options": [
+          {
+            "value": "none",
+            "label": "t:sections.all.icon.none.label"
+          },
+          {
+            "value": "beauty",
+            "label": "t:sections.all.icon.beauty.label"
+          },
+          {
+            "value": "line",
+            "label": "t:sections.all.icon.line.label"
+          },
+          {
+            "value": "leaf",
+            "label": "t:sections.all.icon.leaf.label"
+          },
+          {
+            "value": "cruelty",
+            "label": "t:sections.all.icon.cruelty.label"
+          },
+          {
+            "value": "paraben",
+            "label": "t:sections.all.icon.paraben.label"
+          },
+          {
+            "value": "check_badge",
+            "label": "t:sections.all.icon.check_badge.label"
+          },
+          {
+            "value": "free_shipping",
+            "label": "t:sections.all.icon.free_shipping.label"
+          },
+          {
+            "value": "message_communications",
+            "label": "t:sections.all.icon.message_communications.label"
+          },
+          {
+            "value": "moon",
+            "label": "t:sections.all.icon.moon.label"
+          },
+          {
+            "value": "hive",
+            "label": "t:sections.all.icon.hive.label"
+          }
+        ]
+      },
+      {
+        "type": "textarea",
+        "id": "custom_svg",
+        "label": "t:sections.custom_section.blocks.icon_with_text.svg_custom"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.custom_section.blocks.icon_with_text.icon_second"
+      },
+      {
+        "type": "text",
+        "id": "content_second",
+        "label": "t:sections.custom_section.blocks.text.name",
+        "default": "This is description text"
+      },
+      {
+        "type": "select",
+        "id": "icon_svg_second",
+        "label": "t:sections.all.svg.label",
+        "info": "t:sections.all.svg.custom_svg.info",
+        "default": "beauty",
+        "options": [
+          {
+            "value": "none",
+            "label": "t:sections.all.icon.none.label"
+          },
+          {
+            "value": "beauty",
+            "label": "t:sections.all.icon.beauty.label"
+          },
+          {
+            "value": "line",
+            "label": "t:sections.all.icon.line.label"
+          },
+          {
+            "value": "leaf",
+            "label": "t:sections.all.icon.leaf.label"
+          },
+          {
+            "value": "cruelty",
+            "label": "t:sections.all.icon.cruelty.label"
+          },
+          {
+            "value": "paraben",
+            "label": "t:sections.all.icon.paraben.label"
+          },
+          {
+            "value": "check_badge",
+            "label": "t:sections.all.icon.check_badge.label"
+          },
+          {
+            "value": "free_shipping",
+            "label": "t:sections.all.icon.free_shipping.label"
+          },
+          {
+            "value": "message_communications",
+            "label": "t:sections.all.icon.message_communications.label"
+          },
+          {
+            "value": "moon",
+            "label": "t:sections.all.icon.moon.label"
+          },
+          {
+            "value": "hive",
+            "label": "t:sections.all.icon.hive.label"
+          }
+        ]
+      },
+      {
+        "type": "textarea",
+        "id": "custom_svg_second",
+        "label": "t:sections.custom_section.blocks.icon_with_text.svg_custom"
+      }
+    ],
+    "presets": [
+      {
+        "name": "t:sections.custom_section.blocks.icon_with_text.name"
+      }
+    ]
+  }
+  {% endschema %}
+  

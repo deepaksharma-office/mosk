@@ -1,0 +1,24 @@
+<a
+  href="{{ routes.cart_url }}"
+  class="header__icon transparent-color wh-44 flex content-center"
+  id="cart-icon-bubble"
+>
+  <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+    <use href="#icon-cart" />
+  </svg>
+  <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+  {%- if cart != empty -%}
+    <div class="cart-count rounded-50 inline-flex content-center absolute bg-sale color-white fs-10 lh-1">
+      {%- if cart.item_count < 100 -%}
+        <span class="count">{{ cart.item_count }}</span>
+      {%- else -%}
+        <span aria-hidden="true">~</span>
+      {%- endif -%}
+      <span class="visually-hidden">{{ 'templates.cart.cart_count' | t: count: cart.item_count }}</span>
+    </div>
+  {%- else -%}
+    <div class="cart-count hidden lh-1">
+      <span aria-hidden="true">0</span>
+    </div>
+  {%- endif -%}
+</a>

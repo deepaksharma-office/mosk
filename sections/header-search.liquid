@@ -1,0 +1,514 @@
+{% liquid
+  assign theme_st = settings
+  assign search_type = theme_st.search_type | default: 'drawer'
+  assign search_popular_keywords = theme_st.search_popular_keywords
+  assign predictive_search_enabled = theme_st.predictive_search_enabled
+  assign search_product_recommended = theme_st.search_product_recommended
+  assign show_search_history = theme_st.show_search_history
+  assign show_search_price = theme_st.show_search_price
+  assign search_placeholder = 'general.search.search' | t
+  assign search_placeholder = theme_st.search_placeholder | default: search_placeholder | escape
+  assign search_panel = false
+  assign search_panel_inline = false
+  assign search_panel_popup = false
+  if search_type == 'popup' or search_type == 'inline'
+    assign search_panel = true
+    if search_type == 'inline'
+      assign search_panel_inline = true
+    else
+      assign search_panel_popup = true
+    endif
+    if show_search_price
+      assign show_search_price = false
+    else
+      assign show_search_price = true
+    endif
+  endif
+  assign show_inline_history = false
+  if search_panel
+    if show_search_history
+      assign show_inline_history = true
+    endif
+  endif
+  assign show_search_content = false
+  if search_product_recommended != blank
+    assign show_search_content = true
+  elsif predictive_search_enabled != false
+    assign show_search_content = true
+  elsif show_inline_history
+    assign show_search_content = true
+  endif
+%}
+<script>
+  (function () {
+    var header = document.querySelector('.header__inner[data-search-type="inline"]');
+    if (header) window.__purityForceSearchInline = true;
+  })();
+</script>
+{% style %}
+  {% if search_panel == false %}
+    .search-results__item ul > *:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
+    {% else %}
+    :is(.search-pages-articles, .search-results__item) > *:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
+    @media (max-width: 1024.98px) {
+      .recommend-search {
+        padding-inline: 0;
+      }
+    }
+    @media (min-width: 1025px) {
+      action-search .drawer__body {
+        overflow: auto;
+      }
+      .predictive-search:has(.no-results) {
+        border: 0;
+      }
+      action-search .modal__close__pop-up {
+        border: 1px solid var(--color-border);
+        background: rgba(var(--color-white),var(--opacity, 1));
+        width: 5.8rem;
+        height: 5.8rem;
+      }
+      action-search .modal__close__pop-up svg {
+        width: 14px;
+        height: 14px;
+      }
+      action-search.search-type-inline .modal__close__pop-up {
+        top: 2rem;
+        inset-inline-end: max(3rem, calc((100vw - var(--page-width)) / 2));
+        border: 0;
+        background: transparent;
+        width: auto;
+        height: auto;
+      }
+      action-search.search-type-inline .modal__close__pop-up:focus-visible {
+        overflow: visible;
+      }
+      action-search.search-type-inline .modal__close__pop-up svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  {% endif %}
+    .search-type-inline .search-history-popup-layout,
+    .search-type-popup .search-history-inline-layout {
+      display: none;
+    }
+    .search-animation:not(.hidden-important) ~ .search__input {
+      opacity: 0;
+    }
+    .search-animation .text-cursor {
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+{% endstyle %}
+<script type="module" src="{{ 'search.js' | asset_url }}"></script>
+{%- if theme_st.enable_speech_search -%}
+  <script type="module" src="{{ 'voice-search.js' | asset_url }}"></script>
+{%- endif %}
+<action-search
+  id="{{ section.id }}"
+  class="block modal invisible transition-drawer transition-drawer fixed inset-0 z-15 active-modal-js content-hidden{% if search_type == 'drawer' %} search-type-drawer{% elsif search_type == 'inline' %} search-type-inline search-result-{{ theme_st.show_search_results }}{% else %} search-type-popup search-result-{{ theme_st.show_search_results }}{% endif %}"
+  data-section-id="{{ section.id }}"
+  data-type="{{ search_type }}"
+  drawer
+>
+  <modal-overlay class="modal-overlay cursor-crosshair"></modal-overlay>
+  <div
+    class="modal-inner draw-mb transition-drawer drawer-right-mb color-default transition-drawer drawer{% if search_panel == false %} drawer-right{% else %} drawer-top inset-y-1025-none{% endif %} fixed right-0 inset-y-0 z-2 bg-white w-full"
+    style="--drawer-width: 46rem;"
+    role="dialog"
+    aria-modal="true"
+    aria-label="{{ 'general.search.name' | t }}"
+    tabindex="-1"
+  >
+    <div class="drawer__body h-full flex column{% if search_panel %} pt-1025-40 custom-scrollbar{% endif %}">
+      <div
+        class="search__header drawer__header drawer-spacing border-bottom flex gap-10 align-center space-between{% if search_panel %} justify-center-1025 p-1025-0 border-1025-0{% endif %}"
+        style="--padding-block-desktop: 1.7rem;--padding-block: 1.2rem;"
+      >
+        <div class="drawer__heading h5 lh-normal{% if search_panel %} hidden-1025{% endif %}">
+          {{ 'general.search.name' | t }}
+        </div>
+        <button
+          type="button"
+          is="button-close-model"
+          class="modal__close pointer modal-button-close rounded-50 hover-icon-zoom heading-color btn-reset h-full inline-flex content-center{% if search_panel %} modal__close__pop-up btn-hover overflow-hidden justify-center-1025 absolute-1025 top-30{% if search_panel_inline %} right-custom{% else %} right-30{% endif %}{% endif %}"
+          {% if search_panel_inline %}
+            style="--right-custom: max(5vw, calc((100vw - var(--page-width)) / 2));"
+          {% endif %}
+          aria-label="{{ 'accessibility.close' | t }}"
+        >
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 14 14"
+            fill="none"
+            class="transition-short will-change{% if search_panel == false %} icon-zoom{% endif %}"
+          >
+            <use href="#icon-close" />
+          </svg>
+        </button>
+      </div>
+      <div
+        id="search-form"
+        class="search-form drawer-spacing{% if search_panel == false %} overflow-y-auto custom-scrollbar grow-1{% else %} flex-1 overflow-x-scroll-mb{% endif %}"
+        style="--padding-block: 2rem;{% if search_panel %}--padding-block-desktop: 0;--padding-inline-desktop: 0;{% endif %}"
+      >
+        <form
+          action="{{ routes.search_url }}"
+          id="search_mini_form"
+          method="get"
+          role="search"
+          class="search search-modal__form loading_snippet{% if search_panel %} flex column h-1025-full{% endif %}"
+          {% if search_panel %}
+            style="--max-width: 60rem;"
+          {% endif %}
+        >
+          <input type="hidden" name="options[prefix]" value="last">
+          <div class="flex align-center gap-sp-3 search-inline-field{% if search_panel %} mb-sp-5 mb-1025-0{% else %} mb-sp-4{% endif %}">
+            <div
+              class="field bg-secondary p-custom btn-rounded flex align-center grow-1 border border-transparent overflow-hidden btn-search btn-rounded gap-sp-3 relative{% if search_panel %} w-full max-w-custom mx-auto{% endif %}"
+              style="--padding: 0 clamp(1.5rem, 2.4rem + 0.2 * (100vw - 320px) / 1080, 2.6rem);"
+            >
+              <button
+                type="submit"
+                class="relative button pointer btn-reset search__button fs-0"
+                tabindex="0"
+                aria-label="{{ search_placeholder }}"
+              >
+                <svg width="21" height="21" fill="none" class="heading-color">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10.546 19.167a8.62 8.62 0 1 0 0-17.241 8.62 8.62 0 0 0 0 17.241ZM20.075 20.074 18.26 18.26"/>
+                </svg>
+              </button>
+              <div class="search-animation flex absolute left-custom gap-sp-1 mt-2" style="--left-custom: 6rem;">
+                <search-text
+                  class="search-text flex heading-color align-center fs-small-1 overflow-hidden whitespace-nowrap lh-global max-w-custom-all"
+                  style="--max-width: calc(100vw - 180px);"
+                  data-text="{{ search_placeholder }}"
+                ></search-text
+                ><span class="text-cursor fs-20">|</span>
+              </div>
+              <input
+                class="flex-1 search__input field__input show-placehoder w-custom lh-global transition"
+                style="--input-bg:transparent;--input-border-width: 0;--input-padding: 0;--input-padding-start: 0;--input-padding-end: 0;--input-padding-top: 0;--input-padding-bottom: 0;--input-placeholder-color: var(--color-text);--input-border-radius: 0;--width: 0;--transition: opacity 0.3s;"
+                type="search"
+                name="q"
+                placeholder="{{ search_placeholder }}"
+                maxlength="128"
+                id="Search-In-Modal"
+                {% if predictive_search_enabled %}
+                  autocomplete="off"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  spellcheck="off"
+                {% endif %}
+              >
+              <label class="visually-hidden" for="Search-In-Modal"> {{ search_placeholder }}</label>
+              {%- if theme_st.enable_speech_search -%}
+                {% render 'voice-search-button',
+                  classes: 'absolute inset-y-0 z-3 right-24 right-1025-26',
+                  filled_class: 'me-sp-8'
+                %}
+              {%- endif -%}
+              <div
+                class="absolute inset-y-0 inline-flex search__action-right align-center right-24 right-1025-26 pointer-none clear-btn"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="absolute pointer z-3 opacity-0 transition icon-clear-search"
+                >
+                  <rect width="20" height="20" rx="10" fill="#1D1D1F" fill-opacity="0.5"/>
+                  <path d="M7.13043 7.72362C7.04348 7.64322 7 7.54606 7 7.43216C7 7.31156 7.04348 7.20771 7.13043 7.1206C7.2107 7.0402 7.31104 7 7.43144 7C7.55184 7 7.65217 7.0402 7.73244 7.1206L10 9.39196L12.2676 7.1206C12.3478 7.0402 12.4482 7 12.5686 7C12.689 7 12.7893 7.0402 12.8696 7.1206C12.9565 7.20771 13 7.31156 13 7.43216C13 7.54606 12.9565 7.64322 12.8696 7.72362L10.602 9.99497L12.8696 12.2663C12.9565 12.3534 13 12.4573 13 12.5779C13 12.6918 12.9565 12.7889 12.8696 12.8693C12.7893 12.9564 12.689 13 12.5686 13C12.4482 13 12.3478 12.9564 12.2676 12.8693L10 10.608L7.73244 12.8693C7.65217 12.9564 7.55184 13 7.43144 13C7.31104 13 7.2107 12.9564 7.13043 12.8693C7.04348 12.7889 7 12.6918 7 12.5779C7 12.4573 7.04348 12.3534 7.13043 12.2663L9.39799 9.99497L7.13043 7.72362Z" fill="white"/>
+                </svg>
+                <span
+                  class="inline-flex opacity-0 icon-rotator bg-secondary w-custom h-custom rounded-50 transition-short"
+                  style="--width: 2rem;--height: 2rem;"
+                ></span>
+              </div>
+            </div>
+          </div>
+          {%- if show_search_history -%}
+            {%- if search_panel_inline -%}
+              {% render 'search-history',
+                history_id: 'search-history-mobile',
+                classes: 'hidden-1025 w-full max-w-custom mx-auto mb-sp-4 mt-0',
+                max_width: '60rem'
+              %}
+            {%- elsif search_panel -%}
+              {% render 'search-history',
+                history_id: 'search-history',
+                classes: 'search-history-popup-layout w-full max-w-custom mx-auto mb-sp-4 mb-1025-0 mt-0 mt-1025-sp-6',
+                max_width: '60rem',
+                search_panel_popup: search_panel_popup
+              %}
+            {%- else -%}
+              {% render 'search-history', history_id: 'search-history', classes: 'mb-sp-4 mb-1025-sp-6' %}
+            {%- endif -%}
+          {%- endif -%}
+          {%- if search_popular_keywords != blank and search_panel == false -%}
+            {%- capture link_search_keyword -%}
+              {{ routes.search_url }}?type=product&options%5Bprefix%5D=last&q=
+            {%- endcapture -%}
+            <div
+              id="search-keyword"
+              class="search-keyword"
+            >
+              <ul
+                class="search-keyword-list list-unstyled heading-color flex wrap gap"
+                style="--row-gap: 4px;--gap: 1.6rem;"
+              >
+                {%- assign search_popular_keywords = search_popular_keywords
+                  | replace: ' ,', ','
+                  | replace: ', ', ','
+                  | split: ','
+                -%}
+                {%- for qr in search_popular_keywords -%}
+                  {%- assign search_keywords = qr | strip -%}
+                  {%- if search_keywords -%}
+                    <li>
+                      <a
+                        class="recommend-search__item outlined-border inline-flex content-center gap-sp-2 text-color"
+                        href="{{ link_search_keyword }}{{ search_keywords }}"
+                        aria-label="{{ search_keywords }}"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="10" fill="none">
+                          <use href="#icon-popular"/>
+                        </svg>
+                        {{ search_keywords }}
+                      </a>
+                    </li>
+                  {%- endif -%}
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- endif -%}
+          {%- if show_search_content -%}
+            <div
+              class="search-content{% if search_panel %} search-content-popup border-top-1025 mt-1025-40{% endif %}"
+              {% if search_panel %}
+                style="--col-width: var(--search-panel-col-width, 27rem); --gap: 0px";
+              {% endif %}
+            >
+              {%- if predictive_search_enabled != false -%}
+                <div
+                  class="predictive-search empty-hidden{% if search_panel %} border-1025-0 w-full{% endif %}"
+                ></div>
+              {%- endif -%}
+              {% if search_panel %}
+                {%- capture link_search_keyword -%}
+                {{ routes.search_url }}?type=product&options%5Bprefix%5D=last&q=
+              {%- endcapture -%}
+                <div class="w-full flex column row-1025 container container-1025">
+                  {% if search_popular_keywords != blank %}
+                    <div
+                      id="search-keyword"
+                      class="search-keyword col-1025-w-custom py-1025-40 pe-1025-40"
+                    >
+                      <div class="h6 mb-sp-3 hidden block-1025">
+                        {{ 'general.search.popular_search' | t }}
+                      </div>
+                      <ul
+                        class="search-keyword-list list-unstyled heading-color flex column-1025 wrap row-gap-sp-1 gap-sp-4 gap-1025-sp-1 pb-1025-sp-4{% if theme_st.search_collection_recommended != blank %} border-1025-bottom-dashed{% endif %}"
+                      >
+                        {%- assign search_popular_keywords = search_popular_keywords
+                          | replace: ' ,', ','
+                          | replace: ', ', ','
+                          | split: ','
+                        -%}
+                        {%- for qr in search_popular_keywords -%}
+                          {%- assign search_keywords = qr | strip -%}
+                          {%- if search_keywords -%}
+                            <li>
+                              <a
+                                class="recommend-search__item outlined-border inline-flex content-center gap-sp-2 text-color"
+                                href="{{ link_search_keyword }}{{ search_keywords }}"
+                                aria-label="{{ search_keywords }}"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="10" fill="none">
+                                  <use href="#icon-popular"/>
+                                </svg>
+                                {{ search_keywords }}
+                              </a>
+                            </li>
+                          {%- endif -%}
+                        {%- endfor -%}
+                      </ul>
+                      {% if theme_st.search_collection_recommended != blank %}
+                        <div class="pt-sp-5 pt-1025-sp-4 mt-sp-5 mt-1025-0 border-top border-1025-0">
+                          <div class="h6 mb-sp-3">
+                            {{ 'products.product.collections' | t }}
+                          </div>
+                          <ul
+                            class="search-keyword-list list-unstyled heading-color flex column-1025 wrap row-gap-sp-1 gap-sp-4 gap-1025-sp-1"
+                          >
+                            {%- for collection_item in theme_st.search_collection_recommended -%}
+                              <li>
+                                <a
+                                  class="recommend-search__item outlined-border inline-flex content-center gap-sp-2 text-color"
+                                  href="{{ routes.collections_url }}/{{ collection_item.handle }}"
+                                  aria-label="{{ collection_item.handle }}"
+                                >
+                                  {{ collection_item.title }}
+                                </a>
+                              </li>
+                            {%- endfor -%}
+                          </ul>
+                        </div>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+              {% endif %}
+              {% if search_panel == false %}
+                {% if theme_st.search_collection_recommended != blank %}
+                  <div class="collection-recommend pt-sp-5 mt-sp-5 border-top pt-1025-sp-6 pb-1025-0 mt-1025-sp-6">
+                    <div class="h7 mb-sp-3">
+                      {{ 'products.product.collections' | t }}
+                    </div>
+                    <ul
+                      class="search-keyword-list list-unstyled heading-color flex column-1025 wrap row-gap-sp-1 gap-sp-4 gap-1025-sp-1"
+                    >
+                      {%- for collection_item in theme_st.search_collection_recommended -%}
+                        <li>
+                          <a
+                            class="recommend-search__item outlined-border inline-flex content-center gap-sp-2 text-color"
+                            href="{{ routes.collections_url }}/{{ collection_item.handle }}"
+                            aria-label="{{ collection_item.handle }}"
+                          >
+                            {{ collection_item.title }}
+                          </a>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  </div>
+                {% endif %}
+              {% endif %}
+              {%- if search_product_recommended != blank or show_inline_history -%}
+                <div
+                  class="recommend-search pt-sp-5 mt-sp-5 border-top{% if search_panel == false %} pt-1025-sp-6 pb-1025-0 mt-1025-sp-6{% else %} mt-1025-0 py-1025-40 border-1025-0 ps-1025-40 col-1025-remaining border-left-1025{% endif %}"
+                  data-predictive-search
+                >
+                  {%- if show_inline_history -%}
+                    {% render 'search-history',
+                      history_id: 'search-history-inline',
+                      classes: 'search-history-inline-layout hidden block-1025 w-full mb-1025-sp-6'
+                    %}
+                  {%- endif -%}
+                  {%- if search_product_recommended != blank -%}
+                    {%- assign sizes = '(min-width: 1200px) calc((1200px -  30px * 3) * 0.2), (min-width: 768px) calc( (100vw - 30px - 30px * 2 ) * 0.33), 80px' -%}
+                    <template class="template-recommended-default">
+                      <div class="search-product">
+                        <div class="mb-sp-3 mb-1025-sp-4 heading-color h6">
+                          {{ 'general.search.popular_products' | t }}
+                        </div>
+                        <div class="flex gap-sp-4 column">
+                          {%- for product in search_product_recommended -%}
+                            {% render 'card-product',
+                              card_product: product,
+                              disable_hover_image: true,
+                              disable_badge: true,
+                              disable_rate: true,
+                              disable_tag: true,
+                              disable_countdown: true,
+                              disable_scrolling_text: true,
+                              disable_price: show_search_price,
+                              disable_vendor: true,
+                              disable_color_swatches: true,
+                              disable_quickview: true,
+                              disable_show_video: true,
+                              sizes: sizes,
+                              image_width_var: '8rem',
+                              align_left_only: true,
+                              type: 'list'
+                            %}
+                          {%- endfor -%}
+                        </div>
+                      </div>
+                    </template>
+                    {% if search_panel %}
+                      <template class="template-recommended-popup">
+                        <div class="search-product">
+                          <div class="mb-sp-4 mb-1025-sp-6 heading-color h6">
+                            {{ 'general.search.popular_products' | t }}
+                          </div>
+                          <slide-section
+                            class="swiper hover-action"
+                            data-section-id="{{ section.id }}"
+                            data-autoplay="false"
+                            data-effect="slide"
+                            data-loop="false"
+                            data-speed="300"
+                            data-spacing="24"
+                            data-mobile="4"
+                            data-desktop="4"
+                            data-tablet="3"
+                          >
+                            {%- render 'swiper-navigation', show_on_hover: true -%}
+                            <div class="swiper-wrapper">
+                              {%- for product in search_product_recommended -%}
+                                {% render 'card-product',
+                                  card_product: product,
+                                  disable_hover_image: true,
+                                  disable_countdown: true,
+                                  disable_scrolling_text: true,
+                                  disable_price: show_search_price,
+                                  disable_vendor: true,
+                                  disable_color_swatches: true,
+                                  disable_quickview: true,
+                                  disable_show_video: true,
+                                  class: ' swiper-slide',
+                                  sizes: sizes
+                                %}
+                              {%- endfor -%}
+                            </div>
+                          </slide-section>
+                        </div>
+                      </template>
+                    {%- endif -%}
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+              {% if search_panel %}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </form>
+      </div>
+    </div>
+  </div>
+</action-search>
+{% schema %}
+{
+  "name": "t:sections.search.name",
+  "tag": "section",
+  "class": "overlay-section overlay-search",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.search.how_to_use"
+    }
+  ]
+}
+{% endschema %}

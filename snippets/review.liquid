@@ -1,0 +1,75 @@
+{%- liquid
+  if scope == 'item'
+    assign class = 'rating-total absolute top-10 top-md-15 bg-white fs-13 subheading_weight'
+  endif
+%}
+{% if review_star %}
+  {%- if product.metafields.reviews.rating.value != blank -%}
+    {% liquid
+      assign rating_decimal = 0
+      assign rating_decimal = product.metafields.reviews.rating.value | plus: 1
+      assign decimal = product.metafields.reviews.rating.value.rating | modulo: 1
+      if decimal >= 0.3 and decimal <= 0.7
+        assign rating_decimal = 0.5
+      elsif decimal > 0.7
+        assign rating_decimal = 1
+      endif
+      assign rating_integer = product.metafields.reviews.rating.value.rating | floor
+    %}
+
+    <div class="product-rating{% if scope != 'item' %} flex align-center lh-global wrap gap-5 mb-custom flex-{{ settings.product_alignment }}{% endif %}">
+      {% if scope != 'item' %}
+        <div
+          class="rating relative me-3{% if scope == 'quickadd' %} flex mb-sp-2{% endif %}"
+          role="img"
+          aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: product.metafields.reviews.rating.value, rating_max: product.metafields.reviews.rating.value.scale_max }}"
+        >
+          <span
+            aria-hidden="true"
+            class="star-rating inline-flex align-center gap"
+            style="--gap: 1px; --gap-desktop: 1px;--rating: {{ product.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ product.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};"
+          >
+            {%- for i in (1..5) -%}
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <use href="#icon-rate"></use>
+              </svg>
+            {%- endfor -%}
+          </span>
+          <div class="absolute inset-0 z-1 inline-flex align-center gap" style="--gap: 1px; --gap-desktop: 1px;">
+            {%- for i in (1..rating_integer) -%}
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" class="rate-color">
+                <use href="#icon-rate"></use>
+              </svg>
+            {%- endfor -%}
+            {% if rating_decimal == 0.5 %}
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" class="half-star rtl-mirror">
+                <use href="#icon-rate-half"></use>
+              </svg>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+      <div class="rating-text caption color-dark gap-sp-1 content-center rounded {{ class }} right-10 right-md-15{% if scope != 'item' and scope != 'quickadd' %} me-10{% endif %}{% if scope == 'quickadd' %} hidden{% else %} flex{% endif %}">
+        {% if scope == 'item' %}
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="12" viewBox="0 0 11 12" fill="none">
+            <path d="M10.9701 4.65957C11.006 4.77169 11.0096 4.88754 10.9809 5.00713C10.9522 5.12673 10.8913 5.22763 10.7982 5.30985L8.40165 7.50736L9.11094 10.7588C9.13243 10.8784 9.12169 10.9942 9.0787 11.1063C9.04288 11.2185 8.9784 11.3119 8.88526 11.3866C8.78495 11.4614 8.67749 11.4988 8.56285 11.4988C8.44822 11.5062 8.34075 11.4801 8.24045 11.4203L5.5 9.70487L2.75955 11.4203C2.71657 11.4427 2.66641 11.4614 2.6091 11.4763C2.55894 11.4913 2.50879 11.4988 2.45864 11.4988C2.40132 11.4988 2.34043 11.4875 2.27594 11.4651C2.21863 11.4502 2.16489 11.424 2.11474 11.3866C2.0216 11.3119 1.95354 11.2185 1.91055 11.1063C1.87473 10.9942 1.86756 10.8784 1.88906 10.7588L2.59835 7.50736L0.201802 5.30985C0.108663 5.22763 0.0477638 5.12673 0.0191055 5.00713C-0.00955276 4.88754 -0.00597047 4.77169 0.0298524 4.65957C0.0656752 4.53998 0.126574 4.44281 0.212549 4.36806C0.305688 4.29332 0.409574 4.24847 0.524208 4.23352L3.70528 3.94202L4.96266 0.869989C5.00564 0.757871 5.07729 0.668177 5.17759 0.600906C5.2779 0.533635 5.38537 0.5 5.5 0.5C5.61463 0.5 5.7221 0.533635 5.82241 0.600906C5.92271 0.668177 5.99435 0.757871 6.03734 0.869989L7.29472 3.94202L10.4758 4.23352C10.5904 4.24847 10.6907 4.29332 10.7767 4.36806C10.8698 4.44281 10.9343 4.53998 10.9701 4.65957Z" fill="#FF9C05"/>
+          </svg>
+        {% endif %}
+        {% if scope != 'quickadd' -%}
+          {{- product.metafields.reviews.rating.value.rating | times: 1 | round: 1 }}
+        {% endif %}
+      </div>
+      {% if scope != 'item' and scope != 'quickadd' %}
+        <span class="rating-count caption grey-color{% if scope == 'item' %} visually-hidden{% endif %}" dir="auto">
+          <span aria-hidden="true" class="rate__count"
+            >(
+            {{- product.metafields.reviews.rating_count }}
+            {{ 'accessibility.total_reviews' | t -}}
+            )
+          </span>
+          <span aria-hidden="true" class="visually-hidden">({{ product.metafields.reviews.rating_count }})</span>
+        </span>
+      {% endif %}
+    </div>
+  {%- endif -%}
+{% endif %}

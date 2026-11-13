@@ -1,0 +1,120 @@
+<script src="{{ 'countdown-timer.js' | asset_url }}" defer="defer"></script>
+{% liquid
+  assign theme_st = settings
+  assign section_st = section.settings
+  assign block_st = block.settings
+  assign scroll_animation = theme_st.scroll_animation
+  assign content_alignment = section_st.text_alignment
+  assign text_alignment_mobile = section_st.text_alignment_mobile | default: content_alignment
+  if block.settings.end_times != blank
+    assign end_date_parts = block.settings.end_times | split: '-'
+    if end_date_parts.size == 3
+      assign month = end_date_parts[0]
+      assign day = end_date_parts[1]
+      assign year = end_date_parts[2]
+      assign formatted_date = year | append: '-' | append: month | append: '-' | append: day
+      assign end_times = formatted_date | date: '%s'
+      assign time_now = 'now' | date: '%s'
+    else
+      assign end_times = 0
+      assign time_now = 1
+    endif
+  else
+    assign end_times = 0
+    assign time_now = 1
+  endif
+%}
+<div
+  class="block__heading flex justify_block justify-content-{{ text_alignment_mobile }} flex-md-{{ content_alignment }} mb-custom{% if block_st.spacing_bottom > 10 %} mb_auto-rsp{% endif %}"
+  style="--space-bottom: {{ block_st.spacing_bottom }};"
+  {{ block.shopify_attributes }}
+>
+  {%- if scroll_animation != 'disable' -%}
+    <motion-effect
+      class="block"
+    >
+  {%- endif -%}
+  {%- if end_times > time_now -%}
+    <countdown-timer
+      class="no-js-hidden inline-flex wrap gap-10 overflow-hidden heading-color align-center {{ block_st.style }} section_block justify_block justify-content-{{ text_alignment_mobile }} flex-md-{{ content_alignment }}"
+      dir="auto"
+      data-deadline="{{ block.settings.end_times }}"
+      data-days="{{ 'sections.countdown.format.days' | t }}"
+      data-hours="{{ 'sections.countdown.format.hours' | t }}"
+      data-mins="{{ 'sections.countdown.format.mins' | t }}"
+      data-secs="{{ 'sections.countdown.format.secs' | t }}"
+      data-message="{{ block.settings.message }}"
+    >
+      <div class="countdown-container lh-normal{% if block_st.style == 'modern' %} flex relative content-center{% endif %}">
+        <span class="days_timer countdown-item">00</span>
+        <span class="timer-announcementbar-text">{{ 'sections.countdown.format.days' | t }}</span>
+      </div>
+      <div class="countdown-container lh-normal{% if block_st.style == 'modern' %} flex relative content-center{% endif %}">
+        <span class="hours_timer countdown-item">00</span>
+        <span class="timer-announcementbar-text">{{ 'sections.countdown.format.hours' | t }}</span>
+      </div>
+      <div class="countdown-container lh-normal{% if block_st.style == 'modern' %} flex relative content-center{% endif %}">
+        <span class="minutes_timer countdown-item">00</span>
+        <span class="timer-announcementbar-text">{{ 'sections.countdown.format.mins' | t }}</span>
+      </div>
+      <div class="countdown-container lh-normal{% if block_st.style == 'modern' %} flex relative content-center{% endif %}">
+        <span class="seconds_timer countdown-item">00</span>
+        <span class="timer-announcementbar-text">{{ 'sections.countdown.format.secs' | t }}</span>
+      </div>
+    </countdown-timer>
+  {%- else -%}
+    <span>{{ block.settings.message }}</span>
+  {%- endif -%}
+  {%- if scroll_animation != 'disable' -%}
+    </motion-effect>
+  {%- endif -%}
+</div>
+{% schema %}
+{
+  "name": "t:sections.image-with-text-overlay.countdown",
+  "class": "mb-custom",
+  "settings": [
+    {
+      "type": "text",
+      "id": "end_times",
+      "label": "t:sections.image-with-text-overlay.end_time.label",
+      "info": "t:sections.image-with-text-overlay.end_time.info",
+      "default": "11-20-2026"
+    },
+    {
+      "type": "text",
+      "id": "message",
+      "label": "t:sections.image-with-text-overlay.message.label",
+      "info": "t:sections.image-with-text-overlay.message.info",
+      "default": "Timer expired"
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "t:sections.main-password-content.blocks.countdown_bn.settings.countdown_design.label",
+      "options": [
+        {
+          "value": "default",
+          "label": "t:sections.main-password-content.blocks.countdown_bn.settings.countdown_design.options__1.label"
+        },
+        {
+          "value": "modern",
+          "label": "t:sections.main-password-content.blocks.countdown_bn.settings.countdown_design.options__2.label"
+        }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.spacing_bottom",
+      "default": 15
+    }
+  ],
+  "presets": [{ "name": "t:sections.image-with-text-overlay.countdown", "category": "t:sections.group.blocks.basic" }]
+}
+{% endschema %}

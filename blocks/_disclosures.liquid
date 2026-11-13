@@ -1,0 +1,156 @@
+{%- liquid
+  assign disclosures = closest.product.metafields.shopify.disclosure.value
+  assign block_st = block.settings
+  assign type_preset = block_st.type_preset
+  assign open_by_default = block_st.open_by_default
+-%}
+
+{%- if disclosures != blank -%}
+  <div
+    class="disclosures bg-secondary rounded-15 p-sp-5 p-1025-sp-6 mb-sp-2 mb-1025-sp-3"
+    {{ block.shopify_attributes }}
+  >
+    {%- if block_st.heading != blank -%}
+      <div
+        class="{{ type_preset | default: 'fs-custom' }} heading-color lh-global mb-sp-2 mb-1025-sp-3"
+        style="--font-size: 18"
+      >
+        {{ block_st.heading | escape }}
+      </div>
+    {%- endif -%}
+
+    <div class="border-dashed mb-sp-2 mb-1025-sp-3" role="presentation"></div>
+
+    <div class="flex column gap-sp-3">
+      {%- for disclosure in disclosures -%}
+        {%- capture disclosure_title -%}
+          <span class="inline-flex align-center gap-sp-2 text-color">
+            <svg
+              class="shrink-0"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+            >
+              <use href="#icon-disclosure"></use>
+            </svg>
+            <span
+              class="fs-custom text-color fw-500"
+              style="--font-size: 16"
+            >
+              {{ disclosure.title.value | escape }}
+            </span>
+          </span>
+        {%- endcapture -%}
+
+        {%- if disclosure.content.value != blank -%}
+          <details
+            class="collapsible-row disclosures__item{% if open_by_default %} detail-open{% endif %}"
+            is="collapsible-row"
+            {% if open_by_default %}
+              open
+            {% endif %}
+          >
+            <summary class="collapsible-row__summary not-highlight-tap">
+              <div class="flex space-between align-center gap-sp-2">
+                {{ disclosure_title }}
+
+                <span class="toggle-menu inline-flex flex-end align-center">
+                  <svg
+                    class="icon icon-down icon-rotate transition-short"
+                    width="14"
+                    height="8"
+                    viewBox="0 0 14 8"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <use href="#icon-arrow-down-facet"></use>
+                  </svg>
+                </span>
+              </div>
+            </summary>
+
+            <div class="collapsible-row__content overflow-hidden">
+              <div class="rte pt-sp-1">
+                {{ disclosure.content | metafield_tag }}
+              </div>
+            </div>
+          </details>
+        {%- else -%}
+          <div class="disclosures__item flex space-between align-center gap-sp-2">
+            {{ disclosure_title }}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+{%- elsif request.design_mode -%}
+  {%- render 'editor-metafield-hint', id: 'disclosures', source: 'shopify.disclosure' -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.all.product_setting.disclosures.name",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.all.product_setting.disclosures.description"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.product_setting.disclosures.name"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.all.product_setting.disclosures.settings.heading.label",
+      "default": "t:sections.all.product_setting.disclosures.settings.heading.default"
+    },
+    {
+      "type": "select",
+      "id": "type_preset",
+      "label": "t:sections.custom_section.blocks.heading.label",
+      "options": [
+        {
+          "value": "",
+          "label": "t:sections.custom_section.blocks.heading.default"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.custom_section.blocks.heading.h1"
+        },
+        {
+          "value": "h2",
+          "label": "t:sections.custom_section.blocks.heading.h2"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.custom_section.blocks.heading.h3"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.custom_section.blocks.heading.h4"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.custom_section.blocks.heading.h5"
+        },
+        {
+          "value": "h6",
+          "label": "t:sections.custom_section.blocks.heading.h6"
+        }
+      ],
+      "default": "",
+      "info": "t:sections.custom_section.blocks.heading.info.edit_presets_in_theme_settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_by_default",
+      "label": "t:sections.all.product_setting.disclosures.settings.open_by_default.label",
+      "default": false
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.product_setting.disclosures.name" }]
+}
+{% endschema %}

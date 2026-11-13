@@ -1,0 +1,186 @@
+{%- liquid
+  assign theme_st = settings
+  assign section_st = section.settings
+  assign block_st = block.settings
+  assign scroll_animation = theme_st.scroll_animation
+  assign content_alignment = section_st.text_alignment
+  assign text_alignment_mobile = section_st.text_alignment_mobile
+  assign first_button_label = block_st.first_button_label
+  assign first_button_link = block_st.first_button_link
+  assign first_button_type = block_st.first_button_type
+  assign second_button_label = block_st.second_button_label
+  assign second_button_link = block_st.second_button_link
+  assign second_button_type = block_st.second_button_type
+  assign section_content_alignment = section_st.content_alignment
+  assign blank_first_button = block_st.blank_first_button
+  assign blank_second_button = block_st.blank_second_button
+
+  assign has_min_width = true
+  if section_st.image_desktop_position == 'left' or section_st.image_desktop_position == 'right'
+    if section_st.items_per_row > 2
+      assign has_min_width = false
+    endif
+  endif
+  assign scroll_animation = 'disable'
+%}
+{% if first_button_label != blank or block_st.second_button_label != blank %}
+  {%- if scroll_animation != 'disable' -%}
+    <motion-effect
+      data-animate="fade-up"
+      class="block"
+    >
+  {%- endif -%}
+  <div
+    class="block__buttons mb-custom{% if block_st.spacing_bottom > 10 %} mb_auto-rsp{% endif %} flex wrap gap-15 text-center{% if text_alignment_mobile %} justify-content-{{ text_alignment_mobile }} flex-md-{{ content_alignment }}{% elsif section_content_alignment %} justify-content-{{ section_content_alignment }}{% else %} justify-content-{{ content_alignment }}{% endif %}{% if section_st.vertical_alignment_group %} justify-content-{{ section_st.vertical_alignment_group }}{% endif %}"
+    style="--space-bottom: {{ block_st.spacing_bottom }};"
+  >
+    {% if first_button_label != blank %}
+      <a
+        {% if first_button_link == blank %}
+          role="link" aria-disabled="true"
+        {% else %}
+          href="{{ first_button_link | default: "#" }}"
+        {% endif %}
+        aria-label="{{ first_button_label }}"
+        class="pointer btn-{{ first_button_type }}{% if first_button_type == "link" %} align-self-center border-animation{% else %} btn min-w-md-custom w-md-auto w-full max-w-100{% endif %}"
+        {% if first_button_type != 'link' and has_min_width %}
+          style="--width: 20rem;"
+        {% endif %}
+        {% if blank_first_button %}
+          target="_blank" rel="noopener"
+        {% endif %}
+      >
+        <span {{ block.shopify_attributes }}>{{ block.settings.first_button_label }}</span>
+      </a>
+    {% endif %}
+    {% if second_button_label != blank %}
+      <a
+        {% if second_button_link == blank %}
+          role="link" aria-disabled="true"
+        {% else %}
+          href="{{ second_button_link | default: "#" }}"
+        {% endif %}
+        aria-label="{{ second_button_label }}"
+        class="pointer btn-{{ second_button_type }}{% if second_button_type == "link" %} align-self-center border-animation{% else %} btn min-w-md-custom w-md-auto w-full max-w-100{% endif %}"
+        {% if second_button_type != 'link' %}
+          style="--width: 20rem;"
+        {% endif %}
+        {% if blank_second_button %}
+          target="_blank" rel="noopener"
+        {% endif %}
+      >
+        <span {{ block.shopify_attributes }}>{{ block.settings.second_button_label }}</span>
+      </a>
+    {% endif %}
+  </div>
+  {%- if scroll_animation != 'disable' -%}
+    </motion-effect>
+  {%- endif -%}
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.all.content_setting.button_label-block.label",
+  "class": "block__buttons max-w-100 w-full-mb",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.all.content_setting.button_label.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_setting.first_button_label.name"
+    },
+    {
+      "type": "text",
+      "id": "first_button_label",
+      "default": "Button label",
+      "label": "t:sections.all.content_setting.first_button_label.label"
+    },
+    {
+      "type": "url",
+      "id": "first_button_link",
+      "label": "t:sections.all.content_setting.first_button_label.link"
+    },
+    {
+      "type": "select",
+      "id": "first_button_type",
+      "label": "t:sections.all.content_setting.button_type.label",
+      "default": "primary",
+      "options": [
+        {
+          "value": "primary",
+          "label": "t:sections.all.content_setting.button_type.primary.label"
+        },
+        {
+          "value": "outline",
+          "label": "t:sections.all.content_setting.button_type.outline.label"
+        },
+        {
+          "value": "link",
+          "label": "t:sections.all.content_setting.button_type.link.label"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "blank_first_button",
+      "label": "t:sections.all.content_setting.open_link_in_new_tab.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_setting.second_button_label.name"
+    },
+    {
+      "type": "text",
+      "id": "second_button_label",
+      "label": "t:sections.all.content_setting.second_button_label.label"
+    },
+    {
+      "type": "url",
+      "id": "second_button_link",
+      "label": "t:sections.all.content_setting.second_button_label.link"
+    },
+    {
+      "type": "select",
+      "id": "second_button_type",
+      "label": "t:sections.all.content_setting.button_type.label",
+      "default": "outline",
+      "options": [
+        {
+          "value": "primary",
+          "label": "t:sections.all.content_setting.button_type.primary.label"
+        },
+        {
+          "value": "outline",
+          "label": "t:sections.all.content_setting.button_type.outline.label"
+        },
+        {
+          "value": "link",
+          "label": "t:sections.all.content_setting.button_type.link.label"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "blank_second_button",
+      "label": "t:sections.all.content_setting.open_link_in_new_tab.label",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.spacing_bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    { "name": "t:sections.all.content_setting.button_label-block.label", "category": "t:sections.group.blocks.basic" }
+  ]
+}
+{% endschema %}

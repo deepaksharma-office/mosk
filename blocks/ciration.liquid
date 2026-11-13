@@ -1,0 +1,87 @@
+{% liquid
+  assign theme_st = settings
+  assign section_st = section.settings
+  assign block_st = block.settings
+  assign scroll_animation = theme_st.scroll_animation
+  assign scroll_animation = 'disable'
+  assign content_alignment = section_st.text_alignment
+  assign text_alignment_mobile = section_st.text_alignment_mobile | default: content_alignment
+%}
+{% style %}
+  .block__ciration ul {
+    margin: 0;
+    padding-inline-start: 15px;
+  }
+  .block__ciration ul li:not(:last-child) {
+    margin-bottom: 5px;
+  }
+{% endstyle %}
+{% capture style %}
+--space-bottom: {{ block.settings.padding_bottom }};--space-top: {{ block.settings.padding_top }};
+{% endcapture %}
+<div
+  class="block__ciration justify_block mb-custom mt-custom{% if block_st.padding_bottom > 10 %} mb_auto-rsp{% endif %}{% if block_st.padding_top > 10 %} mt_auto-rsp{% endif %} flex justify-content-{{ text_alignment_mobile }} flex-md-{{ content_alignment }}"
+  style="{{ style | strip | strip_newlines }}"
+  {{ block.shopify_attributes }}
+>
+  {%- if scroll_animation != 'disable' -%}
+    <motion-effect
+      data-animate="fade-in"
+      class="block"
+    >
+  {%- endif -%}
+  <div
+    class="w-full prose pt-sp-3 border-top-dashed opacity fs-small"
+    style="--opacity: 0.8;"
+    {{ block.shopify_attributes }}
+  >
+    {{ block.settings.citation_text }}
+  </div>
+  {%- if scroll_animation != 'disable' -%}
+    </motion-effect>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.all.content_setting.citation.label",
+  "class": "w-full",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.all.product_setting.promotion_alert.heading.how_to_use"
+    },
+    {
+      "type": "richtext",
+      "id": "citation_text",
+      "default": "<p>*Based on a 3-week study of 100 women with twice-daily use.*.</p>",
+      "label": "t:sections.all.content_setting.citation.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.page.spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 20
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.content_setting.citation.label", "category": "t:sections.group.blocks.basic" }]
+}
+{% endschema %}

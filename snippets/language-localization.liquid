@@ -1,0 +1,101 @@
+{%- if localization.available_languages.size > 1 -%}
+  <noscript class="small-hide medium-hide">
+    {%- form 'localization', id: 'HeaderLanguageMobileFormNoScript', class: 'localization-form' -%}
+      <div class=" relative">
+        <h2 class="visually-hidden" id="HeaderLanguageMobileLabelNoScript">{{ 'localization.language_label' | t }}</h2>
+        <select
+          class="localization-form__select localization-selector link show-placehoder"
+          name="locale_code"
+          aria-labelledby="HeaderLanguageMobileLabelNoScript"
+        >
+          {%- for language in localization.available_languages -%}
+            <option
+              value="{{ language.iso_code }}"
+              lang="{{ language.iso_code }}"
+              {%- if language.iso_code == localization.language.iso_code %}
+                selected
+              {% endif %}
+            >
+              {{ language.endonym_name | capitalize }}
+            </option>
+          {%- endfor -%}
+        </select>
+      </div>
+      <button class="button pointer button--tertiary btn-reset">{{ 'localization.update_language' | t }}</button>
+    {%- endform -%}
+  </noscript>
+  <localization-form class="no-js-hidden">
+    {%- assign form_id = 'localization-language-' | append: section.id -%}
+    {% form 'localization', id: form_id %}
+      <div
+        class="disclosure flex content-center text-center relative h-full"
+        style="--color-heading: #1D1D1F;--color-dark: #444444;"
+      >
+        <button
+          type="button"
+          class="button button-localization lh-global inline-flex align-center gap-sp-2 btn-reset color-inherit show-overlay fs-small body_weight pointer text-start not-highlight-tap h-full"
+          style="--show-overlay-bg: #0005;"
+          aria-expanded="false"
+          aria-controls="{{ localPosition }}List"
+          aria-describedby="{{ localPosition }}Label"
+          aria-label="{{ 'localization.language_label' | t }}"
+        >
+          {{ localization.language.iso_code | upcase }}
+          <svg class="icon icon-down icon-rotate transition-drawer ms-5" width="9" height="6" viewBox="0 0 9 6">
+            <use href="#icon-arrow-down" />
+          </svg>
+        </button>
+        <div
+          class="disclosure__list-wrapper block invisible bg-white color-dark z-15 fs-small body_weight absolute left-0 shadow transition-drawer"
+          hidden="true"
+        >
+          <draggable-localization
+            class="drawer__header flex gap-10 space-between visible-drag-md align-center drawer-spacing border-bottom relative hidden-1025"
+            style="--padding-block:1.2rem;"
+          >
+            <div class="drawer__heading fs-20 heading-style flex gap align-center">
+              {{ 'localization.language_label' | t }}
+            </div>
+            <button
+              type="button"
+              class="modal__close pointer modal-button-close rounded-50 btn-reset w-30 h-full flex content-center flex-end hidden-1025"
+              aria-label="{{ 'accessibility.close' | t }}"
+            >
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 14 14"
+                fill="none"
+                class="transition-short will-change icon-zoom"
+              >
+                <use href="#icon-close"></use>
+              </svg>
+            </button>
+          </draggable-localization>
+          <ul
+            class="disclosure__list h-full flex column gap-2 text-start list-unstyled p-sp-5 p-1025-10 overflow-auto custom-scrollbar"
+            role="list"
+          >
+            {% for language in localization.available_languages %}
+              <li class="disclosure__item" tabindex="-1">
+                <a
+                  href="{{ routes.root_url }}"
+                  class="disclosure__item-inner hover-bg_second rounded-10 transition block px-sp-3 py-sp-2"
+                  {% if language.iso_code == localization.language.iso_code %}
+                    aria-current="true"
+                  {% endif %}
+                  hreflang="{{ language.iso_code }}"
+                  lang="{{ language.iso_code }}"
+                  data-value="{{ language.iso_code }}"
+                >
+                  {{ language.endonym_name | capitalize }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <input type="hidden" name="language_code" value="{{ localization.language.iso_code }}">
+      </div>
+    {% endform %}
+  </localization-form>
+{%- endif -%}

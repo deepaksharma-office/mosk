@@ -1,0 +1,379 @@
+{% liquid
+  assign theme_st = settings
+  assign mobile_thumbnails = section_st.mobile_thumbnails
+  assign enable_video_autoplay = section_st.enable_video_autoplay
+  assign media_position = section_st.media_position
+  assign enable_image_lightbox = section_st.enable_image_lightbox
+  assign enable_image_zoom = section_st.enable_image_zoom
+  assign layout = 'grid'
+  if desktop_layout == 'thumbnail_left' or desktop_layout == 'thumbnail_bottom'
+    assign layout = 'thumbnail'
+  elsif desktop_layout == 'thumbnail_left_stack'
+    assign layout = 'thumbnail_stack'
+  elsif desktop_layout == 'stack'
+    assign layout = 'stack'
+  endif
+  if type_section == 'featured'
+    assign gap_desktop = '24px'
+    assign gap_mobile = '12px'
+    assign item_mb = 2
+  else
+    assign gap_desktop = '10px'
+    assign gap_mobile = '8px'
+    assign item_mb = 1.5
+  endif
+  if type_section == 'quick_view'
+    assign layout = 'quick_view'
+  endif
+  assign first_3d_model = product.media | where: 'media_type', 'model' | first
+  if theme_st.color_swatch_trigger != blank and theme_st.enable_color_swatches != false
+    assign option_color_name = theme_st.color_swatch_trigger | split: ','
+  else
+    assign option_color_name = 'Color'
+  endif
+  assign position = 1
+  for opt in product.options_with_values
+    for color_trigger_name in option_color_name
+      if opt.name == color_trigger_name
+        assign position = opt.position
+      endif
+    endfor
+  endfor
+  assign default_color_option = ''
+  if position == 1
+    assign default_color_option = product.selected_or_first_available_variant.option1
+  elsif position == 2
+    assign default_color_option = product.selected_or_first_available_variant.option2
+  elsif position == 3
+    assign default_color_option = product.selected_or_first_available_variant.option3
+  endif
+  if product.metafields.custom.use_variants_image_group != blank and product.metafields.custom.use_variants_image_group
+    assign alt_tags = ''
+    assign first = true
+    for image in product.media
+      if image.alt != blank
+        assign exclude_image = false
+        for option in product.options_with_values
+          for value in option.values
+            if image.alt == value
+              assign exclude_image = true
+            endif
+          endfor
+        endfor
+        if exclude_image == false
+          if first
+            assign alt_tags = image.alt
+            assign first = false
+          else
+            assign alt_tags = alt_tags | append: ', ' | append: image.alt
+          endif
+        endif
+      endif
+    endfor
+    assign variant_media = product.media | where: 'alt', default_color_option
+    assign alt_tags_list = alt_tags | split: ', '
+    assign other_media = ''
+    assign added_alts = ''
+    for image in product.media
+      for alt_tag in alt_tags_list
+        if image.alt == alt_tag
+          if added_alts contains alt_tag
+          else
+            assign other_media = other_media | append: image.alt | append: ','
+            assign added_alts = added_alts | append: alt_tag | append: ','
+          endif
+        endif
+      endfor
+    endfor
+    assign combined_media = variant_media
+    assign other_media_array = other_media | split: ','
+    for alt_tag in other_media_array
+      assign media_to_add = product.media | where: 'alt', alt_tag
+      assign combined_media = combined_media | concat: media_to_add
+    endfor
+    assign images = combined_media
+  endif
+  if images.size == 0
+    assign images = product.media
+  endif
+%}
+{%- capture col -%}
+  {%- if desktop_layout == 'two_columns' or desktop_layout == 'two_columns_carousel' -%}--col-number: {{ item_mb }}; --item-mb: {{ item_mb }};--gap: {{ gap_mobile }};--gap-desktop: {{ gap_desktop }};--row-gap: {{ gap_desktop }};--col-desktop: 2;{% else %}--col-number: 1;--item-desktop: 2;--item-tablet: 2;{%- endif -%}
+  --repeat: 0;
+  {%- if desktop_layout == 'stack' -%}--col-number: 1.5;--gap: 8px;--gap-desktop: 10px;--col-desktop: 1;--item-mb: 1.5{%- endif -%}
+  {%- if desktop_layout == 'thumbnail_left_stack' -%}--col-number: 1;--gap: 8px;--gap-desktop: 8px;--row-gap: 16px;--col-desktop: 1;--item-mb: 5;--item-desktop: 1;{%- endif -%}
+{%- endcapture -%}
+<script type="module" src="{{ 'media-gallery.js' | asset_url }}"></script>
+{{ 'photoswipe.css' | asset_url | stylesheet_tag }}
+{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+{%- if first_3d_model -%}
+  {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
+  <link
+    id="ModelViewerStyle"
+    rel="stylesheet"
+    href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css"
+    media="print"
+    onload="this.media='all'"
+  >
+  <link
+    id="ModelViewerOverride"
+    rel="stylesheet"
+    href="{{ 'component-model-viewer-ui.css' | asset_url }}"
+    media="print"
+    onload="this.media='all'"
+  >
+{% endif %}
+<div class="block__media-gallery sticky-md top-sp-5">
+  <media-gallery
+    class="media-gallery{% if enable_image_zoom != 'none' %} zoom-enable{% endif %} block"
+    data-section-id="{{ section.id }}"
+    data-thumb-direction="{% if desktop_layout == 'thumbnail_left' %}vertical{% else %}horizontal{% endif %}"
+    data-auto-play-video="{% if enable_video_autoplay %}true{% else %}false{% endif %}"
+    data-image-zoom="{{ enable_image_zoom }}"
+    data-media-position="{{ media_position | default: 'left' }}"
+  >
+    <a class="skip-to-content-link button visually-hidden quick-add-hidden" href="#ProductInfo-{{ section.id }}">
+      {{ 'accessibility.skip_to_product_info' | t }}
+    </a>
+    <div class="product__media-gallery product-{{ layout }} {{ desktop_layout }}{% if desktop_layout == 'thumbnail_left' %} flex-md{% if media_position == 'right' %} flex-start{% else %} flex-end{% endif %} relative overflow-hidden{% endif %}{% if desktop_layout == 'thumbnail_left_stack' %} flex column-reverse grid-md relative gap-md-sp-4{% endif %}">
+      {% case layout %}
+        {% when 'thumbnail' %}
+          <div
+            id="GalleryMainViewer-{{ section.id }}"
+            class="media-main-swiper main-media relative"
+            style="--item-desktop: 1;--item-tablet: 1;--item-mb: 1;"
+          >
+            <div class="swiper-wrapper-main swiper hover-action relative">
+              {%- render 'swiper-navigation', show_on_hover: true -%}
+              <div class="swiper-wrapper">
+                {% render 'product-media',
+                  images: images,
+                  product: product,
+                  section_st: section_st,
+                  type_section: type_section,
+                  motion: false,
+                  class: ' swiper-slide'
+                %}
+              </div>
+              <div
+                class="swiper-pagination pagination-count absolute bg-white blur shadow fs-small heading-color lh-normal rounded"
+              ></div>
+            </div>
+          </div>
+          <div
+            id="GalleryThumbnailViewer-{{ section.id }}"
+            class="media-thumb-swiper{% if layout == 'thumbnail' %} mt-10{% endif %}{% if desktop_layout == 'thumbnail_left' %} mt-md-0{% endif %}{% if mobile_thumbnails == 'hidden_thumbnail' %} hidden block-md{% endif %}{% if desktop_layout == 'thumbnail_left' %}{% if media_position == 'right' %} right-0{% else %} left-0{% endif %}{% endif %}"
+          >
+            <div
+              class="swiper-wrapper-thumbnail swiper"
+              data-mobile="5"
+              data-desktop="5"
+              data-tablet="5"
+              data-loop="false"
+              style="--gap-desktop: 10px;--gap: 10px;--item-desktop: 5;--item-tablet: 5;--item-mb: 5"
+            >
+              <div class="swiper-wrapper">
+                {% render 'product-media',
+                  images: images,
+                  product: product,
+                  section_st: section_st,
+                  thumbnail: true,
+                  motion: false,
+                  type_section: type_section,
+                  class: ' swiper-slide pointer'
+                %}
+              </div>
+            </div>
+            {% if enable_image_lightbox %}
+              <button
+                type="button"
+                class="hidden-md thumb-type touch-fb btn-reset zoom-icon-mobile z-1 pointer-none bg-white absolute top-10{% if settings.rounded_button > 0 %} rounded-50{% endif %} inline-flex content-center bg-white w-custom h-custom"
+                style="--width: 4.2rem;--height: 4.2rem;--opacity: 0.6"
+                aria-label="{{ 'products.product.zoom_button' | t }}"
+              >
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" class="heading-color">
+                  <path d="M0.000118964 13.3636L0.000357199 10.1813C0.000357199 9.82984 0.285206 9.54512 0.636559 9.54512C0.988031 9.54512 1.27264 9.82984 1.27264 10.1814V11.8261L4.96959 8.12603C5.09402 8.00148 5.25706 7.93963 5.41998 7.93963C5.58267 7.93963 5.74536 8.0016 5.86966 8.12591C6.11816 8.37416 6.1184 8.77699 5.87002 9.02549L2.17188 12.7271H3.81625C4.16773 12.7271 4.45257 13.0121 4.45257 13.3637C4.45257 13.715 4.16761 14 3.81625 14H0.636559C0.467676 14 0.305944 13.9329 0.186522 13.8134C0.0671004 13.6941 0.000118964 13.532 0.000118964 13.3636ZM0.63644 4.45524C0.988031 4.45524 1.27264 4.16992 1.27264 3.81869V2.17399L4.90762 5.77791C5.15635 6.02641 5.57623 6.02665 5.82473 5.77815C6.07335 5.53002 6.08193 5.12694 5.83367 4.87857L2.2354 1.27286H3.88157H3.88288C4.23435 1.27286 4.51955 0.988133 4.51967 0.636548C4.51979 0.28544 4.23542 0.000357013 3.88383 0.000357013L0.704613 -3.34596e-07C0.53561 -3.34596e-07 0.339672 0.0670991 0.220608 0.1864C0.101306 0.3057 -1.54403e-07 0.467548 -1.54403e-07 0.63619V3.81881C0.000119029 4.17004 0.285087 4.45524 0.63644 4.45524V4.45524ZM9.09262 5.80592L12.7272 2.17375V3.81881C12.7272 4.17028 13.0065 4.45452 13.3578 4.45452H13.3552C13.7067 4.45452 13.9902 4.16992 13.9902 3.81881L13.99 0.636667C13.99 0.467787 13.9227 0.305939 13.8033 0.186638C13.6838 0.0672182 13.5217 0.000237897 13.353 0.000237897H10.1731C9.82167 0.000237897 9.53682 0.285201 9.53682 0.636548C9.53682 0.988252 9.82179 1.2731 10.1731 1.2731H11.817L8.18695 4.90646C7.93821 5.15483 7.94143 5.55826 8.18993 5.8064C8.43842 6.05453 8.84401 6.0543 9.09262 5.80592V5.80592ZM11.8282 12.6698H10.1841C9.83263 12.6698 9.5479 12.9544 9.5479 13.3058C9.5479 13.6574 9.83275 13.9423 10.1841 13.9423L13.3636 13.9426H13.3637C13.5326 13.9426 13.6942 13.8758 13.8137 13.7565C13.9329 13.6372 14 13.4755 14 13.3064L13.9996 10.124C13.9996 9.77299 13.7148 9.48767 13.3634 9.48767C13.012 9.48767 12.7272 9.77299 12.7272 10.124V11.7689L9.05925 8.09802C8.93494 7.97359 8.7719 7.91138 8.60898 7.91138C8.44641 7.91138 8.28349 7.97335 8.1593 8.09766C7.91068 8.34592 7.91032 8.74911 8.15894 8.99784L11.8282 12.6698Z" fill="#1D1D1F"/>
+                </svg>
+              </button>
+            {% endif %}
+          </div>
+        {% when 'thumbnail_stack' %}
+          <grid-gallery-thumbnail
+            data-loop="false"
+            id="GalleryThumbnailViewer-{{ section.id }}"
+            class="grid-gallery-thumbnail-container transition swiper-mobile h-fit sticky-md top-md-15 mt-sp-2 mt-md-0{% if mobile_thumbnails == 'hidden_thumbnail' %} hidden block-md{% endif %}"
+            style="{{ col | strip | strip_newlines }}"
+          >
+            <div
+              class="swiper-wrapper-thumbnail swiper"
+              data-mobile="5"
+              data-desktop="5"
+              data-tablet="5"
+              data-loop="false"
+            >
+              <div class="swiper-wrapper flex-md column-md">
+                {% render 'product-media',
+                  images: images,
+                  product: product,
+                  section_st: section_st,
+                  thumbnail: true,
+                  motion: false,
+                  type_section: type_section,
+                  class: ' swiper-slide pointer action-grid-item'
+                %}
+              </div>
+            </div>
+          </grid-gallery-thumbnail>
+          <grid-gallery
+            data-loop="false"
+            id="GalleryViewer-{{ section.id }}"
+            class="main-media relative grid gap w-full stacked-swiper-mobile grid-swiper-mobile"
+            style="{{ col | strip | strip_newlines }}"
+          >
+            {%- render 'swiper-navigation', class-custom: 'hidden hidden-md absolute', show_on_hover: true -%}
+            {% render 'product-media',
+              images: images,
+              product: product,
+              section_st: section_st,
+              type_section: type_section,
+              motion: false,
+              class: ' grid-item'
+            %}
+            <div
+              class="swiper-pagination bg-white blur shadow fs-small heading-color lh-normal rounded hidden-md"
+            ></div>
+          </grid-gallery>
+          {% if enable_image_lightbox %}
+            <button
+              type="button"
+              class="hidden-md touch-fb btn-reset zoom-icon-mobile thumb-type z-1 pointer-none blur bg-white absolute top-10{% if settings.rounded_button > 0 %} rounded-50{% endif %} inline-flex content-center bg-white w-custom h-custom"
+              style="--width: 4.2rem;--height: 4.2rem;--opacity: 0.6"
+              aria-label="{{ 'products.product.zoom_button' | t }}"
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" class="heading-color">
+                <path d="M0.000118964 13.3636L0.000357199 10.1813C0.000357199 9.82984 0.285206 9.54512 0.636559 9.54512C0.988031 9.54512 1.27264 9.82984 1.27264 10.1814V11.8261L4.96959 8.12603C5.09402 8.00148 5.25706 7.93963 5.41998 7.93963C5.58267 7.93963 5.74536 8.0016 5.86966 8.12591C6.11816 8.37416 6.1184 8.77699 5.87002 9.02549L2.17188 12.7271H3.81625C4.16773 12.7271 4.45257 13.0121 4.45257 13.3637C4.45257 13.715 4.16761 14 3.81625 14H0.636559C0.467676 14 0.305944 13.9329 0.186522 13.8134C0.0671004 13.6941 0.000118964 13.532 0.000118964 13.3636ZM0.63644 4.45524C0.988031 4.45524 1.27264 4.16992 1.27264 3.81869V2.17399L4.90762 5.77791C5.15635 6.02641 5.57623 6.02665 5.82473 5.77815C6.07335 5.53002 6.08193 5.12694 5.83367 4.87857L2.2354 1.27286H3.88157H3.88288C4.23435 1.27286 4.51955 0.988133 4.51967 0.636548C4.51979 0.28544 4.23542 0.000357013 3.88383 0.000357013L0.704613 -3.34596e-07C0.53561 -3.34596e-07 0.339672 0.0670991 0.220608 0.1864C0.101306 0.3057 -1.54403e-07 0.467548 -1.54403e-07 0.63619V3.81881C0.000119029 4.17004 0.285087 4.45524 0.63644 4.45524V4.45524ZM9.09262 5.80592L12.7272 2.17375V3.81881C12.7272 4.17028 13.0065 4.45452 13.3578 4.45452H13.3552C13.7067 4.45452 13.9902 4.16992 13.9902 3.81881L13.99 0.636667C13.99 0.467787 13.9227 0.305939 13.8033 0.186638C13.6838 0.0672182 13.5217 0.000237897 13.353 0.000237897H10.1731C9.82167 0.000237897 9.53682 0.285201 9.53682 0.636548C9.53682 0.988252 9.82179 1.2731 10.1731 1.2731H11.817L8.18695 4.90646C7.93821 5.15483 7.94143 5.55826 8.18993 5.8064C8.43842 6.05453 8.84401 6.0543 9.09262 5.80592V5.80592ZM11.8282 12.6698H10.1841C9.83263 12.6698 9.5479 12.9544 9.5479 13.3058C9.5479 13.6574 9.83275 13.9423 10.1841 13.9423L13.3636 13.9426H13.3637C13.5326 13.9426 13.6942 13.8758 13.8137 13.7565C13.9329 13.6372 14 13.4755 14 13.3064L13.9996 10.124C13.9996 9.77299 13.7148 9.48767 13.3634 9.48767C13.012 9.48767 12.7272 9.77299 12.7272 10.124V11.7689L9.05925 8.09802C8.93494 7.97359 8.7719 7.91138 8.60898 7.91138C8.44641 7.91138 8.28349 7.97335 8.1593 8.09766C7.91068 8.34592 7.91032 8.74911 8.15894 8.99784L11.8282 12.6698Z" fill="#1D1D1F"/>
+              </svg>
+            </button>
+          {% endif %}
+        {% when 'stack' %}
+          <grid-gallery
+            data-loop="false"
+            id="GalleryViewer-{{ section.id }}"
+            class="main-media relative grid gap stacked stacked-swiper-mobile overflow-visible-mb"
+            style="{{ col | strip | strip_newlines }}"
+          >
+            {%- render 'swiper-navigation', class-custom: 'hidden hidden-md absolute', show_on_hover: true -%}
+            {% render 'product-media',
+              images: images,
+              product: product,
+              section_st: section_st,
+              type_section: type_section,
+              motion: false,
+              class: ' grid-item'
+            %}
+            <div
+              class="swiper-pagination bg-white blur shadow fs-small heading-color lh-normal rounded hidden-md"
+            ></div>
+          </grid-gallery>
+          {% if enable_image_lightbox %}
+            <button
+              type="button"
+              class="hidden-md touch-fb btn-reset zoom-icon-mobile z-1 pointer-none blur bg-white absolute top-10{% if settings.rounded_button > 0 %} rounded-50{% endif %} inline-flex content-center bg-white w-custom h-custom"
+              style="--width: 4.2rem;--height: 4.2rem;--opacity: 0.6"
+              aria-label="{{ 'products.product.zoom_button' | t }}"
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" class="heading-color">
+                <path d="M0.000118964 13.3636L0.000357199 10.1813C0.000357199 9.82984 0.285206 9.54512 0.636559 9.54512C0.988031 9.54512 1.27264 9.82984 1.27264 10.1814V11.8261L4.96959 8.12603C5.09402 8.00148 5.25706 7.93963 5.41998 7.93963C5.58267 7.93963 5.74536 8.0016 5.86966 8.12591C6.11816 8.37416 6.1184 8.77699 5.87002 9.02549L2.17188 12.7271H3.81625C4.16773 12.7271 4.45257 13.0121 4.45257 13.3637C4.45257 13.715 4.16761 14 3.81625 14H0.636559C0.467676 14 0.305944 13.9329 0.186522 13.8134C0.0671004 13.6941 0.000118964 13.532 0.000118964 13.3636ZM0.63644 4.45524C0.988031 4.45524 1.27264 4.16992 1.27264 3.81869V2.17399L4.90762 5.77791C5.15635 6.02641 5.57623 6.02665 5.82473 5.77815C6.07335 5.53002 6.08193 5.12694 5.83367 4.87857L2.2354 1.27286H3.88157H3.88288C4.23435 1.27286 4.51955 0.988133 4.51967 0.636548C4.51979 0.28544 4.23542 0.000357013 3.88383 0.000357013L0.704613 -3.34596e-07C0.53561 -3.34596e-07 0.339672 0.0670991 0.220608 0.1864C0.101306 0.3057 -1.54403e-07 0.467548 -1.54403e-07 0.63619V3.81881C0.000119029 4.17004 0.285087 4.45524 0.63644 4.45524V4.45524ZM9.09262 5.80592L12.7272 2.17375V3.81881C12.7272 4.17028 13.0065 4.45452 13.3578 4.45452H13.3552C13.7067 4.45452 13.9902 4.16992 13.9902 3.81881L13.99 0.636667C13.99 0.467787 13.9227 0.305939 13.8033 0.186638C13.6838 0.0672182 13.5217 0.000237897 13.353 0.000237897H10.1731C9.82167 0.000237897 9.53682 0.285201 9.53682 0.636548C9.53682 0.988252 9.82179 1.2731 10.1731 1.2731H11.817L8.18695 4.90646C7.93821 5.15483 7.94143 5.55826 8.18993 5.8064C8.43842 6.05453 8.84401 6.0543 9.09262 5.80592V5.80592ZM11.8282 12.6698H10.1841C9.83263 12.6698 9.5479 12.9544 9.5479 13.3058C9.5479 13.6574 9.83275 13.9423 10.1841 13.9423L13.3636 13.9426H13.3637C13.5326 13.9426 13.6942 13.8758 13.8137 13.7565C13.9329 13.6372 14 13.4755 14 13.3064L13.9996 10.124C13.9996 9.77299 13.7148 9.48767 13.3634 9.48767C13.012 9.48767 12.7272 9.77299 12.7272 10.124V11.7689L9.05925 8.09802C8.93494 7.97359 8.7719 7.91138 8.60898 7.91138C8.44641 7.91138 8.28349 7.97335 8.1593 8.09766C7.91068 8.34592 7.91032 8.74911 8.15894 8.99784L11.8282 12.6698Z" fill="#1D1D1F"/>
+              </svg>
+            </button>
+          {% endif %}
+        {% when 'quick_view' %}
+          <quick-view-gallery
+            id="GalleryViewer-{{ section.id }}"
+            class="swiper smooth_scroll hover-action"
+            style="--gap: 10px;--gap-desktop: 10px;"
+          >
+            {%- render 'swiper-navigation', class-custom: 'vertical-arrow', show_on_hover: true -%}
+            <div class="swiper-wrapper">
+              {% render 'product-media',
+                images: images,
+                product: product,
+                section_st: section_st,
+                type_section: type_section,
+                motion: false,
+                class: ' swiper-slide'
+              %}
+            </div>
+            <div
+              class="swiper-pagination pagination-count hidden-md absolute bg-white blur shadow fs-small heading-color lh-normal rounded"
+            ></div>
+          </quick-view-gallery>
+        {% else %}
+          <grid-gallery
+            data-loop="false"
+            id="GalleryViewer-{{ section.id }}"
+            {% if type_section == 'featured' and desktop_layout == 'two_columns_carousel' %}
+              class="main-media swiper two-columns-carousel hover-action"
+              data-desktop="2"
+              data-spacing="24"
+              data-mobile="2"
+            {% else %}
+              class="main-media relative grid gap grid-cols grid-swiper-mobile overflow-visible-mb"
+            {% endif %}
+            {% if type_section == 'featured' and desktop_layout == 'two_columns' %}
+              data-mobile="2"
+            {% endif %}
+            style="{{ col | strip | strip_newlines }}"
+          >
+            {% if type_section == 'featured' and desktop_layout == 'two_columns_carousel' %}
+              {%- render 'swiper-navigation', show_on_hover: true -%}
+            {% else %}
+              {%- render 'swiper-navigation', class-custom: 'hidden hidden-md absolute' -%}
+            {% endif %}
+            {% render 'product-media',
+              images: images,
+              product: product,
+              section_st: section_st,
+              type_section: type_section,
+              motion: false,
+              class: ' swiper-slide'
+            %}
+            <div
+              class="swiper-pagination bg-white blur shadow fs-small heading-color lh-normal rounded hidden-md"
+            ></div>
+          </grid-gallery>
+          {% if thumbnail != true and enable_image_lightbox %}
+            <button
+              type="button"
+              class="hidden-md touch-fb btn-reset zoom-icon-mobile z-1 pointer-none blur bg-white absolute top-10{% if settings.rounded_button > 0 %} rounded-50{% endif %} inline-flex content-center bg-white w-custom h-custom"
+              style="--width: 4.2rem;--height: 4.2rem;--opacity: 0.6"
+              aria-label="{{ 'products.product.zoom_button' | t }}"
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" class="heading-color">
+                <path d="M0.000118964 13.3636L0.000357199 10.1813C0.000357199 9.82984 0.285206 9.54512 0.636559 9.54512C0.988031 9.54512 1.27264 9.82984 1.27264 10.1814V11.8261L4.96959 8.12603C5.09402 8.00148 5.25706 7.93963 5.41998 7.93963C5.58267 7.93963 5.74536 8.0016 5.86966 8.12591C6.11816 8.37416 6.1184 8.77699 5.87002 9.02549L2.17188 12.7271H3.81625C4.16773 12.7271 4.45257 13.0121 4.45257 13.3637C4.45257 13.715 4.16761 14 3.81625 14H0.636559C0.467676 14 0.305944 13.9329 0.186522 13.8134C0.0671004 13.6941 0.000118964 13.532 0.000118964 13.3636ZM0.63644 4.45524C0.988031 4.45524 1.27264 4.16992 1.27264 3.81869V2.17399L4.90762 5.77791C5.15635 6.02641 5.57623 6.02665 5.82473 5.77815C6.07335 5.53002 6.08193 5.12694 5.83367 4.87857L2.2354 1.27286H3.88157H3.88288C4.23435 1.27286 4.51955 0.988133 4.51967 0.636548C4.51979 0.28544 4.23542 0.000357013 3.88383 0.000357013L0.704613 -3.34596e-07C0.53561 -3.34596e-07 0.339672 0.0670991 0.220608 0.1864C0.101306 0.3057 -1.54403e-07 0.467548 -1.54403e-07 0.63619V3.81881C0.000119029 4.17004 0.285087 4.45524 0.63644 4.45524V4.45524ZM9.09262 5.80592L12.7272 2.17375V3.81881C12.7272 4.17028 13.0065 4.45452 13.3578 4.45452H13.3552C13.7067 4.45452 13.9902 4.16992 13.9902 3.81881L13.99 0.636667C13.99 0.467787 13.9227 0.305939 13.8033 0.186638C13.6838 0.0672182 13.5217 0.000237897 13.353 0.000237897H10.1731C9.82167 0.000237897 9.53682 0.285201 9.53682 0.636548C9.53682 0.988252 9.82179 1.2731 10.1731 1.2731H11.817L8.18695 4.90646C7.93821 5.15483 7.94143 5.55826 8.18993 5.8064C8.43842 6.05453 8.84401 6.0543 9.09262 5.80592V5.80592ZM11.8282 12.6698H10.1841C9.83263 12.6698 9.5479 12.9544 9.5479 13.3058C9.5479 13.6574 9.83275 13.9423 10.1841 13.9423L13.3636 13.9426H13.3637C13.5326 13.9426 13.6942 13.8758 13.8137 13.7565C13.9329 13.6372 14 13.4755 14 13.3064L13.9996 10.124C13.9996 9.77299 13.7148 9.48767 13.3634 9.48767C13.012 9.48767 12.7272 9.77299 12.7272 10.124V11.7689L9.05925 8.09802C8.93494 7.97359 8.7719 7.91138 8.60898 7.91138C8.44641 7.91138 8.28349 7.97335 8.1593 8.09766C7.91068 8.34592 7.91032 8.74911 8.15894 8.99784L11.8282 12.6698Z" fill="#1D1D1F"/>
+              </svg>
+            </button>
+          {% endif %}
+      {% endcase %}
+    </div>
+  </media-gallery>
+  <share-button
+    data-title="{{ product.title }}"
+    data-text="{{ product.title }}"
+    data-url="{{ shop.url }}{{ product.url }}"
+    role="button"
+    class="btn-share-mobile blur touch-fb hidden btn-reset z-1 bg-white absolute top-10{% if settings.rounded_button > 0 %} rounded-50{% endif %} content-center bg-white w-custom h-custom{% if layout == 'thumbnail' or layout == 'thumbnail_stack' %} thumb-type{% endif %}"
+    style="--width: 4.2rem;--height: 4.2rem;--opacity: 0.6"
+    aria-label=" {{ 'blogs.article.share' | t }}"
+  >
+    <svg width="15" height="16" viewBox="0 0 15 16" fill="currentColor" class="heading-color">
+      <path d="M11.8761 9.88736C10.9523 9.88736 10.121 10.2817 9.54853 10.9073L6.09179 8.9547C6.19305 8.6542 6.24786 8.33323 6.24786 7.99998C6.24786 7.66674 6.19305 7.34577 6.09182 7.04527L9.54856 5.09271C10.121 5.7183 10.9524 6.11261 11.8761 6.11261C13.5986 6.11261 15 4.74155 15 3.05631C15 1.37106 13.5986 0 11.8761 0C10.1535 0 8.75214 1.37106 8.75214 3.05631C8.75214 3.38956 8.80695 3.71052 8.90821 4.01105L5.45147 5.96361C4.87905 5.33802 4.04768 4.94371 3.12394 4.94371C1.40139 4.94371 0 6.31477 0 8.00002C0 9.68526 1.40139 11.0563 3.12394 11.0563C4.04768 11.0563 4.87905 10.662 5.45147 10.0364L8.90821 11.989C8.80695 12.2895 8.75214 12.6104 8.75214 12.9437C8.75214 14.6289 10.1535 16 11.8761 16C13.5986 16 15 14.6289 15 12.9437C15 11.2584 13.5986 9.88736 11.8761 9.88736ZM11.8761 1.25C12.8941 1.25 13.7223 2.06031 13.7223 3.05631C13.7223 4.0523 12.8941 4.86262 11.8761 4.86262C10.858 4.86262 10.0298 4.0523 10.0298 3.05631C10.0298 2.06031 10.858 1.25 11.8761 1.25ZM3.12394 9.80629C2.10591 9.80629 1.27765 8.99598 1.27765 7.99998C1.27765 7.00399 2.10591 6.19368 3.12394 6.19368C4.14194 6.19368 4.97018 7.00399 4.97018 7.99998C4.97018 8.99598 4.14194 9.80629 3.12394 9.80629ZM11.8761 14.75C10.858 14.75 10.0298 13.9397 10.0298 12.9437C10.0298 11.9477 10.858 11.1374 11.8761 11.1374C12.8941 11.1374 13.7223 11.9477 13.7223 12.9437C13.7223 13.9397 12.8941 14.75 11.8761 14.75Z" fill="#1D1D1F"/>
+    </svg>
+  </share-button>
+</div>
+{%- if first_3d_model -%}
+  <script type="application/json" id="ProductJSON-{{ product.id }}">
+    {{ product.media | where: 'media_type', 'model' | json }}
+  </script>
+  <script src="{{ 'product-model.js' | asset_url }}" defer></script>
+{% endif %}

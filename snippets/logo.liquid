@@ -1,0 +1,65 @@
+{%- liquid
+  assign theme_st = settings
+  assign logo_img = theme_st.logo
+  assign logo_transparent = theme_st.logo_on_transparent
+  assign logo_width = theme_st.logo_width
+  assign logo_width_1_5x = logo_width | times: 1.5 | round
+  assign logo_width_2x = logo_width | times: 2
+  assign logo_width_3x = logo_width | times: 3
+  assign logo_widths = logo_width | append: ', ' | append: logo_width_1_5x | append: ', ' | append: logo_width_2x | append: ', ' | append: logo_width_3x
+  assign logo_sizes = logo_width | append: 'px'
+-%}
+{%- if request.page_type == 'index' -%}
+  <h1 class="visually-hidden">{{ shop.name }}</h1>
+{%- endif -%}
+<div class="header__logo inline-flex align-center color-inherit{% if section_st.header_layout contains 'logo-center' %} text-center content-center{% else %} justify-center flex-1025-start{% endif %}">
+  <a
+    href="{{ routes.root_url }}"
+    class="header__heading-link no-underline h3 inline-flex align-center transparent-color{% if section_st.header_layout == 'logo-left-menu-below' %} shrink-0{% endif %}"
+    aria-label="{{ shop.name }}"
+  >
+    {%- if section_st.transparent and logo_transparent != blank and request.page_type == 'index' -%}
+      {%- liquid
+        assign img_transparent_alt = logo_transparent.alt | default: shop.name | escape
+        assign logo_height = logo_width | divided_by: logo_transparent.aspect_ratio
+        if logo_img != blank
+          assign logo_height = logo_width | divided_by: logo_img.aspect_ratio
+        endif
+      -%}
+      {{
+        logo_transparent
+        | image_url: width: logo_width_3x
+        | image_tag:
+          class: 'header__heading-logo transparent-logo',
+          widths: logo_widths,
+          height: logo_height,
+          width: logo_width,
+          alt: img_transparent_alt,
+          sizes: logo_sizes
+      }}
+    {%- endif -%}
+    {%- if logo_img != blank -%}
+      {%- assign img_alt = logo_img.alt | default: shop.name | escape -%}
+      {%- assign logo_height = logo_width | divided_by: logo_img.aspect_ratio -%}
+      {%- liquid
+        assign logo_class = 'header__heading-logo logo-normal'
+        if request.page_type == 'index' and section_st.transparent and logo_transparent != blank
+          assign logo_class = logo_class | append: ' hidden'
+        endif
+      -%}
+      {{
+        logo_img
+        | image_url: width: logo_width_3x
+        | image_tag:
+          class: logo_class,
+          widths: logo_widths,
+          height: logo_height,
+          width: logo_width,
+          alt: img_alt,
+          sizes: logo_sizes
+      }}
+    {%- else -%}
+      <span class="site-logo {{ logo_class }}">{{ shop.name }}</span>
+    {%- endif -%}
+  </a>
+</div>

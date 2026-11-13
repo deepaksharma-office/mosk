@@ -1,0 +1,81 @@
+{%- liquid
+  assign block_st = block.settings
+-%}
+{% if block_st.content %}
+  <div class="flex gap-sp-2 align-center mt-sp-4 mt-1025-sp-6 mb-sp-2 mb-1025-sp-4">
+    {% if block_st.show_icon_eye %}
+      <div
+        class="flex content-center rounded-50 bg-primary color-white w-custom h-custom"
+        style="--width: 3.4rem;--height: 3.4rem;"
+      >
+        <svg width="14" height="10" viewBox="0 0 16 12" fill="none">
+          <use href="#icon-quickview" />
+        </svg>
+      </div>
+    {% endif %}
+    <live-view
+      data-min="{{ block_st.min_number }}"
+      data-max="{{ block_st.max_number }}"
+      data-interval="{{ block_st.interval_time }}"
+      data-message="{{ block_st.content }}"
+      dir="auto"
+    >
+    </live-view>
+  </div>
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.all.product_setting.live_view.name",
+  "class": "block-product__live-view",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.all.product_setting.live_view.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_icon_eye",
+      "label": "t:sections.all.product_setting.live_view.settings.show_icon_eye.label",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "min_number",
+      "label": "t:sections.all.product_setting.live_view.settings.min_number",
+      "default": 10,
+      "min": 1,
+      "max": 30,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "max_number",
+      "label": "t:sections.all.product_setting.live_view.settings.max_number",
+      "default": 40,
+      "min": 31,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "interval_time",
+      "label": "t:sections.all.product_setting.live_view.settings.interval_time",
+      "default": 10,
+      "min": 1,
+      "max": 60,
+      "step": 1
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "t:sections.all.product_setting.live_view.settings.content",
+      "default": "<p>[count] peoples are viewing this right now</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.all.product_setting.live_view.name"
+    }
+  ]
+}
+{% endschema %}

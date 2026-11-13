@@ -1,0 +1,745 @@
+{%- liquid
+  assign section_st = section.settings
+  assign theme_st = settings
+  assign scroll_animation = theme_st.scroll_animation
+  if section_st.section_width == 'fix_width'
+    assign section_width = 'container'
+  elsif section_st.section_width == 'full_width'
+    assign section_width = 'full-width'
+  else
+    assign section_width = 'fluid_container'
+  endif
+
+  assign heading_size = section_st.heading_size
+  assign header_size = ''
+  if heading_size == 'small'
+    assign header_size = 'h3'
+  elsif heading_size == 'large'
+    assign header_size = 'h1'
+  endif
+
+  assign heading = section_st.title
+  assign drawn_underline = section_st.drawn_underline
+  assign drawn_underline_type = section_st.drawn_underline_type
+  assign drawn_underline_color = section_st.drawn_underline_color
+  if drawn_underline
+    assign scroll_animation = 'disable'
+  endif
+
+  assign image = section_st.image
+  assign image_mobile = section_st.image_mobile
+  assign image_ratio = section_st.image_ratio
+
+  assign ratio = '3/4'
+  assign ratio_mb = '3/4'
+  if image_ratio != 'adapt'
+    case image_ratio
+      when 'square'
+        assign ratio = '1/1'
+        assign ratio_mb = '1/1'
+      when 'landscape'
+        assign ratio = '4/3'
+        assign ratio_mb = '4/3'
+      when 'portrait'
+        assign ratio = '3/4'
+        assign ratio_mb = '3/4'
+    endcase
+  else
+    if image != blank or image_mobile != blank
+      assign ratio = image.aspect_ratio
+      assign ratio_mb = image_mobile.aspect_ratio | default: ratio
+    endif
+  endif
+  assign image_alt = image.alt
+  if image_alt == blank
+    assign image_alt = 'general.image.image_alt_default' | t
+  endif
+  assign animate_delay = 25
+-%}
+
+{%- capture style -%}
+    --section-pt: {{ section_st.padding_top }}; --section-pb: {{ section_st.padding_bottom }};{% if section.blocks.size > 6 %}--speed: 15s;{% elsif  section.blocks.size > 4 %} --speed: 10s;{% elsif section.blocks.size > 2 %}--speed: 6s;{% else %}--speed: 4s;{% endif %}
+{%- endcapture -%}
+
+{%- render 'section-divider', position: 'top', style: section_st.divider_top, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+<div
+  class="section section color-{{ section_st.color_scheme }} gradient{% if section_st.show_divider and section_st.divider_top == 'line' %} border-top{% endif %}{% if section_st.show_divider and section_st.divider_bottom == 'line' %} border-bottom{% endif %}"
+  style="{{ style | strip | strip_newlines }}"
+>
+  <div class="{{ section_width }}">
+    {%- if heading != blank or section_st.description != blank or section_st.subheading != blank -%}
+      <div class="section-header hidden block-md section-header__in-section text-{{ section_st.text_alignment }}">
+        {%- if section_st.subheading != blank -%}
+          {% if scroll_animation != 'disable' %}
+            <motion-effect
+              data-animate="fade-up"
+              data-animate-delay="{{ animate_delay }}"
+              class="block"
+            >
+          {% endif %}
+          <div class="section-subheading fs-big-2 mb-5 mb-1025-10 heading-color subheading_weight">
+            {{ section.settings.subheading }}
+          </div>
+          {% if scroll_animation != 'disable' %}
+            </motion-effect>
+          {% endif %}
+        {%- endif -%}
+        {%- if heading != blank -%}
+          {% assign animate_delay = animate_delay | plus: 50 %}
+          {% if scroll_animation != 'disable' or drawn_underline %}
+            <motion-effect
+              data-animate="{% if scroll_animation != 'disable' %}fade-up{% else %}highlighted-text{% endif %}"
+              data-animate-delay="{{ animate_delay }}"
+              class="block"
+            >
+          {% endif %}
+          <h2 class="block section-heading {{ header_size }}">
+            {% if drawn_underline %}
+              {%- capture squiggle_svg_1 -%}
+                <svg viewBox="0 0 184 26" fill="none"><use href="#squiggle-svg-1" /></svg>
+              {%- endcapture -%}
+              {%- capture squiggle_svg_2 -%}
+                <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-2" /></svg>
+              {%- endcapture -%}
+              {%- capture squiggle_svg_3 -%}
+                  <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-3" /></svg>
+              {%- endcapture -%}
+              {%- capture squiggle_svg_4 -%}
+                <svg viewBox="0 0 220 20"fill="none"><use href="#squiggle-svg-4" /></svg>
+              {%- endcapture -%}
+              {%- capture squiggle_svg_5 -%}
+                <svg viewBox="0 0 140 24" fill="none" role="presentation" preserveAspectRatio="none"><use href="#squiggle-svg-5" /></svg>
+              {%- endcapture -%}
+              {%- assign result = heading -%}
+              {%- assign parts = result | split: '<em>' -%}
+              {%- assign em_count = parts | size | minus: 1 -%}
+
+              {%- for i in (1..em_count) -%}
+                {%- assign idx = i | plus: 0 -%}
+                {%- assign chunk = parts[idx] | default: '' -%}
+                {%- assign text = chunk | split: '</em>' | first | strip_html | strip -%}
+                {%- assign len_text = text | size -%}
+                {%- capture open_em -%}
+                {%- liquid
+                  if drawn_underline_type == 'simple_underline'
+                    assign svg = squiggle_svg_4 | append: '</em>'
+                  elsif drawn_underline_type == 'curve_underline'
+                    assign svg = squiggle_svg_5 | append: '</em>'
+                  else
+                    if len_text <= 4
+                      assign svg = squiggle_svg_1 | append: '</em>'
+                    elsif len_text <= 6
+                      assign svg = squiggle_svg_2 | append: '</em>'
+                    else
+                      assign svg = squiggle_svg_3 | append: '</em>'
+                    endif
+                  endif
+                -%}
+                <em class="highlighted-text relative inline-flex{% if drawn_underline_type == 'simple_underline' %} simple_underline{% endif %} {{ drawn_underline_type }} not-italic" style="--animate-color:{{ drawn_underline_color }}">{{ svg }}</em>
+              {%- endcapture -%}
+                {%- assign open_em = open_em | remove: '</em>' -%}
+                {%- assign heading = heading | replace_first: '<em>', open_em -%}
+              {%- endfor -%}
+            {% endif %}
+            {{- heading -}}
+          </h2>
+          {% if scroll_animation != 'disable' or drawn_underline %}
+            </motion-effect>
+          {% endif %}
+        {%- endif -%}
+        {%- if section_st.description != blank -%}
+          {% if scroll_animation != 'disable' %}
+            {% assign animate_delay = animate_delay | plus: 50 %}
+            <motion-effect
+              data-animate="fade-up"
+              data-animate-delay="{{ animate_delay }}"
+              class="block"
+            >
+          {% endif %}
+          <div class="section-description mt-sp-4 prose">
+            {{ section.settings.description }}
+          </div>
+          {% if scroll_animation != 'disable' %}
+            </motion-effect>
+          {% endif %}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+    <div class="featured__parallax-inner section-content relative">
+      <div
+        class="media-product z-5 relative w-full max-w-custom-all mx-auto px-0"
+        style="--max-width: 40rem;"
+      >
+        <div
+          class="media-product__main rounded"
+          style="--aspect-ratio: {{ ratio }};{% if image_mobile != blank %}--aspect-ratio-mb: {{ ratio_mb }};{% endif %}"
+        >
+          {% if image != blank or image_mobile != blank %}
+            {% render 'responsive-image',
+              type: 'banner',
+              container: section_st.section_width,
+              image: image,
+              image_mobile: image_mobile,
+              image_alt: image_alt,
+              motion: false
+            %}
+          {% else %}
+            {%- render 'placeholder-render', type: 'lifestyle-2' -%}
+          {% endif %}
+        </div>
+      </div>
+      {%- if heading != blank or section_st.description != blank or section_st.subheading != blank -%}
+        <div
+          class="section-header section-header__in-section mt-sp-6 hidden-md text-{{ section_st.text_alignment }}"
+          style="--header-spacing-bottom: 0;"
+        >
+          {%- if section_st.subheading != blank -%}
+            {% if scroll_animation != 'disable' %}
+              <motion-effect
+                data-animate="fade-up"
+                data-animate-delay="{{ animate_delay }}"
+                class="block"
+              >
+            {% endif %}
+            <div class="section-subheading fs-big-2 mb-5 mb-1025-10 heading-color subheading_weight">
+              {{ section.settings.subheading }}
+            </div>
+            {% if scroll_animation != 'disable' %}
+              </motion-effect>
+            {% endif %}
+          {%- endif -%}
+          {%- if heading != blank -%}
+            {% assign animate_delay = animate_delay | plus: 50 %}
+            {% if scroll_animation != 'disable' or drawn_underline %}
+              <motion-effect
+                data-animate="{% if scroll_animation != 'disable' %}fade-up{% else %}highlighted-text{% endif %}"
+                data-animate-delay="{{ animate_delay }}"
+                class="block"
+              >
+            {% endif %}
+            <h2 class="block section-heading {{ header_size }}">
+              {% if drawn_underline %}
+                {%- capture squiggle_svg_1 -%}
+                  <svg viewBox="0 0 184 26" fill="none"><use href="#squiggle-svg-1" /></svg>
+                {%- endcapture -%}
+                {%- capture squiggle_svg_2 -%}
+                 <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-2" /></svg>
+                {%- endcapture -%}
+                {%- capture squiggle_svg_3 -%}
+                   <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-3" /></svg>
+                {%- endcapture -%}
+                {%- capture squiggle_svg_4 -%}
+                  <svg viewBox="0 0 220 20" fill="none" role="presentation" preserveAspectRatio="none"><use href="#squiggle-svg-4" /></svg>
+                {%- endcapture -%}
+                {%- capture squiggle_svg_5 -%}
+                  <svg viewBox="0 0 140 24" fill="none"><use href="#squiggle-svg-5" /></svg>
+                {%- endcapture -%}
+                {%- assign result = heading -%}
+                {%- assign parts = result | split: '<em>' -%}
+                {%- assign em_count = parts | size | minus: 1 -%}
+
+                {%- for i in (1..em_count) -%}
+                  {%- assign idx = i | plus: 0 -%}
+                  {%- assign chunk = parts[idx] | default: '' -%}
+                  {%- assign text = chunk | split: '</em>' | first | strip_html | strip -%}
+                  {%- assign len_text = text | size -%}
+                  {%- capture open_em -%}
+                  {%- liquid
+                    if drawn_underline_type == 'simple_underline'
+                      assign svg = squiggle_svg_4 | append: '</em>'
+                    elsif drawn_underline_type == 'curve_underline'
+                      assign svg = squiggle_svg_5 | append: '</em>'
+                    else
+                      if len_text <= 4
+                        assign svg = squiggle_svg_1 | append: '</em>'
+                      elsif len_text <= 6
+                        assign svg = squiggle_svg_2 | append: '</em>'
+                      else
+                        assign svg = squiggle_svg_3 | append: '</em>'
+                      endif
+                    endif
+                  -%}
+                  <em class="highlighted-text relative inline-flex{% if drawn_underline_type == 'simple_underline' %} simple_underline{% endif %} {{ drawn_underline_type }} not-italic" style="--animate-color:{{ drawn_underline_color }}">{{ svg }}</em>
+                {%- endcapture -%}
+                  {%- assign open_em = open_em | remove: '</em>' -%}
+                  {%- assign heading = heading | replace_first: '<em>', open_em -%}
+                {%- endfor -%}
+              {% endif %}
+              {{- heading -}}
+            </h2>
+            {% if scroll_animation != 'disable' or drawn_underline %}
+              </motion-effect>
+            {% endif %}
+          {%- endif -%}
+          {%- if section_st.description != blank -%}
+            {% if scroll_animation != 'disable' %}
+              {% assign animate_delay = animate_delay | plus: 50 %}
+              <motion-effect
+                data-animate="fade-up"
+                data-animate-delay="{{ animate_delay }}"
+                class="block"
+              >
+            {% endif %}
+            <div class="section-description mt-sp-4 prose">
+              {{ section.settings.description }}
+            </div>
+            {% if scroll_animation != 'disable' %}
+              </motion-effect>
+            {% endif %}
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+      <content-effect class="information-text__wrapper flex absolute-1025 align-center top-0 w-full h-full z-1{% if section_st.hide_icon_text == true %} mt-0{% else %} mt-sp-6{% endif %}">
+        <div class="information-text__content{% if section_st.hide_icon_text == true %} hidden flex-1025{% else %} flex{% endif %} wrap-1025 align-center gap">
+          {% assign content_effect_blocks = section.blocks | where: 'type', 'information' %}
+          {% for block in content_effect_blocks %}
+            {% assign block_st = block.settings %}
+            <div
+              class="block__information_text flex justify-center relative"
+              {{ block.shopify_attributes }}
+            >
+              <div
+                class="block__information_text-inner relative w-custom"
+                style="--gap: 8;"
+              >
+                <div
+                  class="block_infor-text align-center bg-secondary flex gap-custom{% if block_st.uppercase %} uppercase{% endif %} fs-{{ block_st.highlight_text_size }} text-color bg-custom py-15 px-25 btn-rounded"
+                  style="--color-text: var(--btn-primary-bg-color);"
+                >
+                  {% if block_st.highlight_text_icon != 'none' %}
+                    <span class="w-custom flex flex-auto" style="--width: 24px;">
+                      {% render 'icon_svg_list', icon: block_st.highlight_text_icon, custom_width: 24 %}
+                    </span>
+                  {% endif %}
+                  <span>{{ block_st.title | escape }}</span>
+                </div>
+                <svg width="25" height="25" fill="none" class="absolute balloon-icon hidden block-1025 rtl-mirror">
+                  <ellipse cx="21" cy="20.999" fill="var(--color-background-2)" rx="4" ry="3.999"/><ellipse cx="9" cy="8.998" fill="var(--color-background-2)" rx="9" ry="8.998"/>
+                </svg>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </content-effect>
+      {% if section_st.button_label != blank %}
+        <div class="button-block flex justify-content-center mt-50">
+          <a
+            {% if section_st.button_link == blank %}
+              role="link" aria-disabled="true"
+            {% else %}
+              href="{{ section_st.button_link | default: "#" }}"
+            {% endif %}
+            aria-label="{{ section_st.button_label }}"
+            class="pointer text-center btn-{{ section_st.button_type }}{% if section_st.button_type == "link" %} align-self-center border-animation z-2{% else %} btn min-w-md-custom w-md-auto w-full max-w-100{% endif %}"
+            {% if section_st.button_type != 'link' %}
+              style="--width: 25rem;"
+            {% endif %}
+          >
+            {{ section_st.button_label }}
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{%- render 'section-divider', position: 'bottom', style: section_st.divider_bottom, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+{% schema %}
+{
+  "name": "t:sections.featured_product_banner.name",
+  "tag": "section",
+  "class": "section section-featured-product-banner overflow-hidden",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.featured_product_banner.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "options": [
+        {
+          "value": "fix_width",
+          "label": "t:sections.all.layout.fix_width"
+        },
+        {
+          "value": "stretch_width",
+          "label": "t:sections.all.layout.stretch_width"
+        },
+        {
+          "value": "full_width",
+          "label": "t:sections.all.layout.full_width"
+        }
+      ],
+      "default": "fix_width",
+      "label": "t:sections.all.layout.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_header.label"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.all.content_setting.subheading.label"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "default": "<p>Heading</p>",
+      "label": "t:sections.all.content_setting.heading.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "drawn_underline",
+      "default": true,
+      "label": "t:sections.all.content_setting.drawn_underline.label",
+      "info": "t:sections.all.content_setting.heading.info"
+    },
+    {
+      "type": "select",
+      "id": "drawn_underline_type",
+      "label": "t:sections.all.content_setting.drawn_underline.type",
+      "default": "squiggle_underline",
+      "visible_if": "{{ section.settings.drawn_underline != false }}",
+      "options": [
+        {
+          "value": "simple_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.simple_underline"
+        },
+        {
+          "value": "curve_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.curve_underline"
+        },
+        {
+          "value": "squiggle_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.squiggle_underline"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "drawn_underline_color",
+      "label": "t:sections.all.content_setting.drawn_underline.color",
+      "default": "#FFB005",
+      "alpha": true,
+      "visible_if": "{{ section.settings.drawn_underline != false }}"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "default": "<p>Description</p>",
+      "label": "t:sections.all.content_setting.description.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "small",
+          "label": "t:sections.all.content_header.heading_size.options__3.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.all.content_header.heading_size.options__2.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.all.content_header.heading_size.options__1.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.all.content_header.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.all.text_alignment.alignment"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.all.image.label",
+      "info": "t:sections.featured_product_banner.info.info_desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "t:sections.all.image.mobile_image",
+      "info": "t:sections.featured_product_banner.info.info_mobile"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.all.image.aspect_ratio.adapt"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.all.image.aspect_ratio.options__1"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.all.image.aspect_ratio.options__2"
+        },
+        {
+          "value": "landscape",
+          "label": "t:sections.all.image.aspect_ratio.options__3"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.all.image.aspect_ratio.label"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Button label",
+      "label": "t:sections.all.content_setting.first_button_label.label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.all.content_setting.first_button_label.link"
+    },
+    {
+      "type": "select",
+      "id": "button_type",
+      "label": "t:sections.all.content_setting.button_type.label",
+      "default": "primary",
+      "options": [
+        {
+          "value": "primary",
+          "label": "t:sections.all.content_setting.button_type.primary.label"
+        },
+        {
+          "value": "outline",
+          "label": "t:sections.all.content_setting.button_type.outline.label"
+        },
+        {
+          "value": "link",
+          "label": "t:sections.all.content_setting.button_type.link.label"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:settings_schema.product.settings.mobile_options.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_icon_text",
+      "default": true,
+      "label": "t:sections.featured_product_banner.hide_icon_text"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.divider.section_divider_heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "t:sections.all.divider.show_divider",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "divider_top",
+      "label": "t:sections.all.divider.top",
+      "info": "t:sections.all.divider.top_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "line",
+      "visible_if": "{{ section.settings.show_divider }}"
+    },
+    {
+      "type": "select",
+      "id": "divider_bottom",
+      "label": "t:sections.all.divider.bottom",
+      "info": "t:sections.all.divider.bottom_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.show_divider }}"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "information",
+      "limit": 8,
+      "name": "t:sections.featured_product_banner.blocks.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Icon with text",
+          "label": "t:sections.all.content_setting.content"
+        },
+        {
+          "type": "select",
+          "id": "highlight_text_size",
+          "options": [
+            {
+              "value": "small-1",
+              "label": "t:sections.all.content_header.heading_size.small.label"
+            },
+            {
+              "value": "",
+              "label": "t:sections.all.content_header.heading_size.base.label"
+            },
+            {
+              "value": "big-2",
+              "label": "t:sections.all.content_header.heading_size.large.label"
+            }
+          ],
+          "default": "",
+          "label": "t:sections.all.content_header.heading_size.size"
+        },
+        {
+          "type": "select",
+          "id": "highlight_text_icon",
+          "label": "t:sections.all.svg.label",
+          "default": "brightening",
+          "options": [
+            {
+              "value": "none",
+              "label": "t:sections.all.icon.none.label"
+            },
+            {
+              "value": "coil",
+              "label": "t:sections.all.icon.coil.label"
+            },
+            {
+              "value": "coptic_cross",
+              "label": "t:sections.all.icon.coptic_cross.label"
+            },
+            {
+              "value": "hydration",
+              "label": "t:sections.all.icon.hydration.label"
+            },
+            {
+              "value": "brightening",
+              "label": "t:sections.all.icon.brightening.label"
+            },
+            {
+              "value": "balloon",
+              "label": "t:sections.all.icon.balloon.label"
+            },
+            {
+              "value": "droplet",
+              "label": "t:sections.all.icon.droplet.label"
+            },
+            {
+              "value": "smooth",
+              "label": "t:sections.all.icon.smooth.label"
+            },
+            {
+              "value": "shield",
+              "label": "t:sections.all.icon.shield.label"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "uppercase",
+          "default": false,
+          "label": "t:settings_schema.typography.settings.heading.text_transform.uppercase"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.featured_product_banner.name",
+      "category": "t:sections.group.product",
+      "blocks": [
+        {
+          "type": "information"
+        },
+        {
+          "type": "information"
+        },
+        {
+          "type": "information"
+        },
+        {
+          "type": "information"
+        },
+        {
+          "type": "information"
+        },
+        {
+          "type": "information"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

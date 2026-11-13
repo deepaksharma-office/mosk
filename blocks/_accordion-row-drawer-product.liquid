@@ -1,0 +1,100 @@
+{%- liquid
+  assign drawer_page = block.settings.page
+  assign drawer_heading = block.settings.heading | default: pages[drawer_page].title
+-%}
+<collapsible-drawer-row
+  class="drawer-row collapsible-row border-bottom py-sp-4"
+  data-block-id="{{ block.id }}"
+  {{ block.shopify_attributes }}
+>
+  <button
+    type="button"
+    class="drawer-row__trigger collapsible-row__summary not-highlight-tap flex space-between w-full btn-reset pointer py-sp-4"
+    aria-label="{{ drawer_heading | escape }}"
+  >
+    <div class="collapsible-heading h6 lh-global">
+      {{ drawer_heading }}
+    </div>
+    <span class="toggle-menu w-30 h-custom inline-flex flex-end align-center">
+      <svg class="icon icon-down icon-rotate transition-short" width="14" height="8" viewBox="0 0 14 8">
+        <use href="#icon-arrow-down-facet" />
+      </svg>
+    </span>
+  </button>
+  <div class="d-none">
+    <template>
+      <drawer-row-popup
+        class="modal modal_type_popup drawer-row-popup active-modal-js invisible-1025 fixed inset-0 z-22 transition-drawer"
+        drawer
+      >
+        <modal-overlay class="modal-overlay invisible transition-drawer cursor-crosshair"></modal-overlay>
+        <div
+          class="modal-inner draw-mb drawer-right-mb drawer drawer-right fixed right-0 inset-y-0 z-2 w-full modal-focus bg-white transition-drawer"
+          style="--drawer-width: 48rem;"
+          tabindex="-1"
+          role="dialog"
+          aria-modal="true"
+          aria-label="{{ drawer_heading | escape }}"
+        >
+          <draggable-modal
+            class="drawer__header draggable-modal drawer__header-cart flex gap-10 space-between align-center drawer-spacing border-bottom sticky hidden-drag"
+            style="--padding-block-desktop: 1.7rem;--padding-block:1.2rem;--padding-inline-desktop:3.2rem;"
+          >
+            <div class="drawer__heading h5 flex gap align-center" style="--gap-desktop: 8px;--gap: 8px">
+              {{ drawer_heading }}
+            </div>
+            <button
+              is="button-close-model"
+              class="modal__close modal-button-close rounded-50 pointer btn-reset h-full flex content-center"
+              aria-label="{{ 'accessibility.close' | t }}"
+            >
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 14 14"
+                fill="none"
+                class="transition-short will-change icon-zoom"
+              >
+                <use href="#icon-close"></use>
+              </svg>
+            </button>
+          </draggable-modal>
+          <div class="drawer__body grow-1 h-full overflow-y-auto overflow-x-hidden custom-scrollbar drawer-spacing rte">
+            {% if drawer_page != null and pages[drawer_page].content %}
+              {{ pages[drawer_page].content }}
+            {% else %}
+              {{ block.settings.content }}
+            {% endif %}
+          </div>
+        </div>
+      </drawer-row-popup>
+    </template>
+  </div>
+</collapsible-drawer-row>
+{% schema %}
+{
+  "name": "t:sections.all.product_setting.accordion_row_drawer.name",
+  "class": "block-product__accordion-row-drawer slideIn-animate",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Collapsible row",
+      "label": "t:sections.all.content_setting.heading.label",
+      "info": "t:sections.all.product_setting.accordion_row_drawer.settings.info"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "t:sections.all.product_setting.accordion_row_drawer.settings.content",
+      "default": "<p>Collapsible content</p>"
+    },
+    {
+      "type": "page",
+      "id": "page",
+      "label": "t:sections.all.product_setting.accordion_row_drawer.settings.content_page"
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.product_setting.accordion_row_drawer.name" }]
+}
+{% endschema %}

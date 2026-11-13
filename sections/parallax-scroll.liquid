@@ -1,0 +1,589 @@
+{{ 'parallax-scroll.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'parallax-scroll.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign section_st = section.settings
+  assign scroll_animation = settings.scroll_animation
+  assign heading = section_st.heading
+  assign drawn_underline = section_st.drawn_underline
+  assign drawn_underline_color = section_st.drawn_underline_color
+  assign drawn_underline_type = section_st.drawn_underline_type | default: 'squiggle_underline'
+  assign card_width = section_st.card_width | default: 564
+
+  if drawn_underline
+    assign scroll_animation = 'disable'
+  endif
+-%}
+
+{%- capture section_style -%}
+  --section-pt: {{ section_st.padding_top }};
+  --section-pb: {{ section_st.padding_bottom }};
+  --parallax-scroll-card-width: {{ card_width }}px;
+{%- endcapture -%}
+
+{%- render 'section-divider', position: 'top', style: section_st.divider_top, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+<section
+  class="section section__parallax-scroll color-{{ section_st.color_scheme }} gradient{% if section_st.show_divider and section_st.divider_top == 'line' %} border-top{% endif %}{% if section_st.show_divider and section_st.divider_bottom == 'line' %} border-bottom{% endif %}"
+  style="{{ section_style | strip | strip_newlines }}"
+>
+  <div class="full-width parallax-scroll__width relative">
+    <parallax-scroll
+      class="parallax-scroll block relative{% if section_st.hide_description_on_mobile %} parallax-scroll--hide-description-mobile{% endif %}"
+    >
+      <div class="parallax-scroll__runway relative" data-parallax-scroll-runway>
+        <div class="parallax-scroll__pin relative grid w-full" data-parallax-scroll-pin>
+          <div class="parallax-scroll__header relative grid w-full text-center" data-parallax-scroll-header>
+            <div
+              class="parallax-scroll__header-content max-w-custom mx-auto w-full px-sp-5"
+              style="--max-width: 58rem;"
+              data-parallax-scroll-header-content
+            >
+              {%- if section_st.subheading != blank -%}
+                {% if scroll_animation != 'disable' %}
+                  <motion-effect data-animate="fade-up" data-animate-delay="50" class="block">
+                {% endif %}
+                <div class="section-subheading h7 mb-sp-1 mb-md-sp-2 subheading_weight fs-big-2">
+                  {{ section_st.subheading }}
+                </div>
+                {% if scroll_animation != 'disable' %}
+                  </motion-effect>
+                {% endif %}
+              {%- endif -%}
+
+              {%- if heading != blank -%}
+                {% if scroll_animation != 'disable' or drawn_underline %}
+                  <motion-effect
+                    data-animate="{% if scroll_animation != 'disable' %}fade-up{% else %}highlighted-text{% endif %}"
+                    data-animate-delay="100"
+                    class="block"
+                  >
+                {% endif %}
+                <h2 class="section-heading {{ section_st.heading_size }}">
+                  {% if drawn_underline %}
+                    {%- capture squiggle_svg_1 -%}
+                    <svg viewBox="0 0 184 26" fill="none"><use href="#squiggle-svg-1" /></svg>
+                  {%- endcapture -%}
+                    {%- capture squiggle_svg_2 -%}
+                    <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-2" /></svg>
+                  {%- endcapture -%}
+                    {%- capture squiggle_svg_3 -%}
+                    <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-3" /></svg>
+                  {%- endcapture -%}
+                    {%- capture squiggle_svg_4 -%}
+                    <svg viewBox="0 0 220 20" fill="none"><use href="#squiggle-svg-4" /></svg>
+                  {%- endcapture -%}
+                    {%- capture squiggle_svg_5 -%}
+                    <svg viewBox="0 0 140 24" fill="none" role="presentation" preserveAspectRatio="none"><use href="#squiggle-svg-5" /></svg>
+                  {%- endcapture -%}
+                    {%- assign parts = heading | split: '<em>' -%}
+                    {%- assign em_count = parts | size | minus: 1 -%}
+
+                    {%- for i in (1..em_count) -%}
+                      {%- assign chunk = parts[i] | default: '' -%}
+                      {%- assign text = chunk | split: '</em>' | first | strip_html | strip -%}
+                      {%- assign len_text = text | size -%}
+                      {%- capture open_em -%}
+                      {%- liquid
+                        if drawn_underline_type == 'simple_underline'
+                          assign svg = squiggle_svg_4 | append: '</em>'
+                        elsif drawn_underline_type == 'curve_underline'
+                          assign svg = squiggle_svg_5 | append: '</em>'
+                        else
+                          if len_text <= 4
+                            assign svg = squiggle_svg_1 | append: '</em>'
+                          elsif len_text <= 6
+                            assign svg = squiggle_svg_2 | append: '</em>'
+                          else
+                            assign svg = squiggle_svg_3 | append: '</em>'
+                          endif
+                        endif
+                      -%}
+                      <em class="highlighted-text relative inline-flex{% if drawn_underline_type == 'simple_underline' %} simple_underline{% endif %} {{ drawn_underline_type }} not-italic" style="--animate-color: {{ drawn_underline_color }}">{{ svg }}</em>
+                    {%- endcapture -%}
+                      {%- assign open_em = open_em | remove: '</em>' -%}
+                      {%- assign heading = heading | replace_first: '<em>', open_em -%}
+                    {%- endfor -%}
+                  {% endif %}
+                  {{- heading -}}
+                </h2>
+                {% if scroll_animation != 'disable' or drawn_underline %}
+                  </motion-effect>
+                {% endif %}
+              {%- endif -%}
+
+              {%- if section_st.description != blank -%}
+                {% if scroll_animation != 'disable' %}
+                  <motion-effect data-animate="fade-up" data-animate-delay="150" class="block">
+                {% endif %}
+                <div class="section-description prose mt-sp-3 mt-1025-40">
+                  {{ section_st.description }}
+                </div>
+                {% if scroll_animation != 'disable' %}
+                  </motion-effect>
+                {% endif %}
+              {%- endif -%}
+            </div>
+          </div>
+          <div
+            class="parallax-scroll__hint absolute z-4 fs-small column align-center heading-color heading_weight w-full gap-sp-1 content-center hidden"
+            data-parallax-scroll-hint
+          >
+            <p class="lh-global fs-small heading-color">
+              {{ 'sections.parallax_image.additional' | t }}
+            </p>
+            <span class="parallax-scroll__hint-icon inline-flex content-center heading-color" aria-hidden="true">
+              <svg
+                class="block"
+                width="8"
+                height="14"
+                viewBox="0 0 6 11"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <use href="#icon-next"></use>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="container parallax-scroll__cards flex column" role="list" data-parallax-scroll-cards>
+          {% content_for 'blocks' %}
+        </div>
+
+        {%- if section_st.button_label != blank -%}
+          <div
+            class="parallax-scroll__footer relative z-4 flex justify-center w-full"
+            data-parallax-scroll-footer
+          >
+            <a
+              {% if section_st.button_link == blank %}
+                role="link" aria-disabled="true"
+              {% else %}
+                href="{{ section_st.button_link }}"
+              {% endif %}
+              aria-label="{{ section_st.button_label | escape }}"
+              class="pointer text-center btn-{{ section_st.button_type }}{% if section_st.button_type == 'link' %} align-self-center border-animation z-2{% else %} btn min-w-md-custom w-md-auto max-w-100{% endif %}"
+              {% if section_st.button_type != 'link' %}
+                style="--width: 35rem;"
+              {% endif %}
+            >
+              {{ section_st.button_label }}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+    </parallax-scroll>
+  </div>
+</section>
+{%- render 'section-divider', position: 'bottom', style: section_st.divider_bottom, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+
+{% schema %}
+{
+  "name": "t:sections.parallax-scroll.name",
+  "tag": "section",
+  "class": "section section-parallax-scroll",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "max_blocks": 7,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.parallax-scroll.how_to_use"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.parallax-scroll.instructions"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "range",
+      "id": "card_width",
+      "label": "t:sections.parallax-scroll.settings.card_width.label",
+      "info": "t:sections.parallax-scroll.settings.card_width.info",
+      "min": 320,
+      "max": 720,
+      "step": 4,
+      "unit": "px",
+      "default": 564
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_header.label"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.all.content_setting.subheading.label",
+      "default": "Purity Philosophy"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "t:sections.all.content_setting.heading.label",
+      "default": "<p>Pure Beauty<br>Chosen <em>With Care</em></p>"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "t:sections.all.content_header.heading_size.label",
+      "default": "h2",
+      "options": [
+        { "value": "h1", "label": "t:sections.all.content_header.heading_size.options__1.label" },
+        { "value": "h2", "label": "t:sections.all.content_header.heading_size.options__2.label" },
+        { "value": "h3", "label": "t:sections.all.content_header.heading_size.options__3.label" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "drawn_underline",
+      "default": true,
+      "label": "t:sections.all.content_setting.drawn_underline.label",
+      "info": "t:sections.all.content_setting.heading.info"
+    },
+    {
+      "type": "select",
+      "id": "drawn_underline_type",
+      "label": "t:sections.all.content_setting.drawn_underline.type",
+      "default": "squiggle_underline",
+      "visible_if": "{{ section.settings.drawn_underline != false }}",
+      "options": [
+        {
+          "value": "simple_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.simple_underline"
+        },
+        { "value": "curve_underline", "label": "t:sections.all.content_setting.drawn_underline.value.curve_underline" },
+        {
+          "value": "squiggle_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.squiggle_underline"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "drawn_underline_color",
+      "label": "t:sections.all.content_setting.drawn_underline.color",
+      "default": "#FFB005",
+      "alpha": true,
+      "visible_if": "{{ section.settings.drawn_underline != false }}"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.all.content_setting.description.label",
+      "default": "<p>Beauty should feel simple, honest, and easy to trust. Every detail brings clarity and ease to everyday rituals. ☘️ </p>"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_setting.button_label.label"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.all.content_setting.button_label.label",
+      "info": "t:sections.all.content_setting.button_label.info",
+      "default": "Our philosophy"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.all.content_setting.first_button_label.link",
+      "info": "t:sections.parallax-scroll.settings.button_link.info"
+    },
+    {
+      "type": "select",
+      "id": "button_type",
+      "label": "t:sections.all.content_setting.button_type.label",
+      "info": "t:sections.parallax-scroll.settings.button_type.info",
+      "default": "primary",
+      "options": [
+        { "value": "primary", "label": "t:sections.all.content_setting.button_type.primary.label" },
+        { "value": "outline", "label": "t:sections.all.content_setting.button_type.outline.label" },
+        { "value": "link", "label": "t:sections.all.content_setting.button_type.link.label" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.mobile_options.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_description_on_mobile",
+      "label": "t:sections.all.content_setting.description.hide_on_mobile.label",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.all.padding.padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.all.padding.padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.divider.section_divider_heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "t:sections.all.divider.show_divider",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "divider_top",
+      "label": "t:sections.all.divider.top",
+      "info": "t:sections.all.divider.top_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "line",
+      "visible_if": "{{ section.settings.show_divider }}"
+    },
+    {
+      "type": "select",
+      "id": "divider_bottom",
+      "label": "t:sections.all.divider.bottom",
+      "info": "t:sections.all.divider.bottom_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.show_divider }}"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "_group-parallax-card"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.parallax-scroll.name",
+      "category": "t:sections.group.storytelling",
+      "blocks": [
+        {
+          "type": "_group-parallax-card",
+          "settings": { "media_type": "image" },
+          "blocks": [
+            {
+              "type": "highlight-text",
+              "settings": {
+                "highlight_text": "Our Belief",
+                "highlight_text_size": "small",
+                "highlight_text_icon": "none",
+                "background_color": "rgba(205, 215, 169, 1)",
+                "text_color": "rgba(31, 71, 62, 1)",
+                "uppercase": false,
+                "padding_top": 0,
+                "padding_bottom": 8
+              }
+            },
+            {
+              "type": "heading",
+              "settings": {
+                "heading": "Every Skin",
+                "type_preset": "h5",
+                "padding_top": 0,
+                "padding_bottom": 0
+              }
+            },
+            {
+              "type": "description",
+              "settings": {
+                "description": "<p>Inclusive skincare thoughtfully made for every skin type.</p>",
+                "type_preset": "fs-small",
+                "padding_top": 16,
+                "padding_bottom": 0
+              }
+            }
+          ]
+        },
+        {
+          "type": "_group-parallax-card",
+          "settings": { "media_type": "image" },
+          "blocks": [
+            {
+              "type": "highlight-text",
+              "settings": {
+                "highlight_text": "Our Approach",
+                "highlight_text_size": "small",
+                "highlight_text_icon": "none",
+                "background_color": "rgba(205, 215, 169, 1)",
+                "text_color": "rgba(31, 71, 62, 1)",
+                "uppercase": false,
+                "padding_top": 0,
+                "padding_bottom": 8
+              }
+            },
+            {
+              "type": "heading",
+              "settings": {
+                "heading": "Gentle Formulas",
+                "type_preset": "h5",
+                "padding_top": 0,
+                "padding_bottom": 0
+              }
+            },
+            {
+              "type": "description",
+              "settings": {
+                "description": "<p>Gentle formulas support skin without added complexity.</p>",
+                "type_preset": "fs-small",
+                "padding_top": 16,
+                "padding_bottom": 0
+              }
+            }
+          ]
+        },
+        {
+          "type": "_group-parallax-card",
+          "settings": { "media_type": "image" },
+          "blocks": [
+            {
+              "type": "highlight-text",
+              "settings": {
+                "highlight_text": "Our Ingredients",
+                "highlight_text_size": "small",
+                "highlight_text_icon": "none",
+                "background_color": "rgba(205, 215, 169, 1)",
+                "text_color": "rgba(31, 71, 62, 1)",
+                "uppercase": false,
+                "padding_top": 0,
+                "padding_bottom": 8
+              }
+            },
+            {
+              "type": "heading",
+              "settings": {
+                "heading": "Pure Ingredients",
+                "type_preset": "h5",
+                "padding_top": 0,
+                "padding_bottom": 0
+              }
+            },
+            {
+              "type": "description",
+              "settings": {
+                "description": "<p>Selected ingredients for quality and purpose.</p>",
+                "type_preset": "fs-small",
+                "padding_top": 16,
+                "padding_bottom": 0
+              }
+            }
+          ]
+        },
+        {
+          "type": "_group-parallax-card",
+          "settings": { "media_type": "image" },
+          "blocks": [
+            {
+              "type": "highlight-text",
+              "settings": {
+                "highlight_text": "Our Rituals",
+                "highlight_text_size": "small",
+                "highlight_text_icon": "none",
+                "background_color": "rgba(205, 215, 169, 1)",
+                "text_color": "rgba(31, 71, 62, 1)",
+                "uppercase": false,
+                "padding_top": 0,
+                "padding_bottom": 8
+              }
+            },
+            {
+              "type": "heading",
+              "settings": {
+                "heading": "Simple Rituals",
+                "type_preset": "h5",
+                "padding_top": 0,
+                "padding_bottom": 0
+              }
+            },
+            {
+              "type": "description",
+              "settings": {
+                "description": "<p>Simple routines make skincare feel effortless and calming.</p>",
+                "type_preset": "fs-small",
+                "padding_top": 16,
+                "padding_bottom": 0
+              }
+            }
+          ]
+        },
+        {
+          "type": "_group-parallax-card",
+          "settings": { "media_type": "image" },
+          "blocks": [
+            {
+              "type": "highlight-text",
+              "settings": {
+                "highlight_text": "Our Promise",
+                "highlight_text_size": "small",
+                "highlight_text_icon": "none",
+                "background_color": "rgba(205, 215, 169, 1)",
+                "text_color": "rgba(31, 71, 62, 1)",
+                "uppercase": false,
+                "padding_top": 0,
+                "padding_bottom": 8
+              }
+            },
+            {
+              "type": "heading",
+              "settings": {
+                "heading": "Conscious Care",
+                "type_preset": "h5",
+                "padding_top": 0,
+                "padding_bottom": 0
+              }
+            },
+            {
+              "type": "description",
+              "settings": {
+                "description": "<p>Every detail reflects thoughtful and responsible care.</p>",
+                "type_preset": "fs-small",
+                "padding_top": 16,
+                "padding_bottom": 0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

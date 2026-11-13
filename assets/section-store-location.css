@@ -1,0 +1,104 @@
+.gm-style {
+  font-family: inherit;
+}
+
+input[type="text"].location-input:focus {
+  outline: none;
+  box-shadow: none;
+}
+.location-input-wrapper:has(input[type="text"]:focus) {
+  box-shadow: 0 0 0 1px var(--color-heading);
+  border-color: transparent;
+}
+.location-detect-btn.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.location-suggestions.hidden {
+  display: none;
+}
+.divider {
+  height: 25px;
+  background-color: var(--color-border);
+  width: 1px;
+}
+.location-detect-btn {
+  margin: 0 25px;
+}
+.location-store-list {
+  max-height: calc(100vh - 28rem);
+}
+.location-store-list:not(:empty) {
+  border: 1px solid var(--color-border);
+}
+.location-store-list .store-card:not(:last-child) {
+  border-bottom: 1px solid var(--color-border);
+}
+.location-map {
+  min-height: calc(100vh - 220px);
+}
+.gm-style-iw-d,
+.gm-style .gm-style-iw-c {
+  padding: 0;
+  overflow: auto !important;
+  border-radius: var(--img-rounded);
+  box-shadow: var(--shadow, 0px 0px 30px 0px rgba(0, 0, 0, 0.15));
+  clip-path: unset;
+  outline: none;
+}
+.gm-style-iw-chr {
+  position: absolute;
+  inset-inline-end: 0;
+  z-index: 1;
+}
+.gm-style .gm-style-iw-tc {
+  width: 21px;
+}
+.gm-style .gm-style-iw-tc::after {
+  height: 11px;
+  width: 21px;
+  border-radius: 2px;
+}
+
+.store-hours-toggle[aria-expanded="true"] + .store-hours-list {
+  display: block;
+}
+
+.store-hours-list li:last-child {
+  padding-bottom: 16px;
+  margin-bottom: 0px;
+  border-bottom: 1px dashed var(--color-border);
+}
+
+:is(.store-hours, .map-infowindow) .store-status.closed {
+  color: #c03e35;
+}
+
+:is(.store-hours, .map-infowindow) .store-status.open {
+  color: #14854e;
+}
+
+.gm-ui-hover-effect {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50%;
+  background-color: #e8e8e9 !important;
+  opacity: 1 !important;
+  color: var(--color-text);
+  margin-inline-end: 12px !important;
+  margin-top: 12px !important;
+  transition: all 0.3s ease;
+}
+.gm-ui-hover-effect span {
+  width: 20px !important;
+  height: 20px !important;
+  margin: auto !important;
+  background-color: var(--color-text) !important;
+}
+
+@media (max-width: 1024px) {
+  .location-map {
+    min-height: 420px;
+  }
+}

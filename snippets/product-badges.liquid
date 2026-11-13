@@ -1,0 +1,154 @@
+{%- liquid
+  assign theme_st = settings
+  assign show_sale = theme_st.show_sale
+  assign sale_format = theme_st.sale_format
+  assign show_new = theme_st.show_new
+  assign new_badge_display_period = theme_st.new_badge_display_period
+  assign show_sold_out = theme_st.show_sold_out
+  if card_product and card_product != empty
+    assign sale = false
+    assign sold_out = false
+    assign product_avail = false
+    assign product_qty = 0
+    if card_product.has_only_default_variant == false
+      if type != 'price_badges'
+        assign product_management = 'shopify'
+        assign price = card_product.selected_or_first_available_variant.price
+        assign compare_at_price = card_product.selected_or_first_available_variant.compare_at_price
+        assign card_product_variants = card_product.variants
+        if first_available_variant
+          assign card_product_variants = card_product.variants | where: option_position, value_color
+        endif
+        for variant in card_product_variants
+          assign product_qty = product_qty | plus: variant.inventory_quantity
+          if variant.available
+            if variant.price < price
+              assign price = variant.price
+              assign compare_at_price = variant.compare_at_price
+            endif
+            assign product_avail = true
+          endif
+          if variant.inventory_management == null
+            assign product_management = false
+          endif
+        endfor
+        if product_management
+          if product_qty < 1
+            if product_avail == true
+              assign sold_out = false
+            else
+              assign sold_out = true
+            endif
+          else
+            assign sold_out = false
+          endif
+        else
+          assign sold_out = false
+        endif
+      else
+        assign product_qty = product_qty | plus: card_product.selected_or_first_available_variant.inventory_quantity
+        assign product_avail = card_product.selected_or_first_available_variant.available
+        assign product_management = card_product.selected_or_first_available_variant.inventory_management
+        assign compare_at_price = card_product.selected_or_first_available_variant.compare_at_price
+        assign price = card_product.selected_or_first_available_variant.price
+        if product_management != null
+          if product_qty < 1
+            if product_avail == true
+              assign sold_out = false
+            else
+              assign sold_out = true
+            endif
+          else
+            assign sold_out = false
+          endif
+        else
+          assign sold_out = false
+        endif
+      endif
+    else
+      assign compare_at_price = card_product.compare_at_price
+      assign price = card_product.price
+      if card_product.available != true
+        assign sold_out = true
+      endif
+      for v in card_product.variants
+        if v.inventory_quantity
+          assign product_qty = product_qty | plus: v.inventory_quantity
+        endif
+      endfor
+      if product_qty < 1 and card_product.available == true
+        assign sold_out = false
+      endif
+      for v in card_product.variants
+        if v.inventory_management == null
+          assign sold_out = false
+        endif
+      endfor
+    endif
+    if compare_at_price > price and compare_at_price != blank
+      assign sale = true
+    endif
+  endif
+  assign product_create_at = card_product.created_at | date: '%s'
+  assign now_timestamp = 'now' | date: '%s'
+  assign diff_seconds = now_timestamp | minus: product_create_at
+  assign diff_days = diff_seconds | divided_by: 3600 | divided_by: 24
+-%}
+{%- if sale or sold_out or show_new or card_product.metafields.custom.custom_product_badge -%}
+  <div
+    class="product__badges flex wrap gap-5 empty-hidden{% if scope == 'item' %} absolute top-10 top-md-15 column{% if theme_st.rtl %} right-10 right-md-15{% else %} left-10 left-md-15{% endif %}{% endif %}{% if scope != 'item' %} mb-sp-3{% endif %}"
+  >
+    {%- if card_product.metafields.custom.external_affiliate != blank -%}
+      <div
+        class="product__badges-external rounded fs-13 subheading_weight"
+        style="--badges-bg: #111; --badges-color: #fff;"
+      >
+        {{ card_product.metafields.custom.external_affiliate.value.button_text }}
+      </div>
+    {%- else -%}
+      {%- if sale and show_sale -%}
+        <div
+          class="product__badges-sale rounded fs-13 subheading_weight relative"
+          style="--badges-bg: {{ theme_st.sale_background }}; --badges-color: {{ theme_st.sale_color }}"
+        >
+          {%- assign p = compare_at_price | minus: price -%}
+          {%- if sale_format == 'text' -%}
+            {{ 'products.product.sale_text' | t }}
+          {%- elsif sale_format == 'fixed' -%}
+            {{ 'products.product.save' | t }}
+            {{- p | money -}}
+          {%- else -%}
+            {%- if p > 0 -%}
+              {%- assign p = p | times: 100.0 | divided_by: compare_at_price | round -%}
+            {%- endif -%}
+            <span dir="auto">{{ 'products.product.sale' | t: discount: p }}</span>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+      {%- if sold_out and show_sold_out -%}
+        <div
+          class="product__badges-sold- rounded fs-13 subheading_weight"
+          style="--badges-bg: {{ theme_st.sold_out_background }}; --badges-color: {{ theme_st.sold_out_color }}"
+        >
+          {{ 'products.product.sold_out' | t }}
+        </div>
+      {%- endif -%}
+      {%- if show_new and diff_days < new_badge_display_period -%}
+        <div
+          class="product__badges-new rounded fs-13 subheading_weight"
+          style="--badges-bg: {{ theme_st.new_background }}; --badges-color: {{ theme_st.new_color }}"
+        >
+          {{ 'products.product.new_label' | t }}
+        </div>
+      {%- endif -%}
+      {%- if card_product.metafields.custom.custom_product_badge -%}
+        <div
+          class="product__badges-custom rounded fs-13 subheading_weight"
+          style="--badges-bg: {{ theme_st.custom_badge_background }}; --badges-color: {{ theme_st.custom_badge_color }}"
+        >
+          {{ card_product.metafields.custom.custom_product_badge }}
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+{%- endif -%}

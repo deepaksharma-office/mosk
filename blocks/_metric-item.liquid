@@ -1,0 +1,34 @@
+{% liquid
+  assign block_st = block.settings
+%}
+
+<div class="metric-item flex column w-fit" {{ block.shopify_attributes }}>
+  <div class="metric-item__value heading-color h4">{{ block_st.value }}</div>
+  <div class="metric-item__label mt-1025-sp-1">{{ block_st.label }}</div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.all.content_setting.metrics.item.label",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "value",
+      "label": "t:sections.all.content_setting.metrics.item.value",
+      "default": "100%"
+    },
+    {
+      "type": "richtext",
+      "id": "label",
+      "label": "t:sections.all.content_setting.metrics.item.description",
+      "default": "<p>Metric label</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.all.content_setting.metrics.item.label"
+    }
+  ]
+}
+{% endschema %}

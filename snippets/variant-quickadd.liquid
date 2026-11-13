@@ -1,0 +1,291 @@
+{% liquid
+  assign theme_st = settings
+  assign color_swatch_trigger = theme_st.color_swatch_trigger
+  assign product_show_quick_add_mobile = theme_st.product_show_quick_add_mobile
+  assign product_enable_quickview = theme_st.product_enable_quickview
+  if color_swatch_trigger != blank
+    assign option_name = color_swatch_trigger | split: ','
+  else
+    assign option_name = 'Color'
+  endif
+  assign has_color = false
+  assign color_position = 1
+  for opt in product.options_with_values
+    for c in option_name
+      if opt.name == c
+        assign has_color = true
+        assign color_position = opt.position
+      endif
+    endfor
+  endfor
+  assign show_quick_add = false
+  if product.options.size >= 2 and has_color
+    assign show_quick_add = true
+  elsif product.options.size >= 1 and has_color == false and product.variants.size > 1
+    assign show_quick_add = true
+  endif
+  assign product_form_id = 'variant-quick-add-' | append: section_id | append: product.id
+
+  assign show_form_quick_add = false
+  if product.options.size == 1 and has_color
+    assign show_form_quick_add = true
+    assign show_quick_add = false
+  elsif product_enable_quickview == false and product.variants.size == 1
+    assign show_form_quick_add = true
+  endif
+%}
+{% if show_quick_add %}
+  <quick-add class="quick-add-container{% if product_show_quick_add_mobile == false %} hidden-mobile{% endif %}">
+    <div class="quick-add-variant-container z-15 shadow-glass-2 custom-scrollbar p-sp-3 p-1025-sp-4 rounded cursor-auto absolute left-10 left-1025-15 right-10 right-1025-15 bottom-10 bottom-1025-15 overflow-y-auto bg-white transition visibility-hidden opacity-0">
+      <button
+        class="btn btn-reset button__close pointer absolute top-custom right-custom w-custom h-custom hidden-on-load transition-short"
+        style="--top-custom: 8px;--right-custom: 8px;--width: 3rem;--height: 3rem;"
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        <svg width="12" height="12" viewBox="0 0 14 14" fill="none" class="transition-short will-change icon-zoom">
+          <use href="#icon-close"></use>
+        </svg>
+      </button>
+      <variant-quick-add
+        class="product-variants-js variant-quick-add-js flex column wrap gap-15{% if has_color %} has-color{% endif %} hidden-on-load transition-short"
+        data-section-id="{{ section.id }}"
+        data-product-url="{{ product.url }}"
+        data-options-size="{{ product.options.size }}"
+        data-position-color="{{ color_position }}"
+      >
+        {%- for option in product.options_with_values -%}
+          {%- liquid
+            assign is_color_option = false
+            for cl in option_name
+              if option.name == cl
+                assign is_color_option = true
+              endif
+            endfor
+          %}
+          <fieldset
+            class="product-card-variant-js product-variants__input variants-fieldset-{{ option.position }} m-0 p-0 border-0 relative{% if is_color_option %} options-color hidden{% endif %}"
+            id="fieldset-{{ section.id }}-product-variant-quick-add-{{ product.id }}-position-{{ forloop.index0 }}"
+            data-position-option="{{ option.position }}"
+          >
+            <div class="product-variants-info mb-sp-2">
+              <legend class="form__label p-0 fs-small lh-global">
+                <span class="heading-color">{{ option.name }}:</span> <span class="option_value heading-color"></span>
+              </legend>
+            </div>
+            <div class="product-variants-option">
+              <ul class="list-unstyled flex wrap gap-sp-1 swatch-text">
+                {% render 'variant-options',
+                  product: product,
+                  option: option,
+                  is_color: is_color_option,
+                  scope: 'detail',
+                  is_dropdown: true,
+                  quick_add: 'quick-add-'
+                %}
+              </ul>
+            </div>
+          </fieldset>
+        {%- endfor -%}
+        <product-form class="form-quick-add hidden">
+          {%- form 'product',
+            product,
+            id: product_form_id,
+            class: 'form',
+            novalidate: 'novalidate',
+            data-type: 'add-to-cart-form'
+          -%}
+            <input
+              type="hidden"
+              class="id-variant-quick-add"
+              name="id"
+              value=""
+              disabled
+            >
+            <button
+              id="{{ product_form_id }}-submit"
+              type="submit"
+              name="add"
+              class="product-quick-addtocart-btn hidden"
+              aria-haspopup="dialog"
+              aria-label="{{ 'products.product.add_to_cart' | t }}"
+            >
+              <span class="product-addtocart-btn">
+                {{ 'products.product.add_to_cart' | t }}
+              </span>
+            </button>
+          {%- endform -%}
+        </product-form>
+      </variant-quick-add>
+      <template class="quick-add-popup">
+        <quick-add-popup
+          class="quick-add-variant-container-popup modal transition-drawer invisible fixed inset-0 z-32 pointer-none active-modal-js content-hidden"
+          drawer
+        >
+          <modal-overlay class="modal-overlay cursor-crosshair"></modal-overlay>
+          <div
+            class="modal-inner transition-drawer modal-body modal-draggable color-default drawer drawer-right fixed right-0 z-2 inset-y-0 w-full"
+            tabindex="-1"
+            style="--max-width: 60rem;"
+          >
+            <draggable-modal
+              class="drawer__header draggable-modal flex gap-10 space-between align-center drawer-spacing border-bottom border-bottom-md-0 sticky"
+              style="--padding-block:1.2rem;--padding-block-desktop: 2rem;--padding-inline-desktop:3.2rem;"
+            >
+              <div class="drawer__heading h5 flex gap align-center" style="--gap-desktop: 8px;--gap: 8px">
+                {{ 'products.product.quickadd' | t }}
+              </div>
+              <button
+                is="button-close-model"
+                class="modal__close pointer modal-button-close rounded-50 btn-reset w-30 h-full flex content-center flex-end"
+                aria-label="{{ 'accessibility.close' | t }}"
+              >
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  class="transition-short will-change icon-zoom"
+                >
+                  <use href="#icon-close"></use>
+                </svg>
+              </button>
+            </draggable-modal>
+            <div class="quick-add-variant-popup custom-scrollbar quick-add-form drawer__body h-full overflow-y-auto drawer-spacing relative">
+              <variant-quick-add
+                class="product-variants-js variant-quick-add-js flex column wrap gap-15{% if has_color %} has-color{% endif %} hidden-on-load transition-short"
+                data-section-id="{{ section.id }}"
+                data-product-url="{{ product.url }}"
+                data-options-size="{{ product.options.size }}"
+                data-position-color="{{ color_position }}"
+              >
+                {%- for option in product.options_with_values -%}
+                  {%- liquid
+                    assign is_color_option = false
+                    for cl in option_name
+                      if option.name == cl
+                        assign is_color_option = true
+                      endif
+                    endfor
+                  %}
+                  <fieldset
+                    class="product-card-variant-js product-variants__input variants-fieldset-{{ option.position }} m-0 p-0 border-0 relative{% if is_color_option %} options-color hidden{% endif %}"
+                    id="fieldset-{{ section.id }}-product-variant-quick-add-{{ product.id }}-position-{{ forloop.index0 }}"
+                    data-position-option="{{ option.position }}"
+                  >
+                    <div class="product-variants-info mb-sp-2">
+                      <legend class="form__label p-0 fs-small lh-global">
+                        <span class="heading-color">{{ option.name }}:</span>
+                        <span class="option_value heading-color"></span>
+                      </legend>
+                    </div>
+                    <div class="product-variants-option">
+                      <ul class="list-unstyled flex wrap gap-sp-1 swatch-text">
+                        {% render 'variant-options',
+                          product: product,
+                          option: option,
+                          is_color: is_color_option,
+                          scope: 'detail',
+                          is_dropdown: true,
+                          quick_add: 'quick-add-popup-'
+                        %}
+                      </ul>
+                    </div>
+                  </fieldset>
+                {%- endfor -%}
+                <product-form class="form-quick-add hidden">
+                  {%- form 'product',
+                    product,
+                    id: product_form_id,
+                    class: 'form',
+                    novalidate: 'novalidate',
+                    data-type: 'add-to-cart-form'
+                  -%}
+                    <input
+                      type="hidden"
+                      class="id-variant-quick-add"
+                      name="id"
+                      value=""
+                      disabled
+                    >
+                    <button
+                      id="{{ product_form_id }}-submit"
+                      type="submit"
+                      name="add"
+                      class="product-quick-addtocart-btn hidden"
+                      aria-haspopup="dialog"
+                      aria-label="{{ 'products.product.add_to_cart' | t }}"
+                    >
+                      <span class="product-addtocart-btn">
+                        {{ 'products.product.add_to_cart' | t }}
+                      </span>
+                    </button>
+                  {%- endform -%}
+                </product-form>
+              </variant-quick-add>
+            </div>
+          </div>
+        </quick-add-popup>
+      </template>
+    </div>
+    <button
+      type="button"
+      class="btn btn__quick-add btn__quick-add-action shadow-glass-2 btn-white flex content-center absolute right-10 right-md-15 bottom-10 bottom-md-15 z-2"
+      data-url="{{ product.url }}"
+      aria-label="{{ 'products.product.quickadd' | t }}"
+    >
+      <svg
+        width="16"
+        height="16"
+        class="hidden-on-load transition-short"
+        viewBox="0 0 44 44"
+        fill="none"
+      >
+        <use href="#icon-cart" />
+      </svg>
+    </button>
+  </quick-add>
+{% elsif show_quick_add == false and show_form_quick_add %}
+  <quick-add class="quick-add-container{% if product_show_quick_add_mobile == false %} hidden-mobile{% endif %}">
+    <div class="variant-quick-add-js">
+      <product-form class="quick-add quick-add-form">
+        {%- form 'product',
+          product,
+          id: product_form_id,
+          class: 'form',
+          novalidate: 'novalidate',
+          data-type: 'add-to-cart-form'
+        -%}
+          <input
+            type="hidden"
+            name="id"
+            value="{{ product.selected_or_first_available_variant.id }}"
+            disabled
+          >
+          <button
+            id="{{ product_form_id }}-submit"
+            type="submit"
+            name="add"
+            class="btn btn__quick-add shadow-glass-2 btn-white flex content-center absolute right-10 right-md-15 bottom-10 bottom-md-15 z-2"
+            aria-haspopup="dialog"
+            aria-label="{{ 'products.product.add_to_cart' | t }}"
+            data-sold-out-message="true"
+            {%- if product.selected_or_first_available_variant.available == false -%}
+              disabled
+            {%- endif -%}
+          >
+            <svg
+              width="16"
+              height="16"
+              class="hidden-on-load transition-short"
+              viewBox="0 0 44 44"
+              fill="none"
+            >
+              <use href="#icon-cart" />
+            </svg>
+            {%- render 'loader' -%}
+          </button>
+        {%- endform -%}
+      </product-form>
+    </div>
+  </quick-add>
+{% endif %}

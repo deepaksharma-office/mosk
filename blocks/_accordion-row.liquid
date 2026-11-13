@@ -1,0 +1,105 @@
+<details
+  class="collapsible-row rounded{% if block.settings.open %} detail-open{% endif %}"
+  {{ block.shopify_attributes }}
+  is="collapsible-row"
+  {% if block.settings.open %}
+    open
+  {% endif %}
+>
+  <summary class="collapsible-row__summary not-highlight-tap">
+    <div class="collapsible-heading">
+      <div
+        class="transition pointer relative flex space-between gap-sp-4 fs-custom heading-style lh-global"
+        style="--body-line-height: 1.6;"
+      >
+        {{ block.settings.heading }}
+
+        <span class="open-children-toggle transition relative icon-plus">
+          <span class="icon_plus-animation heading-color"> </span>
+        </span>
+
+        <span
+          class="toggle-menu w-30 h-custom inline-flex flex-end align-center relative icon-carret{% if request.visual_preview_mode %} hidden-important{% endif %}"
+        >
+          <svg class="icon icon-down icon-rotate transition-short" width="14" height="8" viewBox="0 0 14 8">
+            <use href="#icon-arrow-down-facet" />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </summary>
+  <div
+    class="collapsible-row__content overflow-hidden"
+  >
+    <div class="prose mt-custom">
+      {% content_for 'blocks' %}
+    </div>
+  </div>
+</details>
+{% schema %}
+{
+  "name": "t:sections.custom_section.blocks.accordion.settings.accordion_row",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.custom_section.blocks.accordion.settings.settings.heading",
+      "default": "t:sections.custom_section.blocks.accordion.settings.default_accordion_row"
+    },
+    {
+      "type": "checkbox",
+      "id": "open",
+      "label": "t:sections.custom_section.blocks.accordion.settings.settings.open_default.label",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text"
+    },
+    {
+      "type": "image"
+    },
+    {
+      "type": "video"
+    },
+    {
+      "type": "heading"
+    },
+    {
+      "type": "icon"
+    },
+    {
+      "type": "group"
+    },
+    {
+      "type": "custom-liquid"
+    },
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.custom_section.blocks.accordion.settings.accordion_row",
+      "blocks": {
+        "text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+            "width_block": "fill",
+            "text_align_desktop": "left",
+            "width_block_mobile": "fill",
+            "text_align_mobile": "left"
+          }
+        }
+      },
+      "block_order": ["text-1"],
+      "settings": {
+        "heading": "When will I get my order?"
+      }
+    }
+  ]
+}
+{% endschema %}

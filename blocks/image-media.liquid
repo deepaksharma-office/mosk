@@ -1,0 +1,157 @@
+{%- liquid
+  assign block_st = block.settings
+  assign image = block_st.image
+  assign image_mobile = block_st.image_mobile | default: image
+  assign link = block_st.link
+
+  assign border_radius_type = block_st.border_radius_type
+  assign radius_value = '0px'
+  if border_radius_type == 'rounded'
+    assign radius_value = 'calc(infinity * 1px)'
+  elsif border_radius_type == 'custom'
+    assign radius_value = block_st.border_radius_custom | append: 'px'
+  endif
+
+  assign ratio = '1/1'
+  assign ratio_mobile = '1/1'
+  if image != blank
+    assign ratio = image.aspect_ratio
+    assign ratio_mobile = image_mobile.aspect_ratio | default: ratio
+  endif
+
+  assign image_alt_default = 'general.image.image_alt_default' | t
+  assign image_alt = image.alt | default: image_alt_default | escape
+
+  assign wrapper = 'div'
+  if link != blank
+    assign wrapper = 'a'
+  endif
+-%}
+
+<div
+  class="image-media flex pt-custom pb-custom"
+  style="--space-top: {{ block_st.padding_top }}; --space-bottom: {{ block_st.padding_bottom }};"
+  {{ block.shopify_attributes }}
+>
+  <{{ wrapper }}
+    class="image-media__inner block rounded w-custom w-custom-mb max-w-100 object-fit-cover{% if image == blank %} placeholder{% endif %}"
+    style="--img-rounded: {{ radius_value }}; --width: {{ block_st.image_width }}px; --width-mb: {{ block_st.image_width_mb }}px; --aspect-ratio: {{ ratio }}; --aspect-ratio-mb: {{ ratio_mobile }};"
+    {%- if link != blank %}
+      href="{{ link }}"
+      aria-label="{{ image_alt }}"
+    {%- endif %}
+  >
+    {%- if image != blank -%}
+      {% render 'responsive-image',
+        type: 'banner',
+        container: section.settings.section_width,
+        image: image,
+        image_mobile: image_mobile,
+        image_alt: image_alt,
+        motion: false
+      %}
+    {%- else -%}
+      {%- render 'placeholder-render', type: 'lifestyle-1', class: 'img-placeholder h-full w-full' -%}
+    {%- endif -%}
+  </{{ wrapper }}>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.all.image.label",
+  "class": "w-full",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.all.image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "t:sections.all.image.mobile_image"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "t:sections.all.content_setting.link.label"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "min": 40,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 120,
+      "label": "t:sections.scrolling_text.settings.blocks.image.image_width.label"
+    },
+    {
+      "type": "range",
+      "id": "image_width_mb",
+      "min": 40,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 100,
+      "label": "t:sections.all.image.mobile_image_width"
+    },
+    {
+      "type": "select",
+      "id": "border_radius_type",
+      "label": "t:sections.custom_section.settings.appearance.settings.corner_radius.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.custom_section.settings.appearance.settings.corner_radius.options.none.label"
+        },
+        {
+          "value": "rounded",
+          "label": "t:sections.custom_section.settings.appearance.settings.corner_radius.options.rounded.label"
+        },
+        {
+          "value": "custom",
+          "label": "t:sections.custom_section.settings.appearance.settings.corner_radius.options.custom.label"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "range",
+      "id": "border_radius_custom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 20,
+      "label": "t:sections.custom_section.settings.appearance.settings.corner_radius.custom_radius.label",
+      "visible_if": "{{ block.settings.border_radius_type == 'custom' }}"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.page.spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0,
+      "label": "t:sections.all.padding.padding_top"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0,
+      "label": "t:sections.all.padding.padding_bottom"
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.image.label", "category": "t:sections.group.blocks.basic" }]
+}
+{% endschema %}

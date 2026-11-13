@@ -1,0 +1,116 @@
+{% liquid
+  assign section_st = section.settings
+  assign block_st = block.settings
+%}
+
+{%- style -%}
+  .block-tags{
+    justify-content: {{ block_st.text_alignment }};
+  }
+  {% if request.visual_preview_mode %}
+    .block-tags > * {
+      border-color: #cccccc;
+    }
+  {% endif %}
+{%- endstyle -%}
+
+<div class="group__text w-full h-full flex align-{{ block_st.vertical_alignment }} justify-content-{{ block_st.text_alignment }}">
+  <div
+    class="flex wrap w-full{% if section_st.equal_height_adjustment %} h-full justify-content-{{ block_st.vertical_alignment }}{% endif %} text-{{ block_st.text_alignment }} justify-content-{{ block_st.text_alignment }}"
+  >
+    <svg class="hidden">
+      <symbol id="icon-tick">
+        <path d="M13.5742 0.824219C13.7435 0.667969 13.9388 0.589844 14.1602 0.589844C14.3945 0.589844 14.5898 0.667969 14.7461 0.824219C14.9154 0.99349 15 1.19531 15 1.42969C15 1.65104 14.9154 1.83984 14.7461 1.99609L5.58594 11.1758C5.42969 11.332 5.23438 11.4102 5 11.4102C4.76562 11.4102 4.57031 11.332 4.41406 11.1758L0.253906 6.99609C0.0846354 6.83984 0 6.65104 0 6.42969C0 6.19531 0.0846354 5.99349 0.253906 5.82422C0.410156 5.66797 0.598958 5.58984 0.820313 5.58984C1.05469 5.58984 1.25651 5.66797 1.42578 5.82422L5 9.39844L13.5742 0.824219Z" fill="black"/>
+      </symbol>
+    </svg>
+    {% content_for 'blocks' %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.all.text.label",
+  "class": "shopable_img-text w-full col-md-w-custom-50",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "heading"
+    },
+    {
+      "type": "subheading"
+    },
+    {
+      "type": "highlight-text"
+    },
+    {
+      "type": "description"
+    },
+    {
+      "type": "_tags"
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "vertical_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.top"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.middle"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.bottom"
+        }
+      ],
+      "default": "end",
+      "label": "t:sections.image-with-text.settings.vertical_alignment"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "start",
+      "label": "t:sections.all.text_alignment.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.all.text.label",
+      "blocks": [
+        {
+          "type": "highlight-text"
+        },
+        {
+          "type": "heading"
+        },
+        {
+          "type": "description"
+        },
+        {
+          "type": "_tags"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

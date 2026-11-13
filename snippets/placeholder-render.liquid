@@ -1,0 +1,94 @@
+{%- liquid
+  assign theme_st = settings
+  assign scroll_animation = theme_st.scroll_animation
+  if motion == false
+    assign scroll_animation = 'disable'
+  endif
+-%}
+{% if scroll_animation != 'disable' %}
+  <motion-effect
+    data-animate="zoom-out-small"
+    class="block{{ class_motion }}{{ hidden_mobile }}"
+    {% if slideshow %}
+      slideshow
+    {% endif %}
+  >
+{% endif %}
+{%- liquid
+  assign cls_placeholder = 'img-placeholder'
+  if class != blank
+    assign cls_placeholder = class
+  endif
+  assign img_type = 'product'
+  if type != blank
+    assign img_type = type
+  endif
+-%}
+{% if slideshow and slideshow_animation %}
+  {%- liquid
+    assign placeholder = 'placeholder_' | append: index | append: '.webp'
+    if index > 2
+      assign remainder = index | modulo: 2
+      assign remainder = remainder | plus: 1
+      assign placeholder = 'placeholder_' | append: remainder | append: '.webp'
+    endif
+  -%}
+  <img
+    loading="lazy"
+    src="{{- placeholder | asset_url -}}"
+    width="1920"
+    height="840"
+    class="{{ cls_placeholder }}"
+    alt="{{ 'general.image.image_alt_default' | t }}"
+  >
+{%- else -%}
+  {%- liquid
+    if index
+      case img_type
+        when 'product'
+          if index > 4
+            assign remainder = index | modulo: 4
+            assign remainder = remainder | plus: 1
+            echo 'product-' | append: remainder | placeholder_svg_tag: cls_placeholder
+          else
+            echo 'product-' | append: index | placeholder_svg_tag: cls_placeholder
+          endif
+        when 'collection', 'blog'
+          if index > 4
+            assign remainder = index | modulo: 4
+            assign remainder = remainder | plus: 1
+            echo 'collection-' | append: remainder | placeholder_svg_tag: cls_placeholder
+          else
+            echo 'collection-' | append: index | placeholder_svg_tag: cls_placeholder
+          endif
+        else
+          if index > 2
+            assign remainder = index | modulo: 2
+            assign remainder = remainder | plus: 1
+            echo 'lifestyle-' | append: remainder | placeholder_svg_tag: cls_placeholder
+          else
+            echo 'lifestyle-' | append: index | placeholder_svg_tag: cls_placeholder
+          endif
+      endcase
+    else
+      case img_type
+        when 'product'
+          assign diff = 4 | minus: 0
+          assign random_number = 'now' | date: '%N' | modulo: diff | plus: 1
+          echo 'product-' | append: random_number | placeholder_svg_tag: cls_placeholder
+        when 'collection', 'blog'
+          assign diff = 4 | minus: 1
+          assign random_number = 'now' | date: '%N' | modulo: diff | plus: 1
+          echo 'collection-' | append: random_number | placeholder_svg_tag: cls_placeholder
+        else
+          assign diff = 2 | minus: 1
+          assign random_number = 'now' | date: '%N' | modulo: diff | plus: 1
+          echo 'lifestyle-' | append: random_number | placeholder_svg_tag: cls_placeholder
+      endcase
+    endif
+  -%}
+{% endif %}
+
+{% if scroll_animation != 'disable' %}
+  </motion-effect>
+{% endif %}

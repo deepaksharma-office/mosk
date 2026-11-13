@@ -1,0 +1,189 @@
+@keyframes a {
+  0% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes b {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  15% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+@keyframes c {
+  0% {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(-180deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-1turn);
+  }
+}
+@keyframes f {
+  0% {
+    opacity: 0;
+    scale: 1.06;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+@keyframes g {
+  0% {
+    opacity: 1;
+    scale: 1;
+  }
+  to {
+    opacity: 0;
+    scale: 0.94;
+  }
+}
+@keyframes d {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.2) translateX(6px);
+  }
+  25% {
+    transform: scale(1.3) translateX(8px);
+  }
+  40% {
+    transform: scale(1.2) translateX(6px);
+  }
+  50% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.8) translateX(6px);
+  }
+  75% {
+    transform: scale(0.7) translateX(8px);
+  }
+  90% {
+    transform: scale(0.8) translateX(6px);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes e {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.2) translateX(-6px);
+  }
+  25% {
+    transform: scale(1.3) translateX(-8px);
+  }
+  40% {
+    transform: scale(1.2) translateX(-6px);
+  }
+  50% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.8) translateX(-6px);
+  }
+  75% {
+    transform: scale(0.7) translateX(-8px);
+  }
+  90% {
+    transform: scale(0.8) translateX(-6px);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.drift-zoom-pane {
+  z-index: 2 !important;
+  border-radius: var(--img-rounded);
+  max-width: 500px;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+.drift-zoom-pane img {
+  border-radius: var(--img-rounded);
+  scale: 1;
+  transform-origin: center center;
+}
+.drift-zoom-pane.drift-opening {
+  animation: a 0.18s ease-out;
+  -webkit-animation: a 0.18s ease-out;
+}
+.drift-zoom-pane.drift-closing {
+  animation: b 0.21s ease-in;
+  -webkit-animation: b 0.21s ease-in;
+}
+.drift-zoom-pane img.drift-zoom-out-opening {
+  animation: f 0.18s ease-out;
+  -webkit-animation: f 0.18s ease-out;
+  will-change: opacity, scale;
+}
+.drift-zoom-pane img.drift-zoom-out-closing {
+  animation: g 0.16s ease-in forwards;
+  -webkit-animation: g 0.16s ease-in forwards;
+  will-change: opacity, scale;
+}
+.drift-zoom-pane.drift-inline {
+  border-radius: 50%;
+  position: absolute;
+  width: 165px;
+  height: 165px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+.drift-loading .drift-zoom-pane-loader {
+  animation: c 1.8s linear infinite;
+  -webkit-animation: c 1.8s linear infinite;
+  display: block;
+  height: 20px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  width: 66px;
+}
+.drift-zoom-pane-loader:after,
+.drift-zoom-pane-loader:before {
+  background: hsla(0, 0%, 100%, 0.9);
+  border-radius: 20px;
+  content: "";
+  display: block;
+  height: 20px;
+  margin-top: -10px;
+  position: absolute;
+  top: 50%;
+  width: 20px;
+}
+.drift-zoom-pane-loader:before {
+  animation: d 1.8s linear infinite;
+  -webkit-animation: d 1.8s linear infinite;
+  left: 0;
+}
+.drift-zoom-pane-loader:after {
+  animation: e 1.8s linear infinite;
+  -webkit-animation: e 1.8s linear infinite;
+  animation-delay: -0.9s;
+  -webkit-animation-delay: -0.9s;
+  right: 0;
+}
+.drift-bounding-box {
+  background-color: rgba(0, 0, 0, 0.4);
+}

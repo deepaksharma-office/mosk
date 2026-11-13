@@ -1,0 +1,128 @@
+{%- liquid
+  assign block_st = block.settings
+  assign image = block_st.image
+  assign desktop_image_width = block_st.desktop_image_width
+  assign image_ratio = block_st.image_ratio
+  assign ratio = '3/4'
+  if image_ratio != 'adapt'
+    case image_ratio
+      when 'square'
+        assign ratio = '1/1'
+      when 'landscape'
+        assign ratio = '4/3'
+      when 'portrait'
+        assign ratio = '3/4'
+    endcase
+  else
+    if image != blank
+      assign ratio = block_st.image.aspect_ratio
+    else
+      assign ratio = '3/4'
+    endif
+  endif
+-%}
+<div class="image-block w-custom" style="--width: {{ desktop_image_width }}%" {{ block.shopify_attributes }}>
+  {% assign collection_media = block_st.collection.featured_image %}
+  {%- liquid
+    assign image_alt_default = 'general.image.image_alt_default' | t
+    assign image_alt = image.alt | default: image_alt_default | escape
+  -%}
+  <div class="collection-item__media">
+    <a
+      class="block collection-item__media--ratio rounded"
+      draggable="false"
+      {% if block_st.collection.url != blank %}
+        href="{{ block_st.collection.url }}"
+      {% else %}
+        role="link"
+      {% endif %}
+      aria-label="{{- image_alt -}}"
+      style="--aspect-ratio: {{ ratio }};"
+    >
+      {%- if collection_media or image != blank -%}
+        {% if image != blank %}
+          {% render 'responsive-image',
+            type: 'banner',
+            image: image,
+            container: section.settings.section_width,
+            image_alt: image_alt,
+            animate: 'zoom-out-small',
+            motion: true,
+            class: 'rounded center_swiper-arrow'
+          %}
+        {% else %}
+          {% render 'responsive-image',
+            type: 'banner',
+            image: collection_media,
+            container: section.settings.section_width,
+            image_alt: image_alt,
+            animate: 'zoom-out-small',
+            motion: true,
+            class: 'rounded center_swiper-arrow'
+          %}
+        {% endif %}
+      {%- else -%}
+        {% render 'placeholder-render', type: 'collection', class: 'img-placeholder h-full w-full' %}
+      {%- endif -%}
+    </a>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "t:sections.all.image.label",
+  "class": "w-full",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:sections.collection-list.settings.header.collection"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.all.image.label"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "t:sections.all.content_setting.link.label"
+    },
+    {
+      "type": "range",
+      "id": "desktop_image_width",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100,
+      "label": "t:sections.all.image.width",
+      "info": "t:sections.all.image.info_width"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.all.image.aspect_ratio.adapt"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.all.image.aspect_ratio.options__1"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.all.image.aspect_ratio.options__2"
+        },
+        {
+          "value": "landscape",
+          "label": "t:sections.all.image.aspect_ratio.options__3"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.all.image.aspect_ratio.label"
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.image.label" }]
+}
+{% endschema %}

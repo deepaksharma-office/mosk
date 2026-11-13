@@ -1,0 +1,70 @@
+{% liquid
+  assign section = header_section
+  assign highlight_color = blank
+  assign highlight_icon = blank
+  assign highlight_icon_type = blank
+  assign is_highlighted = false
+
+  for block in section.blocks
+    if block.type == 'menu_highlight'
+      assign menu_items = block.settings.menu_items | split: ','
+      for menu_item in menu_items
+        assign menu_item_name = menu_item | strip
+        if menu_item_name == title
+          assign is_highlighted = true
+          assign highlight_color = block.settings.highlight_color
+          assign highlight_icon = block.settings.custom_icon
+          assign highlight_icon_type = block.settings.highlight_icon
+
+          if highlight_icon_type == blank
+            if highlight_icon != blank
+              assign highlight_icon_type = 'custom'
+            else
+              assign highlight_icon_type = 'star'
+            endif
+          endif
+        endif
+      endfor
+    endif
+  endfor
+%}
+
+<span
+  class="header-menu-link inline-flex align-center gap-sp-1 word-break{% if highlight_color != blank %} menu-item--highlight{% endif %}"
+  {% if highlight_color != blank %}
+    style="--menu-highlight-color: {{ highlight_color }};"
+  {% endif %}
+>
+  {% if inner_class != blank %}
+    <span class="{{ inner_class }}">{{ title }}</span>
+  {% else %}
+    <span>{{ title }}</span>
+  {% endif %}
+  {% if is_highlighted and highlight_icon_type != 'unset' %}
+    {% if highlight_icon_type == 'custom' and highlight_icon != blank %}
+      <span
+        class="menu-item__highlight-icon flex shrink-0 w-custom h-custom content-center"
+        style="--width: 1.8rem; --height: 1.8rem;"
+      >
+        {{
+          highlight_icon
+          | image_url: width: 48
+          | image_tag: loading: 'lazy', widths: '24, 48', class: 'w-full h-full object-contain', alt: ''
+        }}
+      </span>
+    {% elsif highlight_icon_type == 'star' %}
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="menu-item__highlight-icon menu-item-animation-icon inline-block"
+        aria-hidden="true"
+      >
+        <path d="M5.87881 0C5.0671 4.47989 4.40908 5.14844 0 5.97317C4.40912 6.79791 5.0671 7.46646 5.87881 11.9463C6.69051 7.46646 7.3485 6.79791 11.7576 5.97317C7.3485 5.14844 6.69048 4.47989 5.87881 0Z" fill="currentColor"/>
+        <path d="M12.2612 8.40332C11.745 11.2523 11.3264 11.6776 8.52246 12.202C11.3264 12.7265 11.745 13.1517 12.2612 16.0007C12.7773 13.1517 13.1959 12.7265 15.9998 12.202C13.1958 11.6776 12.7774 11.2523 12.2612 8.40332Z" fill="currentColor"/>
+      </svg>
+    {% endif %}
+  {% endif %}
+</span>

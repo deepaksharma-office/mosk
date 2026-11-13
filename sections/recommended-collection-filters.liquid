@@ -1,0 +1,28 @@
+<div class="recommended-collection-filters" data-recommend-filters>
+  {%- for filter in collection.filters -%}
+    {%- if filter.type == 'list' or filter.type == 'boolean' -%}
+      <div data-filter-label="{{ filter.label | escape }}" data-param="{{ filter.param_name | escape }}">
+        {%- for value in filter.values -%}
+          <span
+            data-value="{{ value.value | escape }}"
+            data-count="{{ value.count }}"
+            data-active="{{ value.active }}"
+          >
+            {{- value.label | escape -}}
+          </span>
+        {%- endfor -%}
+      </div>
+    {%- elsif filter.type == 'price_range' -%}
+      <div data-filter-label="{{ filter.label | escape }}" data-unsupported="true"></div>
+    {%- endif -%}
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.recommended-collection-filters.name",
+  "class": "shopify-section-recommended-collection-filters",
+  "settings": [],
+  "presets": []
+}
+{% endschema %}

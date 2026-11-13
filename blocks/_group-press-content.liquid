@@ -1,0 +1,44 @@
+<div class="swiper-slide">
+  {% if section.settings.show_icon_quote %}
+    <div
+      class="icon-quote inline-flex justify-center mb-sp-3 mb-1025-sp-6 w-custom w-1025-custom opacity"
+      style="--width: 48px;--width-1025: 62px;--opacity: 0.5;"
+    >
+      {% render 'icon-quote-press' %}
+    </div>
+  {% endif %}
+  <div class="quote-content fs-fluid mb-sp-3 mb-1025-sp-6" style="--fs-mobile: 1.8rem;--fs-desktop: 2.6rem;--res-val: 1.4vw;--lh: 1.6;">
+    {% if block.settings.quote_content != blank %}
+      {{ block.settings.quote_content }}
+    {% endif %}
+  </div>
+  <div class="quote-author inline-flex gap-sp-4 align-center">
+    <span class="line h-custom w-custom bg-custom rounded-10" style="--width: 3rem;--height: 2px;--bg-color-custom: var(--color-heading);"></span>
+    <span class="author-name h7">{{ block.settings.author_name }}</span>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "t:sections.press_card.blocks.quote",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "author_name",
+      "label": "t:sections.press_card.blocks.settings.author_name",
+      "default": "Author Name"
+    },
+    {
+      "type": "richtext",
+      "id": "quote_content",
+      "label": "t:sections.press_card.blocks.settings.quote_content",
+      "default": "<p>This is an example quote. You can use this section to highlight testimonials or notable quotes from articles.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.press_card.blocks.quote"
+    }
+  ]
+}
+{% endschema %}

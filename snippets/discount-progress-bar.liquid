@@ -1,0 +1,178 @@
+{% doc %}
+  Renders the cart discount progress bar configured in theme settings.
+
+  @param {number} cart_total - The cart total before discounts, in the presentment currency's subunit.
+  @param {string} [wrapper_class] - Classes for the outer progress element.
+  @param {string} [wrapper_style] - CSS variables for the outer progress element.
+  @param {string} [track_class] - Classes for the progress rail.
+  @param {string} [track_style] - CSS variables for the progress rail.
+
+  @example
+  {% render 'discount-progress-bar', cart_total: cart.original_total_price %}
+{% enddoc %}
+
+{% liquid
+  if wrapper_class == blank
+    assign wrapper_class = 'free-shipping-bar discount-progress-bar px-gutter-x py-sp-4 py-1025-20 px-sp-1025-8'
+  endif
+  if track_class == blank
+    assign track_class = 'discount-progress-bar__track progress-bar rounded-10 clip-path-unset h-custom bg-custom relative'
+  endif
+  if track_style == blank
+    assign track_style = '--height: 4px;--bg-color-custom: rgba(242, 239, 230, 1);'
+  endif
+
+  assign m1_enable = settings.discount_progress_milestone_1_enable
+  assign m1_amount = settings.discount_progress_milestone_1_amount | default: 0
+  assign m1_label = settings.discount_progress_milestone_1_label
+  assign m1_icon = settings.discount_progress_milestone_1_icon
+  assign m1_render_icon = m1_icon
+
+  assign m2_enable = settings.discount_progress_milestone_2_enable
+  assign m2_amount = settings.discount_progress_milestone_2_amount | default: 0
+  assign m2_label = settings.discount_progress_milestone_2_label
+  assign m2_icon = settings.discount_progress_milestone_2_icon
+  assign m2_render_icon = m2_icon
+
+  assign m3_enable = settings.discount_progress_milestone_3_enable
+  assign m3_amount = settings.discount_progress_milestone_3_amount | default: 0
+  assign m3_label = settings.discount_progress_milestone_3_label
+  assign m3_icon = settings.discount_progress_milestone_3_icon
+  assign m3_render_icon = m3_icon
+
+  assign max_amount = 0
+  assign milestone_count = 0
+  if m1_enable
+    if m1_amount > max_amount
+      assign max_amount = m1_amount
+    endif
+    if m1_amount > 0
+      assign milestone_count = milestone_count | plus: 1
+    endif
+  endif
+  if m2_enable
+    if m2_amount > max_amount
+      assign max_amount = m2_amount
+    endif
+    if m2_amount > 0
+      assign milestone_count = milestone_count | plus: 1
+    endif
+  endif
+  if m3_enable
+    if m3_amount > max_amount
+      assign max_amount = m3_amount
+    endif
+    if m3_amount > 0
+      assign milestone_count = milestone_count | plus: 1
+    endif
+  endif
+%}
+
+{%- if max_amount > 0 -%}
+  <free-ship-progress-bar
+    class="{{ wrapper_class }}"
+    {% if wrapper_style != blank %}
+      style="{{ wrapper_style }}"
+    {% endif %}
+    data-progress-mode="milestones"
+    data-progress-message="{{ settings.discount_progress_message | escape }}"
+    data-progress-success="{{ settings.discount_progress_success | escape }}"
+  >
+    <div
+      class="discount-progress-bar__message progress-bar-message text-center mb-sp-4 mb-1025-sp-6 visibility-hidden"
+      aria-live="polite"
+    ></div>
+    <div
+      class="discount-progress-bar__rail-wrap pb-custom pt-custom"
+      style="--space-bottom: 40;--space-top: 2;--shadow: 0 0 0 0.4rem var(--color-background);"
+    >
+      <div class="{{ track_class }}" style="{{ track_style }}">
+        <div
+          class="progress rounded-10 clip-path-unset h-custom w-custom absolute left-0 inset-y-0 transition"
+          style="--height: 4px; --width: 0%;"
+          data-total-order="{{ cart_total }}"
+          data-fe-amount="{{ max_amount }}"
+          aria-hidden="true"
+        ></div>
+        <ol
+          class="discount-progress-bar__milestones list-unstyled absolute top-custom inset-x-0 w-full grid grid-cols align-center"
+          style="--top-custom: 50%; --col-number: {{ milestone_count }}; --col-tablet: {{ milestone_count }}; --col-desktop: {{ milestone_count }}; --gap: 0px; --gap-desktop: 0px; --color-text: rgba(102, 102, 102, 1);"
+          role="list"
+        >
+          {%- if m1_enable -%}
+            {%- if m1_amount > 0 -%}
+              <li
+                class="discount-progress-bar__milestone relative flex content-center w-full h-custom"
+                style="--height: 3.2rem;"
+                data-milestone-amount="{{ m1_amount }}"
+                data-milestone-label="{{ m1_label | escape }}"
+              >
+                <span
+                  class="discount-progress-bar__icon flex content-center rounded-50 bg-custom text-color w-custom h-custom shadow"
+                  style="--width: 3.2rem; --height: 3.2rem;--bg-color-custom: rgba(242, 239, 230, 1);"
+                  aria-hidden="true"
+                >
+                  {% render 'icon_svg_list', icon: m1_render_icon, custom_width: 18, custom_height: 18 %}
+                </span>
+                <span
+                  class="discount-progress-bar__label absolute top-custom left-custom w-full max-w-custom-all text-center text-color fs-small"
+                  style="--top-custom: calc(100% + 0.4rem); --left-custom: 50%; --max-width: 13.8rem;"
+                >
+                  {{- m1_label -}}
+                </span>
+              </li>
+            {%- endif -%}
+          {%- endif -%}
+          {%- if m2_enable -%}
+            {%- if m2_amount > 0 -%}
+              <li
+                class="discount-progress-bar__milestone relative flex content-center w-full h-custom"
+                style="--height: 3.2rem;"
+                data-milestone-amount="{{ m2_amount }}"
+                data-milestone-label="{{ m2_label | escape }}"
+              >
+                <span
+                  class="discount-progress-bar__icon flex content-center rounded-50 bg-custom text-color w-custom h-custom shadow"
+                  style="--width: 3.2rem; --height: 3.2rem; --bg-color-custom: rgba(242, 239, 230, 1);"
+                  aria-hidden="true"
+                >
+                  {% render 'icon_svg_list', icon: m2_render_icon, custom_width: 18, custom_height: 18 %}
+                </span>
+                <span
+                  class="discount-progress-bar__label absolute top-custom left-custom w-full max-w-custom-all text-center text-color fs-small"
+                  style="--top-custom: calc(100% + 0.4rem); --left-custom: 50%; --max-width: 13.8rem;"
+                >
+                  {{- m2_label -}}
+                </span>
+              </li>
+            {%- endif -%}
+          {%- endif -%}
+          {%- if m3_enable -%}
+            {%- if m3_amount > 0 -%}
+              <li
+                class="discount-progress-bar__milestone relative flex content-center w-full h-custom"
+                style="--height: 3.2rem;"
+                data-milestone-amount="{{ m3_amount }}"
+                data-milestone-label="{{ m3_label | escape }}"
+              >
+                <span
+                  class="discount-progress-bar__icon flex content-center rounded-50 bg-custom text-color w-custom h-custom shadow"
+                  style="--width: 3.2rem; --height: 3.2rem; --bg-color-custom: rgba(242, 239, 230, 1);"
+                  aria-hidden="true"
+                >
+                  {% render 'icon_svg_list', icon: m3_render_icon, custom_width: 18, custom_height: 18 %}
+                </span>
+                <span
+                  class="discount-progress-bar__label absolute top-custom left-custom w-full max-w-custom-all text-center text-color fs-small "
+                  style="--top-custom: calc(100% + 0.4rem); --left-custom: 50%; --max-width: 13.8rem;"
+                >
+                  {{- m3_label -}}
+                </span>
+              </li>
+            {%- endif -%}
+          {%- endif -%}
+        </ol>
+      </div>
+    </div>
+  </free-ship-progress-bar>
+{%- endif -%}

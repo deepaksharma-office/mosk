@@ -1,0 +1,83 @@
+{% liquid
+  assign block_st = block.settings
+%}
+{%- capture style -%}
+  --space-bottom: {{ block_st.padding_bottom }};--space-top: {{ block_st.padding_top }};
+--divider-thickness: {{ block_st.thickness }}px;
+--divider-width: {{ block_st.size }}%;
+--bg-color-custom: {{ block_st.color }};
+{%- endcapture -%}
+<div
+  class="block-divider mt-custom mb-custom bg-custom"
+  {{ block.shopify_attributes }}
+  style="{{ style | strip | strip_newlines }};"
+></div>
+
+{% schema %}
+{
+  "name": "t:sections.custom_section.blocks.divider.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.custom_section.blocks.divider.how_to_use"
+    },
+    {
+      "type": "range",
+      "id": "thickness",
+      "min": 1,
+      "max": 5,
+      "step": 0.5,
+      "unit": "px",
+      "label": "t:sections.custom_section.blocks.divider.settings.thickness",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "size",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:sections.custom_section.blocks.divider.settings.size",
+      "default": 100
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "t:sections.custom_section.blocks.divider.settings.color",
+      "default": "#E5E5E5"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.page.spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 8
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.custom_section.blocks.divider.name",
+      "category": "t:sections.group.blocks.layout"
+    }
+  ]
+}
+{% endschema %}

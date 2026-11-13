@@ -1,0 +1,99 @@
+<div
+  class="{% if request.visual_preview_mode %}bg-white px-sp-5 rounded-5{% endif %} pb-custom pt-custom spacing-style flex{% if block.settings.layout == 'default' %} column{% else %} row{% endif %}"
+  style="--space-bottom: {{ block.settings.padding_bottom }};--space-top: {{ block.settings.padding_top }}; gap: {{ block.settings.spacing }}px;"
+>
+  {% content_for 'blocks' %}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.custom_section.blocks.icon_list.name",
+  "blocks": [
+    {
+      "type": "_item"
+    }
+  ],
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.custom_section.blocks.icon_list.how_to_use"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "default",
+          "label": "t:settings_schema.typography.settings.font_weight.default"
+        },
+        {
+          "value": "inline",
+          "label": "t:settings_schema.typography.settings.font_weight.inline"
+        }
+      ],
+      "default": "default",
+      "label": "t:sections.all.layout.label"
+    },
+    {
+      "type": "range",
+      "id": "spacing",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.all.padding.space_between",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.page.spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.custom_section.blocks.icon_list.name",
+      "category": "t:sections.group.general.name",
+      "blocks": [
+        {
+          "type": "_item",
+          "settings": {
+            "heading": "List item #1"
+          }
+        },
+        {
+          "type": "_item",
+          "settings": {
+            "heading": "List item #2"
+          }
+        },
+        {
+          "type": "_item",
+          "settings": {
+            "heading": "List item #3"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

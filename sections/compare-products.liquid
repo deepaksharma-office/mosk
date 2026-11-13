@@ -1,0 +1,1010 @@
+{%- liquid
+  assign metafield_path = section.settings.metafield | default: 'custom.compare_items' | strip
+  assign metafield_parts = metafield_path | split: '.'
+  assign metafield_namespace = metafield_parts[0] | default: 'custom'
+  assign metafield_key = metafield_parts[1] | default: 'compare_items'
+  assign compare_items_metafield = product.metafields[metafield_namespace][metafield_key]
+  assign ingredient_path = section.settings.ingredient_highlights_metafield | default: 'custom.ingredient_highlights' | strip
+  assign ingredient_parts = ingredient_path | split: '.'
+  assign ingredient_namespace = ingredient_parts[0] | default: 'custom'
+  assign ingredient_key = ingredient_parts[1] | default: 'ingredient_highlights'
+-%}
+{%- if compare_items_metafield.value -%}
+  {%- liquid
+    assign theme_st = settings
+    assign section_st = section.settings
+    if section_st.section_width == 'fix_width'
+      assign section_width = 'container'
+    elsif section_st.section_width == 'full_width'
+      assign section_width = 'full-width'
+    else
+      assign section_width = 'fluid_container'
+    endif
+    assign heading_size = section_st.heading_size
+    assign text_alignment = section_st.text_alignment
+    assign header_size = ''
+    if heading_size == 'small'
+      assign header_size = 'h3'
+    elsif heading_size == 'large'
+      assign header_size = 'h1'
+    endif
+    assign show_price = section_st.show_price
+    assign show_ratings = section_st.show_ratings
+    assign show_vendor = section_st.show_vendor
+    assign show_color = section_st.show_color
+    assign show_size = section_st.show_size
+    assign show_highlights = section_st.show_highlights
+    assign show_availability = section_st.show_availability
+    assign option_name_size = 'Size'
+    if section_st.size_trigger != blank
+      assign option_name_size = section_st.size_trigger | split: ','
+    endif
+    assign option_name_color = 'Color'
+    if theme_st.color_swatch_trigger != blank
+      assign option_name_color = theme_st.color_swatch_trigger | split: ','
+    endif
+    assign product_image_ratio = theme_st.product_image_ratio
+    assign count_item = 1
+    for item in compare_items_metafield.value
+      if item.id == product.id
+        continue
+      endif
+      assign count_item = count_item | plus: 1
+    endfor
+    assign heading = section_st.heading
+    assign drawn_underline = section_st.drawn_underline
+    assign drawn_underline_type = section_st.drawn_underline_type
+    assign drawn_underline_color = section_st.drawn_underline_color
+    if drawn_underline
+      assign scroll_animation = 'disable'
+    endif
+  -%}
+  {%- capture style -%}
+  --section-pt: {{ section_st.padding_top }}; --section-pb: {{ section_st.padding_bottom }};--col: {{count_item }};
+{%- endcapture -%}
+  {% style %}
+    .compare-table-wrapper:before {
+      content: '';
+      position: absolute;
+      inset-inline-start: 15px;
+      top: 0;
+      bottom: 0;
+      background: #fff;
+      width: 35px;
+      transform: translateX(calc(-100% * var(--flow-direction)));
+      z-index: 2;
+      pointer-events: none;
+    }
+    .compare-grid {
+      display: grid;
+      grid-template-columns: var(--field-heading-width, 20%) repeat(
+          var(--col, 6),
+          minmax(var(--inner-width, 19rem), 20%)
+        );
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-behavior: smooth;
+      margin-inline: calc(-1 * var(--bs-gutter-x));
+      padding-inline: var(--bs-gutter-x);
+      scrollbar-width: none;
+      padding-bottom: 1px;
+    }
+    .compare-field {
+      border: 1px solid var(--color-border);
+      margin-top: -1px;
+      margin-inline-end: -1px;
+    }
+    .compare-field .field-heading .compare-field.last-item {
+      margin-inline-end: 0;
+    }
+    .compare-field.border-top-0 {
+      margin-top: 0;
+    }
+    .compare-field.last-item.compare-img {
+      border-start-end-radius: var(--img-rounded);
+    }
+
+    .compare-field.first-heading {
+      border-start-start-radius: var(--img-rounded);
+    }
+
+    .compare-grid .compare-field:last-child {
+      border-end-end-radius: var(--img-rounded);
+    }
+
+    .is-last-heading {
+      border-end-start-radius: var(--img-rounded);
+    }
+    .compare-field .product-rating .rating {
+      font-size: 0;
+    }
+    .compare-field .product-rating :is(.rate__count, .rating-count) {
+      display: none;
+    }
+    .compare-field .product-rating .rating-text {
+      border-radius: 0;
+      clip-path: unset;
+    }
+    .compare-field .product-rating {
+      gap: var(--sp-2);
+    }
+    .compare-field .product-rating .visually-hidden {
+      position: static !important;
+      width: auto;
+      margin: 0;
+      clip: unset;
+      font-size: 1.4rem;
+    }
+    .field-heading {
+      position: sticky;
+      inset-inline-start: 0;
+      z-index: 2;
+      background: white;
+    }
+  {% endstyle %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const headings = document.querySelectorAll('.compare-grid .field-heading');
+      if (headings.length > 0) {
+        headings[headings.length - 1].classList.add('is-last-heading');
+      }
+    });
+  </script>
+
+  {%- if count_item != 0 -%}
+    {%- render 'section-divider', position: 'top', style: section_st.divider_top, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+  {%- endif -%}
+  <div
+    class="section color-{{ section_st.color_scheme }} gradient section__compare-products gradient{% if section_st.show_divider and section_st.divider_top == 'line' %} border-top{% endif %}{% if section_st.show_divider and section_st.divider_bottom == 'line' %} border-bottom{% endif %} relative overflow-hidden{% if count_item == 0 %} hidden{% endif %}"
+    style="{{ style | strip | strip_newlines }}"
+  >
+    <div class="{{ section_width }}">
+      {%- if heading != blank or section_st.description != blank or section_st.subheading != blank -%}
+        <div
+          class="section-header text-{{ text_alignment }}"
+        >
+          {% assign animate_delay = 50 %}
+          {%- if section_st.subheading != blank -%}
+            {% if scroll_animation != 'disable' %}
+              <motion-effect
+                data-animate="fade-up"
+                data-animate-delay="{{ animate_delay }}"
+                class="block"
+              >
+            {% endif %}
+            <div class="section-subheading mb-sp-2 subheading_weight h7">
+              {{ section.settings.subheading }}
+            </div>
+            {% if scroll_animation != 'disable' %}
+              </motion-effect>
+            {% endif %}
+          {%- endif -%}
+          {%- if heading != blank -%}
+            {% assign animate_delay = animate_delay | plus: 50 %}
+            {% if scroll_animation != 'disable' or drawn_underline %}
+              <motion-effect
+                data-animate="{% if scroll_animation != 'disable' %}fade-up{% else %}highlighted-text{% endif %}"
+                data-animate-delay="{{ animate_delay }}"
+                class="block"
+              >
+            {% endif -%}
+            <h2 class="section-heading {{ header_size }}">
+              {% if drawn_underline %}
+                {%- capture squiggle_svg_1 -%}
+                <svg viewBox="0 0 184 26" fill="none"><use href="#squiggle-svg-1" /></svg>
+              {%- endcapture -%}
+                {%- capture squiggle_svg_2 -%}
+               <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-2" /></svg>
+              {%- endcapture -%}
+                {%- capture squiggle_svg_3 -%}
+                 <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-3" /></svg>
+              {%- endcapture -%}
+                {%- capture squiggle_svg_4 -%}
+                <svg viewBox="0 0 220 20"fill="none"><use href="#squiggle-svg-4" /></svg>
+              {%- endcapture -%}
+                {%- capture squiggle_svg_5 -%}
+                <svg viewBox="0 0 140 24" fill="none" role="presentation" preserveAspectRatio="none"><use href="#squiggle-svg-5" /></svg>
+              {%- endcapture -%}
+                {%- assign result = heading -%}
+                {%- assign parts = result | split: '<em>' -%}
+                {%- assign em_count = parts | size | minus: 1 -%}
+
+                {%- for i in (1..em_count) -%}
+                  {%- assign idx = i | plus: 0 -%}
+                  {%- assign chunk = parts[idx] | default: '' -%}
+                  {%- assign text = chunk | split: '</em>' | first | strip_html | strip -%}
+                  {%- assign len_text = text | size -%}
+                  {%- capture open_em -%}
+                {%- liquid
+                  if drawn_underline_type == 'simple_underline'
+                    assign svg = squiggle_svg_4 | append: '</em>'
+                  elsif drawn_underline_type == 'curve_underline'
+                    assign svg = squiggle_svg_5 | append: '</em>'
+                  else
+                    if len_text <= 4
+                      assign svg = squiggle_svg_1 | append: '</em>'
+                    elsif len_text <= 6
+                      assign svg = squiggle_svg_2 | append: '</em>'
+                    else
+                      assign svg = squiggle_svg_3 | append: '</em>'
+                    endif
+                  endif
+                -%}
+                <em class="highlighted-text relative inline-flex{% if drawn_underline_type == 'simple_underline' %} simple_underline{% endif %} {{ drawn_underline_type }} not-italic" style="--animate-color:{{ drawn_underline_color }}">{{ svg }}</em>
+              {%- endcapture -%}
+                  {%- assign open_em = open_em | remove: '</em>' -%}
+                  {%- assign heading = heading | replace_first: '<em>', open_em -%}
+                {%- endfor -%}
+              {% endif %}
+              {{- heading -}}
+            </h2>
+            {% if scroll_animation != 'disable' or drawn_underline %}
+              </motion-effect>
+            {% endif %}
+          {%- endif -%}
+          {%- if section_st.description != blank -%}
+            {% assign animate_delay = animate_delay | plus: 50 %}
+            {% if scroll_animation != 'disable' %}
+              <motion-effect
+                data-animate="fade-up"
+                data-animate-delay="{{ animate_delay }}"
+                class="block"
+              >
+            {% endif %}
+            <div class="section-description mt-sp-4 prose">
+              {{ section.settings.description }}
+            </div>
+            {% if scroll_animation != 'disable' %}
+              </motion-effect>
+            {% endif %}
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+      <div>
+        <div
+          class="compare-table-wrapper relative items-{{ count_item }}"
+          style=" --field-heading-width: minmax(118px, 20%);"
+        >
+          <div class="compare-grid hover-afterload">
+            <div class="compare-field word-break flex align-center px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5 field-heading bg-white z-2 heading-color border-top-0 first-heading">
+              {{ 'products.product.product_compare' | t }}
+            </div>
+            <div
+              class="compare-field word-break px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5 current-product bg-secondary flex column gap border-top-0"
+              style="--gap-desktop: 2rem;--gap: 5px;"
+            >
+              {%- liquid
+                assign p_media = product.featured_media
+                assign ratio = '3/4'
+                if product_image_ratio != 'adapt'
+                  case product_image_ratio
+                    when 'square'
+                      assign ratio = '1/1'
+                    when 'landscape'
+                      assign ratio = '4/3'
+                    when 'portrait'
+                      assign ratio = '3/4'
+                  endcase
+                else
+                  if p_media.media_type == 'model'
+                    assign ratio = '3/4'
+                  else
+                    assign ratio = p_media.aspect_ratio
+                  endif
+                endif
+              -%}
+              <div class="product__inner relative hover-effect w-full">
+                <a
+                  class="product-image focus-inset"
+                  draggable="false"
+                  href="{{ product.url }}"
+                  aria-label="{{ product.title }}"
+                >
+                  {%- if p_media -%}
+                    <div
+                      class="product__media animation-swatches rounded"
+                      style="--aspect-ratio: {{ ratio }};"
+                    >
+                      {%- assign alt_features = p_media.alt | default: product.title | escape -%}
+                      {% render 'responsive-image',
+                        type: 'product',
+                        class: 'product__img featured-image',
+                        image: p_media,
+                        image_alt: alt_features,
+                        motion: true
+                      %}
+                    </div>
+                  {%- else -%}
+                    {%- liquid
+                      assign ratio = '3/4'
+                      if product_image_ratio != 'adapt'
+                        case product_image_ratio
+                          when 'square'
+                            assign ratio = '1/1'
+                          when 'landscape'
+                            assign ratio = '4/3'
+                          when 'portrait'
+                            assign ratio = '3/4'
+                        endcase
+                      endif
+                    -%}
+                    <div
+                      class="product__media rounded"
+                      style="--aspect-ratio: {{ ratio }};"
+                    >
+                      {% render 'placeholder-render' %}
+                    </div>
+                  {%- endif -%}
+                </a>
+              </div>
+              <a
+                aria-label="{{ product.title }}"
+                class="product__name heading-color block align-self-start outlined-border pt-0 pt-1025-15"
+                href="{{ product.url }}"
+              >
+                {{- product.title -}}
+              </a>
+            </div>
+            {%- for items in compare_items_metafield.value -%}
+              {%- liquid
+                if items.id == product.id
+                  continue
+                endif
+              -%}
+              <div
+                class="compare-field word-break{% if forloop.last == true %} last-item{% endif %} compare-field word-break{% if forloop.last == true %} last-item{% endif %} px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5 flex column gap border-top-0 compare-img hover-effect"
+                style="--gap-desktop: 2rem;--gap: 5px;"
+              >
+                {%- liquid
+                  assign p_media = items.featured_media
+                  assign ratio = '3/4'
+                  if product_image_ratio != 'adapt'
+                    case product_image_ratio
+                      when 'square'
+                        assign ratio = '1/1'
+                      when 'landscape'
+                        assign ratio = '4/3'
+                      when 'portrait'
+                        assign ratio = '3/4'
+                    endcase
+                  else
+                    if p_media.media_type == 'model'
+                      assign ratio = '3/4'
+                    else
+                      assign ratio = p_media.aspect_ratio
+                    endif
+                  endif
+                -%}
+                <div class="product__inner relative hover-effect w-full">
+                  <a
+                    class="product-image focus-inset"
+                    draggable="false"
+                    href="{{ items.url }}"
+                    aria-label="{{ items.title }}"
+                  >
+                    {%- if p_media -%}
+                      <div
+                        class="product__media animation-swatches rounded"
+                        style="--aspect-ratio: {{ ratio }};"
+                      >
+                        {%- assign alt_features = p_media.alt | default: items.title | escape -%}
+                        {% render 'responsive-image',
+                          type: 'product',
+                          class: 'product__img featured-image',
+                          image: p_media,
+                          image_alt: alt_features,
+                          motion: true
+                        %}
+                      </div>
+                    {%- else -%}
+                      {%- liquid
+                        assign ratio = '3/4'
+                        if product_image_ratio != 'adapt'
+                          case product_image_ratio
+                            when 'square'
+                              assign ratio = '1/1'
+                            when 'landscape'
+                              assign ratio = '4/3'
+                            when 'portrait'
+                              assign ratio = '3/4'
+                          endcase
+                        endif
+                      -%}
+                      <div
+                        class="product__media rounded"
+                        style="--aspect-ratio: {{ ratio }};"
+                      >
+                        {% render 'placeholder-render' %}
+                      </div>
+                    {%- endif -%}
+                  </a>
+                </div>
+                <a
+                  aria-label="{{ items.title }}"
+                  class="product__name heading-color block align-self-start outlined-border pt-0 pt-1025-15"
+                  href="{{ items.url }}"
+                >
+                  {{- items.title -}}
+                </a>
+              </div>
+            {%- endfor -%}
+
+            {%- if show_price -%}
+              <div class="compare-field word-break flex align-center px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5 field-heading bg-white z-2 heading-color">
+                {{ 'products.product.price.label' | t }}
+              </div>
+              <div class="compare-field word-break flex align-center px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5 current-product bg-secondary">
+                {%- render 'price', scope: 'item', product: product -%}
+              </div>
+              {%- for items in compare_items_metafield.value -%}
+                {%- liquid
+                  if items.id == product.id
+                    continue
+                  endif
+                -%}
+                <div class="compare-field word-break flex align-cente px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5 compare-price">
+                  {%- render 'price', scope: 'item', product: items -%}
+                </div>
+              {%- endfor -%}
+            {%- endif -%}
+            {%- if show_ratings -%}
+              <div class="compare-field word-break flex align-center px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5 field-heading bg-white z-2 heading-color">
+                {{ 'products.product.ratings' | t }}
+              </div>
+              <div class="compare-field word-break flex align-center px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5 current-product bg-secondary">
+                {%- liquid
+                  render 'review', review_star: true, product: product
+                -%}
+              </div>
+              {%- for items in compare_items_metafield.value -%}
+                {%- liquid
+                  if items.id == product.id
+                    continue
+                  endif
+                -%}
+                <div class="compare-field word-break{% if forloop.last == true %} last-item{% endif %} flex align-center px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5 compare-rate">
+                  {%- liquid
+                    render 'review', review_star: true, product: items
+                  -%}
+                </div>
+              {%- endfor -%}
+            {%- endif -%}
+            {%- if show_vendor -%}
+              <div class="compare-field word-break flex align-center px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5 field-heading bg-white z-2 heading-color">
+                {{ 'products.product.vendor' | t }}
+              </div>
+              <div class="compare-field word-break flex align-center px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5 current-product bg-secondary">
+                {%- if product.vendor -%}
+                  {{ product.vendor }}
+                {%- else -%}
+                  -
+                {% endif %}
+              </div>
+              {%- for items in compare_items_metafield.value -%}
+                {%- liquid
+                  if items.id == product.id
+                    continue
+                  endif
+                -%}
+                <div class="compare-field word-break{% if forloop.last == true %} last-item{% endif %} flex align-center px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5 compare-vendor">
+                  {%- if items.vendor -%}
+                    {{ items.vendor }}
+                  {%- else -%}
+                    -
+                  {% endif %}
+                </div>
+              {%- endfor -%}
+            {%- endif -%}
+            {%- if show_color -%}
+              <div class="compare-field word-break flex align-center px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5 field-heading bg-white z-2 heading-color">
+                {{ 'products.product.color' | t }}
+              </div>
+              <div class="compare-field word-break flex align-center px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5 current-product bg-secondary">
+                {%- if product.has_only_default_variant -%}
+                  <span>-</span>
+                {%- else -%}
+                  {%- for option in product.options_with_values -%}
+                    {%- liquid
+                      assign is_color_option = false
+                      for colorItem in option_name_color
+                        if option.name == colorItem
+                          assign is_color_option = true
+                        endif
+                      endfor
+                    -%}
+                    {%- if is_color_option -%}
+                      {%- for value in option.values -%}
+                        <span class="color-content uppercase-first-letter">
+                          {{- value -}}
+                          {%- if forloop.last != true %}, {% endif %}
+                        </span>
+                      {%- endfor -%}
+                    {% endif %}
+                  {%- endfor -%}
+                {% endif %}
+              </div>
+              {%- for items in compare_items_metafield.value -%}
+                {%- liquid
+                  if items.id == product.id
+                    continue
+                  endif
+                -%}
+                <div class="compare-field word-break{% if forloop.last == true %} last-item{% endif %} flex align-center px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5 compare-color">
+                  {%- if items.has_only_default_variant -%}
+                    <span>-</span>
+                  {%- else -%}
+                    {%- for option in items.options_with_values -%}
+                      {%- liquid
+                        assign is_color_option = false
+                        for colorItem in option_name_color
+                          if option.name == colorItem
+                            assign is_color_option = true
+                          endif
+                        endfor
+                      -%}
+                      {%- if is_color_option -%}
+                        {%- for value in option.values -%}
+                          <span class="color-content uppercase-first-letter">
+                            {{- value -}}
+                            {%- if forloop.last != true %}, {% endif %}
+                          </span>
+                        {%- endfor -%}
+                      {% endif %}
+                    {%- endfor -%}
+                  {% endif %}
+                </div>
+              {%- endfor -%}
+            {%- endif -%}
+            {%- if show_size -%}
+              <div class="compare-field word-break flex align-center px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5 field-heading bg-white z-2 heading-color">
+                {{ 'products.product.size' | t }}
+              </div>
+              <div class="compare-field word-break flex align-center px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5 current-product bg-secondary">
+                {%- if product.has_only_default_variant -%}
+                  <span>-</span>
+                {%- else -%}
+                  {%- liquid
+                    assign size_option = false
+                    for option in product.options_with_values
+                      for sizeItem in option_name_size
+                        if option.name == sizeItem
+                          assign size_option = true
+                        endif
+                      endfor
+                    endfor
+                  -%}
+                  {%- if size_option -%}
+                    {%- for option in product.options_with_values -%}
+                      {%- liquid
+                        assign is_size_option = false
+                        for sizeItem in option_name_size
+                          if option.name == sizeItem
+                            assign is_size_option = true
+                          endif
+                        endfor
+                      -%}
+                      {%- if is_size_option -%}
+                        {%- for value in option.values -%}
+                          <span class="size-content uppercase-first-letter">
+                            {{- value -}}
+                            {%- if forloop.last != true %}, {% endif %}
+                          </span>
+                        {%- endfor -%}
+                      {% endif %}
+                    {%- endfor -%}
+                  {%- else -%}
+                    <span>-</span>
+                  {% endif %}
+                {% endif %}
+              </div>
+              {%- for items in compare_items_metafield.value -%}
+                {%- liquid
+                  if items.id == product.id
+                    continue
+                  endif
+                -%}
+                <div class="compare-field word-break{% if forloop.last == true %} last-item{% endif %} flex align-center px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5">
+                  {%- if items.has_only_default_variant -%}
+                    <span>-</span>
+                  {%- else -%}
+                    {%- liquid
+                      assign size_option = false
+                      for option in items.options_with_values
+                        for sizeItem in option_name_size
+                          if option.name == sizeItem
+                            assign size_option = true
+                          endif
+                        endfor
+                      endfor
+                    -%}
+                    {%- if size_option -%}
+                      {%- for option in items.options_with_values -%}
+                        {%- liquid
+                          assign is_size_option = false
+                          for sizeItem in option_name_size
+                            if option.name == sizeItem
+                              assign is_size_option = true
+                            endif
+                          endfor
+                        -%}
+                        {%- if is_size_option -%}
+                          {%- for value in option.values -%}
+                            <span class="size-content uppercase-first-letter">
+                              {{- value -}}
+                              {%- if forloop.last != true %}, {% endif %}
+                            </span>
+                          {%- endfor -%}
+                        {% endif %}
+                      {%- endfor -%}
+                    {%- else -%}
+                      <span>-</span>
+                    {% endif %}
+                  {% endif %}
+                </div>
+              {%- endfor -%}
+            {%- endif -%}
+            {%- if show_highlights -%}
+              <div class="compare-field word-break flex align-center px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5 field-heading bg-white z-2 heading-color">
+                {{ 'products.product.highlights' | t }}
+              </div>
+              <div class="compare-field word-break flex px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5 current-product bg-secondary">
+                {%- if product.metafields[ingredient_namespace][ingredient_key] -%}
+                  {{ product.metafields[ingredient_namespace][ingredient_key] }}
+                {%- else -%}
+                  <span>-</span>
+                {% endif %}
+              </div>
+              {%- for items in compare_items_metafield.value -%}
+                {%- liquid
+                  if items.id == product.id
+                    continue
+                  endif
+                -%}
+                <div class="compare-field word-break{% if forloop.last == true %} last-item{% endif %} flex px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5">
+                  {%- if items.metafields[ingredient_namespace][ingredient_key] -%}
+                    {{ items.metafields[ingredient_namespace][ingredient_key] }}
+                  {%- else -%}
+                    <span>-</span>
+                  {% endif %}
+                </div>
+              {%- endfor -%}
+            {%- endif -%}
+            {%- if show_availability -%}
+              <div class="compare-field word-break flex align-center px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5 field-heading bg-white z-2 heading-color">
+                {{ 'products.product.availability' | t }}
+              </div>
+              <div
+                class="compare-field word-break flex align-center px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5 current-product bg-secondary gap-custom"
+                style="--gap: 8;"
+              >
+                {%- if product.available -%}
+                  <svg width="12" height="10" fill="none">
+                    <path fill="#008A00" d="M10.86.86 4 7.718l-2.86-2.86a.69.69 0 0 0-.484-.187.617.617 0 0 0-.453.187.661.661 0 0 0-.203.485c0 .177.068.328.203.453L3.531 9.14A.636.636 0 0 0 4 9.328a.636.636 0 0 0 .469-.187l7.328-7.344A.594.594 0 0 0 12 1.344a.661.661 0 0 0-.203-.485.636.636 0 0 0-.469-.187.67.67 0 0 0-.469.187Z"/>
+                  </svg>
+                  <span class="text-color" style="--color-text: #008A00;"> {{ 'products.product.instock' | t }}</span>
+                {%- else -%}
+                  <svg width="10" height="10" fill="none">
+                    <path fill="#907341" d="M.531 1.797a.594.594 0 0 1-.203-.453c0-.188.068-.35.203-.485A.636.636 0 0 1 1 .672c.188 0 .344.062.469.187L5 4.391 8.531.859A.636.636 0 0 1 9 .672c.188 0 .344.062.469.187a.661.661 0 0 1 .203.485.594.594 0 0 1-.203.453L5.938 5.328l3.53 3.531a.661.661 0 0 1 .204.485.594.594 0 0 1-.203.453A.611.611 0 0 1 9 10a.611.611 0 0 1-.469-.203L5 6.28 1.469 9.797A.611.611 0 0 1 1 10a.611.611 0 0 1-.469-.203.594.594 0 0 1-.203-.453c0-.188.068-.35.203-.485l3.531-3.53-3.53-3.532Z"/>
+                  </svg>
+                  <span class="text-color" style="--color-text: #907341;">
+                    {{ 'products.product.unavailable' | t -}}
+                  </span>
+                {% endif %}
+              </div>
+              {%- for items in compare_items_metafield.value -%}
+                {%- liquid
+                  if items.id == product.id
+                    continue
+                  endif
+                -%}
+                <div
+                  class="compare-field word-break{% if forloop.last == true %} last-item{% endif %} flex align-center px-sp-4 py-sp-3 py-sp-md-4 px-sp-1025-5 gap-custom"
+                  style="--gap: 8;"
+                >
+                  {%- if items.available -%}
+                    <svg width="12" height="10" fill="none">
+                      <path fill="#008A00" d="M10.86.86 4 7.718l-2.86-2.86a.69.69 0 0 0-.484-.187.617.617 0 0 0-.453.187.661.661 0 0 0-.203.485c0 .177.068.328.203.453L3.531 9.14A.636.636 0 0 0 4 9.328a.636.636 0 0 0 .469-.187l7.328-7.344A.594.594 0 0 0 12 1.344a.661.661 0 0 0-.203-.485.636.636 0 0 0-.469-.187.67.67 0 0 0-.469.187Z"/>
+                    </svg>
+                    <span class="text-color" style="--color-text: #008A00;"> {{ 'products.product.instock' | t }}</span>
+                  {%- else -%}
+                    <svg width="10" height="10" fill="none">
+                      <path fill="#907341" d="M.531 1.797a.594.594 0 0 1-.203-.453c0-.188.068-.35.203-.485A.636.636 0 0 1 1 .672c.188 0 .344.062.469.187L5 4.391 8.531.859A.636.636 0 0 1 9 .672c.188 0 .344.062.469.187a.661.661 0 0 1 .203.485.594.594 0 0 1-.203.453L5.938 5.328l3.53 3.531a.661.661 0 0 1 .204.485.594.594 0 0 1-.203.453A.611.611 0 0 1 9 10a.611.611 0 0 1-.469-.203L5 6.28 1.469 9.797A.611.611 0 0 1 1 10a.611.611 0 0 1-.469-.203.594.594 0 0 1-.203-.453c0-.188.068-.35.203-.485l3.531-3.53-3.53-3.532Z"/>
+                    </svg>
+                    <span class="text-color" style="--color-text: #907341;">
+                      {{ 'products.product.unavailable' | t -}}
+                    </span>
+                  {% endif %}
+                </div>
+              {%- endfor -%}
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%- if count_item != 0 -%}
+    {%- render 'section-divider', position: 'bottom', style: section_st.divider_bottom, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+  {%- endif -%}
+{%- elsif request.design_mode -%}
+  {%- render 'editor-metafield-hint', id: 'compare_products', source: metafield_path, section_frame: true -%}
+{%- endif -%}
+{% schema %}
+{
+  "name": "t:sections.compare-products.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.compare-products.how_to_use"
+    },
+    {
+      "type": "text",
+      "id": "metafield",
+      "label": "t:sections.all.metafield.compare_items.label",
+      "info": "t:sections.all.metafield.compare_items.info",
+      "default": "custom.compare_items"
+    },
+    {
+      "type": "text",
+      "id": "ingredient_highlights_metafield",
+      "label": "t:sections.all.metafield.ingredient_highlights.label",
+      "info": "t:sections.all.metafield.ingredient_highlights.info",
+      "default": "custom.ingredient_highlights"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "options": [
+        {
+          "value": "fix_width",
+          "label": "t:sections.all.layout.fix_width"
+        },
+        {
+          "value": "stretch_width",
+          "label": "t:sections.all.layout.stretch_width"
+        },
+        {
+          "value": "full_width",
+          "label": "t:sections.all.layout.full_width"
+        }
+      ],
+      "default": "fix_width",
+      "label": "t:sections.all.layout.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_header.label"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.all.content_setting.subheading.label"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "t:sections.all.content_setting.heading.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "drawn_underline",
+      "default": true,
+      "label": "t:sections.all.content_setting.drawn_underline.label",
+      "info": "t:sections.all.content_setting.heading.info"
+    },
+    {
+      "type": "select",
+      "id": "drawn_underline_type",
+      "label": "t:sections.all.content_setting.drawn_underline.type",
+      "default": "squiggle_underline",
+      "visible_if": "{{ section.settings.drawn_underline != false }}",
+      "options": [
+        {
+          "value": "simple_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.simple_underline"
+        },
+        {
+          "value": "curve_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.curve_underline"
+        },
+        {
+          "value": "squiggle_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.squiggle_underline"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "drawn_underline_color",
+      "label": "t:sections.all.content_setting.drawn_underline.color",
+      "default": "#FFB005",
+      "alpha": true,
+      "visible_if": "{{ section.settings.drawn_underline != false }}"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.all.content_setting.description.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "large",
+          "label": "t:sections.all.content_header.heading_size.options__1.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.all.content_header.heading_size.options__2.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.all.content_header.heading_size.options__3.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.all.content_header.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "left",
+      "label": "t:sections.all.text_alignment.alignment"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.compare-products.settings.header.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "t:sections.compare-products.settings.show_price",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_ratings",
+      "label": "t:sections.compare-products.settings.show_ratings",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "t:sections.compare-products.settings.show_vendor",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_color",
+      "label": "t:sections.compare-products.settings.show_color",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_size",
+      "label": "t:sections.compare-products.settings.show_size",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "size_trigger",
+      "label": "t:sections.all.product_setting.variant_picker.settings.size_guide.settings.size_trigger.label",
+      "info": "t:sections.all.product_setting.variant_picker.settings.size_guide.settings.size_trigger.info",
+      "default": "Size,Größe,Misurare",
+      "visible_if": "{{ section.settings.show_size != false }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_highlights",
+      "label": "t:sections.compare-products.settings.show_highlights",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_availability",
+      "label": "t:sections.compare-products.settings.show_availability",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.divider.section_divider_heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "t:sections.all.divider.show_divider",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "divider_top",
+      "label": "t:sections.all.divider.top",
+      "info": "t:sections.all.divider.top_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "line",
+      "visible_if": "{{ section.settings.show_divider }}"
+    },
+    {
+      "type": "select",
+      "id": "divider_bottom",
+      "label": "t:sections.all.divider.bottom",
+      "info": "t:sections.all.divider.bottom_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.show_divider }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.compare-products.name",
+      "category": "t:sections.group.product"
+    }
+  ],
+  "enabled_on": {
+    "templates": ["product"]
+  }
+}
+{% endschema %}

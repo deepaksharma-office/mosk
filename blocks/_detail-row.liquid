@@ -1,0 +1,35 @@
+{%- liquid
+  assign block_st = block.settings
+-%}
+<div
+  class="detail-row flex space-between-1025 gap-sp-2 gap-1025-sp-4 py-sp-3 py-1025-sp-4 border-bottom"
+  {{ block.shopify_attributes }}
+>
+  <div class="row-title heading-color min-w-custom text-start" style="--min-width: 14rem;">
+    {{ block_st.row_title }}
+  </div>
+  <div class="row-details text-start">
+    {{ block_st.row_details }}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "t:sections.all.content_setting.detail_list.detail_row.label",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "row_title",
+      "label": "t:sections.all.content_setting.detail_list.detail_row.row_title",
+      "default": "Row title"
+    },
+    {
+      "type": "richtext",
+      "id": "row_details",
+      "label": "t:sections.all.content_setting.detail_list.detail_row.row_details",
+      "default": "<p>Row details</p>"
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.content_setting.detail_list.detail_row.label" }]
+}
+{% endschema %}

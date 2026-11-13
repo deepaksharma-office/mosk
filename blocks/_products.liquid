@@ -1,0 +1,217 @@
+{%- liquid
+  assign section_st = section.settings
+  assign block_st = block.settings
+  assign image_ratio = section_st.image_ratio
+  assign ratio = '3/4'
+  if image_ratio != 'adapt'
+    case image_ratio
+      when 'square'
+        assign ratio = '1/1'
+      when 'landscape'
+        assign ratio = '4/3'
+      when 'portrait'
+        assign ratio = '3/4'
+    endcase
+  else
+    if block_st.image != blank
+      assign ratio = block_st.image.aspect_ratio
+    endif
+  endif
+-%}
+<div class="group-lookbook_product relative">
+  <div
+    class="group-lookbook_product__image rounded"
+    style="--aspect-ratio: {{ ratio }};"
+  >
+    {%- if block_st.image != blank -%}
+      {%- liquid
+        assign image_alt_default = 'general.image.image_alt_default' | t
+        assign image_alt = block_st.image.alt | default: image_alt_default | escape
+      -%}
+      {% render 'responsive-image',
+        type: 'banner',
+        container: section_st.section_width,
+        image: block_st.image,
+        image_alt: image_alt,
+        class: 'rounded',
+        motion: true
+        animate: 'zoom-out-small',
+      %}
+    {%- else -%}
+      {%- render 'placeholder-render', type: 'lifestyle-1', class: 'img-placeholder h-full w-full rounded' -%}
+    {%- endif -%}
+  </div>
+  <div class="group-lookbook_product__content">
+    {% for i in (1..3) %}
+      {% liquid
+        assign offset_top = 'position_top_' | append: i
+        assign position_top = block_st[offset_top]
+        assign offset_left = 'position_left_' | append: i
+        assign position_left = block_st[offset_left]
+        assign product_item = 'product_' | append: i
+        assign item = block_st[product_item]
+      %}
+      {%- liquid
+        assign product = all_products[item]
+      -%}
+      {% if product != blank %}
+      <shopable-image
+        class="group-lookbook_product__item absolute"
+        data-url="{{ product.url }}"
+        style="--top: {{ position_top }}%; --left: {{ position_left }}%;--transform: translate(-{{ position_left }}%,-{{ position_top }}%);"
+      >
+        <span
+          tabindex="0"
+          class="icon-dot animation-hotspot transition flex content-center dot pointer w-custom h-custom rounded-50 bg-white color-primary"
+          style="--width: 2.6rem;--height: 2.6rem;"
+        >
+          <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+            <use href="#icon-dot"></use>
+          </svg>
+        </span>
+        <template>
+          <div class="group-lookbook__item-product mt-10" style="--width: 6rem;">
+            <svg
+              class="icon icon-caret absolute top-0 inset-x-0 mx-auto w-custom"
+              viewBox="0 0 22 11"
+              stroke="none"
+              fill="#fff"
+              style="--width: 2.2rem;"
+            >
+              <path d="M8.57584 1.32365C9.7741 -0.319412 12.2254 -0.319412 13.4236 1.32365L21.392 12.25H0.607422L8.57584 1.32365Z"></path>
+            </svg>
+            <div class="loobook-product p-sp-2 bg-white shadow rounded-10">
+              {% render 'card-product',
+                card_product: product,
+                section_id: section.id,
+                show_video: false,
+                disable_quickview: true,
+                disable_badge: true,
+                disable_rate: true,
+                disable_tag: true,
+                disable_vendor: true,
+                disable_hover_image: true,
+                show_quick_add: false,
+                disable_color_swatches: true,
+                style_layout: ' flex gap-10 align-center',
+                image_class: ' flex-auto w-custom rounded-10',
+                image_rounded: ' rounded-10',
+                info_class: ' flex-1 mt-0'
+              %}
+            </div>
+          </div>
+        </template>
+      </shopable-image>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "t:sections.shopable-image.blocks.lookbook.settings.products.label",
+  "class": "swiper-slide",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.multimedia_with_text.blocks.settings.header"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.all.image.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.shopable-image.blocks.lookbook.settings.products.products.otpion__1.label"
+    },
+    {
+      "type": "range",
+      "id": "position_top_1",
+      "label": "t:sections.shopable-image.blocks.lookbook.settings.products.position_top",
+      "min": 0,
+      "max": 100,
+      "unit": "%",
+      "step": 1,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "position_left_1",
+      "label": "t:sections.shopable-image.blocks.lookbook.settings.products.position_left",
+      "min": 0,
+      "max": 100,
+      "unit": "%",
+      "step": 1,
+      "default": 10
+    },
+    {
+      "type": "product",
+      "id": "product_1",
+      "label": "t:sections.shopable_video.blocks.settings.select_product.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.shopable-image.blocks.lookbook.settings.products.products.otpion__2.label"
+    },
+    {
+      "type": "range",
+      "id": "position_top_2",
+      "label": "t:sections.shopable-image.blocks.lookbook.settings.products.position_top",
+      "min": 0,
+      "max": 100,
+      "unit": "%",
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "position_left_2",
+      "label": "t:sections.shopable-image.blocks.lookbook.settings.products.position_left",
+      "min": 0,
+      "max": 100,
+      "unit": "%",
+      "step": 1,
+      "default": 30
+    },
+    {
+      "type": "product",
+      "id": "product_2",
+      "label": "t:sections.shopable_video.blocks.settings.select_product.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.shopable-image.blocks.lookbook.settings.products.products.otpion__3.label"
+    },
+    {
+      "type": "range",
+      "id": "position_top_3",
+      "label": "t:sections.shopable-image.blocks.lookbook.settings.products.position_top",
+      "min": 0,
+      "max": 100,
+      "unit": "%",
+      "step": 1,
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "position_left_3",
+      "label": "t:sections.shopable-image.blocks.lookbook.settings.products.position_left",
+      "min": 0,
+      "max": 100,
+      "unit": "%",
+      "step": 1,
+      "default": 80
+    },
+    {
+      "type": "product",
+      "id": "product_3",
+      "label": "t:sections.shopable_video.blocks.settings.select_product.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.shopable-image.blocks.lookbook.settings.products.label"
+    }
+  ]
+}
+{% endschema %}

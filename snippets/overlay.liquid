@@ -1,0 +1,15 @@
+{%- doc -%}
+  Renders a full-bleed overlay.
+
+  @param {object} settings_overlay - Block or section settings, expecting `background_overlay_color`, `background_overlay_style`, and `background_overlay_gradient_direction`.
+  @param {string} [layer] - The z-index layer for the overlay, defaults to `var(--layer-flat)`.
+
+  @example
+  {% render 'overlay', settings_overlay: section.settings, layer: 'var(--layer-raised)' %}
+{%- enddoc -%}
+
+<div
+  class="overlay-custom overlay-{{ settings_overlay.background_overlay_style | default: 'gradient' }}-custom"
+  style="--overlay-layer: {{ layer | default: 'var(--layer-flat)' }};--overlay-color: {{ settings_overlay.background_overlay_color | default: 'rgb(0 0 0 / 0.2)' }};--overlay-color-end: {{ settings_overlay.background_overlay_color | color_modify: 'alpha', 0 | default: 'rgb(0 0 0 / 0)' }};--overlay-gradient-direction: {{ settings_overlay.background_overlay_gradient_direction | default: 'to top' }};"
+></div>
+

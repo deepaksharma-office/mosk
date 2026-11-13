@@ -1,0 +1,78 @@
+{%- liquid
+  assign section_st = section.settings
+  assign open_all_question = section_st.open_all_question
+  assign item_spacing_desktop = 'mb-1025-sp-3'
+  assign vertical_background_layout = false
+  if section_st.show_image == false
+    if section_st.desktop_layout == 'vertical'
+      assign item_spacing_desktop = 'mb-1025-sp-4'
+      if section_st.faq_style == 'background'
+        assign vertical_background_layout = true
+      endif
+    endif
+  endif
+-%}
+{%- if block.settings.question != blank and block.settings.answer != blank -%}
+  <div
+    class="section__faq-items relative faq-block{% if section_st.faq_style != 'background' %} border-bottom{% else %} bg-secondary px-sp-6 rounded-15 mb-sp-2 {{ item_spacing_desktop }}{% endif %}"
+  >
+    <details
+      class="collapsible-row{% if open_all_question %} detail-open{% endif %}"
+      is="collapsible-row"
+      {% if open_all_question %}
+        open
+      {% endif %}
+    >
+      <summary class="collapsible-row__summary not-highlight-tap py-sp-4{% if section_st.faq_style != 'background' %} py-1025-sp-6{% endif %}">
+        <div class="collapsible-heading flex space-between{% if vertical_background_layout %} align-center gap-sp-3 gap-1025-sp-4{% endif %}">
+          <div
+            class="fs-big-2 heading-color transition pointer relative{% if vertical_background_layout %} min-w-custom word-break{% elsif section_st.faq_style == 'background' %} pe-sp-4{% else %} pe-sp-5{% endif %} subheading_weight flex-1"
+            {% if vertical_background_layout %}
+              style="--min-width: 0;"
+            {% endif %}
+          >
+            {{ block.settings.question }}
+          </div>
+          <span
+            class="toggle-menu heading-color w-30 h-custom inline-flex flex-end align-center{% if vertical_background_layout %} shrink-0{% endif %}"
+          >
+            <svg class="icon icon-down icon-rotate transition-short" width="14" height="8" viewBox="0 0 14 8">
+              <use href="#icon-arrow-down-facet" />
+            </svg>
+          </span>
+        </div>
+      </summary>
+      <div
+        class="collapsible-row__content overflow-hidden"
+      >
+        <div class="faq_content-inner mb-sp-6 prose">{{ block.settings.answer }}</div>
+      </div>
+    </details>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.faq.blocks.name",
+  "class": "w-full motion-item",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.content.label"
+    },
+    {
+      "type": "text",
+      "id": "question",
+      "label": "t:sections.faq.blocks.settings.question.question",
+      "default": "Frequently asked questions?"
+    },
+    {
+      "type": "richtext",
+      "id": "answer",
+      "label": "t:sections.faq.blocks.settings.question.answer",
+      "default": "<p>Write the answer.</p>"
+    }
+  ],
+  "presets": [{ "name": "t:sections.faq.blocks.name" }]
+}
+{% endschema %}

@@ -1,0 +1,4686 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "settings_schema": {
+    "layout": {
+      "name": "Макет",
+      "how_to_use": {
+        "label": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/theme-settings/layout)"
+      },
+      "settings": {
+        "page_width": {
+          "label": "Ширина страницы"
+        },
+        "site_style": {
+          "label": "Закругленные углы",
+          "image": {
+            "label": "Image"
+          },
+          "button": {
+            "label": "Радиус угла кнопки"
+          },
+          "input": {
+            "label": "Введите угловой радиус"
+          }
+        },
+        "select_preset": {
+          "label": "Выберите предустановку",
+          "options__1": "Косметика",
+          "options__2": "Мода",
+          "options__3": "Питомцы"
+        }
+      },
+      "rtl_support": {
+        "header": "Поддержка RTL",
+        "enable_rtl": "Включить поддержку RTL",
+        "rtl_language": {
+          "label": "Код языка RTL",
+          "info": "Укажите языки, использующие раскладку RTL, введя их коды ISO, разделенные точкой с запятой. Например: ар; фа; ку; па; сд. Если оставить это поле пустым, макет RTL будет применен ко всем языкам."
+        }
+      }
+    },
+    "logo_favicon": {
+      "name": "Логотип и фавикон",
+      "how_to_use": {
+        "label": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/theme-settings/logo-and-favicon)"
+      },
+      "settings": {
+        "favicon": {
+          "label": "Фавикон"
+        },
+        "favicon_image": {
+          "label": "Изображение на значке",
+          "info": "Рекомендуется 32 x 32 пикселей в формате PNG."
+        },
+        "logo": {
+          "label": "Логотип",
+          "logo_on_transparent": {
+            "label": "Логотип на прозрачном заголовке"
+          }
+        },
+        "logo_width": {
+          "label": "Ширина логотипа",
+          "info": "Ширина логотипа автоматически оптимизируется для мобильных устройств."
+        }
+      }
+    },
+    "customer_account": {
+      "how_to_use": {
+        "label": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/theme-settings/customer-account)"
+      },
+      "name": "Счет клиента",
+      "settings": {
+        "customer_account_menu": {
+          "label": "Menu"
+        },
+        "open_as": {
+          "label": "Открыть как",
+          "options": {
+            "popup": "Неожиданно возникнуть",
+            "link": "Связь"
+          }
+        }
+      }
+    },
+    "colors": {
+      "name": "Цвета",
+      "how_to_use": {
+        "label": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/theme-settings/colors)"
+      },
+      "settings": {
+        "palette_header": {
+          "label": "Палитра"
+        },
+        "palette_info": {
+          "label": "Определите цвета палитры для более удобного использования в рамках темы."
+        },
+        "general_header": {
+          "label": "Общие"
+        },
+        "general_text": {
+          "label": "Text"
+        },
+        "general_heading": {
+          "label": "Заголовок"
+        },
+        "general_link": {
+          "label": "Связь"
+        },
+        "general_border": {
+          "label": "Граница"
+        },
+        "background_header": {
+          "label": "Фон"
+        },
+        "background": {
+          "label": "Фон"
+        },
+        "background_2": {
+          "label": "Фон 2"
+        },
+        "background_gradient": {
+          "label": "Фоновый градиент",
+          "info": "Градиент фона заменяет фон там, где это возможно."
+        },
+        "fill_button_header": {
+          "label": "Кнопка «Заполнить»"
+        },
+        "fill_button_background": {
+          "label": "Фон"
+        },
+        "fill_button_text": {
+          "label": "Text"
+        },
+        "fill_button_background_hover": {
+          "label": "Фоновое наведение"
+        },
+        "fill_button_text_hover": {
+          "label": "Текст при наведении"
+        },
+        "outline_button_header": {
+          "label": "Кнопка контура"
+        },
+        "outline_button_outline": {
+          "label": "Text"
+        },
+        "outline_button_outline_border": {
+          "label": "Граница"
+        }
+      }
+    },
+    "typography": {
+      "name": "Типография",
+      "how_to_use": {
+        "label": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)"
+      },
+      "settings": {
+        "font_weight": {
+          "default": "Default",
+          "inline": "В соответствии",
+          "regular": "Обычный",
+          "medium": "Середина"
+        },
+        "font_size": "Размер шрифта",
+        "body": {
+          "label": "Тело",
+          "font": {
+            "label": "Шрифт",
+            "info": "Выбор другого шрифта может повлиять на скорость работы вашего магазина. [Подробнее о системных шрифтах.](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "base_size": "Базовый размер"
+        },
+        "heading": {
+          "label": "Заголовок",
+          "font": {
+            "label": "Шрифт",
+            "info": "Выбор другого шрифта может повлиять на скорость работы вашего магазина. [Подробнее о системных шрифтах.](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "sub_heading": {
+            "sub_heading_weight": "Начертание шрифта подзаголовка"
+          },
+          "text_transform": {
+            "label": "Преобразование текста",
+            "unset": "Сброшено",
+            "capitalize": "капитализировать",
+            "uppercase": "Прописные буквы"
+          },
+          "heading_letter_spacing": {
+            "label": "Расстояние между буквами"
+          }
+        },
+        "menu": {
+          "label": "Menu",
+          "font": {
+            "label": "Шрифт",
+            "body_font": "Тело",
+            "heading_font": "Заголовок"
+          },
+          "uppercase": {
+            "label": "Прописные буквы первого уровня"
+          }
+        },
+        "button": {
+          "label": "Кнопка",
+          "font": {
+            "label": "Шрифт",
+            "body_font": "Тело",
+            "heading_font": "Заголовок"
+          }
+        },
+        "text_preset": {
+          "header": "Текстовые пресеты",
+          "name": {
+            "heading_1": "Заголовок 1",
+            "heading_2": "Заголовок 2",
+            "heading_3": "Заголовок 3",
+            "heading_4": "Заголовок 4",
+            "heading_5": "Заголовок 5",
+            "heading_6": "Заголовок 6"
+          },
+          "settings": {
+            "size": {
+              "label": "Size",
+              "18px": "18 пикселей",
+              "20px": "20 пикселей",
+              "22px": "22 пикселя",
+              "24px": "24 пикселя",
+              "26px": "26 пикселей",
+              "30px": "30 пикселей",
+              "36px": "36 пикселей",
+              "40px": "40 пикселей",
+              "46px": "46 пикселей",
+              "50px": "50 пикселей",
+              "56px": "56 пикселей",
+              "60px": "60 пикселей",
+              "80px": "80 пикселей"
+            },
+            "line_height": {
+              "label": "Высота строки",
+              "original": "Оригинал",
+              "small": "Маленький",
+              "medium": "Середина",
+              "large": "Большой",
+              "x_large": "X-большой"
+            }
+          }
+        }
+      }
+    },
+    "browser_tab_notifications": {
+      "name": "Уведомления на вкладке браузера",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/theme-settings/browser-tab-notifications)",
+      "settings": {
+        "notification_info": "Оставьте поле пустым, чтобы использовать исходное название страницы.",
+        "enable_browser_tab_notifications": {
+          "label": "Давать возможность"
+        },
+        "first_notification": {
+          "label": "Первое уведомление"
+        },
+        "secondary_notification": {
+          "label": "Вторичное уведомление"
+        }
+      }
+    },
+    "animation": {
+      "name": "Анимация",
+      "how_to_use": {
+        "label": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/theme-settings/animation)"
+      },
+      "settings": {
+        "scroll_animation": {
+          "label": "Анимация прокрутки",
+          "options__1": {
+            "label": "Запрещать"
+          },
+          "options__2": {
+            "label": "Только рабочий стол"
+          },
+          "options__3": {
+            "label": "Все экраны"
+          }
+        },
+        "enable_loading_page_effect": {
+          "heading": "Эффект загрузки страницы",
+          "label": "Включить эффект",
+          "loading": "Значок загрузки",
+          "info": "Рекомендуемая ширина изображения 100x100 пикселей."
+        },
+        "image_lazy_loading": {
+          "label": "Включить отложенную загрузку изображений"
+        },
+        "hover_effect": {
+          "label": "Эффект наведения",
+          "info": "Влияет на наведение карточек, таких как: товар, баннер, коллекция, блог...",
+          "fade_in": "Постепенное появление",
+          "zoom": "Увеличить"
+        }
+      }
+    },
+    "product": {
+      "name": "Карточки товаров",
+      "how_to_use": {
+        "label": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/theme-settings/product-cards)"
+      },
+      "settings": {
+        "enable_quickview": "Включить быстрый просмотр",
+        "enable_quickadd": "Включить быстрое добавление",
+        "enable_color_swatches": "Включить образцы цвета",
+        "show_tag": {
+          "hidden": "Скрыто",
+          "desktop": "Только рабочий стол",
+          "all_devices": "Все экраны"
+        },
+        "show_scrolling_text": "Показать прокручиваемый текст",
+        "show_rate": {
+          "label": "Показать скорость",
+          "info": "Чтобы отобразить рейтинг, добавьте приложение для оценки продукта. [Подробнее](https://help.shopify.com/en/manual/products/product-reviews/installation)"
+        },
+        "alignment": {
+          "label": "Выравнивание",
+          "left": "Слева",
+          "center": "По центру"
+        },
+        "product_image": {
+          "label": "Изображение продукта"
+        },
+        "show_image_hover": {
+          "label": "Показать дополнительное изображение"
+        },
+        "show_video_featured": {
+          "label": "Воспроизведение видео при наведении",
+          "info": "Работает только с видео MP4."
+        },
+        "product_image_ratio": {
+          "label": "Соотношение изображений",
+          "adapt_to_image": "Адаптироваться к изображению",
+          "square": "Квадрат (1:1)",
+          "portrait": "Портрет (3:4)",
+          "landscape": "Пейзаж (4:3)"
+        },
+        "mobile_options": {
+          "label": "Мобильные настройки"
+        },
+        "show_quick_add_mobile": {
+          "label": "Показывать кнопку быстрого добавления на мобильном телефоне"
+        },
+        "highlights_scrolling_text_metafield": {
+          "label": "Бегущий текст Метаполе",
+          "info": "Метаполе товара. Отображается бегущей строкой на карточках товаров. Format: namespace.key. Default: custom.highlights_scrolling_text."
+        }
+      }
+    },
+    "badges": {
+      "name": "Значки",
+      "how_to_use": {
+        "label": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/theme-settings/badges)"
+      },
+      "settings": {
+        "badge_color": {
+          "label": "Цвет текста"
+        },
+        "show_badge": {
+          "label": "Показать значок"
+        },
+        "background_color": {
+          "label": "Цвет фона"
+        },
+        "sale": {
+          "label": "Распродажа",
+          "format": {
+            "label": "Формат",
+            "text": "Text",
+            "percentage": "Процент",
+            "fixed": "Фиксированная сумма"
+          }
+        },
+        "new": {
+          "label": "Новый",
+          "new_badge_display_period": {
+            "label": "Новый период отображения бейджа",
+            "info": "Выберите, как долго продукты будут иметь пометку «Новые» со дня их создания."
+          }
+        },
+        "sold_out": {
+          "label": "Распродано"
+        },
+        "custom_badge": {
+          "label": "Пользовательский значок",
+          "info": "Пожалуйста, следуйте документу, чтобы узнать [как настроить собственный значок] (https://nextsky.gitbook.io/purity-theme/theme-settings/badges#id-5.-custom-badge)"
+        }
+      }
+    },
+    "color_swatches": {
+      "name": "Образцы цвета",
+      "how_to_use": {
+        "label": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/theme-settings/color-swatch)"
+      },
+      "settings": {
+        "hide_sold_out_variant": {
+          "label": "Скрыть распроданные варианты"
+        },
+        "show_sale_in_variant_swatch": {
+          "label": "Показать распродажу в варианте образца"
+        },
+        "color_limit": {
+          "label": "Максимальное количество образцов для показа"
+        },
+        "color_swatch_trigger": {
+          "label": "Триггер образца цвета",
+          "info": "Определите имя параметра цвета. Разделяйте запятой. Например. Цвет,Цвет"
+        },
+        "color_swatch_type": {
+          "label": "Тип образца",
+          "options__1": {
+            "label": "Вариант изображения"
+          },
+          "options__2": {
+            "label": "Color"
+          }
+        },
+        "color_swatch_shape": {
+          "label": "Цветовая форма",
+          "options__1": {
+            "label": "Круглый"
+          },
+          "options__2": {
+            "label": "Квадрат"
+          }
+        },
+        "color_swatch_custom": {
+          "label": "Пользовательские цвета",
+          "info": "Допустимый формат: мюсли: #ddd5bc или мюсли: image.png, разделенные запятой."
+        }
+      }
+    },
+    "cart": {
+      "name": "Корзина",
+      "how_to_use": {
+        "label": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/theme-settings/cart)"
+      },
+      "settings": {
+        "cart_action_desktop": {
+          "label": "Действие после добавления корзины на рабочем столе",
+          "drawer": "Ящик",
+          "page": "Страница"
+        },
+        "cart_mobile": {
+          "label": "Мобильные настройки",
+          "action": {
+            "label": "Действие после добавления корзины",
+            "info": "Выберите, что произойдет после того, как клиент добавит товар в корзину на мобильном устройстве.",
+            "option_1": "Открыть мини-корзину",
+            "option_2": "Уведомляющее сообщение",
+            "option_3": "Откройте корзину один раз, сообщите после"
+          },
+          "open_cart": {
+            "label": "Открыть корзину как",
+            "info": "Выберите, как будет открываться корзина при нажатии на значок корзины в заголовке и на панели мобильной навигации.",
+            "option_1": "Ящик",
+            "option_2": "Неожиданно возникнуть"
+          }
+        },
+        "free_shipping": {
+          "label": "Сообщение о бесплатной доставке",
+          "paragraph": "Убедитесь, что вы правильно настроили [стоимость доставки.](/admin/settings/shipping)",
+          "message": {
+            "label": "Сообщение",
+            "info": "Используйте [сумму], чтобы отслеживать свой прогресс в получении права на бесплатную доставку."
+          },
+          "minimum_amount": {
+            "label": "Минимальная сумма бесплатной доставки",
+            "info": "Используйте круглые числа. Исключите валюту, символы и буквы."
+          }
+        },
+        "term_and_conditions": {
+          "label": "Условия и положения",
+          "enable": "Показывать флажок в мини-корзине и на странице корзины.",
+          "text": "Text"
+        },
+        "cart_count_down": {
+          "label": "Корзина обратного отсчета",
+          "show_duration": {
+            "label": "Показать на странице мини-корзины и корзины"
+          },
+          "duration": {
+            "label": "Продолжительность"
+          }
+        },
+        "product_recommendations": {
+          "label": "Рекомендации по продукту",
+          "heading": "Заголовок",
+          "enable_product_recommendations": "Включить рекомендации по продуктам",
+          "enable_product_recommendations_info": "Рекомендации по продуктам будут отображаться на странице мини-корзины и корзины.",
+          "recommendation_product_type": {
+            "label": "Тип товарных рекомендаций",
+            "auto": "Авто",
+            "selected": "Выбрано"
+          },
+          "select_product_recommendation": "Product",
+          "show_on_mobile": {
+            "label": "Показать на мобильном телефоне"
+          }
+        },
+        "gift_wrap": {
+          "label": "Подарочная упаковка продукта",
+          "select_product_gift_wrap": {
+            "label": "Product",
+            "info": "Работает только с товарами без вариантов."
+          }
+        },
+        "empty": {
+          "label": "Настройки пустой корзины",
+          "heading": "Заголовок",
+          "description": "Описание",
+          "collection": {
+            "label": "Список коллекций",
+            "info": "Collections will display their featured image by default. Use metafield to change image and text. Learn more"
+          },
+          "button_text": "Метка кнопки",
+          "button_link": {
+            "label": "Ссылка на кнопку",
+            "info": "По умолчанию — «Все страницы коллекции»."
+          },
+          "free_shipping": {
+            "label": "Сообщение о бесплатной доставке"
+          },
+          "empty_cart_layout": {
+            "label": "Макет пустой корзины",
+            "option_1": "Список",
+            "option_2": "Сетка"
+          },
+          "collection_metafield": {
+            "label": "Коллекция для пустой корзины Метаполе",
+            "info": "Метаполе коллекции. (метаобъект) для изображения и описания пустой корзины. Format: namespace.key. Default: custom.collection_empty. Fields: collection_image, collection_description."
+          }
+        },
+        "discount_progress_bar": {
+          "label": "Индикатор прогресса скидки",
+          "paragraph": "Показывайте до 3 порогов суммы в корзине. Убедитесь, что соответствующий код скидки или автоматическая скидка созданы в [панели администратора Shopify.](/admin/discounts)",
+          "currency_info": "Вводите суммы порогов в валюте магазина по умолчанию. Они автоматически конвертируются для местных валют.",
+          "enable": {
+            "label": "Включить индикатор прогресса скидки",
+            "info": "При включении заменяет одну полосу бесплатной доставки выше в выдвижной корзине и на странице корзины."
+          },
+          "milestone_1": {
+            "label": "Порог 1"
+          },
+          "milestone_2": {
+            "label": "Порог 2"
+          },
+          "milestone_3": {
+            "label": "Порог 3"
+          },
+          "milestone": {
+            "amount": {
+              "label": "Порог",
+              "info": "Используйте круглые числа без символов валюты или букв."
+            },
+            "label_text": {
+              "label": "Подпись"
+            },
+            "icon": {
+              "label": "Значок",
+              "option_none": "Нет",
+              "option_tag": "Бирка",
+              "option_truck": "Грузовик",
+              "option_box": "Коробка"
+            }
+          },
+          "message": {
+            "text": {
+              "label": "Сообщение о прогрессе",
+              "info": "Используйте [amount] и [label], чтобы показать оставшуюся сумму и название следующей награды."
+            },
+            "success": {
+              "label": "Сообщение о достижении всех порогов"
+            }
+          }
+        }
+      }
+    },
+    "search": {
+      "name": "Поисковое поведение",
+      "how_to_use": {
+        "label": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/theme-settings/search-behavior)"
+      },
+      "settings": {
+        "type": {
+          "label": "Тип",
+          "info": "«Ящик» — макет по умолчанию на мобильном устройстве.",
+          "option_1": "Неожиданно возникнуть",
+          "option_2": "Ящик",
+          "option_3": "Строка поиска"
+        },
+        "search_placeholder": {
+          "label": "Заполнитель поиска"
+        },
+        "speech_search": {
+          "label": "Голосовой поиск",
+          "enable": {
+            "label": "Включить голосовой поиск"
+          }
+        },
+        "search_results": {
+          "label": "Показать результаты",
+          "option_1": "Default",
+          "option_2": "Вкладка"
+        },
+        "recommendations": {
+          "popular_keywords": {
+            "label": "Популярный поиск",
+            "info": "Рекомендуйте клиентам популярные ключевые слова в вашем магазине. Например: футболка, платье, чёрное."
+          },
+          "products_recommended": {
+            "label": "Рекомендации по продуктам",
+            "info": "Выберите продукт, который хотите порекомендовать клиентам."
+          },
+          "collections_recommended": {
+            "label": "Рекомендация коллекций"
+          }
+        },
+        "results": {
+          "label": "Результаты поиска"
+        },
+        "predictive_search": {
+          "label": "Включить интеллектуальный поиск",
+          "info": "Результаты живого поиска. Доступно не на всех языках. [Подробнее](https://shopify.dev/themes/navigation-search/search/predictive-search#general-requirements-and-limitations)"
+        },
+        "show_search_history": {
+          "label": "Показать историю поиска"
+        },
+        "show_price": {
+          "label": "Показать цену товара"
+        }
+      }
+    },
+    "social_media": {
+      "name": "Социальные сети",
+      "how_to_use": {
+        "label": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/theme-settings/social-media)"
+      },
+      "settings": {
+        "social_account": {
+          "label": "Социальные аккаунты",
+          "facebook": {
+            "label": "Facebook",
+            "info": "https://facebook.com/shopify"
+          },
+          "instagram": {
+            "label": "Instagram",
+            "info": "http://instagram.com/shopify"
+          },
+          "twitter": {
+            "label": "Twitter",
+            "info": "https://twitter.com/shopify"
+          },
+          "tiktok": {
+            "label": "Тик Ток",
+            "info": "https://tiktok.com/@shopify"
+          },
+          "pinterest": {
+            "label": "Pinterest",
+            "info": "https://pinterest.com/shopify"
+          },
+          "youtube": {
+            "label": "Ютуб",
+            "info": "https://www.youtube.com/shopify"
+          },
+          "vimeo": {
+            "label": "Вимео",
+            "info": "https://vimeo.com/shopify"
+          },
+          "linkedin": {
+            "label": "Линкедин",
+            "info": "https://linkedin.com/company/shopify"
+          },
+          "whatsapp": {
+            "label": "WhatsApp",
+            "info": "https://www.whatsapp.com/shopify"
+          },
+          "snapchat": {
+            "label": "Snapchat",
+            "info": "https://www.snapchat.com/add/shopify"
+          }
+        },
+        "sharing_options": {
+          "label": "Параметры обмена",
+          "facebook": {
+            "label": "Поделиться в Facebook"
+          },
+          "pinterest": {
+            "label": "Поделиться в Pinterest"
+          },
+          "twitter": {
+            "label": "Поделиться в Твиттере"
+          },
+          "whatsapp": {
+            "label": "Поделиться в WhatsApp"
+          },
+          "email": {
+            "label": "Поделиться по электронной почте"
+          }
+        }
+      }
+    },
+    "currency": {
+      "name": "Формат валюты",
+      "how_to_use": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/theme-settings/currency-format)",
+      "settings": {
+        "code": {
+          "label": "Коды валют",
+          "show_code": {
+            "label": "Показать коды валют",
+            "info": "В ценах корзины и кассы всегда указаны коды валют. Пример: 1 доллар США."
+          }
+        }
+      }
+    },
+    "script_tracking": {
+      "name": "Отслеживание и аналитика",
+      "settings": {
+        "how_to_use": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/theme-settings/tracking-and-insights)",
+        "scripts_tracking": {
+          "label": "Фрагмент кода",
+          "info": "Добавьте фрагмент кода для отслеживания и анализа."
+        },
+        "appended_scripts": {
+          "label": "Позиция добавлена",
+          "body": "Тег тела",
+          "head": "Главный тег"
+        }
+      }
+    }
+  },
+  "content": {
+    "manage_customer_accounts": "[Управление видимостью](/admin/settings/customer_accounts) в настройках учетной записи клиента. Устаревшие учетные записи не поддерживаются."
+  },
+  "sections": {
+    "all": {
+      "general": "Общие",
+      "layout": {
+        "label": "Ширина секции",
+        "fix_width": "Фиксированная ширина",
+        "stretch_width": "Ширина растяжения",
+        "full_width": "На всю ширину"
+      },
+      "colors": {
+        "label": "Цветовая гамма",
+        "info": "Чтобы изменить все цвета вашей темы, перейдите в [настройки цветовой темы] (/editor?context=theme&category=colors). Обеспечьте четкий контраст текста для лучшего взаимодействия с пользователем."
+      },
+      "desktop_content_position": {
+        "label": "Положение контента на рабочем столе",
+        "info": "Позиция автоматически оптимизируется для мобильных устройств.",
+        "info_2": "«Сначала контент» — это макет для мобильных устройств по умолчанию.",
+        "group": {
+          "top": {
+            "label": "Сверху"
+          },
+          "middle": {
+            "label": "Середина"
+          },
+          "bottom": {
+            "label": "Снизу"
+          }
+        },
+        "options__1": {
+          "label": "Вверху слева"
+        },
+        "options__2": {
+          "label": "Верхний центр"
+        },
+        "options__3": {
+          "label": "Вверху справа"
+        },
+        "options__4": {
+          "label": "Средний левый"
+        },
+        "options__5": {
+          "label": "Средний центр"
+        },
+        "options__6": {
+          "label": "Средний правый"
+        },
+        "options__7": {
+          "label": "Внизу слева"
+        },
+        "options__8": {
+          "label": "Нижний центр"
+        },
+        "options__9": {
+          "label": "Внизу справа"
+        }
+      },
+      "padding": {
+        "section_padding_heading": "Заполнение раздела",
+        "padding_inline": {
+          "label": "Встроенное дополнение",
+          "info": "Встроенные отступы автоматически оптимизируются для мобильных устройств."
+        },
+        "padding_block": {
+          "label": "Заполняющий блок",
+          "info": "Блок заполнения автоматически оптимизируется для мобильных устройств."
+        },
+        "padding_top": "Сверху",
+        "padding_bottom": "Снизу",
+        "spacing_bottom": "Расстояние внизу",
+        "image_spacing": "Расстояние между изображениями",
+        "space_between": "Пространство между",
+        "column_gap": {
+          "label": "Зазор столбца",
+          "no_gap": "Нет разрыва",
+          "small": "Маленький",
+          "medium": "Середина",
+          "large": "Большой",
+          "x_large": "X-большой"
+        }
+      },
+      "space_between": {
+        "label": "Пространство между предметами"
+      },
+      "width": {
+        "label": "Ширина",
+        "fill": "Заполнить",
+        "fit": "Вписать"
+      },
+      "columns": {
+        "label": "Количество столбцов"
+      },
+      "items_to_show": {
+        "label": "Максимальное количество элементов для показа"
+      },
+      "product_to_show": {
+        "label": "Максимум товаров для показа"
+      },
+      "text_alignment": {
+        "label": "Выравнивание контента",
+        "alignment": "Выравнивание",
+        "options__1": {
+          "label": "Слева"
+        },
+        "options__2": {
+          "label": "По центру"
+        },
+        "options__3": {
+          "label": "Справа"
+        }
+      },
+      "content": {
+        "label": "Содержание"
+      },
+      "text": {
+        "label": "Text"
+      },
+      "content_position": {
+        "label": "Позиция контента",
+        "options__1": {
+          "label": "Наложение изображения",
+          "top": "Сверху",
+          "middle": "Середина",
+          "bottom": "Снизу",
+          "text_above_button": "Текст над кнопкой"
+        },
+        "options__2": {
+          "label": "Изображение ниже"
+        }
+      },
+      "section_setting": {
+        "page_heading": {
+          "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "description": {
+            "label": "Содержание"
+          },
+          "heading": {
+            "label": "Заголовок"
+          },
+          "breadcrumb": {
+            "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/breadcrumb)",
+            "label": "хлебные крошки"
+          }
+        },
+        "enable_rounded_style": {
+          "label": "Включить закругленный стиль"
+        }
+      },
+      "content_setting": {
+        "label": "Настройки контента",
+        "image": {
+          "label": "Image"
+        },
+        "subheading": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "Подзаголовок",
+          "info": "Разделяйте каждый текстовый элемент вертикальной чертой (|), чтобы между элементами отображалась точка."
+        },
+        "highlight_text": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/highlight-text)",
+          "label": "Выделить текст",
+          "settings": {
+            "icons": {
+              "label": "Выберите значок",
+              "options__1": {
+                "label": "None"
+              },
+              "options__2": {
+                "label": "Звезда"
+              },
+              "options__3": {
+                "label": "Точка"
+              }
+            }
+          }
+        },
+        "heading": {
+          "label": "Заголовок",
+          "info": "Добавьте подчеркивание, выделив текст курсивом. Используйте кнопку «Курсив (I)» в редакторе, чтобы применить его."
+        },
+        "heading_highlight": {
+          "label": "Текст выделения заголовка",
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading-highlight-text)"
+        },
+        "detail_list": {
+          "label": "Подробный список",
+          "detail_row": {
+            "label": "Detail row",
+            "row_title": "Row title",
+            "row_details": "Row details"
+          },
+          "layout": {
+            "label": "Макет",
+            "specifications": "Характеристики",
+            "information_cards": "Информационные карточки"
+          }
+        },
+        "description": {
+          "label": "Описание",
+          "hide_on_mobile": {
+            "label": "Скрыть описание на мобильном телефоне"
+          },
+          "description": "Покажите описание вашего продукта. Использует метаполе краткого описания, если оно доступно, в противном случае возвращается к описанию продукта по умолчанию. Для получения дополнительной информации посетите нашу [страницу поддержки] (https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-7.-description)."
+        },
+        "content": "Содержание",
+        "button_label": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "Метка кнопки",
+          "info": "Оставьте метку пустой, чтобы скрыть кнопку."
+        },
+        "button_label-block": {
+          "name": "Этикетка",
+          "label": "Кнопка"
+        },
+        "link": {
+          "label": "Связь",
+          "info": "Примечание. Эта настройка ссылки работает только для изображений, но не для видео."
+        },
+        "first_button_label": {
+          "name": "Первая кнопка",
+          "label": "Метка кнопки",
+          "link": "Ссылка на кнопку"
+        },
+        "second_button_label": {
+          "name": "Вторая кнопка",
+          "label": "Метка кнопки",
+          "link": "Ссылка на кнопку"
+        },
+        "button_type": {
+          "label": "Тип",
+          "primary": {
+            "label": "Начальный"
+          },
+          "outline": {
+            "label": "Контур"
+          },
+          "link": {
+            "label": "Связь"
+          }
+        },
+        "show_view_all_button": {
+          "label": "Показать кнопку просмотра всех",
+          "label_text": "Метка кнопки",
+          "default_text": "Просмотреть все продукты",
+          "default": "Посмотреть все"
+        },
+        "open_link_in_new_tab": {
+          "label": "Открыть ссылку в новой вкладке"
+        },
+        "drawn_underline": {
+          "label": "Включить анимацию подчеркивания заголовка",
+          "type": "Подчеркнутый стиль",
+          "value": {
+            "simple_underline": "Простое подчеркивание",
+            "curve_underline": "Кривая хода",
+            "squiggle_underline": "Закорюченное подчеркивание"
+          },
+          "color": "Цвет подчеркивания"
+        },
+        "metrics": {
+          "label": "Показатели",
+          "item": {
+            "label": "Элемент показателя",
+            "value": "Значение",
+            "description": "Подпись"
+          }
+        },
+        "citation": {
+          "label": "Цитирование"
+        },
+        "heading_block_highlight": {
+          "label": "Включить выделение заголовка",
+          "info": "Добавьте выделение, обернув текст курсивом. Используйте кнопку «Курсив (I)» в редакторе, чтобы применить его.",
+          "type": "Стиль выделения",
+          "text_highlight": "Выделение текста",
+          "color": "Цвет выделения"
+        }
+      },
+      "content_header": {
+        "label": "Заголовок раздела",
+        "heading_size": {
+          "label": "Размер заголовка",
+          "size": "Size",
+          "xs_small": {
+            "label": "XS-маленький"
+          },
+          "x_small": {
+            "label": "X-маленький"
+          },
+          "small": {
+            "label": "Маленький"
+          },
+          "large": {
+            "label": "Большой"
+          },
+          "x_large": {
+            "label": "X-большой"
+          },
+          "base": {
+            "label": "Базовый размер"
+          },
+          "options__1": {
+            "label": "Заголовок 1"
+          },
+          "options__2": {
+            "label": "Заголовок 2"
+          },
+          "options__3": {
+            "label": "Заголовок 3"
+          },
+          "options__4": {
+            "label": "Заголовок 4"
+          },
+          "options__5": {
+            "label": "Заголовок 5"
+          },
+          "options__7": {
+            "label": "Заголовок 7"
+          },
+          "options__0": {
+            "label": "Заголовок 0"
+          }
+        }
+      },
+      "blog_setting": {
+        "show_category": "Показать категорию",
+        "show_tags": "Показать теги",
+        "show_date": "Показать дату",
+        "show_author": "Показать автора",
+        "show_excerpt": "Показать отрывки"
+      },
+      "media": {
+        "label": "Тип"
+      },
+      "image": {
+        "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/image)",
+        "label": "Image",
+        "image_setting": "Настройки изображения",
+        "width": "Ширина изображения",
+        "info_width": "Изображение автоматически оптимизируется для мобильных устройств.",
+        "mobile_image": "Мобильное изображение",
+        "mobile_image_width": "Ширина мобильного изображения",
+        "aspect_ratio": {
+          "label": "Соотношение изображений",
+          "label_mb": "Соотношение изображений на мобильном устройстве",
+          "label_video": "Соотношение видео",
+          "options__1": "Квадрат (1:1)",
+          "options__2": "Портрет (3:4)",
+          "options__3": "Пейзаж (4:3)",
+          "options__4": "То же, что и рабочий стол",
+          "adapt": "Адаптироваться к изображению"
+        },
+        "desktop_position": {
+          "label": "Положение изображения на рабочем столе",
+          "top": "Сверху",
+          "right": "Справа",
+          "bottom": "Снизу",
+          "left": "Слева",
+          "info": "Изображение будет отображаться над текстом на мобильном устройстве."
+        },
+        "desktop_image_width": {
+          "label": "Ширина изображения на рабочем столе"
+        }
+      },
+      "video": {
+        "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)",
+        "label": "Video",
+        "info": "Переопределяет настройку изображения",
+        "settings": {
+          "source": {
+            "label": "Источник",
+            "uploaded_video": {
+              "label": "Местное видео"
+            },
+            "external_link": {
+              "label": "Внешняя ссылка на видео"
+            }
+          }
+        },
+        "width": "Ширина видео",
+        "width_unit_type": {
+          "label": "Тип единицы ширины",
+          "options": {
+            "percent": {
+              "label": "Процент (%)"
+            },
+            "px": {
+              "label": "Пиксели (пиксели)"
+            }
+          }
+        }
+      },
+      "video_mobile": {
+        "label": "Видео мобильное"
+      },
+      "svg": {
+        "label": "Значок SVG",
+        "custom_svg": {
+          "label": "Пользовательский SVG",
+          "info": "Переопределяет настройку изображения."
+        }
+      },
+      "icon": {
+        "none": {
+          "label": "None"
+        },
+        "cruelty": {
+          "label": "Жестокость"
+        },
+        "paraben": {
+          "label": "Парабен"
+        },
+        "privacy-protection": {
+          "label": "Защита конфиденциальности"
+        },
+        "secure-shopping": {
+          "label": "Безопасные покупки"
+        },
+        "guarantee": {
+          "label": "Гарантия"
+        },
+        "account": {
+          "label": "Счет"
+        },
+        "leaf": {
+          "label": "Лист"
+        },
+        "moon": {
+          "label": "Луна"
+        },
+        "hive": {
+          "label": "Улей"
+        },
+        "comb": {
+          "label": "Гребень"
+        },
+        "free_shipping": {
+          "label": "Бесплатная доставка"
+        },
+        "check_badge": {
+          "label": "Проверить значок"
+        },
+        "message_communications": {
+          "label": "Передача сообщений"
+        },
+        "circular-text": {
+          "label": "Круговой текст"
+        },
+        "beauty": {
+          "label": "Лицо"
+        },
+        "line": {
+          "label": "Линия"
+        },
+        "droplet": {
+          "label": "Капелька"
+        },
+        "smooth": {
+          "label": "Гладкий"
+        },
+        "shield": {
+          "label": "Щит"
+        },
+        "balloon": {
+          "label": "Воздушный шар"
+        },
+        "brightening": {
+          "label": "Осветление"
+        },
+        "hydration": {
+          "label": "Увлажнение"
+        },
+        "coptic_cross": {
+          "label": "Коптский крест"
+        },
+        "coil": {
+          "label": "Катушка"
+        },
+        "verified": {
+          "label": "Проверено"
+        },
+        "security": {
+          "label": "Безопасность"
+        },
+        "package": {
+          "label": "Упаковка"
+        },
+        "cat": {
+          "label": "Кошка"
+        }
+      },
+      "carousel": {
+        "header": "Настройки карусели",
+        "enable_carousel": {
+          "label": "Включить карусель",
+          "description": "Карусель отображается только в том случае, если общее количество коллекций превышает количество элементов в строке на рабочем столе."
+        },
+        "show_navigation": {
+          "label": "Показать навигацию"
+        },
+        "show_pagination": {
+          "label": "Показать нумерацию страниц",
+          "info": "Пагинация будет автоматически отображаться на мобильных устройствах, если вы отобразите количество элементов на мобильном устройстве как 1 или 2.",
+          "info_single": "Пагинация будет автоматически отображаться на мобильных устройствах.",
+          "type": {
+            "label": "Стиль нумерации страниц",
+            "progress_bar": "Индикатор выполнения",
+            "dot": "Точки"
+          }
+        },
+        "reveal_slide": {
+          "label": "Показать следующий слайд",
+          "info": "Отобразите часть предстоящего слайда."
+        },
+        "enable_carousel_mobile": {
+          "label": "Включить карусель на мобильном устройстве"
+        },
+        "change_slide_every": "Меняйте слайды каждые",
+        "slide_auto_change": "Автоматическая смена слайда"
+      },
+      "mobile_options": {
+        "label": "Мобильные настройки",
+        "mobile_layout": {
+          "label": "Мобильная верстка",
+          "show_text_bellow": {
+            "label": "Показать текст ниже на мобильном телефоне",
+            "info": "Текст будет отображаться под изображением на мобильном телефоне."
+          },
+          "hidden_description_on_mobile": {
+            "label": "Скрыть описание на мобильном телефоне"
+          }
+        }
+      },
+      "items": {
+        "items_per_row": "Элементов в строке",
+        "items_per_row_mobile": "Элементов в строке на мобильном устройстве"
+      },
+      "columns_desktop": {
+        "label": "Элементов в строке на рабочем столе"
+      },
+      "newsletter_setting": {
+        "email_placeholder": "Заполнитель электронной почты",
+        "button_label": "Метка кнопки"
+      },
+      "pagination_type": {
+        "label": "Тип пагинации",
+        "options__1": {
+          "label": "Номер страницы"
+        },
+        "options__2": {
+          "label": "Кнопка «Загрузить еще»"
+        },
+        "options__3": {
+          "label": "Бесконечная прокрутка"
+        }
+      },
+      "product_setting": {
+        "badges": {
+          "name": "Значки"
+        },
+        "notify": {
+          "name": "Уведомить о пополнении запасов товара"
+        },
+        "live_view": {
+          "name": "Живой просмотр",
+          "settings": {
+            "min_number": "Минимальное количество",
+            "max_number": "Максимальное количество",
+            "interval_time": "Интервальное время",
+            "content": "Содержание",
+            "show_icon_eye": {
+              "label": "Показать значок"
+            }
+          },
+          "info": "Имитирует активность продукта, показывая количество просмотров в реальном времени, помогая повысить срочность, социальную устойчивость и коэффициент конверсии."
+        },
+        "shop_the_look": {
+          "name": "Купить образ",
+          "settings": {
+            "heading": {
+              "label": "Заголовок"
+            }
+          },
+          "description": "Предложите сопутствующие товары, чтобы завершить образ. Для получения дополнительной информации посетите нашу [страницу поддержки](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)"
+        },
+        "stock_countdown": {
+          "name": "Обратный отсчет запасов",
+          "settings": {
+            "message": {
+              "label": "Сообщение",
+              "info": "Используйте короткий код [count], чтобы отобразить оставшееся количество товаров на складе. Вы можете удалить или разместить этот короткий код где угодно."
+            },
+            "stock_items": {
+              "label": "Товар на складе",
+              "info": "Показывать, когда на складе меньше (X) товаров."
+            }
+          }
+        },
+        "product_meta": {
+          "name": "Мета продукта",
+          "settings": {
+            "show_sku": {
+              "label": "Показать артикул"
+            },
+            "show_collections": {
+              "label": "Показать коллекции"
+            },
+            "show_tags": {
+              "label": "Показать теги"
+            },
+            "show_type": {
+              "label": "Показать тип"
+            }
+          }
+        },
+        "collapsible_row": {
+          "name": "Гармоничный ряд",
+          "settings": {
+            "info": "Включите заголовок, объясняющий содержание.",
+            "content": "Содержимое строки",
+            "content_page": "Содержимое строки со страницы"
+          }
+        },
+        "accordion_row_drawer": {
+          "name": "Выдвижной ящик-гармошка",
+          "settings": {
+            "info": "Включите заголовок, объясняющий содержание.",
+            "content": "Содержимое строки",
+            "content_page": "Содержимое строки со страницы"
+          }
+        },
+        "model_size": {
+          "name": "Размер модели",
+          "settings": {
+            "paragraph": {
+              "content": "Посмотрите, какой размер носит модель, а также рост, вес и размеры. [Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)"
+            }
+          }
+        },
+        "title": {
+          "name": "Название продукта"
+        },
+        "price": {
+          "name": "Цена"
+        },
+        "rating": {
+          "name": "Рейтинг продукта"
+        },
+        "variant_picker": {
+          "name": "Выбор варианта",
+          "settings": {
+            "picker_type": {
+              "label": "Тип",
+              "options__1": {
+                "label": "Падать"
+              },
+              "options__2": {
+                "label": "Таблетки"
+              }
+            },
+            "size_guide": {
+              "heading": "Таблица размеров",
+              "info": "Получите информацию о таблице размеров с выбранной страницы.",
+              "settings": {
+                "size_trigger": {
+                  "label": "Триггер размера",
+                  "info": "Определите имя параметра размера. Разделяйте запятой. Например. Размер,Мисураре"
+                },
+                "show_size_guide": "Показать таблицу размеров",
+                "size_guide_label": "Этикетка с таблицей размеров",
+                "size_guide_page": "Страница таблицы размеров",
+                "footer_content": "Содержимое нижнего колонтитула",
+                "custom_size_guide": {
+                  "label": "Таблица размеров на заказ",
+                  "info__1": "Использование конкретных таблиц размеров для каждой коллекции или продукта.",
+                  "info__2": "Чтобы использовать таблицы нестандартных размеров для продукта или коллекции, создайте метаполе с пространством имен и ключом: «custom.size_chart».[Подробнее](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/size-chart)"
+                }
+              }
+            }
+          }
+        },
+        "buy_buttons": {
+          "name": "Купить кнопки",
+          "settings": {
+            "show_dynamic_checkout": {
+              "label": "Показывать кнопки динамического оформления заказа",
+              "info": "Используя способы оплаты, доступные в вашем магазине, покупатели видят предпочтительный вариант, например PayPal или Apple Pay. [Подробнее](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+            },
+            "show_gift_card_recipient": {
+              "label": "Показать форму с информацией о получателе для подарочных карт",
+              "info": "Позволяет покупателям отправлять подарочные карты в запланированную дату вместе с личным сообщением. [Подробнее](https://help.shopify.com/manual/online-store/themes/customizing-themes/add-gift-card-recipient-fields)"
+            }
+          }
+        },
+        "subscription_widget": {
+          "name": "Виджет подписки",
+          "settings": {
+            "info": "Отображает разовую покупку и отдельную карточку для каждой группы планов продаж. Разместите этот блок над кнопками «Купить».",
+            "one_time_purchase_title": {
+              "label": "Название для единоразовой покупки"
+            },
+            "one_time_purchase_description": {
+              "label": "Описание разовой покупки"
+            },
+            "subscription_description": {
+              "label": "Описание подписки"
+            },
+            "show_price": {
+              "label": "Показать цену"
+            }
+          }
+        },
+        "share": {
+          "name": "Делиться"
+        },
+        "complementary_products": {
+          "name": "Дополнительные продукты",
+          "settings": {
+            "paragraph": {
+              "content": "Чтобы выбрать дополнительные продукты, добавьте приложение Search & Discovery. [Подробнее](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+            },
+            "product_list_limit": {
+              "label": "Максимум товаров для показа"
+            }
+          }
+        },
+        "pickup_avaiability": {
+          "name": "Наличие самовывоза"
+        },
+        "media_lightbox": {
+          "name": "Посмотрите это в действии",
+          "settings": {
+            "enable_sticky": {
+              "label": "Включить привязку на рабочем столе"
+            }
+          },
+          "description": "Покажите реальные фотографии или видео использования вашего продукта. Для получения дополнительной информации посетите нашу [страницу поддержки](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-16.-media-lightbox)"
+        },
+        "highlights": {
+          "name": "Акценты",
+          "description": "Продемонстрируйте ключевые преимущества вашего продукта. Для получения дополнительной информации посетите нашу [страницу поддержки](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-8.-highlights)"
+        },
+        "key_features": {
+          "name": "Ключевые особенности",
+          "description": "Перечислите основные особенности и преимущества вашего продукта. Для получения дополнительной информации посетите нашу [страницу поддержки](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-9.-key-features)"
+        },
+        "ask_question": {
+          "name": "Задать вопрос"
+        },
+        "promotion_countdown": {
+          "name": "Обратный отсчет акции",
+          "show_countdown_units": {
+            "label": "Показать единицы обратного отсчета"
+          },
+          "description": "Добавьте таймер обратного отсчета, чтобы повысить актуальность продвижения вашего продукта. Для получения дополнительной информации посетите нашу [страницу поддержки] (https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-11.-promotion-countdown)."
+        },
+        "promotion_alert": {
+          "name": "Оповещение о рекламной акции",
+          "heading": {
+            "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+            "label": "Заголовок"
+          },
+          "description": {
+            "label": "Описание"
+          },
+          "text_color": {
+            "label": "Цвет текста"
+          }
+        },
+        "icon_with_text": {
+          "name": "Значок с текстом",
+          "heading": {
+            "label_1": "Значок с текстом 1",
+            "label_2": "Значок с текстом 2",
+            "label_3": "Значок с текстом 3",
+            "label_4": "Значок с текстом 4",
+            "label_5": "Значок с текстом 5"
+          },
+          "info": "Этот контент будет автоматически скрыт на мобильном устройстве.",
+          "svg": {
+            "label": "Значок SVG"
+          },
+          "content": {
+            "label": "Содержание"
+          },
+          "icon": {
+            "none": {
+              "label": "None"
+            },
+            "free_shipping": {
+              "label": "Бесплатная доставка"
+            },
+            "check_badge": {
+              "label": "Проверить значок"
+            },
+            "message_communications": {
+              "label": "Передача сообщений"
+            },
+            "truck": {
+              "label": "Грузовик"
+            },
+            "question": {
+              "label": "Вопрос"
+            },
+            "location": {
+              "label": "Расположение"
+            },
+            "leaf": {
+              "label": "Лист"
+            },
+            "blossom": {
+              "label": "Цвести"
+            },
+            "payment": {
+              "label": "Оплата"
+            },
+            "discount": {
+              "label": "Discount"
+            },
+            "order": {
+              "label": "Заказ"
+            },
+            "return": {
+              "label": "Возвращаться"
+            },
+            "return_package": {
+              "label": "Возврат посылки"
+            }
+          }
+        },
+        "inventory_status": {
+          "name": "Статус инвентаря",
+          "settings": {
+            "inventory_threshold": {
+              "label": "Низкий порог запасов",
+              "info": "Установите это значение, чтобы предупреждать клиентов, когда товар скоро закончится."
+            },
+            "inventory_base": {
+              "label": "Базовое количество запасов",
+              "info": "Установите начальное количество вашего товара для индикатора выполнения."
+            }
+          }
+        },
+        "disclosures": {
+          "name": "Раскрытия информации",
+          "description": "Обязательные предупреждения о безопасности и нормативные раскрытия для этого товара. Подробнее на нашей [странице поддержки](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information).",
+          "settings": {
+            "heading": {
+              "label": "Заголовок",
+              "default": "Важная информация"
+            },
+            "open_by_default": {
+              "label": "Открыто по умолчанию"
+            }
+          }
+        }
+      },
+      "divider": {
+        "section_divider_heading": "Разделитель секций",
+        "show_divider": "Показать разделитель",
+        "top": "Верхний разделитель",
+        "top_info": "Скрыт, если раздел выше использует нижний разделитель «Волна» или «Кривая»",
+        "bottom_info": "Линия скрыта, если раздел ниже использует верхний разделитель «Волна» или «Кривая»",
+        "bottom": "Нижний разделитель",
+        "none": "Нет",
+        "line": "Линия",
+        "wave": "Волна",
+        "curve_out": "Кривая наружу",
+        "curve_in": "Кривая внутрь"
+      },
+      "metafield": {
+        "short_description": {
+          "label": "Краткое описание Метаполе",
+          "info": "Метаполе товара. Используется при наличии краткого описания. Format: namespace.key. Default: custom.short_description."
+        },
+        "highlights": {
+          "label": "Особенности Метаполе",
+          "info": "Метаполе товара. Список иконок/заголовков. Format: namespace.key. Default: custom.highlights."
+        },
+        "key_features": {
+          "label": "Ключевые особенности Метаполе",
+          "info": "Метаполе товара. Список элементов заголовок/описание. Format: namespace.key. Default: custom.key_features."
+        },
+        "media_lightbox": {
+          "label": "Лайтбокс медиа Метаполе",
+          "info": "Метаполе товара. Список изображений/видео для галереи. Format: namespace.key. Default: custom.media_lightbox."
+        },
+        "model_size": {
+          "label": "Размер модели Метаполе",
+          "info": "Метаполе товара. (метаобъект) с мерками модели. Format: namespace.key. Default: custom.model_size."
+        },
+        "product_sizing": {
+          "label": "Размеры товара Метаполе",
+          "info": "Метаполе товара. Список для шкалы размеров. Format: namespace.key. Default: custom.product_sizing."
+        },
+        "shop_the_look": {
+          "label": "Купить образ Метаполе",
+          "info": "Метаполе товара. Список изображений образа и товаров. Format: namespace.key. Default: custom.shop_the_look."
+        },
+        "similar_products": {
+          "label": "Похожие товары Метаполе",
+          "info": "Метаполе товара. Список похожих товаров. Format: namespace.key. Default: custom.similar_products."
+        },
+        "frequently_bought_together": {
+          "label": "Часто покупают вместе Метаполе",
+          "info": "Метаполе товара. Список товаров для совместной покупки. Format: namespace.key. Default: custom.frequently_bought_together."
+        },
+        "complete_the_look": {
+          "label": "Дополните образ Метаполе",
+          "info": "Метаполе товара. Список товаров образа. Format: namespace.key. Default: custom.complete_the_look."
+        },
+        "info_gallery": {
+          "label": "Инфогалерея Метаполе",
+          "info": "Метаполе товара. Список карточек галереи (изображение + текст). Format: namespace.key. Default: custom.info_gallery."
+        },
+        "compare_items": {
+          "label": "Сравнить товары Метаполе",
+          "info": "Метаполе товара. Список товаров для сравнения. Format: namespace.key. Default: custom.compare_items."
+        },
+        "ingredient_highlights": {
+          "label": "Ключевые ингредиенты Метаполе",
+          "info": "Метаполе товара. Отображается в строке сравнения. Format: namespace.key. Default: custom.ingredient_highlights."
+        },
+        "subcollection": {
+          "label": "Подколлекция Метаполе",
+          "info": "Метаполе коллекции. Список дочерних коллекций. Format: namespace.key. Default: custom.subcollection."
+        }
+      }
+    },
+    "group": {
+      "product": "Products",
+      "collection": "Коллекции",
+      "storytelling": "Рассказывание историй",
+      "banners": "Баннеры",
+      "blog": "Blog",
+      "form": "Формы",
+      "shopable": "Товары для покупок",
+      "blocks": {
+        "basic": "Базовый",
+        "layout": "Утилиты и макет",
+        "custom": "Custom",
+        "forms": "Формы"
+      },
+      "decorative": {
+        "name": "Декоративный",
+        "marquee": "Шатер",
+        "how_to_use_maquee": "[Как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/marquee)"
+      },
+      "links": {
+        "name": "Ссылки",
+        "menu": "Menu",
+        "how_to_use_menu": "[Как использовать этот блок](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)",
+        "how_to_use_popup_link": "[Как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/links/popup-link)",
+        "popup_link": "Всплывающая ссылка"
+      },
+      "general": {
+        "name": "Общие",
+        "image_box": "Окно изображения",
+        "image_box_use": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/overlay-group/search)"
+        }
+      }
+    },
+    "overlay_group": {
+      "name": "Группа наложения"
+    },
+    "search": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/overlay-group/search)",
+      "name": "Поиск"
+    },
+    "footer": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/footer-group/footer)",
+      "name": "Подвал",
+      "settings": {
+        "enable_back_top": {
+          "label": "Включить возврат наверх"
+        },
+        "show_policy": {
+          "label": "Ссылки на политику",
+          "info": "[Управление политиками](/admin/settings/legal)"
+        },
+        "country_language": {
+          "content": "Выбор страны/языка",
+          "info": "Чтобы добавить страну/регион, перейдите в [настройки рынка] (/admin/settings/markets). Чтобы добавить язык, перейдите в [Настройки языка.](/admin/settings/languages)"
+        },
+        "enable_country_selector": {
+          "label": "Включить выбор страны/региона"
+        },
+        "width": {
+          "options__1": "16%",
+          "options__2": "20%",
+          "options__3": "25%",
+          "options__4": "33%",
+          "options__5": "50%",
+          "options__6": "66%",
+          "options__7": "75%",
+          "options__8": "86%",
+          "options__9": "100%"
+        },
+        "enable_language_selector": {
+          "label": "Включить выбор языка"
+        },
+        "payment": {
+          "content": "Способы оплаты"
+        },
+        "payment_enable": {
+          "label": "Показать значки платежей"
+        },
+        "menu_policies": {
+          "label": "Нижний колонтитул"
+        },
+        "header_follow": {
+          "content": "Следуйте в магазине",
+          "info": "Чтобы клиенты могли следить за вашим магазином в приложении «Магазин» с витрины вашего магазина, необходимо включить Shop Pay. [Подробнее](https://help.shopify.com/manual/online-store/themes/customizing-themes/follow-on-shop)"
+        },
+        "enable_follow_on_shop": {
+          "label": "Включить подписку на магазин"
+        }
+      },
+      "blocks": {
+        "menu_block": {
+          "label": "Menu"
+        },
+        "newsletter_block": {
+          "name": "Информационный бюллетень",
+          "info": "Подписчики автоматически добавляются в ваш список клиентов «принятого маркетинга». [Подробнее](https://help.shopify.com/manual/customers/manage-customers)",
+          "settings": {
+            "note": {
+              "label": "Примечание"
+            }
+          }
+        },
+        "contact_bar_block": {
+          "name": "Контактная панель",
+          "settings": {
+            "store_address": "Адрес",
+            "store_phone": "Телефон",
+            "store_email": "Email",
+            "show_social": {
+              "label": "Показать значки социальных сетей",
+              "info": "Чтобы отобразить свои учетные записи в социальных сетях, свяжите их в настройках темы."
+            }
+          }
+        }
+      }
+    },
+    "header": {
+      "name": "Шапка",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header)",
+      "settings": {
+        "sticky_header_type": {
+          "label": "Прикрепленный заголовок",
+          "options__1": {
+            "label": "None"
+          },
+          "options__2": {
+            "label": "При прокрутке вверх"
+          },
+          "options__3": {
+            "label": "Всегда"
+          }
+        },
+        "menu": {
+          "label": "Menu",
+          "menu_trigger": {
+            "label": "Триггер раскрывающегося меню рабочего стола",
+            "options__1": {
+              "label": "Нажмите"
+            },
+            "options__2": {
+              "label": "Наведите указатель мыши"
+            }
+          },
+          "dropdowns_animation": {
+            "label": "Анимация выпадающих списков",
+            "options__1": {
+              "label": "Постепенное появление"
+            },
+            "options__3": {
+              "label": "Вниз вверх"
+            }
+          }
+        },
+        "menu_mobile": {
+          "label": "Настройки мобильного меню",
+          "menu_icon": {
+            "label": "Положение значка гамбургера",
+            "info": "Выберите, где будет отображаться гамбургер-меню на мобильном телефоне."
+          }
+        },
+        "addons": {
+          "label": "Аддоны",
+          "show_account": {
+            "label": "Показать значок учетной записи"
+          },
+          "show_search": {
+            "label": "Показать поиск"
+          },
+          "show_cart": {
+            "label": "Показать корзину"
+          },
+          "show_offer": {
+            "label": "Показать предложение"
+          },
+          "show_language": {
+            "label": "Показать язык"
+          },
+          "show_currency": {
+            "label": "Показать валюту"
+          }
+        },
+        "transparent": {
+          "content": "Прозрачный заголовок",
+          "info": "Убедитесь, что первый раздел вашей домашней страницы настроен как один из следующих: слайд-шоу, видео с наложением текста или изображение с наложением текста.",
+          "transparent": {
+            "label": "Включить прозрачный заголовок"
+          },
+          "text_icon_transparent": {
+            "label": "Цвет текста и значков"
+          }
+        },
+        "blocks": {
+          "mega_menu": {
+            "name": "Баннер (Мега меню)",
+            "how_to_use": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#banner-mega-menu)",
+            "banners": {
+              "label": "Настройки баннеров"
+            },
+            "promotion_1": {
+              "label": "Баннеры №1"
+            },
+            "promotion_2": {
+              "label": "Баннеры №2"
+            },
+            "promotion_3": {
+              "label": "Баннеры №3"
+            },
+            "promotion_4": {
+              "label": "Баннеры №4"
+            },
+            "promotion_5": {
+              "label": "Баннеры №5"
+            },
+            "info": "Рекомендуется 448 x 260 пикселей."
+          },
+          "menu_item": {
+            "label": "Пункт меню",
+            "info": "Введите пункт меню, чтобы применить раскрывающееся меню мегаменю. Пожалуйста, различайте прописные и строчные буквы."
+          },
+          "menu_column": {
+            "label": "Столбцы меню рабочего стола"
+          },
+          "product": {
+            "name": "Продукты (Мега меню)",
+            "how_to_use": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#product-mega-menu)",
+            "header": "Products"
+          },
+          "collection": {
+            "name": "Коллекции (Мега меню)",
+            "how_to_use": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#collection-mega-menu)",
+            "header": "Коллекции"
+          },
+          "menu_highlight": {
+            "name": "Выделение меню",
+            "menu_items": {
+              "label": "Пункты меню, которые стоит выделить",
+              "info": "Введите названия пунктов меню, которые нужно выделить, через запятую (например, «Распродажа», «Новые поступления»). Пожалуйста, различайте прописные и строчные буквы."
+            },
+            "highlight_color": {
+              "label": "Цвет выделения"
+            },
+            "highlight_icon": {
+              "label": "Выделить значок",
+              "options": {
+                "unset": "Сброшено",
+                "star": "Звезда",
+                "custom": "Custom"
+              }
+            },
+            "custom_icon": {
+              "label": "Пользовательский значок",
+              "info": "Дополнительный значок для отображения рядом с выделенными пунктами меню (рекомендуемый размер: 24x24 пикселей)."
+            }
+          }
+        },
+        "header_layout": {
+          "label": "Макет шапки на компьютере",
+          "info": "Макет автоматически оптимизируется для мобильных устройств.",
+          "options__1": {
+            "label": "Логотип слева, центр меню"
+          },
+          "options__2": {
+            "label": "Логотип в центре, меню слева"
+          },
+          "options__3": {
+            "label": "Логотип по центру, меню снизу"
+          },
+          "options__4": {
+            "label": "Логотип слева, меню снизу"
+          },
+          "options__5": {
+            "label": "Логотип слева, меню слева"
+          }
+        }
+      }
+    },
+    "custom_liquid": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "how_to_use_block": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "name": "Пользовательская жидкость",
+      "liquid_code": "Жидкий код",
+      "info": "Добавьте фрагменты приложений или другой код Liquid для создания расширенных настроек.",
+      "info_custom_liquid": "Добавьте фрагменты приложений или другой код для создания расширенных настроек. [Подробнее](https://shopify.dev/docs/api/liquid)"
+    },
+    "blog-posts": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/blog-posts)",
+      "name": "Сообщения в блоге",
+      "settings": {
+        "blog-post": {
+          "label": "Сообщение в блоге",
+          "blog_post_type": {
+            "label": "Тип публикации в блоге",
+            "category": "Категория",
+            "select_blog": "Избранные блоги"
+          }
+        },
+        "blog": {
+          "label": "Blog"
+        }
+      }
+    },
+    "multi_content": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/multi-content)",
+      "name": "Мультиконтент",
+      "blocks": {
+        "label": "Настройки блока",
+        "bellow_image": "Настройки значка",
+        "badge": "Значок",
+        "equal_height_adjustment": {
+          "label": "Равномерная регулировка высоты"
+        },
+        "social_icon": "Социальные иконки",
+        "grid_info": "Информация о сетке",
+        "grid_info_1": "Информация о сетке 1",
+        "grid_info_2": "Информация о сетке 2",
+        "grid_info_3": "Информация о сетке 3",
+        "grid_info_4": "Информация о сетке 4"
+      }
+    },
+    "grid_banner": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/banners/grid-banner)",
+      "name": "Баннер сетки",
+      "settings": {
+        "hidden_block_des_mobile": {
+          "label": "Скрыть описание элемента на мобильном телефоне"
+        }
+      },
+      "blocks": {
+        "item": {
+          "name": "Элемент баннера",
+          "show_arrow": "Показать значок стрелки"
+        }
+      }
+    },
+    "scrolling_text": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/scrolling-text)",
+      "name": "Прокрутка текста",
+      "settings": {
+        "direction": {
+          "label": "Направление",
+          "left": {
+            "label": "Справа налево"
+          },
+          "right": {
+            "label": "Слева направо"
+          }
+        },
+        "speed": {
+          "label": "Скорость"
+        },
+        "text_size": {
+          "label": "Size"
+        },
+        "blocks": {
+          "image": {
+            "rounded_image": {
+              "label": "Радиус угла изображения"
+            },
+            "image_height": {
+              "label": "Высота изображения"
+            },
+            "image_width": {
+              "label": "Ширина"
+            }
+          }
+        }
+      }
+    },
+    "shopby-outfit": {
+      "name": "Выбирайте по одежде",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-by-outfit)",
+      "blocks": {
+        "outfit": {
+          "name": "Одежда",
+          "settings": {
+            "product": {
+              "label": "Список продуктов"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Выбирайте по одежде"
+      },
+      "setting": {
+        "media": {
+          "label": "Тип носителя"
+        },
+        "video_autoplay": {
+          "info": "Работает только тогда, когда в настройках блока «Тип носителя» выбрано «Видео»."
+        }
+      }
+    },
+    "collection-list": {
+      "name": "Список коллекций",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/collection-list)",
+      "settings": {
+        "header": {
+          "collection": "Collection",
+          "collection_title": "Название коллекции",
+          "collection_card": "Карточка коллекции",
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "how_to_use_collection_title": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/sections/page-heading)"
+        },
+        "collection_title_style": {
+          "label": "Стиль названия коллекции",
+          "text": "Text",
+          "button": "Кнопка"
+        },
+        "show_product_count": {
+          "label": "Показать количество продуктов"
+        },
+        "overlay_image_settings": "Настройки наложения изображения",
+        "overlay_image_color": "Цвет текста",
+        "collection_overlay_image_color": "Цвет текста коллекций"
+      },
+      "blocks": {
+        "featured_collection": {
+          "name": "Collection",
+          "settings": {
+            "collection": {
+              "label": "Collection"
+            },
+            "image": {
+              "label": "Image",
+              "info": "Оставьте поле пустым, чтобы использовать изображение из коллекции.",
+              "info_highlight": "Оставьте поле пустым, чтобы использовать изображение из коллекции. Рекомендуется 330 x 520 пикселей.",
+              "info_suitable": "Оставьте поле пустым, чтобы использовать изображение из коллекции. рекомендуется 147 x 72 пикселя.",
+              "info_collection_item": "Рекомендуется 444 x 444 пикселя."
+            },
+            "title": {
+              "label": "Заголовок",
+              "info": "Оставьте поле пустым, чтобы использовать название коллекции"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Список коллекций"
+      }
+    },
+    "quickview": {
+      "name": "Быстрый просмотр",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/overlay-group/quickview)",
+      "settings": {
+        "paragraph": "В этом разделе вы можете настроить всплывающее окно быстрого просмотра."
+      }
+    },
+    "featured-collection": {
+      "name": "Рекомендуемая коллекция",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/featured-collection)"
+    },
+    "expandable_card": {
+      "name": "Расширяемая карта",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/expandable-card)",
+      "settings": {
+        "card_header": "Настройки карты",
+        "interaction_behavior": {
+          "label": "Поведение взаимодействия",
+          "options": {
+            "hover": "Показать при наведении",
+            "drawer": "Нажмите «Открыть ящик»"
+          }
+        }
+      },
+      "blocks": {
+        "layered_card": {
+          "name": "Многослойные карты",
+          "settings": {
+            "media_header": "Image",
+            "description": "Описание",
+            "drawer_page": "Описание со страницы"
+          }
+        }
+      }
+    },
+    "featured-product": {
+      "name": "Рекомендуемый продукт",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/featured-product)",
+      "settings": {
+        "product": "Product"
+      }
+    },
+    "slideshow": {
+      "name": "Слайд-шоу",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/slideshow)",
+      "settings": {
+        "loading_background_color": {
+          "label": "Загрузка фона",
+          "info": "Цвет фона, отображаемый во время загрузки видеослайда."
+        },
+        "slide_height": {
+          "label": "Высота слайда",
+          "full_screen": "Полноэкранный",
+          "adapt_to_first_image": "Адаптироваться к первому изображению",
+          "small": "Маленький",
+          "medium": "Середина",
+          "large": "Большой"
+        },
+        "info": "Рекомендуется 1920 x 840 пикселей.",
+        "info_mobile": "Рекомендуется 390 x 572 пикселей.",
+        "blocks": {
+          "image": {
+            "label": "Слайд изображения",
+            "image_overlay_opacity": {
+              "label": "Непрозрачность наложения изображения",
+              "overlay_opacity": "Непрозрачность наложения"
+            }
+          },
+          "video": {
+            "label": "Видео слайд",
+            "video_setting": "Настройки видео",
+            "video_overlay_opacity": {
+              "label": "Непрозрачность наложения видео"
+            }
+          }
+        }
+      }
+    },
+    "related-products": {
+      "name": "Похожие товары",
+      "how_to_use": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/related-products)"
+    },
+    "similar-products": {
+      "name": "Купить аналогичный товар",
+      "how_to_use": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-product)"
+    },
+    "complete-the-look": {
+      "name": "Завершите образ",
+      "how_to_use": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/group-sections/products/complete-the-look)"
+    },
+    "similar-color": {
+      "name": "Магазин похожего цвета",
+      "how_to_use": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-color)"
+    },
+    "quick-order-list": {
+      "name": "Список быстрого заказа"
+    },
+    "newsletter": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/newsletter)",
+      "name": "Информационный бюллетень",
+      "settings": {
+        "header": {
+          "heading_setting": "Настройка новостной рассылки"
+        }
+      }
+    },
+    "rich-text": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/rich-text)",
+      "name": "Форматированный текст",
+      "settings": {
+        "max_width": {
+          "label": "Максимальная ширина",
+          "info": "Максимальная ширина автоматически оптимизируется для мобильных устройств."
+        },
+        "rotating_text": "Круговой текст",
+        "separator_spacing": {
+          "label": "Интервал разделителя",
+          "info": "Добавляет отступ с обеих сторон разделителей, таких как - или •, между фразами."
+        }
+      }
+    },
+    "recently-viewed-products": {
+      "name": "Недавно просмотренные товары",
+      "info": "Сохраните страницу, чтобы загрузить недавно просмотренные товары.",
+      "how_to_use": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/recently-product)"
+    },
+    "info-gallery-products": {
+      "name": "Ключевые ингредиенты",
+      "how_to_use": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metaobjects/info-gallery)"
+    },
+    "product-benefits": {
+      "name": "Преимущества продукта",
+      "how_to_use": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/product-benefits)",
+      "settings": {
+        "media_header": "Центр медиа",
+        "image": {
+          "label": "Image",
+          "info": "Если поле пустое, используется изображение продукта. Рекомендуется 640 x 900 пикселей."
+        },
+        "media_width": {
+          "label": "Ширина изображения на рабочем столе"
+        },
+        "video": {
+          "label": "Video"
+        },
+        "video_poster": {
+          "label": "Видео-постер"
+        }
+      },
+      "blocks": {
+        "benefit": {
+          "name": "Выгода",
+          "settings": {
+            "icon": {
+              "label": "Икона"
+            }
+          }
+        }
+      }
+    },
+    "quiz-results-products": {
+      "name": "Результаты викторины"
+    },
+    "quiz": {
+      "name": "Контрольный опрос",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/utilities-and-layout/quiz)",
+      "settings": {
+        "intro_header": "Введение",
+        "enable_intro_step": {
+          "label": "Включить вводный шаг"
+        },
+        "intro_button_label": {
+          "label": "Надпись на кнопке «Пуск»"
+        },
+        "show_retake_button": {
+          "label": "Показать кнопку повторной сдачи"
+        },
+        "retake_label": {
+          "label": "Ярлык кнопки \"Переснять\""
+        },
+        "results_display_header": "Отображение результатов",
+        "content_max_width": {
+          "label": "Максимальная ширина контента"
+        },
+        "show_back_button": {
+          "label": "Показать кнопку «Назад»"
+        },
+        "email_header": "Шаг по электронной почте",
+        "enable_email_step": {
+          "label": "Включить шаг электронной почты"
+        },
+        "email_heading": {
+          "label": "Заголовок электронного письма"
+        },
+        "email_placeholder": {
+          "label": "Заполнитель электронной почты"
+        },
+        "continue_label": {
+          "label": "Надпись кнопки «Продолжить»"
+        },
+        "skip_label": {
+          "label": "Надпись на кнопке «Пропустить»"
+        },
+        "results_banner_image": {
+          "label": "Изображение баннера с результатами"
+        },
+        "fallback_products": {
+          "label": "Резервные продукты",
+          "info": "Продукты отображаются только в том случае, если ответы на тест не дают ни полных, ни частичных совпадений. Используйте в качестве резервной копии, чтобы страница результатов никогда не была пустой."
+        },
+        "results_products_limit": {
+          "label": "Максимум товаров для показа"
+        }
+      }
+    },
+    "compare-products": {
+      "name": "Сравнить продукты",
+      "how_to_use": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/compare-items)",
+      "settings": {
+        "header": {
+          "label": "Сравнить настройки"
+        },
+        "show_price": "Цена",
+        "show_ratings": "Рейтинги",
+        "show_vendor": "Продавец",
+        "show_color": "Color",
+        "show_size": "Size",
+        "show_highlights": "Акценты",
+        "show_availability": "Доступность"
+      }
+    },
+    "bought-together-products": {
+      "name": "Купленные вместе продукты",
+      "how_to_use": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/frequently-bought-together)"
+    },
+    "media-with-text": {
+      "name": "Медиа с текстом",
+      "info_image": {
+        "info_desktop": "Рекомендуется 950 x 844 пикселей.",
+        "info_mobile": "Рекомендуется 475 x 422 пикселя.",
+        "info_video": "Переопределяет настройку изображения. Рекомендуется 950 x 844 пикселей."
+      }
+    },
+    "product-specifications": {
+      "name": "Характеристики продукта",
+      "item_name": "Product specifications item",
+      "specifications_layout": "Макет характеристик",
+      "grid_gap": "Отступ сетки",
+      "mobile_rows_shown": "Строки",
+      "view_more_label": "Подпись кнопки «Показать ещё»",
+      "view_less_label": "Подпись кнопки «Свернуть»",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-specifications)"
+    },
+    "image-with-text": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/image-with-text)",
+      "name": "Изображение с текстом",
+      "settings": {
+        "desktop_vertical_alignment": {
+          "label": "Вертикальное выравнивание рабочего стола",
+          "top": "Сверху",
+          "middle": "Середина",
+          "bottom": "Снизу"
+        },
+        "vertical_alignment": "Вертикальное выравнивание",
+        "background_type": {
+          "label": "Тип фона",
+          "image": "Image",
+          "color": "Color"
+        },
+        "background_color": "Цвет фона",
+        "background_image": "Фоновое изображение",
+        "text_color": "Цвет текста",
+        "image_info": "Рекомендуется 696 x 500 пикселей.",
+        "offer_image_with_text_info": "Рекомендуется 360 x 200 пикселей.",
+        "image_caption": {
+          "label": "Подпись к изображению",
+          "heading": "Заголовок",
+          "description": "Описание",
+          "position": "Позиция"
+        }
+      }
+    },
+    "before_after_result": {
+      "name": "До после",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/banners/before-after)",
+      "before_text": {
+        "label": "Перед текстом",
+        "default": "До"
+      },
+      "after_text": {
+        "label": "После текста",
+        "default": "После"
+      }
+    },
+    "parallax-image-with-text": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/banners/parallax-split)",
+      "name": "Разделение параллакса",
+      "settings": {
+        "image": {
+          "image_1": {
+            "label": "Изображение 1"
+          },
+          "image_2": {
+            "label": "Изображение 2"
+          },
+          "image_3": {
+            "label": "Изображение 3"
+          }
+        },
+        "parallax_image": {
+          "label": "Параллаксное изображение"
+        }
+      }
+    },
+    "discount_popup": {
+      "info": "Этот раздел используется для отображения всплывающего окна после подписки.",
+      "name": "Всплывающее окно со скидкой",
+      "how_to_use": "[Как использовать эту настройку](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/discount-popup)",
+      "settings": {
+        "discount_code": {
+          "label": "Промо-ссылка",
+          "info": "Как получить промо-ссылку? [Подробнее](https://help.shopify.com/en/manual/discounts/managing-discount-codes#promote-a-discount-using-a-shareable-link)"
+        },
+        "discount_button": {
+          "label": "Надпись на промо-кнопке",
+          "default": "👉 Делайте покупки со скидкой 10%"
+        },
+        "sub_heading": {
+          "default": "Ура! Вы подписаны"
+        },
+        "info_image": "Это изображение будет автоматически скрыто на мобильном устройстве. Рекомендуется 350 x 410 пикселей."
+      }
+    },
+    "image-with-text-overlay": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/image-with-text-overlay)",
+      "name": "Изображение с наложением текста",
+      "countdown": "Таймер обратного отсчета",
+      "count_down": "Обратный отсчет",
+      "how_to_use_count_down": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/countdown)",
+      "end_time": {
+        "label": "Время окончания",
+        "info": "например мм-дд-гггг"
+      },
+      "message": {
+        "label": "Сообщение с истекшим сроком действия",
+        "info": "Это сообщение появится, когда время истечет."
+      },
+      "image_info": {
+        "info_desktop": "Рекомендуется 1392 x 500 пикселей.",
+        "info_mobile": "Рекомендуется 400 x 469 пикселей."
+      }
+    },
+    "media-hero": {
+      "name": "Медиа-герой",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/media-hero)",
+      "media": "СМИ",
+      "info": "Переопределяет настройку изображения."
+    },
+    "video": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/video)",
+      "name": "Video",
+      "settings": {
+        "video_local": {
+          "label": "Видео локальное",
+          "info_2": "Переопределяет настройку URL-адреса видео.",
+          "info_multi_content_video": "Переопределяет настройку URL-адреса видео. Рекомендуется 684 x ​​500 пикселей.",
+          "info_poster": "Используйте те же размеры, что и видео"
+        },
+        "video_link": {
+          "label": "URL-адрес видео",
+          "info": "Принимает URL-адрес YouTube или Vimeo"
+        },
+        "video_poster": {
+          "label": "Видео постер"
+        },
+        "alt_description": {
+          "label": "Альтернативный текст видео",
+          "info": "Опишите видео для клиентов, использующих программы чтения с экрана. [Подробнее](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#video-block)"
+        },
+        "autoplay": {
+          "label": "Автоматическое воспроизведение видео",
+          "info": "Видео автоматически отключаются, чтобы обеспечить автовоспроизведение."
+        },
+        "looping": {
+          "label": "Зацикливание видео"
+        },
+        "show_action": {
+          "label": "Показать элементы управления видео"
+        },
+        "aspect_ratio": {
+          "label": "Соотношение сторон",
+          "option__1": "16:9",
+          "option__2": "21:9",
+          "option__3": "Адаптироваться к видео"
+        },
+        "show_text_bellow": {
+          "label": "Показывать текст под видео на мобильном телефоне",
+          "info": "Текст будет отображаться под видео на мобильном устройстве."
+        }
+      }
+    },
+    "main-password-content": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/other-pages/password-page)",
+      "name": "Главная страница паролей",
+      "settings": {
+        "header__2": {
+          "content": "Настройка контента"
+        }
+      },
+      "blocks": {
+        "countdown_bn": {
+          "settings": {
+            "countdown_design": {
+              "label": "Дизайн",
+              "options__1": {
+                "label": "Default"
+              },
+              "options__2": {
+                "label": "Современный"
+              }
+            }
+          }
+        },
+        "form_subscribe": {
+          "name": "Форма подписки",
+          "settings": {
+            "email_placeholder": {
+              "label": "Текст заполнителя электронной почты"
+            },
+            "btn_label": {
+              "label": "Метка кнопки"
+            }
+          }
+        }
+      }
+    },
+    "divider": {
+      "settings": {
+        "height": {
+          "label": "Height"
+        },
+        "color": {
+          "label": "Color"
+        }
+      }
+    },
+    "faq": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/faqs)",
+      "name": "Часто задаваемые вопросы",
+      "main-faq": "Главная страница часто задаваемых вопросов",
+      "heading": {
+        "content": "Часто задаваемые вопросы"
+      },
+      "info_image": "Рекомендуется 646 x 700 пикселей.",
+      "settings": {
+        "show_faqs_message": "Показать часто задаваемые вопросы",
+        "show_image": "Показать изображение",
+        "open_all_question": "Открыть все вопросы",
+        "framed": "В рамке",
+        "faq_style": "стиль часто задаваемых вопросов",
+        "desktop_layout": {
+          "label": "Макет на компьютере",
+          "horizontal": "Горизонтально",
+          "vertical": "Вертикально"
+        }
+      },
+      "blocks": {
+        "name": "Часто задаваемые вопросы",
+        "settings": {
+          "question": {
+            "question": "Вопрос",
+            "answer": "Отвечать"
+          }
+        }
+      }
+    },
+    "page-faq": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/other-pages/faq-page)"
+    },
+    "video-with-text-overlay": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/video-with-text-overlay)",
+      "name": "Видео с наложением текста",
+      "settings": {
+        "video_local": {
+          "label": "Видео локальное",
+          "info": "Переопределяет настройку URL-адреса видео. Рекомендуется 1392 x 550 пикселей.",
+          "info_mobile": "Рекомендуется 390 x 550 пикселей"
+        },
+        "video_link": {
+          "label": "Ссылка на видео"
+        },
+        "video_poster": {
+          "info": "Те же размеры, что и у видео"
+        },
+        "overlay_opacity": "Непрозрачность наложения",
+        "video_height": {
+          "label": "Высота видео",
+          "options__1": {
+            "label": "Адаптироваться к видео"
+          },
+          "options__2": {
+            "label": "Маленький"
+          },
+          "options__3": {
+            "label": "Середина"
+          },
+          "options__4": {
+            "label": "Большой"
+          }
+        }
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "Сетка продуктов",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/product-grid)",
+      "settings": {
+        "items_per_page": {
+          "label": "Элементы для отображения на странице"
+        },
+        "columns_desktop": {
+          "label": "Столбцов в строке на рабочем столе"
+        },
+        "show_product_counts": {
+          "label": "Показать количество продуктов"
+        }
+      }
+    },
+    "main-collection": {
+      "settings": {
+        "items_per_page": {
+          "label": "Элементы для отображения на странице"
+        },
+        "columns_desktop": {
+          "label": "Столбцов в строке на рабочем столе"
+        },
+        "enable_filtering": {
+          "label": "Включить фильтрацию",
+          "info": "Настраивайте фильтры с помощью приложения Search & Discovery. [Подробнее](https://help.shopify.com/manual/online-store/search-and-discovery/filters)"
+        },
+        "filter_type": {
+          "label": "Расположение фильтров на рабочем столе",
+          "options__1": {
+            "label": "Horizontal"
+          },
+          "options__2": {
+            "label": "Vertical"
+          },
+          "options__3": {
+            "label": "Ящик"
+          }
+        },
+        "enable_sorting": {
+          "label": "Включить сортировку"
+        },
+        "show_product_counts": {
+          "label": "Показать количество продуктов"
+        },
+        "header__1": {
+          "content": "Фильтрация и сортировка"
+        }
+      },
+      "blocks": {
+        "promotion": {
+          "name": "Повышение",
+          "promotion_position": {
+            "label": "Позиция продвижения"
+          },
+          "info": "330 пикселей рекомендуется 550 пикселей"
+        },
+        "steps": {
+          "name": "Делайте покупки шаг за шагом",
+          "info": "Рекомендуется 337 x 200 пикселей."
+        }
+      }
+    },
+    "main-search": {
+      "name": "Результаты поиска",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/other-pages/search-page)",
+      "settings": {
+        "search_results": {
+          "label": "Показать результаты",
+          "option_1": "Default",
+          "option_2": "Вкладка"
+        }
+      }
+    },
+    "main-article": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/other-pages/blog-post-page)",
+      "name": "Сообщение в блоге",
+      "settings": {
+        "show_date": "Показать дату публикации",
+        "show_comment": "Показать комментарий",
+        "show_excerpt": "Показать отрывок из сообщения",
+        "show_share": "Показать кнопку «Поделиться»",
+        "blocks": {
+          "featured_image": "Рекомендованное изображение",
+          "content_article": "Содержание",
+          "addons": "Аддоны",
+          "prev_next_articles": "Предыдущая и следующая статьи"
+        }
+      },
+      "related": {
+        "heading": "Похожие статьи",
+        "articles": {
+          "label": "Статьи",
+          "info": "Показываются в этом порядке. Оставьте пустым, чтобы показать последние статьи этого блога."
+        }
+      },
+      "blocks": {
+        "featured_image": {
+          "settings": {
+            "image_height": {
+              "label": "Высота изображения",
+              "options__1": {
+                "label": "Адаптироваться к изображению"
+              },
+              "options__2": {
+                "label": "Маленький"
+              },
+              "options__3": {
+                "label": "Середина"
+              },
+              "options__4": {
+                "label": "Большой"
+              }
+            }
+          }
+        }
+      },
+      "related_product": {
+        "heading": "Похожие товары",
+        "products": {
+          "label": "Товары"
+        }
+      }
+    },
+    "cart-drawer": {
+      "name": "Ящик тележки",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/overlay-group/cart-drawer)",
+      "settings": {
+        "info": "Чтобы отобразить ящик корзины, перейдите в настройки темы и выберите «Ящик» в качестве типа корзины в [настройках корзины.] (/editor?context=theme&category=cart).",
+        "content": "",
+        "show_free_shipping_message": {
+          "label": "Показать сообщение о бесплатной доставке",
+          "info": "Установите минимальную сумму бесплатной доставки в настройках темы."
+        },
+        "show_cart_note": "Показать примечание к корзине",
+        "show_estimate_shipping": "Показать примерную стоимость доставки",
+        "show_discount": "Показать код скидки",
+        "hide_check_badge_on_mobile": "Скрыть блокировку значков доверия на мобильном устройстве",
+        "hide_icon_with_text_on_mobile": "Скрыть значок с текстовым блоком на мобильном телефоне",
+        "show_gift_wrap": {
+          "label": "Покажите подарочную упаковку",
+          "info": "Пожалуйста, выберите подарочную упаковку в настройках темы."
+        },
+        "discount_progress_bar_active": "Индикатор прогресса скидки включён в настройках темы и заменяет сообщение о бесплатной доставке."
+      }
+    },
+    "main-list-collections": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-list-page)",
+      "name": "Страница со списком коллекций",
+      "blocks": {
+        "name": "Collection",
+        "settings": {
+          "collection_image": "Изображение коллекции"
+        }
+      },
+      "settings": {
+        "information_position": {
+          "label": "Информационная позиция",
+          "options__1": {
+            "label": "Наложение изображения"
+          },
+          "options__2": {
+            "label": "Изображение ниже"
+          }
+        },
+        "collection_to_show": {
+          "label": "Коллекции для показа",
+          "options__1": {
+            "label": "Все"
+          },
+          "options__2": {
+            "label": "Выбрано"
+          }
+        },
+        "sort": {
+          "label": "Сортировать коллекции по",
+          "options__1": {
+            "label": "По алфавиту, А-Я"
+          },
+          "options__2": {
+            "label": "По алфавиту Я-А"
+          },
+          "options__3": {
+            "label": "Дата, новое к старому"
+          },
+          "options__4": {
+            "label": "Дата, от старого к новому"
+          },
+          "options__5": {
+            "label": "Количество продуктов, от большего к меньшему"
+          },
+          "options__6": {
+            "label": "Количество продуктов, от малого к высокому"
+          }
+        }
+      }
+    },
+    "main-blog": {
+      "name": "Сообщения в блоге",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/other-pages/blog-page)",
+      "settings": {
+        "header": {
+          "content_post": "Настройки публикации"
+        },
+        "maximum_posts_to_show": {
+          "label": "Максимальное количество сообщений для отображения"
+        },
+        "post_per_row_desktop": {
+          "label": "Публикация в каждой строке на рабочем столе"
+        },
+        "show_all_tags": {
+          "label": "Показать список тегов"
+        }
+      },
+      "blocks": {
+        "name": "Форма подписки",
+        "settings": {
+          "show_email_icon": "Показать значок электронной почты",
+          "form_position": "Позиция формы"
+        }
+      }
+    },
+    "main-product": {
+      "name": "Информация о продукте",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "settings": {
+        "header": {
+          "content": "СМИ"
+        },
+        "enable_sticky_desktop": {
+          "label": "Включить прикрепленное добавление корзины на рабочем столе"
+        },
+        "desktop_layout": {
+          "label": "Макет рабочего стола",
+          "group": {
+            "static": "Сетка",
+            "carousel": "Карусель"
+          },
+          "one_columns": {
+            "label": "1 столбец"
+          },
+          "options__1": {
+            "label": "2 столбца"
+          },
+          "options__2": {
+            "label": "Горизонтальные миниатюры"
+          },
+          "options__3": {
+            "label": "Куча"
+          },
+          "options__4": {
+            "label": "Вертикальные миниатюры"
+          },
+          "options__5": {
+            "label": "Вертикальные миниатюры (прокрутка)"
+          },
+          "options__6": {
+            "label": "2 столбца"
+          }
+        },
+        "thumbnail_carousel_setting": {
+          "label": "Настройка карусели миниатюр",
+          "number_thumbs": "Количество миниатюр"
+        },
+        "media_position": {
+          "label": "Позиция настольных СМИ"
+        },
+        "media_width": {
+          "label": "Ширина настольного носителя"
+        },
+        "mobile_thumbnails": {
+          "options__1": {
+            "label": "Показать миниатюры"
+          },
+          "options__2": {
+            "label": "Скрыть миниатюры"
+          }
+        },
+        "enable_video_looping": {
+          "label": "Включить зацикливание видео"
+        },
+        "enable_image_zoom": {
+          "label": "Увеличение изображения",
+          "options__1": {
+            "label": "Запрещать"
+          },
+          "options__2": {
+            "label": "Увеличить внутренний размер"
+          },
+          "options__3": {
+            "label": "Уменьшить масштаб"
+          }
+        },
+        "enable_image_lightbox": {
+          "label": "Включить лайтбокс"
+        },
+        "enable_video_autoplay": {
+          "label": "Включить автозапуск видео",
+          "info": "Видео автоматически отключаются, чтобы обеспечить автовоспроизведение. Не будет работать для YouTube/Vimeo."
+        },
+        "enable_video_controls_default": {
+          "label": "Включить пользовательские элементы управления видео",
+          "info": "Не будет работать для YouTube/Vimeo."
+        }
+      },
+      "blocks": {
+        "custom_product": {
+          "name": "Пользовательские параметры",
+          "tab_setting": {
+            "label": "Ярлыки вкладок",
+            "tab_1": {
+              "label": "Вкладка 1"
+            },
+            "tab_2": {
+              "label": "Вкладка 2"
+            },
+            "tab_3": {
+              "label": "Вкладка 3"
+            }
+          },
+          "description": "Позвольте клиентам персонализировать продукт — положение, текст и цвет — с помощью всплывающего окна, состоящего из трех шагов, прежде чем добавлять его в корзину. Для получения дополнительной информации посетите нашу [страницу поддержки](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/custom-options)",
+          "placement": "Размещение",
+          "text": "Text",
+          "text_limit": "Ограничение текста",
+          "note": "Примечание",
+          "color": {
+            "name": "Color",
+            "options": {
+              "color_1": "Цвет 1",
+              "color_2": "Цвет 2",
+              "color_3": "Цвет 3",
+              "color_4": "Цвет 4",
+              "color_5": "Цвет 5",
+              "color_6": "Цвет 6",
+              "color_7": "Цвет 7",
+              "color_8": "Цвет 8",
+              "color_9": "Цвет 9",
+              "color_10": "Цвет 10"
+            }
+          }
+        }
+      }
+    },
+    "main-cart-items": {
+      "name": "Основная корзина",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/other-pages/cart-page)",
+      "block": {
+        "icon_with_text": "Значок с текстом",
+        "trust_badges": "Значки доверия"
+      }
+    },
+    "main-collection-banner": {
+      "name": "Баннер коллекции",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/collection-banner)",
+      "settings": {
+        "heading": {
+          "label": "Настройки"
+        },
+        "use_collection_image": {
+          "label": "Использовать изображение коллекции",
+          "info": "Переопределить настройку фонового изображения"
+        },
+        "image_height": {
+          "option__2": "На основе контента"
+        },
+        "image_position": {
+          "label": "Положение изображения",
+          "option__1": "Слева",
+          "option__2": "Справа"
+        },
+        "image_opacity": {
+          "label": "Непрозрачность изображения"
+        }
+      }
+    },
+    "contact-form": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/contact-form)",
+      "name": "Контактная форма",
+      "settings": {
+        "name": "Имя",
+        "email_placeholder": "Email",
+        "message": "Сообщение",
+        "option": "Вариант",
+        "info_option": "Определите имя опции. Разделяйте варианты запятой. Например. Товар, Заказ, Пресса, Другое"
+      }
+    },
+    "main-404": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/other-pages/404-page)",
+      "name": "Главная 404",
+      "info_image": "Рекомендуется 500 x 288 пикселей."
+    },
+    "main-activate-account": {
+      "name": "Активация аккаунта"
+    },
+    "main-password-footer": {
+      "name": "Нижний колонтитул с паролем"
+    },
+    "main-account": {
+      "name": "Счет"
+    },
+    "main-register": {
+      "name": "Регистрация"
+    },
+    "main-login": {
+      "name": "Авторизоваться"
+    },
+    "main-reset-password": {
+      "name": "Сброс пароля"
+    },
+    "main-order": {
+      "name": "Заказ"
+    },
+    "main-addresses": {
+      "name": "Адреса"
+    },
+    "announcement-bar": {
+      "how_to_use": {
+        "label": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/announcement-bar)"
+      },
+      "name": "Панель объявлений",
+      "settings": {
+        "type": {
+          "name": "Тип",
+          "options": {
+            "slide": {
+              "label": "Карусель"
+            },
+            "marquee": {
+              "label": "Шатер"
+            }
+          }
+        },
+        "show_only_homepage": {
+          "label": "Показать только на главной странице"
+        },
+        "show_close_button": {
+          "label": "Показать кнопку закрытия"
+        },
+        "enable_on_mobile": {
+          "label": "Включить на мобильном устройстве"
+        },
+        "marquee_settings": {
+          "label": "Настройки выделения",
+          "speed": {
+            "label": "Скорость"
+          },
+          "show_icon": {
+            "label": "Показать значок"
+          }
+        }
+      },
+      "blocks": {
+        "name": "Объявление",
+        "setting": {
+          "label": "Text"
+        }
+      }
+    },
+    "multimedia_with_text": {
+      "blocks": {
+        "settings": {
+          "header": "Настройки мультимедиа",
+          "media_style": {
+            "label": "Медиа-стиль",
+            "options__1": {
+              "label": "Закругленный"
+            },
+            "options__2": {
+              "label": "Овал"
+            },
+            "options__3": {
+              "label": "Default"
+            }
+          }
+        }
+      }
+    },
+    "product-tabs": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/vertical-product-tabs)",
+      "name": "Вкладки продуктов",
+      "setting": {
+        "layout": {
+          "label": "Макет рабочего стола",
+          "vertical": "Vertical",
+          "horizontal": "Horizontal"
+        },
+        "banner_header": "Баннер",
+        "show_banner": "Показать баннер",
+        "sticky_banner": "Закрепленный баннер",
+        "portrait_4_5": "Портрет (4:5)",
+        "enable_carousel_info": "На мобильном телефоне макет товаров всегда отображается в виде карусели."
+      },
+      "blocks": {
+        "name": "Вкладка",
+        "header": "Настройки блока",
+        "settings": {
+          "hidden_des_mobile": {
+            "label": "Скрыть описание вкладки на мобильном телефоне"
+          },
+          "collection": {
+            "label": "Collection",
+            "description": "Описание"
+          }
+        }
+      },
+      "presets": {
+        "product_tabs_with_banner": "Вкладки продуктов с баннером"
+      }
+    },
+    "collection-highlights": {
+      "name": "Основные моменты коллекции",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/collection-highlights)",
+      "settings": {
+        "highlight_collection_width": {
+          "label": "Коллекция подчеркивает ширину"
+        }
+      },
+      "blocks": {
+        "header": "Настройки блока",
+        "type": {
+          "type_highlight": {
+            "header": "Настройки выделения коллекций",
+            "name": "Основные моменты коллекции"
+          }
+        }
+      }
+    },
+    "collection-pills": {
+      "name": "Плашки коллекции",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/collections/collection-pills)",
+      "settings": {
+        "pill_style": {
+          "label": "Стиль плашки"
+        },
+        "show_image_on_hover": {
+          "label": "Показывать изображение при наведении",
+          "info": "Изображение при наведении будет скрыто на мобильном телефоне."
+        },
+        "horizontal_scroll": {
+          "label": "Горизонтальная прокрутка"
+        }
+      }
+    },
+    "suitable_products_finder": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/suitable-products-finder)",
+      "name": "Поиск подходящих продуктов",
+      "settings": {
+        "collection_tab_header": {
+          "label": "Вкладка «Коллекция»"
+        },
+        "collection_tab_style": {
+          "label": "Стиль вкладки «Коллекция»"
+        },
+        "collection_tab_style_options": {
+          "range_slider": {
+            "label": "Ползунок диапазона"
+          },
+          "pill_tabs": {
+            "label": "Таблетки для таблеток"
+          }
+        },
+        "show_pill_tabs_with_heading": {
+          "label": "В строке с заголовком",
+          "info": "Покажите палитру цветов в той же строке, что и заголовок."
+        },
+        "show_pill_tabs_color": {
+          "label": "Показать цветную точку"
+        },
+        "pill_tabs_color": {
+          "label": "Color"
+        },
+        "pill_tabs_image": {
+          "info": "Изображение «Узор» переопределяет «Цвет» при загрузке изображения."
+        },
+        "image_collection_width": {
+          "label": "Ширина изображения"
+        },
+        "range_slider": {
+          "settings": {
+            "show_range_slider": {
+              "label": "Показать ползунок диапазона",
+              "info": "Ползунок диапазона будет автоматически скрыт на мобильном устройстве."
+            }
+          }
+        }
+      },
+      "preset": {
+        "ranger_slider": "Поиск продукта: ползунок диапазона",
+        "pill_tabs": "Поиск продукта: Таблетки для таблеток",
+        "color_dots": "Поиск продукта: Цветные точки"
+      }
+    },
+    "icon-box": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/icon-box)",
+      "name": "Коробка с иконками",
+      "settings": {
+        "icon_settings": {
+          "header": "Настройки значков",
+          "icon_position": {
+            "label": "Позиция"
+          },
+          "icon_size": {
+            "label": "Size"
+          },
+          "radius_image": {
+            "label": "Закругленное изображение",
+            "info": "Этот параметр работает только в том случае, если значок представляет собой изображение."
+          }
+        }
+      }
+    },
+    "metric-banner": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/metric-banner)",
+      "name": "Метрический баннер",
+      "settings": {
+        "metric_setting": "Настройки показателей",
+        "metric_font_size": "Метрический размер шрифта",
+        "enable_metric_animation": "Включить метрическую анимацию",
+        "metric_value": {
+          "start": "Начальное значение показателя",
+          "end": "Конечное значение показателя"
+        },
+        "metric_unit": "Метрическая единица измерения"
+      },
+      "block": {
+        "name": "Метрический элемент"
+      }
+    },
+    "compact_product_bundle": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/compact-product-bundle)",
+      "name": "Компактный набор продуктов",
+      "settings": {
+        "image": {
+          "label": "Image",
+          "info_desktop": "Рекомендуется 696 x 750 пикселей.",
+          "info_mobile": "Рекомендуется 350 x 303 пикселя."
+        },
+        "enable_quick_add_for_items": {
+          "label": "Включить быстрое добавление элементов"
+        },
+        "hidden_button_mobile": {
+          "label": "Скрытая кнопка на мобильном телефоне"
+        },
+        "products_show": {
+          "label": "Продукты отображаются как",
+          "options__1": {
+            "label": "Список"
+          },
+          "options__2": {
+            "label": "Сетка"
+          }
+        }
+      },
+      "presets": {
+        "name": "Компактный набор продуктов"
+      },
+      "blocks": {
+        "settings": {
+          "name": "Product",
+          "select_product": "Product",
+          "position_top": "Вертикальное положение",
+          "position_left": "Горизонтальное положение"
+        }
+      }
+    },
+    "mobile-navigation-bar": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/overlay-group/mobile-navigation-bar)",
+      "name": "Мобильная панель навигации",
+      "info": "Этот раздел отображается только на мобильных устройствах. Пожалуйста, переключитесь на мобильный вид.",
+      "settings": {
+        "show_section": "Включить мобильную панель навигации",
+        "show_shop": "Показать магазин",
+        "show_account": "Показать аккаунт",
+        "show_cart": "Показать корзину",
+        "show_homepage": "Показать домашнюю страницу"
+      }
+    },
+    "mobile_first": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/mobile-first)",
+      "name": "Галерея прожекторов",
+      "image_1": "Точечное изображение 1",
+      "image_2": "Точечное изображение 2",
+      "image_3": "Точечное изображение 3",
+      "image_4": "Точечное изображение 4",
+      "image_5": "Точечное изображение 5",
+      "text_1": "Точечный текст 1",
+      "text_2": "Точечный текст 2",
+      "text_3": "Точечный текст 3",
+      "text_4": "Точечный текст 4",
+      "text_5": "Точечный текст 5"
+    },
+    "shopable_video": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/shopable-video)",
+      "name": "Покупное видео",
+      "settings": {
+        "video_settings": {
+          "header": "Настройки видео"
+        },
+        "enable_sticky": {
+          "label": "Включить прикрепление видео",
+          "option_1": {
+            "label": "Запрещать"
+          },
+          "option_2": {
+            "label": "Только рабочий стол"
+          },
+          "option_3": {
+            "label": "Все экраны"
+          }
+        },
+        "ratio": {
+          "adapt": {
+            "label": "Адаптироваться к первому видео"
+          }
+        },
+        "video": {
+          "auto_play": {
+            "info": "Видео будет воспроизводиться автоматически, когда этот блок активен или виден на экране."
+          }
+        },
+        "show_product_card": {
+          "label": "Показывать карточку товара"
+        }
+      },
+      "blocks": {
+        "name": "Video",
+        "settings": {
+          "poster_image": {
+            "label": "Изображение плаката",
+            "info": "Рекомендуется 1080 x 1920 пикселей."
+          },
+          "local_video": {
+            "label": "Местное видео"
+          },
+          "select_product": {
+            "label": "Product"
+          }
+        }
+      }
+    },
+    "image_card": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/image-cards)",
+      "name": "Карты с изображениями",
+      "blocks": {
+        "header": "Настройки карты",
+        "group_name": "Карта",
+        "info": "Рекомендуется 451 x 453 пикселя."
+      }
+    },
+    "testimonials": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonials)",
+      "name": "Нажимать",
+      "settings": {
+        "header": "Нажмите настройки",
+        "show_icon_quote": {
+          "label": "Показать значок цитаты"
+        }
+      },
+      "blocks": {
+        "name": "Нажмите пункт",
+        "settings": {
+          "quote": {
+            "label": "Цитировать"
+          },
+          "info_image": "180 пикселей рекомендуется 60 пикселей"
+        }
+      }
+    },
+    "press_card": {
+      "name": "Пресс-карта",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/press-card)",
+      "blocks": {
+        "content": "Содержание",
+        "media": "СМИ",
+        "quote": "Цитировать",
+        "settings": {
+          "show_icon_quote": "Показать значок цитаты",
+          "author_name": "Имя автора",
+          "quote_content": "Содержание цитаты",
+          "press-image": {
+            "info": "Переопределяет настройку цвета фона"
+          }
+        }
+      }
+    },
+    "scrolling_image": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/scrolling-image)",
+      "name": "Изображение галереи",
+      "settings": {
+        "show_background_blur": {
+          "label": "Показать размытый фон"
+        },
+        "show_icon_hover": {
+          "label": "Показывать иконку Instagram при наведении"
+        },
+        "info_image": "Рекомендуется 303 x 303 пикселя."
+      }
+    },
+    "featured_product_banner": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/featured-product-banner)",
+      "name": "Баннер избранного продукта",
+      "hide_icon_text": "Скрыть значок с текстовыми блоками на мобильном телефоне",
+      "blocks": {
+        "name": "Значок с текстом"
+      },
+      "info": {
+        "info_desktop": "Рекомендуется 400 x 400 пикселей.",
+        "info_mobile": "Рекомендуется 300 x 300 пикселей."
+      }
+    },
+    "product_testimonials": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-testimonials)",
+      "name": "Отзывы о продукте",
+      "settings": {
+        "header": "Настройки отзывов",
+        "rating_color": {
+          "label": "Цвет рейтинга"
+        },
+        "rating_type": {
+          "label": "Тип рейтинга",
+          "default": "Default",
+          "modern": "Современный",
+          "show": "Показать рейтинг",
+          "show_before_after": "Показывать текст до и после"
+        },
+        "product_rounded": {
+          "label": "Радиус угла изображения продукта"
+        },
+        "show_verified_buyer": {
+          "label": "Показать проверенного покупателя"
+        },
+        "show_author_name": {
+          "label": "Показать имя автора"
+        }
+      },
+      "blocks": {
+        "type": {
+          "media": {
+            "label": "Свидетельства СМИ"
+          },
+          "image_comparison": {
+            "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/image-comparison)",
+            "label": "Сравнение изображений отзывов",
+            "name": "Сравнение изображений",
+            "show_after_before_text": {
+              "label": "Показать текст до/после"
+            }
+          }
+        },
+        "settings": {
+          "media": {
+            "label": "Настройки мультимедиа",
+            "info": "Рекомендуется 448 x 246 пикселей.",
+            "before_after_image": {
+              "label": "Изображения до и после"
+            },
+            "before_image": {
+              "label": "До"
+            },
+            "after_image": {
+              "label": "После"
+            }
+          },
+          "information": {
+            "label": "Информационные настройки",
+            "rating_star": {
+              "label": "Звезда рейтинга"
+            },
+            "select_product": {
+              "label": "Product"
+            },
+            "author_name": {
+              "label": "Имя автора"
+            },
+            "review_sumary": {
+              "label": "Краткое содержание"
+            },
+            "use_richtext": {
+              "label": "Используйте форматированный текст"
+            }
+          }
+        }
+      }
+    },
+    "routine-builder": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/routine-builder)",
+      "name": "Делайте покупки шаг за шагом",
+      "blocks": {
+        "name": "Шаг",
+        "settings": {
+          "text_step": {
+            "label": "Название шага"
+          },
+          "product_in_step": {
+            "label": "Продукт в шаге"
+          }
+        }
+      }
+    },
+    "newsletter_popup": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/overlay-group/newsletter-popup)",
+      "name": "Всплывающее окно информационного бюллетеня",
+      "header": {
+        "heading": "Общие настройки"
+      },
+      "settings": {
+        "sections_width": {
+          "label": "Ширина",
+          "options": {
+            "options__1": "На всю ширину",
+            "options__2": "Авто"
+          }
+        },
+        "collections_selector": {
+          "setting": "Настройки выбора коллекций",
+          "label": "Включить выбор коллекций",
+          "collection": {
+            "label_1": "Коллекция 1",
+            "label_2": "Коллекция 2",
+            "label_3": "Коллекция 3",
+            "label_4": "Коллекция 4",
+            "label_5": "Коллекция 5"
+          }
+        },
+        "newsletter_heading": "Настройки рассылки",
+        "show_on_homepage": "Показать только на главной странице",
+        "discount_sticky": {
+          "setting": "Скидка липкая",
+          "label": "Показать прикрепленную скидку",
+          "heading": "Содержание",
+          "info": "Содержимое автоматически обрезается до 25 символов, включая теги HTML."
+        },
+        "heading": "Заголовок",
+        "short_description": "Описание",
+        "instructional_text": "Учебный текст",
+        "email_placeholder": "Заполнитель электронной почты",
+        "button_label": "Метка кнопки",
+        "banner_image": "Изображение баннера"
+      }
+    },
+    "featured-blog": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/featured-blog)",
+      "name": "Рекомендуемый блог"
+    },
+    "recommended_collection": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/recommended-collection)",
+      "name": "Рекомендуемая коллекция",
+      "blocks": {
+        "button": {
+          "info": "[коллекция] и [название] — это имена переменных, которые будут автоматически заменены. Не меняйте имена, но вы можете изменить их положение в тексте. [title] не является обязательным — удалите его, если вам нужен только селектор коллекций.",
+          "first_button_info": "Форма с изображением: открывает коллекцию результатов с выбранными фильтрами"
+        },
+        "featured_collection": {
+          "title_info": "Только встроенный текст: показывается как вариант списка [Заголовок]. Блоки коллекций не используются в макете «Форма с изображением»"
+        },
+        "filter_dropdown": {
+          "name": "Раскрывающийся фильтр",
+          "info": "Работает с макетом «Форма с изображением». Сначала настройте фильтр в приложении Shopify Search & Discovery.",
+          "filter_name": {
+            "label": "Название фильтра",
+            "info": "Введите подпись фильтра точно так, как она показана на страницах коллекций, например «Возрастная группа собак». Для нескольких языков разделите подписи знаком ;. Фильтры по цене не поддерживаются."
+          },
+          "placeholder": "Заполнитель"
+        },
+        "text": {
+          "name": "Текст"
+        }
+      },
+      "background": {
+        "label": "Показать фоновое изображение",
+        "header": "Фоновое изображение"
+      },
+      "image_info": {
+        "info_desktop": "Рекомендуется 1920 x 700 пикселей.",
+        "info_mobile": "Рекомендуется 390 x 407 пикселей."
+      },
+      "layout": {
+        "label": "Макет",
+        "inline": "Встроенный текст",
+        "form": "Форма с изображением"
+      },
+      "content_color_scheme": "Цветовая гамма содержимого",
+      "results_collection": {
+        "label": "Коллекция результатов",
+        "info": "Только для макета «Форма с изображением». Списки фильтров показывают фильтры этой коллекции, а первая кнопка её открывает. Оставьте пустым, чтобы использовать все товары."
+      },
+      "presets": {
+        "form": "Рекомендуемая коллекция с изображением"
+      }
+    },
+    "offers-popup": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/overlay-group/offers-popup)",
+      "name": "Всплывающее окно с предложениями",
+      "popup": {
+        "label": "Всплывающее окно с предложением заголовка",
+        "info": "Настройте содержимое блока «Всплывающее окно предложений» в группе наложения."
+      }
+    },
+    "outfit-finder": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/products/outfit-finder)",
+      "name": "Поиск нарядов",
+      "settings": {
+        "product_listing": {
+          "label": "Настройки списка товаров"
+        },
+        "outfit_finder_logic": {
+          "label": "Настройки предварительного просмотра"
+        },
+        "max_items_to_show": {
+          "label": "Товаров на странице",
+          "info": "Количество товаров, отображаемых изначально. Прокрутка вниз загрузит больше элементов."
+        },
+        "max_items": {
+          "label": "Максимальное количество товаров на комплект",
+          "info": "Ограничивает количество элементов, которые клиент может добавить в область предварительного просмотра."
+        },
+        "product": {
+          "label": "Предлагаемый наряд",
+          "info": "Выберите до 3 продуктов, которые будут отображаться в области предварительного просмотра по умолчанию при загрузке страницы."
+        },
+        "notify_preview": {
+          "label": "Пустое уведомление о состоянии",
+          "info": "Текст инструкций, отображаемый в области предварительного просмотра перед добавлением каких-либо элементов."
+        }
+      }
+    },
+    "scrolling-card": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scrolling-card)",
+      "name": "Прокрутка карты"
+    },
+    "scroll-scatter": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scroll-scatter)",
+      "name": "Прокрутка разброса"
+    },
+    "store-location": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/other-pages/store-location)",
+      "name": "Расположение магазина",
+      "settings": {
+        "key_google_map": {
+          "label": "Ключ API Карт Google",
+          "info": "Требуются API-интерфейсы Maps JavaScript, Places и Geocoding. [Получить ключ](https://console.cloud.google.com/google/maps-apis/credentials)."
+        },
+        "map_settings": {
+          "header": "Настройки карты"
+        },
+        "allowed_countries": {
+          "label": "Разрешенные страны",
+          "info": "Укажите, где покупатели могут искать магазины. Используйте коды стран ISO (например, США, Великобритания, Калифорния), разделенные запятыми. Оставьте пустым для поиска по всему миру."
+        },
+        "radius_km": {
+          "label": "Радиус поиска (км)",
+          "info": "Максимальное расстояние для результатов магазина."
+        }
+      },
+      "blocks": {
+        "name": "Магазин",
+        "settings": {
+          "store_name": {
+            "label": "Название магазина"
+          },
+          "store_address": {
+            "label": "Адрес магазина"
+          },
+          "store_email": {
+            "label": "Сохранить электронную почту"
+          },
+          "store_phone": {
+            "label": "Телефон магазина"
+          },
+          "store_lat": {
+            "label": "Хранить широту",
+            "info": "Скопируйте первое число из координат Google Maps."
+          },
+          "store_lng": {
+            "label": "Сохранить долготу",
+            "info": "Скопируйте второе число из координат Google Maps."
+          },
+          "time_location": {
+            "monday": "Понедельник",
+            "tuesday": "Вторник",
+            "wednesday": "Среда",
+            "thursday": "Четверг",
+            "friday": "Пятница",
+            "saturday": "Суббота",
+            "sunday": "Воскресенье",
+            "open": "Открыть",
+            "closed": "Закрыто",
+            "open_time_hour": "Время работы час",
+            "open_time_minute": "Минута открытого времени",
+            "close_time_hour": "Закрытие часа",
+            "close_time_minute": "Минута закрытия"
+          },
+          "time_schedule": {
+            "monday": "Schedule",
+            "tuesday": "Schedule",
+            "wednesday": "Schedule",
+            "thursday": "Schedule",
+            "friday": "Schedule",
+            "saturday": "Schedule",
+            "sunday": "Schedule"
+          }
+        }
+      }
+    },
+    "product-bundle": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/product-bundle)",
+      "name": "Пакет продуктов",
+      "settings": {
+        "discount": {
+          "name": "Discount",
+          "info": "Узнайте, как создать скидку [здесь](https://help.shopify.com/manual/discounts)",
+          "minimum": "Минимум необходимых предметов",
+          "maximum": "Максимальное количество предметов",
+          "edit_quantity": "Разрешить изменение количества для каждого продукта",
+          "discount_title": "Код скидки",
+          "discount_value": {
+            "name": "Значение скидки",
+            "option": {
+              "fixed": {
+                "label": "Фиксированная сумма",
+                "once_per_order": "Один раз за заказ"
+              },
+              "percentage": {
+                "label": "Процент"
+              }
+            }
+          }
+        },
+        "your_bundle": {
+          "name": "Discount",
+          "settings": {
+            "show_progress_bar": {
+              "label": "Показать индикатор выполнения"
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "product_discount": {
+            "name": "Пакет продуктов",
+            "info": "Заменяет коллекцию при выборе."
+          }
+        }
+      }
+    },
+    "shopable-image": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/sections/shopable-image)",
+      "name": "Изображение, пригодное для покупок",
+      "blocks": {
+        "tags": {
+          "name": "Теги",
+          "info": "Определите имя тегов. Разделяйте запятой. Например. Тег 1, тег 2",
+          "info_image": "Рекомендуется 448 x 600 пикселей.",
+          "settings": {
+            "show_verify_icon": {
+              "label": "Показать значок галочки"
+            }
+          }
+        },
+        "lookbook": {
+          "name": "Лукбук",
+          "settings": {
+            "products": {
+              "label": "Products",
+              "position_top": "Вертикальное положение",
+              "position_left": "Горизонтальное положение",
+              "products": {
+                "otpion__1": {
+                  "label": "Продукт 1"
+                },
+                "otpion__2": {
+                  "label": "Продукт 2"
+                },
+                "otpion__3": {
+                  "label": "Продукт 3"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parallax-image": {
+      "blocks": {
+        "icon": {
+          "name": "Икона",
+          "info": "Переопределяет настройку значка SVG."
+        }
+      }
+    },
+    "main-page": {
+      "name": "Страница"
+    },
+    "subcollection-list": {
+      "name": "Подколлекция",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/sub-collection)"
+    },
+    "before-you-leave": {
+      "name": "Прежде чем уйти",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/before-you-leave)",
+      "settings": {
+        "header": {
+          "recommended_products": "Рекомендуемые продукты"
+        },
+        "show_time": {
+          "label": "Показать время через (секунды)"
+        },
+        "banner": {
+          "label": "Изображение баннера",
+          "info": "Рекомендуется 380 x 423 пикселя."
+        },
+        "collection": {
+          "label": "Collection"
+        },
+        "code": {
+          "label": "Код скидки"
+        }
+      }
+    },
+    "advanced-slideshow": {
+      "block": {
+        "slide": "Слайд",
+        "settings": {
+          "type": {
+            "label": "Тип",
+            "image": {
+              "label": "Image"
+            },
+            "video": {
+              "label": "Video"
+            }
+          },
+          "media_overlay": {
+            "label": "Наложение мультимедиа"
+          }
+        }
+      }
+    },
+    "custom_section": {
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/advanced/flexible-section)",
+      "name": "Гибкий раздел",
+      "settings": {
+        "layout": {
+          "label": "Макет",
+          "direction": {
+            "label": "Направление",
+            "options__1": {
+              "label": "Vertical"
+            },
+            "options__2": {
+              "label": "Horizontal"
+            }
+          },
+          "vertical_on_mobile": {
+            "label": "Вертикально на мобильных устройствах"
+          },
+          "content_wrap": {
+            "label": "Обертка контента"
+          },
+          "height": {
+            "label": "Height",
+            "options": {
+              "auto": {
+                "label": "Авто"
+              },
+              "custom": {
+                "label": "Custom"
+              }
+            },
+            "custom_height": {
+              "label": "Пользовательская высота"
+            }
+          },
+          "gap": {
+            "label": "Зазор"
+          },
+          "position": {
+            "label": "Позиция",
+            "options__1": {
+              "label": "Сверху"
+            },
+            "options__2": {
+              "label": "По центру"
+            },
+            "options__3": {
+              "label": "Снизу"
+            }
+          },
+          "alignment": {
+            "label": "Выравнивание",
+            "label_mobile": "Мобильное выравнивание",
+            "options__1": {
+              "label": "Слева"
+            },
+            "options__2": {
+              "label": "По центру"
+            },
+            "options__3": {
+              "label": "Справа"
+            },
+            "options__4": {
+              "label": "Пространство между"
+            }
+          },
+          "hide_on_mobile": {
+            "label": "Скрыто на мобильном телефоне"
+          }
+        },
+        "appearance": {
+          "header": "Появление",
+          "settings": {
+            "background_media": {
+              "label": "Фоновые медиа",
+              "options__2": {
+                "label": "Image"
+              },
+              "options__3": {
+                "label": "Video"
+              },
+              "options__1": {
+                "label": "None"
+              }
+            },
+            "border": {
+              "label": "Границы",
+              "options": {
+                "none": "None",
+                "solid": "Твердый"
+              },
+              "border_color": {
+                "label": "Цвет границы"
+              },
+              "border_thickness": {
+                "label": "Толщина границы"
+              }
+            },
+            "corner_radius": {
+              "label": "Угловой радиус",
+              "options": {
+                "none": {
+                  "label": "None"
+                },
+                "rounded": {
+                  "label": "Закругленный"
+                },
+                "custom": {
+                  "label": "Custom"
+                },
+                "inherit": {
+                  "label": "Наследовать",
+                  "info": "Если установлено значение «Наследовать», этот блок будет следовать глобальной настройке закругленных углов в настройках темы ▸ Макет ▸ Закругленное изображение."
+                }
+              },
+              "custom_radius": {
+                "label": "Пользовательский радиус"
+              }
+            },
+            "background_overlay": {
+              "label": "Наложение фона",
+              "overlay_color": {
+                "label": "Цвет наложения"
+              },
+              "overlay_style": {
+                "label": "Стиль наложения",
+                "options__1": {
+                  "label": "Твердый"
+                },
+                "options__2": {
+                  "label": "Градиент"
+                }
+              },
+              "gradient_direction": {
+                "label": "Направление градиента",
+                "options__1": {
+                  "label": "Вверх"
+                },
+                "options__2": {
+                  "label": "Вниз"
+                }
+              }
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "size": {
+            "label": "Size",
+            "height": {
+              "label": "Height"
+            },
+            "width": {
+              "label": "Ширина",
+              "custom_width": {
+                "label": "Пользовательская ширина"
+              }
+            },
+            "mobile_width": {
+              "label": "Мобильная ширина"
+            },
+            "options": {
+              "options__1": {
+                "label": "Вписать"
+              },
+              "options__2": {
+                "label": "Заполнить"
+              },
+              "options__3": {
+                "label": "Custom"
+              },
+              "options__4": {
+                "label": "Адаптироваться к медиа-фону"
+              }
+            }
+          },
+          "background": {
+            "label": "Фон"
+          },
+          "background_color": {
+            "label": "Цвет фона"
+          }
+        },
+        "heading": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading)",
+          "label": "Предустановка",
+          "heading_tag": {
+            "label": "Тег заголовка",
+            "info": "Установите тег заголовка (H1–H6), чтобы контролировать иерархию контента и повысить читабельность SEO для поисковых систем.",
+            "h1": "H1",
+            "h2": "Н2",
+            "h3": "Н3",
+            "h4": "Н4",
+            "h5": "Н5",
+            "h6": "Н6"
+          },
+          "custom": "Custom",
+          "default": "Default",
+          "paragraph": "Параграф",
+          "h1": "Заголовок 1",
+          "h2": "Заголовок 2",
+          "h3": "Заголовок 3",
+          "h4": "Заголовок 4",
+          "h5": "Заголовок 5",
+          "h6": "Заголовок 6",
+          "h7": "Заголовок 7",
+          "info": {
+            "edit_presets_in_theme_settings": "Редактируйте пресеты в [настройках темы](/editor?context=theme&category=typography)",
+            "label": "Размер шрифта"
+          },
+          "text_alignment": {
+            "desktop": "Выравнивание",
+            "mobile": "Мобильное выравнивание"
+          }
+        },
+        "logo": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Логотип",
+          "settings": {
+            "size": {
+              "name": "Size",
+              "unit": {
+                "label": "Единица",
+                "option__1": {
+                  "label": "Пиксель"
+                },
+                "option__2": {
+                  "label": "Процент"
+                }
+              },
+              "custom_mobile_size": {
+                "label": "Пользовательский размер мобильного устройства"
+              },
+              "height": {
+                "label": "Height"
+              },
+              "mobile": {
+                "name": "Размер мобильного телефона"
+              }
+            }
+          }
+        },
+        "email_subscription": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/newsletter)",
+          "name": "Информационный бюллетень"
+        },
+        "contact_form": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/contact-form)",
+          "name": "Контактная форма",
+          "settings": {
+            "name": "Имя",
+            "email": "Email",
+            "message": "Сообщение",
+            "select_label": "Выберите ярлык",
+            "default_select_label": "Предмет",
+            "option": "Вариант",
+            "default_option": "Товар, Заказ, Пресса, Другое",
+            "phone": "Телефон",
+            "submit_button": "Кнопка «Отправить»",
+            "default_submit_button": "Представлять на рассмотрение"
+          }
+        },
+        "accordion": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/accordion)",
+          "name": "Аккордеон",
+          "settings": {
+            "icon_style": {
+              "style": "Стиль",
+              "label": "Стиль иконок",
+              "caret": "Каррет",
+              "plus": "Плюс"
+            },
+            "row_style": {
+              "label": "Стиль строки",
+              "background": "Фон",
+              "divider": "Разделитель"
+            },
+            "background_color": "Цвет фона",
+            "row_spacing": "Расстояние между элементами",
+            "gap_row": "Зазор",
+            "padding_row": "Заполнение",
+            "gap_content": "Пространство между",
+            "accordion_row": "Гармоничный ряд",
+            "default_accordion_row": "Аккордеонная рубрика",
+            "accordion_content": "Аккордеонный контент",
+            "settings": {
+              "heading": "Заголовок",
+              "heading_size": "Размер заголовка",
+              "heading_weight": "Вес заголовка",
+              "body_weight": "Вес тела",
+              "open_default": {
+                "label": "Открыть по умолчанию"
+              }
+            }
+          }
+        },
+        "group": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/group)",
+          "name": "Группа",
+          "settings": {
+            "link": "Связь",
+            "open_in_new_tab": {
+              "label": "Открыть ссылку в новой вкладке"
+            }
+          }
+        },
+        "carousel": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/carousel)",
+          "name": "Карусель"
+        },
+        "text": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/text)",
+          "name": "Text",
+          "default_text": "Мы делаем вещи, которые работают лучше и служат дольше. Наши продукты решают реальные проблемы благодаря чистому дизайну и качественным материалам.",
+          "text_color": {
+            "label": "Цвет текста",
+            "body_color": "Цвет кузова",
+            "heading_color": "Цвет заголовка"
+          }
+        },
+        "button": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/button)"
+        },
+        "icon": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/icon)"
+        },
+        "page": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Страница",
+          "inherit_color_scheme": "Наследовать цветовую схему",
+          "appearance": "Появление",
+          "spacing": "Расстояние"
+        },
+        "spacer": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/spacer)",
+          "name": "Проставка",
+          "mobile_settings": {
+            "label": "Мобильные настройки"
+          }
+        },
+        "divider": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Разделитель",
+          "settings": {
+            "thickness": "Толщина",
+            "size": "Size",
+            "color": "Color"
+          }
+        },
+        "icon_list": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Список значков",
+          "item": "Элемент",
+          "open_new_tab": "Открыть новую вкладку"
+        },
+        "alert": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Тревога",
+          "dismiss_icon": "Значок закрытия",
+          "display_dismiss_icon": "Отображать значок закрытия"
+        },
+        "social_icons": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Социальные иконки",
+          "circle": "Круг",
+          "rounded": "Закругленный",
+          "square": "Квадрат",
+          "shape": "Форма",
+          "color": "Color",
+          "backgroup_color": "Цвет задней группы"
+        },
+        "progress_bar": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Индикатор выполнения",
+          "text_color": "Цвет текста",
+          "percentage": "Процент",
+          "border_radius": "Граница радиуса",
+          "display_percentage": "Процент отображения",
+          "inner_text": "Внутренний текст"
+        },
+        "counter": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/counter)",
+          "name": "Прилавок",
+          "counter_style": {
+            "label": "Стиль счетчика",
+            "default": "Default",
+            "circle": "Круг"
+          },
+          "counter_layout": {
+            "label": "Расположение счетчика",
+            "horizontal": "Horizontal",
+            "vertical": "Vertical"
+          },
+          "number_position": "Позиция номера",
+          "space_between": "Пространство между",
+          "before_title": "Перед названием",
+          "after_title": "После названия",
+          "number_alignment": "Выравнивание номеров",
+          "stroke_color": "Цвет обводки",
+          "indicator_color": "Цвет индикатора",
+          "background_color": "Цвет фона",
+          "text_color": "Цвет текста",
+          "ending_number": "Конечный номер",
+          "starting_number": "Стартовый номер",
+          "animation": "Длительность анимации (мс)"
+        },
+        "map": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/google-maps)",
+          "name": "Карты Google",
+          "location": "Расположение",
+          "longitude": "Долгота",
+          "latitude": "Широта"
+        },
+        "jumbo_text": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+          "name": "Большой текст"
+        },
+        "tab": {
+          "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/tab)",
+          "name": "Вкладка",
+          "tab_row": "Элемент вкладки",
+          "settings": {
+            "heading": "Стиль заголовка",
+            "heading_preset": "Предустановка заголовка",
+            "heading_alignment": "Выравнивание заголовка",
+            "heading_color": "Цвет заголовка",
+            "content": "Стиль контента",
+            "content_alignment": "Выравнивание контента"
+          }
+        },
+        "icon_with_text": {
+          "name": "Значок с текстом",
+          "icon_first": "Значок сначала",
+          "icon_second": "Значок второй",
+          "svg_custom": "Пользовательский SVG"
+        },
+        "popup_link": {
+          "button_type_link": {
+            "label": "Тип кнопки",
+            "primary": {
+              "label": "Начальный"
+            },
+            "outline": {
+              "label": "Контур"
+            },
+            "link": {
+              "label": "Связь"
+            }
+          },
+          "popup_style": {
+            "label": "Стиль всплывающего окна"
+          },
+          "popup_type": {
+            "label": "Тип всплывающего окна"
+          },
+          "popup_width": {
+            "label": "Ширина всплывающего окна рабочего стола"
+          },
+          "icon_type": {
+            "label": "Тип значка",
+            "none": "None",
+            "arrow": "Стрелка",
+            "image": {
+              "label": "Image",
+              "size": "Size"
+            }
+          }
+        }
+      },
+      "preset": {
+        "promotion_banner": "Гибкость: рекламный баннер",
+        "flexible_marquee": "Гибкость: шатер",
+        "story_tabs": "Гибкий: Вкладка"
+      }
+    },
+    "text_image_pairing": {
+      "how_to_use": "[Узнайте, как использовать этот блок](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/text-image-pairing)",
+      "name": "Сопряжение текстового изображения",
+      "settings": {
+        "text_default": "«Наслаждайтесь своим сиянием[image_1]проведите пальцем по экрану, смешайте блеск <br/> почувствуйте себя красивой[image_2]будьте видны полностью[image_3]празднуйте».",
+        "info": {
+          "label": "Используйте определенный формат заполнителя `[image_X]`, в котором вы хотите, чтобы изображение отображалось. X — индекс изображения. Например: `[image_1]` будет заменено первым изображением."
+        },
+        "images": {
+          "label": "Изображения",
+          "image_style": {
+            "label": "Стиль изображения"
+          },
+          "image_1": {
+            "label": "Изображение №1"
+          },
+          "image_2": {
+            "label": "Изображение №2"
+          },
+          "image_3": {
+            "label": "Изображение №3"
+          }
+        }
+      }
+    },
+    "product_sizing": {
+      "name": "Размер продукта",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "info": "Помогает покупателям понять, как подходит товар, и с уверенностью выбрать правильный размер."
+    },
+    "size_recommendation": {
+      "name": "Рекомендации по размеру",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/size-recommendation)",
+      "info": "Помогает клиентам найти правильный размер, используя простые данные, такие как рост, вес, форма тела, размер груди и размер чашки.",
+      "data_usage_notice": {
+        "label": "Уведомление об использовании данных",
+        "info": "В этом сообщении объясняется, как данные клиента используются для рекомендаций по размеру. Вы можете настроить формулировку так, чтобы она соответствовала тону конфиденциальности вашего магазина."
+      },
+      "no_size_match": {
+        "label": "Сообщение об отсутствии соответствия размера",
+        "info": "Сообщение отображается, когда ни один размер не соответствует данным клиента."
+      },
+      "fit_recommendation_note": {
+        "label": "Рекомендации по установке",
+        "info": "Отображается после результатов рекомендаций по размеру."
+      }
+    },
+    "sticky_image_with_text": {
+      "name": "Закреплённое изображение с текстом",
+      "blocks": {
+        "group_text": {
+          "name": "Текстовая группа",
+          "image": {
+            "label": "Изображение при прокрутке",
+            "info": "Показывается в закреплённом изображении, когда эта группа появляется на экране. Оставьте пустым, чтобы сохранить предыдущее изображение. В настройках раздела нужна опция «Менять изображение при прокрутке»."
+          }
+        },
+        "list_tag": {
+          "name": "Список тегов",
+          "tags": {
+            "label": "Теги",
+            "info": "Разделяйте теги запятыми."
+          },
+          "show_check": {
+            "label": "Показать значок галочки"
+          },
+          "chip_style": {
+            "label": "Стиль тега"
+          }
+        }
+      },
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/banners/sticky-image-with-text)",
+      "settings": {
+        "hide_image_mobile": {
+          "label": "Скрыть изображение на мобильных"
+        },
+        "change_image_on_scroll": {
+          "label": "Менять изображение при прокрутке",
+          "info": "Меняет закреплённое изображение, когда каждая текстовая группа появляется на экране. Задайте изображение в каждой текстовой группе. Изображение раздела не используется. Только на компьютере."
+        }
+      }
+    },
+    "testimonial-images": {
+      "name": "Изображения отзывов",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonial-images)",
+      "settings": {
+        "show_author_image": "Показать изображение автора",
+        "hide_image_on_mobile": {
+          "label": "Скрыть изображение на мобильных"
+        }
+      },
+      "blocks": {
+        "review": "Отзыв",
+        "settings": {
+          "author_image": "Изображение автора"
+        }
+      }
+    },
+    "flow": {
+      "name": "Процесс",
+      "blocks": {
+        "step": {
+          "name": "Шаг",
+          "heading": {
+            "label": "Заголовок"
+          },
+          "image": {
+            "label": "Изображение"
+          },
+          "product": {
+            "label": "Товар"
+          }
+        }
+      },
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/flow)"
+    },
+    "parallax-scroll": {
+      "name": "Параллакс-прокрутка",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/parallax-scroll)",
+      "instructions": "Добавьте до 7 карточек. Карточки чередуются по сторонам, и каждая третья карточка автоматически смещается внутрь.",
+      "blocks": {
+        "info_card": {
+          "name": "Информационная карточка"
+        }
+      },
+      "settings": {
+        "card_width": {
+          "label": "Ширина карточки",
+          "info": "Задаёт максимальную ширину карточки на компьютере. На меньших экранах карточки остаются адаптивными."
+        },
+        "button_link": {
+          "info": "Если оставить пустым, кнопка отображается как отключённая."
+        },
+        "button_type": {
+          "info": "Использует стили кнопок, настроенные в теме."
+        }
+      }
+    },
+    "benefit-tabs": {
+      "name": "Вкладки преимуществ",
+      "how_to_use": "Добавьте блок «Вкладка преимуществ» для каждой вкладки, затем добавьте блоки «Преимущество» внутрь каждой вкладки.",
+      "settings": {
+        "text_alignment": {
+          "info": "Также выравнивает кнопки вкладок."
+        },
+        "mobile_alignment": {
+          "info": "Выравнивает преимущества на телефоне и планшете. На компьютере они выравниваются к медиа."
+        }
+      },
+      "blocks": {
+        "tab": {
+          "name": "Вкладка преимуществ",
+          "how_to_use": "Для сбалансированного макета рекомендуется до 6 блоков преимуществ. На компьютере нечётные стоят слева от медиа, а чётные справа.",
+          "settings": {
+            "tab_label": {
+              "label": "Подпись вкладки"
+            },
+            "image": {
+              "label": "Изображение до",
+              "info": "Рекомендуется 950 x 1060 пикселей."
+            },
+            "image_after": {
+              "label": "Изображение после",
+              "info": "Используйте тот же размер, что и у изображения «до». Изображение «после» открывается при прокрутке."
+            }
+          }
+        },
+        "benefit": {
+          "settings": {
+            "icon": {
+              "info": "Если пусто, показывается заполнитель. Рекомендуется 120 x 120 пикселей."
+            }
+          }
+        }
+      }
+    },
+    "comparison-table": {
+      "name": "Таблица сравнения",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/products/comparison-table)",
+      "settings": {
+        "table": {
+          "label": "Таблица"
+        },
+        "comparison_heading": {
+          "label": "Заголовок сравнения"
+        },
+        "show_column_images": {
+          "label": "Показывать изображения столбцов"
+        },
+        "color_column_highlight": {
+          "label": "Цвет выделения столбца"
+        },
+        "table_notes": {
+          "label": "Примечания к таблице"
+        },
+        "show_labels": {
+          "label": "Показывать подписи"
+        },
+        "first_label": {
+          "label": "Первая подпись"
+        },
+        "second_label": {
+          "label": "Вторая подпись"
+        },
+        "button_link": {
+          "label": "Ссылка"
+        }
+      },
+      "blocks": {
+        "column": {
+          "name": "Столбец",
+          "settings": {
+            "highlight": {
+              "label": "Выделить этот столбец"
+            }
+          }
+        },
+        "row": {
+          "name": "Строка",
+          "settings": {
+            "icon_info": "Выберите, как показать значение в этом столбце.",
+            "image_info": "Добавьте изображение. Оно показывается, когда выбрано «Изображение».",
+            "value": {
+              "yes": "Да",
+              "no": "Нет"
+            },
+            "text_1": {
+              "label": "Текст столбца 1",
+              "info": "Показывается, когда выбран «Текст». Значения идут в порядке столбцов, поэтому меняйте порядок блоков «Столбец» осторожно."
+            },
+            "icon_1": {
+              "label": "Значок столбца 1"
+            },
+            "image_1": {
+              "label": "Изображение столбца 1"
+            },
+            "text_2": {
+              "label": "Текст столбца 2",
+              "info": "Показывается, когда выбран «Текст»."
+            },
+            "icon_2": {
+              "label": "Значок столбца 2"
+            },
+            "image_2": {
+              "label": "Изображение столбца 2"
+            },
+            "text_3": {
+              "label": "Текст столбца 3",
+              "info": "Показывается, когда выбран «Текст»."
+            },
+            "icon_3": {
+              "label": "Значок столбца 3"
+            },
+            "image_3": {
+              "label": "Изображение столбца 3"
+            },
+            "text_4": {
+              "label": "Текст столбца 4",
+              "info": "Показывается, когда выбран «Текст». Используется, только если в таблице четыре столбца."
+            },
+            "icon_4": {
+              "label": "Значок столбца 4"
+            },
+            "image_4": {
+              "label": "Изображение столбца 4"
+            },
+            "column_1": "Столбец 1",
+            "column_2": "Столбец 2",
+            "column_3": "Столбец 3",
+            "column_4": "Столбец 4"
+          }
+        }
+      }
+    },
+    "image-with-text-carousel": {
+      "name": "Карусель изображения с текстом",
+      "how_to_use": "[Узнайте, как использовать этот раздел](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/image-with-text-carousel)",
+      "settings": {
+        "show_slide_counter": {
+          "label": "Показывать счётчик слайдов"
+        }
+      },
+      "blocks": {
+        "slide": {
+          "icon_info": "Рекомендуется 80 x 80 пикселей .png или .svg."
+        }
+      }
+    },
+    "recommended-collection-filters": {
+      "name": "Рекомендуемые фильтры"
+    }
+  },
+  "blocks": {
+    "quiz-step": {
+      "name": "Вопрос викторины",
+      "settings": {
+        "stepper_label": {
+          "label": "Этикетка шагового двигателя",
+          "info": "Короткая метка, отображаемая на индикаторе выполнения. Пример: Тип кожи, Забота."
+        },
+        "question_id": {
+          "label": "Идентификатор вопроса",
+          "info": "Уникальный идентификатор для этого вопроса. Используется для пропуска вопросов по вариантам (например, q1, q2)."
+        },
+        "layout": {
+          "label": "Вариант раскладки",
+          "options": {
+            "pill": "Кнопки для таблеток",
+            "image": "Изображение кругов"
+          }
+        }
+      }
+    },
+    "quiz-option": {
+      "name": "Вариант квиза",
+      "settings": {
+        "label": {
+          "label": "Этикетка"
+        },
+        "image": {
+          "label": "Image",
+          "info": "Используется, когда макет вопроса представляет собой круги с изображениями."
+        },
+        "product_matching_header": "Результат продуктов",
+        "strong_match": {
+          "label": "Первичная продукция",
+          "info": "Отображается первым в результатах викторины, когда покупатели выбирают этот ответ."
+        },
+        "partial_match": {
+          "label": "Дополнительные продукты",
+          "info": "Отображается после основных продуктов в результатах викторины."
+        },
+        "exclude": {
+          "label": "Никогда не рекомендовать",
+          "info": "Блокируйте эти продукты в результатах поиска, когда покупатели выбирают этот ответ, даже если они появляются в других ответах."
+        },
+        "skip_questions_header": "Логика вопроса",
+        "skip_questions": {
+          "label": "Пропустить вопросы",
+          "info": "Введите идентификаторы вопросов из вопросов викторины, которые следует пропустить при выборе этого ответа. Пример: q3, q4"
+        }
+      }
+    }
+  }
+}

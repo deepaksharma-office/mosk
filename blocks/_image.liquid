@@ -1,0 +1,145 @@
+{% liquid
+  assign section_st = section.settings
+  assign block_st = block.settings
+  assign image = block_st.image
+  assign section_width = section_st.section_width
+%}
+
+{%- style -%}
+  #shopify-block-{{ block.id }} {
+    --col-width: {{ block_st.width }};
+  }
+{%- endstyle -%}
+
+<div class="multi-content__block--image w-full h-full flex align-{{ block_st.vertical_alignment }}">
+  <div
+    class="banner__media w-full{% if section_st.equal_height_adjustment %} h-full{% endif %} block-image block overflow-hidden"
+  >
+    {%- if block_st.link == blank -%}
+      <div
+        class="block-image rounded block{% if image == blank %} placeholder{% endif %}{% if section_st.equal_height_adjustment %} h-full{% endif %}"
+        aria-label="{{ 'general.image.image_alt_default' | t }}"
+        style=" --aspect-ratio: {{ image.aspect_ratio }}{%- if image == blank -%} 16/9 {%- endif -%};"
+      >
+    {%- else -%}
+      <a
+        class="block-image rounded block{% if image == blank %} placeholder{% endif %}{% if section_st.equal_height_adjustment %} h-full{% endif %}"
+        {% if block_st.link != blank %}
+          href="{{ block_st.link }}"
+        {% else %}
+          role="link"
+        {% endif %}
+        aria-label="{{ 'general.image.image_alt_default' | t }}"
+        style=" --aspect-ratio: {{ image.aspect_ratio }}{%- if image == blank -%} 16/9 {%- endif -%};"
+      >
+    {%- endif -%}
+    {%- if image != blank -%}
+      {%- liquid
+        assign image_alt_default = 'sections.scrolling_text.alt' | t
+        assign image_alt = image.alt | default: image_alt_default | escape
+      -%}
+      {% render 'responsive-image',
+        type: 'other',
+        container: section_width,
+        image: image,
+        image_alt: image_alt,
+        animate: 'zoom-out-small',
+        motion: true
+      %}
+    {%- else -%}
+      {%- render 'placeholder-render', type: 'lifestyle-1', class: 'img-placeholder h-full w-full' -%}
+    {%- endif -%}
+    {%- if block_st.link  == blank -%}
+      </div>
+    {%- else -%}
+      </a>
+    {%- endif -%}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "t:sections.all.image.label",
+  "class": "section__block col-md-w-custom w-full col-md-w-custom-50 switch-slide__mobile",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.all.image.label"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "t:sections.all.content_setting.link.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.multi_content.blocks.label"
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.top"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.middle"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.bottom"
+        }
+      ],
+      "default": "start",
+      "label": "t:sections.image-with-text.settings.vertical_alignment"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "t:sections.all.width.label",
+      "default": "50%",
+      "options": [
+        {
+          "value": "16.666%",
+          "label": "t:sections.footer.settings.width.options__1"
+        },
+        {
+          "value": "20%",
+          "label": "t:sections.footer.settings.width.options__2"
+        },
+        {
+          "value": "25%",
+          "label": "t:sections.footer.settings.width.options__3"
+        },
+        {
+          "value": "33.333%",
+          "label": "t:sections.footer.settings.width.options__4"
+        },
+        {
+          "value": "50%",
+          "label": "t:sections.footer.settings.width.options__5"
+        },
+        {
+          "value": "66.666%",
+          "label": "t:sections.footer.settings.width.options__6"
+        },
+        {
+          "value": "75%",
+          "label": "t:sections.footer.settings.width.options__7"
+        },
+        {
+          "value": "86%",
+          "label": "t:sections.footer.settings.width.options__8"
+        },
+        {
+          "value": "100%",
+          "label": "t:sections.footer.settings.width.options__9"
+        }
+      ]
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.image.label" }]
+}
+{% endschema %}

@@ -1,0 +1,156 @@
+{% liquid
+  assign theme_st = settings
+  assign section_st = section.settings
+  assign block_st = block.settings
+  assign scroll_animation = theme_st.scroll_animation
+  assign type_preset = block_st.type_preset
+  assign scroll_animation = 'disable'
+  assign content_alignment = section_st.text_alignment
+  assign text_alignment_mobile = section_st.text_alignment_mobile
+  assign subheading_parts = block_st.subheading | split: '|'
+%}
+{% capture style %}
+--space-bottom: {{ block.settings.padding_bottom }};--space-top: {{ block.settings.padding_top }};
+
+{% endcapture %}
+
+{% if request.visual_preview_mode %}
+  <div
+    class="block__subheading inline-block"
+    {{ block.shopify_attributes }}
+  >
+    <div class="fs-big-2">{{ block.settings.subheading }}</div>
+  </div>
+{% else %}
+  <div
+    class="block__subheading heading-color w-full mb-custom mt-custom{% if block_st.padding_bottom > 10 %} mb_auto-rsp{% endif %}{% if block_st.padding_top > 10 %} mt_auto-rsp{% endif %} spacing-style {{ type_preset }} subheading_weight flex justify-content-{{ text_alignment_mobile }} justify-content-{{ content_alignment }} flex-md-{{ content_alignment }}"
+    style="{{ style | strip | strip_newlines }}"
+    {{ block.shopify_attributes }}
+  >
+    {%- if scroll_animation != 'disable' -%}
+      <motion-effect
+        data-animate="fade-up"
+        class="block"
+      >
+    {%- endif -%}
+    <div
+      class="rounded-custom w-full"
+      {{ block.shopify_attributes }}
+    >
+      {%- if subheading_parts.size > 1 -%}
+        <p class="inline-flex wrap align-center gap-sp-3">
+          {%- for part in subheading_parts -%}
+            <span>{{ part | strip }}</span>
+            {%- unless forloop.last -%}
+              <span
+                class="inline-block flex-auto w-custom h-custom rounded-50 bg-custom"
+                style="--width: 4px; --height: 4px; --bg-color-custom: currentColor;"
+                aria-hidden="true"
+              ></span>
+            {%- endunless -%}
+          {%- endfor -%}
+        </p>
+      {%- else -%}
+        <p>{{ block.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
+    {%- if scroll_animation != 'disable' -%}
+      </motion-effect>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+{% schema %}
+{
+  "name": "t:sections.all.content_setting.subheading.label",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.all.content_setting.subheading.how_to_use"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "default": "Subheading text",
+      "label": "t:sections.all.content_setting.subheading.label",
+      "info": "t:sections.all.content_setting.subheading.info"
+    },
+    {
+      "type": "header",
+      "content": "t:settings_schema.typography.name"
+    },
+    {
+      "type": "select",
+      "id": "type_preset",
+      "label": "t:sections.custom_section.blocks.heading.label",
+      "options": [
+        {
+          "value": "",
+          "label": "t:sections.custom_section.blocks.heading.default"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.custom_section.blocks.heading.h1"
+        },
+        {
+          "value": "h2",
+          "label": "t:sections.custom_section.blocks.heading.h2"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.custom_section.blocks.heading.h3"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.custom_section.blocks.heading.h4"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.custom_section.blocks.heading.h5"
+        },
+        {
+          "value": "h6",
+          "label": "t:sections.custom_section.blocks.heading.h6"
+        },
+        {
+          "value": "h7",
+          "label": "t:sections.all.content_header.heading_size.options__7.label"
+        },
+        {
+          "value": "fs-small",
+          "label": "t:sections.all.content_header.heading_size.small.label"
+        }
+      ],
+      "default": "h7",
+      "info": "t:sections.custom_section.blocks.heading.info.edit_presets_in_theme_settings"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.page.spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 16
+    }
+  ],
+  "presets": [
+    { "name": "t:sections.all.content_setting.subheading.label", "category": "t:sections.group.blocks.basic" }
+  ]
+}
+{% endschema %}

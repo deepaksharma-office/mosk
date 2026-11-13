@@ -1,0 +1,192 @@
+{%- liquid
+  assign theme_st = settings
+  assign block_st = block.settings
+  assign scroll_animation = theme_st.scroll_animation
+  assign first_button_label = block_st.first_button_label
+  assign first_button_link = block_st.first_button_link
+  assign first_button_type = block_st.first_button_type
+  assign blank_first_button = block_st.blank_first_button
+  assign scroll_animation = 'disable'
+%}
+{% capture style %}
+--space-bottom: {{ block_st.padding_bottom }};--space-top: {{ block_st.padding_top }};--space-left: 0;--space-right: 0;--space-min-left: 0;--space-min-right: 0;
+{%- if block_st.padding_top > 20 -%}--space-min-top: {{ block_st.padding_top | times: 0.67 }};{%- else -%}--space-min-top: {{ block_st.padding_top }};{%- endif -%}
+{%- if block_st.padding_bottom > 20 -%}--space-min-bottom: {{ block_st.padding_bottom | times: 0.67 }};{%- else -%}--space-min-bottom: {{ block_st.padding_bottom }};{%- endif -%}
+{% endcapture %}
+{% if first_button_label != blank %}
+  {%- if scroll_animation != 'disable' -%}
+    <motion-effect
+      data-animate="fade-up"
+      class="block"
+    >
+  {%- endif -%}
+  <div
+    class="flexible-block block__buttons group-block--height group-block--width-{{ block_st.width_block }} group-block--width-mb-{{ block_st.width_block_mobile }} size-style spacing-style switch-slide__mobile"
+    style="
+      {{ style | strip | strip_newlines }};
+      {% render 'size-style', settings: block_st, is_group: true %}
+    "
+    {{ block.shopify_attributes }}
+  >
+    <a
+      {% if first_button_link == blank %}
+        role="link" aria-disabled="true"
+      {% else %}
+        href="{{ first_button_link | default: "#" }}"
+      {% endif %}
+      aria-label="{{ first_button_label }}"
+      class="pointer block text-center btn-{{ first_button_type }}{% if first_button_type == "link" %} align-self-center border-animation{% else %} btn w-full max-w-100{% endif %}"
+      {% if blank_first_button %}
+        target="_blank" rel="noopener"
+      {% endif %}
+    >
+      {{ block.settings.first_button_label }}
+    </a>
+  </div>
+  {%- if scroll_animation != 'disable' -%}
+    </motion-effect>
+  {%- endif -%}
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.all.content_setting.button_label-block.label",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.custom_section.blocks.button.how_to_use"
+    },
+    {
+      "type": "text",
+      "id": "first_button_label",
+      "default": "Button label",
+      "label": "t:sections.all.content_setting.first_button_label.label"
+    },
+    {
+      "type": "url",
+      "id": "first_button_link",
+      "label": "t:sections.all.content_setting.first_button_label.link"
+    },
+    {
+      "type": "select",
+      "id": "first_button_type",
+      "label": "t:sections.all.content_setting.button_type.label",
+      "default": "primary",
+      "options": [
+        {
+          "value": "primary",
+          "label": "t:sections.all.content_setting.button_type.primary.label"
+        },
+        {
+          "value": "outline",
+          "label": "t:sections.all.content_setting.button_type.outline.label"
+        },
+        {
+          "value": "link",
+          "label": "t:sections.all.content_setting.button_type.link.label"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "blank_first_button",
+      "label": "t:sections.all.content_setting.open_link_in_new_tab.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.settings.size.label"
+    },
+    {
+      "type": "select",
+      "id": "width_block",
+      "label": "t:sections.custom_section.blocks.settings.size.width.label",
+      "default": "fit",
+      "options": [
+        {
+          "value": "fit",
+          "label": "t:sections.custom_section.blocks.settings.size.options.options__1.label"
+        },
+        {
+          "value": "fill",
+          "label": "t:sections.custom_section.blocks.settings.size.options.options__2.label"
+        },
+        {
+          "value": "custom",
+          "label": "t:sections.custom_section.blocks.settings.size.options.options__3.label"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "custom_width",
+      "min": 5,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100,
+      "label": "t:sections.custom_section.blocks.settings.size.width.custom_width.label",
+      "visible_if": "{{ block.settings.width_block == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "width_block_mobile",
+      "label": "t:sections.custom_section.blocks.settings.size.mobile_width.label",
+      "default": "fit",
+      "options": [
+        {
+          "value": "fit",
+          "label": "t:sections.custom_section.blocks.settings.size.options.options__1.label"
+        },
+        {
+          "value": "fill",
+          "label": "t:sections.custom_section.blocks.settings.size.options.options__2.label"
+        },
+        {
+          "value": "custom",
+          "label": "t:sections.custom_section.blocks.settings.size.options.options__3.label"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "custom_width_mobile",
+      "min": 5,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100,
+      "label": "t:sections.custom_section.blocks.settings.size.width.custom_width.label",
+      "visible_if": "{{ block.settings.width_block_mobile == 'custom' }}"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.page.spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    { "name": "t:sections.all.content_setting.button_label-block.label", "category": "t:sections.group.blocks.basic" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,4686 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "settings_schema": {
+    "layout": {
+      "name": "Διάταξη",
+      "how_to_use": {
+        "label": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/theme-settings/layout)"
+      },
+      "settings": {
+        "page_width": {
+          "label": "Πλάτος σελίδας"
+        },
+        "site_style": {
+          "label": "Στρογγυλεμένες γωνίες",
+          "image": {
+            "label": "Εικόνα"
+          },
+          "button": {
+            "label": "Γωνιακή ακτίνα κουμπιού"
+          },
+          "input": {
+            "label": "Ακτίνα γωνίας εισόδου"
+          }
+        },
+        "select_preset": {
+          "label": "Επιλέξτε προεπιλογή",
+          "options__1": "Καλλυντικά",
+          "options__2": "Μόδα",
+          "options__3": "Κατοικίδια"
+        }
+      },
+      "rtl_support": {
+        "header": "Υποστήριξη RTL",
+        "enable_rtl": "Ενεργοποιήστε την υποστήριξη RTL",
+        "rtl_language": {
+          "label": "RTL Κωδικός γλώσσας",
+          "info": "Προσδιορίστε τις γλώσσες που χρησιμοποιούν διάταξη RTL εισάγοντας τους κωδικούς ISO τους, διαχωρισμένους με ερωτηματικά. Για παράδειγμα: ar; φά; ku; pa; sd. Εάν αφεθεί κενή, η διάταξη RTL θα εφαρμοστεί σε όλες τις γλώσσες."
+        }
+      }
+    },
+    "logo_favicon": {
+      "name": "Λογότυπο και favicon",
+      "how_to_use": {
+        "label": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/theme-settings/logo-and-favicon)"
+      },
+      "settings": {
+        "favicon": {
+          "label": "Favicon"
+        },
+        "favicon_image": {
+          "label": "Εικόνα Favicon",
+          "info": "32 x 32 px .png συνιστάται"
+        },
+        "logo": {
+          "label": "Λογότυπο",
+          "logo_on_transparent": {
+            "label": "Λογότυπο σε διαφανή κεφαλίδα"
+          }
+        },
+        "logo_width": {
+          "label": "Πλάτος λογότυπου",
+          "info": "Το πλάτος του λογότυπου βελτιστοποιείται αυτόματα για κινητά."
+        }
+      }
+    },
+    "customer_account": {
+      "how_to_use": {
+        "label": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/theme-settings/customer-account)"
+      },
+      "name": "Λογαριασμός πελάτη",
+      "settings": {
+        "customer_account_menu": {
+          "label": "Μενού"
+        },
+        "open_as": {
+          "label": "Άνοιγμα ως",
+          "options": {
+            "popup": "Αναδυόμενο παράθυρο",
+            "link": "Σύνδεσμος"
+          }
+        }
+      }
+    },
+    "colors": {
+      "name": "Χρώματα",
+      "how_to_use": {
+        "label": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/theme-settings/colors)"
+      },
+      "settings": {
+        "palette_header": {
+          "label": "Παλέτα"
+        },
+        "palette_info": {
+          "label": "Καθορίστε τα χρώματα για την παλέτα για ευκολότερη χρήση σε όλο το θέμα"
+        },
+        "general_header": {
+          "label": "Γενικά"
+        },
+        "general_text": {
+          "label": "Κείμενο"
+        },
+        "general_heading": {
+          "label": "Επικεφαλίδα"
+        },
+        "general_link": {
+          "label": "Σύνδεσμος"
+        },
+        "general_border": {
+          "label": "Περίγραμμα"
+        },
+        "background_header": {
+          "label": "Φόντο"
+        },
+        "background": {
+          "label": "Φόντο"
+        },
+        "background_2": {
+          "label": "Υπόβαθρο 2"
+        },
+        "background_gradient": {
+          "label": "Κλίση φόντου",
+          "info": "Η κλίση φόντου αντικαθιστά το φόντο όπου είναι δυνατόν."
+        },
+        "fill_button_header": {
+          "label": "Κουμπί Συμπλήρωσης"
+        },
+        "fill_button_background": {
+          "label": "Φόντο"
+        },
+        "fill_button_text": {
+          "label": "Κείμενο"
+        },
+        "fill_button_background_hover": {
+          "label": "Τοποθετήστε το δείκτη του ποντικιού στο φόντο"
+        },
+        "fill_button_text_hover": {
+          "label": "Τοποθέτηση κειμένου"
+        },
+        "outline_button_header": {
+          "label": "Κουμπί περίγραμμα"
+        },
+        "outline_button_outline": {
+          "label": "Κείμενο"
+        },
+        "outline_button_outline_border": {
+          "label": "Περίγραμμα"
+        }
+      }
+    },
+    "typography": {
+      "name": "Τυπογραφία",
+      "how_to_use": {
+        "label": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)"
+      },
+      "settings": {
+        "font_weight": {
+          "default": "Προεπιλογή",
+          "inline": "Ενσωματωμένη",
+          "regular": "Κανονικό",
+          "medium": "Μεσαίο"
+        },
+        "font_size": "Μέγεθος γραμματοσειράς",
+        "body": {
+          "label": "Σώμα",
+          "font": {
+            "label": "Γραμματοσειρά",
+            "info": "Η επιλογή διαφορετικής γραμματοσειράς μπορεί να επηρεάσει την ταχύτητα του καταστήματός σας. [Μάθετε περισσότερα σχετικά με τις γραμματοσειρές συστήματος.](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "base_size": "Μέγεθος βάσης"
+        },
+        "heading": {
+          "label": "Επικεφαλίδα",
+          "font": {
+            "label": "Γραμματοσειρά",
+            "info": "Η επιλογή διαφορετικής γραμματοσειράς μπορεί να επηρεάσει την ταχύτητα του καταστήματός σας. [Μάθετε περισσότερα σχετικά με τις γραμματοσειρές συστήματος.](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "sub_heading": {
+            "sub_heading_weight": "Βάρος γραμματοσειράς υποτίτλων"
+          },
+          "text_transform": {
+            "label": "Μετασχηματισμός κειμένου",
+            "unset": "Απενεργοποίηση",
+            "capitalize": "Κεφαλαιοποίηση",
+            "uppercase": "Κεφάλαια"
+          },
+          "heading_letter_spacing": {
+            "label": "Απόσταση γραμμάτων"
+          }
+        },
+        "menu": {
+          "label": "Μενού",
+          "font": {
+            "label": "Γραμματοσειρά",
+            "body_font": "Σώμα",
+            "heading_font": "Επικεφαλίδα"
+          },
+          "uppercase": {
+            "label": "Πρώτο επίπεδο κεφαλαίων"
+          }
+        },
+        "button": {
+          "label": "Κουμπί",
+          "font": {
+            "label": "Γραμματοσειρά",
+            "body_font": "Σώμα",
+            "heading_font": "Επικεφαλίδα"
+          }
+        },
+        "text_preset": {
+          "header": "Προεπιλογές κειμένου",
+          "name": {
+            "heading_1": "Επικεφαλίδα 1",
+            "heading_2": "Επικεφαλίδα 2",
+            "heading_3": "Επικεφαλίδα 3",
+            "heading_4": "Επικεφαλίδα 4",
+            "heading_5": "Επικεφαλίδα 5",
+            "heading_6": "Επικεφαλίδα 6"
+          },
+          "settings": {
+            "size": {
+              "label": "Μέγεθος",
+              "18px": "18 px",
+              "20px": "20 px",
+              "22px": "22 px",
+              "24px": "24 px",
+              "26px": "26 εικονοστοιχεία",
+              "30px": "30 px",
+              "36px": "36 px",
+              "40px": "40 px",
+              "46px": "46 px",
+              "50px": "50 εικονοστοιχεία",
+              "56px": "56 px",
+              "60px": "60 px",
+              "80px": "80 εικονοστοιχεία"
+            },
+            "line_height": {
+              "label": "Ύψος γραμμής",
+              "original": "Πρωτότυπο",
+              "small": "Μικρό",
+              "medium": "Μεσαίο",
+              "large": "Μεγάλο",
+              "x_large": "X-μεγάλο"
+            }
+          }
+        }
+      }
+    },
+    "browser_tab_notifications": {
+      "name": "Ειδοποιήσεις καρτέλας προγράμματος περιήγησης",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/theme-settings/browser-tab-notifications)",
+      "settings": {
+        "notification_info": "Αφήστε το κενό για να χρησιμοποιήσετε τον αρχικό τίτλο της σελίδας σας",
+        "enable_browser_tab_notifications": {
+          "label": "Ενεργοποίηση"
+        },
+        "first_notification": {
+          "label": "Πρώτη ειδοποίηση"
+        },
+        "secondary_notification": {
+          "label": "Δευτερεύουσα ειδοποίηση"
+        }
+      }
+    },
+    "animation": {
+      "name": "Κινούμενα σχέδια",
+      "how_to_use": {
+        "label": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/theme-settings/animation)"
+      },
+      "settings": {
+        "scroll_animation": {
+          "label": "Κύλιση κινούμενων εικόνων",
+          "options__1": {
+            "label": "Απενεργοποίηση"
+          },
+          "options__2": {
+            "label": "Μόνο για επιτραπέζιους υπολογιστές"
+          },
+          "options__3": {
+            "label": "Όλες οι οθόνες"
+          }
+        },
+        "enable_loading_page_effect": {
+          "heading": "Εφέ φόρτωσης σελίδας",
+          "label": "Ενεργοποίηση εφέ",
+          "loading": "Εικονίδιο φόρτωσης",
+          "info": "Προτεινόμενο πλάτος εικόνας 100x100px"
+        },
+        "image_lazy_loading": {
+          "label": "Ενεργοποίηση αργής φόρτωσης εικόνας"
+        },
+        "hover_effect": {
+          "label": "Φαινόμενο αιώρησης",
+          "info": "Επηρεάζει τις κάρτες αιώρησης όπως: προϊόν, banner, συλλογή, ιστολόγιο...",
+          "fade_in": "Ξεθωριάστε",
+          "zoom": "Ζουμ"
+        }
+      }
+    },
+    "product": {
+      "name": "Κάρτες προϊόντων",
+      "how_to_use": {
+        "label": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/theme-settings/product-cards)"
+      },
+      "settings": {
+        "enable_quickview": "Ενεργοποίηση γρήγορης προβολής",
+        "enable_quickadd": "Ενεργοποίηση γρήγορης προσθήκης",
+        "enable_color_swatches": "Ενεργοποίηση χρωματικών δειγμάτων",
+        "show_tag": {
+          "hidden": "Κρυφό",
+          "desktop": "Μόνο για επιτραπέζιους υπολογιστές",
+          "all_devices": "Όλες οι οθόνες"
+        },
+        "show_scrolling_text": "Εμφάνιση κυλιόμενου κειμένου",
+        "show_rate": {
+          "label": "Εμφάνιση ποσοστού",
+          "info": "Για να εμφανίσετε μια αξιολόγηση, προσθέστε μια εφαρμογή αξιολόγησης προϊόντος. [Μάθετε περισσότερα](https://help.shopify.com/en/manual/products/product-reviews/installation)"
+        },
+        "alignment": {
+          "label": "Στοίχιση",
+          "left": "Αριστερά",
+          "center": "Κέντρο"
+        },
+        "product_image": {
+          "label": "Εικόνα προϊόντος"
+        },
+        "show_image_hover": {
+          "label": "Εμφάνιση δευτερεύουσας εικόνας"
+        },
+        "show_video_featured": {
+          "label": "Αναπαραγωγή βίντεο στο δείκτη του ποντικιού",
+          "info": "Λειτουργεί μόνο με βίντεο MP4."
+        },
+        "product_image_ratio": {
+          "label": "Αναλογία εικόνας",
+          "adapt_to_image": "Προσαρμογή στην εικόνα",
+          "square": "Τετράγωνο (1:1)",
+          "portrait": "Πορτραίτο (3:4)",
+          "landscape": "Τοπίο (4:3)"
+        },
+        "mobile_options": {
+          "label": "Ρυθμίσεις για κινητά"
+        },
+        "show_quick_add_mobile": {
+          "label": "Εμφάνιση κουμπιού γρήγορης προσθήκης στο κινητό"
+        },
+        "highlights_scrolling_text_metafield": {
+          "label": "Κυλιόμενο κείμενο Μεταπεδίο",
+          "info": "Μεταπεδίο προϊόντος. Εμφανίζεται ως κυλιόμενο κείμενο στις κάρτες προϊόντων. Format: namespace.key. Default: custom.highlights_scrolling_text."
+        }
+      }
+    },
+    "badges": {
+      "name": "Σήματα",
+      "how_to_use": {
+        "label": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/theme-settings/badges)"
+      },
+      "settings": {
+        "badge_color": {
+          "label": "Χρώμα κειμένου"
+        },
+        "show_badge": {
+          "label": "Εμφάνιση σήματος"
+        },
+        "background_color": {
+          "label": "Χρώμα φόντου"
+        },
+        "sale": {
+          "label": "Πώληση",
+          "format": {
+            "label": "Μορφή",
+            "text": "Κείμενο",
+            "percentage": "Ποσοστό",
+            "fixed": "Σταθερό ποσό"
+          }
+        },
+        "new": {
+          "label": "Νέο",
+          "new_badge_display_period": {
+            "label": "Περίοδος εμφάνισης νέου σήματος",
+            "info": "Επιλέξτε για πόσο καιρό τα προϊόντα επισημαίνονται ως \"Νέα\" από την ημέρα δημιουργίας τους."
+          }
+        },
+        "sold_out": {
+          "label": "Εξαντλήθηκε"
+        },
+        "custom_badge": {
+          "label": "Προσαρμοσμένο σήμα",
+          "info": "Ακολουθήστε το έγγραφο για να δείτε [πώς να ρυθμίσετε το προσαρμοσμένο σήμα](https://nextsky.gitbook.io/purity-theme/theme-settings/badges#id-5.-custom-badge)"
+        }
+      }
+    },
+    "color_swatches": {
+      "name": "Δείγματα χρωμάτων",
+      "how_to_use": {
+        "label": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/theme-settings/color-swatch)"
+      },
+      "settings": {
+        "hide_sold_out_variant": {
+          "label": "Απόκρυψη εξαντλημένων παραλλαγών"
+        },
+        "show_sale_in_variant_swatch": {
+          "label": "Εμφάνιση εκπτώσεων σε παραλλαγή δείγματος"
+        },
+        "color_limit": {
+          "label": "Μέγιστα δείγματα προς εμφάνιση"
+        },
+        "color_swatch_trigger": {
+          "label": "Σανδάλη δείγματος χρώματος",
+          "info": "Ορίστε το όνομα της επιλογής χρώματος. Διαχωρίστε με κόμμα. Π.χ. Χρώμα, Χρώμα"
+        },
+        "color_swatch_type": {
+          "label": "Τύπος δείγματος",
+          "options__1": {
+            "label": "Εικόνα παραλλαγής"
+          },
+          "options__2": {
+            "label": "Χρώμα"
+          }
+        },
+        "color_swatch_shape": {
+          "label": "Σχήμα χρώματος",
+          "options__1": {
+            "label": "Γύρος"
+          },
+          "options__2": {
+            "label": "Τετράγωνο"
+          }
+        },
+        "color_swatch_custom": {
+          "label": "Προσαρμοσμένα χρώματα",
+          "info": "Έγκυρη μορφή: Muesli: #ddd5bc ή Muesli: image.png ξεχωριστά με κόμμα"
+        }
+      }
+    },
+    "cart": {
+      "name": "Καλάθι",
+      "how_to_use": {
+        "label": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/theme-settings/cart)"
+      },
+      "settings": {
+        "cart_action_desktop": {
+          "label": "Ενέργεια μετά την προσθήκη καλαθιού στην επιφάνεια εργασίας",
+          "drawer": "Συρτάρι",
+          "page": "Σελίδα"
+        },
+        "cart_mobile": {
+          "label": "Ρυθμίσεις για κινητά",
+          "action": {
+            "label": "Ενέργεια μετά την προσθήκη καλαθιού",
+            "info": "Επιλέξτε τι θα συμβεί αφού ένας πελάτης προσθέσει ένα προϊόν στο καλάθι από κινητό.",
+            "option_1": "Ανοίξτε το μίνι καλάθι",
+            "option_2": "Μήνυμα ειδοποίησης",
+            "option_3": "Ανοίξτε το καλάθι μία φορά, ειδοποιήστε μετά"
+          },
+          "open_cart": {
+            "label": "Άνοιγμα καλαθιού ως",
+            "info": "Επιλέξτε πώς ανοίγει το καλάθι όταν πατάτε το εικονίδιο του καλαθιού στην κεφαλίδα και τη γραμμή πλοήγησης για κινητά.",
+            "option_1": "Συρτάρι",
+            "option_2": "Αναδυόμενο παράθυρο"
+          }
+        },
+        "free_shipping": {
+          "label": "Μήνυμα δωρεάν αποστολής",
+          "paragraph": "Βεβαιωθείτε ότι έχετε διαμορφώσει σωστά τις [τιμές αποστολής] (/admin/settings/shipping)",
+          "message": {
+            "label": "Μήνυμα",
+            "info": "Χρησιμοποιήστε το [ποσό] για να παρακολουθήσετε την πρόοδό σας για να πληροίτε τις προϋποθέσεις για δωρεάν αποστολή."
+          },
+          "minimum_amount": {
+            "label": "Δωρεάν αποστολή ελάχιστο ποσό",
+            "info": "Χρησιμοποιήστε στρογγυλούς αριθμούς. Εξαιρέστε το νόμισμα, τα σύμβολα και τα γράμματα."
+          }
+        },
+        "term_and_conditions": {
+          "label": "Όροι και προϋποθέσεις",
+          "enable": "Εμφάνιση πλαισίου ελέγχου στο μίνι καλάθι και στη σελίδα καλαθιού.",
+          "text": "Κείμενο"
+        },
+        "cart_count_down": {
+          "label": "Καλάθι αντίστροφη μέτρηση",
+          "show_duration": {
+            "label": "Εμφάνιση στη σελίδα μίνι καλαθιού και καλαθιού"
+          },
+          "duration": {
+            "label": "Διάρκεια"
+          }
+        },
+        "product_recommendations": {
+          "label": "Προτάσεις προϊόντων",
+          "heading": "Επικεφαλίδα",
+          "enable_product_recommendations": "Ενεργοποίηση προτάσεων προϊόντων",
+          "enable_product_recommendations_info": "Οι προτάσεις προϊόντων θα εμφανίζονται στη σελίδα μίνι καλαθιού και καλαθιού.",
+          "recommendation_product_type": {
+            "label": "Τύπος προτάσεων προϊόντος",
+            "auto": "Αυτόματο",
+            "selected": "Επιλέχτηκε"
+          },
+          "select_product_recommendation": "Προϊόν",
+          "show_on_mobile": {
+            "label": "Εμφάνιση στο κινητό"
+          }
+        },
+        "gift_wrap": {
+          "label": "Συσκευασία δώρου προϊόντος",
+          "select_product_gift_wrap": {
+            "label": "Προϊόν",
+            "info": "Λειτουργεί μόνο με προϊόντα χωρίς παραλλαγές."
+          }
+        },
+        "empty": {
+          "label": "Άδειες ρυθμίσεις καλαθιού",
+          "heading": "Επικεφαλίδα",
+          "description": "Περιγραφή",
+          "collection": {
+            "label": "Λίστα συλλογής\nΟι ",
+            "info": "Συλλογές θα εμφανίζουν την επιλεγμένη εικόνα τους από προεπιλογή. Χρησιμοποιήστε το μεταπεδίο για να αλλάξετε εικόνα και κείμενο. Μάθετε περισσότερα"
+          },
+          "button_text": "Ετικέτα κουμπιού",
+          "button_link": {
+            "label": "Σύνδεσμος κουμπιού",
+            "info": "Η προεπιλογή είναι η σελίδα συλλογής όλων"
+          },
+          "free_shipping": {
+            "label": "Μήνυμα δωρεάν αποστολής"
+          },
+          "empty_cart_layout": {
+            "label": "Άδεια διάταξη καλαθιού",
+            "option_1": "Λίστα",
+            "option_2": "Πλέγμα"
+          },
+          "collection_metafield": {
+            "label": "Συλλογή κενού καλαθιού Μεταπεδίο",
+            "info": "Μεταπεδίο συλλογής. (metaobject) για εικόνα και περιγραφή κενού καλαθιού. Format: namespace.key. Default: custom.collection_empty. Fields: collection_image, collection_description."
+          }
+        },
+        "discount_progress_bar": {
+          "label": "Γραμμή προόδου έκπτωσης",
+          "paragraph": "Εμφανίστε έως 3 ορόσημα δαπανών στο καλάθι. Βεβαιωθείτε ότι έχει δημιουργηθεί αντίστοιχος κωδικός έκπτωσης ή αυτόματη έκπτωση στο [διαχειριστικό Shopify.](/admin/discounts)",
+          "currency_info": "Εισαγάγετε τα ποσά των οροσήμων στο προεπιλεγμένο νόμισμα του καταστήματός σας. Μετατρέπονται αυτόματα για τα τοπικά νομίσματα.",
+          "enable": {
+            "label": "Ενεργοποίηση γραμμής προόδου έκπτωσης",
+            "info": "Όταν είναι ενεργοποιημένη, αντικαθιστά την ενιαία γραμμή δωρεάν αποστολής παραπάνω στο συρτάρι καλαθιού και στη σελίδα καλαθιού."
+          },
+          "milestone_1": {
+            "label": "Ορόσημο 1"
+          },
+          "milestone_2": {
+            "label": "Ορόσημο 2"
+          },
+          "milestone_3": {
+            "label": "Ορόσημο 3"
+          },
+          "milestone": {
+            "amount": {
+              "label": "Όριο",
+              "info": "Χρησιμοποιήστε στρογγυλούς αριθμούς χωρίς σύμβολα νομίσματος ή γράμματα."
+            },
+            "label_text": {
+              "label": "Ετικέτα"
+            },
+            "icon": {
+              "label": "Εικονίδιο",
+              "option_none": "Κανένα",
+              "option_tag": "Ετικέτα",
+              "option_truck": "Φορτηγό",
+              "option_box": "Κουτί"
+            }
+          },
+          "message": {
+            "text": {
+              "label": "Μήνυμα προόδου",
+              "info": "Χρησιμοποιήστε τα [amount] και [label] για να εμφανίσετε το υπόλοιπο ποσό και την ετικέτα της επόμενης ανταμοιβής."
+            },
+            "success": {
+              "label": "Μήνυμα όταν έχουν επιτευχθεί όλα τα ορόσημα"
+            }
+          }
+        }
+      }
+    },
+    "search": {
+      "name": "Συμπεριφορά αναζήτησης",
+      "how_to_use": {
+        "label": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/theme-settings/search-behavior)"
+      },
+      "settings": {
+        "type": {
+          "label": "Τύπος",
+          "info": "Το συρτάρι είναι η προεπιλεγμένη διάταξη στο κινητό.",
+          "option_1": "Αναδυόμενο παράθυρο",
+          "option_2": "Συρτάρι",
+          "option_3": "Γραμμή αναζήτησης"
+        },
+        "search_placeholder": {
+          "label": "Αναζήτηση κράτησης θέσης"
+        },
+        "speech_search": {
+          "label": "Φωνητική αναζήτηση",
+          "enable": {
+            "label": "Ενεργοποίηση φωνητικής αναζήτησης"
+          }
+        },
+        "search_results": {
+          "label": "Εμφάνιση αποτελεσμάτων",
+          "option_1": "Προεπιλογή",
+          "option_2": "Καρτ"
+        },
+        "recommendations": {
+          "popular_keywords": {
+            "label": "Δημοφιλής αναζήτηση",
+            "info": "Προτείνετε δημοφιλείς λέξεις-κλειδιά που αναζητήσατε στο κατάστημά σας στους πελάτες. Για παράδειγμα: μπλουζάκι, φόρεμα, μαύρο."
+          },
+          "products_recommended": {
+            "label": "Σύσταση προϊόντων",
+            "info": "Επιλέξτε ένα προϊόν για να το προτείνετε στους πελάτες."
+          },
+          "collections_recommended": {
+            "label": "Σύσταση συλλογών"
+          }
+        },
+        "results": {
+          "label": "Αποτελέσματα αναζήτησης"
+        },
+        "predictive_search": {
+          "label": "Ενεργοποίηση προγνωστικής αναζήτησης",
+          "info": "Ζωντανά αποτελέσματα αναζήτησης. Δεν είναι διαθέσιμο σε όλες τις γλώσσες. [Μάθετε περισσότερα](https://shopify.dev/themes/navigation-search/search/predictive-search#general-requirements-and-limitations)"
+        },
+        "show_search_history": {
+          "label": "Εμφάνιση ιστορικού αναζήτησης"
+        },
+        "show_price": {
+          "label": "Εμφάνιση τιμής προϊόντος"
+        }
+      }
+    },
+    "social_media": {
+      "name": "Μέσα κοινωνικής δικτύωσης",
+      "how_to_use": {
+        "label": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/theme-settings/social-media)"
+      },
+      "settings": {
+        "social_account": {
+          "label": "Λογαριασμοί κοινωνικής δικτύωσης",
+          "facebook": {
+            "label": "Facebook",
+            "info": "https://facebook.com/shopify"
+          },
+          "instagram": {
+            "label": "Instagram",
+            "info": "http://instagram.com/shopify"
+          },
+          "twitter": {
+            "label": "Twitter",
+            "info": "https://twitter.com/shopify"
+          },
+          "tiktok": {
+            "label": "Τικ Τοκ",
+            "info": "https://tiktok.com/@shopify"
+          },
+          "pinterest": {
+            "label": "Pinterest",
+            "info": "https://pinterest.com/shopify"
+          },
+          "youtube": {
+            "label": "Youtube",
+            "info": "https://www.youtube.com/shopify"
+          },
+          "vimeo": {
+            "label": "Vimeo",
+            "info": "https://vimeo.com/shopify"
+          },
+          "linkedin": {
+            "label": "Linkedin",
+            "info": "https://linkedin.com/company/shopify"
+          },
+          "whatsapp": {
+            "label": "Καλέστε στο Τηλέφωνο",
+            "info": "https://www.whatsapp.com/shopify"
+          },
+          "snapchat": {
+            "label": "Snapchat",
+            "info": "https://www.snapchat.com/add/shopify"
+          }
+        },
+        "sharing_options": {
+          "label": "Επιλογές κοινής χρήσης",
+          "facebook": {
+            "label": "Κοινοποίηση στο Facebook"
+          },
+          "pinterest": {
+            "label": "Κοινοποίηση στο Pinterest"
+          },
+          "twitter": {
+            "label": "Κοινοποίηση στο Twitter"
+          },
+          "whatsapp": {
+            "label": "Κοινοποίηση στο WhatsApp"
+          },
+          "email": {
+            "label": "Κοινοποίηση στο email"
+          }
+        }
+      }
+    },
+    "currency": {
+      "name": "Μορφή νομίσματος",
+      "how_to_use": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/theme-settings/currency-format)",
+      "settings": {
+        "code": {
+          "label": "Κωδικοί νομισμάτων",
+          "show_code": {
+            "label": "Εμφάνιση κωδικών νομισμάτων",
+            "info": "Οι τιμές στο καλάθι και στο ταμείο εμφανίζουν πάντα κωδικούς νομισμάτων. Παράδειγμα: $1,00 USD."
+          }
+        }
+      }
+    },
+    "script_tracking": {
+      "name": "Παρακολούθηση & Insights",
+      "settings": {
+        "how_to_use": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/theme-settings/tracking-and-insights)",
+        "scripts_tracking": {
+          "label": "Απόσπασμα κώδικα",
+          "info": "Προσθέστε το απόσπασμα του κώδικα για παρακολούθηση και πληροφορίες"
+        },
+        "appended_scripts": {
+          "label": "Η θέση προστέθηκε",
+          "body": "Ετικέτα σώματος",
+          "head": "Ετικέτα κεφαλής"
+        }
+      }
+    }
+  },
+  "content": {
+    "manage_customer_accounts": "[Διαχείριση ορατότητας](/admin/settings/customer_accounts) στις ρυθμίσεις λογαριασμού πελάτη. Οι λογαριασμοί παλαιού τύπου δεν υποστηρίζονται."
+  },
+  "sections": {
+    "all": {
+      "general": "Γενικά",
+      "layout": {
+        "label": "Πλάτος τομής",
+        "fix_width": "Σταθερό πλάτος",
+        "stretch_width": "Πλάτος τεντώματος",
+        "full_width": "Πλήρο πλάτος"
+      },
+      "colors": {
+        "label": "Χρωματικός συνδυασμός",
+        "info": "Για να επεξεργαστείτε όλα τα χρώματα του θέματός σας, μεταβείτε στις [ρυθμίσεις θέματος χρώματος](/editor?context=theme&category=colors). Εξασφαλίστε καθαρή αντίθεση κειμένου για καλύτερη εμπειρία χρήστη."
+      },
+      "desktop_content_position": {
+        "label": "Θέση περιεχομένου στην επιφάνεια εργασίας",
+        "info": "Η θέση βελτιστοποιείται αυτόματα για κινητά.",
+        "info_2": "Το περιεχόμενο πρώτα είναι η προεπιλεγμένη διάταξη για κινητά.",
+        "group": {
+          "top": {
+            "label": "Επάνω"
+          },
+          "middle": {
+            "label": "Μέση"
+          },
+          "bottom": {
+            "label": "Κάτω"
+          }
+        },
+        "options__1": {
+          "label": "Επάνω αριστερά"
+        },
+        "options__2": {
+          "label": "Κορυφαίο κέντρο"
+        },
+        "options__3": {
+          "label": "Επάνω δεξιά"
+        },
+        "options__4": {
+          "label": "Μέση αριστερά"
+        },
+        "options__5": {
+          "label": "Μεσαίο κέντρο"
+        },
+        "options__6": {
+          "label": "Μέση δεξιά"
+        },
+        "options__7": {
+          "label": "Κάτω αριστερά"
+        },
+        "options__8": {
+          "label": "Κάτω κέντρο"
+        },
+        "options__9": {
+          "label": "Κάτω δεξιά"
+        }
+      },
+      "padding": {
+        "section_padding_heading": "Γέμισμα ενότητας",
+        "padding_inline": {
+          "label": "Ενσωματωμένη συμπλήρωση",
+          "info": "Η ενσωματωμένη συμπλήρωση βελτιστοποιείται αυτόματα για κινητά."
+        },
+        "padding_block": {
+          "label": "Μπλοκ συμπλήρωσης",
+          "info": "Το μπλοκ συμπλήρωσης βελτιστοποιείται αυτόματα για κινητά."
+        },
+        "padding_top": "Επάνω",
+        "padding_bottom": "Κάτω",
+        "spacing_bottom": "Διάστημα κάτω",
+        "image_spacing": " Διάστημα εικόνας",
+        "space_between": "Διάστημα μεταξύ",
+        "column_gap": {
+          "label": "Κενό στηλών",
+          "no_gap": "Κανένα κενό",
+          "small": "Μικρό",
+          "medium": "Μεσαίο",
+          "large": "Μεγάλο",
+          "x_large": "X-μεγάλο"
+        }
+      },
+      "space_between": {
+        "label": "Κενό μεταξύ στοιχείων"
+      },
+      "width": {
+        "label": "Πλάτος",
+        "fill": "Γέμισμα",
+        "fit": "Κατάλληλος"
+      },
+      "columns": {
+        "label": "Αριθμός στηλών"
+      },
+      "items_to_show": {
+        "label": "Μέγιστα στοιχεία προς εμφάνιση"
+      },
+      "product_to_show": {
+        "label": "Μέγιστα προϊόντα προς εμφάνιση"
+      },
+      "text_alignment": {
+        "label": "Στοίχιση περιεχομένου",
+        "alignment": "Στοίχιση",
+        "options__1": {
+          "label": "Αριστερά"
+        },
+        "options__2": {
+          "label": "Κέντρο"
+        },
+        "options__3": {
+          "label": "Δεξιά"
+        }
+      },
+      "content": {
+        "label": "Περιεχόμενο"
+      },
+      "text": {
+        "label": "Κείμενο"
+      },
+      "content_position": {
+        "label": "Θέση περιεχομένου",
+        "options__1": {
+          "label": "Εικόνα επικάλυψης",
+          "top": "Επάνω",
+          "middle": "Μέση",
+          "bottom": "Κάτω",
+          "text_above_button": "Κείμενο πάνω από το κουμπί"
+        },
+        "options__2": {
+          "label": "Κάτω εικόνα"
+        }
+      },
+      "section_setting": {
+        "page_heading": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "description": {
+            "label": "Περιεχόμενο"
+          },
+          "heading": {
+            "label": "Τίτλος"
+          },
+          "breadcrumb": {
+            "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/breadcrumb)",
+            "label": "Φρυγανιά"
+          }
+        },
+        "enable_rounded_style": {
+          "label": "Ενεργοποίηση στρογγυλεμένου στυλ"
+        }
+      },
+      "content_setting": {
+        "label": "Ρυθμίσεις περιεχομένου",
+        "image": {
+          "label": "Εικόνα"
+        },
+        "subheading": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "Υποτίτλος",
+          "info": "Διαχωρίστε κάθε στοιχείο κειμένου με μια κάθετη γραμμή (|) για να εμφανίσετε μια κουκκίδα μεταξύ των στοιχείων."
+        },
+        "highlight_text": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/highlight-text)",
+          "label": "Επισήμανση κειμένου",
+          "settings": {
+            "icons": {
+              "label": "Εικονίδιο επιλογής",
+              "options__1": {
+                "label": "Κανένα"
+              },
+              "options__2": {
+                "label": "Αστέρι"
+              },
+              "options__3": {
+                "label": "Τελεία"
+              }
+            }
+          }
+        },
+        "heading": {
+          "label": "Επικεφαλίδα",
+          "info": "Προσθέστε μια υπογράμμιση τυλίγοντας κείμενο με πλάγια γράμματα. Χρησιμοποιήστε το κουμπί Πλάγια (I) στο πρόγραμμα επεξεργασίας για να το εφαρμόσετε."
+        },
+        "heading_highlight": {
+          "label": "Κείμενο επισήμανσης επικεφαλίδας",
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading-highlight-text)"
+        },
+        "detail_list": {
+          "label": "Λίστα λεπτομερειών",
+          "detail_row": {
+            "label": "Σειρά λεπτομερειών",
+            "row_title": "Τίτλος σειράς",
+            "row_details": "Λεπτομέρειες σειράς"
+          },
+          "layout": {
+            "label": "Διάταξη",
+            "specifications": "Προδιαγραφές",
+            "information_cards": "Κάρτες πληροφοριών"
+          }
+        },
+        "description": {
+          "label": "Περιγραφή",
+          "hide_on_mobile": {
+            "label": "Απόκρυψη περιγραφής στο κινητό"
+          },
+          "description": "Εμφανίστε την περιγραφή του προϊόντος σας. Χρησιμοποιεί το μεταπεδίο σύντομης περιγραφής εάν είναι διαθέσιμο, διαφορετικά επιστρέφει στην προεπιλεγμένη περιγραφή προϊόντος. Για περισσότερες πληροφορίες επισκεφτείτε τη [Σελίδα Υποστήριξης](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-7.-description)."
+        },
+        "content": "Περιεχόμενο",
+        "button_label": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "Ετικέτα κουμπιού",
+          "info": "Αφήστε την ετικέτα κενή για να κρύψετε το κουμπί."
+        },
+        "button_label-block": {
+          "name": "Ετικέτα",
+          "label": "Κουμπί"
+        },
+        "link": {
+          "label": "Σύνδεσμος",
+          "info": "Σημείωση: Αυτή η ρύθμιση συνδέσμου λειτουργεί μόνο για εικόνες και όχι για βίντεο."
+        },
+        "first_button_label": {
+          "name": "Πρώτο κουμπί",
+          "label": "Ετικέτα κουμπιού",
+          "link": "Σύνδεσμος κουμπιού"
+        },
+        "second_button_label": {
+          "name": "Δεύτερο κουμπί",
+          "label": "Ετικέτα κουμπιού",
+          "link": "Σύνδεσμος κουμπιού"
+        },
+        "button_type": {
+          "label": "Τύπος",
+          "primary": {
+            "label": "Πρωτοβάθμια"
+          },
+          "outline": {
+            "label": "Περίγραμμα"
+          },
+          "link": {
+            "label": "Σύνδεσμος"
+          }
+        },
+        "show_view_all_button": {
+          "label": "Κουμπί Εμφάνιση προβολής όλων",
+          "label_text": "Ετικέτα κουμπιού",
+          "default_text": "Προβολή όλων των προϊόντων",
+          "default": "Προβολή όλων"
+        },
+        "open_link_in_new_tab": {
+          "label": "Άνοιγμα συνδέσμου σε νέα καρτέλα"
+        },
+        "drawn_underline": {
+          "label": "Ενεργοποίηση κινούμενης εικόνας υπογράμμισης επικεφαλίδας",
+          "type": "Υπογράμμιση στυλ",
+          "value": {
+            "simple_underline": "Απλή υπογράμμιση",
+            "curve_underline": "Καμπύλη διαδρομή",
+            "squiggle_underline": "Squiggle υπογράμμιση"
+          },
+          "color": "Χρώμα υπογράμμισης"
+        },
+        "metrics": {
+          "label": "Μετρικές",
+          "item": {
+            "label": "Στοιχείο μετρικής",
+            "value": "Τιμή",
+            "description": "Ετικέτα"
+          }
+        },
+        "citation": {
+          "label": "Παραπομπή"
+        },
+        "heading_block_highlight": {
+          "label": "Ενεργοποίηση επισήμανσης επικεφαλίδας",
+          "info": "Προσθέστε επισήμανση βάζοντας το κείμενο σε πλάγια. Χρησιμοποιήστε το κουμπί Πλάγια (I) στον επεξεργαστή.",
+          "type": "Στυλ επισήμανσης",
+          "text_highlight": "Επισήμανση κειμένου",
+          "color": "Χρώμα επισήμανσης"
+        }
+      },
+      "content_header": {
+        "label": "Κεφαλίδα ενότητας",
+        "heading_size": {
+          "label": "Μέγεθος επικεφαλίδας",
+          "size": "Μέγεθος",
+          "xs_small": {
+            "label": "XS-Μικρό"
+          },
+          "x_small": {
+            "label": "X-Μικρό"
+          },
+          "small": {
+            "label": "Μικρό"
+          },
+          "large": {
+            "label": "Μεγάλο"
+          },
+          "x_large": {
+            "label": "X-μεγάλο"
+          },
+          "base": {
+            "label": "Μέγεθος βάσης"
+          },
+          "options__1": {
+            "label": "Επικεφαλίδα 1"
+          },
+          "options__2": {
+            "label": "Επικεφαλίδα 2"
+          },
+          "options__3": {
+            "label": "Επικεφαλίδα 3"
+          },
+          "options__4": {
+            "label": "Επικεφαλίδα 4"
+          },
+          "options__5": {
+            "label": "Επικεφαλίδα 5"
+          },
+          "options__7": {
+            "label": "Επικεφαλίδα 7"
+          },
+          "options__0": {
+            "label": "Επικεφαλίδα 0"
+          }
+        }
+      },
+      "blog_setting": {
+        "show_category": "Εμφάνιση κατηγορίας",
+        "show_tags": "Εμφάνιση ετικετών",
+        "show_date": "Εμφάνιση ημερομηνίας",
+        "show_author": "Εμφάνιση συγγραφέα",
+        "show_excerpt": "Εμφάνιση αποσπασμάτων"
+      },
+      "media": {
+        "label": "Τύπος"
+      },
+      "image": {
+        "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/image)",
+        "label": "Εικόνα",
+        "image_setting": "Ρυθμίσεις εικόνας",
+        "width": "Πλάτος εικόνας",
+        "info_width": "Η εικόνα βελτιστοποιείται αυτόματα για κινητά.",
+        "mobile_image": "Εικόνα για κινητά",
+        "mobile_image_width": "Πλάτος εικόνας για κινητά",
+        "aspect_ratio": {
+          "label": "Αναλογία εικόνας",
+          "label_mb": "Αναλογία εικόνας σε κινητό",
+          "label_video": "Αναλογία βίντεο",
+          "options__1": "Τετράγωνο (1:1)",
+          "options__2": "Πορτραίτο (3:4)",
+          "options__3": "Τοπίο (4:3)",
+          "options__4": "Ίδιο με την επιφάνεια εργασίας",
+          "adapt": "Προσαρμογή στην εικόνα"
+        },
+        "desktop_position": {
+          "label": "Θέση εικόνας στην επιφάνεια εργασίας",
+          "top": "Επάνω",
+          "right": "Δεξιά",
+          "bottom": "Κάτω",
+          "left": "Αριστερά",
+          "info": "Η εικόνα θα εμφανίζεται πάνω από το κείμενο στο κινητό."
+        },
+        "desktop_image_width": {
+          "label": "Πλάτος εικόνας επιφάνειας εργασίας"
+        }
+      },
+      "video": {
+        "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)",
+        "label": "Βίντεο",
+        "info": "Αντικαθιστά τη ρύθμιση εικόνας",
+        "settings": {
+          "source": {
+            "label": "Πηγή",
+            "uploaded_video": {
+              "label": "Τοπικό βίντεο"
+            },
+            "external_link": {
+              "label": "Εξωτερικός σύνδεσμος βίντεο"
+            }
+          }
+        },
+        "width": "Πλάτος βίντεο",
+        "width_unit_type": {
+          "label": "Τύπος μονάδας πλάτους",
+          "options": {
+            "percent": {
+              "label": "Ποσοστό (%)"
+            },
+            "px": {
+              "label": "Pixel (px)"
+            }
+          }
+        }
+      },
+      "video_mobile": {
+        "label": "Βίντεο κινητό"
+      },
+      "svg": {
+        "label": "Εικονίδιο Svg",
+        "custom_svg": {
+          "label": "Προσαρμοσμένο svg",
+          "info": "Αντικαθιστά τη ρύθμιση εικόνας."
+        }
+      },
+      "icon": {
+        "none": {
+          "label": "Κανένα"
+        },
+        "cruelty": {
+          "label": "Σκληρότητα"
+        },
+        "paraben": {
+          "label": "Parabens"
+        },
+        "privacy-protection": {
+          "label": "Προστασία απορρήτου"
+        },
+        "secure-shopping": {
+          "label": "Ασφαλείς αγορές"
+        },
+        "guarantee": {
+          "label": "Εγγύηση"
+        },
+        "account": {
+          "label": "Λογαριασμός"
+        },
+        "leaf": {
+          "label": "Φύλλο"
+        },
+        "moon": {
+          "label": "Σελήνη"
+        },
+        "hive": {
+          "label": "Κυψέλη"
+        },
+        "comb": {
+          "label": "Χτεν"
+        },
+        "free_shipping": {
+          "label": "Δωρεάν αποστολή"
+        },
+        "check_badge": {
+          "label": "Σήμα ελέγχου"
+        },
+        "message_communications": {
+          "label": "Επικοινωνία μηνυμάτων"
+        },
+        "circular-text": {
+          "label": "Κυκλικό κείμενο"
+        },
+        "beauty": {
+          "label": "Πρόσωπο"
+        },
+        "line": {
+          "label": "Γραμμή"
+        },
+        "droplet": {
+          "label": "Σταγονίδιο"
+        },
+        "smooth": {
+          "label": "Λεία"
+        },
+        "shield": {
+          "label": "Ασπίδα"
+        },
+        "balloon": {
+          "label": "Μπαλόνι"
+        },
+        "brightening": {
+          "label": "Λάμψη"
+        },
+        "hydration": {
+          "label": "Ενυδάτωση"
+        },
+        "coptic_cross": {
+          "label": "Κοπτικός σταυρός"
+        },
+        "coil": {
+          "label": "Πηνίο"
+        },
+        "verified": {
+          "label": "Επαληθεύτηκε"
+        },
+        "security": {
+          "label": "Ασφάλεια"
+        },
+        "package": {
+          "label": "Πακέτο"
+        },
+        "cat": {
+          "label": "Γάτα"
+        }
+      },
+      "carousel": {
+        "header": "Ρυθμίσεις καρουζέλ",
+        "enable_carousel": {
+          "label": "Ενεργοποίηση καρουζέλ\nΤο ",
+          "description": "Carousel εμφανίζεται μόνο όταν οι συνολικές συλλογές είναι μεγαλύτερες από τα στοιχεία ανά σειρά στην επιφάνεια εργασίας.\nΤο "
+        },
+        "show_navigation": {
+          "label": "Εμφάνιση πλοήγησης"
+        },
+        "show_pagination": {
+          "label": "Εμφάνιση σελιδοποίησης",
+          "info": "Η σελιδοποίηση θα εμφανίζεται αυτόματα στο κινητό εάν εμφανίσετε τον αριθμό των στοιχείων στο κινητό ως 1 ή 2",
+          "info_single": "Η σελιδοποίηση θα εμφανίζεται αυτόματα στο κινητό.",
+          "type": {
+            "label": "Στυλ σελιδοποίησης",
+            "progress_bar": "Γραμμή προόδου",
+            "dot": "Τελεία"
+          }
+        },
+        "reveal_slide": {
+          "label": "Αποκάλυψη της επόμενης διαφάνειας",
+          "info": "Προβολή μέρους της επερχόμενης διαφάνειας."
+        },
+        "enable_carousel_mobile": {
+          "label": "Ενεργοποίηση καρουζέλ σε κινητό"
+        },
+        "change_slide_every": "Αλλάξτε τις διαφάνειες κάθε φορά",
+        "slide_auto_change": "Αυτόματη αλλαγή διαφάνειας"
+      },
+      "mobile_options": {
+        "label": "Ρυθμίσεις για κινητά",
+        "mobile_layout": {
+          "label": "Διάταξη κινητού",
+          "show_text_bellow": {
+            "label": "Εμφάνιση κειμένου παρακάτω σε κινητό",
+            "info": "Το κείμενο θα εμφανίζεται κάτω από την εικόνα σε κινητό."
+          },
+          "hidden_description_on_mobile": {
+            "label": "Απόκρυψη περιγραφής στο κινητό"
+          }
+        }
+      },
+      "items": {
+        "items_per_row": "Στοιχεία ανά σειρά",
+        "items_per_row_mobile": "Στοιχεία ανά σειρά σε κινητά"
+      },
+      "columns_desktop": {
+        "label": "Στοιχεία ανά σειρά στην επιφάνεια εργασίας"
+      },
+      "newsletter_setting": {
+        "email_placeholder": "Σύστημα κράτησης θέσης ηλεκτρονικού ταχυδρομείου",
+        "button_label": "Ετικέτα κουμπιού"
+      },
+      "pagination_type": {
+        "label": "Τύπος σελιδοποίησης",
+        "options__1": {
+          "label": "Αριθμός σελίδας"
+        },
+        "options__2": {
+          "label": "Κουμπί φόρτωσης περισσότερων"
+        },
+        "options__3": {
+          "label": "Άπειρη κύλιση"
+        }
+      },
+      "product_setting": {
+        "badges": {
+          "name": "Σήματα"
+        },
+        "notify": {
+          "name": "Ειδοποιήστε το νέο απόθεμα προϊόντος"
+        },
+        "live_view": {
+          "name": "Ζωντανή προβολή",
+          "settings": {
+            "min_number": "Ελάχιστος αριθμός",
+            "max_number": "Μέγ",
+            "interval_time": "Χρόνος μεσοδιαστήματος",
+            "content": "Περιεχόμενο",
+            "show_icon_eye": {
+              "label": "Εμφάνιση εικονιδίου"
+            }
+          },
+          "info": "Προομοιώνει τη δραστηριότητα προϊόντος εμφανίζοντας πλήθος προβολών ζωντανών προβολών, συμβάλλοντας στην ενίσχυση της επείγουσας ανάγκης, της κοινωνικής απόδειξης και των ποσοστών μετατροπών."
+        },
+        "shop_the_look": {
+          "name": "Αγοράστε την εμφάνιση",
+          "settings": {
+            "heading": {
+              "label": "Επικεφαλίδα"
+            }
+          },
+          "description": "Προτείνετε σχετικά προϊόντα για να ολοκληρώσετε την εμφάνιση. Για περισσότερες πληροφορίες επισκεφτείτε τη [Σελίδα Υποστήριξης](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)"
+        },
+        "stock_countdown": {
+          "name": "Αντίστροφη μέτρηση μετοχών",
+          "settings": {
+            "message": {
+              "label": "Μήνυμα",
+              "info": "Χρησιμοποιήστε σύντομο κωδικό [count] για να εμφανίσετε την υπόλοιπη ποσότητα προϊόντων σε απόθεμα. Μπορείτε να αφαιρέσετε ή να τοποθετήσετε αυτόν τον σύντομο κωδικό οπουδήποτε"
+            },
+            "stock_items": {
+              "label": "Αποθέματα",
+              "info": "Εμφάνιση όταν υπάρχουν λιγότερα από (X) είδη σε απόθεμα"
+            }
+          }
+        },
+        "product_meta": {
+          "name": "Meta προϊόντος",
+          "settings": {
+            "show_sku": {
+              "label": "Εμφάνιση SKU"
+            },
+            "show_collections": {
+              "label": "Εμφάνιση συλλογών"
+            },
+            "show_tags": {
+              "label": "Εμφάνιση ετικετών"
+            },
+            "show_type": {
+              "label": "Εμφάνιση τύπου"
+            }
+          }
+        },
+        "collapsible_row": {
+          "name": "Σειρά ακορντεόν",
+          "settings": {
+            "info": "Συμπεριλάβετε μια επικεφαλίδα που εξηγεί το περιεχόμενο.",
+            "content": "Περιεχόμενο σειράς",
+            "content_page": "Σειρά περιεχομένου από τη σελίδα"
+          }
+        },
+        "accordion_row_drawer": {
+          "name": "Συρτάρι σειράς ακορντεόν",
+          "settings": {
+            "info": "Συμπεριλάβετε μια επικεφαλίδα που εξηγεί το περιεχόμενο.",
+            "content": "Περιεχόμενο σειράς",
+            "content_page": "Σειρά περιεχομένου από τη σελίδα"
+          }
+        },
+        "model_size": {
+          "name": "Μέγεθος μοντέλου",
+          "settings": {
+            "paragraph": {
+              "content": "Δείτε τι νούμερο φοράει το μοντέλο, μαζί με ύψος, βάρος και μετρήσεις. [Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)"
+            }
+          }
+        },
+        "title": {
+          "name": "Τίτλος προϊόντος"
+        },
+        "price": {
+          "name": "Τιμή"
+        },
+        "rating": {
+          "name": "Βαθμολογία προϊόντος"
+        },
+        "variant_picker": {
+          "name": "Επιλογέας παραλλαγής",
+          "settings": {
+            "picker_type": {
+              "label": "Τύπος",
+              "options__1": {
+                "label": "Αναπτυσσόμενο"
+              },
+              "options__2": {
+                "label": "Χάπια"
+              }
+            },
+            "size_guide": {
+              "heading": "Πίνακας μεγεθών",
+              "info": "Λάβετε πληροφορίες γραφήματος μεγεθών από την επιλεγμένη σελίδα.",
+              "settings": {
+                "size_trigger": {
+                  "label": "Σανδάλη μεγέθους",
+                  "info": "Ορίστε την επιλογή ονόματος μεγέθους. Διαχωρίστε με κόμμα. Π.χ. Μέγεθος, Misurare"
+                },
+                "show_size_guide": "Εμφάνιση γραφήματος μεγεθών",
+                "size_guide_label": "Ετικέτα γραφήματος μεγέθους",
+                "size_guide_page": "Σελίδα γραφήματος μεγεθών",
+                "footer_content": "Περιεχόμενο υποσέλιδου",
+                "custom_size_guide": {
+                  "label": "Πίνακας προσαρμοσμένου μεγέθους",
+                  "info__1": "Χρήση συγκεκριμένων διαγραμμάτων μεγεθών για κάθε συλλογή ή προϊόν.",
+                  "info__2": "Για να χρησιμοποιήσετε γραφήματα προσαρμοσμένων μεγεθών για προϊόν ή συλλογή, δημιουργήστε μεταπεδίο με χώρο ονομάτων και κλειδί: \"custom.size_chart\".[Μάθετε περισσότερα](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/size-chart)"
+                }
+              }
+            }
+          }
+        },
+        "buy_buttons": {
+          "name": "Κουμπιά αγοράς",
+          "settings": {
+            "show_dynamic_checkout": {
+              "label": "Εμφάνιση δυναμικών κουμπιών αγοράς",
+              "info": "Χρησιμοποιώντας τους τρόπους πληρωμής που είναι διαθέσιμοι στο κατάστημά σας, οι πελάτες βλέπουν την επιλογή που προτιμούν, όπως PayPal ή Apple Pay. [Μάθετε περισσότερα](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+            },
+            "show_gift_card_recipient": {
+              "label": "Εμφάνιση φόρμας πληροφοριών παραλήπτη για δωροκάρτες",
+              "info": "Επιτρέπει στους αγοραστές να στείλουν δωροκάρτες σε μια προγραμματισμένη ημερομηνία μαζί με ένα προσωπικό μήνυμα. [Μάθετε περισσότερα](https://help.shopify.com/manual/online-store/themes/customizing-themes/add-gift-card-recipient-fields)"
+            }
+          }
+        },
+        "subscription_widget": {
+          "name": "Γραφικό στοιχείο συνδρομής",
+          "settings": {
+            "info": "Εμφανίζει την εφάπαξ αγορά και μια ξεχωριστή κάρτα για κάθε ομάδα σχεδίων πώλησης. Τοποθετήστε αυτό το μπλοκ πάνω από τα κουμπιά Αγορά.",
+            "one_time_purchase_title": {
+              "label": "Τίτλος εφάπαξ αγοράς"
+            },
+            "one_time_purchase_description": {
+              "label": "Περιγραφή εφάπαξ αγοράς"
+            },
+            "subscription_description": {
+              "label": "Περιγραφή συνδρομής"
+            },
+            "show_price": {
+              "label": "Εμφάνιση τιμής"
+            }
+          }
+        },
+        "share": {
+          "name": "Κοινή χρήση"
+        },
+        "complementary_products": {
+          "name": "Συμπληρωματικά προϊόντα",
+          "settings": {
+            "paragraph": {
+              "content": "Για να επιλέξετε συμπληρωματικά προϊόντα, προσθέστε την εφαρμογή Αναζήτηση και Ανακάλυψη. [Μάθετε περισσότερα](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+            },
+            "product_list_limit": {
+              "label": "Μέγιστα προϊόντα προς εμφάνιση"
+            }
+          }
+        },
+        "pickup_avaiability": {
+          "name": "Διαθεσιμότητα παραλαβής"
+        },
+        "media_lightbox": {
+          "name": "Δείτε το σε δράση",
+          "settings": {
+            "enable_sticky": {
+              "label": "Ενεργοποίηση sticky στην επιφάνεια εργασίας"
+            }
+          },
+          "description": "Εμφάνιση πραγματικών φωτογραφιών ή βίντεο του προϊόντος σας σε χρήση. Για περισσότερες πληροφορίες επισκεφτείτε τη [Σελίδα Υποστήριξης](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-16.-media-lightbox)"
+        },
+        "highlights": {
+          "name": "Ανταύγειες",
+          "description": "Δείτε τα βασικά σημεία πώλησης του προϊόντος σας. Για περισσότερες πληροφορίες επισκεφτείτε τη [Σελίδα Υποστήριξης](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-8.-highlights)"
+        },
+        "key_features": {
+          "name": "Βασικά χαρακτηριστικά",
+          "description": "Αναφέρετε τα κύρια χαρακτηριστικά και τα πλεονεκτήματα του προϊόντος σας. Για περισσότερες πληροφορίες επισκεφτείτε τη [Σελίδα Υποστήριξης](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-9.-key-features)"
+        },
+        "ask_question": {
+          "name": "Κάντε μια ερώτηση"
+        },
+        "promotion_countdown": {
+          "name": "Αντίστροφη μέτρηση προσφοράς",
+          "show_countdown_units": {
+            "label": "Εμφάνιση μονάδων αντίστροφης μέτρησης"
+          },
+          "description": "Προσθέστε ένα χρονόμετρο αντίστροφης μέτρησης για να δημιουργήσετε επείγον για την προώθηση του προϊόντος σας. Για περισσότερες πληροφορίες επισκεφτείτε τη [Σελίδα Υποστήριξης](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-11.-promotion-countdown)."
+        },
+        "promotion_alert": {
+          "name": "Ειδοποίηση προώθησης",
+          "heading": {
+            "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+            "label": "Επικεφαλίδα"
+          },
+          "description": {
+            "label": "Περιγραφή"
+          },
+          "text_color": {
+            "label": "Χρώμα κειμένου"
+          }
+        },
+        "icon_with_text": {
+          "name": "Εικονίδιο με κείμενο",
+          "heading": {
+            "label_1": "Εικονίδιο με κείμενο 1",
+            "label_2": "Εικονίδιο με κείμενο 2",
+            "label_3": "Εικονίδιο με κείμενο 3",
+            "label_4": "Εικονίδιο με κείμενο 4",
+            "label_5": "Εικονίδιο με κείμενο 5"
+          },
+          "info": "Αυτό το περιεχόμενο θα κρυφτεί αυτόματα στο κινητό.",
+          "svg": {
+            "label": "Εικονίδιο Svg"
+          },
+          "content": {
+            "label": "Περιεχόμενο"
+          },
+          "icon": {
+            "none": {
+              "label": "Κανένα"
+            },
+            "free_shipping": {
+              "label": "Δωρεάν αποστολή"
+            },
+            "check_badge": {
+              "label": "Σήμα ελέγχου"
+            },
+            "message_communications": {
+              "label": "Επικοινωνία μηνυμάτων"
+            },
+            "truck": {
+              "label": "Φορτηγό"
+            },
+            "question": {
+              "label": "Ερώτηση"
+            },
+            "location": {
+              "label": "Τοποθεσία"
+            },
+            "leaf": {
+              "label": "Φύλλο"
+            },
+            "blossom": {
+              "label": "Άνθος"
+            },
+            "payment": {
+              "label": "Πληρωμή"
+            },
+            "discount": {
+              "label": "Έκπτωση"
+            },
+            "order": {
+              "label": "Παραγγελία"
+            },
+            "return": {
+              "label": "Επιστροφή"
+            },
+            "return_package": {
+              "label": "Πακέτο επιστροφής"
+            }
+          }
+        },
+        "inventory_status": {
+          "name": "Κατάσταση αποθέματος",
+          "settings": {
+            "inventory_threshold": {
+              "label": "Χαμηλό όριο αποθέματος",
+              "info": "Ορίστε αυτήν την τιμή για να ειδοποιεί τους πελάτες όταν ένα προϊόν πρόκειται να εξαντληθεί."
+            },
+            "inventory_base": {
+              "label": "Βασική ποσότητα αποθέματος",
+              "info": "Ορίστε την αρχική ποσότητα του αποθέματος των προϊόντων σας για τη γραμμή προόδου."
+            }
+          }
+        },
+        "disclosures": {
+          "name": "Γνωστοποιήσεις",
+          "description": "Απαιτούμενες προειδοποιήσεις ασφαλείας και κανονιστικές γνωστοποιήσεις για αυτό το προϊόν. Για περισσότερες πληροφορίες επισκεφθείτε τη [σελίδα υποστήριξης](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information).",
+          "settings": {
+            "heading": {
+              "label": "Επικεφαλίδα",
+              "default": "Σημαντικές πληροφορίες"
+            },
+            "open_by_default": {
+              "label": "Ανοιχτό από προεπιλογή"
+            }
+          }
+        }
+      },
+      "divider": {
+        "section_divider_heading": "Διαιρέτης τομής",
+        "show_divider": "Εμφάνιση διαιρέτη",
+        "top": "Επάνω διαιρέτης",
+        "top_info": "Κρύβεται όταν η από πάνω ενότητα έχει κάτω διαιρέτη Κύμα ή Καμπύλη",
+        "bottom_info": "Η γραμμή κρύβεται όταν η από κάτω ενότητα έχει επάνω διαιρέτη Κύμα ή Καμπύλη",
+        "bottom": "Κάτω διαιρέτης",
+        "none": "Κανένα",
+        "line": "Γραμμή",
+        "wave": "Κύμα",
+        "curve_out": "Καμπύλη προς τα έξω",
+        "curve_in": "Καμπύλη προς τα μέσα"
+      },
+      "metafield": {
+        "short_description": {
+          "label": "Σύντομη περιγραφή Μεταπεδίο",
+          "info": "Μεταπεδίο προϊόντος. Χρησιμοποιείται όταν υπάρχει σύντομη περιγραφή. Format: namespace.key. Default: custom.short_description."
+        },
+        "highlights": {
+          "label": "Κύρια σημεία Μεταπεδίο",
+          "info": "Μεταπεδίο προϊόντος. Λίστα εικονιδίων/τίτλων. Format: namespace.key. Default: custom.highlights."
+        },
+        "key_features": {
+          "label": "Βασικά χαρακτηριστικά Μεταπεδίο",
+          "info": "Μεταπεδίο προϊόντος. Λίστα στοιχείων τίτλου/περιγραφής. Format: namespace.key. Default: custom.key_features."
+        },
+        "media_lightbox": {
+          "label": "Lightbox πολυμέσων Μεταπεδίο",
+          "info": "Μεταπεδίο προϊόντος. Λίστα εικόνων/βίντεο για τη συλλογή. Format: namespace.key. Default: custom.media_lightbox."
+        },
+        "model_size": {
+          "label": "Μέγεθος μοντέλου Μεταπεδίο",
+          "info": "Μεταπεδίο προϊόντος. (metaobject) με μετρήσεις μοντέλου. Format: namespace.key. Default: custom.model_size."
+        },
+        "product_sizing": {
+          "label": "Μεγέθη προϊόντος Μεταπεδίο",
+          "info": "Μεταπεδίο προϊόντος. Λίστα για την κλίμακα μεγεθών. Format: namespace.key. Default: custom.product_sizing."
+        },
+        "shop_the_look": {
+          "label": "Αγοράστε το look Μεταπεδίο",
+          "info": "Μεταπεδίο προϊόντος. Λίστα εικόνων look και προϊόντων. Format: namespace.key. Default: custom.shop_the_look."
+        },
+        "similar_products": {
+          "label": "Παρόμοια προϊόντα Μεταπεδίο",
+          "info": "Μεταπεδίο προϊόντος. Λίστα παρόμοιων προϊόντων. Format: namespace.key. Default: custom.similar_products."
+        },
+        "frequently_bought_together": {
+          "label": "Αγοράζονται συχνά μαζί Μεταπεδίο",
+          "info": "Μεταπεδίο προϊόντος. Λίστα προϊόντων για αγορά μαζί. Format: namespace.key. Default: custom.frequently_bought_together."
+        },
+        "complete_the_look": {
+          "label": "Ολοκληρώστε το look Μεταπεδίο",
+          "info": "Μεταπεδίο προϊόντος. Λίστα προϊόντων του look. Format: namespace.key. Default: custom.complete_the_look."
+        },
+        "info_gallery": {
+          "label": "Γκαλερί πληροφοριών Μεταπεδίο",
+          "info": "Μεταπεδίο προϊόντος. Λίστα καρτών γκαλερί (εικόνα + κείμενο). Format: namespace.key. Default: custom.info_gallery."
+        },
+        "compare_items": {
+          "label": "Σύγκριση προϊόντων Μεταπεδίο",
+          "info": "Μεταπεδίο προϊόντος. Λίστα προϊόντων για σύγκριση. Format: namespace.key. Default: custom.compare_items."
+        },
+        "ingredient_highlights": {
+          "label": "Κύρια συστατικά Μεταπεδίο",
+          "info": "Μεταπεδίο προϊόντος. Εμφανίζεται στη γραμμή σύγκρισης. Format: namespace.key. Default: custom.ingredient_highlights."
+        },
+        "subcollection": {
+          "label": "Υποσυλλογή Μεταπεδίο",
+          "info": "Μεταπεδίο συλλογής. Λίστα θυγατρικών συλλογών. Format: namespace.key. Default: custom.subcollection."
+        }
+      }
+    },
+    "group": {
+      "product": "Προϊόντα",
+      "collection": "Συλλογές",
+      "storytelling": "Αφήγηση",
+      "banners": "Banner",
+      "blog": "Ιστολόγιο",
+      "form": "Φόρμες",
+      "shopable": "Εμπορικά προϊόντα",
+      "blocks": {
+        "basic": "Βασικό",
+        "layout": "Βοηθητικά προγράμματα και διάταξη",
+        "custom": "Προσαρμοσμένο",
+        "forms": "Φόρμες"
+      },
+      "decorative": {
+        "name": "Διακοσμητικό",
+        "marquee": "Στέγη εισόδου",
+        "how_to_use_maquee": "[Πώς να χρησιμοποιήσετε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/marquee)"
+      },
+      "links": {
+        "name": "Σύνδεσμοι",
+        "menu": "Μενού",
+        "how_to_use_menu": "[Πώς να χρησιμοποιήσετε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)",
+        "how_to_use_popup_link": "[Πώς να χρησιμοποιήσετε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/links/popup-link)",
+        "popup_link": "Σύνδεσμος αναδυόμενου παραθύρου"
+      },
+      "general": {
+        "name": "Γενικά",
+        "image_box": "Πλαίσιο εικόνας",
+        "image_box_use": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/overlay-group/search)"
+        }
+      }
+    },
+    "overlay_group": {
+      "name": "Ομάδα επικάλυψης"
+    },
+    "search": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/overlay-group/search)",
+      "name": "Αναζήτηση"
+    },
+    "footer": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/footer-group/footer)",
+      "name": "Υποσέλιδο",
+      "settings": {
+        "enable_back_top": {
+          "label": "Ενεργοποίηση επιστροφής στην κορυφή"
+        },
+        "show_policy": {
+          "label": "Σύνδεσμοι πολιτικής",
+          "info": "[Διαχείριση πολιτικών](/admin/settings/legal)"
+        },
+        "country_language": {
+          "content": "Επιλογέας χώρας/γλώσσας",
+          "info": "Για να προσθέσετε μια χώρα/περιοχή, μεταβείτε στις [ρυθμίσεις αγοράς.](/admin/settings/markets). Για να προσθέσετε μια γλώσσα, μεταβείτε στις [ρυθμίσεις γλώσσας.](/admin/settings/languages)"
+        },
+        "enable_country_selector": {
+          "label": "Ενεργοποίηση επιλογέα χώρας/περιοχής"
+        },
+        "width": {
+          "options__1": "16%",
+          "options__2": "20%",
+          "options__3": "25%",
+          "options__4": "33%",
+          "options__5": "50%",
+          "options__6": "66%",
+          "options__7": "75%",
+          "options__8": "86%",
+          "options__9": "100%"
+        },
+        "enable_language_selector": {
+          "label": "Ενεργοποίηση επιλογέα γλώσσας"
+        },
+        "payment": {
+          "content": "Τρόποι πληρωμής"
+        },
+        "payment_enable": {
+          "label": "Εμφάνιση εικονιδίων πληρωμής"
+        },
+        "menu_policies": {
+          "label": "Υποσέλιδο"
+        },
+        "header_follow": {
+          "content": "Ακολουθήστε στο κατάστημα",
+          "info": "Για να επιτρέπεται στους πελάτες να ακολουθούν το κατάστημά σας στην εφαρμογή Shop από τη βιτρίνα σας, πρέπει να είναι ενεργοποιημένο το Shop Pay. [Μάθετε περισσότερα](https://help.shopify.com/manual/online-store/themes/customizing-themes/follow-on-shop)"
+        },
+        "enable_follow_on_shop": {
+          "label": "Ενεργοποίηση παρακολούθησης στο κατάστημα"
+        }
+      },
+      "blocks": {
+        "menu_block": {
+          "label": "Μενού"
+        },
+        "newsletter_block": {
+          "name": "Ενημερωτικό δελτίο",
+          "info": "Οι συνδρομητές προστίθενται αυτόματα στη λίστα πελατών \"αποδεκτό μάρκετινγκ\". [Μάθετε περισσότερα](https://help.shopify.com/manual/customers/manage-customers)",
+          "settings": {
+            "note": {
+              "label": "Σημείωση"
+            }
+          }
+        },
+        "contact_bar_block": {
+          "name": "Γραμμή επαφών",
+          "settings": {
+            "store_address": "Διεύθυνση",
+            "store_phone": "Τηλέφωνο",
+            "store_email": "Email",
+            "show_social": {
+              "label": "Εμφάνιση εικονιδίων μέσων κοινωνικής δικτύωσης",
+              "info": "Για να εμφανίσετε τους λογαριασμούς σας στα μέσα κοινωνικής δικτύωσης, συνδέστε τους στις ρυθμίσεις θέματός σας."
+            }
+          }
+        }
+      }
+    },
+    "header": {
+      "name": "Κεφαλίδα",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header)",
+      "settings": {
+        "sticky_header_type": {
+          "label": "Καλύτερη κεφαλίδα",
+          "options__1": {
+            "label": "Κανένα"
+          },
+          "options__2": {
+            "label": "Σε κύλιση προς τα πάνω"
+          },
+          "options__3": {
+            "label": "Πάντα"
+          }
+        },
+        "menu": {
+          "label": "Μενού",
+          "menu_trigger": {
+            "label": "Ενεργοποίηση αναπτυσσόμενου μενού επιφάνειας εργασίας",
+            "options__1": {
+              "label": "Κάντε κλικ"
+            },
+            "options__2": {
+              "label": "Φτερουγίζω"
+            }
+          },
+          "dropdowns_animation": {
+            "label": "Αναπτυσσόμενα κινούμενα σχέδια",
+            "options__1": {
+              "label": "Ξεθωριάστε"
+            },
+            "options__3": {
+              "label": "Κάτω προς τα πάνω"
+            }
+          }
+        },
+        "menu_mobile": {
+          "label": "Ρυθμίσεις μενού για κινητά",
+          "menu_icon": {
+            "label": "Θέση εικονιδίου χάμπουργκερ",
+            "info": "Επιλέξτε πού εμφανίζεται το μενού χάμπουργκερ στο κινητό."
+          }
+        },
+        "addons": {
+          "label": "Πρόσθετα",
+          "show_account": {
+            "label": "Εμφάνιση εικονιδίου λογαριασμού"
+          },
+          "show_search": {
+            "label": "Εμφάνιση αναζήτησης"
+          },
+          "show_cart": {
+            "label": " Εμφάνιση καλαθιού αγορών"
+          },
+          "show_offer": {
+            "label": " Εμφάνιση προσφοράς"
+          },
+          "show_language": {
+            "label": "Εμφάνιση γλώσσας"
+          },
+          "show_currency": {
+            "label": "Εμφάνιση νομίσματος"
+          }
+        },
+        "transparent": {
+          "content": "Διαφανή κεφαλίδα",
+          "info": "Βεβαιωθείτε ότι η πρώτη ενότητα στην αρχική σας σελίδα έχει διαμορφωθεί ως μία από τις ακόλουθες παραμέτρους: μια παρουσίαση, ένα βίντεο με επικάλυψη κειμένου ή μια εικόνα με επικάλυψη κειμένου.",
+          "transparent": {
+            "label": "Ενεργοποίηση διαφανούς κεφαλίδας"
+          },
+          "text_icon_transparent": {
+            "label": " Χρώμα κειμένου και εικονιδίου"
+          }
+        },
+        "blocks": {
+          "mega_menu": {
+            "name": "Banner (Mega μενού)",
+            "how_to_use": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#banner-mega-menu)",
+            "banners": {
+              "label": "Ρυθμίσεις banner"
+            },
+            "promotion_1": {
+              "label": "Banner #1"
+            },
+            "promotion_2": {
+              "label": "Banner #2"
+            },
+            "promotion_3": {
+              "label": "Banner #3"
+            },
+            "promotion_4": {
+              "label": "Banner #4"
+            },
+            "promotion_5": {
+              "label": "Banner #5"
+            },
+            "info": "448px x 260px συνιστάται"
+          },
+          "menu_item": {
+            "label": "Στοιχείο μενού",
+            "info": "Εισαγάγετε το στοιχείο μενού για να εφαρμόσετε ένα αναπτυσσόμενο μενού mega. Διακρίνετε μεταξύ κεφαλαίων και πεζών γραμμάτων."
+          },
+          "menu_column": {
+            "label": "Στήλες μενού επιφάνειας εργασίας"
+          },
+          "product": {
+            "name": "Προϊόντα (Mega μενού)",
+            "how_to_use": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#product-mega-menu)",
+            "header": "Προϊόντα"
+          },
+          "collection": {
+            "name": "Συλλογές (Mega μενού)",
+            "how_to_use": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#collection-mega-menu)",
+            "header": "Συλλογές"
+          },
+          "menu_highlight": {
+            "name": "Επισήμανση μενού",
+            "menu_items": {
+              "label": "Στοιχεία μενού προς επισήμανση",
+              "info": "Εισαγάγετε τα ονόματα των στοιχείων μενού προς επισήμανση, διαχωρισμένα με κόμματα (π.χ. Εκπτώσεις, Νέες αφίξεις). Διακρίνετε μεταξύ κεφαλαίων και πεζών γραμμάτων."
+            },
+            "highlight_color": {
+              "label": "Επισήμανση χρώματος"
+            },
+            "highlight_icon": {
+              "label": "Εικονίδιο επισήμανσης",
+              "options": {
+                "unset": "Απενεργοποίηση",
+                "star": "Αστέρι",
+                "custom": "Προσαρμοσμένο"
+              }
+            },
+            "custom_icon": {
+              "label": "Προσαρμοσμένο εικονίδιο",
+              "info": "Προαιρετικό εικονίδιο για εμφάνιση δίπλα σε επισημασμένα στοιχεία μενού (προτεινόμενο μέγεθος: 24x24px)"
+            }
+          }
+        },
+        "header_layout": {
+          "label": "Διάταξη κεφαλίδας επιφάνειας εργασίας",
+          "info": "Η διάταξη βελτιστοποιείται αυτόματα για κινητά.",
+          "options__1": {
+            "label": "Λογότυπο αριστερά, στο κέντρο του μενού"
+          },
+          "options__2": {
+            "label": "Λογότυπο στο κέντρο, μενού αριστερά"
+          },
+          "options__3": {
+            "label": "Λογότυπο στο κέντρο, μενού κάτω"
+          },
+          "options__4": {
+            "label": "Λογότυπο αριστερά, μενού κάτω"
+          },
+          "options__5": {
+            "label": "Λογότυπο αριστερά, μενού αριστερά"
+          }
+        }
+      }
+    },
+    "custom_liquid": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "how_to_use_block": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "name": "Προσαρμοσμένο υγρό",
+      "liquid_code": "Ρευστός κωδικός",
+      "info": "Προσθέστε αποσπάσματα εφαρμογής ή άλλον υγρό κώδικα για να δημιουργήσετε προηγμένες προσαρμογές.",
+      "info_custom_liquid": "Προσθέστε αποσπάσματα εφαρμογής ή άλλον κώδικα για να δημιουργήσετε προηγμένες προσαρμογές. [Μάθετε περισσότερα](https://shopify.dev/docs/api/liquid)"
+    },
+    "blog-posts": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/blog-posts)",
+      "name": "Αναρτήσεις ιστολογίου",
+      "settings": {
+        "blog-post": {
+          "label": "Ανάρτηση ιστολογίου",
+          "blog_post_type": {
+            "label": "Τύπος ανάρτησης ιστολογίου",
+            "category": "Κατηγορία",
+            "select_blog": "Επιλεγμένα ιστολόγια"
+          }
+        },
+        "blog": {
+          "label": "Ιστολόγιο"
+        }
+      }
+    },
+    "multi_content": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/multi-content)",
+      "name": "Πολλαπλό περιεχόμενο",
+      "blocks": {
+        "label": "Ρυθμίσεις αποκλεισμού",
+        "bellow_image": "Ρυθμίσεις σήματος",
+        "badge": "Σήμα",
+        "equal_height_adjustment": {
+          "label": "Ρύθμιση ίσου ύψους"
+        },
+        "social_icon": "Εικονίδια κοινωνικής δικτύωσης",
+        "grid_info": "Πληροφορίες πλέγματος",
+        "grid_info_1": "Πληροφορίες πλέγματος 1",
+        "grid_info_2": "Πληροφορίες πλέγματος 2",
+        "grid_info_3": "Πληροφορίες πλέγματος 3",
+        "grid_info_4": "Πληροφορίες πλέγματος 4"
+      }
+    },
+    "grid_banner": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/banners/grid-banner)",
+      "name": "Πλέγμα banner",
+      "settings": {
+        "hidden_block_des_mobile": {
+          "label": "Απόκρυψη περιγραφής στοιχείου σε κινητό"
+        }
+      },
+      "blocks": {
+        "item": {
+          "name": "Στοιχείο banner",
+          "show_arrow": "Εμφάνιση εικονιδίου βέλους"
+        }
+      }
+    },
+    "scrolling_text": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/scrolling-text)",
+      "name": "Κύλιση κειμένου",
+      "settings": {
+        "direction": {
+          "label": "Κατεύθυνση",
+          "left": {
+            "label": "Δεξιά προς τα αριστερά"
+          },
+          "right": {
+            "label": "Αριστερά προς δεξιά"
+          }
+        },
+        "speed": {
+          "label": "Ταχύτητα"
+        },
+        "text_size": {
+          "label": "Μέγεθος"
+        },
+        "blocks": {
+          "image": {
+            "rounded_image": {
+              "label": "Γωνιακή ακτίνα εικόνας"
+            },
+            "image_height": {
+              "label": "Ύψος εικόνας"
+            },
+            "image_width": {
+              "label": "Πλάτος"
+            }
+          }
+        }
+      }
+    },
+    "shopby-outfit": {
+      "name": "Αγοράστε ανά ρούχα",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-by-outfit)",
+      "blocks": {
+        "outfit": {
+          "name": "Στολή",
+          "settings": {
+            "product": {
+              "label": "Λίστα προϊόντων"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Αγοράστε ανά ρούχα"
+      },
+      "setting": {
+        "media": {
+          "label": "Τύπος μέσων"
+        },
+        "video_autoplay": {
+          "info": "Λειτουργεί μόνο όταν έχει επιλεγεί το Video στις ρυθμίσεις μπλοκ Τύπου μέσων."
+        }
+      }
+    },
+    "collection-list": {
+      "name": "Λίστα συλλογής\nΟι ",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/collection-list)",
+      "settings": {
+        "header": {
+          "collection": "Συλλογή",
+          "collection_title": "Τίτλος συλλογής",
+          "collection_card": "Κάρτα συλλογής",
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "how_to_use_collection_title": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/sections/page-heading)"
+        },
+        "collection_title_style": {
+          "label": "Στυλ τίτλου συλλογής",
+          "text": "Κείμενο",
+          "button": "Κουμπί"
+        },
+        "show_product_count": {
+          "label": "Εμφάνιση αριθμού προϊόντων"
+        },
+        "overlay_image_settings": "Ρυθμίσεις εικόνας επικάλυψης",
+        "overlay_image_color": "Χρώμα κειμένου",
+        "collection_overlay_image_color": "Χρώμα κειμένου συλλογών"
+      },
+      "blocks": {
+        "featured_collection": {
+          "name": "Συλλογή",
+          "settings": {
+            "collection": {
+              "label": "Συλλογή"
+            },
+            "image": {
+              "label": "Εικόνα",
+              "info": "Αφήστε το κενό για να χρησιμοποιήσετε την εικόνα της συλλογής",
+              "info_highlight": "Αφήστε το κενό για να χρησιμοποιήσετε την εικόνα της συλλογής. Συνιστάται 330px x 520px",
+              "info_suitable": "Αφήστε το κενό για να χρησιμοποιήσετε την εικόνα της συλλογής. Συνιστάται 147 px x 72 px",
+              "info_collection_item": "444px x 444px συνιστάται"
+            },
+            "title": {
+              "label": "Τίτλος",
+              "info": "Αφήστε το κενό για να χρησιμοποιήσετε τον τίτλο της συλλογής"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Λίστα συλλογής\nΟι "
+      }
+    },
+    "quickview": {
+      "name": "Γρήγορη προβολή",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/overlay-group/quickview)",
+      "settings": {
+        "paragraph": "Αυτή η ενότητα σάς επιτρέπει να προσαρμόσετε το αναδυόμενο παράθυρο γρήγορης προβολής."
+      }
+    },
+    "featured-collection": {
+      "name": "Επιλεγμένη συλλογή",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/featured-collection)"
+    },
+    "expandable_card": {
+      "name": "Κάρτα με δυνατότητα επέκτασης",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/expandable-card)",
+      "settings": {
+        "card_header": "Ρυθμίσεις κάρτας",
+        "interaction_behavior": {
+          "label": "Συμπεριφορά αλληλεπίδρασης",
+          "options": {
+            "hover": "Εμφάνιση κατά το δείκτη του ποντικιού",
+            "drawer": "Κάντε κλικ στο άνοιγμα του συρταριού"
+          }
+        }
+      },
+      "blocks": {
+        "layered_card": {
+          "name": "Κάρτες με στρώσεις",
+          "settings": {
+            "media_header": "Εικόνα",
+            "description": "Περιγραφή",
+            "drawer_page": "Περιγραφή από τη σελίδα"
+          }
+        }
+      }
+    },
+    "featured-product": {
+      "name": "Επιλεγμένο προϊόν",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/featured-product)",
+      "settings": {
+        "product": "Προϊόν"
+      }
+    },
+    "slideshow": {
+      "name": "Προβολή διαφανειών",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/slideshow)",
+      "settings": {
+        "loading_background_color": {
+          "label": "Φόρτωση φόντου",
+          "info": "Το χρώμα φόντου εμφανίζεται κατά τη φόρτωση της διαφάνειας του βίντεο."
+        },
+        "slide_height": {
+          "label": "Ύψος ολίσθησης",
+          "full_screen": "Πλήρης οθόνη",
+          "adapt_to_first_image": "Προσαρμογή στην πρώτη εικόνα",
+          "small": "Μικρό",
+          "medium": "Μεσαίο",
+          "large": "Μεγάλο"
+        },
+        "info": "1920px x 840px συνιστάται",
+        "info_mobile": "390px x 572px συνιστάται",
+        "blocks": {
+          "image": {
+            "label": "Διαφάνεια εικόνας",
+            "image_overlay_opacity": {
+              "label": "Αδιαφάνεια επικάλυψης εικόνας",
+              "overlay_opacity": "Αδιαφάνεια επικάλυψης"
+            }
+          },
+          "video": {
+            "label": "Διαφάνεια βίντεο",
+            "video_setting": "Ρυθμίσεις βίντεο",
+            "video_overlay_opacity": {
+              "label": "Αδιαφάνεια επικάλυψης βίντεο"
+            }
+          }
+        }
+      }
+    },
+    "related-products": {
+      "name": "Σχετικά προϊόντα",
+      "how_to_use": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/related-products)"
+    },
+    "similar-products": {
+      "name": "Αγοράστε παρόμοιο προϊόν",
+      "how_to_use": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-product)"
+    },
+    "complete-the-look": {
+      "name": "Ολοκληρώστε την εμφάνιση",
+      "how_to_use": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/group-sections/products/complete-the-look)"
+    },
+    "similar-color": {
+      "name": "Αγοράστε παρόμοιο χρώμα",
+      "how_to_use": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-color)"
+    },
+    "quick-order-list": {
+      "name": "Γρήγορη λίστα παραγγελιών"
+    },
+    "newsletter": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/newsletter)",
+      "name": "Ενημερωτικό δελτίο",
+      "settings": {
+        "header": {
+          "heading_setting": "Ρύθμιση ενημερωτικού δελτίου"
+        }
+      }
+    },
+    "rich-text": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/rich-text)",
+      "name": "Πλούσιο κείμενο",
+      "settings": {
+        "max_width": {
+          "label": "Μέγιστο πλάτος",
+          "info": "Το μέγιστο πλάτος βελτιστοποιείται αυτόματα για κινητά."
+        },
+        "rotating_text": "Κυκλικό κείμενο",
+        "separator_spacing": {
+          "label": "Απόσταση διαχωριστικού",
+          "info": "Προσθέτει διάστημα και στις δύο πλευρές διαχωριστικών όπως - ή • ανάμεσα σε φράσεις."
+        }
+      }
+    },
+    "recently-viewed-products": {
+      "name": "Προϊόντα που προβλήθηκαν πρόσφατα",
+      "info": "Αποθηκεύστε τη σελίδα για να φορτώσετε προϊόντα που προβλήθηκαν πρόσφατα",
+      "how_to_use": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/recently-product)"
+    },
+    "info-gallery-products": {
+      "name": "Βασικά συστατικά",
+      "how_to_use": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metaobjects/info-gallery)"
+    },
+    "product-benefits": {
+      "name": "Πλεονεκτήματα προϊόντος",
+      "how_to_use": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/product-benefits)",
+      "settings": {
+        "media_header": "Κέντρο πολυμέσων",
+        "image": {
+          "label": "Εικόνα",
+          "info": "Χρησιμοποιεί την εικόνα του προϊόντος όταν είναι κενή. Συνιστάται 640 x 900 pixel."
+        },
+        "media_width": {
+          "label": "Πλάτος εικόνας στην επιφάνεια εργασίας"
+        },
+        "video": {
+          "label": "Βίντεο"
+        },
+        "video_poster": {
+          "label": "Εικόνα αφίσας βίντεο"
+        }
+      },
+      "blocks": {
+        "benefit": {
+          "name": "Όφελος",
+          "settings": {
+            "icon": {
+              "label": "Εικονίδιο"
+            }
+          }
+        }
+      }
+    },
+    "quiz-results-products": {
+      "name": "Προϊόντα αποτελεσμάτων κουίζ"
+    },
+    "quiz": {
+      "name": "Κουίζ",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/utilities-and-layout/quiz)",
+      "settings": {
+        "intro_header": "Εισαγωγή",
+        "enable_intro_step": {
+          "label": "Ενεργοποίηση βήματος εισαγωγής"
+        },
+        "intro_button_label": {
+          "label": "Ετικέτα κουμπιού έναρξης"
+        },
+        "show_retake_button": {
+          "label": "Εμφάνιση κουμπιού επανάληψης"
+        },
+        "retake_label": {
+          "label": "Επαναλάβετε την ετικέτα του κουμπιού"
+        },
+        "results_display_header": "Εμφάνιση αποτελεσμάτων",
+        "content_max_width": {
+          "label": "Μέγ. πλάτος περιεχομένου"
+        },
+        "show_back_button": {
+          "label": "Εμφάνιση κουμπιού επιστροφής"
+        },
+        "email_header": "Βήμα ηλεκτρονικού ταχυδρομείου",
+        "enable_email_step": {
+          "label": "Ενεργοποίηση βήματος email"
+        },
+        "email_heading": {
+          "label": "Κεφάλαιο email"
+        },
+        "email_placeholder": {
+          "label": "Σύστημα κράτησης θέσης ηλεκτρονικού ταχυδρομείου"
+        },
+        "continue_label": {
+          "label": "Ετικέτα κουμπιού Συνέχεια"
+        },
+        "skip_label": {
+          "label": "Παράλειψη ετικέτας κουμπιού"
+        },
+        "results_banner_image": {
+          "label": "Εικόνα banner αποτελεσμάτων"
+        },
+        "fallback_products": {
+          "label": "Επιστροφικά προϊόντα",
+          "info": "Τα προϊόντα εμφανίζονται μόνο όταν οι απαντήσεις κουίζ δεν επιστρέφουν ισχυρές ή μερικές αντιστοιχίσεις. Χρησιμοποιήστε το ως αντίγραφο ασφαλείας, ώστε η σελίδα αποτελεσμάτων να μην είναι ποτέ άδεια."
+        },
+        "results_products_limit": {
+          "label": "Μέγιστα προϊόντα προς εμφάνιση"
+        }
+      }
+    },
+    "compare-products": {
+      "name": "Σύγκριση προϊόντων",
+      "how_to_use": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/compare-items)",
+      "settings": {
+        "header": {
+          "label": "Σύγκριση ρυθμίσεων"
+        },
+        "show_price": "Τιμή",
+        "show_ratings": "Βαθμολογίες",
+        "show_vendor": "Πωλητής",
+        "show_color": "Χρώμα",
+        "show_size": "Μέγεθος",
+        "show_highlights": "Ανταύγειες",
+        "show_availability": "Διαθεσιμότητα"
+      }
+    },
+    "bought-together-products": {
+      "name": "Αγοράσαμε μαζί προϊόντα",
+      "how_to_use": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/frequently-bought-together)"
+    },
+    "media-with-text": {
+      "name": "Μέσα με κείμενο",
+      "info_image": {
+        "info_desktop": "950px x 844px συνιστάται",
+        "info_mobile": "475px x 422px συνιστάται",
+        "info_video": "Αντικαθιστά τη ρύθμιση εικόνας. Συνιστάται 950 px x 844 px"
+      }
+    },
+    "product-specifications": {
+      "name": "Προδιαγραφές προϊόντος",
+      "item_name": "Product specifications item",
+      "specifications_layout": "Διάταξη προδιαγραφών",
+      "grid_gap": "Κενό πλέγματος",
+      "mobile_rows_shown": "Γραμμές",
+      "view_more_label": "Ετικέτα κουμπιού «Προβολή περισσότερων»",
+      "view_less_label": "Ετικέτα κουμπιού «Προβολή λιγότερων»",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-specifications)"
+    },
+    "image-with-text": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/image-with-text)",
+      "name": "Εικόνα με κείμενο",
+      "settings": {
+        "desktop_vertical_alignment": {
+          "label": "Κατακόρυφη στοίχιση επιφάνειας εργασίας",
+          "top": "Επάνω",
+          "middle": "Μέση",
+          "bottom": "Κάτω"
+        },
+        "vertical_alignment": "Κάθετη στοίχιση",
+        "background_type": {
+          "label": "Τύπος φόντου",
+          "image": "Εικόνα",
+          "color": "Χρώμα"
+        },
+        "background_color": "Χρώμα φόντου",
+        "background_image": "Εικόνα φόντου",
+        "text_color": "Χρώμα κειμένου",
+        "image_info": "696px x 500px συνιστάται",
+        "offer_image_with_text_info": "360px x 200px συνιστάται",
+        "image_caption": {
+          "label": "Λεζάντα εικόνας",
+          "heading": "Επικεφαλίδα",
+          "description": "Περιγραφή",
+          "position": "Θέση"
+        }
+      }
+    },
+    "before_after_result": {
+      "name": "Πριν μετά",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/banners/before-after)",
+      "before_text": {
+        "label": "Πριν από το κείμενο",
+        "default": "Πριν"
+      },
+      "after_text": {
+        "label": "Μετά το κείμενο",
+        "default": "Μετά"
+      }
+    },
+    "parallax-image-with-text": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/banners/parallax-split)",
+      "name": "Διαίρεση παράλλαξης",
+      "settings": {
+        "image": {
+          "image_1": {
+            "label": "Εικόνα 1"
+          },
+          "image_2": {
+            "label": "Εικόνα 2"
+          },
+          "image_3": {
+            "label": "Εικόνα 3"
+          }
+        },
+        "parallax_image": {
+          "label": "Εικόνα Parallax"
+        }
+      }
+    },
+    "discount_popup": {
+      "info": "Αυτή η ενότητα χρησιμοποιείται για την εμφάνιση ενός αναδυόμενου παραθύρου μετά τη συνδρομή.",
+      "name": "Αναδυόμενο παράθυρο έκπτωσης",
+      "how_to_use": "[Πώς να χρησιμοποιήσετε αυτήν τη ρύθμιση](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/discount-popup)",
+      "settings": {
+        "discount_code": {
+          "label": "Σύνδεσμος προώθησης",
+          "info": "Πώς μπορώ να αποκτήσω σύνδεσμο προώθησης; [Μάθετε περισσότερα](https://help.shopify.com/en/manual/discounts/managing-discount-codes#promote-a-discount-using-a-shareable-link)"
+        },
+        "discount_button": {
+          "label": "Ετικέτα κουμπιού προώθησης",
+          "default": "👉 Αγορά με έκπτωση 10%."
+        },
+        "sub_heading": {
+          "default": "Hooray! Είστε εγγεγραμμένοι"
+        },
+        "info_image": "Αυτή η εικόνα θα κρυφτεί αυτόματα στο κινητό. Συνιστάται 350 px x 410 px "
+      }
+    },
+    "image-with-text-overlay": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/image-with-text-overlay)",
+      "name": "Εικόνα με επικάλυψη κειμένου",
+      "countdown": "Χρονόμετρο αντίστροφης μέτρησης",
+      "count_down": "Αντίστροφη μέτρηση",
+      "how_to_use_count_down": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/countdown)",
+      "end_time": {
+        "label": "Ώρα λήξης",
+        "info": "π.χ. μμ-ηη-εεεε"
+      },
+      "message": {
+        "label": "Μήνυμα που έληξε",
+        "info": "Αυτό το μήνυμα θα εμφανιστεί όταν λήξει ο χρόνος."
+      },
+      "image_info": {
+        "info_desktop": "1392px x 500px συνιστάται",
+        "info_mobile": "400px x 469px συνιστάται"
+      }
+    },
+    "media-hero": {
+      "name": "Ήρωας των μέσων ενημέρωσης",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/media-hero)",
+      "media": "Μέσα",
+      "info": "Αντικαθιστά τη ρύθμιση Εικόνα."
+    },
+    "video": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/video)",
+      "name": "Βίντεο",
+      "settings": {
+        "video_local": {
+          "label": "Τοπικό βίντεο",
+          "info_2": "Αντικαθιστά τη ρύθμιση URL βίντεο.",
+          "info_multi_content_video": "Αντικαθιστά τη ρύθμιση διεύθυνσης URL βίντεο. Συνιστάται 684px x 500px.",
+          "info_poster": "Χρησιμοποιήστε τις ίδιες διαστάσεις με το βίντεο"
+        },
+        "video_link": {
+          "label": "Διεύθυνση URL βίντεο",
+          "info": "Αποδέχεται τη διεύθυνση URL YouTube ή Vimeo"
+        },
+        "video_poster": {
+          "label": "Αφίσα βίντεο"
+        },
+        "alt_description": {
+          "label": "Εναλλακτικό κείμενο βίντεο",
+          "info": "Περιγράψτε το βίντεο για πελάτες που χρησιμοποιούν προγράμματα ανάγνωσης οθόνης. [Μάθετε περισσότερα](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#video-block)"
+        },
+        "autoplay": {
+          "label": "Αυτόματη αναπαραγωγή βίντεο",
+          "info": "Τα βίντεο τίθενται αυτόματα σε σίγαση για να επιτρέπεται η αυτόματη αναπαραγωγή"
+        },
+        "looping": {
+          "label": "Βίντεο επαναφοράς"
+        },
+        "show_action": {
+          "label": "Εμφάνιση στοιχείων ελέγχου βίντεο"
+        },
+        "aspect_ratio": {
+          "label": "Λόγος διαστάσεων",
+          "option__1": "16:9",
+          "option__2": "21:9",
+          "option__3": "Προσαρμογή στο βίντεο"
+        },
+        "show_text_bellow": {
+          "label": "Εμφάνιση κειμένου παρακάτω βίντεο σε κινητό",
+          "info": "Το κείμενο θα εμφανίζεται κάτω από το βίντεο σε κινητό."
+        }
+      }
+    },
+    "main-password-content": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/other-pages/password-page)",
+      "name": "Κύρια σελίδα κωδικού πρόσβασης",
+      "settings": {
+        "header__2": {
+          "content": "Ρύθμιση περιεχομένου"
+        }
+      },
+      "blocks": {
+        "countdown_bn": {
+          "settings": {
+            "countdown_design": {
+              "label": "Σχεδίαση",
+              "options__1": {
+                "label": "Προεπιλογή"
+              },
+              "options__2": {
+                "label": "Σύγχρονο"
+              }
+            }
+          }
+        },
+        "form_subscribe": {
+          "name": "Φόρμα εγγραφής",
+          "settings": {
+            "email_placeholder": {
+              "label": "Κείμενο κράτησης θέσης ηλεκτρονικού ταχυδρομείου"
+            },
+            "btn_label": {
+              "label": "Ετικέτα κουμπιού"
+            }
+          }
+        }
+      }
+    },
+    "divider": {
+      "settings": {
+        "height": {
+          "label": "Ύψος"
+        },
+        "color": {
+          "label": "Χρώμα"
+        }
+      }
+    },
+    "faq": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/faqs)",
+      "name": "Συνήθεις ερωτήσεις",
+      "main-faq": "Κύρια σελίδα FAQ",
+      "heading": {
+        "content": "Συνήθεις ερωτήσεις"
+      },
+      "info_image": "646px x 700px συνιστάται",
+      "settings": {
+        "show_faqs_message": "Εμφάνιση μηνύματος FAQ",
+        "show_image": "Εμφάνιση εικόνας",
+        "open_all_question": "Ανοίξτε όλες τις ερωτήσεις",
+        "framed": "Καδρισμένο",
+        "faq_style": "Στυλ συχνών ερωτήσεων",
+        "desktop_layout": {
+          "label": "Διάταξη υπολογιστή",
+          "horizontal": "Οριζόντια",
+          "vertical": "Κάθετη"
+        }
+      },
+      "blocks": {
+        "name": "Συχνές ερωτήσεις",
+        "settings": {
+          "question": {
+            "question": "Ερώτηση",
+            "answer": "Απάντηση"
+          }
+        }
+      }
+    },
+    "page-faq": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/other-pages/faq-page)"
+    },
+    "video-with-text-overlay": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/video-with-text-overlay)",
+      "name": "Βίντεο με επικάλυψη κειμένου",
+      "settings": {
+        "video_local": {
+          "label": "Τοπικό βίντεο",
+          "info": "Αντικαθιστά τη ρύθμιση URL βίντεο. Συνιστάται 1392px x 550px",
+          "info_mobile": "Συνιστάται 390px x 550px"
+        },
+        "video_link": {
+          "label": "Σύνδεσμος βίντεο"
+        },
+        "video_poster": {
+          "info": "Ίδιες διαστάσεις με το βίντεο"
+        },
+        "overlay_opacity": "Αδιαφάνεια επικάλυψης",
+        "video_height": {
+          "label": "Ύψος βίντεο",
+          "options__1": {
+            "label": "Προσαρμογή στο βίντεο"
+          },
+          "options__2": {
+            "label": "Μικρό"
+          },
+          "options__3": {
+            "label": "Μεσαίο"
+          },
+          "options__4": {
+            "label": "Μεγάλο"
+          }
+        }
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "Πλέγμα προϊόντων",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/product-grid)",
+      "settings": {
+        "items_per_page": {
+          "label": "Στοιχεία προς εμφάνιση ανά σελίδα"
+        },
+        "columns_desktop": {
+          "label": "Στήλες ανά σειρά στην επιφάνεια εργασίας"
+        },
+        "show_product_counts": {
+          "label": "Εμφάνιση αριθμών προϊόντων"
+        }
+      }
+    },
+    "main-collection": {
+      "settings": {
+        "items_per_page": {
+          "label": "Στοιχεία προς εμφάνιση ανά σελίδα"
+        },
+        "columns_desktop": {
+          "label": "Στήλες ανά σειρά στην επιφάνεια εργασίας"
+        },
+        "enable_filtering": {
+          "label": "Ενεργοποίηση φιλτραρίσματος",
+          "info": "Προσαρμογή φίλτρων με την εφαρμογή Αναζήτηση και Ανακάλυψη. [Μάθετε περισσότερα](https://help.shopify.com/manual/online-store/search-and-discovery/filters)"
+        },
+        "filter_type": {
+          "label": "Διάταξη φίλτρου επιφάνειας εργασίας",
+          "options__1": {
+            "label": "Οριζόντια"
+          },
+          "options__2": {
+            "label": "Κάθετη"
+          },
+          "options__3": {
+            "label": "Συρτάρι"
+          }
+        },
+        "enable_sorting": {
+          "label": "Ενεργοποίηση ταξινόμησης"
+        },
+        "show_product_counts": {
+          "label": "Εμφάνιση αριθμών προϊόντων"
+        },
+        "header__1": {
+          "content": "Φιλτράρισμα και ταξινόμηση"
+        }
+      },
+      "blocks": {
+        "promotion": {
+          "name": "Προώθηση",
+          "promotion_position": {
+            "label": "Θέση προαγωγής"
+          },
+          "info": "330px 550px συνιστάται"
+        },
+        "steps": {
+          "name": "Αγοράστε βήμα-βήμα",
+          "info": "337px x 200px συνιστάται"
+        }
+      }
+    },
+    "main-search": {
+      "name": "Αποτελέσματα αναζήτησης",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/other-pages/search-page)",
+      "settings": {
+        "search_results": {
+          "label": "Εμφάνιση αποτελεσμάτων",
+          "option_1": "Προεπιλογή",
+          "option_2": "Καρτ"
+        }
+      }
+    },
+    "main-article": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/other-pages/blog-post-page)",
+      "name": "Ανάρτηση ιστολογίου",
+      "settings": {
+        "show_date": "Εμφάνιση ημερομηνίας δημοσίευσης",
+        "show_comment": "Εμφάνιση σχολίου",
+        "show_excerpt": "Εμφάνιση αποσπάσματος ανάρτησης",
+        "show_share": "Εμφάνιση κουμπιού κοινής χρήσης",
+        "blocks": {
+          "featured_image": "Επιλεγμένη εικόνα",
+          "content_article": "Περιεχόμενο",
+          "addons": "Πρόσθετα",
+          "prev_next_articles": "Προηγούμενα και επόμενα άρθρα"
+        }
+      },
+      "related": {
+        "heading": "Σχετικά άρθρα",
+        "articles": {
+          "label": "Άρθρα",
+          "info": "Εμφανίζονται με αυτήν τη σειρά. Αφήστε το κενό για να εμφανιστούν τα νεότερα άρθρα αυτού του ιστολογίου."
+        }
+      },
+      "blocks": {
+        "featured_image": {
+          "settings": {
+            "image_height": {
+              "label": "Ύψος εικόνας",
+              "options__1": {
+                "label": "Προσαρμογή στην εικόνα"
+              },
+              "options__2": {
+                "label": "Μικρό"
+              },
+              "options__3": {
+                "label": "Μεσαίο"
+              },
+              "options__4": {
+                "label": "Μεγάλο"
+              }
+            }
+          }
+        }
+      },
+      "related_product": {
+        "heading": "Σχετικά προϊόντα",
+        "products": {
+          "label": "Προϊόντα"
+        }
+      }
+    },
+    "cart-drawer": {
+      "name": "Συρτάρι καλαθιού",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/overlay-group/cart-drawer)",
+      "settings": {
+        "info": "Για να εμφανίσετε το συρτάρι καλαθιού, μεταβείτε στις ρυθμίσεις θέματος και επιλέξτε Συρτάρι ως τύπο καλαθιού στις [ρυθμίσεις καλαθιού.](/editor?context=theme&category=cart)",
+        "content": "",
+        "show_free_shipping_message": {
+          "label": "Εμφάνιση μηνύματος δωρεάν αποστολής",
+          "info": "Ορίστε το ελάχιστο ποσό για δωρεάν αποστολή στις ρυθμίσεις θέματος."
+        },
+        "show_cart_note": "Εμφάνιση σημείωσης καλαθιού",
+        "show_estimate_shipping": "Εμφάνιση εκτίμησης αποστολής",
+        "show_discount": "Εμφάνιση κωδικού εκπτώσεων",
+        "hide_check_badge_on_mobile": "Απόκρυψη μπλοκ σημάτων Trust σε κινητά",
+        "hide_icon_with_text_on_mobile": "Απόκρυψη εικονιδίου με μπλοκ κειμένου στο κινητό",
+        "show_gift_wrap": {
+          "label": "Εμφάνιση συσκευασίας δώρου",
+          "info": "Επιλέξτε προϊόντα συσκευασίας δώρου στις ρυθμίσεις θέματος."
+        },
+        "discount_progress_bar_active": "Η γραμμή προόδου έκπτωσης είναι ενεργοποιημένη στις ρυθμίσεις θέματος και αντικαθιστά το μήνυμα δωρεάν αποστολής."
+      }
+    },
+    "main-list-collections": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-list-page)",
+      "name": "Σελίδα λίστας συλλογών",
+      "blocks": {
+        "name": "Συλλογή",
+        "settings": {
+          "collection_image": "Εικόνα συλλογής"
+        }
+      },
+      "settings": {
+        "information_position": {
+          "label": "Πληροφοριακή θέση",
+          "options__1": {
+            "label": "Εικόνα επικάλυψης"
+          },
+          "options__2": {
+            "label": "Κάτω εικόνα"
+          }
+        },
+        "collection_to_show": {
+          "label": "Συλλογές προς εμφάνιση",
+          "options__1": {
+            "label": "Όλα"
+          },
+          "options__2": {
+            "label": "Επιλέχτηκε"
+          }
+        },
+        "sort": {
+          "label": "Ταξινόμηση συλλογών κατά",
+          "options__1": {
+            "label": "Αλφαβητικά, Α-Ω"
+          },
+          "options__2": {
+            "label": "Αλφαβητικά, Ζ-Α"
+          },
+          "options__3": {
+            "label": "Ημερομηνία, νέο προς παλιό"
+          },
+          "options__4": {
+            "label": "Ημερομηνία, παλιά σε νέα"
+          },
+          "options__5": {
+            "label": "Αριθμοί προϊόντων, από υψηλές έως χαμηλές"
+          },
+          "options__6": {
+            "label": "Αριθμοί προϊόντων, από χαμηλό έως υψηλό"
+          }
+        }
+      }
+    },
+    "main-blog": {
+      "name": "Αναρτήσεις ιστολογίου",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/other-pages/blog-page)",
+      "settings": {
+        "header": {
+          "content_post": "Ρυθμίσεις ανάρτησης"
+        },
+        "maximum_posts_to_show": {
+          "label": "Μέγιστες αναρτήσεις προς εμφάνιση"
+        },
+        "post_per_row_desktop": {
+          "label": "Ανάρτηση ανά σειρά στην επιφάνεια εργασίας"
+        },
+        "show_all_tags": {
+          "label": "Εμφάνιση λίστας ετικετών"
+        }
+      },
+      "blocks": {
+        "name": "Φόρμα εγγραφής",
+        "settings": {
+          "show_email_icon": "Εμφάνιση εικονιδίου email",
+          "form_position": "Φόρμα θέσης"
+        }
+      }
+    },
+    "main-product": {
+      "name": "Πληροφορίες προϊόντος",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "settings": {
+        "header": {
+          "content": "Μέσα"
+        },
+        "enable_sticky_desktop": {
+          "label": "Ενεργοποιήστε το sticky add cart στον υπολογιστή σας"
+        },
+        "desktop_layout": {
+          "label": "Διάταξη επιφάνειας εργασίας",
+          "group": {
+            "static": "Πλέγμα",
+            "carousel": "Καρουσέλ"
+          },
+          "one_columns": {
+            "label": "1 στήλη"
+          },
+          "options__1": {
+            "label": "2 στήλες"
+          },
+          "options__2": {
+            "label": "Οριζόντιες μικρογραφίες"
+          },
+          "options__3": {
+            "label": "Στοίβα"
+          },
+          "options__4": {
+            "label": "Κάθετες μικρογραφίες"
+          },
+          "options__5": {
+            "label": "Κάθετες μικρογραφίες (κύλιση)"
+          },
+          "options__6": {
+            "label": "2 στήλες"
+          }
+        },
+        "thumbnail_carousel_setting": {
+          "label": "Ρύθμιση καρουζέλ μικρογραφιών",
+          "number_thumbs": "Αριθμός μικρογραφιών"
+        },
+        "media_position": {
+          "label": "Θέση πολυμέσων στην επιφάνεια εργασίας"
+        },
+        "media_width": {
+          "label": "Πλάτος πολυμέσων επιφάνειας εργασίας"
+        },
+        "mobile_thumbnails": {
+          "options__1": {
+            "label": "Εμφάνιση μικρογραφιών"
+          },
+          "options__2": {
+            "label": "Απόκρυψη μικρογραφιών"
+          }
+        },
+        "enable_video_looping": {
+          "label": "Ενεργοποίηση επαναφοράς βίντεο"
+        },
+        "enable_image_zoom": {
+          "label": "Ζουμ εικόνας",
+          "options__1": {
+            "label": "Απενεργοποίηση"
+          },
+          "options__2": {
+            "label": "Εσωτερικό ζουμ"
+          },
+          "options__3": {
+            "label": "Σμίκρυνση"
+          }
+        },
+        "enable_image_lightbox": {
+          "label": "Ενεργοποίηση lightbox"
+        },
+        "enable_video_autoplay": {
+          "label": "Ενεργοποίηση αυτόματης αναπαραγωγής βίντεο",
+          "info": "Τα βίντεο τίθενται αυτόματα σε σίγαση για να επιτρέπεται η αυτόματη αναπαραγωγή. Δεν θα λειτουργήσει για το YouTube/Vimeo."
+        },
+        "enable_video_controls_default": {
+          "label": "Ενεργοποίηση προσαρμοσμένων στοιχείων ελέγχου βίντεο",
+          "info": "Δεν θα λειτουργήσει για το YouTube/Vimeo."
+        }
+      },
+      "blocks": {
+        "custom_product": {
+          "name": "Προσαρμοσμένες επιλογές",
+          "tab_setting": {
+            "label": "Ετικέτες καρτελών",
+            "tab_1": {
+              "label": "Καρτέλα 1"
+            },
+            "tab_2": {
+              "label": "Καρτέλα 2"
+            },
+            "tab_3": {
+              "label": "Καρτέλα 3"
+            }
+          },
+          "description": "Επιτρέψτε στους πελάτες να εξατομικεύσουν το προϊόν — θέση, κείμενο και χρώμα — μέσω ενός αναδυόμενου παραθύρου 3 βημάτων πριν το προσθέσουν στο καλάθι. Για περισσότερες πληροφορίες επισκεφτείτε τη [Σελίδα Υποστήριξης](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/custom-options)",
+          "placement": "Τοποθέτηση",
+          "text": "Κείμενο",
+          "text_limit": "Όριο κειμένου",
+          "note": "Σημείωση",
+          "color": {
+            "name": "Χρώμα",
+            "options": {
+              "color_1": "Χρώμα 1",
+              "color_2": "Χρώμα 2",
+              "color_3": "Χρώμα 3",
+              "color_4": "Χρώμα 4",
+              "color_5": "Χρώμα 5",
+              "color_6": "Χρώμα 6",
+              "color_7": "Χρώμα 7",
+              "color_8": "Χρώμα 8",
+              "color_9": "Χρώμα 9",
+              "color_10": "Χρώμα 10"
+            }
+          }
+        }
+      }
+    },
+    "main-cart-items": {
+      "name": "Κύριο καλάθι",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/other-pages/cart-page)",
+      "block": {
+        "icon_with_text": "Εικονίδιο με κείμενο",
+        "trust_badges": "Σήματα εμπιστοσύνης"
+      }
+    },
+    "main-collection-banner": {
+      "name": "Banner συλλογής",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/collection-banner)",
+      "settings": {
+        "heading": {
+          "label": "Ρυθμίσεις"
+        },
+        "use_collection_image": {
+          "label": "Χρήση εικόνας συλλογής",
+          "info": "Παράκαμψη της ρύθμισης εικόνας φόντου"
+        },
+        "image_height": {
+          "option__2": "Με βάση το περιεχόμενο"
+        },
+        "image_position": {
+          "label": "Θέση εικόνας",
+          "option__1": "Αριστερά",
+          "option__2": "Δεξιά"
+        },
+        "image_opacity": {
+          "label": "Αδιαφάνεια εικόνας"
+        }
+      }
+    },
+    "contact-form": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/contact-form)",
+      "name": "Φόρμα επικοινωνίας",
+      "settings": {
+        "name": "Όνομα",
+        "email_placeholder": "Email",
+        "message": "Μήνυμα",
+        "option": "Επιλογή",
+        "info_option": "Ορίστε το όνομα της επιλογής. Διαχωρίστε τις επιλογές με κόμμα. Π.χ. Προϊόν, Παραγγελία, Τύπος, Άλλο"
+      }
+    },
+    "main-404": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/other-pages/404-page)",
+      "name": "Κύριο 404",
+      "info_image": "500px x 288px συνιστάται"
+    },
+    "main-activate-account": {
+      "name": "Ενεργοποίηση λογαριασμού"
+    },
+    "main-password-footer": {
+      "name": "Υποσέλιδο κωδικού πρόσβασης"
+    },
+    "main-account": {
+      "name": "Λογαριασμός"
+    },
+    "main-register": {
+      "name": "Εγγραφή"
+    },
+    "main-login": {
+      "name": "Είσοδος"
+    },
+    "main-reset-password": {
+      "name": "Επαναφορά κωδικού πρόσβασης"
+    },
+    "main-order": {
+      "name": "Παραγγελία"
+    },
+    "main-addresses": {
+      "name": "Διευθύνσεις"
+    },
+    "announcement-bar": {
+      "how_to_use": {
+        "label": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/announcement-bar)"
+      },
+      "name": "Γραμμή ανακοινώσεων",
+      "settings": {
+        "type": {
+          "name": "Τύπος",
+          "options": {
+            "slide": {
+              "label": "Καρουσέλ"
+            },
+            "marquee": {
+              "label": "Στέγη εισόδου"
+            }
+          }
+        },
+        "show_only_homepage": {
+          "label": "Εμφάνιση μόνο στην αρχική σελίδα"
+        },
+        "show_close_button": {
+          "label": "Εμφάνιση κουμπιού κλεισίματος"
+        },
+        "enable_on_mobile": {
+          "label": "Ενεργοποίηση σε κινητό"
+        },
+        "marquee_settings": {
+          "label": "Ρυθμίσεις Marquee",
+          "speed": {
+            "label": "Ταχύτητα"
+          },
+          "show_icon": {
+            "label": "Εμφάνιση εικονιδίου"
+          }
+        }
+      },
+      "blocks": {
+        "name": "Ανακοίνωση",
+        "setting": {
+          "label": "Κείμενο"
+        }
+      }
+    },
+    "multimedia_with_text": {
+      "blocks": {
+        "settings": {
+          "header": "Ρυθμίσεις πολυμέσων",
+          "media_style": {
+            "label": "Στυλ πολυμέσων",
+            "options__1": {
+              "label": "Στρογγυλεμένο"
+            },
+            "options__2": {
+              "label": "Οβάλ"
+            },
+            "options__3": {
+              "label": "Προεπιλογή"
+            }
+          }
+        }
+      }
+    },
+    "product-tabs": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/vertical-product-tabs)",
+      "name": "Καρτέλες προϊόντων",
+      "setting": {
+        "layout": {
+          "label": "Διάταξη επιφάνειας εργασίας",
+          "vertical": "Κάθετη",
+          "horizontal": "Οριζόντια"
+        },
+        "banner_header": "Banner",
+        "show_banner": "Εμφάνιση banner",
+        "sticky_banner": "Σταθερό banner",
+        "portrait_4_5": "Κατακόρυφο (4:5)",
+        "enable_carousel_info": "Σε κινητό, η διάταξη προϊόντων εμφανίζεται πάντα ως καρουζέλ."
+      },
+      "blocks": {
+        "name": "Καρτ",
+        "header": "Ρυθμίσεις αποκλεισμού",
+        "settings": {
+          "hidden_des_mobile": {
+            "label": "Απόκρυψη περιγραφής καρτέλας σε κινητό"
+          },
+          "collection": {
+            "label": "Συλλογή",
+            "description": "Περιγραφή"
+          }
+        }
+      },
+      "presets": {
+        "product_tabs_with_banner": "Καρτέλες προϊόντων με banner"
+      }
+    },
+    "collection-highlights": {
+      "name": "Καλύτερα σημεία συλλογής",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/collection-highlights)",
+      "settings": {
+        "highlight_collection_width": {
+          "label": "Η συλλογή επισημαίνει το πλάτος"
+        }
+      },
+      "blocks": {
+        "header": "Ρυθμίσεις αποκλεισμού",
+        "type": {
+          "type_highlight": {
+            "header": "Ρυθμίσεις επισημάνσεων συλλογής",
+            "name": "Καλύτερα σημεία συλλογής"
+          }
+        }
+      }
+    },
+    "collection-pills": {
+      "name": "Χάπια συλλογής",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/collections/collection-pills)",
+      "settings": {
+        "pill_style": {
+          "label": "Στυλ χαπιού"
+        },
+        "show_image_on_hover": {
+          "label": "Εμφάνιση εικόνας κατά την αιώρηση",
+          "info": "Η εικόνα κατά την αιώρηση θα είναι κρυφή σε κινητό."
+        },
+        "horizontal_scroll": {
+          "label": "Οριζόντια κύλιση"
+        }
+      }
+    },
+    "suitable_products_finder": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/suitable-products-finder)",
+      "name": "Εύρεση κατάλληλων προϊόντων",
+      "settings": {
+        "collection_tab_header": {
+          "label": "Καρτέλα συλλογής"
+        },
+        "collection_tab_style": {
+          "label": "Στυλ καρτέλας συλλογής"
+        },
+        "collection_tab_style_options": {
+          "range_slider": {
+            "label": "Ρυθμιστικό εύρους"
+          },
+          "pill_tabs": {
+            "label": "Καρτέλες χαπιών"
+          }
+        },
+        "show_pill_tabs_with_heading": {
+          "label": "Ενσωματωμένη με επικεφαλίδα",
+          "info": "Εμφάνιση του επιλογέα χρώματος στην ίδια γραμμή με την επικεφαλίδα."
+        },
+        "show_pill_tabs_color": {
+          "label": "Εμφάνιση έγχρωμης κουκκίδας"
+        },
+        "pill_tabs_color": {
+          "label": "Χρώμα"
+        },
+        "pill_tabs_image": {
+          "info": "Η εικόνα του Μοτίβου θα αντικαταστήσει το Χρώμα κατά τη μεταφόρτωση μιας εικόνας."
+        },
+        "image_collection_width": {
+          "label": "Πλάτος εικόνας"
+        },
+        "range_slider": {
+          "settings": {
+            "show_range_slider": {
+              "label": "Εμφάνιση ρυθμιστικού εύρους",
+              "info": "Το ρυθμιστικό εμβέλειας θα κρυφτεί αυτόματα στο κινητό."
+            }
+          }
+        }
+      },
+      "preset": {
+        "ranger_slider": "Εύρεση προϊόντων: Ρυθμιστικό εύρους",
+        "pill_tabs": "Εύρεση προϊόντων: Καρτέλες χαπιών",
+        "color_dots": "Εύρεση προϊόντων: Έγχρωμες κουκκίδες"
+      }
+    },
+    "icon-box": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/icon-box)",
+      "name": "Πλαίσιο εικονιδίων",
+      "settings": {
+        "icon_settings": {
+          "header": "Ρυθμίσεις εικονιδίου",
+          "icon_position": {
+            "label": "Θέση"
+          },
+          "icon_size": {
+            "label": "Μέγεθος"
+          },
+          "radius_image": {
+            "label": "Στρογγυλεμένη εικόνα",
+            "info": "Αυτή η ρύθμιση λειτουργεί μόνο όταν το εικονίδιο είναι εικόνα."
+          }
+        }
+      }
+    },
+    "metric-banner": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/metric-banner)",
+      "name": "Μετρικό banner",
+      "settings": {
+        "metric_setting": "Ρυθμίσεις μετρήσεων",
+        "metric_font_size": "Μετρικό μέγεθος γραμματοσειράς",
+        "enable_metric_animation": "Ενεργοποίηση μετρικής κίνησης",
+        "metric_value": {
+          "start": "Μετρική τιμή έναρξης",
+          "end": "Μετρική τελική τιμή"
+        },
+        "metric_unit": "Μετρική μονάδα"
+      },
+      "block": {
+        "name": "Μετρικό στοιχείο"
+      }
+    },
+    "compact_product_bundle": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/compact-product-bundle)",
+      "name": "Συμπαγές πακέτο προϊόντων",
+      "settings": {
+        "image": {
+          "label": "Εικόνα",
+          "info_desktop": "696px x 750px συνιστάται",
+          "info_mobile": "350px x 303px συνιστάται"
+        },
+        "enable_quick_add_for_items": {
+          "label": "Ενεργοποίηση γρήγορης προσθήκης για στοιχεία"
+        },
+        "hidden_button_mobile": {
+          "label": "Κρυφό κουμπί στο κινητό"
+        },
+        "products_show": {
+          "label": "Τα προϊόντα εμφανίζονται ως",
+          "options__1": {
+            "label": "Λίστα"
+          },
+          "options__2": {
+            "label": "Πλέγμα"
+          }
+        }
+      },
+      "presets": {
+        "name": "Συμπαγές πακέτο προϊόντων"
+      },
+      "blocks": {
+        "settings": {
+          "name": "Προϊόν",
+          "select_product": "Προϊόν",
+          "position_top": "Κάθετη θέση",
+          "position_left": "Οριζόντια θέση"
+        }
+      }
+    },
+    "mobile-navigation-bar": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/overlay-group/mobile-navigation-bar)",
+      "name": "Γραμμή πλοήγησης για κινητά",
+      "info": "Αυτή η ενότητα εμφανίζεται μόνο σε κινητά. Μεταβείτε στην προβολή για κινητά.",
+      "settings": {
+        "show_section": "Ενεργοποίηση γραμμής πλοήγησης για κινητά",
+        "show_shop": "Εμφάνιση καταστήματος",
+        "show_account": "Εμφάνιση λογαριασμού",
+        "show_cart": "Εμφάνιση καλαθιού",
+        "show_homepage": "Εμφάνιση αρχικής σελίδας"
+      }
+    },
+    "mobile_first": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/mobile-first)",
+      "name": "Gallery Spotlight",
+      "image_1": "Σημείο εικόνας 1",
+      "image_2": "Σημείο εικόνας 2",
+      "image_3": "Σημείο εικόνας 3",
+      "image_4": "Σημείο εικόνας 4",
+      "image_5": "Σημείο εικόνας 5",
+      "text_1": "Spot κείμενο 1",
+      "text_2": "Spot κείμενο 2",
+      "text_3": "Spot κείμενο 3",
+      "text_4": "Spot κείμενο 4",
+      "text_5": "Spot κείμενο 5"
+    },
+    "shopable_video": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/shopable-video)",
+      "name": "Βίντεο με δυνατότητα αγοράς",
+      "settings": {
+        "video_settings": {
+          "header": "Ρυθμίσεις βίντεο"
+        },
+        "enable_sticky": {
+          "label": "Ενεργοποίηση video sticky",
+          "option_1": {
+            "label": "Απενεργοποίηση"
+          },
+          "option_2": {
+            "label": "Μόνο για επιτραπέζιους υπολογιστές"
+          },
+          "option_3": {
+            "label": "Όλες οι οθόνες"
+          }
+        },
+        "ratio": {
+          "adapt": {
+            "label": "Προσαρμογή στο πρώτο βίντεο"
+          }
+        },
+        "video": {
+          "auto_play": {
+            "info": "Το βίντεο θα αναπαράγεται αυτόματα όταν αυτό το μπλοκ είναι ενεργό ή ορατό στην οθόνη"
+          }
+        },
+        "show_product_card": {
+          "label": "Εμφάνιση κάρτας προϊόντος"
+        }
+      },
+      "blocks": {
+        "name": "Βίντεο",
+        "settings": {
+          "poster_image": {
+            "label": "Εικόνα αφίσας",
+            "info": "1080px x 1920px συνιστάται"
+          },
+          "local_video": {
+            "label": "Τοπικό βίντεο"
+          },
+          "select_product": {
+            "label": "Προϊόν"
+          }
+        }
+      }
+    },
+    "image_card": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/image-cards)",
+      "name": "Κάρτες εικόνων",
+      "blocks": {
+        "header": "Ρυθμίσεις κάρτας",
+        "group_name": "Κάρτα",
+        "info": "451px x 453px συνιστάται"
+      }
+    },
+    "testimonials": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonials)",
+      "name": "Πατήστε",
+      "settings": {
+        "header": "Πατήστε ρυθμίσεις",
+        "show_icon_quote": {
+          "label": "Εμφάνιση εικονιδίου προσφοράς"
+        }
+      },
+      "blocks": {
+        "name": "Πατήστε το στοιχείο",
+        "settings": {
+          "quote": {
+            "label": "Παράθεση"
+          },
+          "info_image": "180px 60px συνιστάται"
+        }
+      }
+    },
+    "press_card": {
+      "name": "Πατήστε κάρτα",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/press-card)",
+      "blocks": {
+        "content": "Περιεχόμενο",
+        "media": "Μέσα",
+        "quote": "Παράθεση",
+        "settings": {
+          "show_icon_quote": "Εμφάνιση εικονιδίου προσφοράς",
+          "author_name": "Όνομα συγγραφέα",
+          "quote_content": "Περιεχόμενο προσφοράς",
+          "press-image": {
+            "info": "Αντικαθιστά τη ρύθμιση χρώματος φόντου"
+          }
+        }
+      }
+    },
+    "scrolling_image": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/scrolling-image)",
+      "name": "Εικόνα γκαλερί",
+      "settings": {
+        "show_background_blur": {
+          "label": "Εμφάνιση θολού φόντου"
+        },
+        "show_icon_hover": {
+          "label": "Εμφάνιση εικονιδίου instagram στο δείκτη του ποντικιού"
+        },
+        "info_image": "303px x 303px συνιστάται"
+      }
+    },
+    "featured_product_banner": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/featured-product-banner)",
+      "name": "Επιλεγμένο banner προϊόντος",
+      "hide_icon_text": "Απόκρυψη εικονιδίου με μπλοκ κειμένου στο κινητό",
+      "blocks": {
+        "name": "Εικονίδιο με κείμενο"
+      },
+      "info": {
+        "info_desktop": "400px x 400px συνιστάται",
+        "info_mobile": "300px x 300px συνιστάται"
+      }
+    },
+    "product_testimonials": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-testimonials)",
+      "name": "Μαρτυρίες προϊόντων",
+      "settings": {
+        "header": "Ρυθμίσεις μαρτυριών",
+        "rating_color": {
+          "label": "Χρώμα αξιολόγησης"
+        },
+        "rating_type": {
+          "label": "Τύπος αξιολόγησης",
+          "default": "Προεπιλογή",
+          "modern": "Σύγχρονο",
+          "show": "Εμφάνιση βαθμολογίας",
+          "show_before_after": "Εμφάνιση κειμένου πριν από μετά"
+        },
+        "product_rounded": {
+          "label": "Γωνιακή ακτίνα εικόνας προϊόντος"
+        },
+        "show_verified_buyer": {
+          "label": "Εμφάνιση επαληθευμένου αγοραστή"
+        },
+        "show_author_name": {
+          "label": "Εμφάνιση ονόματος συντάκτη"
+        }
+      },
+      "blocks": {
+        "type": {
+          "media": {
+            "label": "Μαρτυρικά μέσα"
+          },
+          "image_comparison": {
+            "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/image-comparison)",
+            "label": "Σύγκριση μαρτυρικών εικόνων",
+            "name": "Σύγκριση εικόνων",
+            "show_after_before_text": {
+              "label": "Εμφάνιση κειμένου πριν/μετά"
+            }
+          }
+        },
+        "settings": {
+          "media": {
+            "label": "Ρυθμίσεις πολυμέσων",
+            "info": "448px x 246px συνιστάται",
+            "before_after_image": {
+              "label": "Πριν από τις εικόνες μετά"
+            },
+            "before_image": {
+              "label": "Πριν"
+            },
+            "after_image": {
+              "label": "Μετά"
+            }
+          },
+          "information": {
+            "label": "Ρυθμίσεις πληροφοριών",
+            "rating_star": {
+              "label": "Αστέρι βαθμολογίας"
+            },
+            "select_product": {
+              "label": "Προϊόν"
+            },
+            "author_name": {
+              "label": "Όνομα συγγραφέα"
+            },
+            "review_sumary": {
+              "label": "Σύνοψη"
+            },
+            "use_richtext": {
+              "label": "Χρησιμοποιήστε εμπλουτισμένο κείμενο"
+            }
+          }
+        }
+      }
+    },
+    "routine-builder": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/routine-builder)",
+      "name": "Αγοράστε βήμα-βήμα",
+      "blocks": {
+        "name": "Βήμα",
+        "settings": {
+          "text_step": {
+            "label": "Τίτλος βήματος"
+          },
+          "product_in_step": {
+            "label": "Προϊόν σε βήμα"
+          }
+        }
+      }
+    },
+    "newsletter_popup": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/overlay-group/newsletter-popup)",
+      "name": "Αναδυόμενο ενημερωτικό δελτίο",
+      "header": {
+        "heading": "Γενικές ρυθμίσεις"
+      },
+      "settings": {
+        "sections_width": {
+          "label": "Πλάτος",
+          "options": {
+            "options__1": "Πλήρο πλάτος",
+            "options__2": "Αυτόματο"
+          }
+        },
+        "collections_selector": {
+          "setting": "Ρυθμίσεις επιλογέα συλλογής",
+          "label": "Ενεργοποίηση επιλογέα συλλογών",
+          "collection": {
+            "label_1": "Συλλογή 1",
+            "label_2": "Συλλογή 2",
+            "label_3": "Συλλογή 3",
+            "label_4": "Συλλογή 4",
+            "label_5": "Συλλογή 5"
+          }
+        },
+        "newsletter_heading": "Ρυθμίσεις ενημερωτικού δελτίου",
+        "show_on_homepage": "Εμφάνιση μόνο στην αρχική σελίδα",
+        "discount_sticky": {
+          "setting": "Σκόλλημα έκπτωσης",
+          "label": "Εμφάνιση sticky έκπτωσης",
+          "heading": "Περιεχόμενο",
+          "info": "Το περιεχόμενο θα περικοπεί αυτόματα σε 25 χαρακτήρες, συμπεριλαμβανομένων των ετικετών HTML."
+        },
+        "heading": "Επικεφαλίδα",
+        "short_description": "Περιγραφή",
+        "instructional_text": "Κείμενο διδασκαλίας",
+        "email_placeholder": "Σύστημα κράτησης θέσης ηλεκτρονικού ταχυδρομείου",
+        "button_label": "Ετικέτα κουμπιού",
+        "banner_image": "Εικόνα banner"
+      }
+    },
+    "featured-blog": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/featured-blog)",
+      "name": "Επιλεγμένο ιστολόγιο"
+    },
+    "recommended_collection": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/recommended-collection)",
+      "name": "Προτεινόμενη συλλογή",
+      "blocks": {
+        "button": {
+          "info": "[συλλογή] και [τίτλος] είναι ονόματα μεταβλητών που θα αντικατασταθούν αυτόματα. Μην αλλάξετε τα ονόματα, αλλά μπορείτε να αλλάξετε τη θέση τους στο κείμενο. Το [τίτλος] είναι προαιρετικό — αφαιρέστε το εάν θέλετε μόνο τον επιλογέα συλλογής.",
+          "first_button_info": "Φόρμα με εικόνα: ανοίγει τη συλλογή αποτελεσμάτων με τα επιλεγμένα φίλτρα"
+        },
+        "featured_collection": {
+          "title_info": "Μόνο κείμενο σε σειρά: εμφανίζεται ως επιλογή του αναπτυσσόμενου [τίτλος]. Τα μπλοκ συλλογής δεν χρησιμοποιούνται στη διάταξη Φόρμα με εικόνα"
+        },
+        "filter_dropdown": {
+          "name": "Αναπτυσσόμενο φίλτρο",
+          "info": "Λειτουργεί με τη διάταξη Φόρμα με εικόνα. Ρυθμίστε πρώτα το φίλτρο στην εφαρμογή Search & Discovery του Shopify.",
+          "filter_name": {
+            "label": "Όνομα φίλτρου",
+            "info": "Εισαγάγετε την ετικέτα φίλτρου ακριβώς όπως εμφανίζεται στις σελίδες συλλογής, για παράδειγμα \"Ηλικιακή ομάδα σκύλου\". Για πολλές γλώσσες διαχωρίστε τις ετικέτες με ;. Τα φίλτρα τιμής δεν υποστηρίζονται."
+          },
+          "placeholder": "Κράτηση θέσης"
+        },
+        "text": {
+          "name": "Κείμενο"
+        }
+      },
+      "background": {
+        "label": "Εμφάνιση εικόνας φόντου",
+        "header": "Εικόνα φόντου"
+      },
+      "image_info": {
+        "info_desktop": "1920px x 700px συνιστάται",
+        "info_mobile": "390px x 407px συνιστάται"
+      },
+      "layout": {
+        "label": "Διάταξη",
+        "inline": "Κείμενο σε σειρά",
+        "form": "Φόρμα με εικόνα"
+      },
+      "content_color_scheme": "Χρωματικός συνδυασμός περιεχομένου",
+      "results_collection": {
+        "label": "Συλλογή αποτελεσμάτων",
+        "info": "Μόνο Φόρμα με εικόνα. Τα αναπτυσσόμενα φίλτρα δείχνουν τα φίλτρα αυτής της συλλογής και το πρώτο κουμπί την ανοίγει. Αφήστε το κενό για να χρησιμοποιηθούν όλα τα προϊόντα."
+      },
+      "presets": {
+        "form": "Προτεινόμενη συλλογή με εικόνα"
+      }
+    },
+    "offers-popup": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/overlay-group/offers-popup)",
+      "name": "Αναδυόμενο παράθυρο προσφορών",
+      "popup": {
+        "label": "Αναδυόμενο παράθυρο προσφοράς επικεφαλίδας",
+        "info": "Προσαρμογή του περιεχομένου μπλοκ αναδυόμενων παραθύρων προσφορών στην ομάδα επικάλυψης."
+      }
+    },
+    "outfit-finder": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/products/outfit-finder)",
+      "name": "Εύρεση ρούχων",
+      "settings": {
+        "product_listing": {
+          "label": "Ρυθμίσεις καταχώρισης προϊόντων"
+        },
+        "outfit_finder_logic": {
+          "label": "Προεπισκόπηση ρυθμίσεων"
+        },
+        "max_items_to_show": {
+          "label": "Προϊόντα ανά σελίδα",
+          "info": "Ο αριθμός των προϊόντων που εμφανίστηκαν αρχικά. Η κύλιση προς τα κάτω θα φορτώσει περισσότερα στοιχεία."
+        },
+        "max_items": {
+          "label": "Μέγιστος αριθμός προϊόντων ανά ρούχο",
+          "info": "Περιορίζει πόσα στοιχεία μπορεί να προσθέσει ένας πελάτης στην περιοχή προεπισκόπησης."
+        },
+        "product": {
+          "label": "Προτεινόμενη στολή",
+          "info": "Επιλέξτε έως και 3 προϊόντα που θα εμφανίζονται στην περιοχή προεπισκόπησης από προεπιλογή κατά τη φόρτωση της σελίδας."
+        },
+        "notify_preview": {
+          "label": "Ειδοποίηση κενού κατάστασης",
+          "info": "Κείμενο καθοδήγησης εμφανίζεται στην περιοχή προεπισκόπησης πριν από την προσθήκη στοιχείων."
+        }
+      }
+    },
+    "scrolling-card": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scrolling-card)",
+      "name": "Κάρτα κύλισης"
+    },
+    "scroll-scatter": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scroll-scatter)",
+      "name": "Διάσπαρτη κύλιση"
+    },
+    "store-location": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/other-pages/store-location)",
+      "name": "Τοποθεσία καταστήματος",
+      "settings": {
+        "key_google_map": {
+          "label": "Κλειδί API Χαρτών Google",
+          "info": "Απαιτεί API «Χάρτες JavaScript», «Μέρη» και «Γεωκωδικοποίηση». [Λήψη κλειδιού](https://console.cloud.google.com/google/maps-apis/credentials)."
+        },
+        "map_settings": {
+          "header": "Ρυθμίσεις χάρτη"
+        },
+        "allowed_countries": {
+          "label": "Επιτρεπόμενες χώρες",
+          "info": "Έλεγχος όπου οι πελάτες μπορούν να αναζητήσουν καταστήματα. Χρησιμοποιήστε κωδικούς χωρών ISO (π.χ. ΗΠΑ, ΗΒ, CA) διαχωρισμένους με κόμματα. Αφήστε το κενό για καθολική αναζήτηση."
+        },
+        "radius_km": {
+          "label": "Ακτίνα αναζήτησης (χλμ)",
+          "info": "Μέγιστη απόσταση για αποτελέσματα καταστήματος."
+        }
+      },
+      "blocks": {
+        "name": "Κατάστημα",
+        "settings": {
+          "store_name": {
+            "label": "Όνομα καταστήματος"
+          },
+          "store_address": {
+            "label": "Διεύθυνση καταστήματος"
+          },
+          "store_email": {
+            "label": "Αποθήκευση email"
+          },
+          "store_phone": {
+            "label": "Τηλέφωνο καταστήματος"
+          },
+          "store_lat": {
+            "label": "Γεωγραφικό πλάτος αποθήκευσης",
+            "info": "Αντιγράψτε τον πρώτο αριθμό από τις συντεταγμένες των Χαρτών Google."
+          },
+          "store_lng": {
+            "label": "Γεωγραφικό μήκος καταστήματος",
+            "info": "Αντιγράψτε τον δεύτερο αριθμό από τις συντεταγμένες των Χαρτών Google."
+          },
+          "time_location": {
+            "monday": "Δευτέρα",
+            "tuesday": "Τρίτη",
+            "wednesday": "Τετάρτη",
+            "thursday": "Πέμπτη",
+            "friday": "Παρασκευή",
+            "saturday": "Σάββατο",
+            "sunday": "Κυριακή",
+            "open": "Άνοιγμα",
+            "closed": "Κλειστό",
+            "open_time_hour": "Ώρα ανοιχτής ώρας",
+            "open_time_minute": "Λεπτό ανοιχτής ώρας",
+            "close_time_hour": "Κλείσιμο ώρας",
+            "close_time_minute": "Χρόνος κλεισίματος λεπτό"
+          },
+          "time_schedule": {
+            "monday": "Πρόγραμμα",
+            "tuesday": "Πρόγραμμα",
+            "wednesday": "Πρόγραμμα",
+            "thursday": "Πρόγραμμα",
+            "friday": "Πρόγραμμα",
+            "saturday": "Πρόγραμμα",
+            "sunday": "Πρόγραμμα"
+          }
+        }
+      }
+    },
+    "product-bundle": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/product-bundle)",
+      "name": "Πακέτο προϊόντος",
+      "settings": {
+        "discount": {
+          "name": "Έκπτωση",
+          "info": "Μάθετε πώς να δημιουργείτε έκπτωση [εδώ](https://help.shopify.com/manual/discounts)",
+          "minimum": "Ελάχιστα στοιχεία που απαιτούνται",
+          "maximum": "Μέγιστα στοιχεία",
+          "edit_quantity": "Να επιτρέπεται η αλλαγή ποσότητας για κάθε προϊόν",
+          "discount_title": "Κωδικός έκπτωσης",
+          "discount_value": {
+            "name": "Αξία έκπτωσης",
+            "option": {
+              "fixed": {
+                "label": "Σταθερό ποσό",
+                "once_per_order": "Μία φορά ανά παραγγελία"
+              },
+              "percentage": {
+                "label": "Ποσοστό"
+              }
+            }
+          }
+        },
+        "your_bundle": {
+          "name": "Έκπτωση",
+          "settings": {
+            "show_progress_bar": {
+              "label": "Εμφάνιση γραμμής προόδου"
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "product_discount": {
+            "name": "Πακέτο προϊόντος",
+            "info": "Αντικαθιστά τη συλλογή όταν επιλεγεί."
+          }
+        }
+      }
+    },
+    "shopable-image": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/sections/shopable-image)",
+      "name": "Εικόνα με δυνατότητα αγοράς",
+      "blocks": {
+        "tags": {
+          "name": "Ετικέτες",
+          "info": "Ορίστε το όνομα των ετικετών. Διαχωρίστε με κόμμα. Π.χ. Ετικέτα 1, Ετικέτα 2",
+          "info_image": "448px x 600px συνιστάται",
+          "settings": {
+            "show_verify_icon": {
+              "label": "Εμφάνιση επιλογής εικονιδίου"
+            }
+          }
+        },
+        "lookbook": {
+          "name": "Βιβλίο αναζήτησης",
+          "settings": {
+            "products": {
+              "label": "Προϊόντα",
+              "position_top": "Κάθετη θέση",
+              "position_left": "Οριζόντια θέση",
+              "products": {
+                "otpion__1": {
+                  "label": "Προϊόν 1"
+                },
+                "otpion__2": {
+                  "label": "Προϊόν 2"
+                },
+                "otpion__3": {
+                  "label": "Προϊόν 3"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parallax-image": {
+      "blocks": {
+        "icon": {
+          "name": "Εικονίδιο",
+          "info": "Αντικαθιστά τη ρύθμιση εικονιδίου svg"
+        }
+      }
+    },
+    "main-page": {
+      "name": "Σελίδα"
+    },
+    "subcollection-list": {
+      "name": "Υπό συλλογή",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/sub-collection)"
+    },
+    "before-you-leave": {
+      "name": "Πριν φύγετε",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/before-you-leave)",
+      "settings": {
+        "header": {
+          "recommended_products": "Προτεινόμενα προϊόντα"
+        },
+        "show_time": {
+          "label": "Εμφάνιση χρόνου μετά (δευτερόλεπτα)"
+        },
+        "banner": {
+          "label": "Εικόνα banner",
+          "info": "380px x 423px συνιστάται"
+        },
+        "collection": {
+          "label": "Συλλογή"
+        },
+        "code": {
+          "label": "Κωδικός έκπτωσης"
+        }
+      }
+    },
+    "advanced-slideshow": {
+      "block": {
+        "slide": "Διαφάνεια",
+        "settings": {
+          "type": {
+            "label": "Τύπος",
+            "image": {
+              "label": "Εικόνα"
+            },
+            "video": {
+              "label": "Βίντεο"
+            }
+          },
+          "media_overlay": {
+            "label": "Επικάλυψη μέσων"
+          }
+        }
+      }
+    },
+    "custom_section": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/advanced/flexible-section)",
+      "name": "Ευέλικτη ενότητα",
+      "settings": {
+        "layout": {
+          "label": "Διάταξη",
+          "direction": {
+            "label": "Κατεύθυνση",
+            "options__1": {
+              "label": "Κάθετη"
+            },
+            "options__2": {
+              "label": "Οριζόντια"
+            }
+          },
+          "vertical_on_mobile": {
+            "label": "Κάθετη σε κινητό"
+          },
+          "content_wrap": {
+            "label": "Περιεχόμενο"
+          },
+          "height": {
+            "label": "Ύψος",
+            "options": {
+              "auto": {
+                "label": "Αυτόματο"
+              },
+              "custom": {
+                "label": "Προσαρμοσμένο"
+              }
+            },
+            "custom_height": {
+              "label": "Προσαρμοσμένο ύψος"
+            }
+          },
+          "gap": {
+            "label": "Κενό"
+          },
+          "position": {
+            "label": "Θέση",
+            "options__1": {
+              "label": "Επάνω"
+            },
+            "options__2": {
+              "label": "Κέντρο"
+            },
+            "options__3": {
+              "label": "Κάτω"
+            }
+          },
+          "alignment": {
+            "label": "Στοίχιση",
+            "label_mobile": "Στοίχιση κινητής τηλεφωνίας",
+            "options__1": {
+              "label": "Αριστερά"
+            },
+            "options__2": {
+              "label": "Κέντρο"
+            },
+            "options__3": {
+              "label": "Δεξιά"
+            },
+            "options__4": {
+              "label": "Κενό μεταξύ"
+            }
+          },
+          "hide_on_mobile": {
+            "label": "Κρυμμένο στο κινητό\nΤα "
+          }
+        },
+        "appearance": {
+          "header": "Εμφάνιση",
+          "settings": {
+            "background_media": {
+              "label": "Μέσα στο παρασκήνιο",
+              "options__2": {
+                "label": "Εικόνα"
+              },
+              "options__3": {
+                "label": "Βίντεο"
+              },
+              "options__1": {
+                "label": "Κανένα"
+              }
+            },
+            "border": {
+              "label": "Σύνορα",
+              "options": {
+                "none": "Κανένα",
+                "solid": "Στερεό"
+              },
+              "border_color": {
+                "label": "Χρώμα περιγράμματος"
+              },
+              "border_thickness": {
+                "label": "Πάχος περιγράμματος"
+              }
+            },
+            "corner_radius": {
+              "label": "Γωνιακή ακτίνα",
+              "options": {
+                "none": {
+                  "label": "Κανένα"
+                },
+                "rounded": {
+                  "label": "Στρογγυλεμένο"
+                },
+                "custom": {
+                  "label": "Προσαρμοσμένο"
+                },
+                "inherit": {
+                  "label": "Κληρονομήστε",
+                  "info": "Εάν οριστεί σε \"Κληρονόμηση\", αυτό το μπλοκ θα ακολουθεί τη ρύθμιση καθολικών στρογγυλεμένων γωνιών στις ρυθμίσεις θέματος ▸ Διάταξη ▸ Στρογγυλεμένη εικόνα."
+                }
+              },
+              "custom_radius": {
+                "label": "Προσαρμοσμένη ακτίνα"
+              }
+            },
+            "background_overlay": {
+              "label": "Επικάλυψη φόντου",
+              "overlay_color": {
+                "label": "Χρώμα επικάλυψης"
+              },
+              "overlay_style": {
+                "label": "Στυλ επικάλυψης",
+                "options__1": {
+                  "label": "Στερεό"
+                },
+                "options__2": {
+                  "label": "Κλίση"
+                }
+              },
+              "gradient_direction": {
+                "label": "Κατεύθυνση κλίσης",
+                "options__1": {
+                  "label": "Πάνω"
+                },
+                "options__2": {
+                  "label": "Κάτω"
+                }
+              }
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "size": {
+            "label": "Μέγεθος",
+            "height": {
+              "label": "Ύψος"
+            },
+            "width": {
+              "label": "Πλάτος",
+              "custom_width": {
+                "label": "Προσαρμοσμένο πλάτος"
+              }
+            },
+            "mobile_width": {
+              "label": "Πλάτος κινητής τηλεφωνίας"
+            },
+            "options": {
+              "options__1": {
+                "label": "Κατάλληλος"
+              },
+              "options__2": {
+                "label": "Γέμισμα"
+              },
+              "options__3": {
+                "label": "Προσαρμοσμένο"
+              },
+              "options__4": {
+                "label": "Προσαρμογή στο φόντο πολυμέσων"
+              }
+            }
+          },
+          "background": {
+            "label": "Φόντο"
+          },
+          "background_color": {
+            "label": "Χρώμα φόντου"
+          }
+        },
+        "heading": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading)",
+          "label": "Προεπιλογή",
+          "heading_tag": {
+            "label": "Ετικέτα επικεφαλίδας",
+            "info": "Ορίστε την ετικέτα επικεφαλίδας (H1–H6) για να ελέγξετε την ιεραρχία του περιεχομένου και να βελτιώσετε την αναγνωσιμότητα του SEO για τις μηχανές αναζήτησης.",
+            "h1": "H1",
+            "h2": "Η2",
+            "h3": "H3",
+            "h4": "Η4",
+            "h5": "H5",
+            "h6": "H6"
+          },
+          "custom": "Προσαρμοσμένο",
+          "default": "Προεπιλογή",
+          "paragraph": "Παράγραφος",
+          "h1": "Επικεφαλίδα 1",
+          "h2": "Επικεφαλίδα 2",
+          "h3": "Επικεφαλίδα 3",
+          "h4": "Επικεφαλίδα 4",
+          "h5": "Επικεφαλίδα 5",
+          "h6": "Επικεφαλίδα 6",
+          "h7": "Επικεφαλίδα 7",
+          "info": {
+            "edit_presets_in_theme_settings": "Επεξεργασία προεπιλογών στις [ρυθμίσεις θέματος](/editor?context=theme&category=typography)",
+            "label": "Μέγεθος γραμματοσειράς"
+          },
+          "text_alignment": {
+            "desktop": "Στοίχιση",
+            "mobile": "Στοίχιση κινητής τηλεφωνίας"
+          }
+        },
+        "logo": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Λογότυπο",
+          "settings": {
+            "size": {
+              "name": "Μέγεθος",
+              "unit": {
+                "label": "Μονάδα",
+                "option__1": {
+                  "label": "Εικονοκύτταρο"
+                },
+                "option__2": {
+                  "label": "Ποσοστό"
+                }
+              },
+              "custom_mobile_size": {
+                "label": "Προσαρμοσμένο μέγεθος κινητού"
+              },
+              "height": {
+                "label": "Ύψος"
+              },
+              "mobile": {
+                "name": "Μέγεθος κινητού"
+              }
+            }
+          }
+        },
+        "email_subscription": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/newsletter)",
+          "name": "Ενημερωτικό δελτίο"
+        },
+        "contact_form": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/contact-form)",
+          "name": "Φόρμα επικοινωνίας",
+          "settings": {
+            "name": "Όνομα",
+            "email": "Email",
+            "message": "Μήνυμα",
+            "select_label": "Επιλέξτε ετικέτα",
+            "default_select_label": "Θέμα",
+            "option": "Επιλογή",
+            "default_option": "Προϊόν, Παραγγελία, Τύπος, Άλλο",
+            "phone": "Τηλέφωνο",
+            "submit_button": "Κουμπί \"Υποβολή\".",
+            "default_submit_button": "Υποβολή"
+          }
+        },
+        "accordion": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/accordion)",
+          "name": "Ακορντεόν",
+          "settings": {
+            "icon_style": {
+              "style": "Στυλ",
+              "label": "Στυλ εικονιδίου",
+              "caret": "Carret",
+              "plus": "Συν"
+            },
+            "row_style": {
+              "label": " Στυλ σειράς",
+              "background": "Φόντο",
+              "divider": "Διαιρέτης"
+            },
+            "background_color": "Χρώμα φόντου",
+            "row_spacing": "Απόσταση στοιχείων",
+            "gap_row": "Κενό",
+            "padding_row": "Γέμισμα",
+            "gap_content": "Κενό μεταξύ",
+            "accordion_row": "Σειρά ακορντεόν",
+            "default_accordion_row": "Κατεύθυνση ακορντεόν",
+            "accordion_content": "Περιεχόμενο ακορντεόν",
+            "settings": {
+              "heading": "Επικεφαλίδα",
+              "heading_size": "Μέγεθος επικεφαλίδας",
+              "heading_weight": "Βάρος κεφαλής",
+              "body_weight": "Σωματικό βάρος",
+              "open_default": {
+                "label": "Άνοιγμα προεπιλογής"
+              }
+            }
+          }
+        },
+        "group": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/group)",
+          "name": "Ομάδα",
+          "settings": {
+            "link": "Σύνδεσμος",
+            "open_in_new_tab": {
+              "label": "Άνοιγμα συνδέσμου σε νέα καρτέλα"
+            }
+          }
+        },
+        "carousel": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/carousel)",
+          "name": "Καρουσέλ"
+        },
+        "text": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/text)",
+          "name": "Κείμενο",
+          "default_text": "Φτιάχνουμε πράγματα που λειτουργούν καλύτερα και διαρκούν περισσότερο. Τα προϊόντα μας λύνουν πραγματικά προβλήματα με καθαρό σχεδιασμό και ειλικρινή υλικά.",
+          "text_color": {
+            "label": "Χρώμα κειμένου",
+            "body_color": "Χρώμα σώματος",
+            "heading_color": "Χρώμα επικεφαλίδας"
+          }
+        },
+        "button": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/button)"
+        },
+        "icon": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/icon)"
+        },
+        "page": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Σελίδα",
+          "inherit_color_scheme": "Κληρονομήστε το συνδυασμό χρωμάτων",
+          "appearance": "Εμφάνιση",
+          "spacing": "Διάστημα"
+        },
+        "spacer": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/spacer)",
+          "name": "Αραιώνων",
+          "mobile_settings": {
+            "label": "Ρυθμίσεις για κινητά"
+          }
+        },
+        "divider": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Διαιρέτης",
+          "settings": {
+            "thickness": "Πάχος",
+            "size": "Μέγεθος",
+            "color": "Χρώμα"
+          }
+        },
+        "icon_list": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Λίστα εικονιδίων",
+          "item": "Αντικείμενο",
+          "open_new_tab": "Άνοιγμα νέας καρτέλας"
+        },
+        "alert": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Ειδοποίηση",
+          "dismiss_icon": "Παράβλεψη εικονιδίου",
+          "display_dismiss_icon": "Εμφάνιση εικονιδίου απόρριψης"
+        },
+        "social_icons": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Εικονίδια κοινωνικής δικτύωσης",
+          "circle": "Κύκλος",
+          "rounded": "Στρογγυλεμένο",
+          "square": "Τετράγωνο",
+          "shape": "Σχήμα",
+          "color": "Χρώμα",
+          "backgroup_color": "Χρώμα φόντου"
+        },
+        "progress_bar": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Γραμμή προόδου",
+          "text_color": "Χρώμα κειμένου",
+          "percentage": "Ποσοστό",
+          "border_radius": "Ακτίνα συνόρων",
+          "display_percentage": "Ποσοστό εμφάνισης",
+          "inner_text": "Εσωτερικό κείμενο"
+        },
+        "counter": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/counter)",
+          "name": "Μετρητής",
+          "counter_style": {
+            "label": "Στυλ μετρητή",
+            "default": "Προεπιλογή",
+            "circle": "Κύκλος"
+          },
+          "counter_layout": {
+            "label": "Διάταξη μετρητή",
+            "horizontal": "Οριζόντια",
+            "vertical": "Κάθετη"
+          },
+          "number_position": "Αριθμός Θέση",
+          "space_between": "Κενό μεταξύ",
+          "before_title": "Πριν από τον τίτλο",
+          "after_title": "Μετά τον τίτλο",
+          "number_alignment": "Στοίχιση αριθμών",
+          "stroke_color": "Χρώμα περιγράμματος",
+          "indicator_color": "Χρώμα ένδειξης",
+          "background_color": "Χρώμα φόντου",
+          "text_color": "Χρώμα κειμένου",
+          "ending_number": "Αριθμός λήξης",
+          "starting_number": "Αριθμός έναρξης",
+          "animation": "Διάρκεια κινουμένων σχεδίων (ms)"
+        },
+        "map": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/google-maps)",
+          "name": "Χάρτες Google",
+          "location": "Τοποθεσία",
+          "longitude": "Γεωγραφικό μήκος",
+          "latitude": "Γεωγραφικό πλάτος"
+        },
+        "jumbo_text": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+          "name": "Jumbo κείμενο"
+        },
+        "tab": {
+          "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/tab)",
+          "name": "Καρτ",
+          "tab_row": "Στοιχείο καρτέλας",
+          "settings": {
+            "heading": "Στιλ κεφαλίδας",
+            "heading_preset": "Προεπιλογή επικεφαλίδας",
+            "heading_alignment": "Στοίχιση κεφαλίδας",
+            "heading_color": "Χρώμα επικεφαλίδας",
+            "content": "Στυλ περιεχομένου",
+            "content_alignment": "Στοίχιση περιεχομένου"
+          }
+        },
+        "icon_with_text": {
+          "name": "Εικονίδιο με κείμενο",
+          "icon_first": "Εικονίδιο πρώτα",
+          "icon_second": "Εικονίδιο δεύτερο",
+          "svg_custom": "Προσαρμοσμένο SVG"
+        },
+        "popup_link": {
+          "button_type_link": {
+            "label": "Τύπος κουμπιού",
+            "primary": {
+              "label": "Πρωτοβάθμια"
+            },
+            "outline": {
+              "label": "Περίγραμμα"
+            },
+            "link": {
+              "label": "Σύνδεσμος"
+            }
+          },
+          "popup_style": {
+            "label": "Αναδυόμενο στυλ"
+          },
+          "popup_type": {
+            "label": "Τύπος αναδυόμενου παραθύρου"
+          },
+          "popup_width": {
+            "label": "Πλάτος επιφάνειας εργασίας αναδυόμενου παραθύρου"
+          },
+          "icon_type": {
+            "label": "Τύπος εικονιδίου",
+            "none": "Κανένα",
+            "arrow": "Βέλος",
+            "image": {
+              "label": "Εικόνα",
+              "size": "Μέγεθος"
+            }
+          }
+        }
+      },
+      "preset": {
+        "promotion_banner": "Flexible: διαφημιστικό banner",
+        "flexible_marquee": "Ευέλικτο: Μαρκίζ",
+        "story_tabs": "Ευέλικτο: Καρτέλα"
+      }
+    },
+    "text_image_pairing": {
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτό το μπλοκ](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/text-image-pairing)",
+      "name": "Ζεύξη εικόνας κειμένου",
+      "settings": {
+        "text_default": "\"Διαχτείτε τη λάμψη σας[image_1]swipe blend shine <br/> αισθανθείτε όμορφα[image_2]να δείτε πλήρως[image_3]γιορτάστε.\"",
+        "info": {
+          "label": "Χρησιμοποιήστε μια συγκεκριμένη μορφή σύμβολο κράτησης θέσης «[image_X]» όπου θέλετε να εμφανίζεται η εικόνα. X είναι ο δείκτης εικόνας. Για παράδειγμα: «[εικόνα_1]» θα αντικατασταθεί από την πρώτη εικόνα."
+        },
+        "images": {
+          "label": "Εικόνες",
+          "image_style": {
+            "label": "Στυλ εικόνας"
+          },
+          "image_1": {
+            "label": "Εικόνα #1"
+          },
+          "image_2": {
+            "label": "Εικόνα #2"
+          },
+          "image_3": {
+            "label": "Εικόνα #3"
+          }
+        }
+      }
+    },
+    "product_sizing": {
+      "name": "Μέγεθος προϊόντος",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "info": "Βοηθά τους πελάτες να κατανοήσουν πώς ταιριάζει το προϊόν και να επιλέξουν το σωστό μέγεθος με σιγουριά."
+    },
+    "size_recommendation": {
+      "name": "Πρόταση μεγέθους",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/size-recommendation)",
+      "info": "Βοηθά τους πελάτες να βρουν το σωστό μέγεθος χρησιμοποιώντας απλές εισαγωγές όπως ύψος, βάρος, σχήμα σώματος, μέγεθος στήθους και μέγεθος κυπέλλου.",
+      "data_usage_notice": {
+        "label": "Ειδοποίηση χρήσης δεδομένων",
+        "info": "Αυτό το μήνυμα εξηγεί πώς χρησιμοποιούνται τα στοιχεία πελατών για προτάσεις μεγέθους. Μπορείτε να προσαρμόσετε τη διατύπωση ώστε να ταιριάζει με τον τόνο απορρήτου του καταστήματός σας."
+      },
+      "no_size_match": {
+        "label": "Δεν υπάρχει μήνυμα αντιστοίχισης μεγέθους",
+        "info": "Το μήνυμα εμφανίζεται όταν κανένα μέγεθος δεν ταιριάζει με τα δεδομένα του πελάτη."
+      },
+      "fit_recommendation_note": {
+        "label": "Σημείωση σύστασης Fit",
+        "info": "Εμφανίζεται μετά τα αποτελέσματα σύστασης μεγέθους."
+      }
+    },
+    "sticky_image_with_text": {
+      "name": "Στατική εικόνα με κείμενο",
+      "blocks": {
+        "group_text": {
+          "name": "Ομάδα κειμένου",
+          "image": {
+            "label": "Εικόνα κατά την κύλιση",
+            "info": "Εμφανίζεται στη σταθερή εικόνα όταν αυτή η ομάδα κυλάει στην προβολή. Αφήστε το κενό για να διατηρηθεί η προηγούμενη εικόνα. Απαιτεί τη ρύθμιση \"Αλλαγή εικόνας κατά την κύλιση\" στις ρυθμίσεις ενότητας."
+          }
+        },
+        "list_tag": {
+          "name": "Λίστα ετικετών",
+          "tags": {
+            "label": "Ετικέτες",
+            "info": "Διαχωρίστε κάθε ετικέτα με κόμμα."
+          },
+          "show_check": {
+            "label": "Εμφάνιση εικονιδίου ελέγχου"
+          },
+          "chip_style": {
+            "label": "Στυλ ετικέτας"
+          }
+        }
+      },
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/banners/sticky-image-with-text)",
+      "settings": {
+        "hide_image_mobile": {
+          "label": "Απόκρυψη εικόνας σε κινητό"
+        },
+        "change_image_on_scroll": {
+          "label": "Αλλαγή εικόνας κατά την κύλιση",
+          "info": "Αλλάζει τη σταθερή εικόνα καθώς κάθε ομάδα κειμένου κυλάει στην προβολή. Ορίστε την εικόνα σε κάθε ομάδα κειμένου. Η εικόνα της ενότητας δεν χρησιμοποιείται. Μόνο για επιτραπέζιους υπολογιστές."
+        }
+      }
+    },
+    "testimonial-images": {
+      "name": "Εικόνες μαρτυριών",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonial-images)",
+      "settings": {
+        "show_author_image": "Εμφάνιση εικόνας συντάκτη",
+        "hide_image_on_mobile": {
+          "label": "Απόκρυψη εικόνας σε κινητό"
+        }
+      },
+      "blocks": {
+        "review": "Μαρτυρία",
+        "settings": {
+          "author_image": "Εικόνα συντάκτη"
+        }
+      }
+    },
+    "flow": {
+      "name": "Ροή",
+      "blocks": {
+        "step": {
+          "name": "Βήμα",
+          "heading": {
+            "label": "Επικεφαλίδα"
+          },
+          "image": {
+            "label": "Εικόνα"
+          },
+          "product": {
+            "label": "Προϊόν"
+          }
+        }
+      },
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/flow)"
+    },
+    "parallax-scroll": {
+      "name": "Παράλληλη κύλιση",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/parallax-scroll)",
+      "instructions": "Προσθέστε έως 7 κάρτες. Οι κάρτες εναλλάσσονται πλευρές και κάθε τρίτη κάρτα εισάγεται αυτόματα με εσοχή.",
+      "blocks": {
+        "info_card": {
+          "name": "Κάρτα πληροφοριών"
+        }
+      },
+      "settings": {
+        "card_width": {
+          "label": "Πλάτος κάρτας",
+          "info": "Ορίζει το μέγιστο πλάτος κάρτας στην επιφάνεια εργασίας. Οι κάρτες παραμένουν αποκρίσιμες σε μικρότερες οθόνες."
+        },
+        "button_link": {
+          "info": "Εάν μείνει κενό, το κουμπί εμφανίζεται ως απενεργοποιημένο."
+        },
+        "button_type": {
+          "info": "Χρησιμοποιεί τα στυλ κουμπιών που έχουν ρυθμιστεί από το θέμα."
+        }
+      }
+    },
+    "benefit-tabs": {
+      "name": "Καρτέλες πλεονεκτημάτων",
+      "how_to_use": "Προσθέστε ένα μπλοκ Καρτέλα πλεονεκτήματος για κάθε καρτέλα και έπειτα προσθέστε μπλοκ Πλεονέκτημα μέσα σε κάθε καρτέλα.",
+      "settings": {
+        "text_alignment": {
+          "info": "Στοιχίζει και τα κουμπιά των καρτελών."
+        },
+        "mobile_alignment": {
+          "info": "Στοιχίζει τα πλεονεκτήματα σε κινητό και τάμπλετ. Σε υπολογιστή τα πλεονεκτήματα στοιχίζονται προς το μέσο."
+        }
+      },
+      "blocks": {
+        "tab": {
+          "name": "Καρτέλα πλεονεκτήματος",
+          "how_to_use": "Για ισορροπημένη διάταξη συνιστώνται έως 6 μπλοκ Πλεονέκτημα. Σε υπολογιστή τα μονά πλεονεκτήματα βρίσκονται αριστερά από το μέσο και τα ζυγά δεξιά.",
+          "settings": {
+            "tab_label": {
+              "label": "Ετικέτα καρτέλας"
+            },
+            "image": {
+              "label": "Εικόνα πριν",
+              "info": "950 x 1060 px συνιστάται"
+            },
+            "image_after": {
+              "label": "Εικόνα μετά",
+              "info": "Χρησιμοποιήστε το ίδιο μέγεθος με την εικόνα πριν. Η εικόνα μετά αποκαλύπτεται καθώς ο επισκέπτης κυλάει."
+            }
+          }
+        },
+        "benefit": {
+          "settings": {
+            "icon": {
+              "info": "Εμφανίζει κράτηση θέσης όταν είναι κενό. 120 x 120 px συνιστάται"
+            }
+          }
+        }
+      }
+    },
+    "comparison-table": {
+      "name": "Πίνακας σύγκρισης",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/products/comparison-table)",
+      "settings": {
+        "table": {
+          "label": "Πίνακας"
+        },
+        "comparison_heading": {
+          "label": "Επικεφαλίδα σύγκρισης"
+        },
+        "show_column_images": {
+          "label": "Εμφάνιση εικόνων στηλών"
+        },
+        "color_column_highlight": {
+          "label": "Χρώμα επισήμανσης στήλης"
+        },
+        "table_notes": {
+          "label": "Σημειώσεις πίνακα"
+        },
+        "show_labels": {
+          "label": "Εμφάνιση ετικετών"
+        },
+        "first_label": {
+          "label": "Πρώτη ετικέτα"
+        },
+        "second_label": {
+          "label": "Δεύτερη ετικέτα"
+        },
+        "button_link": {
+          "label": "Σύνδεσμος"
+        }
+      },
+      "blocks": {
+        "column": {
+          "name": "Στήλη",
+          "settings": {
+            "highlight": {
+              "label": "Επισημάνετε αυτήν τη στήλη"
+            }
+          }
+        },
+        "row": {
+          "name": "Γραμμή",
+          "settings": {
+            "icon_info": "Επιλέξτε πώς εμφανίζεται η τιμή σε αυτήν τη στήλη.",
+            "image_info": "Προσθέστε μια εικόνα που εμφανίζεται όταν είναι επιλεγμένη η Εικόνα.",
+            "value": {
+              "yes": "Ναι",
+              "no": "Όχι"
+            },
+            "text_1": {
+              "label": "Κείμενο στήλης 1",
+              "info": "Εμφανίζεται όταν είναι επιλεγμένο το Κείμενο. Οι τιμές ακολουθούν τη σειρά των στηλών, γι' αυτό αλλάξτε προσεκτικά τη σειρά των μπλοκ Στήλη."
+            },
+            "icon_1": {
+              "label": "Εικονίδιο στήλης 1"
+            },
+            "image_1": {
+              "label": "Εικόνα στήλης 1"
+            },
+            "text_2": {
+              "label": "Κείμενο στήλης 2",
+              "info": "Εμφανίζεται όταν είναι επιλεγμένο το Κείμενο."
+            },
+            "icon_2": {
+              "label": "Εικονίδιο στήλης 2"
+            },
+            "image_2": {
+              "label": "Εικόνα στήλης 2"
+            },
+            "text_3": {
+              "label": "Κείμενο στήλης 3",
+              "info": "Εμφανίζεται όταν είναι επιλεγμένο το Κείμενο."
+            },
+            "icon_3": {
+              "label": "Εικονίδιο στήλης 3"
+            },
+            "image_3": {
+              "label": "Εικόνα στήλης 3"
+            },
+            "text_4": {
+              "label": "Κείμενο στήλης 4",
+              "info": "Εμφανίζεται όταν είναι επιλεγμένο το Κείμενο. Χρησιμοποιείται μόνο όταν ο πίνακας έχει τέσσερις στήλες."
+            },
+            "icon_4": {
+              "label": "Εικονίδιο στήλης 4"
+            },
+            "image_4": {
+              "label": "Εικόνα στήλης 4"
+            },
+            "column_1": "Στήλη 1",
+            "column_2": "Στήλη 2",
+            "column_3": "Στήλη 3",
+            "column_4": "Στήλη 4"
+          }
+        }
+      }
+    },
+    "image-with-text-carousel": {
+      "name": "Εικόνα με καρουζέλ κειμένου",
+      "how_to_use": "[Μάθετε πώς να χρησιμοποιείτε αυτήν την ενότητα](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/image-with-text-carousel)",
+      "settings": {
+        "show_slide_counter": {
+          "label": "Εμφάνιση μετρητή διαφανειών"
+        }
+      },
+      "blocks": {
+        "slide": {
+          "icon_info": "80 x 80 px .png ή .svg συνιστάται"
+        }
+      }
+    },
+    "recommended-collection-filters": {
+      "name": "Προτεινόμενα φίλτρα"
+    }
+  },
+  "blocks": {
+    "quiz-step": {
+      "name": "Ερώτηση κουίζ",
+      "settings": {
+        "stepper_label": {
+          "label": "Βηματική ετικέτα",
+          "info": "Σύντομη ετικέτα εμφανίζεται στη γραμμή προόδου. Παράδειγμα: Τύπος δέρματος, Ανησυχία."
+        },
+        "question_id": {
+          "label": "Αναγνωριστικό ερώτησης",
+          "info": "Μοναδικό αναγνωριστικό για αυτήν την ερώτηση. Χρησιμοποιείται για παράβλεψη ερωτήσεων για επιλογές (π.χ. q1, q2)."
+        },
+        "layout": {
+          "label": "Διάταξη επιλογής",
+          "options": {
+            "pill": " Κουμπιά χαπιών",
+            "image": "Κύκλοι εικόνων"
+          }
+        }
+      }
+    },
+    "quiz-option": {
+      "name": "Επιλογή κουίζ",
+      "settings": {
+        "label": {
+          "label": "Ετικέτα"
+        },
+        "image": {
+          "label": "Εικόνα",
+          "info": "Χρησιμοποιείται όταν η διάταξη της ερώτησης είναι Κύκλοι εικόνας."
+        },
+        "product_matching_header": "Αποτελέσματα προϊόντων",
+        "strong_match": {
+          "label": "Κύρια προϊόντα",
+          "info": "Εμφανίζεται πρώτο στα αποτελέσματα κουίζ όταν οι αγοραστές επιλέγουν αυτήν την απάντηση."
+        },
+        "partial_match": {
+          "label": "Πρόσθετα προϊόντα",
+          "info": "Εμφανίζεται μετά τα κύρια προϊόντα στα αποτελέσματα του κουίζ."
+        },
+        "exclude": {
+          "label": "Μην προτείνω ποτέ",
+          "info": "Αποκλεισμός αυτών των προϊόντων από αποτελέσματα όταν οι αγοραστές επιλέγουν αυτήν την απάντηση, ακόμα κι αν εμφανίζονται σε άλλες απαντήσεις."
+        },
+        "skip_questions_header": "Λογική ερώτησης",
+        "skip_questions": {
+          "label": "Παράλειψη ερωτήσεων",
+          "info": "Εισαγάγετε αναγνωριστικά ερωτήσεων από ερωτήσεις κουίζ για παράβλεψη όταν επιλεγεί αυτή η απάντηση. Παράδειγμα: q3, q4"
+        }
+      }
+    }
+  }
+}

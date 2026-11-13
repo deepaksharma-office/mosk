@@ -1,0 +1,279 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+{% liquid
+  assign section_st = section.settings
+%}
+{%- capture style -%}
+    --section-pt: {{ section_st.padding_top }}; --section-pb: {{ section_st.padding_bottom }};
+  {%- endcapture -%}
+<div
+  class="flex content-center w-full mx-auto stretch_width section column max-w-custom-all"
+  style="{{ style | strip | strip_newlines }}--max-width: 56rem;--bs-gutter-x: 3rem;"
+>
+  <div id="recover" hidden="true">
+    <h1 class="text-center heading-title mb-sp-4">
+      {{ 'customer.recover_password.submit' | t }}
+    </h1>
+    <div class="reset-password-inner">
+      <div class="text-center mb-60">
+        {{ 'customer.recover_password.subtext' | t }}
+      </div>
+      <div class="field">
+        {%- form 'recover_customer_password', class: 'form-validation' -%}
+          {% assign recover_success = form.posted_successfully? %}
+          {%- if form.errors -%}
+            <div
+              id="RecoverEmail-email-error error"
+              class="inline-flex w-full gap-10 mb-sp-5 error form__message fs-small align-center h-custom"
+              style="--height: 5.6rem;"
+            >
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" class="flex-auto w-18">
+                <use href="#icon-error"></use>
+              </svg>
+              {{ form.errors.messages.form }}
+            </div>
+          {%- endif -%}
+          <div class="relative flex w-full transition field wrap mb-sp-6">
+            <input
+              type="email"
+              value=""
+              name="email"
+              id="RecoverEmail"
+              autocorrect="off"
+              autocapitalize="off"
+              autocomplete="email"
+              required
+              {% if form.errors %}
+                aria-invalid="true"
+                aria-describedby="RecoverEmail-email-error"
+                autofocus
+              {% endif %}
+              placeholder="{{ 'customer.login_page.email' | t }} *"
+              class="field__input w-full heading-color{% if form.errors %} border{% endif %}"
+            >
+            <label for="RecoverEmail" class="field__label"> {{ 'customer.login_page.email' | t }} * </label>
+          </div>
+          <button class="relative w-full btn btn-primary word-wrap mb-sp-6">
+            <span class="hidden-on-load transition-short">{{ 'customer.login_page.submit' | t }}</span>
+            {%- render 'loader' -%}
+          </button>
+          <a
+            href="#login"
+            aria-label="{{ 'customer.login_page.cancel' | t }}"
+            class="flex justify-center text-center underline heading-style no-jump"
+          >
+            {{ 'customer.login_page.back_login' | t }}
+          </a>
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+  <div id="login">
+    <div id="login" class="text-center mb-60">
+      <h1 tabindex="-1" class="heading-title">
+        {{ 'customer.login_page.title' | t }}
+      </h1>
+      <div class="heading-description mt-sp-4">
+        {{ 'customer.login_page.login_detail' | t }}
+      </div>
+    </div>
+    <div
+      class="relative flex justify-center w-full transition login-inner field wrap column max-w-custom"
+      style="--max-width: 50rem;"
+    >
+      {%- if recover_success == true -%}
+        <div
+          class="inline-flex w-full gap-10 mb-sp-5 form__message success fs-small align-center"
+          tabindex="-1"
+          autofocus
+        >
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" class="flex-auto w-18">
+            <use href="#icon-success"></use>
+          </svg>
+          {{ 'customer.recover_password.success' | t }}
+        </div>
+      {%- endif -%}
+      {%- form 'customer_login', class: 'form-validation' -%}
+        {%- if form.errors -%}
+          {%- if form.errors -%}
+            <div
+              class="flex gap-10 mb-sp-4 form__message error align-center h-custom"
+              tabindex="-1"
+              autofocus
+              style="--height: 4.4rem;"
+            >
+              <div class="flex content-center">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" class="flex-auto w-18 shrink-0">
+                  <use href="#icon-error"></use>
+                </svg>
+              </div>
+              {%- for field in form.errors -%}
+                <ul class="list-unstyled w-custom fs-small" style="--width: calc(100% - 24px)">
+                  <li>
+                    {%- if field == 'form' -%}
+                      {{ form.errors.messages[field] }}
+                    {%- else -%}
+                      <a href="#RegisterForm-{{ field }}" class="color-inherit">
+                        {{ form.errors.translated_fields[field] | capitalize }}
+                        {{ form.errors.messages[field] }}
+                      </a>
+                    {%- endif -%}
+                  </li>
+                </ul>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+
+        <div class="relative flex w-full mb-sp-5 transition field wrap">
+          <input
+            type="email"
+            name="customer[email]"
+            id="CustomerEmail-login--{{ section.id }}"
+            autocomplete="email"
+            autocorrect="off"
+            autocapitalize="off"
+            {% if form.errors contains 'form' %}
+              aria-invalid="true"
+            {% endif %}
+            placeholder="{{ 'customer.login_page.email' | t }} *"
+            required
+            class="field__input w-full fs-small-1 heading-color{% if form.errors contains 'form' %} border{% endif %}"
+          >
+          <label for="CustomerEmail-login--{{ section.id }}" class="field__label">
+            {{ 'customer.login_page.email' | t }} *
+          </label>
+        </div>
+
+        {%- if form.password_needed -%}
+          <div class="relative flex w-full transition field wrap show-hide-password">
+            <div class="relative w-full">
+              <input
+                type="password"
+                value=""
+                name="customer[password]"
+                id="CustomerPassword-login--{{ section.id }}"
+                autocomplete="current-password"
+                {% if form.errors contains 'form' %}
+                  aria-invalid="true"
+                {% endif %}
+                placeholder="{{ 'customer.login_page.password' | t }} *"
+                required
+                class="field__input w-full fs-small-1 heading-color no-js-validation"
+              >
+              <show-pass-word
+                class="absolute inset-y-0 flex content-center transition show-pass-word right-25 pointer"
+                aria-label="{{ 'customer.login_page.submit' | t }}"
+              >
+                <svg class="icon-hide" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <use href="#icon-hide-password"></use>
+                </svg>
+                <svg class="hidden icon-view" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <use href="#icon-show-password"></use>
+                </svg>
+              </show-pass-word>
+              <label for="CustomerPassword-login--{{ section.id }}" class="field__label">
+                {{ 'customer.login_page.password' | t }} *
+              </label>
+            </div>
+          </div>
+        {%- endif -%}
+        <div class="mt-sp-3 mb-sp-6 text-start">
+          <span class="required-field fs-small">{{ 'customer.account.required' | t }}</span>
+        </div>
+        <button
+          class="relative w-full btn btn-primary word-wrap mb-sp-6"
+          aria-label="{{ 'customer.login_page.sign_in' | t }}"
+        >
+          <span class="hidden-on-load transition-short">{{ 'customer.login_page.sign_in' | t }}</span>
+          {%- render 'loader' -%}
+        </button>
+        <div class="flex justify-center creat_new-account wrap">
+          {{ 'customer.login_page.new_customer' | t }}
+          <a
+            href="{{ routes.account_register_url }}"
+            aria-label="{{ 'customer.login_page.create_account' | t }}"
+            class="btn-link text-size align-self-center border-animation pointer heading-color ms-5 lh-normal"
+            style="--btn-link-color: var(--heading-color);--heading-weight:var(--body-font-weight)"
+          >
+            {{ 'customer.login_page.create_account' | t }}
+          </a>
+        </div>
+        <div class="flex justify-center forgot-password">
+          <a
+            href="#recover"
+            class="no-jump btn-link text-size align-self-center border-animation pointer heading-color lh-normal"
+            style="--btn-link-color: var(--heading-color);--heading-weight:var(--body-font-weight)"
+            aria-label="{{ 'customer.login_page.forgot_password' | t }}"
+          >
+            {{ 'customer.login_page.forgot_password' | t }}
+          </a>
+        </div>
+      {%- endform -%}
+    </div>
+  </div>
+  {%- if shop.checkout.guest_login -%}
+    <div>
+      <h2>{{ 'customer.login_page.guest_title' | t }}</h2>
+
+      {%- form 'guest_login', class: 'form-validation' -%}
+        <button class="button" aria-label="{{ 'customer.login_page.guest_continue' | t }}">
+          {{ 'customer.login_page.guest_continue' | t }}
+        </button>
+      {%- endform -%}
+    </div>
+  {%- endif -%}
+</div>
+<script type="module">
+  import '{{ "customer.js" | asset_url }}';
+  document.addEventListener('click', function (e) {
+    const a = e.target.closest('a[href^="#"].no-jump');
+    if (!a) return;
+
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+    if (a.getAttribute('href') === '#recover') {
+      e.preventDefault();
+      history.pushState(null, '', '#recover');
+      document.querySelector('#login').setAttribute('hidden', true);
+      document.querySelector('#recover').removeAttribute('hidden');
+    }
+    if (a.getAttribute('href') === '#login') {
+      e.preventDefault();
+      history.pushState(null, '', '#login');
+      document.querySelector('#login').removeAttribute('hidden');
+      document.querySelector('#recover').setAttribute('hidden', true);
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.main-login.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 48
+    }
+  ]
+}
+{% endschema %}

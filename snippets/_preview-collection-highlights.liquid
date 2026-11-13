@@ -1,0 +1,149 @@
+{% liquid
+  assign items_per_row = section_st.items_per_row
+
+  assign column_gap_slide = 0
+  assign column_gap_mb = 0
+  if section_st.column_gap_block == 'large'
+    assign column_gap_slide = 20
+    assign column_gap_mb = 10
+  elsif section_st.column_gap_block == 'medium'
+    assign column_gap_slide = 15
+    assign column_gap_mb = 10
+  elsif section_st.column_gap_block == 'small'
+    assign column_gap_slide = 10
+    assign column_gap_mb = 5
+  endif
+
+  assign items_per_row_mobile = section_st.items_per_row_mobile
+  assign data_free_scroll = 'false'
+  if items_per_row_mobile > 1 and items_per_row_mobile < 2
+    assign data_free_scroll = 'true'
+  elsif items_per_row_mobile > 2 and items_per_row_mobile < 3
+    assign data_free_scroll = 'true'
+  endif
+
+  assign items_per_row_tablet = items_per_row
+  if items_per_row > 3
+    assign items_per_row_tablet = items_per_row | minus: 1
+  endif
+%}
+{%- capture col_style -%}
+  --col-desktop: {{ items_per_row }};--col-number:{{ items_per_row_mobile }};--col-tablet: {{ items_per_row_tablet }};--item-desktop: {{ items_per_row }};--item-tablet: {{ items_per_row_tablet }};--item-mb: {{ items_per_row_mobile }};{{- -}}
+  --gap-desktop: {{ column_gap_slide }}px;--gap: {{ column_gap_mb }}px;--repeat: {{ section.blocks.size }}; --col-mobile: {{ items_per_row_mobile }}{{- -}}
+{%- endcapture -%}
+<div class="group--collection-highlights w-full col-1025-w-custom">
+  <slide-section
+    class="swiper {% if data_free_scroll == 'true' %} overflow-visible-mb{% endif %}"
+    data-autoplay="false"
+    data-effect="slide"
+    data-loop="false"
+    data-speed="300"
+    data-spacing="{{ column_gap_slide }}"
+    data-mobile="{{ items_per_row_mobile }}"
+    data-desktop="{{ items_per_row }}"
+    data-tablet="{{ items_per_row_tablet }}"
+    data-free-scroll="{{ data_free_scroll }}"
+    style="{{ col_style | strip | strip_newlines }}"
+  >
+    <div class="swiper-wrapper">
+      {% for i in (1..3) %}
+        <div class="swiper-slide">
+          {% render 'collection-item',
+            section: section,
+            container: section_width,
+            column: section_st.items_per_row,
+            column_mobile: section_st.items_per_row_mobile,
+            padding: column_gap_slide
+          %}
+        </div>
+      {% endfor %}
+    </div>
+  </slide-section>
+</div>
+<div class="group--collection-list w-full col-1025-remaining">
+  <div class="w-full h-full flex align-center">
+    <div class="w-full">
+      {%- if section_st.title != blank or section_st.description != blank or section_st.subheading != blank -%}
+        <div
+          class="section-header section-header__in-blocks d-none block-1025 text-{{ section_st.text_alignment }}{% if section.blocks.size > 0 %} mb-sp-10{% endif %}"
+        >
+          {% assign animate_delay = 25 %}
+          {%- if section_st.subheading != blank -%}
+            {% if scroll_animation != 'disable' %}
+              <motion-effect
+                data-animate="fade-up"
+                data-animate-delay="{{ animate_delay }}"
+                class="block"
+              >
+            {% endif %}
+            <div class="section-subheading h7 mb-sp-1 mb-md-sp-2 subheading_weight fs-big-2">
+              {{ section.settings.subheading }}
+            </div>
+            {% if scroll_animation != 'disable' %}
+              </motion-effect>
+            {% endif %}
+          {%- endif -%}
+          {%- if section_st.title != blank -%}
+            {% assign animate_delay = animate_delay | plus: 50 %}
+            {% if scroll_animation != 'disable' %}
+              <motion-effect
+                data-animate="fade-up"
+                data-animate-delay="{{ animate_delay }}"
+                class="block"
+              >
+            {% endif %}
+            <h2 class="block section-heading {{ header_size }}">
+              {{ section.settings.title }}
+            </h2>
+            {% if scroll_animation != 'disable' %}
+              </motion-effect>
+            {% endif %}
+          {%- endif -%}
+          {%- if section_st.description != blank -%}
+            {% assign animate_delay = animate_delay | plus: 50 %}
+            {% if scroll_animation != 'disable' %}
+              <motion-effect
+                data-animate="fade-up"
+                data-animate-delay="{{ animate_delay }}"
+                class="block"
+              >
+            {% endif %}
+            <div class="section-descriptionmt-sp-4 prose">
+              {{ section.settings.description }}
+            </div>
+            {% if scroll_animation != 'disable' %}
+              </motion-effect>
+            {% endif %}
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+      <div class="blocks-container">
+        {% for i in (1..3) %}
+          <a
+            class="heading-style collection-list__content block"
+            role="link"
+            aria-disabled="true"
+          >
+            <div class="collection-list__content-inner flex space-between align-center py-15 py-md-20 border-bottom gap-15">
+              <div
+                class="collection-list__content-text h4 relative flex gap"
+                style="--gap: 8px;--gap-desktop: 8px;"
+              >
+                {{ 'sections.collection_list.sample_name' | t }}
+                {%- if section.settings.show_product_count -%}
+                  <div class="product-count heading-color fs-13 body_weight flex-auto">0</div>
+                {%- endif -%}
+              </div>
+              <span
+                class="collection-list__icon wh-1025-50 w-custom h-custom flex flex-auto content-center border rounded-50 text-color pointer btn-hover overflow-hidden transition-short relative"
+                style="--width:4.6rem;--height:4.6rem;"
+              >
+                {%- render 'icon-arrow-top' -%}
+              </span>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

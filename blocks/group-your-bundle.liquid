@@ -1,0 +1,223 @@
+{{ 'product-bundle.css' | asset_url | stylesheet_tag }}
+{% liquid
+  assign theme_st = settings
+  assign block_st = block.settings
+  assign section_st = section.settings
+  assign product_image_ratio = theme_st.product_image_ratio
+  assign title = block_st.title
+  assign description = block_st.description
+  assign text_alignment = block_st.text_alignment
+  assign heading_size = block_st.heading_size
+  assign header_size = ''
+  if heading_size == 'small'
+    assign header_size = 'h3'
+  elsif heading_size == 'large'
+    assign header_size = 'h1'
+  endif
+  assign show_progress_bar = block_st.show_progress_bar
+  assign enable_quantity = block_st.enable_quantity
+  assign ratio = '3/4'
+  if product_image_ratio != 'adapt'
+    case product_image_ratio
+      when 'square'
+        assign ratio = '1/1'
+      when 'landscape'
+        assign ratio = '4/3'
+      when 'portrait'
+        assign ratio = '3/4'
+    endcase
+  else
+    assign ratio = '3/4'
+  endif
+%}
+{% style %}
+  {% if request.visual_preview_mode %}
+    .bundle-sticky{
+      display: flex;
+      flex: 0 0 auto;
+      width: var(--col-width, 50%);
+    }
+  {% endif %}
+{% endstyle %}
+<div
+  class="bundle-sticky border rounded p-sp-5 p-1025-30 flex column gap-20 gap-1025-25 sticky-1025 top-30"
+  style="--border-height: 2px;"
+  data-enable-quantity="{{ enable_quantity }}"
+>
+  {%- if title != blank or description != blank -%}
+    <bundle-header
+      class="bundle-header block text-{{ text_alignment }}"
+    >
+      <div class="bundle-title mb-10 gap-10">
+        {%- if title != blank -%}
+          <h3 class="block section-heading {{ header_size }}">
+            {{ block.settings.title }}
+          </h3>
+        {%- endif -%}
+        <span
+          class="toggle-bundle w-30 h-custom hidden-1025 inline-flex flex-end align-center"
+          style="--height: 40px;"
+        >
+          <svg class="icon icon-down icon-rotate transition-short" width="12" height="8" fill="none">
+            <path fill="currentColor" fill-opacity=".85" d="M.26 2.023A.763.763 0 0 1 0 1.44.85.85 0 0 1 .26.819c.161-.16.362-.24.603-.24.24 0 .441.08.602.24L6 5.354 10.535.819c.16-.16.361-.24.602-.24.24 0 .442.08.602.24A.85.85 0 0 1 12 1.44a.763.763 0 0 1-.26.582L6.601 7.16A.785.785 0 0 1 6 7.42a.785.785 0 0 1-.602-.26L.261 2.023Z"/>
+          </svg>
+        </span>
+      </div>
+      {%- if description != blank -%}
+        <div class="section-description prose">
+          {{ block.settings.description }}
+        </div>
+      {%- endif -%}
+    </bundle-header>
+  {%- endif -%}
+  <div class="bundle-content flex column gap-20 gap-1025-25">
+    {% if show_progress_bar %}
+      <bundle-progress-bar data-minimum="{{ section_st.minimum }}" data-section-id="{{ section.id }}">
+        <div
+          class="progress-bar rounded-10 h-custom bg-grey relative"
+          style="--height: 6px;--accent-color-second: var(--color-border);"
+        >
+          <div class="progress rounded-10 h-custom absolute left-0 inset-y-0 transition"></div>
+        </div>
+      </bundle-progress-bar>
+    {% endif %}
+    <div class="bundle-items__wrapper custom-scrollbar">
+      <div class="bundle-content__items flex column gap-20">
+        {% for item in (1..section_st.maximum) %}
+          <div class="skeleton-product flex gap-15" data-product-bundle-variant>
+            <figure
+              class="skeleton-product__media rounded-10 media relative overflow-hidden align-self-start bg-secondary flex-auto w-custom"
+              data-product-bundle-variant-media
+              style="--aspect-ratio: {{ ratio }};--width: clamp(8rem, 6vw, 10rem);"
+            ></figure>
+            <div
+              class="skeleton-product__details grow-1 flex column justify-center"
+              style="--height: 1rem;"
+              data-product-bundle-variant-content
+            >
+              <span
+                class="skeleton-product__info skeleton-1 h-custom bg-secondary rounded-10 max-w-custom-all mb-10"
+                style="--max-width: 100%;"
+              ></span>
+              <span
+                class="skeleton-product__info skeleton-2 h-custom bg-secondary rounded-10 max-w-custom-all mb-10"
+                style="--max-width: 6rem;"
+              ></span>
+              <span
+                class="skeleton-product__info skeleton-3 h-custom bg-secondary rounded-10 max-w-custom-all"
+                style="--max-width: 12rem"
+              ></span>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="divider border-top"></div>
+    <div class="bundle-total h5 flex space-between gap-10">
+      <span class="text">{{ 'sections.cart.total' | t }}:</span>
+      <span class="bundle-total-price-{{ section.id }}" dir="auto">
+        {%- if settings.currency_code -%}
+          {{ 0 | money_with_currency }}
+        {%- else -%}
+          {{ 0 | money }}
+        {%- endif -%}
+      </span>
+    </div>
+    <button-submit-bundle
+      class="button-submit-bundle-{{ section.id }} action block btn btn-primary btn-hover w-full text-center no-underline disabled"
+      role="button"
+      data-minimum="{{ section_st.minimum }}"
+      data-maximum="{{ section_st.maximum }}"
+      data-section-id="{{ section.id }}"
+      aria-label="{{ 'products.product.add_all_to_cart' | t }}"
+    >
+      <span class="hidden-on-load transition-short">{{ 'products.product.add_all_to_cart' | t }}</span>
+      {%- render 'loader' -%}
+    </button-submit-bundle>
+    <div class="bundle-footer flex column gap-10 d-none flex-1025">
+      {% content_for 'blocks' %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "t:sections.product-bundle.settings.your_bundle.name",
+  "class": "w-full col-1025-w-custom bundle-sidebar pointer-none",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.all.content_setting.heading.label",
+      "default": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.all.content_setting.description.label",
+      "default": "<p>Description</p>"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "small",
+          "label": "t:sections.all.content_header.heading_size.options__1.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.all.content_header.heading_size.options__2.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.all.content_header.heading_size.options__3.label"
+        }
+      ],
+      "default": "small",
+      "label": "t:sections.all.content_header.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.all.text_alignment.alignment"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_progress_bar",
+      "default": true,
+      "label": "t:sections.product-bundle.settings.your_bundle.settings.show_progress_bar.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_quantity",
+      "label": "t:sections.product-bundle.settings.discount.edit_quantity",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "_icon-with-text-bundle"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.product-bundle.settings.your_bundle.name"
+    }
+  ]
+}
+{% endschema %}

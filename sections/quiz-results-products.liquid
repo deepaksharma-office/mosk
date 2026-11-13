@@ -1,0 +1,32 @@
+{%- liquid
+  assign items_per_row = request.parameters.items_per_row | default: 4 | plus: 0
+  assign items_per_row_mobile = request.parameters.items_per_row_mobile | default: 2 | plus: 0
+  assign section_width = request.parameters.section_width | default: 'container'
+  assign quiz_section_id = request.parameters.quiz_section_id | default: section.id
+-%}
+
+<div class="quiz-results-products" data-quiz-results-products>
+  {%- for card_product in search.results -%}
+    <div data-quiz-product-card data-product-id="{{ card_product.id }}">
+      {% render 'card-product',
+        enable_motion: false,
+        card_product: card_product,
+        section_id: quiz_section_id,
+        container: section_width,
+        column: items_per_row,
+        column_mobile: items_per_row_mobile,
+        padding: 24,
+        indexFor: forloop.index
+      %}
+    </div>
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.quiz-results-products.name",
+  "class": "shopify-section-quiz-results-products",
+  "settings": [],
+  "presets": []
+}
+{% endschema %}

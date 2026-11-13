@@ -1,0 +1,72 @@
+.parallax__image {
+  margin-inline-start: auto;
+  padding-block: 20vh;
+  padding-inline-end: 3rem;
+}
+.parallax__image-list :is(img, .img-container) {
+  width: clamp(170px, 30vw, 250px);
+}
+.animation-bounce-bottom {
+  animation: bounce-bottom 1.5s infinite;
+  will-change: transform;
+}
+.content-banner-overlay {
+  padding-block: var(--bs-gutter-x, 1.5rem);
+}
+@keyframes bounce-bottom {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+.parallax__image-list li:nth-child(even) {
+  transform: rotate(calc(10deg * var(--flow-direction)));
+  justify-content: flex-end;
+}
+.parallax__additional .icon-next {
+  transform: rotate(90deg);
+}
+.parallax__image-list li:nth-child(odd) {
+  transform: rotate(calc(-10deg * var(--flow-direction)));
+  justify-content: flex-start;
+}
+.content-heading-text::before {
+  content: "";
+  position: absolute;
+  width: 3rem;
+  height: 2px;
+  background-color: currentColor;
+  top: -24px;
+  border-radius: 1rem;
+}
+@media (min-width: 1025px) {
+  .parallax__image {
+    padding-inline-start: 1rem;
+    padding-inline-end: 6rem;
+  }
+  .main_image_right .parallax__image {
+    margin-inline-end: auto;
+    margin-inline-start: 2rem;
+  }
+  .content-desktop-sticky {
+    height: 100vh;
+  }
+  .parallax__image-list :is(img, .img-container) {
+    width: clamp(250px, 17vw, 320px);
+  }
+  .content-banner-overlay {
+    padding-block: var(--gutter-x, 3rem);
+  }
+  .content-heading-text::before {
+    top: -32px;
+  }
+}
+@media screen and (max-width: 1024.98px) {
+  .sticky-content-mobile {
+    height: calc(100vh - 7rem);
+    position: sticky;
+  }
+}

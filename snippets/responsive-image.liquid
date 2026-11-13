@@ -1,0 +1,287 @@
+{%- liquid
+  assign theme_st = settings
+  assign image_lazy_loading = theme_st.image_lazy_loading
+  assign enable_loading_page_effect = theme_st.enable_loading_page_effect
+  assign scroll_animation = theme_st.scroll_animation
+  assign container = container
+  assign type = type
+  assign image_mobile = image_mobile
+  assign image_alt = image_alt
+  assign column = column | default: 1
+  assign column_tablet = column | default: 1
+  assign column_mobile = column_mobile | default: 1
+  assign padding = padding | default: 0
+  assign class = class
+  assign sizes = sizes
+  assign disable_lazy_loading = disable_lazy_loading
+  assign section_width = '100vw'
+  assign section_width_mobile = '100vw'
+  if container == 'stretch_width'
+    assign section_width = '100vw - 60px'
+    assign section_width_mobile = '100vw - 30px'
+  elsif container == 'full_width'
+    assign section_width_mobile = '100vw - 30px'
+  elsif container == 'fix_width'
+    assign section_width = theme_st.page_width | append: 'px'
+    assign section_width_mobile = '100vw - 30px'
+  else
+    assign section_width = '100vw'
+    assign section_width_mobile = '100vw'
+  endif
+  if type == 'product'
+    assign widths = '720, 660, 550, 480, 330, 240, 185'
+    assign column_tablet = column | minus: 1
+    if column >= 4
+      assign column_tablet = 3
+    endif
+  elsif type == 'productDetail'
+    assign widths = '1370, 1100, 720, 660, 550, 480, 330, 240, 185'
+    assign column_tablet = column | minus: 1
+    if column >= 4
+      assign column_tablet = 3
+    endif
+  elsif type == 'blog'
+    assign widths = '720, 660, 550, 480, 360'
+    if column >= 4
+      assign column_tablet = 3
+    endif
+  elsif type == 'banner'
+    assign widths = '3840, 3000, 2400, 1920, 1500, 1370, 1100, 720, 660, 550, 480, 360'
+    if column > 2
+      assign column_tablet = column | minus: 1
+    endif
+  elsif type == 'cart'
+    assign widths = '550, 480, 360, 160, 90'
+  else
+    assign widths = '720, 660, 550, 480, 360, 240, 185, 120, 60'
+    if column > 2
+      assign column_tablet = column | minus: 1
+    endif
+  endif
+
+  assign padding_mobile = 0
+  if padding and padding >= 20
+    assign padding_mobile = 15 | append: 'px'
+  endif
+  assign padding = padding | append: 'px'
+
+  if custom_widths != blank
+    assign widths = custom_widths
+  endif
+
+  if disable_lazy_loading == true
+    assign image_lazy_loading = false
+  endif
+  if image_lazy_loading != false
+    assign widths = widths | split: ', '
+  endif
+
+  assign image_size = 10
+  if fetchpriority == 'high'
+    assign image_size = image.width
+  endif
+  assign animate = animate | default: 'zoom-out'
+  assign class_loading = ''
+  assign section_slideshow = false
+  if slideshow
+    assign section_slideshow = true
+  endif
+  if image_lazy_loading != false and section_slideshow == false
+    assign class_loading = ' loading'
+  endif
+  assign class_loading_motion = ''
+  if image_lazy_loading == false and section_slideshow == false and enable_loading_page_effect == false
+    assign class_loading_motion = ' loading-motion'
+  endif
+-%}
+{% if sizes == blank %}
+  {%- capture sizes -%}
+    {%- liquid
+      assign divide_column = 1
+      assign divide_column_tablet = 1
+      assign divide_column_mobile = 1
+      if column > 1
+        assign divide_column = 1.00 | divided_by: column | round: 2
+      endif
+      if column_tablet > 1
+        assign divide_column_tablet = 1.00 | divided_by: column_tablet | round: 2
+      endif
+      if column_mobile > 1
+        assign divide_column_mobile = 1.00 | divided_by: column_mobile | round: 2
+        assign padding_mobile = 10 | append: 'px'
+      endif
+      if padding_mobile == 0
+        assign padding_mobile = '0px'
+      endif
+    -%}
+    (min-width: 1200px) calc(({{ section_width }} -  {{ padding }} * {{ column | minus: 1 }}) * {{ divide_column }}){{- -}}
+    , (min-width: 768px) calc( ({{ section_width_mobile }} - {{ padding }} * {{ column_tablet | minus: 1 }} ) * {{ divide_column_tablet }}){{- -}}
+    , calc( ({{ section_width_mobile }} - {{ padding_mobile }} * {{ column_mobile | minus: 1 }} ) * {{ divide_column_mobile }})
+  {%- endcapture -%}
+{% endif %}
+{% if motion and scroll_animation != 'disable' %}
+  <motion-effect
+    class="block{{ class_motion }}{{ class_loading }}{{ class_loading_motion }}"
+    data-animate="{{ animate }}"
+    {% if slideshow %}
+      slideshow
+    {% endif %}
+  >
+{% endif %}
+{% if image_lazy_loading != false %}
+  {% if image_mobile != blank %}
+    <picture class="image-picture {{ class }}">
+      {%- liquid
+        assign srcset_mobile = image_mobile | image_url: width: 720 | image_tag: widths: '720, 480, 360', alt: image_alt | split: 'srcset="' | last
+        unless srcset_mobile contains 'src='
+          if fetchpriority == 'high'
+            echo '<source media="(max-width: 767px)" srcset="' | append: srcset_mobile
+          else
+            echo '<source media="(max-width: 767px)" data-srcset="' | append: srcset_mobile
+          endif
+        endunless
+        if image == blank
+          assign image = image_mobile
+        endif
+      -%}
+      {%- capture srcset_image -%}
+        {% for width in widths %}{{- -}}
+          {% assign width_format = width | times: 1 %}{{- -}}
+          {%- if image.width >= width_format -%}{{ image | image_url: width: width_format }} {{ width_format }}w,{%- endif -%}{{- -}}
+        {% endfor %}{{- -}}
+      {%- endcapture -%}
+      <img
+        {% if fetchpriority == 'high' %}
+          srcset="{{ srcset_image }}"
+          loading="eager"
+          fetchpriority="high"
+        {% elsif fetchpriority == 'low' %}
+          data-srcset="{{ srcset_image }}"
+          loading="lazy"
+          fetchpriority="low"
+        {% else %}
+          data-srcset="{{ srcset_image }}"
+          loading="lazy"
+        {% endif %}
+        sizes="{{ sizes }}"
+        src="{{ image | image_url: width: image_size }}"
+        alt="{{ image_alt }}"
+        class="image-lazy-load"
+        width="{{ image.width }}"
+        height="{{ image.height }}"
+        is="lazy-loading-img"
+        style="--point:{{ image.presentation.focal_point }}"
+      >
+    </picture>
+  {% else %}
+    {%- capture srcset_image -%}
+      {% for width in widths %}{{- -}}
+        {% assign width_format = width | times: 1 %}{{- -}}
+        {%- if image.width and image.width >= width_format -%}{{ image | image_url: width: width_format }} {{ width_format }}w,{%- else -%}{{ image | image_url: width: width_format }} {{ width_format }}w,{%- endif -%}{{- -}}
+      {% endfor %}{{- -}}
+    {%- endcapture -%}
+    <img
+      {% if fetchpriority == 'high' %}
+        srcset="{{ srcset_image }}"
+        loading="eager"
+        fetchpriority="high"
+      {% elsif fetchpriority == 'low' %}
+        data-srcset="{{ srcset_image }}"
+        loading="lazy"
+        fetchpriority="low"
+      {% elsif fetchpriority == 'auto' %}
+        data-srcset="{{ srcset_image }}"
+        loading="lazy"
+        fetchpriority="auto"
+      {% else %}
+        data-srcset="{{ srcset_image }}"
+        loading="lazy"
+      {% endif %}
+      sizes="{{ sizes }}"
+      src="{{ image | image_url: width: image_size }}"
+      alt="{{ image_alt }}"
+      class="{% if fetchpriority == 'high' %}{{ class }}{% else %}image-lazy-load {{ class }}{% endif %}"
+      width="{{ image.width | default: '80' }}"
+      height="{{ image.height | default: '80' }}"
+      is="lazy-loading-img"
+      style="--point:{{ image.presentation.focal_point }}"
+    >
+  {% endif %}
+{% else %}
+  {% if image_mobile != blank %}
+    <picture class="image-picture {{ class }}">
+      {%- liquid
+        assign srcset_mobile = image_mobile | image_url: width: 720 | image_tag: widths: '720, 480, 360', alt: image_alt | split: 'srcset="' | last
+        unless srcset_mobile contains 'src='
+          echo '<source media="(max-width: 767px)" srcset="' | append: srcset_mobile
+        endunless
+        if image == blank
+          assign image = image_mobile
+        endif
+      -%}
+      {% if fetchpriority %}
+        {{-
+          image
+          | image_url: width: image.width
+          | image_tag:
+            loading: 'eager',
+            width: image.width,
+            height: image.height,
+            sizes: sizes,
+            widths: widths,
+            alt: image_alt,
+            fetchpriority: fetchpriority,
+            is: 'lazy-loading-img'
+        -}}
+      {% else %}
+        {{-
+          image
+          | image_url: width: image.width
+          | image_tag:
+            loading: 'lazy',
+            width: image.width,
+            height: image.height,
+            sizes: sizes,
+            widths: widths,
+            alt: image_alt,
+            is: 'lazy-loading-img'
+        -}}
+      {% endif %}
+    </picture>
+  {% else %}
+    {% assign width = width | default: image.width %}
+    {% if fetchpriority %}
+      {{-
+        image
+        | image_url: width: image.width
+        | image_tag:
+          loading: 'eager',
+          width: image.width,
+          height: image.height,
+          sizes: sizes,
+          widths: widths,
+          alt: image_alt,
+          class: class,
+          fetchpriority: fetchpriority,
+          is: 'lazy-loading-img'
+      -}}
+    {% else %}
+      {{-
+        image
+        | image_url: width: image.width
+        | image_tag:
+          loading: 'lazy',
+          width: width,
+          height: image.height,
+          sizes: sizes,
+          widths: widths,
+          class: class,
+          alt: image_alt,
+          is: 'lazy-loading-img'
+      -}}
+    {% endif %}
+  {% endif %}
+{% endif %}
+{% if motion and scroll_animation != 'disable' %}
+  </motion-effect>
+{% endif %}

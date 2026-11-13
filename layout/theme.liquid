@@ -1,0 +1,515 @@
+{% liquid
+  assign theme_st = settings
+  assign rtl_codes = theme_st.language_code_rtl | split: ','
+  assign is_rtl_lang = false
+  for code in rtl_codes
+    assign code_value = code | strip
+    if code_value == request.locale.iso_code
+      assign is_rtl_lang = true
+    endif
+  endfor
+%}
+<!doctype html>
+<html
+  class="no-js"
+  lang="{{ request.locale.iso_code }}"
+  {% if theme_st.enable_rtl and is_rtl_lang %}
+    dir="rtl"
+  {% endif %}
+>
+  <head>
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+    {% render 'theme-fonts', part: 'preconnect' %}
+    {% render 'theme-fonts', part: 'preload' %}
+
+    {% render 'meta-tags' %}
+    {% liquid
+      assign scheme_classes = ''
+    %}
+
+    {% style %}
+      {% render 'theme-fonts', part: 'faces' %}
+      {% for scheme in settings.color_schemes -%}
+        {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
+        {% if forloop.index == 1 -%}
+          :root,
+        {%- endif %}
+        .color-{{ scheme.id }}{
+          --color-background: {{ scheme.settings.background }};
+          --color-background-2: {{ scheme.settings.background_2 }};
+          {% if scheme.settings.background_gradient != empty %}
+          --gradient-background: {{ scheme.settings.background_gradient }};
+          --color-background: {{ scheme.settings.background_gradient }};
+          {% else %}
+          --gradient-background: {{ scheme.settings.background }};
+          {% endif %}
+          --color-text: {{ scheme.settings.text_color }};
+          --color-text-rgb: {{ scheme.settings.text_color.red }}, {{ scheme.settings.text_color.green }}, {{ scheme.settings.text_color.blue }};
+          --color-heading: {{ scheme.settings.heading_color }};
+          --color-heading-rgb:{{ scheme.settings.heading_color.red }}, {{ scheme.settings.heading_color.green }}, {{ scheme.settings.heading_color.blue }};
+          --color-border: {{ scheme.settings.border_color }};
+          --color-grey: rgba(var(--color-text-rgb), 0.85);
+          /* Button primary */
+          --btn-primary-color: {{ scheme.settings.btn_primary_color }};
+          --btn-primary-hover-color: {{ scheme.settings.btn_primary_hover_color }};
+          --btn-primary-bg-color: {{ scheme.settings.btn_primary_background }};
+          --btn-primary-bg-color-rgb: {{ scheme.settings.btn_primary_background.red }}, {{ scheme.settings.btn_primary_background.green }}, {{ scheme.settings.btn_primary_background.blue }};
+          --btn-primary-hover-bg-color: {{ scheme.settings.btn_primary_hover_background }};
+          /* Button outline */
+          --btn-outline-color: {{ scheme.settings.btn_outline_color }};
+          --btn-outline-border-color: {{ scheme.settings.btn_outline_border_color }};
+          /* Button link */
+          --btn-link-color: {{ scheme.settings.btn_outline_color }};
+          --btn-link-hover-color: {{ scheme.settings.btn_outline_color }};
+          --input-color: #1d1d1f;
+          --input-placeholder-color: #666666;
+        }
+      {% endfor %}
+      {{ scheme_classes | prepend: 'body' }} {
+        color: var(--color-text);
+        background-color: var(--color-background);
+      }
+      :root {
+        --body-font-size: {{ theme_st.base_size }}px;
+        --body-font-family: {{ theme_st.body_font.family }}, {{ theme_st.body_font.fallback_families }};
+        --body-font-style: {{ theme_st.body_font.style }};
+        --body-font-weight: {{ theme_st.body_font.weight }};
+        --body-font-weight-bold: {{ theme_st.body_font.weight | plus: 300 | at_most: 1000 }};
+        --body-line-height: 1.625;
+        --rounded-thumbs: {% if theme_st.rounded_image == 0 %} 0{% else %}12px{% endif %};
+        --img-rounded: {{ theme_st.rounded_image }}px;
+        --drawer-rounded: {{ theme_st.rounded_image }}px;
+
+        --heading-font: {{ theme_st.heading_font.family }}, {{ theme_st.heading_font.fallback_families }};
+        --heading-font-style: {{ theme_st.heading_font.style }};
+        --heading-weight: {{ theme_st.heading_font.weight }};
+        --heading-font-scale: 1;
+        --subheading-weight:{% if theme_st.subheading_weight != 'default' %}{{ theme_st.subheading_weight }}{% else %}{{ theme_st.heading_font.weight }}{% endif %};
+        --menu-font: {% if theme_st.menu_font == 'menu_body_font' %}{{ theme_st.body_font.family }}{% else %}{{ theme_st.heading_font.family }}{% endif %}, {{ theme_st.body_font.fallback_families }};
+        --menu-weight: {% if theme_st.menu_font == 'menu_body_font' %}{{ theme_st.body_font.weight }}{% else %}{{ theme_st.heading_font.weight }}{% endif %};
+
+        {% if settings.select_preset == 'fashion' %}
+          --h0: clamp(4rem, calc(4rem + (56 - 40) * var(--responsive-rate)), 5.6rem);
+        {% else %}
+          --h0: clamp(4rem, calc(4rem + (80 - 40) * var(--responsive-rate)), 8rem);
+        {% endif %}
+        --h1: clamp(3.6rem, calc(3.6rem + (56 - 36) * var(--responsive-rate)), 5.6rem);
+        --h2: clamp(3rem, calc(3rem + (46 - 30) * var(--responsive-rate)), 4.6rem);
+        --h3: clamp(2.6rem, calc(2.6rem + (36 - 26) * var(--responsive-rate)), 3.6rem);
+        --h4: clamp(2.6rem, calc(2.6rem + (30 - 22) * var(--responsive-rate)), 3rem);
+        --h5: clamp(2rem, calc(2rem + (26 - 20) * var(--responsive-rate)), 2.6rem);
+        --h6: 2rem;
+        --h7: 1.8rem;
+
+        --h1-1: clamp(3.6rem, calc(3.6rem + (50 - 36) * var(--responsive-rate)), 5rem);
+        --h2-1: clamp(3rem, calc(3rem + (40 - 30) * var(--responsive-rate)), 4rem);
+        --h4-1: clamp(2.2rem, calc(2.2rem + (24 - 22) * var(--responsive-rate)), 2.4rem);
+        --h5-1: clamp(2rem, calc(2rem + (22 - 20) * var(--responsive-rate)), 2.2rem);
+
+
+        --btn-font: {% if theme_st.button_font == 'button_body_font' %}{{ theme_st.body_font.family }}{% else %}{{ theme_st.heading_font.family }}{% endif %}, {{ theme_st.body_font.fallback_families }};
+        --btn-weight: {% if theme_st.button_font == 'button_body_font' %}{{ theme_st.body_font.weight }}{% else %}{{ theme_st.heading_font.weight }}{% endif %};
+        --btn-text-transform: {{ theme_st.button_text_transform }};
+        --btn-radius: {{ theme_st.rounded_button }}px;
+        --btn-padding-y: 1.3rem;
+        --btn-padding-x: 1.8rem;
+        --btn-font-size: {% if theme_st.button_text_transform == 'uppercase' %}calc(var(--body-font-size, 1.4rem) - 2px){% else %}var(--body-font-size, 1.4rem){% endif %};
+        --shopify-accelerated-checkout-button-border-radius: var(--btn-radius);
+        --input-padding-start: 2.5rem;
+        --input-padding-end: 2.5rem;
+        --input-padding-top: 0;
+        --input-padding-bottom: 0;
+        --input-border-width: 1px;
+        --input-border-color: var(--border-color);
+        --input-bg: rgb(var(--color-white));
+        --input-color: rgb(var(--color-heading-hsl));
+        --input-font-size: var(--body-font-size);
+        --input-placeholder-color: #666666;--input-border-radius: {{ theme_st.rounded_input }}px;
+        --input-height: 4.8rem;
+        --shopify-accelerated-checkout-button-block-size: var(--input-height);
+        --rate-color: #FF9C05;
+        --page-width: {{ theme_st.page_width }}px;
+        --page-width-margin: {% if theme_st.page_width == '1600' %}2{% else %}0{% endif %}rem;
+
+        --logo-width: {{ theme_st.logo_width }}px;
+        --bs-gutter-x: 2rem;
+        --bs-gutter-y: 0;
+        --color-white: 255, 255, 255;
+        --color-dark: #1D1D1F;
+
+        --sale-color: #C03E35;
+        --sale-color-rgb: rgb(192, 62, 53);
+
+        --responsive-rate: ((100vw - 575px) / (1410 - 575));
+
+        --transition: 0.3s var(--ease-in);
+        --ease-out:  cubic-bezier(0.4, 0, 0.2, 1);
+        --ease-in: cubic-bezier(0.4, 0, 0.2, 1);
+        --dur-in: 0.5s;
+        --dur-out: 0.48s;
+        --duration-short: 0.2s;
+        --duration-long: 0.5s;
+        --transition-drawer: all var(--dur-out) var(--ease-out);
+        --overlay-bg: rgba(0, 0, 0, 0.60);
+        --responsive-ratio: 0.7;
+        --gap: 2rem;
+        --accent-color-second: #f5f5f5;
+        --border-color: #E5E5E5;
+        --section-spacing: 6rem;
+        --product-spacing-top: 2rem;
+        --product-name-size: 1.6rem;
+        --product-price-size: 1.6rem;
+        --product-item-spacing: 4rem;
+        --shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.15);
+        --header-spacing-bottom: calc(var(--sp) * 6);
+        --swiper-navigation-color: var(--color-dark);
+        --swiper-navigation-sides-offset: var(--sp-6);
+
+        --sp: 4px;
+        --sp-2: calc(var(--sp) * 2);
+        --sp-3: calc(var(--sp) * 3);
+        --sp-4: calc(var(--sp) * 4);
+        --sp-5: calc(var(--sp) * 5);
+        --sp-6: calc(var(--sp) * 6);
+        --sp-7: calc(var(--sp) * 7);
+        --sp-8: calc(var(--sp) * 8);
+        --sp-9: calc(var(--sp) * 9);
+        --sp-10: calc(var(--sp) * 10);
+
+        --start-side: left;
+        --end-side: right;
+        --transform-origin: left;
+        --lh-heading-rtl-multiplier: 1;
+        --lh-body-rtl-multiplier: 1;
+        --flow-direction: 1;
+      }
+      {% if theme_st.enable_rtl and is_rtl_lang %}
+        [dir="rtl"] {
+          --flow-direction: -1;
+          --start-side: right;
+          --end-side: left;
+          --transform-origin: right;
+          --lh-heading-rtl-multiplier: 1.15;
+          --lh-body-rtl-multiplier: 1.2;
+        }
+        [dir="rtl"] .rtl-mirror {
+          transform: scaleX(-1);
+        }
+      {% endif %}
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+      }
+      html {
+        font-size: 62.5%;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        height: 100%;
+        scrollbar-gutter: stable;
+        vertical-align: baseline;
+        box-sizing: border-box;
+        -webkit-text-size-adjust: 100%;
+        touch-action: manipulation;
+      }
+      body {
+        min-height: 100vh;
+        margin: 0;
+        font-size: var(--body-font-size, 1.4rem);
+        font-family: var(--body-font-family);
+        font-style: var(--body-font-style);
+        font-weight: var(--body-font-weight);
+        line-height: var(--body-line-height, 1.625);
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-text-size-adjust: 100%;
+        text-rendering: optimizespeed;
+        overflow-wrap: break-word;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+      }
+      #MainContent{
+        -webkit-flex-grow: 1;
+        flex-grow: 1;
+      }
+      @media (min-width: 425px) {
+        :root{
+          --btn-padding-x: 3rem;
+        }
+      }
+      @media (min-width: 1025px) {
+        :root{
+          --btn-padding-y: 1.5rem;
+          --btn-padding-x: 3rem;
+          --input-height: 5.2rem;
+          --header-spacing-bottom: 4rem;
+        }
+      }
+      @media (max-width: 767.98px) {
+        :root {
+          --img-rounded: min({{ theme_st.rounded_image }}px, 15px);
+          --rounded-thumbs: {% if theme_st.rounded_image == 0 %} 0{% else %}8px{% endif %};
+        }
+        *:not(.btn-primary, .btn-outline),
+        *:not(.btn-primary, .btn-outline)::before,
+        *:not(.btn-primary, .btn-outline)::after {
+          -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+        }
+        .not-highlight-tap {
+          -webkit-tap-highlight-color: transparent;
+        }
+      }
+      {%- render 'divider-wave-mask' -%}
+    {% endstyle %}
+    {% render 'text-preset-style' %}
+    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+    {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}
+    {% if settings.select_preset == 'fashion' %}
+      {{ 'preset-fashion.css' | asset_url | stylesheet_tag: preload: true }}
+    {% elsif settings.select_preset == 'pets' %}
+      {{ 'preset-pets.css' | asset_url | stylesheet_tag: preload: true }}
+    {% endif %}
+    <script defer="defer" src="{{ 'swiper-bundle.min.js' | asset_url }}"></script>
+    <script defer="defer" src="{{ 'motion.js' | asset_url }}"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "@shopify/standard-events": "https://cdn.shopify.com/storefront/standard-events.js",
+          "@NextSkyTheme/global": "{{ 'global.js' | asset_url }}",
+          "@NextSkyTheme/slide": "{{ 'module-slide.js' | asset_url }}",
+          "@NextSkyTheme/add-to-cart": "{{ 'module-add-to-cart.js' | asset_url }}",
+          "@NextSkyTheme/lazy-load": "{{ 'module-lazyload.js' | asset_url }}",
+          "@NextSkyTheme/variant-swatch": "{{ 'module-variant-swatch.js' | asset_url }}",
+          "@NextSkyTheme/safari-element-patch": "{{ 'safari-element-patch.js' | asset_url }}",
+          "@NextSkyTheme/photo-swipe-lightbox": "{{ 'photoswipe-lightbox.min.js' | asset_url }}",
+          "@NextSkyTheme/vertical-product-tabs": "{{ 'section-product-tabs.js' | asset_url }}",
+          "@NextSkyTheme/progress-video": "{{ 'module-progress-video.js' | asset_url }}",
+          "@NextSkyTheme/notification": "{{ 'module-notification.js' | asset_url }}",
+          "@NextSkyTheme/modal": "{{ 'modal.js' | asset_url }}"
+        }
+      }
+    </script>
+    <script type="module" src="{{ 'theme.js' | asset_url }}"></script>
+    {{ content_for_header }}
+    <script>
+      document.documentElement.classList.replace('no-js', 'js');
+      if (Shopify.designMode) {
+        document.documentElement.classList.add('shopify-design-mode');
+      }
+    </script>
+    <script>
+      (() => {
+        try {
+          if (window.Shopify && Shopify.designMode) return;
+
+          const root = document.documentElement;
+          const storageKey = `nextsky:scroll-position:${location.pathname}${location.search}`;
+          const navigationEntry = performance.getEntriesByType?.('navigation')?.[0];
+          const navigationType = navigationEntry
+            ? navigationEntry.type
+            : performance.navigation?.type === 1
+            ? 'reload'
+            : 'navigate';
+          const savedScrollY = Number(sessionStorage.getItem(storageKey) || 0);
+          const shouldRestore = navigationType === 'reload' && savedScrollY > 0;
+
+          window.__nextSkyScrollRestore = {
+            navigationType,
+            savedScrollY,
+            shouldRestore,
+            storageKey,
+          };
+
+          if (!shouldRestore) return;
+
+          history.scrollRestoration = 'manual';
+          root.classList.add('is-restoring-scroll');
+        } catch (error) {
+          document.documentElement.classList.remove('is-restoring-scroll');
+          history.scrollRestoration = 'auto';
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="{{ 'theme.css' | asset_url }}"></noscript>
+    {% if theme_st.script_tracking_position == 'head' and theme_st.script_tracking %}
+      {{ theme_st.script_tracking }}
+    {% endif %}
+  </head>
+
+  <body class="purity-ver_1_6_0 gradient hover_zoom product-{{ theme_st.animation_hover_effect }}{% if template.name == 'product' %} template-product{% endif %}{% if template.name == 'index' %} template-index{% endif %}{% if template.name == 'cart' %} template-cart{% endif %}{% if theme_st.rounded_image > 10 %} rounded-style{% endif %}{% if theme_st.scroll_animation != 'disable' %} smooth-sl{% else %} disable-sl{% endif %} motion-{{ theme_st.scroll_animation }}">
+    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
+      {{ 'accessibility.skip_to_text' | t }}
+    </a>
+    {% if theme_st.enable_loading_page_effect %}
+      <page-loader
+        class="preloader bg-custom fixed inset-0 flex content-center no-js-hidden"
+        style="--bg-color-custom: {{ theme_st.loading_background_color }};{% if theme_st.loading_icon_image == blank %}--loading-width: 50px;{% endif %}"
+      >
+        <div class="loading-container relative">
+          <div class="preload_loading"></div>
+          <div id="loading-icon" class="flex absolute">
+            {%- if theme_st.loading_icon_image != blank -%}
+              {%- assign img_alt = theme_st.loading_icon_image.alt | default: shop.name | escape -%}
+              {{
+                theme_st.loading_icon_image
+                | image_url: width: theme_st.loading_icon_image.width
+                | image_tag:
+                  widths: '50, 100, 150, 200, 250, 300, 400, 500, 600',
+                  height: theme_st.loading_icon_image.height,
+                  width: theme_st.loading_icon_image.width,
+                  alt: img_alt,
+                  sizes: '10vw',
+                  fetchpriority: 'high'
+              }}
+            {%- endif -%}
+          </div>
+        </div>
+      </page-loader>
+    {% else %}
+      <progress-bar-load
+        class="z-20 fixed inset-0 overflow-hidden pointer-none no-js-hidden flex content-center"
+      ></progress-bar-load>
+    {% endif %}
+    {% sections 'header-group' %}
+    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+    {%- liquid
+      sections 'overlay-group'
+    -%}
+    {% sections 'footer-group' %}
+    {% section 'mobile-navigation-bar' %}
+    {%- render 'sprite-svg' -%}
+    <ul hidden>
+      <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
+      <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
+    </ul>
+    <script>
+      {%- liquid
+        assign theme_st = settings
+        assign money_format = shop.money_format
+        if theme_st.currency_code_enabled
+          assign money_format = shop.money_with_currency_format | strip_html
+        endif
+      -%}
+      window.themeGlobalVariables = {
+        settings: {
+          money_format: {{ shop.money_format | json }},
+          actionAddCartMobile: `{{ theme_st.action_add_cart_mobile }}`,
+          scrollAnimation: `{{ theme_st.scroll_animation }}`,
+          template: {{ template.name | json }}
+        }
+      }
+      window.cartStrings = {
+        error: `{{ 'sections.cart.cart_error' | t }}`,
+        quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`,
+        addSuccessMobile: `{{ 'sections.cart.cart_add_success_mobile_html' | t: link: routes.cart_url }}`,
+        updateCartSuccess: `{{ 'sections.cart.update_cart_success' | t }}`,
+        no_shipping: `{{ 'sections.cart.no_shipping' | t }}`,
+        shipping_rate: `{{ 'sections.cart.shipping_rate' | t }}`,
+        money_format: {{ money_format | json }},
+        added_to_bundle: `{{ 'products.product.added_to_bundle' | t }}`,
+        add_to_bundle: `{{ 'products.product.add_to_bundle' | t }}`,
+        save_price: `{{ 'products.product.save' | t }}`,
+        unavailable: `{{ 'products.product.unavailable' | t }}`,
+        sold_out: `{{ 'products.product.sold_out' | t }}`,
+        add_to_cart: `{{ 'products.product.add_to_cart' | t }}`,
+        not_available: `{{ 'products.product.size_recommendation_popup.measurements.not_available' | t }}`,
+        size_recommendation_trigger_label: {{ 'products.product.size_recommendation_popup.result.trigger_label' | t | json }},
+      }
+      window.shopUrl = '{{ request.origin }}';
+      window.routes = {
+        cart_add_url: '{{ routes.cart_add_url }}',
+        cart_change_url: '{{ routes.cart_change_url }}',
+        cart_update_url: '{{ routes.cart_update_url }}',
+        cart_url: '{{ routes.cart_url }}',
+        predictive_search_url: '{{ routes.predictive_search_url }}',
+        search_url: '{{ routes.search_url }}'
+      };
+      window.variantStrings = {
+        login_successful: `{{ 'customer.login_page.login_successful' | t }}`,
+        login_invalid: `{{ 'customer.login_page.login_invalid' | t }}`,
+      };
+      window.message = {
+        newsletter: {
+          success: `{{ 'newsletter.success' | t }}`,
+          error: `{{ 'newsletter.error' | t }}`
+        },
+        discount: {
+          success: `{{ 'discount.success' | t }}`,
+          error: `{{ 'discount.error' | t }}`,
+          shipping_discount_error: `{{ 'content.discount_code_error' | t }}`,
+          discount_code_error: `{{ 'content.discount_code_error' | t }}`
+        },
+        socialCopyLink: {
+          success: `{{ 'general.social.copy_link_success' | t }}`,
+        },
+        product: {
+          out_of_stock: `{{ 'general.product.out_of_stock' | t }}`,
+          alert_outfit: `{{ 'general.product.alert_outfit' | t }}`,
+          maximum_outfit: `{{ 'general.product.maximum_outfit' | t }}`,
+        },
+        ask_question: {
+          success: `{{ 'products.product.ask_question_success' | t }}`
+        }
+      }
+      window.accessibilityStrings = {
+        imageAvailable: `{{ 'products.product.media.image_available' | t: index: '[index]' }}`
+      };
+      window.content = {
+        offer: {
+          title: `{{ 'offers_popup.title.default' | t }}`
+        },
+        customOptions : {
+          placement: `{{ 'products.custom_options.placement' | t }}`,
+          text: `{{ 'products.custom_options.text' | t }}`,
+          color: `{{ 'products.custom_options.color' | t }}`
+        }
+      }
+      window.importJs = {
+        pswpModule: "{{ 'photoswipe.min.js' | asset_url }}",
+        mediaGallery: "{{ 'media-gallery.js' | asset_url }}",
+        productModel: "{{ 'product-model.js' | asset_url }}",
+        mediaLightboxGallery: "{{ 'media-lightbox-gallery.js' | asset_url }}",
+        newsletterPopup: "{{ 'section-newsletter-popup.js' | asset_url }}",
+        featuredProductBanner: "{{ 'section-featured-product-banner.js' | asset_url }}",
+        productTabs: "{{ 'section-product-tabs.js' | asset_url }}",
+        suitableProductsFinder: "{{ 'section-suitable-products-finder.js' | asset_url }}",
+        compactProductBundle: "{{ 'section-compact-product-bundle.js' | asset_url }}",
+        testimonials: "{{ 'section-testimonials.js' | asset_url }}",
+        shopableVideo: "{{ 'section-shopable-video.js' | asset_url }}",
+        countdownTimer: "{{ 'countdown-timer.js' | asset_url }}",
+        recipientForm: "{{ 'recipient-form.js' | asset_url }}",
+      };
+      window.validate = {
+        email_invalid: `{{ "customer.validate.email" | t }}`,
+        emailRegex: `{{ 'customer.validate.email_invalid' | t }}`,
+        password_invalid: `{{ 'customer.validate.min_password' | t }}`,
+        min_length: `{{ 'customer.validate.min_length' | t }}`,
+        phone_invalid: `{{ 'customer.validate.phone_invalid' | t }}`,
+      };
+      window.flashingBrowseTab = {
+        enable: {{ theme_st.enable_browser_tab_notifications }},
+        firstNotification: `{{ theme_st.first_notification }}`,
+        secondaryNotification: `{{ theme_st.secondary_notification }}`
+      }
+    </script>
+    <script src="{{ 'form-validation.js' | asset_url }}" defer="defer"></script>
+    {% if settings.open_as == 'show_popup_login' and shop.customer_accounts_enabled %}
+      <script src="{{ 'header-account-popup.js' | asset_url }}" defer="defer"></script>
+    {% endif %}
+    {% if theme_st.script_tracking_position == 'body' and theme_st.script_tracking %}
+      {{ theme_st.script_tracking }}
+    {% endif %}
+  </body>
+</html>

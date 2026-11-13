@@ -1,0 +1,185 @@
+{%- liquid
+  assign gift_card_recipient_feature_active = false
+  assign show_dynamic_checkout_active = false
+  if scope != 'detail'
+    if first_available_variant
+      assign target = product.selected_or_first_available_variant
+    else
+      assign target = product.variants[0]
+    endif
+  else
+    assign target = product.selected_or_first_available_variant
+  endif
+  assign price = target.price | default: 1999
+  assign money_price = price | money
+  if settings.currency_code_enabled
+    assign money_price = price | money_with_currency
+  endif
+  if product.price_varies and scope != 'detail'
+    assign money_price = 'products.product.price.from_price_html' | t: price: money_price
+  endif
+-%}
+{%- if product != blank -%}
+  {%- liquid
+    if show_gift_card_recipient and product.gift_card?
+      assign gift_card_recipient_feature_active = true
+    endif
+    if show_dynamic_checkout and gift_card_recipient_feature_active == false
+      assign show_dynamic_checkout_active = true
+    endif
+    if type_form == 'sticky-add-cart'
+      assign include_id = '-sticky-add-cart'
+    endif
+    assign element = 'product-form'
+    if type_form == 'edit-cart'
+      assign element = 'product-form-edit-cart'
+    endif
+  -%}
+  {% capture attributes %}
+    id="Product-form-{{ section.id }}{{ include_id }}"
+    class="block product-form flex-1"
+    data-hide-errors="{{ gift_card_recipient_feature_active }}"
+    data-section-id="{{ section.id }}{{ include_id }}"
+  {% endcapture %}
+  <div class="product__submit-form">
+    <{{ element }} {{ attributes }}>
+      {%- if type_form != 'sticky-add-cart' -%}
+        <div class="product-form__error-message-wrapper" role="alert" hidden>
+          <div class="form__message error mb-15">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" class="flex-auto w-18">
+              <use href="#icon-error"></use>
+            </svg>
+            <span class="product-form__error-message"></span>
+          </div>
+        </div>
+      {%- endif -%}
+      {% capture class_form %}form-validation main-product-form {% if type_form == 'sticky-add-cart' %}form-sticky-add-cart{% endif %}{% endcapture %}
+      {%- form 'product',
+        product,
+        id: product_form_id,
+        class: class_form,
+        novalidate: 'novalidate',
+        data-type: 'add-to-cart-form'
+      -%}
+        <input
+          type="hidden"
+          name="id"
+          value="{{ product.selected_or_first_available_variant.id }}"
+          disabled
+          class="product-variant-id"
+        >
+        {%- if gift_card_recipient_feature_active -%}
+          {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
+        {%- endif -%}
+        <div class="product-form__buttons flex column gap-sp-5 row-gap" style="--gap-desktop: 16px;--gap: 8px;">
+          <div class="product__submit-form-cart flex wrap gap-10 relative z-3">
+            <label class="visually-hidden" for="Quantity-{{ section.id }}{{ include_id }}">
+              {{- 'products.product.quantity.label' | t -}}
+            </label>
+            <quantity-input
+              id="Quantity-Form-{{ section.id }}{{ include_id }}"
+              class="input-rounded quantity flex input-style px-0{{ class_quantity }}"
+            >
+              <button
+                class="quantity__button flex align-center btn-reset ps-sp-5 pe-10 pointer heading-color"
+                name="minus"
+                type="button"
+              >
+                <span class="visually-hidden">
+                  {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                </span>
+                <svg width="11" height="2" viewBox="0 0 11 2" fill="none">
+                  <use href="#icon-minus"></use>
+                </svg>
+              </button>
+              <input
+                class="quantity__input w-custom text-center border-0"
+                style="--input-padding-start: 0rem;--input-padding-end: 0rem;--input-padding-top: 0;--input-padding-bottom: 0;--input-border-radius: 0;--input-bg: transparent;--input-height: auto;"
+                type="number"
+                name="quantity"
+                id="Quantity-{{ section.id }}{{ include_id }}"
+                min="{{ product.selected_or_first_available_variant.quantity_rule.min | default: '1' }}"
+                {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
+                  max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                {% endif -%}
+                step="{{ product.selected_or_first_available_variant.quantity_rule.increment | default: '1' }}"
+                value="{{ product.selected_or_first_available_variant.quantity_rule.min | default: '1' }}"
+                form="{{ product_form_id }}"
+              >
+              <button
+                class="quantity__button flex align-center btn-reset ps-10 pe-sp-5 pointer heading-color"
+                name="plus"
+                type="button"
+              >
+                <span class="visually-hidden">
+                  {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                </span>
+                <svg width="11" height="12" viewBox="0 0 11 12" fill="none">
+                  <use href="#icon-plus"></use>
+                </svg>
+              </button>
+            </quantity-input>
+            <div class="button_buy-now grow-1 shrink-1">
+              {%- liquid
+                assign check_against_inventory = true
+                if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
+                  assign check_against_inventory = false
+                endif
+                if product.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                  assign quantity_rule_soldout = true
+                endif
+              -%}
+              <button
+                id="ProductSubmitButton-{{ section.id }}{{ include_id }}"
+                type="submit"
+                name="add"
+                class="btn{{ class_btn }}{% if type == 'primary' %} btn-primary{% else %} btn-primary{% endif %} w-full relative product_submit_button product-form__submit word-wrap relative"
+                {% if product.selected_or_first_available_variant.available == false
+                  or quantity_rule_soldout
+                  or product.selected_or_first_available_variant == null
+                %}
+                  disabled
+                {% endif %}
+              >
+                <span class="btn-label hidden-on-load transition-short flex content-center">
+                  {%- if product.selected_or_first_available_variant == null -%}
+                    {{ 'products.product.unavailable' | t }}
+                  {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                    {{ 'products.product.sold_out' | t }}
+                  {%- else -%}
+                    {% if type_form == 'edit-cart' %}
+                      {{ 'products.product.update_in_cart' | t }}
+                    {% else %}
+                      {{ 'products.product.add_to_cart' | t }}
+                    {%- endif -%}
+                    <span class="dot-total mx-sp-1"> - </span>
+                    <span data-total-price="{{ price }}" class="total-price__detail">
+                      {{ money_price }}
+                    </span>
+                  {%- endif -%}
+                </span>
+                {%- render 'loader' -%}
+              </button>
+            </div>
+          </div>
+          {%- if show_dynamic_checkout_active -%}
+            {{ form | payment_button }}
+          {%- endif -%}
+        </div>
+      {%- endform -%}
+    </{{ element }}>
+  </div>
+{%- else -%}
+  <div class="product-form">
+    <div class="product-form__buttons form">
+      <button
+        type="submit"
+        name="add"
+        class="{{ class_btn }}product_buy_now_button product-form__submit btn btn-primary disabled{% if type == 'primary' %} w-full{% endif %}"
+        disabled
+      >
+        {{ 'products.product.sold_out' | t }}
+      </button>
+    </div>
+  </div>
+{%- endif -%}

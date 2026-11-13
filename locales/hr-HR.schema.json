@@ -1,0 +1,4686 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "settings_schema": {
+    "layout": {
+      "name": "Izgled",
+      "how_to_use": {
+        "label": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/theme-settings/layout)"
+      },
+      "settings": {
+        "page_width": {
+          "label": "Širina stranice"
+        },
+        "site_style": {
+          "label": "Zaobljeni kutovi",
+          "image": {
+            "label": "Image"
+          },
+          "button": {
+            "label": "Radijus kuta gumba"
+          },
+          "input": {
+            "label": "Unos radijusa kuta"
+          }
+        },
+        "select_preset": {
+          "label": "Odaberite unaprijed postavljeno",
+          "options__1": "Kozmetika",
+          "options__2": "Moda",
+          "options__3": "Kućni ljubimci"
+        }
+      },
+      "rtl_support": {
+        "header": "RTL podrška",
+        "enable_rtl": "Omogući RTL podršku",
+        "rtl_language": {
+          "label": "Kod jezika RTL",
+          "info": "Odredite jezike koji koriste RTL raspored unosom njihovih ISO kodova, odvojenih točkom-zarezom. Na primjer: ar; fa; ku; godišnje; sd. Ako se ostavi prazno, RTL izgled će se primijeniti na sve jezike."
+        }
+      }
+    },
+    "logo_favicon": {
+      "name": "Logo i favicon",
+      "how_to_use": {
+        "label": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/theme-settings/logo-and-favicon)"
+      },
+      "settings": {
+        "favicon": {
+          "label": "Favicon"
+        },
+        "favicon_image": {
+          "label": "Favicon slika",
+          "info": "Preporučeno 32 x 32 px .png"
+        },
+        "logo": {
+          "label": "Logo",
+          "logo_on_transparent": {
+            "label": "Logo na prozirnom zaglavlju"
+          }
+        },
+        "logo_width": {
+          "label": "Širina logotipa",
+          "info": "Širina logotipa automatski se optimizira za mobilne uređaje."
+        }
+      }
+    },
+    "customer_account": {
+      "how_to_use": {
+        "label": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/theme-settings/customer-account)"
+      },
+      "name": "Korisnički račun",
+      "settings": {
+        "customer_account_menu": {
+          "label": "Menu"
+        },
+        "open_as": {
+          "label": "Otvori kao",
+          "options": {
+            "popup": "Skočni prozor",
+            "link": "Link"
+          }
+        }
+      }
+    },
+    "colors": {
+      "name": "Boje",
+      "how_to_use": {
+        "label": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/theme-settings/colors)"
+      },
+      "settings": {
+        "palette_header": {
+          "label": "Paleta"
+        },
+        "palette_info": {
+          "label": "Definirajte boje za paletu za lakšu upotrebu kroz temu"
+        },
+        "general_header": {
+          "label": "General"
+        },
+        "general_text": {
+          "label": "Text"
+        },
+        "general_heading": {
+          "label": "Naslov"
+        },
+        "general_link": {
+          "label": "Link"
+        },
+        "general_border": {
+          "label": "Granica"
+        },
+        "background_header": {
+          "label": "Pozadina"
+        },
+        "background": {
+          "label": "Pozadina"
+        },
+        "background_2": {
+          "label": "Pozadina 2"
+        },
+        "background_gradient": {
+          "label": "Gradijent pozadine",
+          "info": "Pozadinski gradijent zamjenjuje pozadinu gdje je to moguće."
+        },
+        "fill_button_header": {
+          "label": "Gumb za punjenje"
+        },
+        "fill_button_background": {
+          "label": "Pozadina"
+        },
+        "fill_button_text": {
+          "label": "Text"
+        },
+        "fill_button_background_hover": {
+          "label": "Lebdenje u pozadini"
+        },
+        "fill_button_text_hover": {
+          "label": "Lebdenje teksta"
+        },
+        "outline_button_header": {
+          "label": "Gumb obrisa"
+        },
+        "outline_button_outline": {
+          "label": "Text"
+        },
+        "outline_button_outline_border": {
+          "label": "Granica"
+        }
+      }
+    },
+    "typography": {
+      "name": "Tipografija",
+      "how_to_use": {
+        "label": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)"
+      },
+      "settings": {
+        "font_weight": {
+          "default": "Default",
+          "inline": "Inline",
+          "regular": "Redovno",
+          "medium": "srednje"
+        },
+        "font_size": "Veličina slova",
+        "body": {
+          "label": "Tijelo",
+          "font": {
+            "label": "Font",
+            "info": "Odabir drugog fonta može utjecati na brzinu vaše trgovine. [Saznajte više o sistemskim fontovima.](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "base_size": "Veličina baze"
+        },
+        "heading": {
+          "label": "Naslov",
+          "font": {
+            "label": "Font",
+            "info": "Odabir drugog fonta može utjecati na brzinu vaše trgovine. [Saznajte više o sistemskim fontovima.](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "sub_heading": {
+            "sub_heading_weight": "Težina fonta podnaslova"
+          },
+          "text_transform": {
+            "label": "Transformacija teksta",
+            "unset": "Nepostavljeno",
+            "capitalize": "Piši velikim slovom",
+            "uppercase": "velika slova"
+          },
+          "heading_letter_spacing": {
+            "label": "Razmak između slova"
+          }
+        },
+        "menu": {
+          "label": "Menu",
+          "font": {
+            "label": "Font",
+            "body_font": "Tijelo",
+            "heading_font": "Naslov"
+          },
+          "uppercase": {
+            "label": "Velika prva razina"
+          }
+        },
+        "button": {
+          "label": "Gumb",
+          "font": {
+            "label": "Font",
+            "body_font": "Tijelo",
+            "heading_font": "Naslov"
+          }
+        },
+        "text_preset": {
+          "header": "Unaprijed postavljeni tekst",
+          "name": {
+            "heading_1": "Naslov 1",
+            "heading_2": "Naslov 2",
+            "heading_3": "Naslov 3",
+            "heading_4": "Naslov 4",
+            "heading_5": "Naslov 5",
+            "heading_6": "Naslov 6"
+          },
+          "settings": {
+            "size": {
+              "label": "Size",
+              "18px": "18 px",
+              "20px": "20 px",
+              "22px": "22 px",
+              "24px": "24 px",
+              "26px": "26 px",
+              "30px": "30 px",
+              "36px": "36 px",
+              "40px": "40 px",
+              "46px": "46 px",
+              "50px": "50 px",
+              "56px": "56 px",
+              "60px": "60 px",
+              "80px": "80 px"
+            },
+            "line_height": {
+              "label": "Visina linije",
+              "original": "Izvornik",
+              "small": "Mali",
+              "medium": "srednje",
+              "large": "velika",
+              "x_large": "X-veliki"
+            }
+          }
+        }
+      }
+    },
+    "browser_tab_notifications": {
+      "name": "Obavijesti kartice preglednika",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/theme-settings/browser-tab-notifications)",
+      "settings": {
+        "notification_info": "Ostavite prazno za korištenje izvornog naslova stranice",
+        "enable_browser_tab_notifications": {
+          "label": "Omogućiti"
+        },
+        "first_notification": {
+          "label": "Prva obavijest"
+        },
+        "secondary_notification": {
+          "label": "Sekundarna obavijest"
+        }
+      }
+    },
+    "animation": {
+      "name": "Animacija",
+      "how_to_use": {
+        "label": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/theme-settings/animation)"
+      },
+      "settings": {
+        "scroll_animation": {
+          "label": "Animacija pomicanja",
+          "options__1": {
+            "label": "Onemogući"
+          },
+          "options__2": {
+            "label": "Samo stolno računalo"
+          },
+          "options__3": {
+            "label": "Svi ekrani"
+          }
+        },
+        "enable_loading_page_effect": {
+          "heading": "Učinak učitavanja stranice",
+          "label": "Omogući učinak",
+          "loading": "Ikona učitavanja",
+          "info": "Preporučena širina slike 100x100px"
+        },
+        "image_lazy_loading": {
+          "label": "Omogući lijeno učitavanje slike"
+        },
+        "hover_effect": {
+          "label": "Efekt lebdenja",
+          "info": "Utječe na lebdeće kartice kao što su: proizvod, banner, zbirka, blog...",
+          "fade_in": "Zatamni se",
+          "zoom": "Zum"
+        }
+      }
+    },
+    "product": {
+      "name": "Kartice proizvoda",
+      "how_to_use": {
+        "label": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/theme-settings/product-cards)"
+      },
+      "settings": {
+        "enable_quickview": "Omogući brzi pregled",
+        "enable_quickadd": "Omogući brzo dodavanje",
+        "enable_color_swatches": "Omogući uzorke boja",
+        "show_tag": {
+          "hidden": "Skriven",
+          "desktop": "Samo stolno računalo",
+          "all_devices": "Svi ekrani"
+        },
+        "show_scrolling_text": "Prikaži tekst koji se pomiče",
+        "show_rate": {
+          "label": "Prikaži stopu",
+          "info": "Za prikaz ocjene dodajte aplikaciju za ocjenjivanje proizvoda. [Saznajte više](https://help.shopify.com/en/manual/products/product-reviews/installation)"
+        },
+        "alignment": {
+          "label": "Poravnanje",
+          "left": "Lijevo",
+          "center": "Centar"
+        },
+        "product_image": {
+          "label": "Slika proizvoda"
+        },
+        "show_image_hover": {
+          "label": "Prikaži sekundarnu sliku"
+        },
+        "show_video_featured": {
+          "label": "Reproduciraj videozapis dok lebdiš",
+          "info": "Radi samo s MP4 videom."
+        },
+        "product_image_ratio": {
+          "label": "Omjer slike",
+          "adapt_to_image": "Prilagodite se slici",
+          "square": "Kvadrat (1:1)",
+          "portrait": "Portret (3:4)",
+          "landscape": "Pejzaž (4:3)"
+        },
+        "mobile_options": {
+          "label": "Postavke mobitela"
+        },
+        "show_quick_add_mobile": {
+          "label": "Prikaži gumb za brzo dodavanje na mobitelu"
+        },
+        "highlights_scrolling_text_metafield": {
+          "label": "Pomicani tekst Metapolje",
+          "info": "Metapolje proizvoda. Prikazuje se kao pomični tekst na karticama proizvoda. Format: namespace.key. Default: custom.highlights_scrolling_text."
+        }
+      }
+    },
+    "badges": {
+      "name": "Značke",
+      "how_to_use": {
+        "label": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/theme-settings/badges)"
+      },
+      "settings": {
+        "badge_color": {
+          "label": "Boja teksta"
+        },
+        "show_badge": {
+          "label": "Prikaži značku"
+        },
+        "background_color": {
+          "label": "Boja pozadine"
+        },
+        "sale": {
+          "label": "Prodaja",
+          "format": {
+            "label": "Format",
+            "text": "Text",
+            "percentage": "Postotak",
+            "fixed": "Fiksni iznos"
+          }
+        },
+        "new": {
+          "label": "Novi",
+          "new_badge_display_period": {
+            "label": "Novo razdoblje prikazivanja značke",
+            "info": "Odaberite koliko će dugo proizvodi biti označeni kao \"novi\" od dana kada su stvoreni."
+          }
+        },
+        "sold_out": {
+          "label": "Rasprodan"
+        },
+        "custom_badge": {
+          "label": "Prilagođena značka",
+          "info": "Slijedite dokument kako biste vidjeli [kako postaviti prilagođenu značku](https://nextsky.gitbook.io/purity-theme/theme-settings/badges#id-5.-custom-badge)"
+        }
+      }
+    },
+    "color_swatches": {
+      "name": "Uzorci boja",
+      "how_to_use": {
+        "label": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/theme-settings/color-swatch)"
+      },
+      "settings": {
+        "hide_sold_out_variant": {
+          "label": "Sakrij rasprodane varijante"
+        },
+        "show_sale_in_variant_swatch": {
+          "label": "Prikaz rasprodaje u uzorku varijanti"
+        },
+        "color_limit": {
+          "label": "Maksimalan broj uzoraka za prikazati"
+        },
+        "color_swatch_trigger": {
+          "label": "Okidač uzorka boje",
+          "info": "Definirajte naziv opcije boje. Odvojite ih zarezom. Npr. Boja, boja"
+        },
+        "color_swatch_type": {
+          "label": "Vrsta uzorka",
+          "options__1": {
+            "label": "Varijanta slike"
+          },
+          "options__2": {
+            "label": "Color"
+          }
+        },
+        "color_swatch_shape": {
+          "label": "Oblik boje",
+          "options__1": {
+            "label": "Krug"
+          },
+          "options__2": {
+            "label": "Kvadrat"
+          }
+        },
+        "color_swatch_custom": {
+          "label": "Prilagođene boje",
+          "info": "Valjani format: Muesli: #ddd5bc ili Muesli: image.png odvojeni zarezom"
+        }
+      }
+    },
+    "cart": {
+      "name": "Košarica",
+      "how_to_use": {
+        "label": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/theme-settings/cart)"
+      },
+      "settings": {
+        "cart_action_desktop": {
+          "label": "Radnja nakon dodavanja košarice na radnoj površini",
+          "drawer": "Ladica",
+          "page": "Stranica"
+        },
+        "cart_mobile": {
+          "label": "Postavke mobitela",
+          "action": {
+            "label": "Akcija nakon dodavanja košarice",
+            "info": "Odaberite što se događa nakon što korisnik doda proizvod u košaricu na mobilnom uređaju.",
+            "option_1": "Otvorena mini kolica",
+            "option_2": "Poruka obavijesti",
+            "option_3": "Otvori košaricu jednom, obavijesti nakon"
+          },
+          "open_cart": {
+            "label": "Otvori košaricu kao",
+            "info": "Odaberite kako se košarica otvara kada dodirnete ikonu košarice u zaglavlju i mobilnoj navigacijskoj traci.",
+            "option_1": "Ladica",
+            "option_2": "Skočni prozor"
+          }
+        },
+        "free_shipping": {
+          "label": "Poruka za besplatnu dostavu",
+          "paragraph": "Provjerite jeste li ispravno konfigurirali svoje [stope dostave.](/admin/settings/shipping)",
+          "message": {
+            "label": "Poruka",
+            "info": "Upotrijebite [iznos] da biste pratili svoj napredak prema ispunjavanju uvjeta za besplatnu dostavu."
+          },
+          "minimum_amount": {
+            "label": "Minimalni iznos besplatne dostave",
+            "info": "Koristite okrugle brojeve. Isključite valutu, simbole i slova."
+          }
+        },
+        "term_and_conditions": {
+          "label": "Odredbe i uvjeti",
+          "enable": "Prikaži potvrdni okvir u mini košarici i stranici košarice.",
+          "text": "Text"
+        },
+        "cart_count_down": {
+          "label": "Odbrojavanje kolica",
+          "show_duration": {
+            "label": "Prikaži na stranici mini košarice i košarice"
+          },
+          "duration": {
+            "label": "Trajanje"
+          }
+        },
+        "product_recommendations": {
+          "label": "Preporuke proizvoda",
+          "heading": "Naslov",
+          "enable_product_recommendations": "Omogući preporuke proizvoda",
+          "enable_product_recommendations_info": "Preporuke proizvoda bit će prikazane na stranici mini košarice i košarice.",
+          "recommendation_product_type": {
+            "label": "Vrsta preporuke proizvoda",
+            "auto": "Auto",
+            "selected": "Odabrano"
+          },
+          "select_product_recommendation": "Product",
+          "show_on_mobile": {
+            "label": "Prikaži na mobitelu"
+          }
+        },
+        "gift_wrap": {
+          "label": "Poklon omot proizvoda",
+          "select_product_gift_wrap": {
+            "label": "Product",
+            "info": "Radi samo s proizvodima bez varijanti."
+          }
+        },
+        "empty": {
+          "label": "Postavke prazne košarice",
+          "heading": "Naslov",
+          "description": "Opis",
+          "collection": {
+            "label": "Popis zbirke",
+            "info": "Collections will display their featured image by default. Use metafield to change image and text. Learn more"
+          },
+          "button_text": "Oznaka gumba",
+          "button_link": {
+            "label": "Veza gumba",
+            "info": "Zadana je stranica zbirke"
+          },
+          "free_shipping": {
+            "label": "Poruka za besplatnu dostavu"
+          },
+          "empty_cart_layout": {
+            "label": "Izgled prazne košarice",
+            "option_1": "Popis",
+            "option_2": "Mreža"
+          },
+          "collection_metafield": {
+            "label": "Kolekcija prazne košarice Metapolje",
+            "info": "Metapolje kolekcije. (metaobjekt) za sliku i opis prazne košarice. Format: namespace.key. Default: custom.collection_empty. Fields: collection_image, collection_description."
+          }
+        },
+        "discount_progress_bar": {
+          "label": "Traka napretka popusta",
+          "paragraph": "Prikažite do 3 potrošajna praga u košarici. Provjerite je li odgovarajući kod za popust ili automatski popust stvoren u vašem [Shopify adminu.](/admin/discounts)",
+          "currency_info": "Unesite iznose pragova u zadanoj valuti trgovine. Automatski se pretvaraju za lokalne valute.",
+          "enable": {
+            "label": "Omogući traku napretka popusta",
+            "info": "Kada je omogućena, zamjenjuje jednu traku besplatne dostave iznad u ladici košarice i na stranici košarice."
+          },
+          "milestone_1": {
+            "label": "Prag 1"
+          },
+          "milestone_2": {
+            "label": "Prag 2"
+          },
+          "milestone_3": {
+            "label": "Prag 3"
+          },
+          "milestone": {
+            "amount": {
+              "label": "Prag",
+              "info": "Koristite okrugle brojeve bez valutnih simbola ili slova."
+            },
+            "label_text": {
+              "label": "Oznaka"
+            },
+            "icon": {
+              "label": "Ikona",
+              "option_none": "Nema",
+              "option_tag": "Oznaka",
+              "option_truck": "Kamion",
+              "option_box": "Kutija"
+            }
+          },
+          "message": {
+            "text": {
+              "label": "Poruka o napretku",
+              "info": "Upotrijebite [amount] i [label] za prikaz preostalog iznosa i oznake sljedeće nagrade."
+            },
+            "success": {
+              "label": "Poruka kada su svi pragovi dosegnuti"
+            }
+          }
+        }
+      }
+    },
+    "search": {
+      "name": "Ponašanje pretraživanja",
+      "how_to_use": {
+        "label": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/theme-settings/search-behavior)"
+      },
+      "settings": {
+        "type": {
+          "label": "Tip",
+          "info": "Ladica je zadani raspored na mobitelu.",
+          "option_1": "Skočni prozor",
+          "option_2": "Ladica",
+          "option_3": "Traka za pretraživanje"
+        },
+        "search_placeholder": {
+          "label": "Rezervirano mjesto za pretraživanje"
+        },
+        "speech_search": {
+          "label": "Glasovno pretraživanje",
+          "enable": {
+            "label": "Omogući glasovno pretraživanje"
+          }
+        },
+        "search_results": {
+          "label": "Prikaži rezultate",
+          "option_1": "Default",
+          "option_2": "Tab"
+        },
+        "recommendations": {
+          "popular_keywords": {
+            "label": "Popularna pretraga",
+            "info": "Preporučite kupcima popularne ključne riječi u vašoj trgovini. Na primjer: majica, haljina, crna."
+          },
+          "products_recommended": {
+            "label": "Preporuka proizvoda",
+            "info": "Odaberite proizvod za preporuku kupcima."
+          },
+          "collections_recommended": {
+            "label": "Preporuka za zbirku"
+          }
+        },
+        "results": {
+          "label": "Rezultati pretraživanja"
+        },
+        "predictive_search": {
+          "label": "Omogući prediktivno pretraživanje",
+          "info": "Rezultati pretraživanja uživo. Nije dostupno na svim jezicima. [Saznajte više](https://shopify.dev/themes/navigation-search/search/predictive-search#general-requirements-and-limitations)"
+        },
+        "show_search_history": {
+          "label": "Prikaži povijest pretraživanja"
+        },
+        "show_price": {
+          "label": "Prikaži cijenu proizvoda"
+        }
+      }
+    },
+    "social_media": {
+      "name": "Društveni mediji",
+      "how_to_use": {
+        "label": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/theme-settings/social-media)"
+      },
+      "settings": {
+        "social_account": {
+          "label": "Računi na društvenim mrežama",
+          "facebook": {
+            "label": "Facebook",
+            "info": "https://facebook.com/shopify"
+          },
+          "instagram": {
+            "label": "Instagram",
+            "info": "http://instagram.com/shopify"
+          },
+          "twitter": {
+            "label": "Twitter",
+            "info": "https://twitter.com/shopify"
+          },
+          "tiktok": {
+            "label": "Tiktok",
+            "info": "https://tiktok.com/@shopify"
+          },
+          "pinterest": {
+            "label": "Pinterest",
+            "info": "https://pinterest.com/shopify"
+          },
+          "youtube": {
+            "label": "Youtube",
+            "info": "https://www.youtube.com/shopify"
+          },
+          "vimeo": {
+            "label": "Vimeo",
+            "info": "https://vimeo.com/shopify"
+          },
+          "linkedin": {
+            "label": "Linkedin",
+            "info": "https://linkedin.com/company/shopify"
+          },
+          "whatsapp": {
+            "label": "Whatsapp",
+            "info": "https://www.whatsapp.com/shopify"
+          },
+          "snapchat": {
+            "label": "Snapchat",
+            "info": "https://www.snapchat.com/add/shopify"
+          }
+        },
+        "sharing_options": {
+          "label": "Opcije dijeljenja",
+          "facebook": {
+            "label": "Podijelite na Facebooku"
+          },
+          "pinterest": {
+            "label": "Podijelite na Pinterestu"
+          },
+          "twitter": {
+            "label": "Podijelite na Twitteru"
+          },
+          "whatsapp": {
+            "label": "Podijelite na WhatsApp"
+          },
+          "email": {
+            "label": "Dijeli putem e-pošte"
+          }
+        }
+      }
+    },
+    "currency": {
+      "name": "Format valute",
+      "how_to_use": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/theme-settings/currency-format)",
+      "settings": {
+        "code": {
+          "label": "Kodovi valuta",
+          "show_code": {
+            "label": "Prikaži kodove valuta",
+            "info": "Cijene košarice i naplate uvijek pokazuju kodove valuta. Primjer: 1,00 USD."
+          }
+        }
+      }
+    },
+    "script_tracking": {
+      "name": "Praćenje i uvidi",
+      "settings": {
+        "how_to_use": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/theme-settings/tracking-and-insights)",
+        "scripts_tracking": {
+          "label": "Isječak koda",
+          "info": "Dodajte svoj isječak koda za praćenje i uvide"
+        },
+        "appended_scripts": {
+          "label": "Dodana pozicija",
+          "body": "Oznaka za tijelo",
+          "head": "Oznaka za glavu"
+        }
+      }
+    }
+  },
+  "content": {
+    "manage_customer_accounts": "[Upravljanje vidljivošću](/admin/settings/customer_accounts) u postavkama korisničkog računa. Naslijeđeni računi nisu podržani."
+  },
+  "sections": {
+    "all": {
+      "general": "General",
+      "layout": {
+        "label": "Širina presjeka",
+        "fix_width": "Fiksna širina",
+        "stretch_width": "Širina rastezanja",
+        "full_width": "Puna širina"
+      },
+      "colors": {
+        "label": "Shema boja",
+        "info": "Da biste uredili sve boje svoje teme, idite na [postavke teme boja](/editor?context=theme&category=colors). Osigurajte jasan kontrast teksta za bolje korisničko iskustvo."
+      },
+      "desktop_content_position": {
+        "label": "Položaj sadržaja na radnoj površini",
+        "info": "Pozicija se automatski optimizira za mobitel.",
+        "info_2": "Prvo sadržaj je zadani mobilni izgled.",
+        "group": {
+          "top": {
+            "label": "Vrh"
+          },
+          "middle": {
+            "label": "sredina"
+          },
+          "bottom": {
+            "label": "Dno"
+          }
+        },
+        "options__1": {
+          "label": "Gore lijevo"
+        },
+        "options__2": {
+          "label": "Gornji centar"
+        },
+        "options__3": {
+          "label": "Gore desno"
+        },
+        "options__4": {
+          "label": "Sredina lijevo"
+        },
+        "options__5": {
+          "label": "Srednji centar"
+        },
+        "options__6": {
+          "label": "Sredina desno"
+        },
+        "options__7": {
+          "label": "Dolje lijevo"
+        },
+        "options__8": {
+          "label": "Donji centar"
+        },
+        "options__9": {
+          "label": "Dolje desno"
+        }
+      },
+      "padding": {
+        "section_padding_heading": "Ispuna sekcija",
+        "padding_inline": {
+          "label": "Unutarnji razmak",
+          "info": "Padding inline automatski je optimiziran za mobilne uređaje."
+        },
+        "padding_block": {
+          "label": "Blok podloge",
+          "info": "Padding block automatski je optimiziran za mobilne uređaje."
+        },
+        "padding_top": "Vrh",
+        "padding_bottom": "Dno",
+        "spacing_bottom": "Razmak dno",
+        "image_spacing": "Razmak slike",
+        "space_between": "Razmak između",
+        "column_gap": {
+          "label": "Razmak u stupcu",
+          "no_gap": "Bez razmaka",
+          "small": "Mali",
+          "medium": "srednje",
+          "large": "velika",
+          "x_large": "X-veliki"
+        }
+      },
+      "space_between": {
+        "label": "Razmak između stavki"
+      },
+      "width": {
+        "label": "Širina",
+        "fill": "Ispunite",
+        "fit": "Fit"
+      },
+      "columns": {
+        "label": "Broj stupaca"
+      },
+      "items_to_show": {
+        "label": "Maksimalan broj stavki za prikaz"
+      },
+      "product_to_show": {
+        "label": "Maksimalan broj proizvoda za prikaz"
+      },
+      "text_alignment": {
+        "label": "Usklađivanje sadržaja",
+        "alignment": "Poravnanje",
+        "options__1": {
+          "label": "Lijevo"
+        },
+        "options__2": {
+          "label": "Centar"
+        },
+        "options__3": {
+          "label": "Pravo"
+        }
+      },
+      "content": {
+        "label": "Sadržaj"
+      },
+      "text": {
+        "label": "Text"
+      },
+      "content_position": {
+        "label": "Položaj sadržaja",
+        "options__1": {
+          "label": "Slika preklapanja",
+          "top": "Vrh",
+          "middle": "sredina",
+          "bottom": "Dno",
+          "text_above_button": "Tekst iznad gumba"
+        },
+        "options__2": {
+          "label": "Ispod slike"
+        }
+      },
+      "section_setting": {
+        "page_heading": {
+          "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "description": {
+            "label": "Sadržaj"
+          },
+          "heading": {
+            "label": "Titula"
+          },
+          "breadcrumb": {
+            "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/breadcrumb)",
+            "label": "Breadcrumb"
+          }
+        },
+        "enable_rounded_style": {
+          "label": "Omogući zaobljeni stil"
+        }
+      },
+      "content_setting": {
+        "label": "Postavke sadržaja",
+        "image": {
+          "label": "Image"
+        },
+        "subheading": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "Podnaslov",
+          "info": "Odvojite svaku tekstualnu stavku okomitom trakom (|) za prikaz točke između stavki."
+        },
+        "highlight_text": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/highlight-text)",
+          "label": "Označite tekst",
+          "settings": {
+            "icons": {
+              "label": "Odaberite ikonu",
+              "options__1": {
+                "label": "None"
+              },
+              "options__2": {
+                "label": "Zvjezdica"
+              },
+              "options__3": {
+                "label": "Točka"
+              }
+            }
+          }
+        },
+        "heading": {
+          "label": "Naslov",
+          "info": "Dodajte podcrtavanje prelamanjem teksta u kurziv. Za primjenu koristite gumb Kurziv (I) u uređivaču."
+        },
+        "heading_highlight": {
+          "label": "Tekst za označavanje naslova",
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading-highlight-text)"
+        },
+        "detail_list": {
+          "label": "Popis detalja",
+          "detail_row": {
+            "label": "Detail row",
+            "row_title": "Row title",
+            "row_details": "Row details"
+          },
+          "layout": {
+            "label": "Izgled",
+            "specifications": "Specifikacije",
+            "information_cards": "Informacijske kartice"
+          }
+        },
+        "description": {
+          "label": "Opis",
+          "hide_on_mobile": {
+            "label": "Sakrij opis na mobitelu"
+          },
+          "description": "Pokažite opis svog proizvoda. Koristi metapolje kratkog opisa ako je dostupno, inače se vraća na zadani opis proizvoda. Za više informacija posjetite našu [stranicu za podršku](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-7.-description)."
+        },
+        "content": "Sadržaj",
+        "button_label": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "Oznaka gumba",
+          "info": "Ostavite oznaku praznu kako biste sakrili gumb."
+        },
+        "button_label-block": {
+          "name": "Označiti",
+          "label": "Gumb"
+        },
+        "link": {
+          "label": "Link",
+          "info": "Napomena: Ova postavka veze radi samo za slike, ne i za videozapise."
+        },
+        "first_button_label": {
+          "name": "Prvi gumb",
+          "label": "Oznaka gumba",
+          "link": "Veza gumba"
+        },
+        "second_button_label": {
+          "name": "Drugi gumb",
+          "label": "Oznaka gumba",
+          "link": "Veza gumba"
+        },
+        "button_type": {
+          "label": "Tip",
+          "primary": {
+            "label": "Primarni"
+          },
+          "outline": {
+            "label": "Obris"
+          },
+          "link": {
+            "label": "Link"
+          }
+        },
+        "show_view_all_button": {
+          "label": "Prikaži gumb za prikaz svih",
+          "label_text": "Oznaka gumba",
+          "default_text": "Pogledajte sve proizvode",
+          "default": "Pogledaj sve"
+        },
+        "open_link_in_new_tab": {
+          "label": "Otvori vezu u novoj kartici"
+        },
+        "drawn_underline": {
+          "label": "Omogući animaciju podcrtavanja naslova",
+          "type": "Stil podcrtavanja",
+          "value": {
+            "simple_underline": "Jednostavno podcrtavanje",
+            "curve_underline": "Krivulja poteza",
+            "squiggle_underline": "Vijugavo podcrtano"
+          },
+          "color": "Boja podcrtavanja"
+        },
+        "metrics": {
+          "label": "Metrike",
+          "item": {
+            "label": "Stavka metrike",
+            "value": "Vrijednost",
+            "description": "Oznaka"
+          }
+        },
+        "citation": {
+          "label": "Citat"
+        },
+        "heading_block_highlight": {
+          "label": "Omogući isticanje naslova",
+          "info": "Dodajte isticanje tako da tekst stavite u kurziv. U uređivaču upotrijebite gumb Kurziv (I).",
+          "type": "Stil isticanja",
+          "text_highlight": "Isticanje teksta",
+          "color": "Boja isticanja"
+        }
+      },
+      "content_header": {
+        "label": "Zaglavlje odjeljka",
+        "heading_size": {
+          "label": "Veličina naslova",
+          "size": "Size",
+          "xs_small": {
+            "label": "XS-mali"
+          },
+          "x_small": {
+            "label": "X-mali"
+          },
+          "small": {
+            "label": "Mali"
+          },
+          "large": {
+            "label": "velika"
+          },
+          "x_large": {
+            "label": "X-veliki"
+          },
+          "base": {
+            "label": "Veličina baze"
+          },
+          "options__1": {
+            "label": "Naslov 1"
+          },
+          "options__2": {
+            "label": "Naslov 2"
+          },
+          "options__3": {
+            "label": "Naslov 3"
+          },
+          "options__4": {
+            "label": "Naslov 4"
+          },
+          "options__5": {
+            "label": "Naslov 5"
+          },
+          "options__7": {
+            "label": "Naslov 7"
+          },
+          "options__0": {
+            "label": "Naslov 0"
+          }
+        }
+      },
+      "blog_setting": {
+        "show_category": "Prikaži kategoriju",
+        "show_tags": "Prikaži oznake",
+        "show_date": "Prikaži datum",
+        "show_author": "Prikaži autora",
+        "show_excerpt": "Prikaži odlomke"
+      },
+      "media": {
+        "label": "Tip"
+      },
+      "image": {
+        "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/image)",
+        "label": "Image",
+        "image_setting": "Postavke slike",
+        "width": "Širina slike",
+        "info_width": "Slika se automatski optimizira za mobitel.",
+        "mobile_image": "Mobilna slika",
+        "mobile_image_width": "Širina mobilne slike",
+        "aspect_ratio": {
+          "label": "Omjer slike",
+          "label_mb": "Omjer slike na mobitelu",
+          "label_video": "Omjer videa",
+          "options__1": "Kvadrat (1:1)",
+          "options__2": "Portret (3:4)",
+          "options__3": "Pejzaž (4:3)",
+          "options__4": "Isto kao desktop",
+          "adapt": "Prilagodite se slici"
+        },
+        "desktop_position": {
+          "label": "Položaj slike na radnoj površini",
+          "top": "Vrh",
+          "right": "Pravo",
+          "bottom": "Dno",
+          "left": "Lijevo",
+          "info": "Slika će biti prikazana iznad teksta na mobilnom telefonu."
+        },
+        "desktop_image_width": {
+          "label": "Širina slike radne površine"
+        }
+      },
+      "video": {
+        "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)",
+        "label": "Video",
+        "info": "Nadilazi postavku slike",
+        "settings": {
+          "source": {
+            "label": "Izvor",
+            "uploaded_video": {
+              "label": "Lokalni video"
+            },
+            "external_link": {
+              "label": "Vanjska video veza"
+            }
+          }
+        },
+        "width": "Širina videa",
+        "width_unit_type": {
+          "label": "Vrsta jedinice širine",
+          "options": {
+            "percent": {
+              "label": "postotak (%)"
+            },
+            "px": {
+              "label": "pikseli (px)"
+            }
+          }
+        }
+      },
+      "video_mobile": {
+        "label": "Video mobitel"
+      },
+      "svg": {
+        "label": "Svg ikona",
+        "custom_svg": {
+          "label": "Prilagođeni svg",
+          "info": "Nadjačava postavku slike."
+        }
+      },
+      "icon": {
+        "none": {
+          "label": "None"
+        },
+        "cruelty": {
+          "label": "Okrutnost"
+        },
+        "paraben": {
+          "label": "Paraben"
+        },
+        "privacy-protection": {
+          "label": "Zaštita privatnosti"
+        },
+        "secure-shopping": {
+          "label": "Sigurna kupnja"
+        },
+        "guarantee": {
+          "label": "Jamčiti"
+        },
+        "account": {
+          "label": "Račun"
+        },
+        "leaf": {
+          "label": "List"
+        },
+        "moon": {
+          "label": "Mjesec"
+        },
+        "hive": {
+          "label": "Košnica"
+        },
+        "comb": {
+          "label": "Češalj"
+        },
+        "free_shipping": {
+          "label": "Besplatna dostava"
+        },
+        "check_badge": {
+          "label": "Provjerite značku"
+        },
+        "message_communications": {
+          "label": "Komunikacija porukama"
+        },
+        "circular-text": {
+          "label": "Kružni tekst"
+        },
+        "beauty": {
+          "label": "Lice"
+        },
+        "line": {
+          "label": "Linija"
+        },
+        "droplet": {
+          "label": "Kapljica"
+        },
+        "smooth": {
+          "label": "Glatka"
+        },
+        "shield": {
+          "label": "Štit"
+        },
+        "balloon": {
+          "label": "Balon"
+        },
+        "brightening": {
+          "label": "Posvjetljivanje"
+        },
+        "hydration": {
+          "label": "Hidratacija"
+        },
+        "coptic_cross": {
+          "label": "koptski križ"
+        },
+        "coil": {
+          "label": "Zavojnica"
+        },
+        "verified": {
+          "label": "Provjereno"
+        },
+        "security": {
+          "label": "Sigurnost"
+        },
+        "package": {
+          "label": "Paket"
+        },
+        "cat": {
+          "label": "Mačka"
+        }
+      },
+      "carousel": {
+        "header": "Postavke karusela",
+        "enable_carousel": {
+          "label": "Omogući vrtuljak",
+          "description": "Vrtuljak se prikazuje samo kada su ukupne zbirke veće od stavki po retku na radnoj površini."
+        },
+        "show_navigation": {
+          "label": "Prikaži navigaciju"
+        },
+        "show_pagination": {
+          "label": "Prikaži paginaciju",
+          "info": "Paginacija će se automatski prikazati na mobilnom uređaju ako broj stavki na mobilnom uređaju prikažete kao 1 ili 2",
+          "info_single": "Paginacija će se automatski prikazati na mobilnom uređaju.",
+          "type": {
+            "label": "Stil paginacije",
+            "progress_bar": "Traka napretka",
+            "dot": "Točkice"
+          }
+        },
+        "reveal_slide": {
+          "label": "Otkrij sljedeći slajd",
+          "info": "Prikažite dio nadolazećeg slajda."
+        },
+        "enable_carousel_mobile": {
+          "label": "Omogući vrtuljak na mobitelu"
+        },
+        "change_slide_every": "Svaki put mijenjajte slajdove",
+        "slide_auto_change": "Automatska promjena slajda"
+      },
+      "mobile_options": {
+        "label": "Postavke mobitela",
+        "mobile_layout": {
+          "label": "Mobilni izgled",
+          "show_text_bellow": {
+            "label": "Prikaži tekst ispod na mobitelu",
+            "info": "Tekst će biti prikazan ispod slike na mobitelu."
+          },
+          "hidden_description_on_mobile": {
+            "label": "Sakrij opis na mobitelu"
+          }
+        }
+      },
+      "items": {
+        "items_per_row": "Stavke po retku",
+        "items_per_row_mobile": "Stavke po retku na mobitelu"
+      },
+      "columns_desktop": {
+        "label": "Stavki po retku na radnoj površini"
+      },
+      "newsletter_setting": {
+        "email_placeholder": "Rezervirano mjesto e-pošte",
+        "button_label": "Oznaka gumba"
+      },
+      "pagination_type": {
+        "label": "Vrsta paginacije",
+        "options__1": {
+          "label": "Broj stranice"
+        },
+        "options__2": {
+          "label": "Gumb Učitaj više"
+        },
+        "options__3": {
+          "label": "Beskonačno pomicanje"
+        }
+      },
+      "product_setting": {
+        "badges": {
+          "name": "Značke"
+        },
+        "notify": {
+          "name": "Obavijestite o ponovnoj zalihi proizvoda"
+        },
+        "live_view": {
+          "name": "Pogled uživo",
+          "settings": {
+            "min_number": "Min. broj",
+            "max_number": "Maks. broj",
+            "interval_time": "Vrijeme intervala",
+            "content": "Sadržaj",
+            "show_icon_eye": {
+              "label": "Prikaži ikonu"
+            }
+          },
+          "info": "Simulira aktivnost proizvoda prikazivanjem broja pregleda uživo, pomažući u povećanju hitnosti, društvenog dokaza i stopa konverzije."
+        },
+        "shop_the_look": {
+          "name": "Kupujte izgled",
+          "settings": {
+            "heading": {
+              "label": "Naslov"
+            }
+          },
+          "description": "Predložite srodne proizvode kako biste dovršili izgled. Za više informacija posjetite našu [stranicu za podršku](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)"
+        },
+        "stock_countdown": {
+          "name": "Odbrojavanje zaliha",
+          "settings": {
+            "message": {
+              "label": "Poruka",
+              "info": "Koristite kratki kod [count] za prikaz preostale količine proizvoda na skladištu. Ovaj kratki kod možete ukloniti ili staviti bilo gdje"
+            },
+            "stock_items": {
+              "label": "Stavke na zalihama",
+              "info": "Prikaži kada je manje od (X) artikala na skladištu"
+            }
+          }
+        },
+        "product_meta": {
+          "name": "Meta proizvoda",
+          "settings": {
+            "show_sku": {
+              "label": "Prikaži SKU"
+            },
+            "show_collections": {
+              "label": "Prikaži zbirke"
+            },
+            "show_tags": {
+              "label": "Prikaži oznake"
+            },
+            "show_type": {
+              "label": "Vrsta emisije"
+            }
+          }
+        },
+        "collapsible_row": {
+          "name": "Harmonika red",
+          "settings": {
+            "info": "Uključite naslov koji objašnjava sadržaj.",
+            "content": "Sadržaj retka",
+            "content_page": "Redak sadržaja sa stranice"
+          }
+        },
+        "accordion_row_drawer": {
+          "name": "Ladica u obliku harmonike",
+          "settings": {
+            "info": "Uključite naslov koji objašnjava sadržaj.",
+            "content": "Sadržaj retka",
+            "content_page": "Redak sadržaja sa stranice"
+          }
+        },
+        "model_size": {
+          "name": "Veličina modela",
+          "settings": {
+            "paragraph": {
+              "content": "Pogledajte koju veličinu model nosi, zajedno s visinom, težinom i mjerama. [Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)"
+            }
+          }
+        },
+        "title": {
+          "name": "Naslov proizvoda"
+        },
+        "price": {
+          "name": "Cijena"
+        },
+        "rating": {
+          "name": "Ocjena proizvoda"
+        },
+        "variant_picker": {
+          "name": "Birač varijanti",
+          "settings": {
+            "picker_type": {
+              "label": "Tip",
+              "options__1": {
+                "label": "Padajući izbornik"
+              },
+              "options__2": {
+                "label": "Pilule"
+              }
+            },
+            "size_guide": {
+              "heading": "Tablica veličina",
+              "info": "Dobijte informacije o tablici veličina s odabrane stranice.",
+              "settings": {
+                "size_trigger": {
+                  "label": "Okidač veličine",
+                  "info": "Definirajte naziv opcije veličine. Odvojite ih zarezom. Npr. Veličina, Misurare"
+                },
+                "show_size_guide": "Prikaži tablicu veličina",
+                "size_guide_label": "Oznaka tablice veličina",
+                "size_guide_page": "Stranica s tablicom veličina",
+                "footer_content": "Sadržaj podnožja",
+                "custom_size_guide": {
+                  "label": "Tablica prilagođenih veličina",
+                  "info__1": "Korištenje posebnih tablica veličina za svaku kolekciju ili proizvod.",
+                  "info__2": "Da biste koristili prilagođene tablice veličina za proizvod ili kolekciju, izradite metapolje s prostorom imena i ključem: \"custom.size_chart\".[Saznajte više](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/size-chart)"
+                }
+              }
+            }
+          }
+        },
+        "buy_buttons": {
+          "name": "Kupi gumbe",
+          "settings": {
+            "show_dynamic_checkout": {
+              "label": "Prikaži dinamičke gumbe za naplatu",
+              "info": "Koristeći metode plaćanja dostupne u vašoj trgovini, kupci vide željenu opciju, poput PayPal ili Apple Pay. [Saznajte više](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+            },
+            "show_gift_card_recipient": {
+              "label": "Prikaži obrazac s podacima o primatelju za darovne kartice",
+              "info": "Kupcima omogućuje slanje darovnih kartica na zakazani datum zajedno s osobnom porukom. [Saznajte više](https://help.shopify.com/manual/online-store/themes/customizing-themes/add-gift-card-recipient-fields)"
+            }
+          }
+        },
+        "subscription_widget": {
+          "name": "Widget za pretplatu",
+          "settings": {
+            "info": "Prikazuje jednokratnu kupnju i zasebnu karticu za svaku grupu plana prodaje. Postavite ovaj blok iznad gumba Kupi.",
+            "one_time_purchase_title": {
+              "label": "Naslov jednokratne kupnje"
+            },
+            "one_time_purchase_description": {
+              "label": "Opis jednokratne kupovine"
+            },
+            "subscription_description": {
+              "label": "Opis pretplate"
+            },
+            "show_price": {
+              "label": "Prikaži cijenu"
+            }
+          }
+        },
+        "share": {
+          "name": "Udio"
+        },
+        "complementary_products": {
+          "name": "Komplementarni proizvodi",
+          "settings": {
+            "paragraph": {
+              "content": "Za odabir komplementarnih proizvoda dodajte aplikaciju Search & Discovery. [Saznajte više](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+            },
+            "product_list_limit": {
+              "label": "Maksimalan broj proizvoda za prikaz"
+            }
+          }
+        },
+        "pickup_avaiability": {
+          "name": "Dostupnost preuzimanja"
+        },
+        "media_lightbox": {
+          "name": "Pogledajte ga na djelu",
+          "settings": {
+            "enable_sticky": {
+              "label": "Omogući ljepljivost na radnoj površini"
+            }
+          },
+          "description": "Prikažite fotografije ili videozapise iz stvarnog života vašeg proizvoda u uporabi. Za više informacija posjetite našu [stranicu za podršku](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-16.-media-lightbox)"
+        },
+        "highlights": {
+          "name": "Izdvajamo",
+          "description": "Predstavite ključne prodajne točke svog proizvoda. Za više informacija posjetite našu [stranicu za podršku](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-8.-highlights)"
+        },
+        "key_features": {
+          "name": "Ključne značajke",
+          "description": "Navedite glavne karakteristike i prednosti vašeg proizvoda. Za više informacija posjetite našu [stranicu za podršku](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-9.-key-features)"
+        },
+        "ask_question": {
+          "name": "Postavite pitanje"
+        },
+        "promotion_countdown": {
+          "name": "Odbrojavanje promocije",
+          "show_countdown_units": {
+            "label": "Prikaži jedinice odbrojavanja"
+          },
+          "description": "Dodajte mjerač vremena kako biste stvorili hitnost za promociju svog proizvoda. Za više informacija posjetite našu [stranicu za podršku](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-11.-promotion-countdown)."
+        },
+        "promotion_alert": {
+          "name": "Upozorenje o promociji",
+          "heading": {
+            "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+            "label": "Naslov"
+          },
+          "description": {
+            "label": "Opis"
+          },
+          "text_color": {
+            "label": "Boja teksta"
+          }
+        },
+        "icon_with_text": {
+          "name": "Ikona s tekstom",
+          "heading": {
+            "label_1": "Ikona sa tekstom 1",
+            "label_2": "Ikona s tekstom 2",
+            "label_3": "Ikona sa tekstom 3",
+            "label_4": "Ikona sa tekstom 4",
+            "label_5": "Ikona sa tekstom 5"
+          },
+          "info": "Ovaj će sadržaj automatski biti skriven na mobilnom telefonu.",
+          "svg": {
+            "label": "Svg ikona"
+          },
+          "content": {
+            "label": "Sadržaj"
+          },
+          "icon": {
+            "none": {
+              "label": "None"
+            },
+            "free_shipping": {
+              "label": "Besplatna dostava"
+            },
+            "check_badge": {
+              "label": "Provjerite značku"
+            },
+            "message_communications": {
+              "label": "Komunikacija porukama"
+            },
+            "truck": {
+              "label": "Kamion"
+            },
+            "question": {
+              "label": "Pitanje"
+            },
+            "location": {
+              "label": "Mjesto"
+            },
+            "leaf": {
+              "label": "List"
+            },
+            "blossom": {
+              "label": "Cvijet"
+            },
+            "payment": {
+              "label": "Plaćanje"
+            },
+            "discount": {
+              "label": "Discount"
+            },
+            "order": {
+              "label": "Redoslijed"
+            },
+            "return": {
+              "label": "Povratak"
+            },
+            "return_package": {
+              "label": "Povratni paket"
+            }
+          }
+        },
+        "inventory_status": {
+          "name": "Status inventara",
+          "settings": {
+            "inventory_threshold": {
+              "label": "Nizak prag zaliha",
+              "info": "Postavite ovu vrijednost da biste upozorili kupce kada proizvod uskoro bude rasprodan."
+            },
+            "inventory_base": {
+              "label": "Osnovna količina zaliha",
+              "info": "Postavite početnu količinu inventara proizvoda za traku napretka."
+            }
+          }
+        },
+        "disclosures": {
+          "name": "Objave",
+          "description": "Obavezna sigurnosna upozorenja i regulatorne objave za ovaj proizvod. Za više informacija posjetite našu [stranicu podrške](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information).",
+          "settings": {
+            "heading": {
+              "label": "Naslov",
+              "default": "Važne informacije"
+            },
+            "open_by_default": {
+              "label": "Otvoreno prema zadanim postavkama"
+            }
+          }
+        }
+      },
+      "divider": {
+        "section_divider_heading": "Razdjelnik odjeljaka",
+        "show_divider": "Prikaži razdjelnik",
+        "top": "Gornji razdjelnik",
+        "top_info": "Skriveno kada odjeljak iznad ima donji razdjelnik Val ili Krivulja",
+        "bottom_info": "Linija je skrivena kada odjeljak ispod ima gornji razdjelnik Val ili Krivulja",
+        "bottom": "Donji razdjelnik",
+        "none": "Nema",
+        "line": "Linija",
+        "wave": "Val",
+        "curve_out": "Krivulja prema van",
+        "curve_in": "Krivulja prema unutra"
+      },
+      "metafield": {
+        "short_description": {
+          "label": "Kratki opis Metapolje",
+          "info": "Metapolje proizvoda. Koristi se kada je dostupan kratki opis. Format: namespace.key. Default: custom.short_description."
+        },
+        "highlights": {
+          "label": "Istaknuto Metapolje",
+          "info": "Metapolje proizvoda. Popis ikona/naslova. Format: namespace.key. Default: custom.highlights."
+        },
+        "key_features": {
+          "label": "Ključne značajke Metapolje",
+          "info": "Metapolje proizvoda. Popis stavki naslov/opis. Format: namespace.key. Default: custom.key_features."
+        },
+        "media_lightbox": {
+          "label": "Medijski lightbox Metapolje",
+          "info": "Metapolje proizvoda. Popis slika/videa za galeriju. Format: namespace.key. Default: custom.media_lightbox."
+        },
+        "model_size": {
+          "label": "Veličina modela Metapolje",
+          "info": "Metapolje proizvoda. (metaobjekt) s mjerama modela. Format: namespace.key. Default: custom.model_size."
+        },
+        "product_sizing": {
+          "label": "Veličine proizvoda Metapolje",
+          "info": "Metapolje proizvoda. Popis za ljestvicu veličina. Format: namespace.key. Default: custom.product_sizing."
+        },
+        "shop_the_look": {
+          "label": "Kupi look Metapolje",
+          "info": "Metapolje proizvoda. Popis slika looka i proizvoda. Format: namespace.key. Default: custom.shop_the_look."
+        },
+        "similar_products": {
+          "label": "Slični proizvodi Metapolje",
+          "info": "Metapolje proizvoda. Popis sličnih proizvoda. Format: namespace.key. Default: custom.similar_products."
+        },
+        "frequently_bought_together": {
+          "label": "Često kupljeno zajedno Metapolje",
+          "info": "Metapolje proizvoda. Popis proizvoda za zajedničku kupnju. Format: namespace.key. Default: custom.frequently_bought_together."
+        },
+        "complete_the_look": {
+          "label": "Dovrši look Metapolje",
+          "info": "Metapolje proizvoda. Popis proizvoda outfita. Format: namespace.key. Default: custom.complete_the_look."
+        },
+        "info_gallery": {
+          "label": "Info galerija Metapolje",
+          "info": "Metapolje proizvoda. Popis kartica galerije (slika + tekst). Format: namespace.key. Default: custom.info_gallery."
+        },
+        "compare_items": {
+          "label": "Usporedi stavke Metapolje",
+          "info": "Metapolje proizvoda. Popis proizvoda za usporedbu. Format: namespace.key. Default: custom.compare_items."
+        },
+        "ingredient_highlights": {
+          "label": "Istaknuti sastojci Metapolje",
+          "info": "Metapolje proizvoda. Prikazuje se u retku usporedbe. Format: namespace.key. Default: custom.ingredient_highlights."
+        },
+        "subcollection": {
+          "label": "Podkolekcija Metapolje",
+          "info": "Metapolje kolekcije. Popis podkolekcija. Format: namespace.key. Default: custom.subcollection."
+        }
+      }
+    },
+    "group": {
+      "product": "Products",
+      "collection": "Zbirke",
+      "storytelling": "Pripovijedanje",
+      "banners": "Transparenti",
+      "blog": "Blog",
+      "form": "Obrasci",
+      "shopable": "Kupovne stvari",
+      "blocks": {
+        "basic": "Osnovno",
+        "layout": "Pomoćni programi i izgled",
+        "custom": "Custom",
+        "forms": "Obrasci"
+      },
+      "decorative": {
+        "name": "Dekorativni",
+        "marquee": "Nadstrešnica",
+        "how_to_use_maquee": "[Kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/marquee)"
+      },
+      "links": {
+        "name": "Linkovi",
+        "menu": "Menu",
+        "how_to_use_menu": "[Kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)",
+        "how_to_use_popup_link": "[Kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/links/popup-link)",
+        "popup_link": "Skočna poveznica"
+      },
+      "general": {
+        "name": "General",
+        "image_box": "Kutija za slike",
+        "image_box_use": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/overlay-group/search)"
+        }
+      }
+    },
+    "overlay_group": {
+      "name": "Skupina preklapanja"
+    },
+    "search": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/overlay-group/search)",
+      "name": "Pretraživanje"
+    },
+    "footer": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/footer-group/footer)",
+      "name": "Podnožje",
+      "settings": {
+        "enable_back_top": {
+          "label": "Omogući povratak na vrh"
+        },
+        "show_policy": {
+          "label": "Veze na politiku",
+          "info": "[Upravljanje pravilima](/admin/settings/legal)"
+        },
+        "country_language": {
+          "content": "Birač države/jezika",
+          "info": "Da biste dodali državu/regiju, idite na [postavke tržišta.](/admin/settings/markets). Da biste dodali jezik, idite na svoje [jezične postavke.](/admin/settings/languages)"
+        },
+        "enable_country_selector": {
+          "label": "Omogući birač zemlje/regije"
+        },
+        "width": {
+          "options__1": "16%",
+          "options__2": "20%",
+          "options__3": "25%",
+          "options__4": "33%",
+          "options__5": "50%",
+          "options__6": "66%",
+          "options__7": "75%",
+          "options__8": "86%",
+          "options__9": "100%"
+        },
+        "enable_language_selector": {
+          "label": "Omogući birač jezika"
+        },
+        "payment": {
+          "content": "Načini plaćanja"
+        },
+        "payment_enable": {
+          "label": "Prikaži ikone plaćanja"
+        },
+        "menu_policies": {
+          "label": "Podnožje dolje"
+        },
+        "header_follow": {
+          "content": "Pratite na Shopu",
+          "info": "Da biste kupcima omogućili praćenje vaše trgovine u aplikaciji Shop iz vašeg izloga, Shop Pay mora biti omogućen. [Saznajte više](https://help.shopify.com/manual/online-store/themes/customizing-themes/follow-on-shop)"
+        },
+        "enable_follow_on_shop": {
+          "label": "Omogućite praćenje u trgovini"
+        }
+      },
+      "blocks": {
+        "menu_block": {
+          "label": "Menu"
+        },
+        "newsletter_block": {
+          "name": "Newsletter",
+          "info": "Pretplatnici se automatski dodaju na vaš popis kupaca \"prihvaćenog marketinga\". [Saznajte više](https://help.shopify.com/manual/customers/manage-customers)",
+          "settings": {
+            "note": {
+              "label": "Bilješka"
+            }
+          }
+        },
+        "contact_bar_block": {
+          "name": "Kontakt traka",
+          "settings": {
+            "store_address": "Adresa",
+            "store_phone": "Telefon",
+            "store_email": "Email",
+            "show_social": {
+              "label": "Prikaži ikone društvenih medija",
+              "info": "Da biste prikazali svoje račune na društvenim mrežama, povežite ih u postavkama teme."
+            }
+          }
+        }
+      }
+    },
+    "header": {
+      "name": "Zaglavlje",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header)",
+      "settings": {
+        "sticky_header_type": {
+          "label": "Ljepljivo zaglavlje",
+          "options__1": {
+            "label": "None"
+          },
+          "options__2": {
+            "label": "Na pomaknite se prema gore"
+          },
+          "options__3": {
+            "label": "Uvijek"
+          }
+        },
+        "menu": {
+          "label": "Menu",
+          "menu_trigger": {
+            "label": "Okidač padajućeg izbornika radne površine",
+            "options__1": {
+              "label": "Klik"
+            },
+            "options__2": {
+              "label": "Lebdjeti"
+            }
+          },
+          "dropdowns_animation": {
+            "label": "Animacija padajućih izbornika",
+            "options__1": {
+              "label": "Zatamni se"
+            },
+            "options__3": {
+              "label": "Dolje prema gore"
+            }
+          }
+        },
+        "menu_mobile": {
+          "label": "Postavke mobilnog izbornika",
+          "menu_icon": {
+            "label": "Položaj ikone hamburgera",
+            "info": "Odaberite gdje se na mobilnom telefonu pojavljuje jelovnik hamburgera."
+          }
+        },
+        "addons": {
+          "label": "Dodaci",
+          "show_account": {
+            "label": "Prikaži ikonu računa"
+          },
+          "show_search": {
+            "label": "Prikaži pretraživanje"
+          },
+          "show_cart": {
+            "label": "Prikaži košaricu"
+          },
+          "show_offer": {
+            "label": "Prikaži ponudu"
+          },
+          "show_language": {
+            "label": "Prikaži jezik"
+          },
+          "show_currency": {
+            "label": "Prikaži valutu"
+          }
+        },
+        "transparent": {
+          "content": "Prozirno zaglavlje",
+          "info": "Provjerite je li prvi odjeljak na vašoj početnoj stranici konfiguriran kao jedno od sljedećeg: dijaprojekcija, video s preklapanjem teksta ili slika s preklapanjem teksta.",
+          "transparent": {
+            "label": "Omogući transparentno zaglavlje"
+          },
+          "text_icon_transparent": {
+            "label": "Boja teksta i ikona"
+          }
+        },
+        "blocks": {
+          "mega_menu": {
+            "name": "Banner (Mega meni)",
+            "how_to_use": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#banner-mega-menu)",
+            "banners": {
+              "label": "Postavke bannera"
+            },
+            "promotion_1": {
+              "label": "Banneri #1"
+            },
+            "promotion_2": {
+              "label": "Banneri #2"
+            },
+            "promotion_3": {
+              "label": "Banneri #3"
+            },
+            "promotion_4": {
+              "label": "Banneri #4"
+            },
+            "promotion_5": {
+              "label": "Transparenti #5"
+            },
+            "info": "Preporučuje se 448 px x 260 px"
+          },
+          "menu_item": {
+            "label": "Stavka izbornika",
+            "info": "Unesite stavku izbornika za primjenu mega padajućeg izbornika. Razlikujte velika i mala slova."
+          },
+          "menu_column": {
+            "label": "Stupci izbornika radne površine"
+          },
+          "product": {
+            "name": "Proizvodi (Mega meni)",
+            "how_to_use": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#product-mega-menu)",
+            "header": "Products"
+          },
+          "collection": {
+            "name": "Zbirke (Mega izbornik)",
+            "how_to_use": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#collection-mega-menu)",
+            "header": "Zbirke"
+          },
+          "menu_highlight": {
+            "name": "Isticanje izbornika",
+            "menu_items": {
+              "label": "Stavke izbornika za označavanje",
+              "info": "Unesite nazive stavki izbornika koje želite istaknuti, odvojene zarezima (npr. Rasprodaja, Nova ponuda). Razlikujte velika i mala slova."
+            },
+            "highlight_color": {
+              "label": "Označite boju"
+            },
+            "highlight_icon": {
+              "label": "Označite ikonu",
+              "options": {
+                "unset": "Nepostavljeno",
+                "star": "Zvjezdica",
+                "custom": "Custom"
+              }
+            },
+            "custom_icon": {
+              "label": "Prilagođena ikona",
+              "info": "Izborna ikona za prikaz pored istaknutih stavki izbornika (preporučena veličina: 24x24px)"
+            }
+          }
+        },
+        "header_layout": {
+          "label": "Izgled zaglavlja na radnoj površini",
+          "info": "Izgled se automatski optimizira za mobilne uređaje.",
+          "options__1": {
+            "label": "Logo lijevo, izbornik u sredini"
+          },
+          "options__2": {
+            "label": "Logo u sredini, izbornik lijevo"
+          },
+          "options__3": {
+            "label": "Logo u sredini, izbornik ispod"
+          },
+          "options__4": {
+            "label": "Logo lijevo, izbornik ispod"
+          },
+          "options__5": {
+            "label": "Logo lijevo, izbornik lijevo"
+          }
+        }
+      }
+    },
+    "custom_liquid": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "how_to_use_block": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "name": "Prilagođena tekućina",
+      "liquid_code": "Kod tekućine",
+      "info": "Dodajte isječke aplikacije ili drugi Liquid kod za izradu naprednih prilagodbi.",
+      "info_custom_liquid": "Dodajte isječke aplikacije ili drugi kod za izradu naprednih prilagodbi. [Saznajte više](https://shopify.dev/docs/api/liquid)"
+    },
+    "blog-posts": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/blog-posts)",
+      "name": "Postovi na blogu",
+      "settings": {
+        "blog-post": {
+          "label": "Post na blogu",
+          "blog_post_type": {
+            "label": "Vrsta posta na blogu",
+            "category": "Kategorija",
+            "select_blog": "Odabrani blogovi"
+          }
+        },
+        "blog": {
+          "label": "Blog"
+        }
+      }
+    },
+    "multi_content": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/multi-content)",
+      "name": "Multi sadržaj",
+      "blocks": {
+        "label": "Postavke bloka",
+        "bellow_image": "Postavke značke",
+        "badge": "Značka",
+        "equal_height_adjustment": {
+          "label": "Jednako podešavanje visine"
+        },
+        "social_icon": "Društvene ikone",
+        "grid_info": "Informacije o mreži",
+        "grid_info_1": "Informacije o mreži 1",
+        "grid_info_2": "Informacije o mreži 2",
+        "grid_info_3": "Informacije o mreži 3",
+        "grid_info_4": "Informacije o mreži 4"
+      }
+    },
+    "grid_banner": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/banners/grid-banner)",
+      "name": "Mrežni banner",
+      "settings": {
+        "hidden_block_des_mobile": {
+          "label": "Sakrij opis stavke na mobitelu"
+        }
+      },
+      "blocks": {
+        "item": {
+          "name": "Stavka bannera",
+          "show_arrow": "Prikaži ikonu strelice"
+        }
+      }
+    },
+    "scrolling_text": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/scrolling-text)",
+      "name": "Pomicanje teksta",
+      "settings": {
+        "direction": {
+          "label": "Smjer",
+          "left": {
+            "label": "Zdesna na lijevo"
+          },
+          "right": {
+            "label": "Slijeva na desno"
+          }
+        },
+        "speed": {
+          "label": "Ubrzati"
+        },
+        "text_size": {
+          "label": "Size"
+        },
+        "blocks": {
+          "image": {
+            "rounded_image": {
+              "label": "Radijus kuta slike"
+            },
+            "image_height": {
+              "label": "Visina slike"
+            },
+            "image_width": {
+              "label": "Širina"
+            }
+          }
+        }
+      }
+    },
+    "shopby-outfit": {
+      "name": "Kupujte po odjeći",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-by-outfit)",
+      "blocks": {
+        "outfit": {
+          "name": "Opremiti",
+          "settings": {
+            "product": {
+              "label": "Popis proizvoda"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Kupujte po odjeći"
+      },
+      "setting": {
+        "media": {
+          "label": "Vrsta medija"
+        },
+        "video_autoplay": {
+          "info": "Radi samo kada je Video odabran u postavkama bloka Media Type."
+        }
+      }
+    },
+    "collection-list": {
+      "name": "Popis zbirke",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/collection-list)",
+      "settings": {
+        "header": {
+          "collection": "Collection",
+          "collection_title": "Naslov zbirke",
+          "collection_card": "Kartica za prikupljanje",
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "how_to_use_collection_title": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)"
+        },
+        "collection_title_style": {
+          "label": "Stil naslova zbirke",
+          "text": "Text",
+          "button": "Gumb"
+        },
+        "show_product_count": {
+          "label": "Prikaži broj proizvoda"
+        },
+        "overlay_image_settings": "Postavke slike preklapanja",
+        "overlay_image_color": "Boja teksta",
+        "collection_overlay_image_color": "Boja teksta zbirke"
+      },
+      "blocks": {
+        "featured_collection": {
+          "name": "Collection",
+          "settings": {
+            "collection": {
+              "label": "Collection"
+            },
+            "image": {
+              "label": "Image",
+              "info": "Ostavite prazno za korištenje slike zbirke",
+              "info_highlight": "Ostavite prazno za korištenje slike zbirke. Preporučeno 330 px x 520 px",
+              "info_suitable": "Ostavite prazno za korištenje slike zbirke. Preporučeno 147 px x 72 px",
+              "info_collection_item": "Preporučuje se 444 px x 444 px"
+            },
+            "title": {
+              "label": "Titula",
+              "info": "Ostavite prazno za korištenje naslova zbirke"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Popis zbirke"
+      }
+    },
+    "quickview": {
+      "name": "Brzi pregled",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/overlay-group/quickview)",
+      "settings": {
+        "paragraph": "Ovaj vam odjeljak omogućuje prilagodbu skočnog prozora za brzi pregled."
+      }
+    },
+    "featured-collection": {
+      "name": "Istaknuta zbirka",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/featured-collection)"
+    },
+    "expandable_card": {
+      "name": "Proširiva kartica",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/expandable-card)",
+      "settings": {
+        "card_header": "Postavke kartice",
+        "interaction_behavior": {
+          "label": "Interakcijsko ponašanje",
+          "options": {
+            "hover": "Prikaži dok lebdite",
+            "drawer": "Pritisnite otvori ladicu"
+          }
+        }
+      },
+      "blocks": {
+        "layered_card": {
+          "name": "Slojevite karte",
+          "settings": {
+            "media_header": "Image",
+            "description": "Opis",
+            "drawer_page": "Opis sa stranice"
+          }
+        }
+      }
+    },
+    "featured-product": {
+      "name": "Istaknuti proizvod",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/featured-product)",
+      "settings": {
+        "product": "Product"
+      }
+    },
+    "slideshow": {
+      "name": "Dijaprojekcija",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/slideshow)",
+      "settings": {
+        "loading_background_color": {
+          "label": "Učitavanje pozadine",
+          "info": "Boja pozadine prikazana dok se video slajd učitava."
+        },
+        "slide_height": {
+          "label": "Visina klizača",
+          "full_screen": "Cijeli ekran",
+          "adapt_to_first_image": "Prilagodite prvoj slici",
+          "small": "Mali",
+          "medium": "srednje",
+          "large": "velika"
+        },
+        "info": "Preporučuje se 1920 px x 840 px",
+        "info_mobile": "Preporučeno 390 px x 572 px",
+        "blocks": {
+          "image": {
+            "label": "Slajd slike",
+            "image_overlay_opacity": {
+              "label": "Neprozirnost sloja slike",
+              "overlay_opacity": "Neprozirnost sloja"
+            }
+          },
+          "video": {
+            "label": "Video slajd",
+            "video_setting": "Video postavke",
+            "video_overlay_opacity": {
+              "label": "Neprozirnost preklapanja videozapisa"
+            }
+          }
+        }
+      }
+    },
+    "related-products": {
+      "name": "Srodni proizvodi",
+      "how_to_use": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/related-products)"
+    },
+    "similar-products": {
+      "name": "Kupujte sličan proizvod",
+      "how_to_use": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-product)"
+    },
+    "complete-the-look": {
+      "name": "Upotpunite izgled",
+      "how_to_use": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/group-sections/products/complete-the-look)"
+    },
+    "similar-color": {
+      "name": "Kupite sličnu boju",
+      "how_to_use": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-color)"
+    },
+    "quick-order-list": {
+      "name": "Lista brzih narudžbi"
+    },
+    "newsletter": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/newsletter)",
+      "name": "Newsletter",
+      "settings": {
+        "header": {
+          "heading_setting": "Postavka biltena"
+        }
+      }
+    },
+    "rich-text": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/rich-text)",
+      "name": "Obogaćeni tekst",
+      "settings": {
+        "max_width": {
+          "label": "Maksimalna širina",
+          "info": "Maksimalna širina automatski se optimizira za mobilne uređaje."
+        },
+        "rotating_text": "Kružni tekst",
+        "separator_spacing": {
+          "label": "Razmak razdjelnika",
+          "info": "Dodaje razmak s obje strane razdjelnika poput - ili • između izraza."
+        }
+      }
+    },
+    "recently-viewed-products": {
+      "name": "Nedavno pregledani proizvodi",
+      "info": "Spremite stranicu za učitavanje nedavno pregledanih proizvoda",
+      "how_to_use": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/recently-product)"
+    },
+    "info-gallery-products": {
+      "name": "Ključni sastojci",
+      "how_to_use": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metaobjects/info-gallery)"
+    },
+    "product-benefits": {
+      "name": "Prednosti proizvoda",
+      "how_to_use": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/product-benefits)",
+      "settings": {
+        "media_header": "Središnji mediji",
+        "image": {
+          "label": "Image",
+          "info": "Koristi istaknutu sliku proizvoda kada je prazna. Preporučuje se 640 x 900 px."
+        },
+        "media_width": {
+          "label": "Širina slike na radnoj površini"
+        },
+        "video": {
+          "label": "Video"
+        },
+        "video_poster": {
+          "label": "Slika video postera"
+        }
+      },
+      "blocks": {
+        "benefit": {
+          "name": "Korist",
+          "settings": {
+            "icon": {
+              "label": "Ikona"
+            }
+          }
+        }
+      }
+    },
+    "quiz-results-products": {
+      "name": "Rezultati kviza proizvodi"
+    },
+    "quiz": {
+      "name": "Kviz",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/utilities-and-layout/quiz)",
+      "settings": {
+        "intro_header": "uvod",
+        "enable_intro_step": {
+          "label": "Omogući uvodni korak"
+        },
+        "intro_button_label": {
+          "label": "Oznaka gumba za pokretanje"
+        },
+        "show_retake_button": {
+          "label": "Prikaži gumb za ponovno snimanje"
+        },
+        "retake_label": {
+          "label": "Ponovno snimi oznaku gumba"
+        },
+        "results_display_header": "Prikaz rezultata",
+        "content_max_width": {
+          "label": "Maksimalna širina sadržaja"
+        },
+        "show_back_button": {
+          "label": "Prikaži gumb za povratak"
+        },
+        "email_header": "korak e-pošte",
+        "enable_email_step": {
+          "label": "Omogući korak e-pošte"
+        },
+        "email_heading": {
+          "label": "Naslov e-pošte"
+        },
+        "email_placeholder": {
+          "label": "Rezervirano mjesto e-pošte"
+        },
+        "continue_label": {
+          "label": "Oznaka gumba Nastavi"
+        },
+        "skip_label": {
+          "label": "Oznaka gumba za preskakanje"
+        },
+        "results_banner_image": {
+          "label": "Slika natpisa s rezultatima"
+        },
+        "fallback_products": {
+          "label": "Rezervni proizvodi",
+          "info": "Proizvodi se prikazuju samo kada odgovori na kviz ne vrate jaka ili djelomična podudaranja. Koristite kao rezervnu kopiju tako da stranica s rezultatima nikada ne bude prazna."
+        },
+        "results_products_limit": {
+          "label": "Maksimalan broj proizvoda za prikaz"
+        }
+      }
+    },
+    "compare-products": {
+      "name": "Usporedite proizvode",
+      "how_to_use": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/compare-items)",
+      "settings": {
+        "header": {
+          "label": "Usporedite postavke"
+        },
+        "show_price": "Cijena",
+        "show_ratings": "Ocjene",
+        "show_vendor": "Dobavljač",
+        "show_color": "Color",
+        "show_size": "Size",
+        "show_highlights": "Izdvajamo",
+        "show_availability": "Dostupnost"
+      }
+    },
+    "bought-together-products": {
+      "name": "Kupili zajedno proizvode",
+      "how_to_use": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/frequently-bought-together)"
+    },
+    "media-with-text": {
+      "name": "Mediji s tekstom",
+      "info_image": {
+        "info_desktop": "Preporučeno 950 px x 844 px",
+        "info_mobile": "Preporučeno 475 px x 422 px",
+        "info_video": "Nadjačava postavku slike. Preporučeno 950 px x 844 px"
+      }
+    },
+    "product-specifications": {
+      "name": "Specifikacije proizvoda",
+      "item_name": "Product specifications item",
+      "specifications_layout": "Izgled specifikacija",
+      "grid_gap": "Razmak rešetke",
+      "mobile_rows_shown": "Redovi",
+      "view_more_label": "Oznaka gumba Prikaži više",
+      "view_less_label": "Oznaka gumba Prikaži manje",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-specifications)"
+    },
+    "image-with-text": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/image-with-text)",
+      "name": "Slika s tekstom",
+      "settings": {
+        "desktop_vertical_alignment": {
+          "label": "Okomito poravnanje radne površine",
+          "top": "Vrh",
+          "middle": "sredina",
+          "bottom": "Dno"
+        },
+        "vertical_alignment": "Okomito poravnanje",
+        "background_type": {
+          "label": "Vrsta pozadine",
+          "image": "Image",
+          "color": "Color"
+        },
+        "background_color": "Boja pozadine",
+        "background_image": "Pozadinska slika",
+        "text_color": "Boja teksta",
+        "image_info": "Preporučuje se 696 px x 500 px",
+        "offer_image_with_text_info": "Preporučuje se 360 ​​px x 200 px",
+        "image_caption": {
+          "label": "Opis slike",
+          "heading": "Naslov",
+          "description": "Opis",
+          "position": "Položaj"
+        }
+      }
+    },
+    "before_after_result": {
+      "name": "Prije poslije",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/banners/before-after)",
+      "before_text": {
+        "label": "Prije teksta",
+        "default": "Prije"
+      },
+      "after_text": {
+        "label": "Nakon teksta",
+        "default": "Nakon"
+      }
+    },
+    "parallax-image-with-text": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/banners/parallax-split)",
+      "name": "Podjela paralakse",
+      "settings": {
+        "image": {
+          "image_1": {
+            "label": "Slika 1"
+          },
+          "image_2": {
+            "label": "Slika 2"
+          },
+          "image_3": {
+            "label": "Slika 3"
+          }
+        },
+        "parallax_image": {
+          "label": "Slika paralakse"
+        }
+      }
+    },
+    "discount_popup": {
+      "info": "Ovaj se odjeljak koristi za prikaz skočnog prozora nakon pretplate.",
+      "name": "Skočni prozor s popustom",
+      "how_to_use": "[Kako koristiti ovu postavku](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/discount-popup)",
+      "settings": {
+        "discount_code": {
+          "label": "Promotivni link",
+          "info": "Kako doći do promotivnog linka? [Saznajte više](https://help.shopify.com/en/manual/discounts/managing-discount-codes#promote-a-discount-using-a-shareable-link)"
+        },
+        "discount_button": {
+          "label": "Oznaka promotivnog gumba",
+          "default": "👉 Kupujte s 10% popusta"
+        },
+        "sub_heading": {
+          "default": "hura! Pretplaćeni ste"
+        },
+        "info_image": "Ova će se slika automatski sakriti na mobilnom telefonu. Preporučeno 350 px x 410 px"
+      }
+    },
+    "image-with-text-overlay": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/image-with-text-overlay)",
+      "name": "Slika s preklapanjem teksta",
+      "countdown": "Odbrojavanje vremena",
+      "count_down": "Odbrojavanje",
+      "how_to_use_count_down": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/countdown)",
+      "end_time": {
+        "label": "Vrijeme završetka",
+        "info": "npr. mm-dd-gggg"
+      },
+      "message": {
+        "label": "Istekla poruka",
+        "info": "Ova poruka će se prikazati kada vrijeme istekne."
+      },
+      "image_info": {
+        "info_desktop": "Preporučuje se 1392 px x 500 px",
+        "info_mobile": "Preporučeno 400 px x 469 px"
+      }
+    },
+    "media-hero": {
+      "name": "Medijski heroj",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/media-hero)",
+      "media": "Mediji",
+      "info": "Nadilazi postavku slike."
+    },
+    "video": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/video)",
+      "name": "Video",
+      "settings": {
+        "video_local": {
+          "label": "Video lokalni",
+          "info_2": "Nadilazi postavku URL-a videozapisa.",
+          "info_multi_content_video": "Nadilazi postavku URL-a videozapisa. Preporučuje se 684 px x 500 px.",
+          "info_poster": "Koristite iste dimenzije kao video"
+        },
+        "video_link": {
+          "label": "URL videozapisa",
+          "info": "Prihvaća YouTube ili Vimeo URL"
+        },
+        "video_poster": {
+          "label": "Video plakat"
+        },
+        "alt_description": {
+          "label": "Zamjenski tekst videozapisa",
+          "info": "Opišite videozapis za korisnike koji koriste čitače zaslona. [Saznajte više](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#video-block)"
+        },
+        "autoplay": {
+          "label": "Automatska reprodukcija videa",
+          "info": "Video zapisi se automatski isključuju kako bi se omogućila automatska reprodukcija"
+        },
+        "looping": {
+          "label": "Ponavljanje videa"
+        },
+        "show_action": {
+          "label": "Prikaži video kontrole"
+        },
+        "aspect_ratio": {
+          "label": "Omjer slike",
+          "option__1": "16:9",
+          "option__2": "21:9",
+          "option__3": "Prilagodite se videu"
+        },
+        "show_text_bellow": {
+          "label": "Prikaži tekst ispod videa na mobitelu",
+          "info": "Tekst će biti prikazan ispod videa na mobilnom telefonu."
+        }
+      }
+    },
+    "main-password-content": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/other-pages/password-page)",
+      "name": "Glavna stranica zaporke",
+      "settings": {
+        "header__2": {
+          "content": "Postavka sadržaja"
+        }
+      },
+      "blocks": {
+        "countdown_bn": {
+          "settings": {
+            "countdown_design": {
+              "label": "Dizajn",
+              "options__1": {
+                "label": "Default"
+              },
+              "options__2": {
+                "label": "Moderno"
+              }
+            }
+          }
+        },
+        "form_subscribe": {
+          "name": "Obrazac za pretplatu",
+          "settings": {
+            "email_placeholder": {
+              "label": "Tekst rezerviranog mjesta e-poštom"
+            },
+            "btn_label": {
+              "label": "Oznaka gumba"
+            }
+          }
+        }
+      }
+    },
+    "divider": {
+      "settings": {
+        "height": {
+          "label": "Height"
+        },
+        "color": {
+          "label": "Color"
+        }
+      }
+    },
+    "faq": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/faqs)",
+      "name": "Često postavljana pitanja",
+      "main-faq": "Glavna stranica s često postavljanim pitanjima",
+      "heading": {
+        "content": "Poruka s često postavljanim pitanjima"
+      },
+      "info_image": "Preporučuje se 646 px x 700 px",
+      "settings": {
+        "show_faqs_message": "Prikaži poruku s čestim pitanjima",
+        "show_image": "Prikaži sliku",
+        "open_all_question": "Otvorite sva pitanja",
+        "framed": "Uokvireno",
+        "faq_style": "Faq stil",
+        "desktop_layout": {
+          "label": "Izgled za stolno računalo",
+          "horizontal": "Vodoravno",
+          "vertical": "Okomito"
+        }
+      },
+      "blocks": {
+        "name": "Često postavljana pitanja",
+        "settings": {
+          "question": {
+            "question": "Pitanje",
+            "answer": "Odgovor"
+          }
+        }
+      }
+    },
+    "page-faq": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/other-pages/faq-page)"
+    },
+    "video-with-text-overlay": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/video-with-text-overlay)",
+      "name": "Video s preklapanjem teksta",
+      "settings": {
+        "video_local": {
+          "label": "Video lokalni",
+          "info": "Nadilazi postavku URL-a videozapisa. Preporučuje se 1392 px x 550 px",
+          "info_mobile": "Preporučeno 390px x 550px"
+        },
+        "video_link": {
+          "label": "Videopoveznica"
+        },
+        "video_poster": {
+          "info": "Iste dimenzije kao video"
+        },
+        "overlay_opacity": "Neprozirnost sloja",
+        "video_height": {
+          "label": "Visina videa",
+          "options__1": {
+            "label": "Prilagodite se videu"
+          },
+          "options__2": {
+            "label": "Mali"
+          },
+          "options__3": {
+            "label": "srednje"
+          },
+          "options__4": {
+            "label": "velika"
+          }
+        }
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "Mreža proizvoda",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/product-grid)",
+      "settings": {
+        "items_per_page": {
+          "label": "Stavke za prikaz po stranici"
+        },
+        "columns_desktop": {
+          "label": "Stupci po retku na radnoj površini"
+        },
+        "show_product_counts": {
+          "label": "Prikaži broj proizvoda"
+        }
+      }
+    },
+    "main-collection": {
+      "settings": {
+        "items_per_page": {
+          "label": "Stavke za prikaz po stranici"
+        },
+        "columns_desktop": {
+          "label": "Stupci po retku na radnoj površini"
+        },
+        "enable_filtering": {
+          "label": "Omogući filtriranje",
+          "info": "Prilagodite filtre pomoću aplikacije Search & Discovery. [Saznajte više](https://help.shopify.com/manual/online-store/search-and-discovery/filters)"
+        },
+        "filter_type": {
+          "label": "Izgled filtra na radnoj površini",
+          "options__1": {
+            "label": "Horizontal"
+          },
+          "options__2": {
+            "label": "Vertical"
+          },
+          "options__3": {
+            "label": "Ladica"
+          }
+        },
+        "enable_sorting": {
+          "label": "Omogući sortiranje"
+        },
+        "show_product_counts": {
+          "label": "Prikaži broj proizvoda"
+        },
+        "header__1": {
+          "content": "Filtriranje i razvrstavanje"
+        }
+      },
+      "blocks": {
+        "promotion": {
+          "name": "Promocija",
+          "promotion_position": {
+            "label": "Položaj za unapređenje"
+          },
+          "info": "330px 550px preporučeno"
+        },
+        "steps": {
+          "name": "Kupujte korak po korak",
+          "info": "Preporučeno 337 px x 200 px"
+        }
+      }
+    },
+    "main-search": {
+      "name": "Rezultati pretraživanja",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/other-pages/search-page)",
+      "settings": {
+        "search_results": {
+          "label": "Prikaži rezultate",
+          "option_1": "Default",
+          "option_2": "Tab"
+        }
+      }
+    },
+    "main-article": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/other-pages/blog-post-page)",
+      "name": "Post na blogu",
+      "settings": {
+        "show_date": "Prikaži datum objave",
+        "show_comment": "Prikaži komentar",
+        "show_excerpt": "Prikaži izvadak posta",
+        "show_share": "Prikaži gumb za dijeljenje",
+        "blocks": {
+          "featured_image": "Istaknuta slika",
+          "content_article": "Sadržaj",
+          "addons": "Dodaci",
+          "prev_next_articles": "Prethodni i sljedeći članci"
+        }
+      },
+      "related": {
+        "heading": "Povezani članci",
+        "articles": {
+          "label": "Članci",
+          "info": "Prikazuju se ovim redoslijedom. Ostavite prazno za prikaz najnovijih članaka ovog bloga."
+        }
+      },
+      "blocks": {
+        "featured_image": {
+          "settings": {
+            "image_height": {
+              "label": "Visina slike",
+              "options__1": {
+                "label": "Prilagodite se slici"
+              },
+              "options__2": {
+                "label": "Mali"
+              },
+              "options__3": {
+                "label": "srednje"
+              },
+              "options__4": {
+                "label": "velika"
+              }
+            }
+          }
+        }
+      },
+      "related_product": {
+        "heading": "Povezani proizvodi",
+        "products": {
+          "label": "Proizvodi"
+        }
+      }
+    },
+    "cart-drawer": {
+      "name": "Ladica kolica",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/overlay-group/cart-drawer)",
+      "settings": {
+        "info": "Za prikaz ladice kolica, idite na postavke teme i odaberite Ladica kao vrstu košarice u [postavkama košarice.](/editor?context=theme&category=cart)",
+        "content": "",
+        "show_free_shipping_message": {
+          "label": "Prikaži poruku o besplatnoj dostavi",
+          "info": "Postavite minimalni iznos za besplatnu dostavu u postavkama teme."
+        },
+        "show_cart_note": "Prikaži napomenu o košarici",
+        "show_estimate_shipping": "Prikaži procjenu dostave",
+        "show_discount": "Prikaži kod za popuste",
+        "hide_check_badge_on_mobile": "Sakrij blok znački povjerenja na mobilnom telefonu",
+        "hide_icon_with_text_on_mobile": "Sakrij ikonu s blokom teksta na mobitelu",
+        "show_gift_wrap": {
+          "label": "Pokažite omot za poklon",
+          "info": "Odaberite proizvode za pakiranje poklona u postavkama teme."
+        },
+        "discount_progress_bar_active": "Traka napretka popusta omogućena je u postavkama teme i zamjenjuje poruku o besplatnoj dostavi."
+      }
+    },
+    "main-list-collections": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-list-page)",
+      "name": "Stranica s popisom zbirki",
+      "blocks": {
+        "name": "Collection",
+        "settings": {
+          "collection_image": "Slika zbirke"
+        }
+      },
+      "settings": {
+        "information_position": {
+          "label": "Informacijski položaj",
+          "options__1": {
+            "label": "Slika preklapanja"
+          },
+          "options__2": {
+            "label": "Slika ispod"
+          }
+        },
+        "collection_to_show": {
+          "label": "Zbirke za pokazati",
+          "options__1": {
+            "label": "Sve"
+          },
+          "options__2": {
+            "label": "Odabrano"
+          }
+        },
+        "sort": {
+          "label": "Poredaj zbirke po",
+          "options__1": {
+            "label": "Abecednim redom, A-Z"
+          },
+          "options__2": {
+            "label": "Abecednim redom Z-A"
+          },
+          "options__3": {
+            "label": "Datum, novo u staro"
+          },
+          "options__4": {
+            "label": "Datum, od starog do novog"
+          },
+          "options__5": {
+            "label": "Proizvod se računa, od visokog prema niskom"
+          },
+          "options__6": {
+            "label": "Proizvod se računa, od niskog do visokog"
+          }
+        }
+      }
+    },
+    "main-blog": {
+      "name": "Postovi na blogu",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/other-pages/blog-page)",
+      "settings": {
+        "header": {
+          "content_post": "Postavke posta"
+        },
+        "maximum_posts_to_show": {
+          "label": "Maksimalan broj postova za prikaz"
+        },
+        "post_per_row_desktop": {
+          "label": "Objava po redu na radnoj površini"
+        },
+        "show_all_tags": {
+          "label": "Prikaži popis oznaka"
+        }
+      },
+      "blocks": {
+        "name": "Obrazac za pretplatu",
+        "settings": {
+          "show_email_icon": "Prikaži ikonu e-pošte",
+          "form_position": "Položaj forme"
+        }
+      }
+    },
+    "main-product": {
+      "name": "Informacije o proizvodu",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "settings": {
+        "header": {
+          "content": "Mediji"
+        },
+        "enable_sticky_desktop": {
+          "label": "Omogući ljepljivo dodavanje košarice na radnoj površini"
+        },
+        "desktop_layout": {
+          "label": "Izgled radne površine",
+          "group": {
+            "static": "Mreža",
+            "carousel": "Karusel"
+          },
+          "one_columns": {
+            "label": "1 stupac"
+          },
+          "options__1": {
+            "label": "2 stupca"
+          },
+          "options__2": {
+            "label": "Horizontalne sličice"
+          },
+          "options__3": {
+            "label": "Stog"
+          },
+          "options__4": {
+            "label": "Okomite sličice"
+          },
+          "options__5": {
+            "label": "Okomite sličice (pomicanje)"
+          },
+          "options__6": {
+            "label": "2 stupca"
+          }
+        },
+        "thumbnail_carousel_setting": {
+          "label": "Postavka vrtuljka sličica",
+          "number_thumbs": "Broj sličica"
+        },
+        "media_position": {
+          "label": "Položaj medija na radnoj površini"
+        },
+        "media_width": {
+          "label": "Širina medija za radnu površinu"
+        },
+        "mobile_thumbnails": {
+          "options__1": {
+            "label": "Prikaži sličice"
+          },
+          "options__2": {
+            "label": "Sakrij sličice"
+          }
+        },
+        "enable_video_looping": {
+          "label": "Omogući ponavljanje videozapisa"
+        },
+        "enable_image_zoom": {
+          "label": "Zumiranje slike",
+          "options__1": {
+            "label": "Onemogući"
+          },
+          "options__2": {
+            "label": "Zumirajte iznutra"
+          },
+          "options__3": {
+            "label": "Smanji"
+          }
+        },
+        "enable_image_lightbox": {
+          "label": "Omogući okvir za pregled"
+        },
+        "enable_video_autoplay": {
+          "label": "Omogući automatsku reprodukciju videozapisa",
+          "info": "Videozapisi se automatski isključuju kako bi se omogućila automatska reprodukcija. Ne radi za YouTube/Vimeo."
+        },
+        "enable_video_controls_default": {
+          "label": "Omogući prilagođene kontrole videozapisa",
+          "info": "Ne radi za YouTube/Vimeo."
+        }
+      },
+      "blocks": {
+        "custom_product": {
+          "name": "Prilagođene opcije",
+          "tab_setting": {
+            "label": "Oznake kartica",
+            "tab_1": {
+              "label": "Kartica 1"
+            },
+            "tab_2": {
+              "label": "Kartica 2"
+            },
+            "tab_3": {
+              "label": "Kartica 3"
+            }
+          },
+          "description": "Omogućite kupcima da personaliziraju proizvod — poziciju, tekst i boju — kroz skočni prozor u 3 koraka prije dodavanja u košaricu. Za više informacija posjetite našu [stranicu za podršku](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/custom-options)",
+          "placement": "Plasman",
+          "text": "Text",
+          "text_limit": "Ograničenje teksta",
+          "note": "Bilješka",
+          "color": {
+            "name": "Color",
+            "options": {
+              "color_1": "Boja 1",
+              "color_2": "Boja 2",
+              "color_3": "Boja 3",
+              "color_4": "Boja 4",
+              "color_5": "Boja 5",
+              "color_6": "Boja 6",
+              "color_7": "Boja 7",
+              "color_8": "Boja 8",
+              "color_9": "Boja 9",
+              "color_10": "Boja 10"
+            }
+          }
+        }
+      }
+    },
+    "main-cart-items": {
+      "name": "Glavna kolica",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/other-pages/cart-page)",
+      "block": {
+        "icon_with_text": "Ikona s tekstom",
+        "trust_badges": "Značke povjerenja"
+      }
+    },
+    "main-collection-banner": {
+      "name": "Banner zbirke",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/collection-banner)",
+      "settings": {
+        "heading": {
+          "label": "postavke"
+        },
+        "use_collection_image": {
+          "label": "Koristite sliku zbirke",
+          "info": "Nadjačaj postavku pozadinske slike"
+        },
+        "image_height": {
+          "option__2": "Na temelju sadržaja"
+        },
+        "image_position": {
+          "label": "Položaj slike",
+          "option__1": "Lijevo",
+          "option__2": "Pravo"
+        },
+        "image_opacity": {
+          "label": "Neprozirnost slike"
+        }
+      }
+    },
+    "contact-form": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/contact-form)",
+      "name": "Kontakt obrazac",
+      "settings": {
+        "name": "Ime",
+        "email_placeholder": "Email",
+        "message": "Poruka",
+        "option": "Opcija",
+        "info_option": "Definirajte naziv opcije. Odvojite opcije zarezom. npr. Proizvod, Narudžba, Tisak, Ostalo"
+      }
+    },
+    "main-404": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/other-pages/404-page)",
+      "name": "Glavni 404",
+      "info_image": "Preporučeno 500 px x 288 px"
+    },
+    "main-activate-account": {
+      "name": "Aktivacija računa"
+    },
+    "main-password-footer": {
+      "name": "Podnožje lozinke"
+    },
+    "main-account": {
+      "name": "Račun"
+    },
+    "main-register": {
+      "name": "Registracija"
+    },
+    "main-login": {
+      "name": "Prijava"
+    },
+    "main-reset-password": {
+      "name": "Ponovno postavljanje lozinke"
+    },
+    "main-order": {
+      "name": "Redoslijed"
+    },
+    "main-addresses": {
+      "name": "Adrese"
+    },
+    "announcement-bar": {
+      "how_to_use": {
+        "label": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/announcement-bar)"
+      },
+      "name": "Traka s najavama",
+      "settings": {
+        "type": {
+          "name": "Tip",
+          "options": {
+            "slide": {
+              "label": "Karusel"
+            },
+            "marquee": {
+              "label": "Nadstrešnica"
+            }
+          }
+        },
+        "show_only_homepage": {
+          "label": "Prikaži samo na početnoj stranici"
+        },
+        "show_close_button": {
+          "label": "Prikaži gumb za zatvaranje"
+        },
+        "enable_on_mobile": {
+          "label": "Omogući na mobitelu"
+        },
+        "marquee_settings": {
+          "label": "Marquee postavke",
+          "speed": {
+            "label": "Ubrzati"
+          },
+          "show_icon": {
+            "label": "Prikaži ikonu"
+          }
+        }
+      },
+      "blocks": {
+        "name": "Najava",
+        "setting": {
+          "label": "Text"
+        }
+      }
+    },
+    "multimedia_with_text": {
+      "blocks": {
+        "settings": {
+          "header": "Postavke medija",
+          "media_style": {
+            "label": "Medijski stil",
+            "options__1": {
+              "label": "Zaobljena"
+            },
+            "options__2": {
+              "label": "Ovalni"
+            },
+            "options__3": {
+              "label": "Default"
+            }
+          }
+        }
+      }
+    },
+    "product-tabs": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/vertical-product-tabs)",
+      "name": "Kartice proizvoda",
+      "setting": {
+        "layout": {
+          "label": "Izgled radne površine",
+          "vertical": "Vertical",
+          "horizontal": "Horizontal"
+        },
+        "banner_header": "Banner",
+        "show_banner": "Prikaži banner",
+        "sticky_banner": "Ljepljivi banner",
+        "portrait_4_5": "Uspravno (4:5)",
+        "enable_carousel_info": "Na mobitelu će se raspored proizvoda uvijek prikazivati kao vrtuljak."
+      },
+      "blocks": {
+        "name": "Tab",
+        "header": "Postavke bloka",
+        "settings": {
+          "hidden_des_mobile": {
+            "label": "Sakrij opis kartice na mobitelu"
+          },
+          "collection": {
+            "label": "Collection",
+            "description": "Opis"
+          }
+        }
+      },
+      "presets": {
+        "product_tabs_with_banner": "Kartice proizvoda s bannerom"
+      }
+    },
+    "collection-highlights": {
+      "name": "Istaknute točke kolekcije",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/collection-highlights)",
+      "settings": {
+        "highlight_collection_width": {
+          "label": "Zbirka naglašava širinu"
+        }
+      },
+      "blocks": {
+        "header": "Postavke bloka",
+        "type": {
+          "type_highlight": {
+            "header": "Postavke naglašavanja zbirke",
+            "name": "Istaknute točke kolekcije"
+          }
+        }
+      }
+    },
+    "collection-pills": {
+      "name": "Oznake kolekcije",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/collections/collection-pills)",
+      "settings": {
+        "pill_style": {
+          "label": "Stil oznake"
+        },
+        "show_image_on_hover": {
+          "label": "Prikaži sliku pri lebdenju",
+          "info": "Slika pri lebdenju bit će skrivena na mobitelu."
+        },
+        "horizontal_scroll": {
+          "label": "Vodoravno pomicanje"
+        }
+      }
+    },
+    "suitable_products_finder": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/suitable-products-finder)",
+      "name": "Traženje prikladnih proizvoda",
+      "settings": {
+        "collection_tab_header": {
+          "label": "Kartica zbirke"
+        },
+        "collection_tab_style": {
+          "label": "Stil kartice zbirke"
+        },
+        "collection_tab_style_options": {
+          "range_slider": {
+            "label": "Klizač raspona"
+          },
+          "pill_tabs": {
+            "label": "Tablete za tablete"
+          }
+        },
+        "show_pill_tabs_with_heading": {
+          "label": "U skladu s naslovom",
+          "info": "Prikaži birač boja u istom retku kao i naslov."
+        },
+        "show_pill_tabs_color": {
+          "label": "Prikaži točku u boji"
+        },
+        "pill_tabs_color": {
+          "label": "Color"
+        },
+        "pill_tabs_image": {
+          "info": "Slika uzorka će nadjačati boju kada se slika učita."
+        },
+        "image_collection_width": {
+          "label": "Širina slike"
+        },
+        "range_slider": {
+          "settings": {
+            "show_range_slider": {
+              "label": "Prikaži klizač raspona",
+              "info": "Klizač raspona bit će automatski skriven na mobilnom telefonu."
+            }
+          }
+        }
+      },
+      "preset": {
+        "ranger_slider": "Tražilica proizvoda: klizač raspona",
+        "pill_tabs": "Pronalazač proizvoda: Tablete za tablete",
+        "color_dots": "Tražilica proizvoda: točkice u boji"
+      }
+    },
+    "icon-box": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/icon-box)",
+      "name": "Kutija ikona",
+      "settings": {
+        "icon_settings": {
+          "header": "Postavke ikona",
+          "icon_position": {
+            "label": "Položaj"
+          },
+          "icon_size": {
+            "label": "Size"
+          },
+          "radius_image": {
+            "label": "Zaobljena slika",
+            "info": "Ova postavka radi samo kada je ikona slika."
+          }
+        }
+      }
+    },
+    "metric-banner": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/metric-banner)",
+      "name": "Metrički banner",
+      "settings": {
+        "metric_setting": "Postavke metrike",
+        "metric_font_size": "Metrička veličina fonta",
+        "enable_metric_animation": "Omogući metričku animaciju",
+        "metric_value": {
+          "start": "Početna vrijednost metrike",
+          "end": "Metrička krajnja vrijednost"
+        },
+        "metric_unit": "Metrička jedinica"
+      },
+      "block": {
+        "name": "Metrička stavka"
+      }
+    },
+    "compact_product_bundle": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/compact-product-bundle)",
+      "name": "Kompaktan paket proizvoda",
+      "settings": {
+        "image": {
+          "label": "Image",
+          "info_desktop": "Preporučeno 696 px x 750 px",
+          "info_mobile": "Preporučeno 350 px x 303 px"
+        },
+        "enable_quick_add_for_items": {
+          "label": "Omogući brzo dodavanje za stavke"
+        },
+        "hidden_button_mobile": {
+          "label": "Skriveni gumb na mobitelu"
+        },
+        "products_show": {
+          "label": "Proizvodi prikazani kao",
+          "options__1": {
+            "label": "Popis"
+          },
+          "options__2": {
+            "label": "Mreža"
+          }
+        }
+      },
+      "presets": {
+        "name": "Kompaktan paket proizvoda"
+      },
+      "blocks": {
+        "settings": {
+          "name": "Product",
+          "select_product": "Product",
+          "position_top": "Okomiti položaj",
+          "position_left": "Vodoravni položaj"
+        }
+      }
+    },
+    "mobile-navigation-bar": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/overlay-group/mobile-navigation-bar)",
+      "name": "Mobilna navigacijska traka",
+      "info": "Ovaj odjeljak prikazuje se samo na mobilnom uređaju. Prijeđite na mobilni prikaz.",
+      "settings": {
+        "show_section": "Omogući mobilnu navigacijsku traku",
+        "show_shop": "Prikaži trgovinu",
+        "show_account": "Prikaži račun",
+        "show_cart": "Prikaži košaricu",
+        "show_homepage": "Prikaži početnu stranicu"
+      }
+    },
+    "mobile_first": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/mobile-first)",
+      "name": "Galerija reflektora",
+      "image_1": "Spot slika 1",
+      "image_2": "Spot slika 2",
+      "image_3": "Spot slika 3",
+      "image_4": "Spot slika 4",
+      "image_5": "Spot slika 5",
+      "text_1": "Spot tekst 1",
+      "text_2": "Spot tekst 2",
+      "text_3": "Spot tekst 3",
+      "text_4": "Spot tekst 4",
+      "text_5": "Spot tekst 5"
+    },
+    "shopable_video": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/shopable-video)",
+      "name": "Video koji se može kupiti",
+      "settings": {
+        "video_settings": {
+          "header": "Video postavke"
+        },
+        "enable_sticky": {
+          "label": "Omogući ljepljivi video",
+          "option_1": {
+            "label": "Onemogući"
+          },
+          "option_2": {
+            "label": "Samo stolno računalo"
+          },
+          "option_3": {
+            "label": "Svi ekrani"
+          }
+        },
+        "ratio": {
+          "adapt": {
+            "label": "Prilagodi se prvom videu"
+          }
+        },
+        "video": {
+          "auto_play": {
+            "info": "Videozapis će se automatski reproducirati kada je ovaj blok aktivan ili vidljiv na zaslonu"
+          }
+        },
+        "show_product_card": {
+          "label": "Prikaži karticu proizvoda"
+        }
+      },
+      "blocks": {
+        "name": "Video",
+        "settings": {
+          "poster_image": {
+            "label": "Slika postera",
+            "info": "Preporučuje se 1080 px x 1920 px"
+          },
+          "local_video": {
+            "label": "Lokalni video"
+          },
+          "select_product": {
+            "label": "Product"
+          }
+        }
+      }
+    },
+    "image_card": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/image-cards)",
+      "name": "Kartice sa slikama",
+      "blocks": {
+        "header": "Postavke kartice",
+        "group_name": "Kartica",
+        "info": "Preporučeno 451 px x 453 px"
+      }
+    },
+    "testimonials": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonials)",
+      "name": "Pritisnite",
+      "settings": {
+        "header": "Pritisnite postavke",
+        "show_icon_quote": {
+          "label": "Prikaži ikonu citata"
+        }
+      },
+      "blocks": {
+        "name": "Pritisnite stavku",
+        "settings": {
+          "quote": {
+            "label": "Citat"
+          },
+          "info_image": "180px 60px preporučeno"
+        }
+      }
+    },
+    "press_card": {
+      "name": "Press kartica",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/press-card)",
+      "blocks": {
+        "content": "Sadržaj",
+        "media": "Mediji",
+        "quote": "Citat",
+        "settings": {
+          "show_icon_quote": "Prikaži ikonu citata",
+          "author_name": "Ime autora",
+          "quote_content": "Citiraj sadržaj",
+          "press-image": {
+            "info": "Nadilazi postavku boje pozadine"
+          }
+        }
+      }
+    },
+    "scrolling_image": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/scrolling-image)",
+      "name": "Slika galerije",
+      "settings": {
+        "show_background_blur": {
+          "label": "Prikaži zamućenu pozadinu"
+        },
+        "show_icon_hover": {
+          "label": "Prikaži ikonu instagrama pri lebdenju"
+        },
+        "info_image": "Preporučeno 303 px x 303 px"
+      }
+    },
+    "featured_product_banner": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/featured-product-banner)",
+      "name": "Banner istaknutog proizvoda",
+      "hide_icon_text": "Sakrij ikonu s tekstualnim blokovima na mobitelu",
+      "blocks": {
+        "name": "Ikona s tekstom"
+      },
+      "info": {
+        "info_desktop": "Preporučuje se 400 px x 400 px",
+        "info_mobile": "Preporučeno 300 px x 300 px"
+      }
+    },
+    "product_testimonials": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-testimonials)",
+      "name": "Svjedočanstva proizvoda",
+      "settings": {
+        "header": "Postavke svjedočanstava",
+        "rating_color": {
+          "label": "Boja ocjene"
+        },
+        "rating_type": {
+          "label": "Vrsta ocjene",
+          "default": "Default",
+          "modern": "Moderno",
+          "show": "Prikaži ocjenu",
+          "show_before_after": "Prikaži prije i poslije teksta"
+        },
+        "product_rounded": {
+          "label": "Radijus kuta slike proizvoda"
+        },
+        "show_verified_buyer": {
+          "label": "Prikaži provjerenog kupca"
+        },
+        "show_author_name": {
+          "label": "Prikaži ime autora"
+        }
+      },
+      "blocks": {
+        "type": {
+          "media": {
+            "label": "Mediji svjedočanstava"
+          },
+          "image_comparison": {
+            "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/image-comparison)",
+            "label": "Usporedba slika svjedočanstava",
+            "name": "Usporedba slika",
+            "show_after_before_text": {
+              "label": "Prikaži tekst prije/poslije"
+            }
+          }
+        },
+        "settings": {
+          "media": {
+            "label": "Postavke medija",
+            "info": "Preporučeno 448 px x 246 px",
+            "before_after_image": {
+              "label": "Slike prije poslije"
+            },
+            "before_image": {
+              "label": "Prije"
+            },
+            "after_image": {
+              "label": "Nakon"
+            }
+          },
+          "information": {
+            "label": "Postavke informacija",
+            "rating_star": {
+              "label": "Zvjezdica ocjene"
+            },
+            "select_product": {
+              "label": "Product"
+            },
+            "author_name": {
+              "label": "Ime autora"
+            },
+            "review_sumary": {
+              "label": "Sažetak"
+            },
+            "use_richtext": {
+              "label": "Koristite obogaćeni tekst"
+            }
+          }
+        }
+      }
+    },
+    "routine-builder": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/routine-builder)",
+      "name": "Kupujte korak po korak",
+      "blocks": {
+        "name": "Korak",
+        "settings": {
+          "text_step": {
+            "label": "Naslov koraka"
+          },
+          "product_in_step": {
+            "label": "Proizvod u koraku"
+          }
+        }
+      }
+    },
+    "newsletter_popup": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/overlay-group/newsletter-popup)",
+      "name": "Skočni prozor za bilten",
+      "header": {
+        "heading": "Opće postavke"
+      },
+      "settings": {
+        "sections_width": {
+          "label": "Širina",
+          "options": {
+            "options__1": "Puna širina",
+            "options__2": "Auto"
+          }
+        },
+        "collections_selector": {
+          "setting": "Postavke birača zbirke",
+          "label": "Omogući birač zbirki",
+          "collection": {
+            "label_1": "Zbirka 1",
+            "label_2": "zbirka 2",
+            "label_3": "Zbirka 3",
+            "label_4": "Zbirka 4",
+            "label_5": "Zbirka 5"
+          }
+        },
+        "newsletter_heading": "Postavke biltena",
+        "show_on_homepage": "Prikaži samo na početnoj stranici",
+        "discount_sticky": {
+          "setting": "Popust ljepljiv",
+          "label": "Prikaz popusta ljepljiv",
+          "heading": "Sadržaj",
+          "info": "Sadržaj će se automatski skratiti na 25 znakova, uključujući HTML oznake."
+        },
+        "heading": "Naslov",
+        "short_description": "Opis",
+        "instructional_text": "Poučni tekst",
+        "email_placeholder": "Rezervirano mjesto e-pošte",
+        "button_label": "Oznaka gumba",
+        "banner_image": "Slika natpisa"
+      }
+    },
+    "featured-blog": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/featured-blog)",
+      "name": "Istaknuti blog"
+    },
+    "recommended_collection": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/recommended-collection)",
+      "name": "Preporučena zbirka",
+      "blocks": {
+        "button": {
+          "info": "[zbirka] i [naslov] nazivi su varijabli koji će se automatski zamijeniti. Nemojte mijenjati imena, ali možete promijeniti njihov položaj u tekstu. [naslov] nije obavezan — uklonite ga ako želite samo birač zbirke.",
+          "first_button_info": "Obrazac sa slikom: otvara kolekciju rezultata s odabranim filtrima"
+        },
+        "featured_collection": {
+          "title_info": "Samo tekst u retku: prikazuje se kao opcija padajućeg izbornika [naslov]. Blokovi kolekcije ne koriste se u izgledu Obrazac sa slikom"
+        },
+        "filter_dropdown": {
+          "name": "Padajući filtar",
+          "info": "Radi s izgledom Obrazac sa slikom. Filtar najprije postavite u Shopify aplikaciji Search & Discovery.",
+          "filter_name": {
+            "label": "Naziv filtra",
+            "info": "Unesite oznaku filtra točno onako kako se prikazuje na stranicama kolekcije, na primjer \"Dobna skupina psa\". Za više jezika odvojite oznake znakom ;. Filtri cijene nisu podržani."
+          },
+          "placeholder": "Rezervirano mjesto"
+        },
+        "text": {
+          "name": "Tekst"
+        }
+      },
+      "background": {
+        "label": "Prikaži pozadinsku sliku",
+        "header": "Pozadinska slika"
+      },
+      "image_info": {
+        "info_desktop": "Preporučuje se 1920 px x 700 px",
+        "info_mobile": "Preporučeno 390 px x 407 px"
+      },
+      "layout": {
+        "label": "Izgled",
+        "inline": "Tekst u retku",
+        "form": "Obrazac sa slikom"
+      },
+      "content_color_scheme": "Shema boja sadržaja",
+      "results_collection": {
+        "label": "Kolekcija rezultata",
+        "info": "Samo Obrazac sa slikom. Padajući filtri prikazuju filtre ove kolekcije, a prvi gumb je otvara. Ostavite prazno za sve proizvode."
+      },
+      "presets": {
+        "form": "Preporučena kolekcija sa slikom"
+      }
+    },
+    "offers-popup": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/overlay-group/offers-popup)",
+      "name": "Ponude skočni prozor",
+      "popup": {
+        "label": "Skočni prozor za ponudu naslova",
+        "info": "Prilagodite sadržaj bloka skočnog prozora ponuda u grupi slojeva."
+      }
+    },
+    "outfit-finder": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/products/outfit-finder)",
+      "name": "Pronalazač odjeće",
+      "settings": {
+        "product_listing": {
+          "label": "Postavke popisa proizvoda"
+        },
+        "outfit_finder_logic": {
+          "label": "Postavke pregleda"
+        },
+        "max_items_to_show": {
+          "label": "Proizvodi po stranici",
+          "info": "Broj inicijalno prikazanih proizvoda. Pomicanje prema dolje učitat će više stavki."
+        },
+        "max_items": {
+          "label": "Maksimalni broj proizvoda po odjeći",
+          "info": "Ograničava koliko stavki korisnik može dodati u područje pregleda."
+        },
+        "product": {
+          "label": "Preporučena odjeća",
+          "info": "Odaberite do 3 proizvoda koji će se prema zadanim postavkama prikazati u području pregleda kada se stranica učita."
+        },
+        "notify_preview": {
+          "label": "Obavijest o praznom stanju",
+          "info": "Tekst smjernica prikazan u području pregleda prije dodavanja bilo koje stavke."
+        }
+      }
+    },
+    "scrolling-card": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scrolling-card)",
+      "name": "Kartica koja se pomiče"
+    },
+    "scroll-scatter": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scroll-scatter)",
+      "name": "Razbacani svitak"
+    },
+    "store-location": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/other-pages/store-location)",
+      "name": "Lokacija trgovine",
+      "settings": {
+        "key_google_map": {
+          "label": "Google Maps API ključ",
+          "info": "Zahtijeva API-je 'Maps JavaScript', 'Places' i 'Geocoding'. [Preuzmi ključ](https://console.cloud.google.com/google/maps-apis/credentials)."
+        },
+        "map_settings": {
+          "header": "Postavke karte"
+        },
+        "allowed_countries": {
+          "label": "Dopuštene zemlje",
+          "info": "Kontrolirajte gdje kupci mogu tražiti trgovine. Koristite ISO kodove zemalja (npr. SAD, UK, CA) odvojene zarezima. Ostavite prazno za globalno pretraživanje."
+        },
+        "radius_km": {
+          "label": "Radijus pretraživanja (km)",
+          "info": "Maksimalna udaljenost za rezultate trgovine."
+        }
+      },
+      "blocks": {
+        "name": "Store",
+        "settings": {
+          "store_name": {
+            "label": "Naziv trgovine"
+          },
+          "store_address": {
+            "label": "Adresa trgovine"
+          },
+          "store_email": {
+            "label": "Pohranite e-poštu"
+          },
+          "store_phone": {
+            "label": "Pohranite telefon"
+          },
+          "store_lat": {
+            "label": "Pohrani širinu",
+            "info": "Kopirajte prvi broj iz Google Maps koordinata."
+          },
+          "store_lng": {
+            "label": "Pohranite zemljopisnu dužinu",
+            "info": "Kopirajte drugi broj iz Google Maps koordinata."
+          },
+          "time_location": {
+            "monday": "ponedjeljak",
+            "tuesday": "utorak",
+            "wednesday": "srijeda",
+            "thursday": "četvrtak",
+            "friday": "petak",
+            "saturday": "subota",
+            "sunday": "nedjelja",
+            "open": "Otvoriti",
+            "closed": "Zatvoreno",
+            "open_time_hour": "Otvoreno vrijeme sat",
+            "open_time_minute": "Otvoreno vrijeme minuta",
+            "close_time_hour": "Vrijeme zatvaranja sat",
+            "close_time_minute": "Vrijeme zatvaranja minuta"
+          },
+          "time_schedule": {
+            "monday": "Schedule",
+            "tuesday": "Schedule",
+            "wednesday": "Schedule",
+            "thursday": "Schedule",
+            "friday": "Schedule",
+            "saturday": "Schedule",
+            "sunday": "Schedule"
+          }
+        }
+      }
+    },
+    "product-bundle": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/product-bundle)",
+      "name": "Paket proizvoda",
+      "settings": {
+        "discount": {
+          "name": "Discount",
+          "info": "Saznajte kako stvoriti popust [ovdje](https://help.shopify.com/manual/discounts)",
+          "minimum": "Minimalni potrebni artikli",
+          "maximum": "Maksimalni broj stavki",
+          "edit_quantity": "Dopustite promjenu količine za svaki proizvod",
+          "discount_title": "Kod za popust",
+          "discount_value": {
+            "name": "Vrijednost popusta",
+            "option": {
+              "fixed": {
+                "label": "Fiksni iznos",
+                "once_per_order": "Jednom po narudžbi"
+              },
+              "percentage": {
+                "label": "Postotak"
+              }
+            }
+          }
+        },
+        "your_bundle": {
+          "name": "Discount",
+          "settings": {
+            "show_progress_bar": {
+              "label": "Prikaži traku napretka"
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "product_discount": {
+            "name": "Paket proizvoda",
+            "info": "Zamjenjuje zbirku kada je odabrana."
+          }
+        }
+      }
+    },
+    "shopable-image": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/sections/shopable-image)",
+      "name": "Slika koja se može kupiti",
+      "blocks": {
+        "tags": {
+          "name": "oznake",
+          "info": "Definirajte nazive oznaka. Odvojite ih zarezom. Npr. Oznaka 1, Oznaka 2",
+          "info_image": "Preporučuje se 448 px x 600 px",
+          "settings": {
+            "show_verify_icon": {
+              "label": "Prikaži kvačicu ikone"
+            }
+          }
+        },
+        "lookbook": {
+          "name": "Lookbook",
+          "settings": {
+            "products": {
+              "label": "Products",
+              "position_top": "Okomiti položaj",
+              "position_left": "Vodoravni položaj",
+              "products": {
+                "otpion__1": {
+                  "label": "Proizvod 1"
+                },
+                "otpion__2": {
+                  "label": "Proizvod 2"
+                },
+                "otpion__3": {
+                  "label": "Proizvod 3"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parallax-image": {
+      "blocks": {
+        "icon": {
+          "name": "Ikona",
+          "info": "Nadjačava postavku svg ikone"
+        }
+      }
+    },
+    "main-page": {
+      "name": "Stranica"
+    },
+    "subcollection-list": {
+      "name": "Podzbirka",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/sub-collection)"
+    },
+    "before-you-leave": {
+      "name": "Prije nego što odeš",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/before-you-leave)",
+      "settings": {
+        "header": {
+          "recommended_products": "Preporučeni proizvodi"
+        },
+        "show_time": {
+          "label": "Prikaži vrijeme nakon (sekunde)"
+        },
+        "banner": {
+          "label": "Slika natpisa",
+          "info": "Preporučuje se 380 px x 423 px"
+        },
+        "collection": {
+          "label": "Collection"
+        },
+        "code": {
+          "label": "Kod za popust"
+        }
+      }
+    },
+    "advanced-slideshow": {
+      "block": {
+        "slide": "slajd",
+        "settings": {
+          "type": {
+            "label": "Tip",
+            "image": {
+              "label": "Image"
+            },
+            "video": {
+              "label": "Video"
+            }
+          },
+          "media_overlay": {
+            "label": "Medijski sloj"
+          }
+        }
+      }
+    },
+    "custom_section": {
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/advanced/flexible-section)",
+      "name": "Fleksibilni dio",
+      "settings": {
+        "layout": {
+          "label": "Izgled",
+          "direction": {
+            "label": "Smjer",
+            "options__1": {
+              "label": "Vertical"
+            },
+            "options__2": {
+              "label": "Horizontal"
+            }
+          },
+          "vertical_on_mobile": {
+            "label": "Okomito na mobitelu"
+          },
+          "content_wrap": {
+            "label": "Omotavanje sadržaja"
+          },
+          "height": {
+            "label": "Height",
+            "options": {
+              "auto": {
+                "label": "Auto"
+              },
+              "custom": {
+                "label": "Custom"
+              }
+            },
+            "custom_height": {
+              "label": "Prilagođena visina"
+            }
+          },
+          "gap": {
+            "label": "Gap"
+          },
+          "position": {
+            "label": "Položaj",
+            "options__1": {
+              "label": "Vrh"
+            },
+            "options__2": {
+              "label": "Centar"
+            },
+            "options__3": {
+              "label": "Dno"
+            }
+          },
+          "alignment": {
+            "label": "Poravnanje",
+            "label_mobile": "Mobilno usklađivanje",
+            "options__1": {
+              "label": "Lijevo"
+            },
+            "options__2": {
+              "label": "Centar"
+            },
+            "options__3": {
+              "label": "Pravo"
+            },
+            "options__4": {
+              "label": "Razmak između"
+            }
+          },
+          "hide_on_mobile": {
+            "label": "Skriveno na mobitelu"
+          }
+        },
+        "appearance": {
+          "header": "Izgled",
+          "settings": {
+            "background_media": {
+              "label": "Pozadinski mediji",
+              "options__2": {
+                "label": "Image"
+              },
+              "options__3": {
+                "label": "Video"
+              },
+              "options__1": {
+                "label": "None"
+              }
+            },
+            "border": {
+              "label": "Granice",
+              "options": {
+                "none": "None",
+                "solid": "Čvrsto"
+              },
+              "border_color": {
+                "label": "Boja obruba"
+              },
+              "border_thickness": {
+                "label": "Debljina granice"
+              }
+            },
+            "corner_radius": {
+              "label": "Polumjer kuta",
+              "options": {
+                "none": {
+                  "label": "None"
+                },
+                "rounded": {
+                  "label": "Zaobljena"
+                },
+                "custom": {
+                  "label": "Custom"
+                },
+                "inherit": {
+                  "label": "naslijediti",
+                  "info": "Ako se postavi na \"Naslijedi\", ovaj će blok slijediti globalnu postavku zaobljenih kutova u postavkama teme ▸ Izgled ▸ Zaobljena slika."
+                }
+              },
+              "custom_radius": {
+                "label": "Prilagođeni radijus"
+              }
+            },
+            "background_overlay": {
+              "label": "Prekrivanje pozadine",
+              "overlay_color": {
+                "label": "Prekrivajuća boja"
+              },
+              "overlay_style": {
+                "label": "Stil preklapanja",
+                "options__1": {
+                  "label": "Čvrsto"
+                },
+                "options__2": {
+                  "label": "Gradijent"
+                }
+              },
+              "gradient_direction": {
+                "label": "Smjer gradijenta",
+                "options__1": {
+                  "label": "Gore"
+                },
+                "options__2": {
+                  "label": "dolje"
+                }
+              }
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "size": {
+            "label": "Size",
+            "height": {
+              "label": "Height"
+            },
+            "width": {
+              "label": "Širina",
+              "custom_width": {
+                "label": "Prilagođena širina"
+              }
+            },
+            "mobile_width": {
+              "label": "Mobilna širina"
+            },
+            "options": {
+              "options__1": {
+                "label": "Fit"
+              },
+              "options__2": {
+                "label": "Ispunite"
+              },
+              "options__3": {
+                "label": "Custom"
+              },
+              "options__4": {
+                "label": "Prilagodite medijskoj pozadini"
+              }
+            }
+          },
+          "background": {
+            "label": "Pozadina"
+          },
+          "background_color": {
+            "label": "Boja pozadine"
+          }
+        },
+        "heading": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading)",
+          "label": "Unaprijed postavljeno",
+          "heading_tag": {
+            "label": "Oznaka naslova",
+            "info": "Postavite oznaku naslova (H1–H6) za kontrolu hijerarhije sadržaja i poboljšajte SEO čitljivost za tražilice.",
+            "h1": "H1",
+            "h2": "H2",
+            "h3": "H3",
+            "h4": "H4",
+            "h5": "H5",
+            "h6": "H6"
+          },
+          "custom": "Custom",
+          "default": "Default",
+          "paragraph": "stavak",
+          "h1": "Naslov 1",
+          "h2": "Naslov 2",
+          "h3": "Naslov 3",
+          "h4": "Naslov 4",
+          "h5": "Naslov 5",
+          "h6": "Naslov 6",
+          "h7": "Naslov 7",
+          "info": {
+            "edit_presets_in_theme_settings": "Uredite unaprijed postavljene postavke u [postavkama teme](/editor?context=theme&category=typography)",
+            "label": "Veličina slova"
+          },
+          "text_alignment": {
+            "desktop": "Poravnanje",
+            "mobile": "Mobilno usklađivanje"
+          }
+        },
+        "logo": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Logo",
+          "settings": {
+            "size": {
+              "name": "Size",
+              "unit": {
+                "label": "Jedinica",
+                "option__1": {
+                  "label": "Pixel"
+                },
+                "option__2": {
+                  "label": "postotak"
+                }
+              },
+              "custom_mobile_size": {
+                "label": "Prilagođena veličina mobitela"
+              },
+              "height": {
+                "label": "Height"
+              },
+              "mobile": {
+                "name": "Veličina mobitela"
+              }
+            }
+          }
+        },
+        "email_subscription": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/newsletter)",
+          "name": "Newsletter"
+        },
+        "contact_form": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/contact-form)",
+          "name": "Kontakt obrazac",
+          "settings": {
+            "name": "Ime",
+            "email": "Email",
+            "message": "Poruka",
+            "select_label": "Odaberite oznaku",
+            "default_select_label": "Predmet",
+            "option": "Opcija",
+            "default_option": "Proizvod, Narudžba, Tisak, Ostalo",
+            "phone": "Telefon",
+            "submit_button": "Gumb Pošalji",
+            "default_submit_button": "Pošalji"
+          }
+        },
+        "accordion": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/accordion)",
+          "name": "Harmonika",
+          "settings": {
+            "icon_style": {
+              "style": "Stil",
+              "label": "Stil ikone",
+              "caret": "Carret",
+              "plus": "Plus"
+            },
+            "row_style": {
+              "label": "Stil reda",
+              "background": "Pozadina",
+              "divider": "Šestar"
+            },
+            "background_color": "Boja pozadine",
+            "row_spacing": "Razmak između stavki",
+            "gap_row": "Gap",
+            "padding_row": "Padding",
+            "gap_content": "Razmak između",
+            "accordion_row": "Harmonika red",
+            "default_accordion_row": "Naslov harmonike",
+            "accordion_content": "Sadržaj harmonike",
+            "settings": {
+              "heading": "Naslov",
+              "heading_size": "Veličina naslova",
+              "heading_weight": "Težina naslova",
+              "body_weight": "Tjelesna težina",
+              "open_default": {
+                "label": "Otvori zadano"
+              }
+            }
+          }
+        },
+        "group": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/group)",
+          "name": "Skupina",
+          "settings": {
+            "link": "Link",
+            "open_in_new_tab": {
+              "label": "Otvori vezu u novoj kartici"
+            }
+          }
+        },
+        "carousel": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/carousel)",
+          "name": "Karusel"
+        },
+        "text": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/text)",
+          "name": "Text",
+          "default_text": "Mi stvaramo stvari koje rade bolje i traju dulje. Naši proizvodi rješavaju stvarne probleme čistim dizajnom i poštenim materijalima.",
+          "text_color": {
+            "label": "Boja teksta",
+            "body_color": "Boja tijela",
+            "heading_color": "Boja naslova"
+          }
+        },
+        "button": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/button)"
+        },
+        "icon": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/icon)"
+        },
+        "page": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Stranica",
+          "inherit_color_scheme": "Naslijedi shemu boja",
+          "appearance": "Izgled",
+          "spacing": "Razmak"
+        },
+        "spacer": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/spacer)",
+          "name": "Razmaknica",
+          "mobile_settings": {
+            "label": "Postavke mobitela"
+          }
+        },
+        "divider": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Šestar",
+          "settings": {
+            "thickness": "Debljina",
+            "size": "Size",
+            "color": "Color"
+          }
+        },
+        "icon_list": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Popis ikona",
+          "item": "Artikal",
+          "open_new_tab": "Otvori novu karticu"
+        },
+        "alert": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "uzbuna",
+          "dismiss_icon": "Ikona za odbacivanje",
+          "display_dismiss_icon": "Prikaz ikone za odbacivanje"
+        },
+        "social_icons": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Društvene ikone",
+          "circle": "Krug",
+          "rounded": "Zaobljena",
+          "square": "Kvadrat",
+          "shape": "Oblik",
+          "color": "Color",
+          "backgroup_color": "Boja pozadinske grupe"
+        },
+        "progress_bar": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Traka napretka",
+          "text_color": "Boja teksta",
+          "percentage": "Postotak",
+          "border_radius": "Polumjer granice",
+          "display_percentage": "Postotak prikaza",
+          "inner_text": "Unutarnji tekst"
+        },
+        "counter": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/counter)",
+          "name": "Brojač",
+          "counter_style": {
+            "label": "Kontra stil",
+            "default": "Default",
+            "circle": "Krug"
+          },
+          "counter_layout": {
+            "label": "Raspored pulta",
+            "horizontal": "Horizontal",
+            "vertical": "Vertical"
+          },
+          "number_position": "Pozicija broja",
+          "space_between": "Razmak između",
+          "before_title": "Prije naslova",
+          "after_title": "Nakon naslova",
+          "number_alignment": "Poravnanje brojeva",
+          "stroke_color": "Boja poteza",
+          "indicator_color": "Boja indikatora",
+          "background_color": "Boja pozadine",
+          "text_color": "Boja teksta",
+          "ending_number": "Završni broj",
+          "starting_number": "Startni broj",
+          "animation": "Trajanje animacije (ms)"
+        },
+        "map": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/google-maps)",
+          "name": "Google karte",
+          "location": "Mjesto",
+          "longitude": "Zemljopisna dužina",
+          "latitude": "Zemljopisna širina"
+        },
+        "jumbo_text": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+          "name": "Jumbo tekst"
+        },
+        "tab": {
+          "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/tab)",
+          "name": "Tab",
+          "tab_row": "Stavka kartice",
+          "settings": {
+            "heading": "Stil naslova",
+            "heading_preset": "Unaprijed postavljen naslov",
+            "heading_alignment": "Usklađivanje naslova",
+            "heading_color": "Boja naslova",
+            "content": "Stil sadržaja",
+            "content_alignment": "Usklađivanje sadržaja"
+          }
+        },
+        "icon_with_text": {
+          "name": "Ikona s tekstom",
+          "icon_first": "Prvo ikona",
+          "icon_second": "Ikona druga",
+          "svg_custom": "SVG prilagođeni"
+        },
+        "popup_link": {
+          "button_type_link": {
+            "label": "Vrsta gumba",
+            "primary": {
+              "label": "Primarni"
+            },
+            "outline": {
+              "label": "Obris"
+            },
+            "link": {
+              "label": "Link"
+            }
+          },
+          "popup_style": {
+            "label": "Popup stil"
+          },
+          "popup_type": {
+            "label": "Vrsta skočnog prozora"
+          },
+          "popup_width": {
+            "label": "Radna površina širine skočnog prozora"
+          },
+          "icon_type": {
+            "label": "Vrsta ikone",
+            "none": "None",
+            "arrow": "strelica",
+            "image": {
+              "label": "Image",
+              "size": "Size"
+            }
+          }
+        }
+      },
+      "preset": {
+        "promotion_banner": "Fleksibilan: promotivni banner",
+        "flexible_marquee": "Fleksibilan: Marquee",
+        "story_tabs": "Fleksibilno: Kartica"
+      }
+    },
+    "text_image_pairing": {
+      "how_to_use": "[Naučite kako koristiti ovaj blok](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/text-image-pairing)",
+      "name": "Uparivanje tekstualne slike",
+      "settings": {
+        "text_default": "\"Posjedujte svoj sjaj[image_1]prevucite pomiješajte sjaj <br/> osjećajte se lijepo[image_2]budite viđeni u potpunosti[image_3]slavite.\"",
+        "info": {
+          "label": "Upotrijebite određeni format rezerviranog mjesta \"[slika_X]\" gdje želite da se slika pojavi. X je indeks slike. Na primjer: `[slika_1]` bit će zamijenjena prvom slikom."
+        },
+        "images": {
+          "label": "Slike",
+          "image_style": {
+            "label": "Stil slike"
+          },
+          "image_1": {
+            "label": "Slika #1"
+          },
+          "image_2": {
+            "label": "Slika #2"
+          },
+          "image_3": {
+            "label": "Slika #3"
+          }
+        }
+      }
+    },
+    "product_sizing": {
+      "name": "Dimenzioniranje proizvoda",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "info": "Pomaže kupcima razumjeti kako im proizvod pristaje i s povjerenjem odabrati pravu veličinu."
+    },
+    "size_recommendation": {
+      "name": "Preporuka veličine",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/size-recommendation)",
+      "info": "Pomaže kupcima da pronađu pravu veličinu pomoću jednostavnih unosa kao što su visina, težina, oblik tijela, veličina grudi i veličina košarice.",
+      "data_usage_notice": {
+        "label": "Obavijest o korištenju podataka",
+        "info": "Ova poruka objašnjava kako se podaci o kupcu koriste za preporuke veličine. Možete prilagoditi tekst kako bi odgovarao tonu privatnosti vaše trgovine."
+      },
+      "no_size_match": {
+        "label": "Nema poruke o podudaranju veličine",
+        "info": "Poruka se prikazuje kada nijedna veličina ne odgovara korisnikovim unosima."
+      },
+      "fit_recommendation_note": {
+        "label": "Fit preporuka",
+        "info": "Prikazuje se nakon rezultata preporučene veličine."
+      }
+    },
+    "sticky_image_with_text": {
+      "name": "Ljepljiva slika s tekstom",
+      "blocks": {
+        "group_text": {
+          "name": "Tekstualna grupa",
+          "image": {
+            "label": "Slika pri pomicanju",
+            "info": "Prikazuje se na ljepljivoj slici kada ova grupa uđe u prikaz. Ostavite prazno kako biste zadržali prethodnu sliku. Zahtijeva \"Promijeni sliku pri pomicanju\" u postavkama odjeljka."
+          }
+        },
+        "list_tag": {
+          "name": "Popis oznaka",
+          "tags": {
+            "label": "Oznake",
+            "info": "Odvojite svaku oznaku zarezom."
+          },
+          "show_check": {
+            "label": "Prikaži ikonu kvačice"
+          },
+          "chip_style": {
+            "label": "Stil oznake"
+          }
+        }
+      },
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/banners/sticky-image-with-text)",
+      "settings": {
+        "hide_image_mobile": {
+          "label": "Sakrij sliku na mobitelu"
+        },
+        "change_image_on_scroll": {
+          "label": "Promijeni sliku pri pomicanju",
+          "info": "Mijenja ljepljivu sliku dok svaka grupa teksta ulazi u prikaz. Postavite sliku u svakoj grupi teksta. Slika odjeljka se ne koristi. Samo stolno računalo."
+        }
+      }
+    },
+    "testimonial-images": {
+      "name": "Slike svjedočanstava",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonial-images)",
+      "settings": {
+        "show_author_image": "Prikaži sliku autora",
+        "hide_image_on_mobile": {
+          "label": "Sakrij sliku na mobitelu"
+        }
+      },
+      "blocks": {
+        "review": "Svjedočanstvo",
+        "settings": {
+          "author_image": "Slika autora"
+        }
+      }
+    },
+    "flow": {
+      "name": "Tok",
+      "blocks": {
+        "step": {
+          "name": "Korak",
+          "heading": {
+            "label": "Naslov"
+          },
+          "image": {
+            "label": "Slika"
+          },
+          "product": {
+            "label": "Proizvod"
+          }
+        }
+      },
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/flow)"
+    },
+    "parallax-scroll": {
+      "name": "Paralaksno pomicanje",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/parallax-scroll)",
+      "instructions": "Dodajte do 7 kartica. Kartice se izmjenjuju po stranama, a svaka treća kartica automatski je umetnuta.",
+      "blocks": {
+        "info_card": {
+          "name": "Info kartica"
+        }
+      },
+      "settings": {
+        "card_width": {
+          "label": "Širina kartice",
+          "info": "Postavlja maksimalnu širinu kartice na radnoj površini. Kartice ostaju prilagodljive na manjim zaslonima."
+        },
+        "button_link": {
+          "info": "Ako ostane prazno, gumb se prikazuje kao onemogućen."
+        },
+        "button_type": {
+          "info": "Koristi stilove gumba konfigurirane u temi."
+        }
+      }
+    },
+    "benefit-tabs": {
+      "name": "Kartice prednosti",
+      "how_to_use": "Dodajte blok Kartica prednosti za svaku karticu, a zatim dodajte blokove Prednost unutar svake kartice.",
+      "settings": {
+        "text_alignment": {
+          "info": "Poravnava i gumbe kartica."
+        },
+        "mobile_alignment": {
+          "info": "Poravnava prednosti na mobitelu i tabletu. Na stolnom računalu prednosti se poravnavaju prema mediju."
+        }
+      },
+      "blocks": {
+        "tab": {
+          "name": "Kartica prednosti",
+          "how_to_use": "Za uravnotežen izgled preporučuje se do 6 blokova Prednost. Na stolnom računalu neparne prednosti su lijevo od medija, a parne desno.",
+          "settings": {
+            "tab_label": {
+              "label": "Oznaka kartice"
+            },
+            "image": {
+              "label": "Slika prije",
+              "info": "Preporučeno 950 x 1060 px."
+            },
+            "image_after": {
+              "label": "Slika poslije",
+              "info": "Koristite istu veličinu kao na slici prije. Dok posjetitelj pomiče stranicu, otkriva se slika poslije."
+            }
+          }
+        },
+        "benefit": {
+          "settings": {
+            "icon": {
+              "info": "Prikazuje rezervirano mjesto kada je prazno. Preporučeno 120 x 120 px."
+            }
+          }
+        }
+      }
+    },
+    "comparison-table": {
+      "name": "Usporedna tablica",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/products/comparison-table)",
+      "settings": {
+        "table": {
+          "label": "Tablica"
+        },
+        "comparison_heading": {
+          "label": "Naslov usporedbe"
+        },
+        "show_column_images": {
+          "label": "Prikaži slike stupaca"
+        },
+        "color_column_highlight": {
+          "label": "Boja isticanja stupca"
+        },
+        "table_notes": {
+          "label": "Napomene tablice"
+        },
+        "show_labels": {
+          "label": "Prikaži oznake"
+        },
+        "first_label": {
+          "label": "Prva oznaka"
+        },
+        "second_label": {
+          "label": "Druga oznaka"
+        },
+        "button_link": {
+          "label": "Poveznica"
+        }
+      },
+      "blocks": {
+        "column": {
+          "name": "Stupac",
+          "settings": {
+            "highlight": {
+              "label": "Istaknite ovaj stupac"
+            }
+          }
+        },
+        "row": {
+          "name": "Redak",
+          "settings": {
+            "icon_info": "Odaberite kako se vrijednost prikazuje u ovom stupcu.",
+            "image_info": "Dodajte sliku koja se prikazuje kada je odabrana Slika.",
+            "value": {
+              "yes": "Da",
+              "no": "Ne"
+            },
+            "text_1": {
+              "label": "Tekst stupca 1",
+              "info": "Prikazuje se kada je odabran Tekst. Vrijednosti slijede redoslijed stupaca, pa blokove Stupac prerasporedite pažljivo."
+            },
+            "icon_1": {
+              "label": "Ikona stupca 1"
+            },
+            "image_1": {
+              "label": "Slika stupca 1"
+            },
+            "text_2": {
+              "label": "Tekst stupca 2",
+              "info": "Prikazuje se kada je odabran Tekst."
+            },
+            "icon_2": {
+              "label": "Ikona stupca 2"
+            },
+            "image_2": {
+              "label": "Slika stupca 2"
+            },
+            "text_3": {
+              "label": "Tekst stupca 3",
+              "info": "Prikazuje se kada je odabran Tekst."
+            },
+            "icon_3": {
+              "label": "Ikona stupca 3"
+            },
+            "image_3": {
+              "label": "Slika stupca 3"
+            },
+            "text_4": {
+              "label": "Tekst stupca 4",
+              "info": "Prikazuje se kada je odabran Tekst. Koristi se samo kada tablica ima četiri stupca."
+            },
+            "icon_4": {
+              "label": "Ikona stupca 4"
+            },
+            "image_4": {
+              "label": "Slika stupca 4"
+            },
+            "column_1": "Stupac 1",
+            "column_2": "Stupac 2",
+            "column_3": "Stupac 3",
+            "column_4": "Stupac 4"
+          }
+        }
+      }
+    },
+    "image-with-text-carousel": {
+      "name": "Slika s karuselom teksta",
+      "how_to_use": "[Naučite kako koristiti ovaj odjeljak](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/image-with-text-carousel)",
+      "settings": {
+        "show_slide_counter": {
+          "label": "Prikaži brojač slajdova"
+        }
+      },
+      "blocks": {
+        "slide": {
+          "icon_info": "Preporučeno 80 x 80 px .png ili .svg"
+        }
+      }
+    },
+    "recommended-collection-filters": {
+      "name": "Preporučeni filtri"
+    }
+  },
+  "blocks": {
+    "quiz-step": {
+      "name": "Kviz pitanje",
+      "settings": {
+        "stepper_label": {
+          "label": "Oznaka stepera",
+          "info": "Kratka oznaka prikazana na traci napretka. Primjer: Tip kože, Zabrinutost."
+        },
+        "question_id": {
+          "label": "ID pitanja",
+          "info": "Jedinstveni ID za ovo pitanje. Koristi se za preskakanje pitanja o opcijama (npr. q1, q2)."
+        },
+        "layout": {
+          "label": "Raspored opcija",
+          "options": {
+            "pill": "Gumbi za tablete",
+            "image": "Krugovi slika"
+          }
+        }
+      }
+    },
+    "quiz-option": {
+      "name": "Kviz opcija",
+      "settings": {
+        "label": {
+          "label": "Označiti"
+        },
+        "image": {
+          "label": "Image",
+          "info": "Koristi se kada je izgled pitanja Krugovi sa slikama."
+        },
+        "product_matching_header": "Rezultati proizvoda",
+        "strong_match": {
+          "label": "Primarni proizvodi",
+          "info": "Prvo se prikazuje u rezultatima kviza kada kupci odaberu ovaj odgovor."
+        },
+        "partial_match": {
+          "label": "Dodatni proizvodi",
+          "info": "Prikazuje se nakon primarnih proizvoda u rezultatima kviza."
+        },
+        "exclude": {
+          "label": "Nikad ne preporučujem",
+          "info": "Blokiraj ove proizvode iz rezultata kada kupci odaberu ovaj odgovor, čak i ako se pojave u drugim odgovorima."
+        },
+        "skip_questions_header": "Logika pitanja",
+        "skip_questions": {
+          "label": "Preskoči pitanja",
+          "info": "Unesite ID-ove pitanja iz pitanja kviza koje ćete preskočiti kada se odabere ovaj odgovor. Primjer: q3, q4"
+        }
+      }
+    }
+  }
+}

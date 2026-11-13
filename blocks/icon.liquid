@@ -1,0 +1,181 @@
+{% liquid
+  assign section_st = section.settings
+  assign block_st = block.settings
+  assign image = block_st.image_block
+  assign link_image = block_st.link_image
+  assign icon_svg = block_st.icon_svg
+  assign image_alt_default = 'sections.scrolling_text.alt' | t
+  assign image_alt = image.alt | default: image_alt_default | escape
+%}
+
+{% if request.visual_preview_mode %}
+  <div
+    class="w-custom w-custom-mb h-custom flex content-center rounded-5 p-sp-5"
+    {{ block.shopify_attributes }}
+  >
+    {% render 'icon_svg_list', icon: 'free_shipping', custom_width: 30, custom_height: 30 %}
+  </div>
+{% else %}
+  {% if link_image == blank %}
+    <div
+      class="flexible-block scrolling-image-item relative overflow-hidden flex align-center w-custom-mb h-custom-mb w-custom h-custom heading-color"
+      style="--width-mb:{{ block_st.image_width_mb }}px;--width: {{ block_st.image_width }}px;"
+      {{ block.shopify_attributes }}
+    >
+  {% else %}
+    <a
+      class="flexible-block scrolling-image-item relative overflow-hidden flex align-center w-custom-mb h-custom-mb w-custom h-custom heading-color"
+      style="--width-mb:{{ block_st.image_width_mb }}px;--width: {{ block_st.image_width }}px;"
+      href="{{ link_image | default: "#" }}"
+      aria-label="{{ 'sections.scrolling_text.alt' | t }}"
+      {% if block_st.open_in_new_tab %}
+        target="_blank" rel="noopener"
+      {% endif %}
+      {{ block.shopify_attributes }}
+    >
+  {% endif %}
+  {% if icon_svg != 'none' %}
+    {% render 'icon_svg_list',
+      icon: icon_svg,
+      custom_width: block_st.image_width,
+      custom_height: block_st.image_width
+    %}
+  {%- elsif image != blank and icon_svg == 'none' -%}
+    <div
+      class="scrolling-image image_scroll rounded flex w-full"
+      style="--image-width: {{ block_st.image_width }}px;"
+    >
+      {% render 'responsive-image',
+        image: image,
+        type: 'other',
+        image_alt: image_alt,
+        container: section_st,
+        class: 'h-full w-full object-fit-cover rounded'
+      %}
+    </div>
+  {% elsif image == blank and icon_svg == 'none' %}
+    <div
+      class=" w-custom-mb h-custom-mb w-custom h-custom rounded flex content-center"
+      style="--width-mb:{{ block_st.image_width_mb }}px;--width: {{ block_st.image_width }}px;--height-mb:{{ block_st.image_width_mb }}px;--height: {{ block_st.image_width }}px;"
+    >
+      {% render 'placeholder-render',
+        type: 'collection',
+        class: 'img-placeholder h-full w-full object-fit-cover',
+        class_motion: ' h-full w-full object-fit-cover rounded'
+      %}
+    </div>
+  {%- endif -%}
+  {% if link_image == blank %}
+    </div>
+  {%- else -%}
+    </a>
+  {%- endif -%}
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.parallax-image.blocks.icon.name",
+  "class": "block-icon switch-slide__mobile group-block--height",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.custom_section.blocks.icon.how_to_use"
+    },
+    {
+      "type": "url",
+      "id": "link_image",
+      "label": "t:sections.all.content_setting.link.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_in_new_tab",
+      "label": "t:sections.custom_section.blocks.group.settings.open_in_new_tab.label",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "image_block",
+      "label": "t:sections.all.image.label"
+    },
+    {
+      "type": "select",
+      "id": "icon_svg",
+      "label": "t:sections.all.svg.label",
+      "info": "t:sections.all.svg.custom_svg.info",
+      "default": "none",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.icon.none.label"
+        },
+        {
+          "value": "beauty",
+          "label": "t:sections.all.icon.beauty.label"
+        },
+        {
+          "value": "line",
+          "label": "t:sections.all.icon.line.label"
+        },
+        {
+          "value": "leaf",
+          "label": "t:sections.all.icon.leaf.label"
+        },
+        {
+          "value": "cruelty",
+          "label": "t:sections.all.icon.cruelty.label"
+        },
+        {
+          "value": "paraben",
+          "label": "t:sections.all.icon.paraben.label"
+        },
+        {
+          "value": "check_badge",
+          "label": "t:sections.all.icon.check_badge.label"
+        },
+        {
+          "value": "free_shipping",
+          "label": "t:sections.all.icon.free_shipping.label"
+        },
+        {
+          "value": "message_communications",
+          "label": "t:sections.all.icon.message_communications.label"
+        },
+        {
+          "value": "moon",
+          "label": "t:sections.all.icon.moon.label"
+        },
+        {
+          "value": "hive",
+          "label": "t:sections.all.icon.hive.label"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "min": 10,
+      "max": 200,
+      "step": 5,
+      "label": "t:sections.scrolling_text.settings.blocks.image.image_width.label",
+      "default": 30,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "image_width_mb",
+      "min": 10,
+      "max": 200,
+      "step": 5,
+      "label": "t:sections.all.image.mobile_image_width",
+      "default": 30,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.parallax-image.blocks.icon.name",
+      "category": "t:sections.group.blocks.basic"
+    }
+  ]
+}
+{% endschema %}

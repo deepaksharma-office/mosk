@@ -1,0 +1,115 @@
+{% liquid
+  assign section_st = section.settings
+
+  assign items_per_row = section_st.items_per_row
+  assign show_pagination = section_st.show_pagination
+  assign show_navigation = section_st.show_navigation
+
+  assign column_gap_slide = 0
+  assign column_gap_mb = 0
+  if section_st.column_gap_block == 'large'
+    assign column_gap_slide = 32
+    assign column_gap_mb = 24
+  elsif section_st.column_gap_block == 'medium'
+    assign column_gap_slide = 24
+    assign column_gap_mb = 12
+  elsif section_st.column_gap_block == 'small'
+    assign column_gap_slide = 16
+    assign column_gap_mb = 8
+  endif
+
+  assign items_per_row_mobile = section_st.items_per_row_mobile
+  assign data_free_scroll = 'false'
+  if items_per_row_mobile > 1 and items_per_row_mobile < 2
+    assign data_free_scroll = 'true'
+  elsif items_per_row_mobile > 2 and items_per_row_mobile < 3
+    assign data_free_scroll = 'true'
+  endif
+
+  assign items_per_row_tablet = items_per_row
+  if items_per_row > 3
+    assign items_per_row_tablet = items_per_row | minus: 1
+  endif
+
+  assign class_pagination = ''
+  if show_pagination == false and items_per_row_mobile != 1.5
+    assign class_pagination = ' hidden-md block'
+  elsif show_pagination == false and items_per_row_mobile == 1.5
+    assign class_pagination = ' hidden'
+  endif
+%}
+
+{%- capture col_style -%}
+  --col-desktop: {{ items_per_row }};--col-number:{{ items_per_row_mobile }};--col-tablet: {{ items_per_row_tablet }};--item-desktop: {{ items_per_row }};--item-tablet: {{ items_per_row_tablet }};--item-mb: {{ items_per_row_mobile }};
+  --gap-desktop: {{ column_gap_slide }}px;--gap: {{ column_gap_mb }}px;--repeat: {{ section.blocks.size }}; --col-mobile: {{ items_per_row_mobile }};
+{%- endcapture -%}
+
+{% if request.visual_preview_mode %}
+  <div class="flex flex-wrap gap-10" style="width: 70rem;">
+    {% for i in (1..2) %}
+      {% render 'collection-item',
+        section: section,
+        column: section_st.items_per_row,
+        column_mobile: section_st.items_per_row_mobile,
+        padding: column_gap_slide
+      %}
+    {% endfor %}
+  </div>
+{% else %}
+  <slide-section
+    class="swiper {% if data_free_scroll == 'true' %} overflow-visible-mb{% endif %}"
+    data-section-id="{{ block.id }}"
+    data-autoplay="false"
+    data-effect="slide"
+    data-loop="false"
+    data-speed="500"
+    data-spacing="{{ column_gap_slide }}"
+    data-mobile="{{ items_per_row_mobile }}"
+    data-desktop="{{ items_per_row }}"
+    data-tablet="{{ items_per_row_tablet }}"
+    data-free-scroll="{{ data_free_scroll }}"
+    style="{{ col_style | strip | strip_newlines }}"
+  >
+    {% if show_navigation %}
+      {%- render 'swiper-navigation' -%}
+    {% endif %}
+    <div class="swiper-wrapper">
+      {% content_for 'blocks' %}
+    </div>
+    <div
+      class="swiper-pagination {{ class_pagination }}"
+    ></div>
+  </slide-section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.collection-highlights.blocks.type.type_highlight.name",
+  "class": "group--collection-highlights w-full col-1025-w-custom",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "_collection-item"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.collection-highlights.blocks.type.type_highlight.name",
+      "blocks": [
+        {
+          "type": "_collection-item"
+        },
+        {
+          "type": "_collection-item"
+        },
+        {
+          "type": "_collection-item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

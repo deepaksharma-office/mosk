@@ -1,0 +1,4686 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "settings_schema": {
+    "layout": {
+      "name": "Layout",
+      "how_to_use": {
+        "label": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/theme-settings/layout)"
+      },
+      "settings": {
+        "page_width": {
+          "label": "Sidans bredd"
+        },
+        "site_style": {
+          "label": "Rundade hörn",
+          "image": {
+            "label": "Image"
+          },
+          "button": {
+            "label": "Knappens hörnradie"
+          },
+          "input": {
+            "label": "Ingångshörnradie"
+          }
+        },
+        "select_preset": {
+          "label": "Välj förinställning",
+          "options__1": "Kosmetika",
+          "options__2": "Mode",
+          "options__3": "Husdjur"
+        }
+      },
+      "rtl_support": {
+        "header": "RTL-stöd",
+        "enable_rtl": "Aktivera RTL-stöd",
+        "rtl_language": {
+          "label": "RTL språkkod",
+          "info": "Ange de språk som använder RTL-layout genom att ange deras ISO-koder, separerade med semikolon. Till exempel: ar; fa; ku; pa; sd. Om det lämnas tomt kommer RTL-layouten att tillämpas på alla språk."
+        }
+      }
+    },
+    "logo_favicon": {
+      "name": "Logotyp och favicon",
+      "how_to_use": {
+        "label": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/theme-settings/logo-and-favicon)"
+      },
+      "settings": {
+        "favicon": {
+          "label": "Favoritikon"
+        },
+        "favicon_image": {
+          "label": "Favoritbild",
+          "info": "32 x 32px .png rekommenderas"
+        },
+        "logo": {
+          "label": "Logo",
+          "logo_on_transparent": {
+            "label": "Logotyp på transparent rubrik"
+          }
+        },
+        "logo_width": {
+          "label": "Logotypens bredd",
+          "info": "Logotypens bredd optimeras automatiskt för mobilen."
+        }
+      }
+    },
+    "customer_account": {
+      "how_to_use": {
+        "label": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/theme-settings/customer-account)"
+      },
+      "name": "Kundkonto",
+      "settings": {
+        "customer_account_menu": {
+          "label": "Menu"
+        },
+        "open_as": {
+          "label": "Öppna som",
+          "options": {
+            "popup": "Popup",
+            "link": "Länk"
+          }
+        }
+      }
+    },
+    "colors": {
+      "name": "Färger",
+      "how_to_use": {
+        "label": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/theme-settings/colors)"
+      },
+      "settings": {
+        "palette_header": {
+          "label": "Palett"
+        },
+        "palette_info": {
+          "label": "Definiera färgerna för paletten för enklare användning över temat"
+        },
+        "general_header": {
+          "label": "Allmän"
+        },
+        "general_text": {
+          "label": "Text"
+        },
+        "general_heading": {
+          "label": "Rubrik"
+        },
+        "general_link": {
+          "label": "Länk"
+        },
+        "general_border": {
+          "label": "Gräns"
+        },
+        "background_header": {
+          "label": "Bakgrund"
+        },
+        "background": {
+          "label": "Bakgrund"
+        },
+        "background_2": {
+          "label": "Bakgrund 2"
+        },
+        "background_gradient": {
+          "label": "Bakgrundsgradient",
+          "info": "Bakgrundsgradient ersätter bakgrund där det är möjligt."
+        },
+        "fill_button_header": {
+          "label": "Fyll-knapp"
+        },
+        "fill_button_background": {
+          "label": "Bakgrund"
+        },
+        "fill_button_text": {
+          "label": "Text"
+        },
+        "fill_button_background_hover": {
+          "label": "Bakgrundssvävare"
+        },
+        "fill_button_text_hover": {
+          "label": "Sväv över texten"
+        },
+        "outline_button_header": {
+          "label": "Konturknapp"
+        },
+        "outline_button_outline": {
+          "label": "Text"
+        },
+        "outline_button_outline_border": {
+          "label": "Gräns"
+        }
+      }
+    },
+    "typography": {
+      "name": "Typografi",
+      "how_to_use": {
+        "label": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)"
+      },
+      "settings": {
+        "font_weight": {
+          "default": "Default",
+          "inline": "Inline",
+          "regular": "Regelbunden",
+          "medium": "Medium"
+        },
+        "font_size": "Fontstorlek",
+        "body": {
+          "label": "Kropp",
+          "font": {
+            "label": "Font",
+            "info": "Välj ett annat teckensnitt kan påverka hastigheten i din butik. [Läs mer om systemteckensnitt.](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "base_size": "Basstorlek"
+        },
+        "heading": {
+          "label": "Rubrik",
+          "font": {
+            "label": "Font",
+            "info": "Välj ett annat teckensnitt kan påverka hastigheten i din butik. [Läs mer om systemteckensnitt.](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "sub_heading": {
+            "sub_heading_weight": "Underrubrik teckensnittsvikt"
+          },
+          "text_transform": {
+            "label": "Textförvandling",
+            "unset": "Avaktiverad",
+            "capitalize": "Kapitalisera",
+            "uppercase": "Versal"
+          },
+          "heading_letter_spacing": {
+            "label": "Bokstavsavstånd"
+          }
+        },
+        "menu": {
+          "label": "Menu",
+          "font": {
+            "label": "Font",
+            "body_font": "Kropp",
+            "heading_font": "Rubrik"
+          },
+          "uppercase": {
+            "label": "Versaler första nivån"
+          }
+        },
+        "button": {
+          "label": "Knapp",
+          "font": {
+            "label": "Font",
+            "body_font": "Kropp",
+            "heading_font": "Rubrik"
+          }
+        },
+        "text_preset": {
+          "header": "Förinställningar för text",
+          "name": {
+            "heading_1": "Rubrik 1",
+            "heading_2": "Rubrik 2",
+            "heading_3": "Rubrik 3",
+            "heading_4": "Rubrik 4",
+            "heading_5": "Rubrik 5",
+            "heading_6": "Rubrik 6"
+          },
+          "settings": {
+            "size": {
+              "label": "Size",
+              "18px": "18px",
+              "20px": "20px",
+              "22px": "22px",
+              "24px": "24px",
+              "26px": "26px",
+              "30px": "30 pixlar",
+              "36px": "36 pixlar",
+              "40px": "40px",
+              "46px": "46px",
+              "50px": "50 pixlar",
+              "56px": "56px",
+              "60px": "60px",
+              "80px": "80px"
+            },
+            "line_height": {
+              "label": "Linjehöjd",
+              "original": "Original",
+              "small": "Små",
+              "medium": "Medium",
+              "large": "Stor",
+              "x_large": "X-Large"
+            }
+          }
+        }
+      }
+    },
+    "browser_tab_notifications": {
+      "name": "Aviseringar på webbläsarfliken",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/theme-settings/browser-tab-notifications)",
+      "settings": {
+        "notification_info": "Lämna tomt för att använda din ursprungliga sidtitel",
+        "enable_browser_tab_notifications": {
+          "label": "Aktivera"
+        },
+        "first_notification": {
+          "label": "Första anmälan"
+        },
+        "secondary_notification": {
+          "label": "Sekundär avisering"
+        }
+      }
+    },
+    "animation": {
+      "name": "Animation",
+      "how_to_use": {
+        "label": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/theme-settings/animation)"
+      },
+      "settings": {
+        "scroll_animation": {
+          "label": "Bläddra animation",
+          "options__1": {
+            "label": "Inaktivera"
+          },
+          "options__2": {
+            "label": "Endast skrivbord"
+          },
+          "options__3": {
+            "label": "Alla skärmar"
+          }
+        },
+        "enable_loading_page_effect": {
+          "heading": "Sidladdningseffekt",
+          "label": "Aktivera effekt",
+          "loading": "Laddar ikon",
+          "info": "Rekommenderad bildbredd 100x100px"
+        },
+        "image_lazy_loading": {
+          "label": "Aktivera lazy loading"
+        },
+        "hover_effect": {
+          "label": "Hover effekt",
+          "info": "Påverkar svävkort som: produkt, banner, samling, blogg...",
+          "fade_in": "Tona in",
+          "zoom": "Zoom"
+        }
+      }
+    },
+    "product": {
+      "name": "Produktkort",
+      "how_to_use": {
+        "label": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/theme-settings/product-cards)"
+      },
+      "settings": {
+        "enable_quickview": "Aktivera snabbvy",
+        "enable_quickadd": "Aktivera snabb tillägg",
+        "enable_color_swatches": "Aktivera färgrutor",
+        "show_tag": {
+          "hidden": "Dold",
+          "desktop": "Endast skrivbord",
+          "all_devices": "Alla skärmar"
+        },
+        "show_scrolling_text": "Visa rullande text",
+        "show_rate": {
+          "label": "Visa kurs",
+          "info": "För att visa ett betyg, lägg till en produktbetygsapp. [Läs mer](https://help.shopify.com/en/manual/products/product-reviews/installation)"
+        },
+        "alignment": {
+          "label": "Inriktning",
+          "left": "Vänster",
+          "center": "Centrum"
+        },
+        "product_image": {
+          "label": "Produktbild"
+        },
+        "show_image_hover": {
+          "label": "Visa sekundär bild"
+        },
+        "show_video_featured": {
+          "label": "Spela upp video med muspekaren",
+          "info": "Fungerar endast med MP4-video."
+        },
+        "product_image_ratio": {
+          "label": "Bildförhållande",
+          "adapt_to_image": "Anpassa till bilden",
+          "square": "Fyrkantig (1:1)",
+          "portrait": "Porträtt (3:4)",
+          "landscape": "Landskap (4:3)"
+        },
+        "mobile_options": {
+          "label": "Mobilinställningar"
+        },
+        "show_quick_add_mobile": {
+          "label": "Visa snabbläggsknapp på mobilen"
+        },
+        "highlights_scrolling_text_metafield": {
+          "label": "Rullande text Metafält",
+          "info": "Produktmetafält. Visas som rullande text på produktkort. Format: namespace.key. Default: custom.highlights_scrolling_text."
+        }
+      }
+    },
+    "badges": {
+      "name": "Märken",
+      "how_to_use": {
+        "label": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/theme-settings/badges)"
+      },
+      "settings": {
+        "badge_color": {
+          "label": "Textfärg"
+        },
+        "show_badge": {
+          "label": "Visa märke"
+        },
+        "background_color": {
+          "label": "Bakgrundsfärg"
+        },
+        "sale": {
+          "label": "Försäljning",
+          "format": {
+            "label": "Formatera",
+            "text": "Text",
+            "percentage": "Procentsats",
+            "fixed": "Fast belopp"
+          }
+        },
+        "new": {
+          "label": "Ny",
+          "new_badge_display_period": {
+            "label": "Ny visningsperiod för märket",
+            "info": "Välj hur länge produkter är märkta som \"Ny\" från den dag de skapas."
+          }
+        },
+        "sold_out": {
+          "label": "Slutsåld"
+        },
+        "custom_badge": {
+          "label": "Anpassat märke",
+          "info": "Vänligen följ dokumentet för att se [hur man ställer in anpassad märke](https://nextsky.gitbook.io/purity-theme/theme-settings/badges#id-5.-custom-badge)"
+        }
+      }
+    },
+    "color_swatches": {
+      "name": "Färgprover",
+      "how_to_use": {
+        "label": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/theme-settings/color-swatch)"
+      },
+      "settings": {
+        "hide_sold_out_variant": {
+          "label": "Göm slutsålda varianter"
+        },
+        "show_sale_in_variant_swatch": {
+          "label": "Visa rea ​​i variantprov"
+        },
+        "color_limit": {
+          "label": "Maximalt antal färgrutor att visa"
+        },
+        "color_swatch_trigger": {
+          "label": "Färgprovsutlösare",
+          "info": "Definiera namnet på färgalternativet. Avgränsa med ett kommatecken. Till exempel. Färg, Färg"
+        },
+        "color_swatch_type": {
+          "label": "Swatch typ",
+          "options__1": {
+            "label": "Variantbild"
+          },
+          "options__2": {
+            "label": "Color"
+          }
+        },
+        "color_swatch_shape": {
+          "label": "Färg form",
+          "options__1": {
+            "label": "Runda"
+          },
+          "options__2": {
+            "label": "Fyrkant"
+          }
+        },
+        "color_swatch_custom": {
+          "label": "Anpassade färger",
+          "info": "Giltigt format: Müsli: #ddd5bc eller Müsli: image.png åtskilda med kommatecken"
+        }
+      }
+    },
+    "cart": {
+      "name": "Vagn",
+      "how_to_use": {
+        "label": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/theme-settings/cart)"
+      },
+      "settings": {
+        "cart_action_desktop": {
+          "label": "Åtgärd efter att lägga till kundvagn på skrivbordet",
+          "drawer": "Låda",
+          "page": "Sida"
+        },
+        "cart_mobile": {
+          "label": "Mobilinställningar",
+          "action": {
+            "label": "Åtgärd efter att lägga till kundvagn",
+            "info": "Välj vad som händer efter att en kund har lagt till en produkt i varukorgen på mobilen.",
+            "option_1": "Öppna minivagnen",
+            "option_2": "Meddela meddelande",
+            "option_3": "Öppna varukorgen en gång, meddela efter"
+          },
+          "open_cart": {
+            "label": "Öppna vagnen som",
+            "info": "Välj hur vagnen öppnas när du trycker på kundvagnsikonen i sidhuvudet och mobilnavigeringsfältet.",
+            "option_1": "Låda",
+            "option_2": "Popup"
+          }
+        },
+        "free_shipping": {
+          "label": "Gratis fraktmeddelande",
+          "paragraph": "Se till att du har konfigurerat dina [fraktpriser.](/admin/settings/shipping) korrekt",
+          "message": {
+            "label": "Meddelande",
+            "info": "Använd [amount] för att spåra ditt framsteg mot att kvalificera dig för gratis frakt."
+          },
+          "minimum_amount": {
+            "label": "Fri frakt minimibelopp",
+            "info": "Använd runda tal. Uteslut valuta, symboler och bokstäver."
+          }
+        },
+        "term_and_conditions": {
+          "label": "Villkor",
+          "enable": "Visa kryssrutan i minivagnen och kundvagnssidan.",
+          "text": "Text"
+        },
+        "cart_count_down": {
+          "label": "Varukorgen räknar ner",
+          "show_duration": {
+            "label": "Visa på minivagn och kundvagnssida"
+          },
+          "duration": {
+            "label": "Varaktighet"
+          }
+        },
+        "product_recommendations": {
+          "label": "Produktrekommendationer",
+          "heading": "Rubrik",
+          "enable_product_recommendations": "Aktivera produktrekommendationer",
+          "enable_product_recommendations_info": "Produktrekommendationer kommer att visas på minivagnen och kundvagnssidan.",
+          "recommendation_product_type": {
+            "label": "Typ av produktrekommendationer",
+            "auto": "Bil",
+            "selected": "Vald"
+          },
+          "select_product_recommendation": "Product",
+          "show_on_mobile": {
+            "label": "Visa på mobilen"
+          }
+        },
+        "gift_wrap": {
+          "label": "Produkt presentförpackning",
+          "select_product_gift_wrap": {
+            "label": "Product",
+            "info": "Fungerar endast med produkter utan varianter."
+          }
+        },
+        "empty": {
+          "label": "Töm kundvagnsinställningar",
+          "heading": "Rubrik",
+          "description": "Beskrivning",
+          "collection": {
+            "label": "Samlingslista",
+            "info": "Collections will display their featured image by default. Use metafield to change image and text. Learn more"
+          },
+          "button_text": "Knappetikett",
+          "button_link": {
+            "label": "Knapplänk",
+            "info": "Standard är Samla alla sida"
+          },
+          "free_shipping": {
+            "label": "Gratis fraktmeddelande"
+          },
+          "empty_cart_layout": {
+            "label": "Tom vagnlayout",
+            "option_1": "Lista",
+            "option_2": "Rutnät"
+          },
+          "collection_metafield": {
+            "label": "Tom-kundvagns-kollektion Metafält",
+            "info": "Kollektionsmetafält. (metaobjekt) för bild och beskrivning på tom kundvagn. Format: namespace.key. Default: custom.collection_empty. Fields: collection_image, collection_description."
+          }
+        },
+        "discount_progress_bar": {
+          "label": "Rabattförloppsindikator",
+          "paragraph": "Visa upp till 3 utgiftsmilstolpar i varukorgen. Se till att en matchande rabattkod eller automatisk rabatt skapas i din [Shopify-admin.](/admin/discounts)",
+          "currency_info": "Ange milstolpsbelopp i butikens standardvaluta. De konverteras automatiskt för lokala valutor.",
+          "enable": {
+            "label": "Aktivera rabattförloppsindikator",
+            "info": "När den är aktiverad ersätter den den enskilda fri frakt-listen ovan i varukorgsmenyn och på varukorgssidan."
+          },
+          "milestone_1": {
+            "label": "Milstolpe 1"
+          },
+          "milestone_2": {
+            "label": "Milstolpe 2"
+          },
+          "milestone_3": {
+            "label": "Milstolpe 3"
+          },
+          "milestone": {
+            "amount": {
+              "label": "Tröskel",
+              "info": "Använd jämna tal utan valutasymboler eller bokstäver."
+            },
+            "label_text": {
+              "label": "Etikett"
+            },
+            "icon": {
+              "label": "Ikon",
+              "option_none": "Ingen",
+              "option_tag": "Etikett",
+              "option_truck": "Lastbil",
+              "option_box": "Låda"
+            }
+          },
+          "message": {
+            "text": {
+              "label": "Förloppsmeddelande",
+              "info": "Använd [amount] och [label] för att visa återstående belopp och etiketten för nästa belöning."
+            },
+            "success": {
+              "label": "Meddelande när alla milstolpar nåtts"
+            }
+          }
+        }
+      }
+    },
+    "search": {
+      "name": "Sökbeteende",
+      "how_to_use": {
+        "label": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/theme-settings/search-behavior)"
+      },
+      "settings": {
+        "type": {
+          "label": "Typ",
+          "info": "Låda är standardlayout på mobilen.",
+          "option_1": "Popup",
+          "option_2": "Låda",
+          "option_3": "Sökfält"
+        },
+        "search_placeholder": {
+          "label": "Sök platshållare"
+        },
+        "speech_search": {
+          "label": "Röstsökning",
+          "enable": {
+            "label": "Aktivera röstsökning"
+          }
+        },
+        "search_results": {
+          "label": "Visa resultat",
+          "option_1": "Default",
+          "option_2": "Flik"
+        },
+        "recommendations": {
+          "popular_keywords": {
+            "label": "Populär sökning",
+            "info": "Rekommendera populära sökord i din butik till kunder. Till exempel: t-shirt, klänning, svart."
+          },
+          "products_recommended": {
+            "label": "Produktrekommendation",
+            "info": "Välj en produkt att rekommendera för kunder."
+          },
+          "collections_recommended": {
+            "label": "Samlingsrekommendation"
+          }
+        },
+        "results": {
+          "label": "Sökresultat"
+        },
+        "predictive_search": {
+          "label": "Aktivera prediktiv sökning",
+          "info": "Live sökresultat. Inte tillgängligt på alla språk. [Läs mer](https://shopify.dev/themes/navigation-search/search/predictive-search#general-requirements-and-limitations)"
+        },
+        "show_search_history": {
+          "label": "Visa sökhistorik"
+        },
+        "show_price": {
+          "label": "Visa produktpris"
+        }
+      }
+    },
+    "social_media": {
+      "name": "Sociala medier",
+      "how_to_use": {
+        "label": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/theme-settings/social-media)"
+      },
+      "settings": {
+        "social_account": {
+          "label": "Sociala konton",
+          "facebook": {
+            "label": "Facebook",
+            "info": "https://facebook.com/shopify"
+          },
+          "instagram": {
+            "label": "Instagram",
+            "info": "http://instagram.com/shopify"
+          },
+          "twitter": {
+            "label": "Twitter",
+            "info": "https://twitter.com/shopify"
+          },
+          "tiktok": {
+            "label": "Tiktok",
+            "info": "https://tiktok.com/@shopify"
+          },
+          "pinterest": {
+            "label": "Pinterest",
+            "info": "https://pinterest.com/shopify"
+          },
+          "youtube": {
+            "label": "Youtube",
+            "info": "https://www.youtube.com/shopify"
+          },
+          "vimeo": {
+            "label": "Vimeo",
+            "info": "https://vimeo.com/shopify"
+          },
+          "linkedin": {
+            "label": "Linkedin",
+            "info": "https://linkedin.com/company/shopify"
+          },
+          "whatsapp": {
+            "label": "Whatsapp",
+            "info": "https://www.whatsapp.com/shopify"
+          },
+          "snapchat": {
+            "label": "Snapchat",
+            "info": "https://www.snapchat.com/add/shopify"
+          }
+        },
+        "sharing_options": {
+          "label": "Delningsalternativ",
+          "facebook": {
+            "label": "Dela till Facebook"
+          },
+          "pinterest": {
+            "label": "Dela till Pinterest"
+          },
+          "twitter": {
+            "label": "Dela på Twitter"
+          },
+          "whatsapp": {
+            "label": "Dela till WhatsApp"
+          },
+          "email": {
+            "label": "Dela till e-post"
+          }
+        }
+      }
+    },
+    "currency": {
+      "name": "Valutaformat",
+      "how_to_use": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/theme-settings/currency-format)",
+      "settings": {
+        "code": {
+          "label": "Valutakoder",
+          "show_code": {
+            "label": "Visa valutakoder",
+            "info": "Varukorgs- och kassapriser visar alltid valutakoder. Exempel: 1,00 USD."
+          }
+        }
+      }
+    },
+    "script_tracking": {
+      "name": "Spårning och insikter",
+      "settings": {
+        "how_to_use": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/theme-settings/tracking-and-insights)",
+        "scripts_tracking": {
+          "label": "Kodavsnitt",
+          "info": "Lägg till ditt kodavsnitt för spårning och insikter"
+        },
+        "appended_scripts": {
+          "label": "Position bifogad",
+          "body": "Kroppstagg",
+          "head": "Head-tagg"
+        }
+      }
+    }
+  },
+  "content": {
+    "manage_customer_accounts": "[Manage visibility](/admin/settings/customer_accounts) i kundkontoinställningar. Äldre konton stöds inte."
+  },
+  "sections": {
+    "all": {
+      "general": "Allmän",
+      "layout": {
+        "label": "Sektionsbredd",
+        "fix_width": "Fast bredd",
+        "stretch_width": "Stretch bredd",
+        "full_width": "Full bredd"
+      },
+      "colors": {
+        "label": "Färgschema",
+        "info": "För att redigera alla ditt temas färger, gå till din [color theme settings](/editor?context=theme&category=colors). Säkerställ tydlig textkontrast för bättre användarupplevelse."
+      },
+      "desktop_content_position": {
+        "label": "Position för skrivbordsinnehåll",
+        "info": "Positionen optimeras automatiskt för mobilen.",
+        "info_2": "Innehållet först är standardmobillayouten.",
+        "group": {
+          "top": {
+            "label": "Bästa"
+          },
+          "middle": {
+            "label": "Mitten"
+          },
+          "bottom": {
+            "label": "Botten"
+          }
+        },
+        "options__1": {
+          "label": "Överst till vänster"
+        },
+        "options__2": {
+          "label": "Översta mitten"
+        },
+        "options__3": {
+          "label": "Överst till höger"
+        },
+        "options__4": {
+          "label": "Mitten till vänster"
+        },
+        "options__5": {
+          "label": "Mitt mitten"
+        },
+        "options__6": {
+          "label": "Mitten höger"
+        },
+        "options__7": {
+          "label": "Nederst till vänster"
+        },
+        "options__8": {
+          "label": "Nedre mitten"
+        },
+        "options__9": {
+          "label": "Nederst till höger"
+        }
+      },
+      "padding": {
+        "section_padding_heading": "Sektionsstoppning",
+        "padding_inline": {
+          "label": "Vaddering inline",
+          "info": "Inline stoppning optimeras automatiskt för mobilen."
+        },
+        "padding_block": {
+          "label": "Vadderingsblock",
+          "info": "Vadderingsblock optimeras automatiskt för mobil."
+        },
+        "padding_top": "Bästa",
+        "padding_bottom": "Botten",
+        "spacing_bottom": "Mellanrum botten",
+        "image_spacing": "Bildavstånd",
+        "space_between": "Mellanrum",
+        "column_gap": {
+          "label": "Kolumngap",
+          "no_gap": "Ingen lucka",
+          "small": "Små",
+          "medium": "Medium",
+          "large": "Stor",
+          "x_large": "X-Large"
+        }
+      },
+      "space_between": {
+        "label": "Utrymme mellan objekt"
+      },
+      "width": {
+        "label": "Bredd",
+        "fill": "Fylla",
+        "fit": "Färdig"
+      },
+      "columns": {
+        "label": "Antal kolumner"
+      },
+      "items_to_show": {
+        "label": "Maximalt antal objekt att visa"
+      },
+      "product_to_show": {
+        "label": "Maximalt antal produkter att visa"
+      },
+      "text_alignment": {
+        "label": "Innehållsjustering",
+        "alignment": "Inriktning",
+        "options__1": {
+          "label": "Vänster"
+        },
+        "options__2": {
+          "label": "Centrum"
+        },
+        "options__3": {
+          "label": "Rätt"
+        }
+      },
+      "content": {
+        "label": "Innehåll"
+      },
+      "text": {
+        "label": "Text"
+      },
+      "content_position": {
+        "label": "Innehållsposition",
+        "options__1": {
+          "label": "Överlagringsbild",
+          "top": "Bästa",
+          "middle": "Mitten",
+          "bottom": "Botten",
+          "text_above_button": "Text ovanför knappen"
+        },
+        "options__2": {
+          "label": "Nedan bild"
+        }
+      },
+      "section_setting": {
+        "page_heading": {
+          "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "description": {
+            "label": "Innehåll"
+          },
+          "heading": {
+            "label": "Titel"
+          },
+          "breadcrumb": {
+            "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/breadcrumb)",
+            "label": "Brödsmula"
+          }
+        },
+        "enable_rounded_style": {
+          "label": "Aktivera rundad stil"
+        }
+      },
+      "content_setting": {
+        "label": "Innehållsinställningar",
+        "image": {
+          "label": "Image"
+        },
+        "subheading": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "Underrubrik",
+          "info": "Separera varje textobjekt med en vertikal stapel (|) för att visa en punkt mellan objekten."
+        },
+        "highlight_text": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/highlight-text)",
+          "label": "Markera text",
+          "settings": {
+            "icons": {
+              "label": "Välj ikon",
+              "options__1": {
+                "label": "None"
+              },
+              "options__2": {
+                "label": "Stjärna"
+              },
+              "options__3": {
+                "label": "Punkt"
+              }
+            }
+          }
+        },
+        "heading": {
+          "label": "Rubrik",
+          "info": "Lägg till en understrykning genom att slå in text i kursiv stil. Använd knappen Kursiv (I) i redigeraren för att använda den."
+        },
+        "heading_highlight": {
+          "label": "Rubrikmarkeringstext",
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading-highlight-text)"
+        },
+        "detail_list": {
+          "label": "Detaljlista",
+          "detail_row": {
+            "label": "Detail row",
+            "row_title": "Row title",
+            "row_details": "Row details"
+          },
+          "layout": {
+            "label": "Layout",
+            "specifications": "Specifikationer",
+            "information_cards": "Informationskort"
+          }
+        },
+        "description": {
+          "label": "Beskrivning",
+          "hide_on_mobile": {
+            "label": "Dölj beskrivningen på mobilen"
+          },
+          "description": "Visa din produktbeskrivning. Använder metafältet för kort beskrivning om det är tillgängligt, annars faller tillbaka till standardproduktbeskrivningen. För mer information besök vår [Support page](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-7.-description)."
+        },
+        "content": "Innehåll",
+        "button_label": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "Knappetikett",
+          "info": "Lämna etiketten tom för att dölja knappen."
+        },
+        "button_label-block": {
+          "name": "Märka",
+          "label": "Knapp"
+        },
+        "link": {
+          "label": "Länk",
+          "info": "Obs: Den här länkinställningen fungerar bara för bilder, inte videor."
+        },
+        "first_button_label": {
+          "name": "Första knappen",
+          "label": "Knappetikett",
+          "link": "Knapplänk"
+        },
+        "second_button_label": {
+          "name": "Andra knappen",
+          "label": "Knappetikett",
+          "link": "Knapplänk"
+        },
+        "button_type": {
+          "label": "Typ",
+          "primary": {
+            "label": "Primär"
+          },
+          "outline": {
+            "label": "Skissera"
+          },
+          "link": {
+            "label": "Länk"
+          }
+        },
+        "show_view_all_button": {
+          "label": "Visa Visa alla-knappen",
+          "label_text": "Knappetikett",
+          "default_text": "Se alla produkter",
+          "default": "Visa alla"
+        },
+        "open_link_in_new_tab": {
+          "label": "Öppna länken i ny flik"
+        },
+        "drawn_underline": {
+          "label": "Aktivera animering av understruken rubrik",
+          "type": "Understruken stil",
+          "value": {
+            "simple_underline": "Enkel understrykning",
+            "curve_underline": "Kurvslag",
+            "squiggle_underline": "Squiggle understrykning"
+          },
+          "color": "Understrykningsfärg"
+        },
+        "metrics": {
+          "label": "Nyckeltal",
+          "item": {
+            "label": "Nyckeltalspost",
+            "value": "Värde",
+            "description": "Etikett"
+          }
+        },
+        "citation": {
+          "label": "Citat"
+        },
+        "heading_block_highlight": {
+          "label": "Aktivera rubrikmarkering",
+          "info": "Lägg till en markering genom att göra texten kursiv. Använd knappen Kursiv (I) i redigeraren.",
+          "type": "Markeringsstil",
+          "text_highlight": "Textmarkering",
+          "color": "Markeringsfärg"
+        }
+      },
+      "content_header": {
+        "label": "Sektionshuvud",
+        "heading_size": {
+          "label": "Rubrikstorlek",
+          "size": "Size",
+          "xs_small": {
+            "label": "XS-liten"
+          },
+          "x_small": {
+            "label": "X-Small"
+          },
+          "small": {
+            "label": "Små"
+          },
+          "large": {
+            "label": "Stor"
+          },
+          "x_large": {
+            "label": "X-Large"
+          },
+          "base": {
+            "label": "Basstorlek"
+          },
+          "options__1": {
+            "label": "Rubrik 1"
+          },
+          "options__2": {
+            "label": "Rubrik 2"
+          },
+          "options__3": {
+            "label": "Rubrik 3"
+          },
+          "options__4": {
+            "label": "Rubrik 4"
+          },
+          "options__5": {
+            "label": "Rubrik 5"
+          },
+          "options__7": {
+            "label": "Rubrik 7"
+          },
+          "options__0": {
+            "label": "Rubrik 0"
+          }
+        }
+      },
+      "blog_setting": {
+        "show_category": "Visa kategori",
+        "show_tags": "Visa taggar",
+        "show_date": "Visa datum",
+        "show_author": "Visa författare",
+        "show_excerpt": "Visa utdrag"
+      },
+      "media": {
+        "label": "Typ"
+      },
+      "image": {
+        "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/image)",
+        "label": "Image",
+        "image_setting": "Bildinställningar",
+        "width": "Bildens bredd",
+        "info_width": "Bilden optimeras automatiskt för mobil.",
+        "mobile_image": "Mobilbild",
+        "mobile_image_width": "Mobil bildbredd",
+        "aspect_ratio": {
+          "label": "Bildförhållande",
+          "label_mb": "Bildförhållande på mobil",
+          "label_video": "Videoförhållande",
+          "options__1": "Fyrkantig (1:1)",
+          "options__2": "Porträtt (3:4)",
+          "options__3": "Landskap (4:3)",
+          "options__4": "Samma som skrivbordet",
+          "adapt": "Anpassa till bilden"
+        },
+        "desktop_position": {
+          "label": "Skrivbordsbildens position",
+          "top": "Bästa",
+          "right": "Rätt",
+          "bottom": "Botten",
+          "left": "Vänster",
+          "info": "Bilden kommer att visas ovanför texten på mobilen."
+        },
+        "desktop_image_width": {
+          "label": "Skrivbordsbildens bredd"
+        }
+      },
+      "video": {
+        "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)",
+        "label": "Video",
+        "info": "Åsidosätter bildinställningen",
+        "settings": {
+          "source": {
+            "label": "Källa",
+            "uploaded_video": {
+              "label": "Lokal video"
+            },
+            "external_link": {
+              "label": "Extern videolänk"
+            }
+          }
+        },
+        "width": "Video bredd",
+        "width_unit_type": {
+          "label": "Bredd enhetstyp",
+          "options": {
+            "percent": {
+              "label": "Procent (%)"
+            },
+            "px": {
+              "label": "Pixlar (px)"
+            }
+          }
+        }
+      },
+      "video_mobile": {
+        "label": "Video mobil"
+      },
+      "svg": {
+        "label": "Svg ikon",
+        "custom_svg": {
+          "label": "Anpassad svg",
+          "info": "Åsidosätter bildinställningen."
+        }
+      },
+      "icon": {
+        "none": {
+          "label": "None"
+        },
+        "cruelty": {
+          "label": "Grymhet"
+        },
+        "paraben": {
+          "label": "Paraben"
+        },
+        "privacy-protection": {
+          "label": "Integritetsskydd"
+        },
+        "secure-shopping": {
+          "label": "Säker shopping"
+        },
+        "guarantee": {
+          "label": "Garanti"
+        },
+        "account": {
+          "label": "Konto"
+        },
+        "leaf": {
+          "label": "Blad"
+        },
+        "moon": {
+          "label": "Månen"
+        },
+        "hive": {
+          "label": "Bikupa"
+        },
+        "comb": {
+          "label": "Kamma"
+        },
+        "free_shipping": {
+          "label": "Fri frakt"
+        },
+        "check_badge": {
+          "label": "Kontrollera märke"
+        },
+        "message_communications": {
+          "label": "Meddelandekommunikation"
+        },
+        "circular-text": {
+          "label": "Cirkulär text"
+        },
+        "beauty": {
+          "label": "Ansikte"
+        },
+        "line": {
+          "label": "Linje"
+        },
+        "droplet": {
+          "label": "Liten droppe"
+        },
+        "smooth": {
+          "label": "Jämna"
+        },
+        "shield": {
+          "label": "Skydda"
+        },
+        "balloon": {
+          "label": "Ballong"
+        },
+        "brightening": {
+          "label": "Ljusning"
+        },
+        "hydration": {
+          "label": "Hydrering"
+        },
+        "coptic_cross": {
+          "label": "Koptiskt kors"
+        },
+        "coil": {
+          "label": "Spole"
+        },
+        "verified": {
+          "label": "Verifierad"
+        },
+        "security": {
+          "label": "Säkerhet"
+        },
+        "package": {
+          "label": "Paket"
+        },
+        "cat": {
+          "label": "Katt"
+        }
+      },
+      "carousel": {
+        "header": "Karusellinställningar",
+        "enable_carousel": {
+          "label": "Aktivera karusell",
+          "description": "Karusellen visas endast när de totala samlingarna är större än objekten per rad på skrivbordet."
+        },
+        "show_navigation": {
+          "label": "Visa navigering"
+        },
+        "show_pagination": {
+          "label": "Visa paginering",
+          "info": "Paginering visas automatiskt på mobilen om du visar antalet objekt på mobilen som 1 eller 2",
+          "info_single": "Paginering visas automatiskt på mobilen.",
+          "type": {
+            "label": "Pagineringsstil",
+            "progress_bar": "Förloppsindikator",
+            "dot": "Prickar"
+          }
+        },
+        "reveal_slide": {
+          "label": "Avslöja nästa bild",
+          "info": "Visa en del av den kommande bilden."
+        },
+        "enable_carousel_mobile": {
+          "label": "Aktivera karusell på mobilen"
+        },
+        "change_slide_every": "Byt bilder varje",
+        "slide_auto_change": "Auto-byte bild"
+      },
+      "mobile_options": {
+        "label": "Mobilinställningar",
+        "mobile_layout": {
+          "label": "Mobil layout",
+          "show_text_bellow": {
+            "label": "Visa text nedan på mobilen",
+            "info": "Text kommer att visas under bilden på mobilen."
+          },
+          "hidden_description_on_mobile": {
+            "label": "Dölj beskrivningen på mobilen"
+          }
+        }
+      },
+      "items": {
+        "items_per_row": "Objekt per rad",
+        "items_per_row_mobile": "Artiklar per rad på mobilen"
+      },
+      "columns_desktop": {
+        "label": "Objekt per rad på skrivbordet"
+      },
+      "newsletter_setting": {
+        "email_placeholder": "E-postplatshållare",
+        "button_label": "Knappetikett"
+      },
+      "pagination_type": {
+        "label": "Pagineringstyp",
+        "options__1": {
+          "label": "Sidnummer"
+        },
+        "options__2": {
+          "label": "Ladda mer knapp"
+        },
+        "options__3": {
+          "label": "Oändlig rullning"
+        }
+      },
+      "product_setting": {
+        "badges": {
+          "name": "Märken"
+        },
+        "notify": {
+          "name": "Meddela produktåterföring"
+        },
+        "live_view": {
+          "name": "Livevisning",
+          "settings": {
+            "min_number": "Minsta antal",
+            "max_number": "Max antal",
+            "interval_time": "Intervalltid",
+            "content": "Innehåll",
+            "show_icon_eye": {
+              "label": "Visa ikon"
+            }
+          },
+          "info": "Simulerar produktaktivitet genom att visa livevisningsantal, vilket hjälper till att öka brådskande, socialt bevis och omvandlingsfrekvenser."
+        },
+        "shop_the_look": {
+          "name": "Shoppa utseendet",
+          "settings": {
+            "heading": {
+              "label": "Rubrik"
+            }
+          },
+          "description": "Föreslå relaterade produkter för att komplettera utseendet. För mer information besök vår [Support page](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)"
+        },
+        "stock_countdown": {
+          "name": "Lagernedräkning",
+          "settings": {
+            "message": {
+              "label": "Meddelande",
+              "info": "Använd kortkod [count] för att visa återstående kvantitet produkter i lager. Du kan ta bort eller lägga denna korta kod var som helst"
+            },
+            "stock_items": {
+              "label": "Lagervaror",
+              "info": "Visa när mindre än (X) artiklar finns i lager"
+            }
+          }
+        },
+        "product_meta": {
+          "name": "Produkt meta",
+          "settings": {
+            "show_sku": {
+              "label": "Visa SKU"
+            },
+            "show_collections": {
+              "label": "Visa samlingar"
+            },
+            "show_tags": {
+              "label": "Visa taggar"
+            },
+            "show_type": {
+              "label": "Visa typ"
+            }
+          }
+        },
+        "collapsible_row": {
+          "name": "Dragspel rad",
+          "settings": {
+            "info": "Inkludera en rubrik som förklarar innehållet.",
+            "content": "Radinnehåll",
+            "content_page": "Rad innehåll från sidan"
+          }
+        },
+        "accordion_row_drawer": {
+          "name": "Dragspel rad låda",
+          "settings": {
+            "info": "Inkludera en rubrik som förklarar innehållet.",
+            "content": "Radinnehåll",
+            "content_page": "Rad innehåll från sidan"
+          }
+        },
+        "model_size": {
+          "name": "Modellstorlek",
+          "settings": {
+            "paragraph": {
+              "content": "Se vilken storlek modellen har på sig, tillsammans med höjd, vikt och mått. [Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)"
+            }
+          }
+        },
+        "title": {
+          "name": "Produktens titel"
+        },
+        "price": {
+          "name": "Pris"
+        },
+        "rating": {
+          "name": "Produktbetyg"
+        },
+        "variant_picker": {
+          "name": "Variantväljare",
+          "settings": {
+            "picker_type": {
+              "label": "Typ",
+              "options__1": {
+                "label": "Dropdown"
+              },
+              "options__2": {
+                "label": "Biljard"
+              }
+            },
+            "size_guide": {
+              "heading": "Storlekstabell",
+              "info": "Få information om storlekstabell från den valda sidan.",
+              "settings": {
+                "size_trigger": {
+                  "label": "Storlek trigger",
+                  "info": "Definiera namnet på storleksalternativet. Avgränsa med ett kommatecken. Till exempel. Storlek, Misurare"
+                },
+                "show_size_guide": "Visa storlekstabell",
+                "size_guide_label": "Storlekstabelletikett",
+                "size_guide_page": "Sida med storlekstabell",
+                "footer_content": "Sidfotsinnehåll",
+                "custom_size_guide": {
+                  "label": "Anpassad storlekstabell",
+                  "info__1": "Använd specifika storlekstabeller för varje kollektion eller produkt.",
+                  "info__2": "För att använda anpassade storlekstabeller för produkt eller samling, skapa metafält med namnutrymme och nyckel: \"custom.size_chart\".[Learn more](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/size-chart)"
+                }
+              }
+            }
+          }
+        },
+        "buy_buttons": {
+          "name": "Köp knappar",
+          "settings": {
+            "show_dynamic_checkout": {
+              "label": "Visa dynamiska kassaknappar",
+              "info": "Genom att använda de betalningsmetoder som finns tillgängliga i din butik ser kunderna deras föredragna alternativ, som PayPal eller Apple Pay. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+            },
+            "show_gift_card_recipient": {
+              "label": "Visa mottagarens informationsformulär för presentkort",
+              "info": "Tillåter köpare att skicka presentkort på ett schemalagt datum tillsammans med ett personligt meddelande. [Learn more](https://help.shopify.com/manual/online-store/themes/customizing-themes/add-gift-card-recipient-fields)"
+            }
+          }
+        },
+        "subscription_widget": {
+          "name": "Prenumerationswidget",
+          "settings": {
+            "info": "Visar engångsköp och ett separat kort för varje säljplansgrupp. Placera detta block ovanför köpknapparna.",
+            "one_time_purchase_title": {
+              "label": "Engångsköptitel"
+            },
+            "one_time_purchase_description": {
+              "label": "Engångsköpsbeskrivning"
+            },
+            "subscription_description": {
+              "label": "Prenumerationsbeskrivning"
+            },
+            "show_price": {
+              "label": "Visa pris"
+            }
+          }
+        },
+        "share": {
+          "name": "Dela"
+        },
+        "complementary_products": {
+          "name": "Kompletterande produkter",
+          "settings": {
+            "paragraph": {
+              "content": "För att välja kompletterande produkter, lägg till appen Sök och upptäckt. [Learn more](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+            },
+            "product_list_limit": {
+              "label": "Maximalt antal produkter att visa"
+            }
+          }
+        },
+        "pickup_avaiability": {
+          "name": "Tillgänglighet för upphämtning"
+        },
+        "media_lightbox": {
+          "name": "Se det i aktion",
+          "settings": {
+            "enable_sticky": {
+              "label": "Aktivera sticky på skrivbordet"
+            }
+          },
+          "description": "Visa verkliga foton eller videor av din produkt som används. För mer information besök vår [Support page](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-16.-media-lightbox)"
+        },
+        "highlights": {
+          "name": "Höjdpunkter",
+          "description": "Visa upp de viktigaste försäljningsargumenten för din produkt. För mer information besök vår [Support page](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-8.-highlights)"
+        },
+        "key_features": {
+          "name": "Nyckelfunktioner",
+          "description": "Lista de viktigaste funktionerna och fördelarna med din produkt. För mer information besök vår [Support page](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-9.-key-features)"
+        },
+        "ask_question": {
+          "name": "Ställa en fråga"
+        },
+        "promotion_countdown": {
+          "name": "Kampanjnedräkning",
+          "show_countdown_units": {
+            "label": "Visa nedräkningsenheter"
+          },
+          "description": "Lägg till en nedräkningstimer för att skapa brådska för din produkts marknadsföring. För mer information besök vår [Support page](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-11.-promotion-countdown)."
+        },
+        "promotion_alert": {
+          "name": "Kampanjvarning",
+          "heading": {
+            "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+            "label": "Rubrik"
+          },
+          "description": {
+            "label": "Beskrivning"
+          },
+          "text_color": {
+            "label": "Textfärg"
+          }
+        },
+        "icon_with_text": {
+          "name": "Ikon med text",
+          "heading": {
+            "label_1": "Ikon med text 1",
+            "label_2": "Ikon med text 2",
+            "label_3": "Ikon med text 3",
+            "label_4": "Ikon med text 4",
+            "label_5": "Ikon med text 5"
+          },
+          "info": "Detta innehåll döljs automatiskt på mobilen.",
+          "svg": {
+            "label": "Svg ikon"
+          },
+          "content": {
+            "label": "Innehåll"
+          },
+          "icon": {
+            "none": {
+              "label": "None"
+            },
+            "free_shipping": {
+              "label": "Fri frakt"
+            },
+            "check_badge": {
+              "label": "Kontrollera märke"
+            },
+            "message_communications": {
+              "label": "Meddelandekommunikation"
+            },
+            "truck": {
+              "label": "Lastbil"
+            },
+            "question": {
+              "label": "Fråga"
+            },
+            "location": {
+              "label": "Plats"
+            },
+            "leaf": {
+              "label": "Blad"
+            },
+            "blossom": {
+              "label": "Blomma"
+            },
+            "payment": {
+              "label": "Betalning"
+            },
+            "discount": {
+              "label": "Discount"
+            },
+            "order": {
+              "label": "Beställa"
+            },
+            "return": {
+              "label": "Återvända"
+            },
+            "return_package": {
+              "label": "Returnera paket"
+            }
+          }
+        },
+        "inventory_status": {
+          "name": "Lagerstatus",
+          "settings": {
+            "inventory_threshold": {
+              "label": "Låg lagertröskel",
+              "info": "Ställ in detta värde för att varna kunder när en produkt är på väg att ta slut i lager."
+            },
+            "inventory_base": {
+              "label": "Lagerbaskvantitet",
+              "info": "Ställ in den initiala kvantiteten för ditt produktlager för förloppsindikator."
+            }
+          }
+        },
+        "disclosures": {
+          "name": "Upplysningar",
+          "description": "Obligatoriska säkerhetsvarningar och regulatoriska upplysningar för den här produkten. Mer information finns på vår [supportsida](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information).",
+          "settings": {
+            "heading": {
+              "label": "Rubrik",
+              "default": "Viktig information"
+            },
+            "open_by_default": {
+              "label": "Öppen som standard"
+            }
+          }
+        }
+      },
+      "divider": {
+        "section_divider_heading": "Sektionsavdelare",
+        "show_divider": "Visa avdelare",
+        "top": "Övre avdelare",
+        "top_info": "Döljs när avsnittet ovanför har en nedre avdelare av typen Våg eller Kurva",
+        "bottom_info": "Linjen döljs när avsnittet nedanför har en övre avdelare av typen Våg eller Kurva",
+        "bottom": "Nedre avdelare",
+        "none": "Ingen",
+        "line": "Linje",
+        "wave": "Våg",
+        "curve_out": "Kurva ut",
+        "curve_in": "Kurva in"
+      },
+      "metafield": {
+        "short_description": {
+          "label": "Kort beskrivning Metafält",
+          "info": "Produktmetafält. Används när en kort beskrivning finns. Format: namespace.key. Default: custom.short_description."
+        },
+        "highlights": {
+          "label": "Höjdpunkter Metafält",
+          "info": "Produktmetafält. Lista över highlight-ikoner/titlar. Format: namespace.key. Default: custom.highlights."
+        },
+        "key_features": {
+          "label": "Nyckelfunktioner Metafält",
+          "info": "Produktmetafält. Lista över titel/beskrivning-objekt. Format: namespace.key. Default: custom.key_features."
+        },
+        "media_lightbox": {
+          "label": "Media-lightbox Metafält",
+          "info": "Produktmetafält. Lista över bilder/videor till galleriet. Format: namespace.key. Default: custom.media_lightbox."
+        },
+        "model_size": {
+          "label": "Modellstorlek Metafält",
+          "info": "Produktmetafält. (metaobjekt) med modellmått. Format: namespace.key. Default: custom.model_size."
+        },
+        "product_sizing": {
+          "label": "Produktstorlekar Metafält",
+          "info": "Produktmetafält. Lista för storleksskalan. Format: namespace.key. Default: custom.product_sizing."
+        },
+        "shop_the_look": {
+          "label": "Shoppa looken Metafält",
+          "info": "Produktmetafält. Lista över look-bilder och produkter. Format: namespace.key. Default: custom.shop_the_look."
+        },
+        "similar_products": {
+          "label": "Liknande produkter Metafält",
+          "info": "Produktmetafält. Lista över liknande produkter. Format: namespace.key. Default: custom.similar_products."
+        },
+        "frequently_bought_together": {
+          "label": "Ofta köpta tillsammans Metafält",
+          "info": "Produktmetafält. Lista över produkter att köpa tillsammans. Format: namespace.key. Default: custom.frequently_bought_together."
+        },
+        "complete_the_look": {
+          "label": "Komplettera looken Metafält",
+          "info": "Produktmetafält. Lista över outfit-produkter. Format: namespace.key. Default: custom.complete_the_look."
+        },
+        "info_gallery": {
+          "label": "Infogalleri Metafält",
+          "info": "Produktmetafält. Lista över gallerikort (bild + text). Format: namespace.key. Default: custom.info_gallery."
+        },
+        "compare_items": {
+          "label": "Jämför artiklar Metafält",
+          "info": "Produktmetafält. Lista över produkter att jämföra. Format: namespace.key. Default: custom.compare_items."
+        },
+        "ingredient_highlights": {
+          "label": "Ingredienshöjdpunkter Metafält",
+          "info": "Produktmetafält. Visas i jämförelseraden. Format: namespace.key. Default: custom.ingredient_highlights."
+        },
+        "subcollection": {
+          "label": "Underkollektion Metafält",
+          "info": "Kollektionsmetafält. Lista över underordnade kollektioner. Format: namespace.key. Default: custom.subcollection."
+        }
+      }
+    },
+    "group": {
+      "product": "Products",
+      "collection": "Samlingar",
+      "storytelling": "Berättande",
+      "banners": "Banderoller",
+      "blog": "Blog",
+      "form": "Blanketter",
+      "shopable": "Shopables",
+      "blocks": {
+        "basic": "Grundläggande",
+        "layout": "Verktyg & layout",
+        "custom": "Custom",
+        "forms": "Blanketter"
+      },
+      "decorative": {
+        "name": "Dekorativ",
+        "marquee": "Marquee",
+        "how_to_use_maquee": "[Hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/marquee)"
+      },
+      "links": {
+        "name": "Länkar",
+        "menu": "Menu",
+        "how_to_use_menu": "[Hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)",
+        "how_to_use_popup_link": "[Hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/group-blocks/links/popup-link)",
+        "popup_link": "Popup-länk"
+      },
+      "general": {
+        "name": "Allmän",
+        "image_box": "Bildruta",
+        "image_box_use": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/overlay-group/search)"
+        }
+      }
+    },
+    "overlay_group": {
+      "name": "Överlagringsgrupp"
+    },
+    "search": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/overlay-group/search)",
+      "name": "Söka"
+    },
+    "footer": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/footer-group/footer)",
+      "name": "Sidfot",
+      "settings": {
+        "enable_back_top": {
+          "label": "Aktivera tillbaka till toppen"
+        },
+        "show_policy": {
+          "label": "Policylänkar",
+          "info": "[Hantera policyer](/admin/settings/legal)"
+        },
+        "country_language": {
+          "content": "Land/språkväljare",
+          "info": "För att lägga till ett land/region, gå till dina [marknadsinställningar.](/admin/settings/markets). För att lägga till ett språk, gå till dina [språkinställningar.](/admin/settings/languages)"
+        },
+        "enable_country_selector": {
+          "label": "Aktivera land/regionväljare"
+        },
+        "width": {
+          "options__1": "16%",
+          "options__2": "20%",
+          "options__3": "25%",
+          "options__4": "33%",
+          "options__5": "50%",
+          "options__6": "66%",
+          "options__7": "75%",
+          "options__8": "86%",
+          "options__9": "100%"
+        },
+        "enable_language_selector": {
+          "label": "Aktivera språkväljare"
+        },
+        "payment": {
+          "content": "Betalningsmetoder"
+        },
+        "payment_enable": {
+          "label": "Visa betalningsikoner"
+        },
+        "menu_policies": {
+          "label": "Sidfot botten"
+        },
+        "header_follow": {
+          "content": "Följ på Shop",
+          "info": "För att kunder ska kunna följa din butik i Shop-appen från ditt skyltfönster måste Shop Pay vara aktiverat. [Läs mer](https://help.shopify.com/manual/online-store/themes/customizing-themes/follow-on-shop)"
+        },
+        "enable_follow_on_shop": {
+          "label": "Aktivera Följ i butik"
+        }
+      },
+      "blocks": {
+        "menu_block": {
+          "label": "Menu"
+        },
+        "newsletter_block": {
+          "name": "Nyhetsbrev",
+          "info": "Prenumeranter läggs automatiskt till i din \"accepterade marknadsföring\"-kundlista. [Läs mer](https://help.shopify.com/manual/customers/manage-customers)",
+          "settings": {
+            "note": {
+              "label": "Notera"
+            }
+          }
+        },
+        "contact_bar_block": {
+          "name": "Kontaktfält",
+          "settings": {
+            "store_address": "Adress",
+            "store_phone": "Telefon",
+            "store_email": "Email",
+            "show_social": {
+              "label": "Visa ikoner för sociala medier",
+              "info": "För att visa dina sociala mediekonton, länka dem i dina temainställningar."
+            }
+          }
+        }
+      }
+    },
+    "header": {
+      "name": "Rubrik",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header)",
+      "settings": {
+        "sticky_header_type": {
+          "label": "Fäst sidhuvud",
+          "options__1": {
+            "label": "None"
+          },
+          "options__2": {
+            "label": "På scrolla upp"
+          },
+          "options__3": {
+            "label": "Alltid"
+          }
+        },
+        "menu": {
+          "label": "Menu",
+          "menu_trigger": {
+            "label": "Utlösare för skrivbordets rullgardinsmeny",
+            "options__1": {
+              "label": "Klick"
+            },
+            "options__2": {
+              "label": "Sväva"
+            }
+          },
+          "dropdowns_animation": {
+            "label": "Dropdown-animation",
+            "options__1": {
+              "label": "Tona in"
+            },
+            "options__3": {
+              "label": "Ner till upp"
+            }
+          }
+        },
+        "menu_mobile": {
+          "label": "Mobilmenyinställningar",
+          "menu_icon": {
+            "label": "Hamburgare ikon position",
+            "info": "Välj var hamburgermenyn visas på mobilen."
+          }
+        },
+        "addons": {
+          "label": "Tillägg",
+          "show_account": {
+            "label": "Visa kontoikon"
+          },
+          "show_search": {
+            "label": "Visa sök"
+          },
+          "show_cart": {
+            "label": "Visa kundvagn"
+          },
+          "show_offer": {
+            "label": "Visa erbjudande"
+          },
+          "show_language": {
+            "label": "Visa språk"
+          },
+          "show_currency": {
+            "label": "Visa valuta"
+          }
+        },
+        "transparent": {
+          "content": "Transparent rubrik",
+          "info": "Se till att det första avsnittet på din hemsida är konfigurerat som något av följande: ett bildspel, en video med en textöverlagring eller en bild med en textöverlagring.",
+          "transparent": {
+            "label": "Aktivera transparent rubrik"
+          },
+          "text_icon_transparent": {
+            "label": "Text och ikonfärg"
+          }
+        },
+        "blocks": {
+          "mega_menu": {
+            "name": "Banner (megameny)",
+            "how_to_use": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#banner-mega-menu)",
+            "banners": {
+              "label": "Banners inställningar"
+            },
+            "promotion_1": {
+              "label": "Banderoll #1"
+            },
+            "promotion_2": {
+              "label": "Banderoll #2"
+            },
+            "promotion_3": {
+              "label": "Banderoll #3"
+            },
+            "promotion_4": {
+              "label": "Banderoll #4"
+            },
+            "promotion_5": {
+              "label": "Banderoll #5"
+            },
+            "info": "448px x 260px rekommenderas"
+          },
+          "menu_item": {
+            "label": "Menyalternativ",
+            "info": "Gå till menyalternativet för att tillämpa en megameny-rullgardinsmeny. Vänligen skilja mellan stora och små bokstäver."
+          },
+          "menu_column": {
+            "label": "Skrivbordsmenykolumner"
+          },
+          "product": {
+            "name": "Produkter (Mega meny)",
+            "how_to_use": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#product-mega-menu)",
+            "header": "Products"
+          },
+          "collection": {
+            "name": "Samlingar (Mega meny)",
+            "how_to_use": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#collection-mega-menu)",
+            "header": "Samlingar"
+          },
+          "menu_highlight": {
+            "name": "Menymarkering",
+            "menu_items": {
+              "label": "Menyalternativ att markera",
+              "info": "Ange namnen på menyalternativen som ska markeras, separerade med kommatecken (t.ex. Rea, New Arrivals). Vänligen skilja mellan stora och små bokstäver."
+            },
+            "highlight_color": {
+              "label": "Markera färg"
+            },
+            "highlight_icon": {
+              "label": "Markera ikonen",
+              "options": {
+                "unset": "Avaktiverad",
+                "star": "Stjärna",
+                "custom": "Custom"
+              }
+            },
+            "custom_icon": {
+              "label": "Anpassad ikon",
+              "info": "Valfri ikon att visa bredvid markerade menyalternativ (rekommenderad storlek: 24x24px)"
+            }
+          }
+        },
+        "header_layout": {
+          "label": "Skrivbordslayout för sidhuvud",
+          "info": "Layouten optimeras automatiskt för mobil.",
+          "options__1": {
+            "label": "Logotyp vänster, meny mitt"
+          },
+          "options__2": {
+            "label": "Logotyp mitt, meny till vänster"
+          },
+          "options__3": {
+            "label": "Logotyp i mitten, meny under"
+          },
+          "options__4": {
+            "label": "Logotyp till vänster, meny under"
+          },
+          "options__5": {
+            "label": "Logotyp till vänster, meny till vänster"
+          }
+        }
+      }
+    },
+    "custom_liquid": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "how_to_use_block": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "name": "Anpassad vätska",
+      "liquid_code": "Flytande kod",
+      "info": "Lägg till apputdrag eller annan flytande kod för att skapa avancerade anpassningar.",
+      "info_custom_liquid": "Lägg till apputdrag eller annan kod för att skapa avancerade anpassningar. [Learn more](https://shopify.dev/docs/api/liquid)"
+    },
+    "blog-posts": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/blog-posts)",
+      "name": "Blogginlägg",
+      "settings": {
+        "blog-post": {
+          "label": "Blogginlägg",
+          "blog_post_type": {
+            "label": "Typ av blogginlägg",
+            "category": "Kategori",
+            "select_blog": "Utvalda bloggar"
+          }
+        },
+        "blog": {
+          "label": "Blog"
+        }
+      }
+    },
+    "multi_content": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/multi-content)",
+      "name": "Flera innehåll",
+      "blocks": {
+        "label": "Blockera inställningar",
+        "bellow_image": "Märkeinställningar",
+        "badge": "Emblem",
+        "equal_height_adjustment": {
+          "label": "Lika höjdjustering"
+        },
+        "social_icon": "Sociala ikoner",
+        "grid_info": "Rutnätsinfo",
+        "grid_info_1": "Rutnätsinformation 1",
+        "grid_info_2": "Rutnätsinformation 2",
+        "grid_info_3": "Rutnätsinformation 3",
+        "grid_info_4": "Rutnätsinformation 4"
+      }
+    },
+    "grid_banner": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/banners/grid-banner)",
+      "name": "Rutnätsbanner",
+      "settings": {
+        "hidden_block_des_mobile": {
+          "label": "Dölj objektbeskrivning på mobil"
+        }
+      },
+      "blocks": {
+        "item": {
+          "name": "Bannerelement",
+          "show_arrow": "Visa pilikon"
+        }
+      }
+    },
+    "scrolling_text": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/scrolling-text)",
+      "name": "Rullande text",
+      "settings": {
+        "direction": {
+          "label": "Riktning",
+          "left": {
+            "label": "Höger till vänster"
+          },
+          "right": {
+            "label": "Vänster till höger"
+          }
+        },
+        "speed": {
+          "label": "Hastighet"
+        },
+        "text_size": {
+          "label": "Size"
+        },
+        "blocks": {
+          "image": {
+            "rounded_image": {
+              "label": "Bildens hörnradie"
+            },
+            "image_height": {
+              "label": "Bildhöjd"
+            },
+            "image_width": {
+              "label": "Bredd"
+            }
+          }
+        }
+      }
+    },
+    "shopby-outfit": {
+      "name": "Handla efter outfit",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-by-outfit)",
+      "blocks": {
+        "outfit": {
+          "name": "Utrusta",
+          "settings": {
+            "product": {
+              "label": "Produktlista"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Handla efter outfit"
+      },
+      "setting": {
+        "media": {
+          "label": "Medietyp"
+        },
+        "video_autoplay": {
+          "info": "Det fungerar bara när Video har valts i blockinställningarna för Media Type."
+        }
+      }
+    },
+    "collection-list": {
+      "name": "Samlingslista",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/collection-list)",
+      "settings": {
+        "header": {
+          "collection": "Collection",
+          "collection_title": "Samlingstitel",
+          "collection_card": "Samlingskort",
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "how_to_use_collection_title": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/sections/page-heading)"
+        },
+        "collection_title_style": {
+          "label": "Samlingstitelstil",
+          "text": "Text",
+          "button": "Knapp"
+        },
+        "show_product_count": {
+          "label": "Visa produktantal"
+        },
+        "overlay_image_settings": "Inställningar för överlagringsbild",
+        "overlay_image_color": "Textfärg",
+        "collection_overlay_image_color": "Samlings textfärg"
+      },
+      "blocks": {
+        "featured_collection": {
+          "name": "Collection",
+          "settings": {
+            "collection": {
+              "label": "Collection"
+            },
+            "image": {
+              "label": "Image",
+              "info": "Lämna tomt för att använda samlingens bild",
+              "info_highlight": "Lämna tomt för att använda samlingens bild. 330px x 520px rekommenderas",
+              "info_suitable": "Lämna tomt för att använda samlingens bild. 147px x 72px rekommenderas",
+              "info_collection_item": "444px x 444px rekommenderas"
+            },
+            "title": {
+              "label": "Titel",
+              "info": "Lämna tomt för att använda samlingens titel"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Samlingslista"
+      }
+    },
+    "quickview": {
+      "name": "Quickview",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/overlay-group/quickview)",
+      "settings": {
+        "paragraph": "Det här avsnittet låter dig anpassa snabbvyns popup-fönster."
+      }
+    },
+    "featured-collection": {
+      "name": "Utvald samling",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/featured-collection)"
+    },
+    "expandable_card": {
+      "name": "Expanderbart kort",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/expandable-card)",
+      "settings": {
+        "card_header": "Kortinställningar",
+        "interaction_behavior": {
+          "label": "Interaktionsbeteende",
+          "options": {
+            "hover": "Visa på svävaren",
+            "drawer": "Klicka på öppna lådan"
+          }
+        }
+      },
+      "blocks": {
+        "layered_card": {
+          "name": "Kort i lager",
+          "settings": {
+            "media_header": "Image",
+            "description": "Beskrivning",
+            "drawer_page": "Beskrivning från sidan"
+          }
+        }
+      }
+    },
+    "featured-product": {
+      "name": "Utvald produkt",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/featured-product)",
+      "settings": {
+        "product": "Product"
+      }
+    },
+    "slideshow": {
+      "name": "Slideshow",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/slideshow)",
+      "settings": {
+        "loading_background_color": {
+          "label": "Laddar bakgrund",
+          "info": "Bakgrundsfärgen visas medan videobilden laddas."
+        },
+        "slide_height": {
+          "label": "Glidhöjd",
+          "full_screen": "Helskärm",
+          "adapt_to_first_image": "Anpassa till första bilden",
+          "small": "Små",
+          "medium": "Medium",
+          "large": "Stor"
+        },
+        "info": "1920px x 840px rekommenderas",
+        "info_mobile": "390px x 572px rekommenderas",
+        "blocks": {
+          "image": {
+            "label": "Bildbild",
+            "image_overlay_opacity": {
+              "label": "Opacitet för bildöverlagring",
+              "overlay_opacity": "Overlay opacitet"
+            }
+          },
+          "video": {
+            "label": "Videobild",
+            "video_setting": "Videoinställningar",
+            "video_overlay_opacity": {
+              "label": "Opacitet för videoöverlagring"
+            }
+          }
+        }
+      }
+    },
+    "related-products": {
+      "name": "Relaterade produkter",
+      "how_to_use": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/related-products)"
+    },
+    "similar-products": {
+      "name": "Handla liknande produkt",
+      "how_to_use": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-product)"
+    },
+    "complete-the-look": {
+      "name": "Komplettera utseendet",
+      "how_to_use": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/group-sections/products/complete-the-look)"
+    },
+    "similar-color": {
+      "name": "Handla liknande färg",
+      "how_to_use": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-color)"
+    },
+    "quick-order-list": {
+      "name": "Snabb beställningslista"
+    },
+    "newsletter": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/newsletter)",
+      "name": "Nyhetsbrev",
+      "settings": {
+        "header": {
+          "heading_setting": "Nyhetsbrev inställning"
+        }
+      }
+    },
+    "rich-text": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/rich-text)",
+      "name": "Rik text",
+      "settings": {
+        "max_width": {
+          "label": "Max bredd",
+          "info": "Max bredd optimeras automatiskt för mobil."
+        },
+        "rotating_text": "Cirkulär text",
+        "separator_spacing": {
+          "label": "Avskiljaravstånd",
+          "info": "Lägger till mellanrum på båda sidor av avskiljare som - eller • mellan fraser."
+        }
+      }
+    },
+    "recently-viewed-products": {
+      "name": "Nyligen visade produkter",
+      "info": "Spara sidan för att ladda senast visade produkter",
+      "how_to_use": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/recently-product)"
+    },
+    "info-gallery-products": {
+      "name": "Nyckelingredienser",
+      "how_to_use": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metaobjects/info-gallery)"
+    },
+    "product-benefits": {
+      "name": "Produktfördelar",
+      "how_to_use": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/product-benefits)",
+      "settings": {
+        "media_header": "Centrera media",
+        "image": {
+          "label": "Image",
+          "info": "Använder produktens utvalda bild när den är tom. 640 x 900 px rekommenderas."
+        },
+        "media_width": {
+          "label": "Bildbredd på skrivbordet"
+        },
+        "video": {
+          "label": "Video"
+        },
+        "video_poster": {
+          "label": "Video affischbild"
+        }
+      },
+      "blocks": {
+        "benefit": {
+          "name": "Förmån",
+          "settings": {
+            "icon": {
+              "label": "Ikon"
+            }
+          }
+        }
+      }
+    },
+    "quiz-results-products": {
+      "name": "Quiz resultat produkter"
+    },
+    "quiz": {
+      "name": "Quiz",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/utilities-and-layout/quiz)",
+      "settings": {
+        "intro_header": "Intro",
+        "enable_intro_step": {
+          "label": "Aktivera introduktionssteg"
+        },
+        "intro_button_label": {
+          "label": "Startknappsetikett"
+        },
+        "show_retake_button": {
+          "label": "Visa återtagningsknappen"
+        },
+        "retake_label": {
+          "label": "Återtag knappetikett"
+        },
+        "results_display_header": "Resultat visas",
+        "content_max_width": {
+          "label": "Innehåll max bredd"
+        },
+        "show_back_button": {
+          "label": "Visa tillbaka-knapp"
+        },
+        "email_header": "E-poststeg",
+        "enable_email_step": {
+          "label": "Aktivera e-poststeget"
+        },
+        "email_heading": {
+          "label": "E-post rubrik"
+        },
+        "email_placeholder": {
+          "label": "E-postplatshållare"
+        },
+        "continue_label": {
+          "label": "Fortsätt knappetikett"
+        },
+        "skip_label": {
+          "label": "Hoppa över knappetikett"
+        },
+        "results_banner_image": {
+          "label": "Resultat bannerbild"
+        },
+        "fallback_products": {
+          "label": "Reservprodukter",
+          "info": "Produkter som visas endast när frågesportsvar inte ger några starka eller partiella matchningar. Använd som backup så att resultatsidan aldrig är tom."
+        },
+        "results_products_limit": {
+          "label": "Maximalt antal produkter att visa"
+        }
+      }
+    },
+    "compare-products": {
+      "name": "Jämför produkter",
+      "how_to_use": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/compare-items)",
+      "settings": {
+        "header": {
+          "label": "Jämför inställningar"
+        },
+        "show_price": "Pris",
+        "show_ratings": "Betyg",
+        "show_vendor": "Försäljare",
+        "show_color": "Color",
+        "show_size": "Size",
+        "show_highlights": "Höjdpunkter",
+        "show_availability": "Tillgänglighet"
+      }
+    },
+    "bought-together-products": {
+      "name": "Köpte ihop produkter",
+      "how_to_use": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/frequently-bought-together)"
+    },
+    "media-with-text": {
+      "name": "Media med text",
+      "info_image": {
+        "info_desktop": "950px x 844px rekommenderas",
+        "info_mobile": "475px x 422px rekommenderas",
+        "info_video": "Åsidosätter bildinställningen. 950px x 844px rekommenderas"
+      }
+    },
+    "product-specifications": {
+      "name": "Produktspecifikationer",
+      "item_name": "Product specifications item",
+      "specifications_layout": "Specifikationslayout",
+      "grid_gap": "Rutnätsmellanrum",
+      "mobile_rows_shown": "Rader",
+      "view_more_label": "Etikett för knappen Visa mer",
+      "view_less_label": "Etikett för knappen Visa mindre",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-specifications)"
+    },
+    "image-with-text": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/image-with-text)",
+      "name": "Bild med text",
+      "settings": {
+        "desktop_vertical_alignment": {
+          "label": "Desktop vertikal justering",
+          "top": "Bästa",
+          "middle": "Mitten",
+          "bottom": "Botten"
+        },
+        "vertical_alignment": "Vertikal inriktning",
+        "background_type": {
+          "label": "Bakgrundstyp",
+          "image": "Image",
+          "color": "Color"
+        },
+        "background_color": "Bakgrundsfärg",
+        "background_image": "Bakgrundsbild",
+        "text_color": "Textfärg",
+        "image_info": "696px x 500px rekommenderas",
+        "offer_image_with_text_info": "360px x 200px rekommenderas",
+        "image_caption": {
+          "label": "Bildtext",
+          "heading": "Rubrik",
+          "description": "Beskrivning",
+          "position": "Placera"
+        }
+      }
+    },
+    "before_after_result": {
+      "name": "Före efter",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/banners/before-after)",
+      "before_text": {
+        "label": "Innan text",
+        "default": "Före"
+      },
+      "after_text": {
+        "label": "Efter text",
+        "default": "Efter"
+      }
+    },
+    "parallax-image-with-text": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/banners/parallax-split)",
+      "name": "Parallaxsplittring",
+      "settings": {
+        "image": {
+          "image_1": {
+            "label": "Bild 1"
+          },
+          "image_2": {
+            "label": "Bild 2"
+          },
+          "image_3": {
+            "label": "Bild 3"
+          }
+        },
+        "parallax_image": {
+          "label": "Parallax bild"
+        }
+      }
+    },
+    "discount_popup": {
+      "info": "Det här avsnittet används för att visa en popup efter prenumeration.",
+      "name": "Rabatt popup",
+      "how_to_use": "[Hur du använder den här inställningen](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/discount-popup)",
+      "settings": {
+        "discount_code": {
+          "label": "Kampanjlänk",
+          "info": "Hur får man en promoto länk? [Läs mer](https://help.shopify.com/en/manual/discounts/managing-discount-codes#promote-a-discount-using-a-shareable-link)"
+        },
+        "discount_button": {
+          "label": "Kampanjknappetikett",
+          "default": "👉 Handla med 10% rabatt"
+        },
+        "sub_heading": {
+          "default": "Hurra! Du är prenumererad"
+        },
+        "info_image": "Den här bilden döljs automatiskt på mobilen. 350px x 410px rekommenderas"
+      }
+    },
+    "image-with-text-overlay": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/image-with-text-overlay)",
+      "name": "Bild med textöverlägg",
+      "countdown": "Nedräkningstimer",
+      "count_down": "Nedräkning",
+      "how_to_use_count_down": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/countdown)",
+      "end_time": {
+        "label": "Sluttid",
+        "info": "till exempel mm-dd-åååå"
+      },
+      "message": {
+        "label": "Utgått meddelande",
+        "info": "Detta meddelande kommer att visas när tiden har gått ut."
+      },
+      "image_info": {
+        "info_desktop": "1392px x 500px rekommenderas",
+        "info_mobile": "400px x 469px rekommenderas"
+      }
+    },
+    "media-hero": {
+      "name": "Mediahjälte",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/media-hero)",
+      "media": "Media",
+      "info": "Åsidosätter bildinställningen."
+    },
+    "video": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/video)",
+      "name": "Video",
+      "settings": {
+        "video_local": {
+          "label": "Video lokal",
+          "info_2": "Åsidosätter inställningen för videoadress.",
+          "info_multi_content_video": "Åsidosätter inställningen för videoadress. 684px x 500px rekommenderas.",
+          "info_poster": "Använd samma mått som video"
+        },
+        "video_link": {
+          "label": "Video-URL",
+          "info": "Accepterar YouTube eller Vimeo URL"
+        },
+        "video_poster": {
+          "label": "Video affisch"
+        },
+        "alt_description": {
+          "label": "Video alt-text",
+          "info": "Beskriv videon för kunder som använder skärmläsare. [Läs mer](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#video-block)"
+        },
+        "autoplay": {
+          "label": "Automatisk uppspelning av video",
+          "info": "Videor stängs av automatiskt för att tillåta automatisk uppspelning"
+        },
+        "looping": {
+          "label": "Videoloopning"
+        },
+        "show_action": {
+          "label": "Visa videokontroller"
+        },
+        "aspect_ratio": {
+          "label": "Bildförhållande",
+          "option__1": "16:9",
+          "option__2": "21:9",
+          "option__3": "Anpassa till video"
+        },
+        "show_text_bellow": {
+          "label": "Visa text under video på mobilen",
+          "info": "Text kommer att visas under videon på mobilen."
+        }
+      }
+    },
+    "main-password-content": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/other-pages/password-page)",
+      "name": "Huvudsida för lösenord",
+      "settings": {
+        "header__2": {
+          "content": "Innehållsinställning"
+        }
+      },
+      "blocks": {
+        "countdown_bn": {
+          "settings": {
+            "countdown_design": {
+              "label": "Design",
+              "options__1": {
+                "label": "Default"
+              },
+              "options__2": {
+                "label": "Modern"
+              }
+            }
+          }
+        },
+        "form_subscribe": {
+          "name": "Form prenumerera",
+          "settings": {
+            "email_placeholder": {
+              "label": "E-postplatshållartext"
+            },
+            "btn_label": {
+              "label": "Knappetikett"
+            }
+          }
+        }
+      }
+    },
+    "divider": {
+      "settings": {
+        "height": {
+          "label": "Height"
+        },
+        "color": {
+          "label": "Color"
+        }
+      }
+    },
+    "faq": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/faqs)",
+      "name": "Vanliga frågor",
+      "main-faq": "Huvudsida med vanliga frågor",
+      "heading": {
+        "content": "Vanliga frågor"
+      },
+      "info_image": "646px x 700px rekommenderas",
+      "settings": {
+        "show_faqs_message": "Visa vanliga frågor",
+        "show_image": "Visa bild",
+        "open_all_question": "Öppna alla frågor",
+        "framed": "Inramad",
+        "faq_style": "FAQ stil",
+        "desktop_layout": {
+          "label": "Skrivbordslayout",
+          "horizontal": "Horisontell",
+          "vertical": "Vertikal"
+        }
+      },
+      "blocks": {
+        "name": "Vanliga frågor",
+        "settings": {
+          "question": {
+            "question": "Fråga",
+            "answer": "Svar"
+          }
+        }
+      }
+    },
+    "page-faq": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/other-pages/faq-page)"
+    },
+    "video-with-text-overlay": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/video-with-text-overlay)",
+      "name": "Video med textöverlägg",
+      "settings": {
+        "video_local": {
+          "label": "Video lokal",
+          "info": "Åsidosätter inställningen för videoadress. 1392px x 550px rekommenderas",
+          "info_mobile": "390px x 550px rekommenderas"
+        },
+        "video_link": {
+          "label": "Videolänk"
+        },
+        "video_poster": {
+          "info": "Samma mått som video"
+        },
+        "overlay_opacity": "Overlay opacitet",
+        "video_height": {
+          "label": "Videohöjd",
+          "options__1": {
+            "label": "Anpassa till video"
+          },
+          "options__2": {
+            "label": "Små"
+          },
+          "options__3": {
+            "label": "Medium"
+          },
+          "options__4": {
+            "label": "Stor"
+          }
+        }
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "Produktrutnät",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/product-grid)",
+      "settings": {
+        "items_per_page": {
+          "label": "Objekt att visa per sida"
+        },
+        "columns_desktop": {
+          "label": "Kolumner per rad på skrivbordet"
+        },
+        "show_product_counts": {
+          "label": "Visa produktantal"
+        }
+      }
+    },
+    "main-collection": {
+      "settings": {
+        "items_per_page": {
+          "label": "Objekt att visa per sida"
+        },
+        "columns_desktop": {
+          "label": "Kolumner per rad på skrivbordet"
+        },
+        "enable_filtering": {
+          "label": "Aktivera filtrering",
+          "info": "Anpassa filter med Search & Discovery-appen. [Läs mer](https://help.shopify.com/manual/online-store/search-and-discovery/filters)"
+        },
+        "filter_type": {
+          "label": "Skrivbordsfilterlayout",
+          "options__1": {
+            "label": "Horizontal"
+          },
+          "options__2": {
+            "label": "Vertical"
+          },
+          "options__3": {
+            "label": "Låda"
+          }
+        },
+        "enable_sorting": {
+          "label": "Aktivera sortering"
+        },
+        "show_product_counts": {
+          "label": "Visa produktantal"
+        },
+        "header__1": {
+          "content": "Filtrering och sortering"
+        }
+      },
+      "blocks": {
+        "promotion": {
+          "name": "Främjande",
+          "promotion_position": {
+            "label": "Kampanjposition"
+          },
+          "info": "330px 550px rekommenderas"
+        },
+        "steps": {
+          "name": "Handla för steg",
+          "info": "337px x 200px rekommenderas"
+        }
+      }
+    },
+    "main-search": {
+      "name": "Sökresultat",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/other-pages/search-page)",
+      "settings": {
+        "search_results": {
+          "label": "Visa resultat",
+          "option_1": "Default",
+          "option_2": "Flik"
+        }
+      }
+    },
+    "main-article": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/other-pages/blog-post-page)",
+      "name": "Blogginlägg",
+      "settings": {
+        "show_date": "Visa publiceringsdatum",
+        "show_comment": "Visa kommentar",
+        "show_excerpt": "Visa inläggsutdrag",
+        "show_share": "Visa delningsknapp",
+        "blocks": {
+          "featured_image": "Utvald bild",
+          "content_article": "Innehåll",
+          "addons": "Tillägg",
+          "prev_next_articles": "Föregående och nästa artiklar"
+        }
+      },
+      "related": {
+        "heading": "Relaterade artiklar",
+        "articles": {
+          "label": "Artiklar",
+          "info": "Visas i den här ordningen. Lämna tomt för att visa de senaste artiklarna från den här bloggen."
+        }
+      },
+      "blocks": {
+        "featured_image": {
+          "settings": {
+            "image_height": {
+              "label": "Bildhöjd",
+              "options__1": {
+                "label": "Anpassa till bilden"
+              },
+              "options__2": {
+                "label": "Små"
+              },
+              "options__3": {
+                "label": "Medium"
+              },
+              "options__4": {
+                "label": "Stor"
+              }
+            }
+          }
+        }
+      },
+      "related_product": {
+        "heading": "Relaterade produkter",
+        "products": {
+          "label": "Produkter"
+        }
+      }
+    },
+    "cart-drawer": {
+      "name": "Vagnlåda",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/overlay-group/cart-drawer)",
+      "settings": {
+        "info": "För att visa vagnlådan, gå till Temainställningar och välj låda som vagntyp i [cart settings.](/editor?context=theme&category=cart)",
+        "content": "",
+        "show_free_shipping_message": {
+          "label": "Visa gratis fraktmeddelande",
+          "info": "Ställ in minimibeloppet för fri frakt i temainställningarna."
+        },
+        "show_cart_note": "Visa varukorgsanteckning",
+        "show_estimate_shipping": "Visa uppskattning av frakt",
+        "show_discount": "Visa rabattkod",
+        "hide_check_badge_on_mobile": "Dölj block av Trust-märken på mobilen",
+        "hide_icon_with_text_on_mobile": "Dölj ikon med textblock på mobilen",
+        "show_gift_wrap": {
+          "label": "Visa presentpapper",
+          "info": "Välj presentpappersprodukter i temainställningarna."
+        },
+        "discount_progress_bar_active": "Rabattförloppsindikatorn är aktiverad i temainställningarna och ersätter meddelandet om fri frakt."
+      }
+    },
+    "main-list-collections": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-list-page)",
+      "name": "Lista över samlingar",
+      "blocks": {
+        "name": "Collection",
+        "settings": {
+          "collection_image": "Samlingsbild"
+        }
+      },
+      "settings": {
+        "information_position": {
+          "label": "Informationsposition",
+          "options__1": {
+            "label": "Överlagringsbild"
+          },
+          "options__2": {
+            "label": "Bild nedan"
+          }
+        },
+        "collection_to_show": {
+          "label": "Samlingar att visa",
+          "options__1": {
+            "label": "Alla"
+          },
+          "options__2": {
+            "label": "Vald"
+          }
+        },
+        "sort": {
+          "label": "Sortera samlingar efter",
+          "options__1": {
+            "label": "Alfabetiskt, A-Z"
+          },
+          "options__2": {
+            "label": "Alfabetiskt, Z-A"
+          },
+          "options__3": {
+            "label": "Datum, nytt till gammalt"
+          },
+          "options__4": {
+            "label": "Datum, gammalt till nytt"
+          },
+          "options__5": {
+            "label": "Produktantal, högt till lågt"
+          },
+          "options__6": {
+            "label": "Produktantal, lågt till högt"
+          }
+        }
+      }
+    },
+    "main-blog": {
+      "name": "Blogginlägg",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/other-pages/blog-page)",
+      "settings": {
+        "header": {
+          "content_post": "Inläggsinställningar"
+        },
+        "maximum_posts_to_show": {
+          "label": "Maximalt antal inlägg att visa"
+        },
+        "post_per_row_desktop": {
+          "label": "Inlägg per rad på skrivbordet"
+        },
+        "show_all_tags": {
+          "label": "Visa tagglista"
+        }
+      },
+      "blocks": {
+        "name": "Prenumerationsformulär",
+        "settings": {
+          "show_email_icon": "Visa e-postikon",
+          "form_position": "Formulärposition"
+        }
+      }
+    },
+    "main-product": {
+      "name": "Produktinformation",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "settings": {
+        "header": {
+          "content": "Media"
+        },
+        "enable_sticky_desktop": {
+          "label": "Aktivera Sticky Add Cart på skrivbordet"
+        },
+        "desktop_layout": {
+          "label": "Skrivbordslayout",
+          "group": {
+            "static": "Rutnät",
+            "carousel": "Karusell"
+          },
+          "one_columns": {
+            "label": "1 kolumn"
+          },
+          "options__1": {
+            "label": "2 kolumner"
+          },
+          "options__2": {
+            "label": "Horisontella miniatyrer"
+          },
+          "options__3": {
+            "label": "Stack"
+          },
+          "options__4": {
+            "label": "Vertikala miniatyrer"
+          },
+          "options__5": {
+            "label": "Vertikala miniatyrer (rulla)"
+          },
+          "options__6": {
+            "label": "2 kolumner"
+          }
+        },
+        "thumbnail_carousel_setting": {
+          "label": "Inställning för miniatyrkarusell",
+          "number_thumbs": "Antal miniatyrer"
+        },
+        "media_position": {
+          "label": "Medieposition på skrivbord"
+        },
+        "media_width": {
+          "label": "Desktop media bredd"
+        },
+        "mobile_thumbnails": {
+          "options__1": {
+            "label": "Visa miniatyrer"
+          },
+          "options__2": {
+            "label": "Dölj miniatyrer"
+          }
+        },
+        "enable_video_looping": {
+          "label": "Aktivera videolooping"
+        },
+        "enable_image_zoom": {
+          "label": "Bildzoom",
+          "options__1": {
+            "label": "Inaktivera"
+          },
+          "options__2": {
+            "label": "Zooma insidan"
+          },
+          "options__3": {
+            "label": "Zooma ut"
+          }
+        },
+        "enable_image_lightbox": {
+          "label": "Aktivera ljuslåda"
+        },
+        "enable_video_autoplay": {
+          "label": "Aktivera automatisk uppspelning av video",
+          "info": "Videor stängs av automatiskt för att tillåta automatisk uppspelning. Fungerar inte för YouTube/Vimeo."
+        },
+        "enable_video_controls_default": {
+          "label": "Aktivera anpassade videokontroller",
+          "info": "Fungerar inte för YouTube/Vimeo."
+        }
+      },
+      "blocks": {
+        "custom_product": {
+          "name": "Anpassade alternativ",
+          "tab_setting": {
+            "label": "Fliketiketter",
+            "tab_1": {
+              "label": "Flik 1"
+            },
+            "tab_2": {
+              "label": "Flik 2"
+            },
+            "tab_3": {
+              "label": "Flik 3"
+            }
+          },
+          "description": "Låt kunderna anpassa produkten – position, text och färg – genom en 3-stegs popup innan de läggs till i kundvagnen. För mer information besök vår [Supportsida](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/custom-options)",
+          "placement": "Placering",
+          "text": "Text",
+          "text_limit": "Textgräns",
+          "note": "Notera",
+          "color": {
+            "name": "Color",
+            "options": {
+              "color_1": "Färg 1",
+              "color_2": "Färg 2",
+              "color_3": "Färg 3",
+              "color_4": "Färg 4",
+              "color_5": "Färg 5",
+              "color_6": "Färg 6",
+              "color_7": "Färg 7",
+              "color_8": "Färg 8",
+              "color_9": "Färg 9",
+              "color_10": "Färg 10"
+            }
+          }
+        }
+      }
+    },
+    "main-cart-items": {
+      "name": "Huvudvagn",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/other-pages/cart-page)",
+      "block": {
+        "icon_with_text": "Ikon med text",
+        "trust_badges": "Förtroendebrickor"
+      }
+    },
+    "main-collection-banner": {
+      "name": "Samling banner",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/collection-banner)",
+      "settings": {
+        "heading": {
+          "label": "Inställningar"
+        },
+        "use_collection_image": {
+          "label": "Använd samlingsbild",
+          "info": "Åsidosätt inställningen för bakgrundsbild"
+        },
+        "image_height": {
+          "option__2": "Basera på innehåll"
+        },
+        "image_position": {
+          "label": "Bildposition",
+          "option__1": "Vänster",
+          "option__2": "Rätt"
+        },
+        "image_opacity": {
+          "label": "Bildopacitet"
+        }
+      }
+    },
+    "contact-form": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/contact-form)",
+      "name": "Kontaktformulär",
+      "settings": {
+        "name": "Namn",
+        "email_placeholder": "Email",
+        "message": "Meddelande",
+        "option": "Alternativ",
+        "info_option": "Definiera namnet på alternativet. Separera alternativen med ett kommatecken. Till exempel. Produkt, Order, Press, Annat"
+      }
+    },
+    "main-404": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/other-pages/404-page)",
+      "name": "Huvud 404",
+      "info_image": "500px x 288px rekommenderas"
+    },
+    "main-activate-account": {
+      "name": "Kontoaktivering"
+    },
+    "main-password-footer": {
+      "name": "Lösenordsfot"
+    },
+    "main-account": {
+      "name": "Konto"
+    },
+    "main-register": {
+      "name": "Registrering"
+    },
+    "main-login": {
+      "name": "Inloggning"
+    },
+    "main-reset-password": {
+      "name": "Lösenordsåterställning"
+    },
+    "main-order": {
+      "name": "Beställa"
+    },
+    "main-addresses": {
+      "name": "Adresser"
+    },
+    "announcement-bar": {
+      "how_to_use": {
+        "label": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/announcement-bar)"
+      },
+      "name": "Meddelandefält",
+      "settings": {
+        "type": {
+          "name": "Typ",
+          "options": {
+            "slide": {
+              "label": "Karusell"
+            },
+            "marquee": {
+              "label": "Marquee"
+            }
+          }
+        },
+        "show_only_homepage": {
+          "label": "Visa endast på hemsidan"
+        },
+        "show_close_button": {
+          "label": "Visa stängningsknapp"
+        },
+        "enable_on_mobile": {
+          "label": "Aktivera på mobilen"
+        },
+        "marquee_settings": {
+          "label": "Marquee-inställningar",
+          "speed": {
+            "label": "Hastighet"
+          },
+          "show_icon": {
+            "label": "Visa ikon"
+          }
+        }
+      },
+      "blocks": {
+        "name": "Meddelande",
+        "setting": {
+          "label": "Text"
+        }
+      }
+    },
+    "multimedia_with_text": {
+      "blocks": {
+        "settings": {
+          "header": "Mediainställningar",
+          "media_style": {
+            "label": "Mediestil",
+            "options__1": {
+              "label": "Avrundad"
+            },
+            "options__2": {
+              "label": "Oval"
+            },
+            "options__3": {
+              "label": "Default"
+            }
+          }
+        }
+      }
+    },
+    "product-tabs": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/vertical-product-tabs)",
+      "name": "Produktflikar",
+      "setting": {
+        "layout": {
+          "label": "Skrivbordslayout",
+          "vertical": "Vertical",
+          "horizontal": "Horizontal"
+        },
+        "banner_header": "Banner",
+        "show_banner": "Visa banner",
+        "sticky_banner": "Fast banner",
+        "portrait_4_5": "Stående (4:5)",
+        "enable_carousel_info": "På mobil visas produktlayouten alltid som en karusell."
+      },
+      "blocks": {
+        "name": "Flik",
+        "header": "Blockera inställningar",
+        "settings": {
+          "hidden_des_mobile": {
+            "label": "Dölj flikbeskrivning på mobil"
+          },
+          "collection": {
+            "label": "Collection",
+            "description": "Beskrivning"
+          }
+        }
+      },
+      "presets": {
+        "product_tabs_with_banner": "Produktflikar med banner"
+      }
+    },
+    "collection-highlights": {
+      "name": "Samlingens höjdpunkter",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/collection-highlights)",
+      "settings": {
+        "highlight_collection_width": {
+          "label": "Samlingen framhäver bredd"
+        }
+      },
+      "blocks": {
+        "header": "Blockera inställningar",
+        "type": {
+          "type_highlight": {
+            "header": "Inställningar för samlingshöjdpunkter",
+            "name": "Samlingens höjdpunkter"
+          }
+        }
+      }
+    },
+    "collection-pills": {
+      "name": "Samlingspiller",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/collections/collection-pills)",
+      "settings": {
+        "pill_style": {
+          "label": "Pillstil"
+        },
+        "show_image_on_hover": {
+          "label": "Visa bild vid hovring",
+          "info": "Bild vid hovring döljs på mobil."
+        },
+        "horizontal_scroll": {
+          "label": "Horisontell rullning"
+        }
+      }
+    },
+    "suitable_products_finder": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/suitable-products-finder)",
+      "name": "Hitta lämpliga produkter",
+      "settings": {
+        "collection_tab_header": {
+          "label": "Insamlingsfliken"
+        },
+        "collection_tab_style": {
+          "label": "Stil för samlingsfliken"
+        },
+        "collection_tab_style_options": {
+          "range_slider": {
+            "label": "Räckviddsreglage"
+          },
+          "pill_tabs": {
+            "label": "Tabletter för piller"
+          }
+        },
+        "show_pill_tabs_with_heading": {
+          "label": "Inline med rubrik",
+          "info": "Visa färgväljaren på samma rad som rubriken."
+        },
+        "show_pill_tabs_color": {
+          "label": "Visa färgprick"
+        },
+        "pill_tabs_color": {
+          "label": "Color"
+        },
+        "pill_tabs_image": {
+          "info": "Mönsterbilden kommer att åsidosätta färgen när en bild laddas upp."
+        },
+        "image_collection_width": {
+          "label": "Bildens bredd"
+        },
+        "range_slider": {
+          "settings": {
+            "show_range_slider": {
+              "label": "Visa skjutreglaget för intervall",
+              "info": "Räckviddsreglaget döljs automatiskt på mobilen."
+            }
+          }
+        }
+      },
+      "preset": {
+        "ranger_slider": "Produktsökare: Range slider",
+        "pill_tabs": "Produktsökare: Pillerflikar",
+        "color_dots": "Produktsökare: Färgprickar"
+      }
+    },
+    "icon-box": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/icon-box)",
+      "name": "Ikon box",
+      "settings": {
+        "icon_settings": {
+          "header": "Ikoninställningar",
+          "icon_position": {
+            "label": "Placera"
+          },
+          "icon_size": {
+            "label": "Size"
+          },
+          "radius_image": {
+            "label": "Avrundad bild",
+            "info": "Den här inställningen fungerar bara när ikonen är en bild."
+          }
+        }
+      }
+    },
+    "metric-banner": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/metric-banner)",
+      "name": "Metrisk banner",
+      "settings": {
+        "metric_setting": "Metriska inställningar",
+        "metric_font_size": "Metrisk teckenstorlek",
+        "enable_metric_animation": "Aktivera metrisk animering",
+        "metric_value": {
+          "start": "Metriskt startvärde",
+          "end": "Metriskt slutvärde"
+        },
+        "metric_unit": "Metrisk enhet"
+      },
+      "block": {
+        "name": "Metriskt objekt"
+      }
+    },
+    "compact_product_bundle": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/compact-product-bundle)",
+      "name": "Kompakt produktpaket",
+      "settings": {
+        "image": {
+          "label": "Image",
+          "info_desktop": "696px x 750px rekommenderas",
+          "info_mobile": "350px x 303px rekommenderas"
+        },
+        "enable_quick_add_for_items": {
+          "label": "Aktivera snabb tillägg för objekt"
+        },
+        "hidden_button_mobile": {
+          "label": "Dold knapp på mobilen"
+        },
+        "products_show": {
+          "label": "Produkter visas som",
+          "options__1": {
+            "label": "Lista"
+          },
+          "options__2": {
+            "label": "Rutnät"
+          }
+        }
+      },
+      "presets": {
+        "name": "Kompakt produktpaket"
+      },
+      "blocks": {
+        "settings": {
+          "name": "Product",
+          "select_product": "Product",
+          "position_top": "Vertikal position",
+          "position_left": "Horisontellt läge"
+        }
+      }
+    },
+    "mobile-navigation-bar": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/overlay-group/mobile-navigation-bar)",
+      "name": "Mobil navigeringsfält",
+      "info": "Det här avsnittet visas bara på mobilen. Byt till mobilvy.",
+      "settings": {
+        "show_section": "Aktivera mobilnavigeringsfältet",
+        "show_shop": "Visa butik",
+        "show_account": "Visa konto",
+        "show_cart": "Visa varukorg",
+        "show_homepage": "Visa startsida"
+      }
+    },
+    "mobile_first": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/mobile-first)",
+      "name": "Spotlight galleri",
+      "image_1": "Spotbild 1",
+      "image_2": "Spotbild 2",
+      "image_3": "Spotbild 3",
+      "image_4": "Spotbild 4",
+      "image_5": "Spotbild 5",
+      "text_1": "Spottext 1",
+      "text_2": "Spottext 2",
+      "text_3": "Spottext 3",
+      "text_4": "Spottext 4",
+      "text_5": "Spottext 5"
+    },
+    "shopable_video": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/shopable-video)",
+      "name": "Köpbar video",
+      "settings": {
+        "video_settings": {
+          "header": "Videoinställningar"
+        },
+        "enable_sticky": {
+          "label": "Aktivera video sticky",
+          "option_1": {
+            "label": "Inaktivera"
+          },
+          "option_2": {
+            "label": "Endast skrivbord"
+          },
+          "option_3": {
+            "label": "Alla skärmar"
+          }
+        },
+        "ratio": {
+          "adapt": {
+            "label": "Anpassa till första videon"
+          }
+        },
+        "video": {
+          "auto_play": {
+            "info": "Videon spelas upp automatiskt när detta block är aktivt eller synligt på skärmen"
+          }
+        },
+        "show_product_card": {
+          "label": "Visa produktkort"
+        }
+      },
+      "blocks": {
+        "name": "Video",
+        "settings": {
+          "poster_image": {
+            "label": "Affischbild",
+            "info": "1080px x 1920px rekommenderas"
+          },
+          "local_video": {
+            "label": "Lokal video"
+          },
+          "select_product": {
+            "label": "Product"
+          }
+        }
+      }
+    },
+    "image_card": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/image-cards)",
+      "name": "Bildkort",
+      "blocks": {
+        "header": "Kortinställningar",
+        "group_name": "Kort",
+        "info": "451px x 453px rekommenderas"
+      }
+    },
+    "testimonials": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonials)",
+      "name": "Trycka",
+      "settings": {
+        "header": "Tryck på inställningar",
+        "show_icon_quote": {
+          "label": "Visa offertikon"
+        }
+      },
+      "blocks": {
+        "name": "Tryck på objekt",
+        "settings": {
+          "quote": {
+            "label": "Citationstecken"
+          },
+          "info_image": "180px 60px rekommenderas"
+        }
+      }
+    },
+    "press_card": {
+      "name": "Tryck på Kort",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/press-card)",
+      "blocks": {
+        "content": "Innehåll",
+        "media": "Media",
+        "quote": "Citationstecken",
+        "settings": {
+          "show_icon_quote": "Visa offertikon",
+          "author_name": "Författarens namn",
+          "quote_content": "Citat innehåll",
+          "press-image": {
+            "info": "Åsidosätter bakgrundsfärgsinställningen"
+          }
+        }
+      }
+    },
+    "scrolling_image": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/scrolling-image)",
+      "name": "Galleribild",
+      "settings": {
+        "show_background_blur": {
+          "label": "Visa suddig bakgrund"
+        },
+        "show_icon_hover": {
+          "label": "Visa instagram-ikonen när du svävar"
+        },
+        "info_image": "303px x 303px rekommenderas"
+      }
+    },
+    "featured_product_banner": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/featured-product-banner)",
+      "name": "Utvald produktbanner",
+      "hide_icon_text": "Dölj ikon med textblock på mobilen",
+      "blocks": {
+        "name": "Ikon med text"
+      },
+      "info": {
+        "info_desktop": "400px x 400px rekommenderas",
+        "info_mobile": "300px x 300px rekommenderas"
+      }
+    },
+    "product_testimonials": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-testimonials)",
+      "name": "Produktrekommendationer",
+      "settings": {
+        "header": "Inställningar för vittnesmål",
+        "rating_color": {
+          "label": "Betygsfärg"
+        },
+        "rating_type": {
+          "label": "Betygstyp",
+          "default": "Default",
+          "modern": "Modern",
+          "show": "Visa betyg",
+          "show_before_after": "Visa före efter text"
+        },
+        "product_rounded": {
+          "label": "Produktbild hörnradie"
+        },
+        "show_verified_buyer": {
+          "label": "Visa verifierad köpare"
+        },
+        "show_author_name": {
+          "label": "Visa författarnamn"
+        }
+      },
+      "blocks": {
+        "type": {
+          "media": {
+            "label": "Vittnesmål media"
+          },
+          "image_comparison": {
+            "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/image-comparison)",
+            "label": "Jämförelse av bilder med vittnesmål",
+            "name": "Bildjämförelse",
+            "show_after_before_text": {
+              "label": "Visa före/efter text"
+            }
+          }
+        },
+        "settings": {
+          "media": {
+            "label": "Mediainställningar",
+            "info": "448px x 246px rekommenderas",
+            "before_after_image": {
+              "label": "Före efter bilder"
+            },
+            "before_image": {
+              "label": "Före"
+            },
+            "after_image": {
+              "label": "Efter"
+            }
+          },
+          "information": {
+            "label": "Informationsinställningar",
+            "rating_star": {
+              "label": "Betygsstjärna"
+            },
+            "select_product": {
+              "label": "Product"
+            },
+            "author_name": {
+              "label": "Författarens namn"
+            },
+            "review_sumary": {
+              "label": "Sammanfattning"
+            },
+            "use_richtext": {
+              "label": "Använd richtext"
+            }
+          }
+        }
+      }
+    },
+    "routine-builder": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/routine-builder)",
+      "name": "Handla för steg",
+      "blocks": {
+        "name": "Steg",
+        "settings": {
+          "text_step": {
+            "label": "Steg titel"
+          },
+          "product_in_step": {
+            "label": "Produkt i steg"
+          }
+        }
+      }
+    },
+    "newsletter_popup": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/overlay-group/newsletter-popup)",
+      "name": "Nyhetsbrev popup",
+      "header": {
+        "heading": "Allmänna inställningar"
+      },
+      "settings": {
+        "sections_width": {
+          "label": "Bredd",
+          "options": {
+            "options__1": "Full bredd",
+            "options__2": "Bil"
+          }
+        },
+        "collections_selector": {
+          "setting": "Inställningar för samlingsväljare",
+          "label": "Aktivera samlingsväljaren",
+          "collection": {
+            "label_1": "Samling 1",
+            "label_2": "Samling 2",
+            "label_3": "Samling 3",
+            "label_4": "Samling 4",
+            "label_5": "Samling 5"
+          }
+        },
+        "newsletter_heading": "Inställningar för nyhetsbrev",
+        "show_on_homepage": "Visa endast på hemsidan",
+        "discount_sticky": {
+          "setting": "Rabatten klistrig",
+          "label": "Visa rabatt sticky",
+          "heading": "Innehåll",
+          "info": "Innehållet kommer automatiskt att trunkeras med 25 tecken, inklusive HTML-taggar."
+        },
+        "heading": "Rubrik",
+        "short_description": "Beskrivning",
+        "instructional_text": "Instruktionstext",
+        "email_placeholder": "E-postplatshållare",
+        "button_label": "Knappetikett",
+        "banner_image": "Bannerbild"
+      }
+    },
+    "featured-blog": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/featured-blog)",
+      "name": "Utvald blogg"
+    },
+    "recommended_collection": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/recommended-collection)",
+      "name": "Rekommenderad samling",
+      "blocks": {
+        "button": {
+          "info": "[samling] och [titel] är variabelnamn som kommer att ersättas automatiskt. Ändra inte namnen, men du kan ändra deras placering i texten. [titel] är valfritt – ta bort den om du bara vill ha samlingsväljaren.",
+          "first_button_info": "Formulär med bild: öppnar resultatkollektionen med de valda filtren"
+        },
+        "featured_collection": {
+          "title_info": "Endast text på rad: visas som ett alternativ i rullgardinsmenyn [titel]. Kollektionsblock används inte i layouten Formulär med bild"
+        },
+        "filter_dropdown": {
+          "name": "Rullgardinsfilter",
+          "info": "Fungerar med layouten Formulär med bild. Konfigurera filtret först i Shopify-appen Search & Discovery.",
+          "filter_name": {
+            "label": "Filternamn",
+            "info": "Ange filteretiketten exakt som den visas på dina kollektionssidor, till exempel \"Hundens åldersgrupp\". För flera språk avgränsar du etiketterna med ;. Prisfilter stöds inte."
+          },
+          "placeholder": "Platshållare"
+        },
+        "text": {
+          "name": "Text"
+        }
+      },
+      "background": {
+        "label": "Visa bakgrundsbild",
+        "header": "Bakgrundsbild"
+      },
+      "image_info": {
+        "info_desktop": "1920px x 700px rekommenderas",
+        "info_mobile": "390px x 407px rekommenderas"
+      },
+      "layout": {
+        "label": "Layout",
+        "inline": "Text på rad",
+        "form": "Formulär med bild"
+      },
+      "content_color_scheme": "Innehållsfärgschema",
+      "results_collection": {
+        "label": "Resultatkollektion",
+        "info": "Endast Formulär med bild. Rullgardinsfilter visar den här kollektionens filter, och den första knappen öppnar den. Lämna tomt för att använda alla produkter."
+      },
+      "presets": {
+        "form": "Rekommenderad kollektion med bild"
+      }
+    },
+    "offers-popup": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/overlay-group/offers-popup)",
+      "name": "Erbjuder popup",
+      "popup": {
+        "label": "Rubrik erbjudande popup",
+        "info": "Anpassa popup-blockets innehåll för erbjudanden i överläggsgruppen."
+      }
+    },
+    "outfit-finder": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/products/outfit-finder)",
+      "name": "Outfit hitta",
+      "settings": {
+        "product_listing": {
+          "label": "Inställningar för produktlistor"
+        },
+        "outfit_finder_logic": {
+          "label": "Förhandsgranska inställningar"
+        },
+        "max_items_to_show": {
+          "label": "Produkter per sida",
+          "info": "Antalet produkter som visas initialt. Om du rullar nedåt kommer fler objekt att läsas in."
+        },
+        "max_items": {
+          "label": "Max produkter per outfit",
+          "info": "Begränsar hur många objekt en kund kan lägga till i förhandsgranskningsområdet."
+        },
+        "product": {
+          "label": "Förslag på klädsel",
+          "info": "Välj upp till 3 produkter som ska visas i förhandsgranskningsområdet som standard när sidan laddas."
+        },
+        "notify_preview": {
+          "label": "Tom tillståndsanmälan",
+          "info": "Vägledningstext som visas i förhandsgranskningsområdet innan några objekt läggs till."
+        }
+      }
+    },
+    "scrolling-card": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scrolling-card)",
+      "name": "Rulla kort"
+    },
+    "scroll-scatter": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scroll-scatter)",
+      "name": "Rulla scatter"
+    },
+    "store-location": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/other-pages/store-location)",
+      "name": "Butiksplats",
+      "settings": {
+        "key_google_map": {
+          "label": "Google Maps API-nyckel",
+          "info": "Kräver API:er för \"Maps JavaScript\", \"Places\" och \"Geocoding\". [Hämta nyckel](https://console.cloud.google.com/google/maps-apis/credentials)."
+        },
+        "map_settings": {
+          "header": "Kartinställningar"
+        },
+        "allowed_countries": {
+          "label": "Tillåtna länder",
+          "info": "Kontrollera var kunder kan söka efter butiker. Använd ISO-landskoder (t.ex. USA, Storbritannien, CA) separerade med kommatecken. Lämna tomt för att söka globalt."
+        },
+        "radius_km": {
+          "label": "Sökradie (km)",
+          "info": "Maxavstånd för butiksresultat."
+        }
+      },
+      "blocks": {
+        "name": "Lagra",
+        "settings": {
+          "store_name": {
+            "label": "Butiksnamn"
+          },
+          "store_address": {
+            "label": "Butiksadress"
+          },
+          "store_email": {
+            "label": "Butiks e-post"
+          },
+          "store_phone": {
+            "label": "Butikstelefon"
+          },
+          "store_lat": {
+            "label": "Lagra latitud",
+            "info": "Kopiera det första numret från Google Maps-koordinaterna."
+          },
+          "store_lng": {
+            "label": "Lagra longitud",
+            "info": "Kopiera det andra numret från Google Maps-koordinaterna."
+          },
+          "time_location": {
+            "monday": "måndag",
+            "tuesday": "tisdag",
+            "wednesday": "onsdag",
+            "thursday": "torsdag",
+            "friday": "fredag",
+            "saturday": "lördag",
+            "sunday": "söndag",
+            "open": "Open",
+            "closed": "Closed",
+            "open_time_hour": "Öppettid timme",
+            "open_time_minute": "Öppettid minut",
+            "close_time_hour": "Stängtid timme",
+            "close_time_minute": "Stängningstid minut"
+          },
+          "time_schedule": {
+            "monday": "Schedule",
+            "tuesday": "Schedule",
+            "wednesday": "Schedule",
+            "thursday": "Schedule",
+            "friday": "Schedule",
+            "saturday": "Schedule",
+            "sunday": "Schedule"
+          }
+        }
+      }
+    },
+    "product-bundle": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/product-bundle)",
+      "name": "Produktpaket",
+      "settings": {
+        "discount": {
+          "name": "Discount",
+          "info": "Lär dig hur du skapar rabatt [här](https://help.shopify.com/manual/discounts)",
+          "minimum": "Minsta artiklar att kräva",
+          "maximum": "Maximalt antal objekt",
+          "edit_quantity": "Tillåt kvantitetsändring för varje produkt",
+          "discount_title": "Rabattkod",
+          "discount_value": {
+            "name": "Rabattvärde",
+            "option": {
+              "fixed": {
+                "label": "Fast belopp",
+                "once_per_order": "En gång per beställning"
+              },
+              "percentage": {
+                "label": "Procentsats"
+              }
+            }
+          }
+        },
+        "your_bundle": {
+          "name": "Discount",
+          "settings": {
+            "show_progress_bar": {
+              "label": "Visa förloppsindikator"
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "product_discount": {
+            "name": "Produktpaket",
+            "info": "Ersätter samling när den väljs."
+          }
+        }
+      }
+    },
+    "shopable-image": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/sections/shopable-image)",
+      "name": "Köpbar bild",
+      "blocks": {
+        "tags": {
+          "name": "Taggar",
+          "info": "Definiera namnet på taggarna. Avgränsa med ett kommatecken. Till exempel. Tag 1, Tag 2",
+          "info_image": "448px x 600px rekommenderas",
+          "settings": {
+            "show_verify_icon": {
+              "label": "Visa ikon bock"
+            }
+          }
+        },
+        "lookbook": {
+          "name": "Lookbook",
+          "settings": {
+            "products": {
+              "label": "Products",
+              "position_top": "Vertikal position",
+              "position_left": "Horisontellt läge",
+              "products": {
+                "otpion__1": {
+                  "label": "Produkt 1"
+                },
+                "otpion__2": {
+                  "label": "Produkt 2"
+                },
+                "otpion__3": {
+                  "label": "Produkt 3"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parallax-image": {
+      "blocks": {
+        "icon": {
+          "name": "Ikon",
+          "info": "Åsidosätter svg-ikoninställningen"
+        }
+      }
+    },
+    "main-page": {
+      "name": "Sida"
+    },
+    "subcollection-list": {
+      "name": "Undersamling",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/sub-collection)"
+    },
+    "before-you-leave": {
+      "name": "Innan du lämnar",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/before-you-leave)",
+      "settings": {
+        "header": {
+          "recommended_products": "Rekommenderade produkter"
+        },
+        "show_time": {
+          "label": "Visa tid efter (sekunder)"
+        },
+        "banner": {
+          "label": "Bannerbild",
+          "info": "380px x 423px rekommenderas"
+        },
+        "collection": {
+          "label": "Collection"
+        },
+        "code": {
+          "label": "Rabattkod"
+        }
+      }
+    },
+    "advanced-slideshow": {
+      "block": {
+        "slide": "Glida",
+        "settings": {
+          "type": {
+            "label": "Typ",
+            "image": {
+              "label": "Image"
+            },
+            "video": {
+              "label": "Video"
+            }
+          },
+          "media_overlay": {
+            "label": "Mediaöverlägg"
+          }
+        }
+      }
+    },
+    "custom_section": {
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/advanced/flexible-section)",
+      "name": "Flexibel sektion",
+      "settings": {
+        "layout": {
+          "label": "Layout",
+          "direction": {
+            "label": "Riktning",
+            "options__1": {
+              "label": "Vertical"
+            },
+            "options__2": {
+              "label": "Horizontal"
+            }
+          },
+          "vertical_on_mobile": {
+            "label": "Vertikal på mobilen"
+          },
+          "content_wrap": {
+            "label": "Innehållsomslutning"
+          },
+          "height": {
+            "label": "Height",
+            "options": {
+              "auto": {
+                "label": "Bil"
+              },
+              "custom": {
+                "label": "Custom"
+              }
+            },
+            "custom_height": {
+              "label": "Anpassad höjd"
+            }
+          },
+          "gap": {
+            "label": "Gap"
+          },
+          "position": {
+            "label": "Placera",
+            "options__1": {
+              "label": "Bästa"
+            },
+            "options__2": {
+              "label": "Centrum"
+            },
+            "options__3": {
+              "label": "Botten"
+            }
+          },
+          "alignment": {
+            "label": "Inriktning",
+            "label_mobile": "Mobil uppriktning",
+            "options__1": {
+              "label": "Vänster"
+            },
+            "options__2": {
+              "label": "Centrum"
+            },
+            "options__3": {
+              "label": "Rätt"
+            },
+            "options__4": {
+              "label": "Mellanrum mellan"
+            }
+          },
+          "hide_on_mobile": {
+            "label": "Dold på mobilen"
+          }
+        },
+        "appearance": {
+          "header": "Utseende",
+          "settings": {
+            "background_media": {
+              "label": "Bakgrundsmedia",
+              "options__2": {
+                "label": "Image"
+              },
+              "options__3": {
+                "label": "Video"
+              },
+              "options__1": {
+                "label": "None"
+              }
+            },
+            "border": {
+              "label": "Gränser",
+              "options": {
+                "none": "None",
+                "solid": "Fast"
+              },
+              "border_color": {
+                "label": "Kantfärg"
+              },
+              "border_thickness": {
+                "label": "Kanttjocklek"
+              }
+            },
+            "corner_radius": {
+              "label": "Hörnradie",
+              "options": {
+                "none": {
+                  "label": "None"
+                },
+                "rounded": {
+                  "label": "Avrundad"
+                },
+                "custom": {
+                  "label": "Custom"
+                },
+                "inherit": {
+                  "label": "Ärva",
+                  "info": "Om det är inställt på \"Ärva\" kommer detta block att följa den globala inställningen för rundade hörn i Temainställningar ▸ Layout ▸ Avrundad bild."
+                }
+              },
+              "custom_radius": {
+                "label": "Anpassad radie"
+              }
+            },
+            "background_overlay": {
+              "label": "Bakgrundsöverlägg",
+              "overlay_color": {
+                "label": "Överläggsfärg"
+              },
+              "overlay_style": {
+                "label": "Överläggsstil",
+                "options__1": {
+                  "label": "Fast"
+                },
+                "options__2": {
+                  "label": "Lutning"
+                }
+              },
+              "gradient_direction": {
+                "label": "Gradientriktning",
+                "options__1": {
+                  "label": "Upp"
+                },
+                "options__2": {
+                  "label": "Ner"
+                }
+              }
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "size": {
+            "label": "Size",
+            "height": {
+              "label": "Height"
+            },
+            "width": {
+              "label": "Bredd",
+              "custom_width": {
+                "label": "Anpassad bredd"
+              }
+            },
+            "mobile_width": {
+              "label": "Mobil bredd"
+            },
+            "options": {
+              "options__1": {
+                "label": "Färdig"
+              },
+              "options__2": {
+                "label": "Fylla"
+              },
+              "options__3": {
+                "label": "Custom"
+              },
+              "options__4": {
+                "label": "Anpassa till mediabakgrund"
+              }
+            }
+          },
+          "background": {
+            "label": "Bakgrund"
+          },
+          "background_color": {
+            "label": "Bakgrundsfärg"
+          }
+        },
+        "heading": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading)",
+          "label": "Förinställa",
+          "heading_tag": {
+            "label": "Rubriktagg",
+            "info": "Ställ in rubriktaggen (H1–H6) för att kontrollera innehållshierarkin och förbättra SEO-läsbarheten för sökmotorer.",
+            "h1": "H1",
+            "h2": "H2",
+            "h3": "H3",
+            "h4": "H4",
+            "h5": "H5",
+            "h6": "H6"
+          },
+          "custom": "Custom",
+          "default": "Default",
+          "paragraph": "Stycke",
+          "h1": "Rubrik 1",
+          "h2": "Rubrik 2",
+          "h3": "Rubrik 3",
+          "h4": "Rubrik 4",
+          "h5": "Rubrik 5",
+          "h6": "Rubrik 6",
+          "h7": "Rubrik 7",
+          "info": {
+            "edit_presets_in_theme_settings": "Redigera förinställningar i [theme settings](/editor?context=theme&category=typography)",
+            "label": "Fontstorlek"
+          },
+          "text_alignment": {
+            "desktop": "Inriktning",
+            "mobile": "Mobil uppriktning"
+          }
+        },
+        "logo": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Logo",
+          "settings": {
+            "size": {
+              "name": "Size",
+              "unit": {
+                "label": "Enhet",
+                "option__1": {
+                  "label": "Pixel"
+                },
+                "option__2": {
+                  "label": "Procent"
+                }
+              },
+              "custom_mobile_size": {
+                "label": "Anpassad mobilstorlek"
+              },
+              "height": {
+                "label": "Height"
+              },
+              "mobile": {
+                "name": "Mobilstorlek"
+              }
+            }
+          }
+        },
+        "email_subscription": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/newsletter)",
+          "name": "Nyhetsbrev"
+        },
+        "contact_form": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/contact-form)",
+          "name": "Kontaktformulär",
+          "settings": {
+            "name": "Namn",
+            "email": "Email",
+            "message": "Meddelande",
+            "select_label": "Välj etikett",
+            "default_select_label": "Ämne",
+            "option": "Alternativ",
+            "default_option": "Produkt, Order, Press, Annat",
+            "phone": "Telefon",
+            "submit_button": "Skicka knapp",
+            "default_submit_button": "Överlämna"
+          }
+        },
+        "accordion": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/accordion)",
+          "name": "Dragspel",
+          "settings": {
+            "icon_style": {
+              "style": "Stil",
+              "label": "Ikon stil",
+              "caret": "Carret",
+              "plus": "Plus"
+            },
+            "row_style": {
+              "label": "Rad stil",
+              "background": "Bakgrund",
+              "divider": "Delare"
+            },
+            "background_color": "Bakgrundsfärg",
+            "row_spacing": "Objektavstånd",
+            "gap_row": "Gap",
+            "padding_row": "Stoppning",
+            "gap_content": "Mellanrum mellan",
+            "accordion_row": "Dragspel rad",
+            "default_accordion_row": "Dragspelsrubrik",
+            "accordion_content": "Dragspelsinnehåll",
+            "settings": {
+              "heading": "Rubrik",
+              "heading_size": "Rubrikstorlek",
+              "heading_weight": "Rubrikens vikt",
+              "body_weight": "Kroppsvikt",
+              "open_default": {
+                "label": "Öppna standard"
+              }
+            }
+          }
+        },
+        "group": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/group)",
+          "name": "Grupp",
+          "settings": {
+            "link": "Länk",
+            "open_in_new_tab": {
+              "label": "Öppna länken i ny flik"
+            }
+          }
+        },
+        "carousel": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/carousel)",
+          "name": "Karusell"
+        },
+        "text": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/text)",
+          "name": "Text",
+          "default_text": "Vi gör saker som fungerar bättre och håller längre. Våra produkter löser verkliga problem med ren design och ärliga material.",
+          "text_color": {
+            "label": "Textfärg",
+            "body_color": "Kroppsfärg",
+            "heading_color": "Rubrikens färg"
+          }
+        },
+        "button": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/button)"
+        },
+        "icon": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/icon)"
+        },
+        "page": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Sida",
+          "inherit_color_scheme": "Ärva färgschema",
+          "appearance": "Utseende",
+          "spacing": "Mellanrum"
+        },
+        "spacer": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/spacer)",
+          "name": "Spacer",
+          "mobile_settings": {
+            "label": "Mobilinställningar"
+          }
+        },
+        "divider": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Delare",
+          "settings": {
+            "thickness": "Tjocklek",
+            "size": "Size",
+            "color": "Color"
+          }
+        },
+        "icon_list": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Ikonlista",
+          "item": "Punkt",
+          "open_new_tab": "Öppna ny flik"
+        },
+        "alert": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Varna",
+          "dismiss_icon": "Avvisa ikon",
+          "display_dismiss_icon": "Visa avvisningsikon"
+        },
+        "social_icons": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Sociala ikoner",
+          "circle": "Cirkel",
+          "rounded": "Avrundad",
+          "square": "Fyrkant",
+          "shape": "Form",
+          "color": "Color",
+          "backgroup_color": "Bakgrundsfärg"
+        },
+        "progress_bar": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Förloppsindikator",
+          "text_color": "Text färg",
+          "percentage": "Procentsats",
+          "border_radius": "Gränsradie",
+          "display_percentage": "Visningsprocent",
+          "inner_text": "Inre text"
+        },
+        "counter": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/counter)",
+          "name": "Disk",
+          "counter_style": {
+            "label": "Counter stil",
+            "default": "Default",
+            "circle": "Cirkel"
+          },
+          "counter_layout": {
+            "label": "Disklayout",
+            "horizontal": "Horizontal",
+            "vertical": "Vertical"
+          },
+          "number_position": "Nummer Position",
+          "space_between": "Mellanrum mellan",
+          "before_title": "Före titeln",
+          "after_title": "Efter titel",
+          "number_alignment": "Nummerjustering",
+          "stroke_color": "Stroke Färg",
+          "indicator_color": "Indikatorfärg",
+          "background_color": "Bakgrundsfärg",
+          "text_color": "Textfärg",
+          "ending_number": "Slutnummer",
+          "starting_number": "Startnummer",
+          "animation": "Animationens varaktighet (ms)"
+        },
+        "map": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/google-maps)",
+          "name": "Google Maps",
+          "location": "Plats",
+          "longitude": "Longitud",
+          "latitude": "Latitud"
+        },
+        "jumbo_text": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+          "name": "Jumbo-text"
+        },
+        "tab": {
+          "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/tab)",
+          "name": "Flik",
+          "tab_row": "Flikobjekt",
+          "settings": {
+            "heading": "Rubrik stil",
+            "heading_preset": "Förinställd kurs",
+            "heading_alignment": "Rubrikjustering",
+            "heading_color": "Rubrikens färg",
+            "content": "Innehållsstil",
+            "content_alignment": "Innehållsjustering"
+          }
+        },
+        "icon_with_text": {
+          "name": "Ikon med text",
+          "icon_first": "Ikon först",
+          "icon_second": "Ikonen andra",
+          "svg_custom": "SVG anpassad"
+        },
+        "popup_link": {
+          "button_type_link": {
+            "label": "Knapptyp",
+            "primary": {
+              "label": "Primär"
+            },
+            "outline": {
+              "label": "Skissera"
+            },
+            "link": {
+              "label": "Länk"
+            }
+          },
+          "popup_style": {
+            "label": "Popup-stil"
+          },
+          "popup_type": {
+            "label": "Popup-typ"
+          },
+          "popup_width": {
+            "label": "Popup bredd skrivbord"
+          },
+          "icon_type": {
+            "label": "Typ av ikon",
+            "none": "None",
+            "arrow": "Pil",
+            "image": {
+              "label": "Image",
+              "size": "Size"
+            }
+          }
+        }
+      },
+      "preset": {
+        "promotion_banner": "Flexibel: Kampanjbanner",
+        "flexible_marquee": "Flexibel: Marquee",
+        "story_tabs": "Flexibel: Flik"
+      }
+    },
+    "text_image_pairing": {
+      "how_to_use": "[Lär dig hur du använder det här blocket](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/text-image-pairing)",
+      "name": "Textbildparning",
+      "settings": {
+        "text_default": "\"Äg din glöd[image_1]svep blandning glans <br/> känns vacker[image_2]syns fullt ut[image_3]fira.\"",
+        "info": {
+          "label": "Använd ett specifikt platshållarformat `[image_X]` där du vill att bilden ska visas. X är bildindexet. Till exempel: `[image_1]` kommer att ersättas av den första bilden."
+        },
+        "images": {
+          "label": "Bilder",
+          "image_style": {
+            "label": "Bildstil"
+          },
+          "image_1": {
+            "label": "Bild #1"
+          },
+          "image_2": {
+            "label": "Bild #2"
+          },
+          "image_3": {
+            "label": "Bild #3"
+          }
+        }
+      }
+    },
+    "product_sizing": {
+      "name": "Produktens storlek",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "info": "Hjälper kunderna att förstå hur produkten passar och välja rätt storlek med tillförsikt."
+    },
+    "size_recommendation": {
+      "name": "Storleksrekommendation",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/size-recommendation)",
+      "info": "Hjälper kunderna att hitta rätt storlek med enkla indata som höjd, vikt, kroppsform, byststorlek och kupastorlek.",
+      "data_usage_notice": {
+        "label": "Meddelande om dataanvändning",
+        "info": "Det här meddelandet förklarar hur kunduppgifter används för storleksrekommendationer. Du kan anpassa formuleringen för att matcha din butiks sekretesston."
+      },
+      "no_size_match": {
+        "label": "Inget meddelande om storleksmatchning",
+        "info": "Meddelande visas när ingen storlek matchar kundens inmatningar."
+      },
+      "fit_recommendation_note": {
+        "label": "Anmärkning om passningsrekommendation",
+        "info": "Visas efter storleksrekommendationer."
+      }
+    },
+    "sticky_image_with_text": {
+      "name": "Klistrad bild med text",
+      "blocks": {
+        "group_text": {
+          "name": "Textgrupp",
+          "image": {
+            "label": "Bild vid scrollning",
+            "info": "Visas i den fästa bilden när den här gruppen scrollas in i vyn. Lämna tomt för att behålla föregående bild. Kräver \"Byt bild vid scrollning\" i avsnittsinställningarna."
+          }
+        },
+        "list_tag": {
+          "name": "Tagglista",
+          "tags": {
+            "label": "Taggar",
+            "info": "Separera varje tagg med kommatecken."
+          },
+          "show_check": {
+            "label": "Visa bockikon"
+          },
+          "chip_style": {
+            "label": "Taggstil"
+          }
+        }
+      },
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/banners/sticky-image-with-text)",
+      "settings": {
+        "hide_image_mobile": {
+          "label": "Dölj bild på mobil"
+        },
+        "change_image_on_scroll": {
+          "label": "Byt bild vid scrollning",
+          "info": "Byter den fästa bilden när varje textgrupp scrollas in i vyn. Ange bilden i varje textgrupp. Avsnittets bild används inte. Endast skrivbord."
+        }
+      }
+    },
+    "testimonial-images": {
+      "name": "Omdömesbilder",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonial-images)",
+      "settings": {
+        "show_author_image": "Visa författarbild",
+        "hide_image_on_mobile": {
+          "label": "Dölj bild på mobil"
+        }
+      },
+      "blocks": {
+        "review": "Omdöme",
+        "settings": {
+          "author_image": "Författarbild"
+        }
+      }
+    },
+    "flow": {
+      "name": "Flöde",
+      "blocks": {
+        "step": {
+          "name": "Steg",
+          "heading": {
+            "label": "Rubrik"
+          },
+          "image": {
+            "label": "Bild"
+          },
+          "product": {
+            "label": "Produkt"
+          }
+        }
+      },
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/flow)"
+    },
+    "parallax-scroll": {
+      "name": "Parallaxrullning",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/parallax-scroll)",
+      "instructions": "Lägg till upp till 7 kort. Korten växlar sida och vart tredje kort förskjuts automatiskt inåt.",
+      "blocks": {
+        "info_card": {
+          "name": "Infokort"
+        }
+      },
+      "settings": {
+        "card_width": {
+          "label": "Kortbredd",
+          "info": "Anger kortets maximala bredd på skrivbordet. Korten förblir responsiva på mindre skärmar."
+        },
+        "button_link": {
+          "info": "Om fältet lämnas tomt visas knappen som inaktiverad."
+        },
+        "button_type": {
+          "info": "Använder knappstilarna som konfigurerats av temat."
+        }
+      }
+    },
+    "benefit-tabs": {
+      "name": "Fördelsflikar",
+      "how_to_use": "Lägg till ett Fördelsflik-block för varje flik och lägg sedan till Fördel-block i varje flik.",
+      "settings": {
+        "text_alignment": {
+          "info": "Justerar också flikknapparna."
+        },
+        "mobile_alignment": {
+          "info": "Justerar fördelar på mobil och surfplatta. På skrivbordet justeras fördelarna mot mediet."
+        }
+      },
+      "blocks": {
+        "tab": {
+          "name": "Fördelsflik",
+          "how_to_use": "Upp till 6 Fördel-block rekommenderas för en balanserad layout. På skrivbordet placeras udda fördelar till vänster om mediet och jämna fördelar till höger.",
+          "settings": {
+            "tab_label": {
+              "label": "Fliketikett"
+            },
+            "image": {
+              "label": "Bild före",
+              "info": "950 x 1060px rekommenderas"
+            },
+            "image_after": {
+              "label": "Bild efter",
+              "info": "Använd samma storlek som bilden före. Bilden efter visas när besökaren scrollar."
+            }
+          }
+        },
+        "benefit": {
+          "settings": {
+            "icon": {
+              "info": "Visar en platshållare när det är tomt. 120 x 120px rekommenderas"
+            }
+          }
+        }
+      }
+    },
+    "comparison-table": {
+      "name": "Jämförelsetabell",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/products/comparison-table)",
+      "settings": {
+        "table": {
+          "label": "Tabell"
+        },
+        "comparison_heading": {
+          "label": "Jämförelserubrik"
+        },
+        "show_column_images": {
+          "label": "Visa kolumnbilder"
+        },
+        "color_column_highlight": {
+          "label": "Färg på kolumnmarkering"
+        },
+        "table_notes": {
+          "label": "Tabellanteckningar"
+        },
+        "show_labels": {
+          "label": "Visa etiketter"
+        },
+        "first_label": {
+          "label": "Första etiketten"
+        },
+        "second_label": {
+          "label": "Andra etiketten"
+        },
+        "button_link": {
+          "label": "Länk"
+        }
+      },
+      "blocks": {
+        "column": {
+          "name": "Kolumn",
+          "settings": {
+            "highlight": {
+              "label": "Markera den här kolumnen"
+            }
+          }
+        },
+        "row": {
+          "name": "Rad",
+          "settings": {
+            "icon_info": "Välj hur värdet ska visas i den här kolumnen.",
+            "image_info": "Lägg till en bild som visas när Bild är vald.",
+            "value": {
+              "yes": "Ja",
+              "no": "Nej"
+            },
+            "text_1": {
+              "label": "Kolumn 1-text",
+              "info": "Visas när Text är vald. Värdena följer kolumnordningen, så ändra ordningen på Kolumn-blocken med omsorg."
+            },
+            "icon_1": {
+              "label": "Kolumn 1-ikon"
+            },
+            "image_1": {
+              "label": "Kolumn 1-bild"
+            },
+            "text_2": {
+              "label": "Kolumn 2-text",
+              "info": "Visas när Text är vald."
+            },
+            "icon_2": {
+              "label": "Kolumn 2-ikon"
+            },
+            "image_2": {
+              "label": "Kolumn 2-bild"
+            },
+            "text_3": {
+              "label": "Kolumn 3-text",
+              "info": "Visas när Text är vald."
+            },
+            "icon_3": {
+              "label": "Kolumn 3-ikon"
+            },
+            "image_3": {
+              "label": "Kolumn 3-bild"
+            },
+            "text_4": {
+              "label": "Kolumn 4-text",
+              "info": "Visas när Text är vald. Används bara när tabellen har fyra kolumner."
+            },
+            "icon_4": {
+              "label": "Kolumn 4-ikon"
+            },
+            "image_4": {
+              "label": "Kolumn 4-bild"
+            },
+            "column_1": "Kolumn 1",
+            "column_2": "Kolumn 2",
+            "column_3": "Kolumn 3",
+            "column_4": "Kolumn 4"
+          }
+        }
+      }
+    },
+    "image-with-text-carousel": {
+      "name": "Bild med textkarusell",
+      "how_to_use": "[Lär dig hur du använder det här avsnittet](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/image-with-text-carousel)",
+      "settings": {
+        "show_slide_counter": {
+          "label": "Visa bildräknare"
+        }
+      },
+      "blocks": {
+        "slide": {
+          "icon_info": "80 x 80px .png eller .svg rekommenderas"
+        }
+      }
+    },
+    "recommended-collection-filters": {
+      "name": "Rekommenderade filter"
+    }
+  },
+  "blocks": {
+    "quiz-step": {
+      "name": "Quizfråga",
+      "settings": {
+        "stepper_label": {
+          "label": "Stegetikett",
+          "info": "Kort etikett som visas på förloppsindikatorn. Exempel: Hudtyp, Bekymmer."
+        },
+        "question_id": {
+          "label": "Fråge-ID",
+          "info": "Unikt ID för denna fråga. Används för att hoppa över frågor om alternativ (t.ex. q1, q2)."
+        },
+        "layout": {
+          "label": "Alternativ layout",
+          "options": {
+            "pill": "Piller knappar",
+            "image": "Bildcirklar"
+          }
+        }
+      }
+    },
+    "quiz-option": {
+      "name": "Frågesport alternativ",
+      "settings": {
+        "label": {
+          "label": "Märka"
+        },
+        "image": {
+          "label": "Image",
+          "info": "Används när frågelayouten är Bildcirklar."
+        },
+        "product_matching_header": "Resultatprodukter",
+        "strong_match": {
+          "label": "Primära produkter",
+          "info": "Visas först i frågesportresultat när kunder väljer det här svaret."
+        },
+        "partial_match": {
+          "label": "Ytterligare produkter",
+          "info": "Visas efter primära produkter i frågesportresultat."
+        },
+        "exclude": {
+          "label": "Rekommendera aldrig",
+          "info": "Blockera dessa produkter från resultat när kunder väljer det här svaret, även om de visas i andra svar."
+        },
+        "skip_questions_header": "Frågelogik",
+        "skip_questions": {
+          "label": "Hoppa över frågor",
+          "info": "Ange fråge-ID från frågesportfrågor att hoppa över när det här svaret är valt. Exempel: q3, q4"
+        }
+      }
+    }
+  }
+}

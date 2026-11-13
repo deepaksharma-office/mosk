@@ -1,0 +1,329 @@
+{%- liquid
+  assign section_st = section.settings
+  assign show_time = section_st.show_time
+  assign code = section_st.code
+  assign collection = section_st.collection
+
+  assign show_col_info = 'false'
+  if section.settings.banner != blank or section_st.sub_heading != blank or section.settings.content_heading != blank or section.settings.code != blank or section.settings.description != blank
+    assign show_col_info = 'true'
+  endif
+-%}
+{% style %}
+  @media (max-width: 767.98px) {
+    .banner_no-img {
+      padding-top: 0;
+    }
+  }
+  @media (min-width: 1025px) {
+    .before-you-leave-inner {
+      max-height: 80vh;
+    }
+    .product-before-items .btn__quick-shop:not(.product_enable_quickadd, .btn__quick-add) {
+      bottom: 10px;
+      inset-inline: 10px;
+    }
+  }
+  .product-before-items .product__badges {
+    top: 10px;
+    inset-inline-start: 10px;
+  }
+  .product-before-items .rating-text,
+  .product-before-items .button-quick-view.product_enable_quickadd {
+    top: 10px;
+    inset-inline-end: 10px;
+  }
+  .product-before-items .btn__quick-add {
+    bottom: 10px;
+    inset-inline-end: 10px;
+  }
+  :is(.quick-add-variant-popup, .quick-add-variant-container) .text-swatch-label {
+    min-width: auto;
+  }
+{% endstyle %}
+{% if request.design_mode == false %}
+  <template class="lazy-template-modal"><div class="content-element">
+{% endif %}
+<before-you-leave
+  id="{{ section.id }}"
+  class="before-you-leave modal modal_type_popup active-modal-js fixed inset-0 z-31 flex align-center invisible transition content-hidden"
+  data-time-delay="{{ show_time | times: 1 }}"
+  data-section-id="{{ section.id }}"
+  style="--drawer-width: 42rem;"
+  drawer
+>
+  <modal-overlay class="modal-overlay invisible transition-drawer cursor-crosshair"></modal-overlay>
+  <div
+    class="modal-popup-inner before-you-leave-inner invisible-1025 modal-focus modal-body modal-draggable transition-drawer rounded max-w-custom m-auto w-full z-15 custom-scrollbar"
+    style="--max-width: {%- if collection != blank and show_col_info == 'true' %}110.2rem{% elsif collection != blank and show_col_info == 'false' %}61.2rem{% else %}55rem{% endif %};"
+    tabindex="-1"
+  >
+    <draggable-modal
+      class="drawer__header visible-drag-md draggable-modal drawer__header-before-you-leave flex gap-10 space-between align-center drawer-spacing relative-1025"
+      style="--padding-block-desktop: 0rem;--padding-inline-desktop: 2.4rem;--padding-block: 1.2rem;--drawer-rounded: 0;"
+    >
+      {%- if section.settings.recommended_heading != blank -%}
+        <h5 class="before-product-title h5 block hidden-1025">
+          {{ section.settings.recommended_heading }}
+        </h5>
+      {% endif %}
+      <button
+        is="button-close-model"
+        class="modal__close pointer modal-button-close rounded-50 btn-reset flex content-center absolute-1025 z-3 top-14 top-1025-sp-5 right-sp-5"
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 14 14"
+          fill="none"
+          class="transition-short will-change icon-zoom"
+        >
+          <use href="#icon-close"></use>
+        </svg>
+      </button>
+    </draggable-modal>
+    <div
+      class="before-you-leave-inner flex wrap drawer__body grow-1 h-full overflow-y-auto custom-scrollbar{% if section_st.banner != blank %} has-img{% endif %}"
+      style="{% if collection != blank %}--col-width: 38.3%;{% endif %}--gap-desktop: 0px;--gap: 0px;"
+    >
+      {%- if show_col_info == 'true' -%}
+        <div
+          class="{% if collection != blank %}col-md-w-custom{% endif %} w-full{% if section_st.banner == blank %} banner_no-img{% endif %} text-center relative color-{{ section_st.color_scheme }} gradient custom-scrollbar"
+        >
+          <div
+            class="overlay-bg absolute inset-0 z-1"
+            style="--overlay-opacity: {{ section_st.overlay_opacity | times: 0.01 }};{% if section_st.banner == blank %}--aspect-ratio: 0.9;{% endif %}"
+          >
+            {%- if section_st.banner != blank -%}
+              {%- assign image_alt = section_st.banner.alt | default: 'before you leave' -%}
+              {% render 'responsive-image',
+                type: 'banner',
+                image: section_st.banner,
+                image_alt: image_alt,
+                motion: false,
+                class: 'absolute inset-0 z-1 pointer-none w-full h-full object-fit-center object-fit-cover'
+              %}
+            {% else %}
+              {% render 'placeholder-render',
+                type: 'collection-6',
+                class: 'img-placeholder h-full w-full',
+                motion: false
+              %}
+            {% endif %}
+          </div>
+          <div class="content-wrapper flex justify-center h-full column gap-sp-4 gap-1025-sp-6 p-sp-5 p-1025-40 before-banner-content max-h-100 overflow-auto custom-scrollbar relative z-2{% if collection != blank %}  inset-x-0 bottom-0{% endif %}">
+            {%- if section.settings.sub_heading != blank or section.settings.content_heading != blank -%}
+              <div class="before_you-leave-heading">
+                {%- if section.settings.sub_heading != blank -%}
+                  <div class="before-sub-heading heading-style fs-big-2 mb-10">
+                    {{ section.settings.sub_heading }}
+                  </div>
+                {% endif %}
+                {%- if section.settings.content_heading != blank -%}
+                  <h3 class="before-heading">
+                    {{ section.settings.content_heading }}
+                  </h3>
+                {% endif %}
+              </div>
+            {% endif %}
+            {%- if section.settings.code != blank -%}
+              <div class="before-code">
+                <a
+                  href="javascript:;"
+                  class="btn btn-code px-sp-8 rounded-30 inline-flex discount gap-10 no-underline content-center text-start btn-primary"
+                  data-code="{{ code }}"
+                  aria-label="{{ 'popup.copy' | t }}"
+                >
+                  <span class="relative inline-flex gap-sp-2 content-center">
+                    <svg width="16" height="14" fill="none" class="svg-action">
+                      <path fill="currentColor" fill-rule="evenodd" d="M14.286 4.667v7.583H4.57V4.667h9.715ZM16 4.375c0-.805-.64-1.458-1.429-1.458H4.286c-.79 0-1.429.653-1.429 1.458v8.167c0 .805.64 1.458 1.429 1.458H14.57c.79 0 1.429-.653 1.429-1.458V4.375Z" clip-rule="evenodd"/><path fill="currentColor" fill-rule="evenodd" d="M13.43.875A.866.866 0 0 0 12.573 0H1.43C1.05 0 .687.154.42.427A1.474 1.474 0 0 0 0 1.458V10.5c0 .484.384.875.857.875a.866.866 0 0 0 .857-.875V1.75h10.857a.866.866 0 0 0 .858-.874Z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="copied-action">
+                      {{ section.settings.code }}
+                      - <span>{{- 'popup.copy__code' | t -}}</span>
+                    </span>
+                  </span>
+                  <span class="text relative invisible inline-flex gap-sp-2 content-center copied-success absolute inset-0">
+                    <svg
+                      width="15"
+                      height="12"
+                      viewBox="0 0 15 12"
+                      fill="none"
+                      class="svg-copied"
+                    >
+                      <path d="M13.5742 1.07422C13.7435 0.917969 13.9388 0.839844 14.1602 0.839844C14.3945 0.839844 14.5898 0.917969 14.7461 1.07422C14.9154 1.24349 15 1.44531 15 1.67969C15 1.90104 14.9154 2.08984 14.7461 2.24609L5.58594 11.4258C5.42969 11.582 5.23438 11.6602 5 11.6602C4.76562 11.6602 4.57031 11.582 4.41406 11.4258L0.253906 7.24609C0.0846354 7.08984 0 6.90104 0 6.67969C0 6.44531 0.0846354 6.24349 0.253906 6.07422C0.410156 5.91797 0.598958 5.83984 0.820312 5.83984C1.05469 5.83984 1.25651 5.91797 1.42578 6.07422L5 9.64844L13.5742 1.07422Z" fill="currentcolor"/>
+                    </svg>
+                    <span class="copied-success">
+                      {{- 'popup.copied' | t -}}
+                    </span>
+                  </span>
+                </a>
+              </div>
+            {% endif %}
+            {%- if section.settings.description != blank -%}
+              <div class="before-des rich__text-m0">
+                {{ section.settings.description }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+      {%- if collection != blank -%}
+        {%- liquid
+          assign collection = collections[collection]
+        -%}
+        <div class="before-product{% if show_col_info == 'true' %} col-md-remaining{% endif %} w-full bg-white">
+          {%- if section.settings.recommended_heading != blank -%}
+            <h5 class="before-product-title hidden block-1025 mt-0 px-sp-5 px-1025-sp-6 py-sp-5 py-1025-22 border-bottom">
+              {{ section.settings.recommended_heading }}
+            </h5>
+          {% endif %}
+          <div class="before-product-content p-sp-5 p-1025-sp-6">
+            <slide-section
+              class="swiper"
+              data-section-id="{{ section.id }}"
+              data-autoplay="false"
+              data-effect="slide"
+              data-loop="false"
+              data-speed="300"
+              data-mobile="2"
+              data-desktop="3"
+              data-tablet="2"
+              data-spacing="12"
+              data-arrow-center-image="true"
+            >
+              <div class="hidden-mobile">
+                {%- render 'swiper-navigation' -%}
+              </div>
+              <div class="swiper-wrapper">
+                {% for product in collection.products limit: 3 %}
+                  <div class="product-before-items swiper-slide" style="--rounded-radius: 5px;">
+                    {% render 'card-product',
+                      card_product: product,
+                      disable_hover_image: false,
+                      disable_badge: false,
+                      disable_rate: false,
+                      disable_tag: true,
+                      disable_vendor: true,
+                      disable_countdown: true,
+                      disable_scrolling_text: true,
+                      disable_quickview: false,
+                      disable_show_video: true,
+                      info_class: ' mt-1025-sp-3'
+                    %}
+                  </div>
+                {% endfor %}
+              </div>
+              <div
+                class="swiper-pagination hidden-md"
+              ></div>
+            </slide-section>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</before-you-leave>
+{% if request.design_mode == false %}
+  </div>
+  </template>
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.before-you-leave.name",
+  "tag": "section",
+  "class": "not-hide-br",
+  "enabled_on": {
+    "groups": ["custom.overlay"]
+  },
+  "limit": 1,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.before-you-leave.how_to_use"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "range",
+      "id": "show_time",
+      "label": "t:sections.before-you-leave.settings.show_time.label",
+      "min": 1,
+      "max": 100,
+      "default": 15,
+      "step": 1,
+      "unit": "s"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner",
+      "label": "t:sections.before-you-leave.settings.banner.label",
+      "info": "t:sections.before-you-leave.settings.banner.info"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:sections.slideshow.settings.blocks.image.image_overlay_opacity.label",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_setting.label"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "t:sections.all.content_setting.subheading.label",
+      "default": "10% Coupon!"
+    },
+    {
+      "type": "text",
+      "id": "content_heading",
+      "label": "t:sections.all.content_setting.heading.label",
+      "default": "Big Save 10% Coupon!"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.all.content_setting.description.label",
+      "default": "<p>Enter the code below at checkout to get 10% off your first order.<\/p>"
+    },
+    {
+      "type": "text",
+      "id": "code",
+      "label": "t:sections.before-you-leave.settings.code.label",
+      "default": "Topsale10STBL"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.before-you-leave.settings.header.recommended_products"
+    },
+    {
+      "type": "text",
+      "id": "recommended_heading",
+      "label": "t:sections.all.content_setting.heading.label",
+      "default": "You may also like..."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:sections.before-you-leave.settings.collection.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.before-you-leave.name"
+    }
+  ]
+}
+{% endschema %}

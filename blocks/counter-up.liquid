@@ -1,0 +1,389 @@
+{% liquid
+  assign block_st = block.settings
+
+  if block_st.layout == 'default'
+    if block_st.number_position == 'after'
+      assign class_layout_default = 'column-reverse'
+    else
+      assign class_layout_default = 'column'
+    endif
+  else
+    assign class_layout_default = 'row align-center'
+  endif
+  if block_st.counter_style == 'circle'
+    if block_st.number_position == 'after'
+      assign class_layout_default = 'column-reverse'
+    else
+      assign class_layout_default = 'column'
+    endif
+  endif
+%}
+
+<style>
+  .counter-number {
+    font-variant-numeric: tabular-nums;
+  }
+  .counter-style-circle .counter-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .counter-style-circle .counter-number {
+    font-size: 22px;
+    text-anchor: middle;
+    dominant-baseline: central;
+  }
+  .counter-style-circle .progress-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(
+      var(--stroke-color) 0 var(--progress-desktop),
+      var(--indicator-color) var(--progress-desktop)
+    );
+  }
+  .counter-style-circle .progress-circle::before {
+    content: '';
+    position: absolute;
+    width: 134px;
+    height: 134px;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    z-index: 1;
+  }
+  .counter-style-circle .progress-value {
+    color: var(--stroke-color);
+    font-size: 5rem;
+    z-index: 2;
+  }
+  @media screen and (max-width: 767.98px) {
+    .counter-style-circle .counter-number {
+      font-size: 14px;
+    }
+    .counter-style-circle .progress-circle::before {
+      width: 70px;
+      height: 70px;
+    }
+    .counter-style-circle .progress-circle {
+      width: 80px;
+      height: 80px;
+    }
+  }
+</style>
+{% capture style %}
+--space-bottom: {{ block_st.padding_bottom }};--space-top: {{ block_st.padding_top }};--space-left: 0;--space-right: 0;--space-min-left: 0;--space-min-right: 0;
+{%- if block_st.padding_top > 20 -%}--space-min-top: {{ block_st.padding_top | times: 0.67 }};{%- else -%}--space-min-top: {{ block_st.padding_top }};{%- endif -%}
+{%- if block_st.padding_bottom > 20 -%}--space-min-bottom: {{ block_st.padding_bottom | times: 0.67 }};{%- else -%}--space-min-bottom: {{ block_st.padding_bottom }};{%- endif -%}
+--gap: {{ block_st.space_between }}px;
+{% endcapture %}
+<div
+  class="flexible-block counter-container relative group-block--height switch-slide__mobile{% if request.visual_preview_mode %} bg-white p-sp-5 rounded-5 text-center{% else %} spacing-style{% endif %}"
+  data-section-id="{{ section.id }}"
+  style="{{ style | strip | strip_newlines }};"
+  {{ block.shopify_attributes }}
+>
+  {% if block_st.counter_style == 'circle' %}
+    <div class="flex {{ class_layout_default }} gap counter-style-circle align-{{ block_st.alignment }}">
+      <counter-animation
+        data-counter="{{ block_st.counter_value | default: 100 }}"
+        data-start="{{ block_st.start_value | default: 0 }}"
+        data-duration="{{ block_st.animation_duration | default: 2000 }}"
+        style="--progress-desktop: {{ block_st.counter_value | default: 100 }}%;--stroke-color: {{ block_st.stroke_color}};--background-color: {{ block_st.background_color }};--indicator-color: {{ block_st.indicator_color }};"
+        class="progress-circle progress-circle relative content-center flex w-full{% if block_st.layout == 'default' %} column{% if block_st.number_position == 'after' %} column-reverse{% endif %}{% else %} row{% endif %}"
+      >
+        <span
+          data-counter-target
+          x="50%"
+          y="50%"
+          dominant-baseline="central"
+          text-anchor="middle"
+          class="counter-number progress-value relative"
+        >
+          {{ block_st.start_value | default: 0 }}
+        </span>
+      </counter-animation>
+      <div
+        class="counter-title {{ block_st.type_preset_text }}{% if block_st.type_preset_text == 'paragraph' %} text-color{% endif %}"
+        style="{% if block_st.type_preset_text == 'paragraph' %}--color-text: {{ block_st.text_color }};{% else %}--color-heading: {{ block_st.text_color }};{% endif %}"
+      >
+        {{- block_st.title_text -}}
+      </div>
+    </div>
+  {% else %}
+    <counter-animation
+      data-counter="{{ block_st.counter_value }}"
+      data-start="{{ block_st.start_value }}"
+      data-duration="{{ block_st.animation_duration | default: 2000 }}"
+      class="counter-wrapper flex gap w-full {{ class_layout_default }}"
+    >
+      <p
+        class="counter-number text-{{ block_st.alignment }} {{ block_st.type_preset }}{% if request.visual_preview_mode %} h3 text-center{% endif %}"
+        data-counter-target
+        style="--color-heading: {{ block_st.stroke_color}};"
+      >
+        {{ block_st.start_value | default: 0 }}
+      </p>
+      <p
+        class="counter-title {{ block_st.type_preset_text }}{% if block_st.type_preset_text == 'paragraph' %} text-color{% endif %}"
+        style="{% if block_st.type_preset_text == 'paragraph' %}--color-text: {{ block_st.text_color }};{% else %}--color-heading: {{ block_st.text_color }};{% endif %}"
+      >
+        {{- block_st.title_text -}}
+      </p>
+    </counter-animation>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.custom_section.blocks.counter.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.custom_section.blocks.counter.how_to_use"
+    },
+    {
+      "type": "select",
+      "id": "counter_style",
+      "label": "t:sections.custom_section.blocks.counter.counter_style.label",
+      "options": [
+        {
+          "value": "default",
+          "label": "t:sections.custom_section.blocks.counter.counter_style.default"
+        },
+        {
+          "value": "circle",
+          "label": "t:sections.custom_section.blocks.counter.counter_style.circle"
+        }
+      ],
+      "default": "circle"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "default",
+          "label": "t:sections.custom_section.blocks.counter.counter_layout.vertical"
+        },
+        {
+          "value": "inline",
+          "label": "t:sections.custom_section.blocks.counter.counter_layout.horizontal"
+        }
+      ],
+      "default": "default",
+      "label": "t:sections.custom_section.blocks.counter.counter_layout.label",
+      "visible_if": "{{ block.settings.counter_style == 'default' }}"
+    },
+    {
+      "type": "range",
+      "id": "space_between",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 16,
+      "label": "t:sections.custom_section.blocks.counter.space_between"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.counter.name"
+    },
+    {
+      "type": "number",
+      "id": "start_value",
+      "label": "t:sections.custom_section.blocks.counter.starting_number",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "counter_value",
+      "label": "t:sections.custom_section.blocks.counter.ending_number",
+      "default": 100
+    },
+    {
+      "type": "number",
+      "id": "animation_duration",
+      "label": "t:sections.custom_section.blocks.counter.animation",
+      "default": 2000
+    },
+    {
+      "type": "select",
+      "id": "type_preset",
+      "label": "t:settings_schema.typography.name",
+      "options": [
+        {
+          "value": "paragraph",
+          "label": "t:sections.custom_section.blocks.heading.paragraph"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.custom_section.blocks.heading.h1"
+        },
+        {
+          "value": "h2",
+          "label": "t:sections.custom_section.blocks.heading.h2"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.custom_section.blocks.heading.h3"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.custom_section.blocks.heading.h4"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.custom_section.blocks.heading.h5"
+        },
+        {
+          "value": "h6",
+          "label": "t:sections.custom_section.blocks.heading.h6"
+        }
+      ],
+      "default": "h3",
+      "info": "t:sections.custom_section.blocks.heading.info.edit_presets_in_theme_settings"
+    },
+    {
+      "type": "color",
+      "id": "stroke_color",
+      "label": "t:sections.custom_section.blocks.counter.stroke_color",
+      "default": "#0EE95E"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:sections.custom_section.blocks.counter.background_color",
+      "default": "#272436",
+      "visible_if": "{{ block.settings.counter_style == 'circle' }}"
+    },
+    {
+      "type": "color",
+      "id": "indicator_color",
+      "label": "t:sections.custom_section.blocks.counter.indicator_color",
+      "default": "#3B3554",
+      "visible_if": "{{ block.settings.counter_style == 'circle' }}"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.custom_section.blocks.counter.number_alignment",
+      "visible_if": "{{ block.settings.layout == 'default' }}"
+    },
+    {
+      "type": "select",
+      "id": "number_position",
+      "label": "t:sections.custom_section.blocks.counter.number_position",
+      "options": [
+        {
+          "value": "before",
+          "label": "t:sections.custom_section.blocks.counter.before_title"
+        },
+        {
+          "value": "after",
+          "label": "t:sections.custom_section.blocks.counter.after_title"
+        }
+      ],
+      "default": "before",
+      "visible_if": "{{ block.settings.layout == 'default' }}"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section_setting.page_heading.heading.label"
+    },
+    {
+      "type": "text",
+      "id": "title_text",
+      "label": "t:settings_schema.badges.settings.sale.format.text",
+      "default": "Performance"
+    },
+    {
+      "type": "select",
+      "id": "type_preset_text",
+      "label": "t:settings_schema.typography.name",
+      "options": [
+        {
+          "value": "paragraph",
+          "label": "t:sections.custom_section.blocks.heading.paragraph"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.custom_section.blocks.heading.h1"
+        },
+        {
+          "value": "h2",
+          "label": "t:sections.custom_section.blocks.heading.h2"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.custom_section.blocks.heading.h3"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.custom_section.blocks.heading.h4"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.custom_section.blocks.heading.h5"
+        },
+        {
+          "value": "h6",
+          "label": "t:sections.custom_section.blocks.heading.h6"
+        }
+      ],
+      "default": "h4",
+      "info": "t:sections.custom_section.blocks.heading.info.edit_presets_in_theme_settings"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.custom_section.blocks.counter.text_color",
+      "default": "#1d1d1f"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.page.spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.custom_section.blocks.counter.name",
+      "category": "t:sections.group.decorative.name"
+    }
+  ]
+}
+{% endschema %}

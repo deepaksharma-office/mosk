@@ -1,0 +1,149 @@
+{%- liquid
+  assign option_st = block.settings
+  assign option_id = block.id
+  assign option_input_id = 'QuizOption-' | append: section.id | append: '-' | append: block.id
+
+  assign strong_match_ids = ''
+  for product in option_st.strong_match_products
+    if strong_match_ids != blank
+      assign strong_match_ids = strong_match_ids | append: ','
+    endif
+    assign strong_match_ids = strong_match_ids | append: product.id
+  endfor
+
+  assign partial_match_ids = ''
+  for product in option_st.partial_match_products
+    if partial_match_ids != blank
+      assign partial_match_ids = partial_match_ids | append: ','
+    endif
+    assign partial_match_ids = partial_match_ids | append: product.id
+  endfor
+
+  assign exclude_product_ids = ''
+  for product in option_st.exclude_products
+    if exclude_product_ids != blank
+      assign exclude_product_ids = exclude_product_ids | append: ','
+    endif
+    assign exclude_product_ids = exclude_product_ids | append: product.id
+  endfor
+
+  assign skip_questions = option_st.skip_questions | strip | downcase | replace: ', ', ',' | replace: ' ,', ','
+-%}
+
+<label
+  class="quiz__option pointer"
+  for="{{ option_input_id }}"
+  data-quiz-option-item
+  {{ block.shopify_attributes }}
+>
+  <input
+    type="radio"
+    class="quiz__option-input visually-hidden"
+    id="{{ option_input_id }}"
+    name="quiz-{{ section.id }}-step"
+    value="{{ option_id }}"
+    data-quiz-option
+    {% if strong_match_ids != blank %}
+      data-strong-match="{{ strong_match_ids }}"
+    {% endif %}
+    {% if partial_match_ids != blank %}
+      data-partial-match="{{ partial_match_ids }}"
+    {% endif %}
+    {% if exclude_product_ids != blank %}
+      data-exclude-products="{{ exclude_product_ids }}"
+    {% endif %}
+    {% if skip_questions != blank %}
+      data-skip-questions="{{ skip_questions }}"
+    {% endif %}
+  >
+  <span class="quiz__option-pill inline-flex transition align-center gap-sp-3 border px-sp-5 py-sp-3 bg-white rounded-30">
+    <span
+      class="quiz__option-radio-ui border relative shrink-0 rounded-50 transition h-custom w-custom"
+      style="--height: 2rem; --width: 2rem"
+      aria-hidden="true"
+    ></span>
+    <span class="quiz__option-label">{{ option_st.label }}</span>
+  </span>
+  <span class="quiz__option-media block rounded-custom transition relative" style="--radius: 999px">
+    {%- if option_st.image != blank -%}
+      {{
+        option_st.image
+        | image_url: width: 400
+        | image_tag:
+          class: 'quiz__option-image w-full h-full object-cover rounded-custom',
+          loading: 'lazy',
+          alt: option_st.label
+      }}
+    {%- else -%}
+      <span
+        class="quiz__option-placeholder block w-full h-full rounded-custom transition bg-secondary"
+        style="--radius: 999px"
+      ></span>
+    {%- endif -%}
+  </span>
+  <span class="quiz__option-label quiz__option-label--image block mt-sp-4">
+    {{- option_st.label -}}
+  </span>
+</label>
+
+{% schema %}
+{
+  "name": "t:blocks.quiz-option.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "t:blocks.quiz-option.settings.label.label",
+      "default": "Option"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:blocks.quiz-option.settings.image.label",
+      "info": "t:blocks.quiz-option.settings.image.info"
+    },
+    {
+      "type": "header",
+      "content": "t:blocks.quiz-option.settings.product_matching_header"
+    },
+    {
+      "type": "product_list",
+      "id": "strong_match_products",
+      "label": "t:blocks.quiz-option.settings.strong_match.label",
+      "info": "t:blocks.quiz-option.settings.strong_match.info",
+      "limit": 12
+    },
+    {
+      "type": "product_list",
+      "id": "partial_match_products",
+      "label": "t:blocks.quiz-option.settings.partial_match.label",
+      "info": "t:blocks.quiz-option.settings.partial_match.info",
+      "limit": 12
+    },
+    {
+      "type": "product_list",
+      "id": "exclude_products",
+      "label": "t:blocks.quiz-option.settings.exclude.label",
+      "info": "t:blocks.quiz-option.settings.exclude.info",
+      "limit": 12
+    },
+    {
+      "type": "header",
+      "content": "t:blocks.quiz-option.settings.skip_questions_header"
+    },
+    {
+      "type": "text",
+      "id": "skip_questions",
+      "label": "t:blocks.quiz-option.settings.skip_questions.label",
+      "info": "t:blocks.quiz-option.settings.skip_questions.info",
+      "placeholder": "q3,q4"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:blocks.quiz-option.name"
+    }
+  ]
+}
+{% endschema %}

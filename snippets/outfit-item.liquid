@@ -1,0 +1,306 @@
+{% liquid
+  assign section_st = section.settings
+  assign block_st = block.settings
+  assign ratio = section_st.ratio
+  assign media_type = block_st.media_type
+  assign image = block_st.image
+  assign video_local = block_st.video_local
+  assign autoplay = section_st.autoplay
+  if autoplay
+    assign motion = false
+  else
+    assign motion = true
+  endif
+  assign media_ratio = '3/4'
+
+  if ratio != 'adapt'
+    case ratio
+      when 'square'
+        assign media_ratio = '1/1'
+      when 'landscape'
+        assign media_ratio = '4/3'
+      when 'portrait'
+        assign media_ratio = '3/4'
+    endcase
+  else
+    if media_type == 'image' and image != blank
+      assign media_ratio = image.aspect_ratio
+    elsif media_type == 'video' and video_local != blank
+      assign media_ratio = video_local.aspect_ratio
+    endif
+  endif
+
+  assign alt_text = image.alt | default: 'sections.outfit.image.alt' | t
+%}
+<outfit-item>
+  <div
+    class="block outfit-item__media--ratio rounded relative hover-action-container"
+    style="--aspect-ratio: {{ media_ratio }};"
+  >
+    {% if media_type == 'image' %}
+      {%- if image != blank -%}
+        {% render 'responsive-image',
+          type: 'other',
+          image: image,
+          image_alt: alt_text,
+          container: container,
+          column: column,
+          column_mobile: column_mobile,
+          padding: padding,
+          disable_lazy_loading: disable_lazy_loading,
+          class: 'rounded center_swiper-arrow',
+          motion: motion,
+          animate: 'zoom-out-small'
+        %}
+      {%- else -%}
+        {% render 'placeholder-render',
+          type: 'collection',
+          class: 'img-placeholder h-full w-full rounded overflow-hidden',
+          motion: motion,
+          animate: 'zoom-out-small'
+        %}
+      {%- endif -%}
+    {% else %}
+      {% if video_local != blank %}
+        {%- liquid
+          assign source = video_local.sources
+          assign source_url = ''
+          for s in source
+            if s.format == 'mp4'
+              assign source_url = s.url
+              break
+            endif
+          endfor
+          assign video_poster = video_local.preview_image | image_url: width: 1100
+          assign image_alt = image.alt
+          if image_alt == blank
+            assign image_alt = 'general.image.image_alt_default' | t
+          endif
+        -%}
+        {%- if autoplay -%}
+          <video-local
+            class="block overflow-hidden h-full w-full rounded absolute inset-0 outfit-video-item pointer"
+            style="--aspect-ratio: {{ media_ratio }};"
+          >
+        {%- else -%}
+          <video-local-play
+            class="block overflow-hidden h-full w-full rounded absolute inset-0 outfit-video-item pointer"
+            style="--aspect-ratio: {{ media_ratio }};"
+          >
+        {%- endif -%}
+        <div class="video-thumbnail w-full h-full absolute inset-0" style="--aspect-ratio: {{ media_ratio }};">
+          {% render 'responsive-image',
+            type: 'banner',
+            container: section_st.section_width,
+            image: video_poster,
+            image_alt: image_alt,
+            class: 'w-full h-full object-fit-cover rounded',
+            motion: motion
+          %}
+        </div>
+        <template>
+          <video
+            loop="true"
+            src="{{ source_url }}"
+            poster="{{ video_poster }}"
+            playsinline="true"
+            autoplay="{% if autoplay %}true{% else %}false{% endif %}"
+            muted
+            class="h-full w-full object-fit-cover rounded"
+          ></video>
+        </template>
+        <button
+          aria-label="{{ 'accessibility.play_button.video' | t }}"
+          class="play-button outfit-item-button absolute z-2 rounded-50 transition pointer border-0 inline-flex align-center justify-content-center transition hover-show{% if autoplay %} active{% endif %}"
+        >
+          {% render 'icon-play' %}
+          {% render 'icon-pause' %}
+        </button>
+        {%- if autoplay -%}
+          </video-local>
+        {%- else -%}
+          </video-local-play>
+        {%- endif -%}
+      {% else %}
+        {%- render 'placeholder-render',
+          type: 'lifestyle-2',
+          class: 'img-placeholder h-full w-full',
+          class_motion: ' h-full',
+          motion: motion
+        -%}
+      {% endif %}
+    {% endif %}
+  </div>
+  <outfit-action class="block mt-sp-2 mt-1025-sp-3 absolute right-15 right-1025-20 bottom-15 bottom-1025-20 will-change-swiper-item">
+    <button
+      class="btn btn-reset inline-flex px-1025-15 content-center overflow-hidden btn-shop_by_outfit bg-white color-dark body_weight"
+      style="--btn-primary-hover-bg-color: rgb(var(--color-white));--btn-primary-hover-color: var(--color-dark);"
+      aria-label="{{ 'sections.outfit.button' | t }}"
+    >
+      <svg width="14" height="14" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <use href="#icon-cart" />
+      </svg>
+      <span class="text-show-on-hover hidden opacity-0 overflow-hidden transition whitespace-nowrap ms-0 inline-flex-md">
+        {{ 'sections.outfit.button' | t }}
+      </span>
+    </button>
+  </outfit-action>
+  <div
+    class="outfit-item_count absolute right-15 right-1025-20 top-15 top-1025-sp-5 bg-custom btn-rounded px-sp-4 py-5 inline-flex content-center gap-sp-2 shadow-glass-2 blur-static"
+    style="--bg-color-custom: rgba(255, 255, 255, 0.50);"
+  >
+    {% liquid
+      assign count = block_st.product_list | size
+    %}
+    <span class="icon-dot text-color flex content-center" style="--color-text: #C4C4C4;">
+      <svg width="5" height="5" viewBox="0 0 8 8" fill="none">
+        <use href="#icon-dot"></use>
+      </svg>
+    </span>
+    <span class="count-text text-color fs-13">
+      {% if count < 2 %}
+        {{ 'sections.outfit.product.one' | t: count: count }}
+      {% else %}
+        {{ 'sections.outfit.product.other' | t: count: count }}
+      {% endif %}
+    </span>
+  </div>
+  <template class="outfit-popup">
+    <outfit-popup
+      class="modal transition-drawer invisible fixed inset-0 z-20 pointer-none active-modal-js content-hidden"
+      drawer
+    >
+      <modal-overlay class="modal-overlay cursor-crosshair"></modal-overlay>
+      <div
+        class="modal-inner transition-drawer modal-body modal-draggable color-default drawer drawer-right draw-mb drawer-right-mb fixed right-0 z-2 overflow-y-auto custom-scrollbar h-full w-full flex column bg-white overflow-x-hidden"
+        tabindex="-1"
+        style="--max-width: 60rem;"
+      >
+        <div
+          class="drawer__header draggable-modal flex gap-10 space-between align-center drawer-spacing border-bottom sticky"
+          style="--padding-block:1.2rem;--padding-block-desktop: 1.4rem;--padding-inline-desktop: 2.4rem;"
+        >
+          <div class="drawer__heading h5 flex gap align-center" style="--gap-desktop: 8px;--gap: 8px">
+            {{ section.settings.heading }}
+          </div>
+          <button
+            is="button-close-model"
+            class="modal__close pointer modal-button-close rounded-50 btn-reset w-30 h-full flex content-center flex-end"
+            aria-label="{{ 'accessibility.close' | t }}"
+          >
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 14 14"
+              fill="none"
+              class="transition-short will-change icon-zoom"
+            >
+              <use href="#icon-close"></use>
+            </svg>
+          </button>
+        </div>
+        <div
+          class="outfit-products-form drawer__body h-full grow-1 custom-scrollbar overflow-auto"
+        >
+          <div
+            class="drawer-spacing h-full quick-add-variant-popup"
+            style="--padding-block:1.2rem;--padding-block-desktop: 0rem;--padding-inline-desktop: 2.4rem;"
+          >
+            {%- for product in block_st.product_list -%}
+              {% liquid
+                assign class = ' pt-sp-6'
+                if forloop.last
+                  assign class = ' py-sp-6'
+                endif
+              %}
+              {% render 'card-product',
+                card_product: product,
+                section_id: section.id,
+                disable_hover_image: true,
+                disable_show_video: true,
+                disable_lazy_loading: true,
+                disable_rate: true,
+                disable_tag: true,
+                disable_vendor: true,
+                disable_countdown: true,
+                disable_badge: true,
+                disable_scrolling_text: true,
+                class: class,
+                style_layout: ' flex gap-sp-4 gap-1025-sp-6 align-start',
+                image_class: ' flex-auto w-custom rounded-10',
+                image_rounded: ' rounded-10',
+                info_class: ' flex-1 mt-0 mt-1025-0',
+                type: 'action_bundle',
+                align_left_only: true,
+                image_width_var: '13.2rem'
+              %}
+            {%- endfor -%}
+          </div>
+        </div>
+        <div
+          class="sticky bottom-0 bg-white shadow-dark-top drawer-spacing z-5 flex gap-sp-2"
+          style="--padding-block:1.2rem;--padding-block-desktop: 2.4rem;--padding-inline-desktop: 2.4rem;"
+        >
+          <product-form class="w-full">
+            <form
+              method="post"
+              action="{{ routes.cart_add_url }}"
+              accept-charset="UTF-8"
+              enctype="multipart/form-data"
+              novalidate="novalidate"
+              data-type="add-to-cart-form"
+            >
+              <input type="hidden" name="form_type" value="product">
+              <input type="hidden" name="utf8" value="✓">
+              <div class="outfit-products-list">
+                {%- for product in block_st.product_list -%}
+                  <div class="variant-select" product-id="{{ product.id }}">
+                    {%- if product.selected_or_first_available_variant.inventory_quantity > 0
+                      or product.selected_or_first_available_variant.available == true
+                    -%}
+                      <input
+                        type="hidden"
+                        name="items[][id]"
+                        value="{{ product.selected_or_first_available_variant.id }}"
+                        data-price="{{ product.selected_or_first_available_variant.price }}"
+                      >
+                      <input type="hidden" name="items[][quantity]" class="quantity" value="1">
+                    {% endif %}
+                  </div>
+                {%- endfor -%}
+              </div>
+              {%- assign price = 0 -%}
+              {%- for product in block_st.product_list -%}
+                {%- liquid
+                  assign current_variant = product.selected_or_first_available_variant
+                  assign price = current_variant.price | plus: price
+                -%}
+              {%- endfor -%}
+              <button
+                type="submit"
+                name="add"
+                class="btn pointer btn-primary w-full relative product_submit_button product-form__submit word-wrap relative btn-count-js"
+                aria-label="{{ 'products.product.add_all_to_cart' | t }}"
+              >
+                <span class="btn-label hidden-on-load transition-short flex content-center">
+                  {{ 'products.product.add_all_to_cart' | t }}
+                  <span class="dot-total mx-sp-1"> - </span>
+                  <div class="total-price">
+                    <span class="price">
+                      {%- if settings.currency_code_enabled %}
+                        {{ price | money_with_currency }}
+                      {% else %}
+                        {{ price | money }}
+                      {% endif -%}
+                    </span>
+                  </div>
+                </span>
+                {%- render 'loader' -%}
+              </button>
+            </form>
+          </product-form>
+        </div>
+      </div>
+    </outfit-popup>
+  </template>
+</outfit-item>

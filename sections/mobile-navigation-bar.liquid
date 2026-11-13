@@ -1,0 +1,235 @@
+{% liquid
+  assign section_st = section.settings
+  assign eb_mobile_navbar = section_st.eb_mobile_navbar
+  assign show_account = section_st.show_account
+  assign show_shop = section_st.show_shop
+  assign show_cart = section_st.show_cart
+  assign show_homepage = section_st.show_homepage
+  assign show_offer = section_st.show_offer
+  assign account_open_as = settings.open_as | default: 'show_popup_login'
+  assign show_account_popup = false
+  assign account_menu = settings.customer_account_menu | default: 'customer-account-main-menu'
+  if show_account
+    if account_open_as == 'show_popup_login'
+      if shop.customer_accounts_enabled
+        assign show_account_popup = true
+      endif
+    endif
+  endif
+  assign current_path = request.path
+%}
+{% capture account_icon %}
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M18.8398 18.2499C17.872 16.622 16.5597 15.2862 15.0193 14.3611C13.479 13.4359 11.7581 12.95 10.0094 12.9463C8.26069 12.9427 6.53821 13.4214 4.99474 14.3401C3.45127 15.2589 2.09046 16.6332 1.11722 18.257" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="9.99888" cy="5.67857" r="3.92857" stroke="currentColor" stroke-width="1.5" class="fill-active transition-short"/>
+  </svg>
+{% endcapture %}
+{%- if eb_mobile_navbar -%}
+  {% style %}
+    mobile-navigation-bar .cart-count {
+      top: -5px;
+      inset-inline-start: 13px;
+    }
+    .mobile_icon:is(.active, :hover) .fill-active {
+      fill: var(--color-dark);
+      color: var(--color-dark);
+    }
+    .mobile_icon:is(.active, :hover) .stroke-active {
+      stroke: rgb(var(--color-white));
+    }
+    {% if show_account_popup %}
+      mobile-navigation-bar .mobile-navigation-account {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      mobile-navigation-bar .mobile-navigation-account shopify-account {
+        display: block;
+        width: 100%;
+      }
+      mobile-navigation-bar .mobile-navigation-account shopify-account::part(signed-out-avatar),
+      mobile-navigation-bar .mobile-navigation-account shopify-account::part(signed-in-avatar) {
+        width: auto;
+        height: auto;
+        min-width: 0;
+        min-height: 0;
+        border-radius: 0;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      mobile-navigation-bar .mobile-navigation-account .header-account-popup__avatar {
+        width: auto;
+        height: auto;
+        min-width: 0;
+        min-height: 0;
+        flex-direction: column;
+        gap: 0.35rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        line-height: 1.6;
+        font-family: var(--body-font-family);
+      }
+      mobile-navigation-bar .mobile-navigation-account .header-account-popup__avatar svg {
+        width: 2rem;
+        height: 2rem;
+      }
+    {% endif %}
+  {% endstyle %}
+  {% if current_path != routes.cart_url %}
+    {%- if show_homepage or show_shop or show_account or show_cart -%}
+      <mobile-navigation-bar class="mobile-navigation-bar opacity-0 amimate_show-hide transition-drawer block hidden-md fixed bottom-0 inset-x-0 z-10 bg-white shadow px-sp-5 pt-15 pb-sp-2 fs-12{% if show_offer %} show_offer{% endif %}">
+        <ul class="flex content-center align-center list-unstyled text-center mobile-navigation-bar__content">
+          {%- if show_homepage -%}
+            <li class="flex-1">
+              <a
+                href="{{ routes.root_url }}"
+                id="homepage-icon-bubble"
+                class="mobile_icon flex column content-center heading-color gap-3{% if current_path == routes.root_url %} active{% endif %}"
+                aria-label="{{ 'general.mobile_navbar.homepage' | t }}"
+              >
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="fill-active transition-short">
+                  <path d="M8.37656 2.28291L2.55087 6.94851C1.89516 7.46971 1.47484 8.57096 1.61775 9.39479L2.73581 16.0863C2.93757 17.2801 4.08085 18.2468 5.29138 18.2468H14.7066C15.9088 18.2468 17.0604 17.2717 17.2622 16.0863L18.3803 9.39479C18.5148 8.57096 18.0944 7.46971 17.4471 6.94851L11.6215 2.29132C10.722 1.56836 9.26764 1.56836 8.37656 2.28291Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M10 15.0439V12.522" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-active transition-short"/>
+                </svg>
+                <span class="block">{{ 'general.mobile_navbar.homepage' | t }}</span>
+              </a>
+            </li>
+          {%- endif -%}
+          {%- if show_shop -%}
+            <li class="flex-1">
+              <a
+                href="{{ collections.all.url }}"
+                aria-label="{{ 'general.mobile_navbar.shop' | t }}"
+                class="mobile_icon inline-flex column content-center heading-color gap-3{% if current_path == collections.all.url %} active{% endif %}"
+              >
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.76423 16.5192V3.48097C8.76423 2.24317 8.2361 1.74805 6.92403 1.74805H3.5902C2.27813 1.74805 1.75 2.24317 1.75 3.48097V16.5192C1.75 17.757 2.27813 18.2521 3.5902 18.2521H6.92403C8.2361 18.2521 8.76423 17.757 8.76423 16.5192Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="fill-active transition-short"/>
+                  <path d="M18.2525 9.09236V3.48097C18.2525 2.24317 17.7244 1.74805 16.4123 1.74805H13.0785C11.7664 1.74805 11.2383 2.24317 11.2383 3.48097V9.09236C11.2383 10.3302 11.7664 10.8253 13.0785 10.8253H16.4123C17.7244 10.8253 18.2525 10.3302 18.2525 9.09236Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="fill-active transition-short"/>
+                  <path d="M18.2525 16.5191V15.0337C18.2525 13.7959 17.7244 13.3008 16.4123 13.3008H13.0785C11.7664 13.3008 11.2383 13.7959 11.2383 15.0337V16.5191C11.2383 17.7569 11.7664 18.252 13.0785 18.252H16.4123C17.7244 18.252 18.2525 17.7569 18.2525 16.5191Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="fill-active transition-short"/>
+                </svg>
+                <span class="block">{{ 'general.mobile_navbar.shop' | t }}</span>
+              </a>
+            </li>
+          {%- endif -%}
+          {%- if show_cart -%}
+            <li class="flex-1">
+              <a
+                href="{{ routes.cart_url }}"
+                aria-label="{{ 'templates.cart.cart' | t }}"
+                class="mobile_icon inline-flex column content-center heading-color gap-3 icon--cart-action relative{% if current_path == routes.cart_url %} active{% endif %}"
+                id="cart-icon-bubble-mobile"
+              >
+                <span class="relative inline-flex">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="fill-active transition-short">
+                    <path d="M6.23282 1.75H13.7598C17.3142 1.75 17.6697 3.44257 17.9101 5.50772L18.851 13.4916C19.1541 16.1102 18.3596 18.2499 14.7007 18.2499H5.3024C1.633 18.2499 0.838479 16.1102 1.1521 13.4916L2.09299 5.50772C2.32298 3.44257 2.67841 1.75 6.23282 1.75Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7 5.68958C7 7.6897 8.67188 8.5 10 8.5C11.3281 8.5 13 7.6897 13 5.68958" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" class="stroke-active transition-short"/>
+                  </svg>
+                  {%- if cart != empty -%}
+                    <div class="cart-count content-center absolute bg-sale inline-flex rounded-50 overflow-hidden fs-10">
+                      {%- if cart.item_count < 100 -%}
+                        <span aria-hidden="true">{{ cart.item_count }}</span>
+                      {%- else -%}
+                        <span aria-hidden="true">~</span>
+                      {%- endif -%}
+                      <span class="visually-hidden">{{ 'sections.cart_count' | t: count: cart.item_count }}</span>
+                    </div>
+                  {%- else -%}
+                    <div class="cart-count content-center absolute bg-sale inline-flex rounded-50 overflow-hidden fs-10">
+                      <span aria-hidden="true">0</span>
+                    </div>
+                  {%- endif -%}
+                </span>
+                <span class="block">{{ 'templates.cart.cart' | t }}</span>
+              </a>
+            </li>
+          {%- endif -%}
+          {%- if show_account -%}
+            <li class="flex-1 flex content-center">
+              {% if show_account_popup %}
+                <div class="header-account-popup mobile-navigation-account mobile_icon inline-flex column content-center heading-color gap-3{% if request.path == "/account/login" or request.path == "/account" %} active{% endif %}">
+                  <shopify-account menu="{{ account_menu }}" data-account-popup-layout="mobile-sheet">
+                    <span slot="signed-out-avatar" class="header-account-popup__avatar" aria-hidden="true">
+                      {{ account_icon }}
+                      <span class="block fs-12">{{ 'customer.account_fallback' | t }}</span>
+                    </span>
+                    <span slot="signed-in-avatar" class="header-account-popup__avatar" aria-hidden="true">
+                      {{ account_icon }}
+                      <span class="block fs-12">{{ 'customer.account_fallback' | t }}</span>
+                    </span>
+                  </shopify-account>
+                </div>
+              {% else %}
+                <a
+                  href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+                  class="mobile_icon inline-flex column content-center heading-color gap-3{% if request.path == "/account/login" or request.path == "/account" %} active{% endif %}"
+                  aria-label="{{ 'customer.account_fallback' | t }}"
+                >
+                  {{ account_icon }}
+                  <span class="block fs-12">
+                    {{ 'customer.account_fallback' | t }}
+                  </span>
+                </a>
+              {% endif %}
+            </li>
+          {%- endif -%}
+        </ul>
+      </mobile-navigation-bar>
+    {%- endif -%}
+  {%- endif -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.mobile-navigation-bar.name",
+  "tag": "section",
+  "class": "mobile-navigation-bar",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.mobile-navigation-bar.how_to_use"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.mobile-navigation-bar.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "eb_mobile_navbar",
+      "label": "t:sections.mobile-navigation-bar.settings.show_section",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_homepage",
+      "label": "t:sections.mobile-navigation-bar.settings.show_homepage",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shop",
+      "label": "t:sections.mobile-navigation-bar.settings.show_shop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cart",
+      "label": "t:sections.mobile-navigation-bar.settings.show_cart",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_offer",
+      "default": true,
+      "label": "t:sections.header.settings.addons.show_offer.label",
+      "info": "t:sections.offers-popup.popup.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_account",
+      "label": "t:sections.mobile-navigation-bar.settings.show_account",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

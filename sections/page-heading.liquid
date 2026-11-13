@@ -1,0 +1,196 @@
+{% liquid
+  assign theme_st = settings
+  assign section_st = section.settings
+  assign scroll_animation = theme_st.scroll_animation
+  if section_st.section_width == 'fix_width'
+    assign section_width = 'container'
+  elsif section_st.section_width == 'full_width'
+    assign section_width = 'full-width'
+  else
+    assign section_width = 'fluid_container'
+  endif
+%}
+{%- capture style -%}
+  --section-pt: {{ section_st.padding_top }}; --section-pb: {{ section_st.padding_bottom }};
+{%- endcapture -%}
+
+{%- for block in section.blocks -%}
+  {%- case block.type -%}
+    {%- when 'heading' -%}
+      {% if request.visual_preview_mode %}
+        <div {{ block.shopify_attributes }} class="fs-50">
+          {{ 'general.content.heading' | t }}
+        </div>
+      {% endif %}
+    {%- when 'description' -%}
+      {% if request.visual_preview_mode %}
+        <div {{ block.shopify_attributes }} class="fs-50">
+          {{ 'general.content.description' | t }}
+        </div>
+      {% endif %}
+  {%- endcase -%}
+{%- endfor -%}
+
+<div
+  class="page-heading section color-{{ section_st.color_scheme }} gradient{% if section_st.text_alignment != 'none' %} text-{{ section_st.text_alignment }}{% endif %}"
+  style="{{ style | strip | strip_newlines }}"
+>
+  <div class="{{ section_width }}">
+    <div class="section_header">
+      {% assign animate_delay = 25 %}
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'heading' %}
+            {%- if scroll_animation != 'disable' -%}
+              <motion-effect
+                data-animate="fade-up"
+                data-animate-delay="{{ animate_delay }}"
+                class="block"
+              >
+            {%- endif -%}
+            <h1 class="heading-title" {{ block.shopify_attributes }}>
+              {% if block.settings.heading != blank %}
+                {{ block.settings.heading }}
+              {% else %}
+                {{ page.title }}
+              {% endif %}
+            </h1>
+            {%- if scroll_animation != 'disable' -%}
+              </motion-effect>
+            {%- endif -%}
+          {% when 'description' %}
+            {% assign animate_delay = animate_delay | plus: 50 %}
+            {%- if scroll_animation != 'disable' -%}
+              <motion-effect
+                data-animate="fade-up"
+                data-animate-delay="{{ animate_delay }}"
+                class="block"
+              >
+            {%- endif -%}
+            <div
+              {{ block.shopify_attributes }}
+              class="heading-description mt-sp-4{% if section_st.text_alignment == 'none' %} rte{% endif %}"
+            >
+              {{ page.content }}
+            </div>
+            {%- if scroll_animation != 'disable' -%}
+              </motion-effect>
+            {%- endif -%}
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-page.name",
+  "tag": "section",
+  "class": "page-heading",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.all.section_setting.page_heading.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "options": [
+        {
+          "value": "fix_width",
+          "label": "t:sections.all.layout.fix_width"
+        },
+        {
+          "value": "stretch_width",
+          "label": "t:sections.all.layout.stretch_width"
+        },
+        {
+          "value": "full_width",
+          "label": "t:sections.all.layout.full_width"
+        }
+      ],
+      "default": "fix_width",
+      "label": "t:sections.all.layout.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        },
+        {
+          "value": "none",
+          "label": "t:sections.all.icon.none.label"
+        }
+      ],
+      "default": "start",
+      "label": "t:sections.all.text_alignment.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 48
+    }
+  ],
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.all.section_setting.page_heading.heading.label",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "t:sections.all.section_setting.page_heading.heading.label"
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "t:sections.all.section_setting.page_heading.description.label",
+      "limit": 1
+    }
+  ]
+}
+{% endschema %}

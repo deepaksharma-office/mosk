@@ -1,0 +1,579 @@
+{% liquid
+  assign section_st = section.settings
+  if section_st.section_width == 'fix_width'
+    assign section_width = 'container'
+  elsif section_st.section_width == 'full_width'
+    assign section_width = 'full-width'
+  else
+    assign section_width = 'fluid_container'
+  endif
+  assign video_height = section_st.video_height
+  assign show_text_bellow_mobile = section_st.show_text_bellow_mobile
+  assign video_local = section_st.video_local
+  assign video_local_mobile = section_st.video_local_mobile
+  assign has_video_url = false
+  if video_local == blank and section_st.video_url != blank
+    assign has_video_url = true
+  endif
+  assign has_video_local = false
+  if video_local != blank
+    assign has_video_local = true
+  endif
+  assign has_video_local_mobile = false
+  if video_local_mobile != blank
+    assign has_video_local_mobile = true
+  endif
+%}
+{%- capture style -%}
+  --overlay-opacity: {{ section_st.overlay_opacity }}%; --section-pt: {{ section_st.padding_top }}; --section-pb: {{ section_st.padding_bottom }};
+{%- endcapture -%}
+{%- style -%}
+  @media (min-aspect-ratio: 16/9) {
+    section .iframe-video {
+      height: 300%;
+      top: -100%;
+    }
+  }
+
+  @media (max-aspect-ratio: 16/9) {
+    section .iframe-video {
+      width: 300%;
+      left: -100%;
+    }
+  }
+{%- endstyle -%}
+{%- render 'section-divider', position: 'top', style: section_st.divider_top, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+<div
+  id="{{ section.id }}"
+  class="color-{{ section_st.color_scheme }} gradient section section__video-with-text-overlay{% if section_st.show_divider and section_st.divider_top == 'line' %} border-top{% endif %}{% if section_st.show_divider and section_st.divider_bottom == 'line' %} border-bottom{% endif %}"
+  style="{{ style | strip | strip_newlines }}"
+>
+  <div
+    class="{{ section_width }}"
+  >
+    <div
+      class="relative flex wrap h-{{ video_height }}{% if show_text_bellow_mobile %} column flex-md-row text-bellow-mb{% endif %}"
+      {% if video_height == 'full_screen' or video_height == 'adapt' %}
+        style="
+          {%- if video_local != blank -%}
+            --aspect-ratio: {{ video_local.aspect_ratio }};
+          {%- elsif video_local_mobile != blank -%}
+            --aspect-ratio: {{ video_local_mobile.aspect_ratio }};
+          {%- else -%}
+            --aspect-ratio: 16/9;
+          {%- endif -%}
+          {%- if video_local_mobile != blank -%}
+            --aspect-ratio-mb: {{ video_local_mobile.aspect_ratio }};
+          {%- endif -%}
+        "
+      {% endif %}
+    >
+      {%- if has_video_url -%}
+        <video-section
+          class="block video-section overlay-bg overflow-hidden w-full banner__media banner absolute inset-0{% if section_width != "full-width" %} rounded{% endif %} h-{{ video_height }}{% if has_video_local_mobile %} hidden-mobile{% endif %}"
+          style="--aspect-ratio: 16/9;"
+        >
+          {% liquid
+            assign video_id = section_st.video_url.id
+          %}
+          <div class="video-foreground iframe-video video-has-bg">
+            {%- if section_st.video_url != blank -%}
+              {% liquid
+                if section_st.video_url.type == 'youtube'
+                  assign video_base_url = 'https://www.youtube.com/embed/'
+                  assign video_params = 'controls=0&autoplay=1&mute=1&playsinline=1&loop=1&playlist=' | append: video_id | append: '&rel=0'
+                  assign video_class = 'js-youtube w-full h-full'
+                else
+                  assign video_base_url = 'https://player.vimeo.com/video/'
+                  assign video_params = 'controls=0&background=1&autoplay=1&muted=1&loop=1'
+                  assign video_class = 'js-vimeo vimeo-video w-full h-full'
+                endif
+              %}
+              <iframe
+                data-src="{{ video_base_url }}{{ video_id }}?{{ video_params }}"
+                class="{{ video_class }}"
+                title="{{ section_st.video_alt_text | escape }}"
+                width="100%"
+                height="100%"
+                allowfullscreen
+                frameborder="0"
+              ></iframe>
+            {%- endif -%}
+          </div>
+        </video-section>
+      {%- endif -%}
+      {%- if has_video_local -%}
+        <video-local
+          class="block video-section overlay-bg overflow-hidden w-full banner__media banner absolute inset-0{% if section_width != "full-width" %} rounded{% endif %} h-{{ video_height }}{% if has_video_local_mobile %} hidden-mobile{% endif %}"
+          {% if video_height == 'adapt' or video_height == 'full_screen' or video_height == 'base_on_content' %}
+            style="--aspect-ratio: {{ video_local.aspect_ratio }}"
+          {% endif %}
+        >
+          {%- liquid
+            assign image_alt_default = 'general.image.image_alt_default' | t
+            assign image_alt = section_st.video_alt_text | default: image_alt_default | escape
+            assign poster = section_st.video_poster | default: video_local.preview_image
+          -%}
+          <div class="video-thumbnail z-3 banner__media overflow-hidden rounded w-full h-full">
+            {% render 'responsive-image',
+              type: 'product',
+              image: poster,
+              image_alt: image_alt,
+              class: 'rounded-10 w-full h-full'
+            %}
+          </div>
+          <div class="video-foreground video-has-bg h-{{ video_height }}">
+            <template>
+              {{
+                video_local
+                | video_tag:
+                  image_size: '1100x',
+                  autoplay: true,
+                  controls: false,
+                  muted: true,
+                  alt: image_alt,
+                  loop: true
+              }}
+            </template>
+          </div>
+        </video-local>
+      {%- endif -%}
+      {%- if has_video_local_mobile -%}
+        <video-local
+          class="block video-section overlay-bg overflow-hidden w-full banner__media banner absolute inset-0{% if section_width != "full-width" %} rounded{% endif %} h-{{ video_height }}{% if has_video_local or has_video_url %} hidden-md{% endif %}"
+          {% if video_height == 'adapt' or video_height == 'full_screen' or video_height == 'base_on_content' %}
+            style="--aspect-ratio: {{ video_local_mobile.aspect_ratio }}; --aspect-ratio-mb: {{ video_local_mobile.aspect_ratio }};"
+          {% endif %}
+        >
+          {%- liquid
+            assign image_alt_default = 'general.image.image_alt_default' | t
+            assign image_alt = section_st.video_alt_text | default: image_alt_default | escape
+            assign poster_mobile = video_local_mobile.preview_image | default: section_st.video_poster
+          -%}
+          <div class="video-thumbnail z-3 banner__media overflow-hidden rounded w-full h-full">
+            {% render 'responsive-image',
+              type: 'product',
+              image: poster_mobile,
+              image_alt: image_alt,
+              class: 'rounded-10 w-full h-full'
+            %}
+          </div>
+          <div class="video-foreground video-has-bg h-{{ video_height }}">
+            <template>
+              {{
+                video_local_mobile
+                | video_tag:
+                  image_size: '1100x',
+                  autoplay: true,
+                  controls: false,
+                  muted: true,
+                  alt: image_alt,
+                  loop: true
+              }}
+            </template>
+          </div>
+        </video-local>
+      {%- endif -%}
+      {%- unless has_video_url -%}
+        {%- unless has_video_local -%}
+          {%- unless has_video_local_mobile -%}
+            <div
+              class="banner__media overlay-bg h-{{ video_height }} placeholder absolute inset-0{% if section_width != "full-width" %} rounded{% endif %}"
+              style="--aspect-ratio: 3/2"
+            >
+              {{ 'hero-apparel-3' | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+          {%- endunless -%}
+        {%- endunless -%}
+      {%- endunless -%}
+      <div class="section__video-content media__content relative z-3 w-full{% if show_text_bellow_mobile %} flex-md{% else %} flex{% endif %} {{ section_st.desktop_content_position }} text-{{ section_st.text_alignment_mobile }} text-md-{{ section_st.text_alignment }}">
+        <div
+          class="banner__box max-w-custom px-custom py-custom{% if section_st.padding_content_inline < 15 %} x-min-value{% endif %}{% if show_text_bellow_mobile and section_width == "full-width" %} padding-inline-gutter{% endif %}{% if show_text_bellow_mobile %} mt-40 mt-md-0{% endif %}"
+          style="--max-width: {{ section_st.max_width }}%;--padding-inline: {{ section_st.padding_content_inline }};--padding-block: {{ section_st.padding_content_block }};"
+        >
+          {% content_for 'blocks' %}
+        </div>
+      </div>
+      <div
+        class="overlay absolute inset-0 bg-dark{% if section_width != "full-width" %} rounded{% endif %}{% if show_text_bellow_mobile %} d-none block-md{% endif %}"
+        style="--opacity: {{ section_st.overlay_opacity | times: 0.01 }}"
+      ></div>
+    </div>
+  </div>
+</div>
+{%- render 'section-divider', position: 'bottom', style: section_st.divider_bottom, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+
+{% schema %}
+{
+  "name": "t:sections.video-with-text-overlay.name",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "heading"
+    },
+    {
+      "type": "heading-highlight"
+    },
+
+    {
+      "type": "subheading"
+    },
+    {
+      "type": "highlight-text"
+    },
+    {
+      "type": "description"
+    },
+    {
+      "type": "button"
+    },
+    {
+      "type": "_countdown_timer"
+    }
+  ],
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.video-with-text-overlay.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "options": [
+        {
+          "value": "fix_width",
+          "label": "t:sections.all.layout.fix_width"
+        },
+        {
+          "value": "stretch_width",
+          "label": "t:sections.all.layout.stretch_width"
+        },
+        {
+          "value": "full_width",
+          "label": "t:sections.all.layout.full_width"
+        }
+      ],
+      "default": "fix_width",
+      "label": "t:sections.all.layout.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.video.name"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "accept": ["youtube", "vimeo"],
+      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+      "label": "t:sections.video-with-text-overlay.settings.video_link.label"
+    },
+
+    {
+      "type": "video",
+      "id": "video_local",
+      "label": "t:sections.video-with-text-overlay.settings.video_local.label",
+      "info": "t:sections.video-with-text-overlay.settings.video_local.info"
+    },
+    {
+      "type": "video",
+      "id": "video_local_mobile",
+      "label": "t:sections.all.video_mobile.label",
+      "info": "t:sections.video-with-text-overlay.settings.video_local.info_mobile"
+    },
+    {
+      "type": "image_picker",
+      "id": "video_poster",
+      "label": "t:sections.video.settings.video_poster.label",
+      "info": "t:sections.video-with-text-overlay.settings.video_poster.info"
+    },
+    {
+      "type": "text",
+      "id": "video_alt_text",
+      "label": "t:sections.video.settings.alt_description.label",
+      "info": "t:sections.video.settings.alt_description.info",
+      "default": "Video alt text"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:sections.video-with-text-overlay.settings.overlay_opacity",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "video_height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.video-with-text-overlay.settings.video_height.options__1.label"
+        },
+        {
+          "value": "full_screen",
+          "label": "t:sections.slideshow.settings.slide_height.full_screen"
+        },
+        {
+          "value": "base_on_content",
+          "label": "t:sections.main-collection-banner.settings.image_height.option__2"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.video-with-text-overlay.settings.video_height.options__2.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.video-with-text-overlay.settings.video_height.options__3.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.video-with-text-overlay.settings.video_height.options__4.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.video-with-text-overlay.settings.video_height.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_setting.label"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_position",
+      "default": "middle-left",
+      "label": "t:sections.all.desktop_content_position.label",
+      "info": "t:sections.all.desktop_content_position.info",
+      "options": [
+        {
+          "group": "t:sections.all.desktop_content_position.group.top.label",
+          "value": "top-left",
+          "label": "t:sections.all.desktop_content_position.options__1.label"
+        },
+        {
+          "group": "t:sections.all.desktop_content_position.group.top.label",
+          "value": "top-center",
+          "label": "t:sections.all.desktop_content_position.options__2.label"
+        },
+        {
+          "group": "t:sections.all.desktop_content_position.group.top.label",
+          "value": "top-right",
+          "label": "t:sections.all.desktop_content_position.options__3.label"
+        },
+        {
+          "group": "t:sections.all.desktop_content_position.group.middle.label",
+          "value": "middle-left",
+          "label": "t:sections.all.desktop_content_position.options__4.label"
+        },
+        {
+          "group": "t:sections.all.desktop_content_position.group.middle.label",
+          "value": "middle-center",
+          "label": "t:sections.all.desktop_content_position.options__5.label"
+        },
+        {
+          "group": "t:sections.all.desktop_content_position.group.middle.label",
+          "value": "middle-right",
+          "label": "t:sections.all.desktop_content_position.options__6.label"
+        },
+        {
+          "group": "t:sections.all.desktop_content_position.group.bottom.label",
+          "value": "bottom-left",
+          "label": "t:sections.all.desktop_content_position.options__7.label"
+        },
+        {
+          "group": "t:sections.all.desktop_content_position.group.bottom.label",
+          "value": "bottom-center",
+          "label": "t:sections.all.desktop_content_position.options__8.label"
+        },
+        {
+          "group": "t:sections.all.desktop_content_position.group.bottom.label",
+          "value": "bottom-right",
+          "label": "t:sections.all.desktop_content_position.options__9.label"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "start",
+      "label": "t:sections.all.text_alignment.label"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 40,
+      "max": 100,
+      "unit": "%",
+      "default": 100,
+      "label": "t:sections.rich-text.settings.max_width.label",
+      "info": "t:sections.rich-text.settings.max_width.info"
+    },
+    {
+      "type": "range",
+      "id": "padding_content_inline",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_inline.label",
+      "info": "t:sections.all.padding.padding_inline.info",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_content_block",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_block.label",
+      "info": "t:sections.all.padding.padding_block.info",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "t:settings_schema.product.settings.mobile_options.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_text_bellow_mobile",
+      "label": "t:sections.video.settings.show_text_bellow.label",
+      "info": "t:sections.video.settings.show_text_bellow.info"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment_mobile",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "start",
+      "label": "t:sections.all.text_alignment.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.divider.section_divider_heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "t:sections.all.divider.show_divider",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "divider_top",
+      "label": "t:sections.all.divider.top",
+      "info": "t:sections.all.divider.top_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "line",
+      "visible_if": "{{ section.settings.show_divider }}"
+    },
+    {
+      "type": "select",
+      "id": "divider_bottom",
+      "label": "t:sections.all.divider.bottom",
+      "info": "t:sections.all.divider.bottom_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.show_divider }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.video-with-text-overlay.name",
+      "category": "t:sections.group.banners",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "description"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

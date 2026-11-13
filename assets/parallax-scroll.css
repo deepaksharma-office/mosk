@@ -1,0 +1,194 @@
+.parallax-scroll__header .section-heading {
+  --h2: clamp(4rem, calc(3rem + 30 * var(--responsive-rate)), 6rem);
+}
+
+.section__parallax-scroll {
+  --parallax-scroll-gap: 80px;
+  --parallax-scroll-hint-bottom: calc(var(--sp) * 6);
+  --parallax-scroll-pin-min-height: min(68svh, 60rem);
+  overflow: clip;
+}
+
+.parallax-scroll {
+  --parallax-scroll-card-width-mobile: 332px;
+  --parallax-scroll-media-width-mobile: 140px;
+}
+
+.parallax-scroll__pin,
+.parallax-scroll__header {
+  place-items: center;
+}
+
+.parallax-scroll__pin {
+  min-block-size: var(--parallax-scroll-pin-min-height);
+}
+
+.parallax-scroll__header {
+  min-block-size: inherit;
+  z-index: 1;
+}
+
+.parallax-scroll__cards {
+  gap: var(--parallax-scroll-gap);
+}
+
+.parallax-scroll__cards > :where(.blocks-group-parallax-card:nth-child(odd)) .parallax-scroll__card-row {
+  justify-content: flex-start;
+}
+
+.parallax-scroll__cards > :where(.blocks-group-parallax-card:nth-child(even)) .parallax-scroll__card-row {
+  justify-content: flex-end;
+}
+
+.parallax-scroll__card {
+  border-radius: var(--img-rounded);
+  box-shadow: 0 0 2.4rem rgba(0, 0, 0, 0.07);
+  grid-template-columns: var(--parallax-scroll-media-width-mobile) minmax(0, 1fr);
+  width: var(--parallax-scroll-card-width-mobile);
+}
+
+.parallax-scroll__media {
+  min-inline-size: 0;
+}
+
+.parallax-scroll__card-content > * {
+  overflow-wrap: anywhere;
+}
+
+.parallax-scroll__footer {
+  padding: 40px 1.6rem 64px;
+  z-index: 4;
+}
+
+.parallax-scroll.is-animated .parallax-scroll__runway {
+  margin-inline-start: calc(50% - 50vw);
+  width: 100vw;
+}
+
+.parallax-scroll.is-animated .parallax-scroll__pin {
+  block-size: 100svh;
+  inset-block-start: 0;
+  isolation: isolate;
+  min-block-size: 0;
+  overflow: hidden;
+  position: sticky;
+  z-index: 1;
+}
+
+.parallax-scroll.is-animated .parallax-scroll__header {
+  block-size: 100%;
+}
+
+.parallax-scroll.is-animated .parallax-scroll__header-content {
+  filter: blur(calc(var(--scroll-progress, 0) * 3px));
+  opacity: 1;
+  transform: none;
+}
+
+.parallax-scroll.is-intersecting .parallax-scroll__header-content {
+  will-change: filter;
+}
+
+.parallax-scroll.is-animated .parallax-scroll__hint {
+  animation: parallax-scroll-bounce 1.5s infinite;
+  display: flex;
+  inset-block-end: var(--parallax-scroll-hint-bottom);
+  inset-inline-start: 0;
+  opacity: var(--hint-progress, 1);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.parallax-scroll__hint-icon {
+  transform: rotate(90deg);
+}
+
+.parallax-scroll.is-animated .parallax-scroll__cards {
+  margin-block-start: -100svh;
+  padding-block-start: calc(100svh + var(--parallax-scroll-gap));
+  position: relative;
+  z-index: 3;
+}
+
+.parallax-scroll.is-animated .parallax-scroll__card-row {
+  opacity: 1;
+  transform: none;
+}
+
+.parallax-scroll--hide-description-mobile {
+  --parallax-scroll-card-width-mobile: 292px;
+  --parallax-scroll-media-width-mobile: 110px;
+}
+
+.parallax-scroll--hide-description-mobile .block__description {
+  display: none;
+}
+
+.parallax-scroll__card-content .block__description .prose {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@keyframes parallax-scroll-bounce {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .section__parallax-scroll {
+    --parallax-scroll-gap: 40px;
+    --parallax-scroll-hint-bottom: calc(var(--sp) * 8);
+    --parallax-scroll-pin-min-height: min(72svh, 72rem);
+  }
+
+  .parallax-scroll__card {
+    grid-template-columns: minmax(25rem, 42%) minmax(0, 58%);
+    width: var(--parallax-scroll-card-width);
+  }
+
+  .parallax-scroll.is-animated .parallax-scroll__header-content {
+    opacity: calc(1 - var(--scroll-progress, 0) * 0.3);
+    transform: scale(calc(1 - var(--scroll-progress, 0) * 0.04));
+  }
+
+  .parallax-scroll.is-intersecting .parallax-scroll__header-content {
+    will-change: filter, opacity, transform;
+  }
+
+  .parallax-scroll.is-intersecting .parallax-scroll__card-row {
+    will-change: opacity, transform;
+  }
+
+  .parallax-scroll.is-animated .parallax-scroll__card-row {
+    opacity: var(--card-progress, 0);
+    transform: translateY(calc((1 - var(--card-progress, 0)) * 60px));
+  }
+
+  .parallax-scroll--hide-description-mobile .block__description {
+    display: block;
+  }
+
+  .parallax-scroll__card-content .block__description .prose {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+    text-overflow: clip;
+  }
+}
+
+@media (min-width: 1200px) {
+  .parallax-scroll__cards
+    > :where(.blocks-group-parallax-card:nth-child(3n))
+    .parallax-scroll__card-row {
+    padding-inline: 100px;
+  }
+}

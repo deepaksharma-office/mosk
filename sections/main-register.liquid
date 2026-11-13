@@ -1,0 +1,187 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'customer.js' | asset_url }}" defer="defer"></script>
+{%- liquid
+  assign section_st = section.settings
+-%}
+{%- capture style -%}
+  --section-pt: {{ section_st.padding_top }}; --section-pb: {{ section_st.padding_bottom }};
+{%- endcapture -%}
+<div
+  class="stretch_width customer register section flex column content-center w-full max-w-custom-all mx-auto"
+  style="{{ style | strip | strip_newlines }}--max-width: 56rem;--bs-gutter-x: 3rem;"
+>
+  <div class="w-full">
+    <div class="mb-60">
+      <h1 class="heading-title text-center mb-sp-4">
+        {{ 'customer.register.title' | t }}
+      </h1>
+      <div class="heading-description text-center">
+        {{ 'customer.register.create_account_details' | t }}
+      </div>
+    </div>
+    <div class="field">
+      {%- form 'create_customer', class: 'form-validation' -%}
+        <div class="field relative w-full flex wrap transition mb-sp-5">
+          <input
+            type="text"
+            name="customer[first_name]"
+            id="RegisterForm-FirstName"
+            {% if form.first_name %}
+              value="{{ form.first_name }}"
+            {% endif %}
+            required
+            autocomplete="given-name"
+            placeholder="{{ 'customer.register.first_name' | t }} *"
+            class="field__input w-full heading-color"
+            minlength="2"
+          >
+          <label for="RegisterForm-FirstName" class="field__label"> {{ 'customer.register.first_name' | t }} * </label>
+        </div>
+        <div class="field relative w-full flex wrap transition mb-sp-5">
+          <input
+            type="text"
+            name="customer[last_name]"
+            id="RegisterForm-LastName"
+            {% if form.last_name %}
+              value="{{ form.last_name }}"
+            {% endif %}
+            required
+            minlength="2"
+            autocomplete="family-name"
+            placeholder="{{ 'customer.register.last_name' | t }} *"
+            class="field__input w-full heading-color"
+          >
+          <label for="RegisterForm-LastName" class="field__label"> {{ 'customer.register.last_name' | t }} * </label>
+        </div>
+        <div class="field relative w-full flex wrap transition {%- if form.errors contains 'email' -%} mb-10{% else %} mb-sp-5{% endif %}">
+          <input
+            type="email"
+            name="customer[email]"
+            id="RegisterForm-email"
+            {% if form.email %}
+              value="{{ form.email }}"
+            {% endif %}
+            spellcheck="false"
+            autocapitalize="off"
+            autocomplete="email"
+            aria-required="true"
+            {% if form.errors %}
+              aria-invalid="true"
+              aria-describedby="RegisterForm-email-error"
+            {% endif %}
+            placeholder="{{ 'customer.register.email' | t }} *"
+            class="field__input w-full {% if form.errors %} border{% endif %} heading-color"
+            required
+          >
+          <label for="RegisterForm-email" class="field__label">
+            {{ 'customer.register.email' | t }}
+            *
+          </label>
+        </div>
+        {%- if form.errors contains 'email' -%}
+          <span id="RegisterForm-email-error" class="form__message error flex align-center gap-10 mb-10">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" class="flex-auto w-18">
+              <use href="#icon-error"></use>
+            </svg>
+            {{ form.errors.translated_fields.email | capitalize }}
+            {{ form.errors.messages.email }}
+          </span>
+        {%- endif -%}
+        <div class="field relative w-full flex wrap transition mb-10">
+          <div class="w-full relative">
+            <input
+              type="password"
+              name="customer[password]"
+              id="RegisterForm-password"
+              aria-required="true"
+              {% if form.errors contains 'password' %}
+                aria-invalid="true"
+                aria-describedby="RegisterForm-password-error"
+              {% endif %}
+              placeholder="{{ 'customer.register.password' | t }} *"
+              required
+              class="field__input w-full heading-color"
+            >
+            <show-pass-word
+              class="show-pass-word transition absolute inset-y-0 flex content-center right-25 pointer"
+              aria-label="{{ 'customer.login_page.sign_in' | t }}"
+            >
+              <svg class="icon-hide" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <use href="#icon-hide-password"></use>
+              </svg>
+              <svg class="icon-view hidden" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <use href="#icon-show-password"></use>
+              </svg>
+            </show-pass-word>
+            <label for="RegisterForm-password" class="field__label">
+              {{ 'customer.register.password' | t }}
+              *
+            </label>
+          </div>
+        </div>
+        {% if form.errors contains 'password' %}
+          <div
+            id="RegisterForm-password-error"
+            class="error form__message fs-small inline-flex align-center gap-10 mb-10 w-full h-custom"
+            style="--height: 5.6rem;"
+          >
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" class="flex-auto w-18">
+              <use href="#icon-error"></use>
+            </svg>
+            {{ form.errors.translated_fields.password | capitalize }}
+            {{ form.errors.messages.password }}
+          </div>
+        {%- endif -%}
+        <div class="mb-sp-6 text-start lh-small">
+          <span class="required-field fs-small">{{ 'customer.account.required' | t }}</span>
+        </div>
+        <button class="btn btn-primary w-full relative product_submit_button product-form__submit word-wrap relative">
+          <span class="hidden-on-load transition-short"> {{ 'customer.register.submit' | t }}</span>
+          {%- render 'loader' -%}
+        </button>
+        <div class="creat_new-account flex justify-center mt-sp-6">
+          <span class="me-5">{{ 'customer.login_page.have_account' | t }}</span>
+          <a
+            href="{{ routes.account_login_url }}"
+            class="heading-color underline"
+            aria-label="{{ 'customer.login_page.sign_in' | t }}"
+          >
+            {{ 'customer.login_page.title' | t }}
+          </a>
+        </div>
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-register.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 48
+    }
+  ]
+}
+{% endschema %}

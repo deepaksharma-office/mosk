@@ -1,0 +1,71 @@
+{% assign product_placement = product.metafields.custom.product_placement.value %}
+{% if product_placement != blank %}
+  <div class="custom-text-input-wrapper w-full">
+    <label
+      for="custom-text-input-{{ block.id }}"
+      class="custom-text-label{% if block.settings.title == blank %} visually-hidden{% endif %}"
+    >
+      {{ block.settings.title | default: 'Custom text' }}
+    </label>
+
+    <div class="custom-text-input-container relative px-1">
+      <input
+        type="text"
+        id="custom-text-input-{{ block.id }}"
+        name="custom_text"
+        class="custom-text-input w-full"
+        maxlength="{{ block.settings.text_limit }}"
+        placeholder="{{ 'products.custom_options.placeholder' | t }}"
+        data-text-limit="{{ block.settings.text_limit }}"
+        required
+        aria-required="true"
+        aria-describedby="custom-text-counter-{{ block.id }}{% if block.settings.note != blank %} custom-text-note-{{ block.id }}{% endif %}"
+      >
+      <div
+        id="custom-text-counter-{{ block.id }}"
+        class="custom-text-counter absolute right-25 fs-12 opacity"
+        style="--opacity: 0.6;"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <span class="counter-current">0</span> / <span class="counter-max">{{ block.settings.text_limit }}</span>
+      </div>
+    </div>
+
+    {%- if block.settings.note != blank -%}
+      <em id="custom-text-note-{{ block.id }}" class="block custom-text-note mt-sp-2 italic fs-small">
+        {{- block.settings.note -}}
+      </em>
+    {%- endif -%}
+  </div>
+{% elsif request.design_mode %}
+  {%- render 'editor-metafield-hint', id: 'custom_text', source: 'custom.product_placement' -%}
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.main-product.blocks.custom_product.text",
+  "tag": null,
+  "settings": [
+    {
+      "type": "range",
+      "id": "text_limit",
+      "label": "t:sections.main-product.blocks.custom_product.text_limit",
+      "default": 15,
+      "min": 1,
+      "max": 50,
+      "step": 1
+    },
+    {
+      "type": "textarea",
+      "id": "note",
+      "label": "t:sections.main-product.blocks.custom_product.note",
+      "default": "***Up to 15 characters. Punctuation counts as a character."
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.main-product.blocks.custom_product.text"
+    }
+  ]
+}
+{% endschema %}

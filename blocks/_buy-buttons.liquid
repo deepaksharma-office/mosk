@@ -1,0 +1,50 @@
+{%- liquid
+  assign product = closest.product
+  assign show_dynamic_checkout = block.settings.show_dynamic_checkout
+  assign show_gift_card_recipient = block.settings.show_gift_card_recipient
+  assign product_form_id = 'product-form-' | append: section.id
+-%}
+{%- if product.metafields.custom.external_affiliate == blank -%}
+  <div class="product-detail__buy-buttons">
+    {%- render 'buy-buttons',
+      product: product,
+      section_id: section.id,
+      product_form_id: product_form_id,
+      show_dynamic_checkout: show_dynamic_checkout,
+      show_gift_card_recipient: show_gift_card_recipient,
+      scope: 'detail'
+    -%}
+  </div>
+{%- else -%}
+  <a
+    href="{{ product.metafields.custom.external_affiliate.value.external_link }}"
+    rel="nofollow"
+    target="_blank"
+    class="btn pointer product-form__submit relative text-center w-full whitespace-nowrap animation flash-move block btn-primary no-underline"
+  >
+    {{- product.metafields.custom.external_affiliate.value.button_text -}}
+  </a>
+{%- endif -%}
+{% schema %}
+{
+  "name": "t:sections.all.product_setting.buy_buttons.name",
+  "class": "block-product__buttons mb-custom slideIn-animate",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_dynamic_checkout",
+      "default": true,
+      "label": "t:sections.all.product_setting.buy_buttons.settings.show_dynamic_checkout.label",
+      "info": "t:sections.all.product_setting.buy_buttons.settings.show_dynamic_checkout.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_gift_card_recipient",
+      "default": true,
+      "label": "t:sections.all.product_setting.buy_buttons.settings.show_gift_card_recipient.label",
+      "info": "t:sections.all.product_setting.buy_buttons.settings.show_gift_card_recipient.info"
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.product_setting.buy_buttons.name" }]
+}
+{% endschema %}

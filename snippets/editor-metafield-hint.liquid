@@ -1,0 +1,129 @@
+{% doc %}
+  Editor-only empty state for a block or section whose data is missing: the name shown in the
+  sidebar, an "Editor only" label, guidance, a setup link, a preview of the block's shape and the
+  data source. Name, guidance, link and preview are all derived from 'id'. Styled with theme
+  utility classes only.
+  Outputs nothing on the storefront or in the preset preview of the block picker.
+
+  @param {string} id - 'highlights', 'key_features', 'media_lightbox', 'description', 'compare_products', 'model_size', 'product_sizing', 'disclosures', 'promotion_countdown', 'custom_color', 'custom_placement', 'custom_text', 'shop_the_look', 'complete_the_look', 'shop_similar_product', 'info_gallery', 'bought_together' or 'subcollection'.
+  @param {string} source - Where the data comes from, usually the metafield path.
+  @param {string} [state] - 'expired' when a promotion countdown date has passed.
+  @param {boolean} [section_frame] - Wrap the empty state in the calling section's color scheme, padding and width.
+
+  @example
+  {% render 'editor-metafield-hint', id: 'highlights', source: metafield_path %}
+{% enddoc %}
+{%- if request.design_mode and request.visual_preview_mode != true -%}
+  {%- liquid
+    assign docs_root = 'https://nextsky.gitbook.io/purity-theme/'
+    assign docs_product = 'collection-and-product-page/product-page/page-template-sections/product-information'
+    assign docs_metafields = 'theme-installation/create-required-metafields/metafields/'
+    assign docs_metaobjects = 'theme-installation/create-required-metafields/metaobjects/'
+    case id
+      when 'highlights'
+        assign preview = 'icons'
+        assign docs_path = docs_product | append: '#id-8.-highlights'
+      when 'key_features'
+        assign preview = 'list'
+        assign docs_path = docs_product | append: '#id-9.-key-features'
+      when 'media_lightbox'
+        assign preview = 'media'
+        assign docs_path = docs_product | append: '#id-16.-media-lightbox'
+      when 'description'
+        assign preview = 'paragraph'
+        assign docs_path = docs_product | append: '#id-7.-description'
+      when 'promotion_countdown'
+        assign preview = 'timer'
+        assign docs_path = docs_product | append: '#id-11.-promotion-countdown'
+      when 'shop_the_look'
+        assign preview = 'looks'
+        assign docs_path = docs_product
+      when 'product_sizing'
+        assign preview = 'sizing'
+        assign docs_path = docs_metaobjects | append: 'product-sizing'
+      when 'model_size'
+        assign preview = 'model'
+        assign docs_path = docs_metaobjects | append: 'model-size'
+      when 'disclosures'
+        assign preview = 'rows'
+        assign docs_path = docs_metafields | append: 'product-disclosure'
+      when 'custom_color', 'custom_placement', 'custom_text'
+        assign preview = 'pill'
+        assign docs_path = docs_metaobjects | append: 'custom-product-placement'
+      when 'compare_products'
+        assign preview = 'table'
+        assign docs_path = docs_metafields | append: 'compare-items'
+      when 'bought_together'
+        assign preview = 'cards'
+        assign docs_path = docs_metafields | append: 'frequently-bought-together'
+      when 'info_gallery'
+        assign preview = 'cards'
+        assign docs_path = docs_metaobjects | append: 'info-gallery'
+      when 'complete_the_look'
+        assign preview = 'cards'
+        assign docs_path = 'group-sections/products/complete-the-look'
+      when 'shop_similar_product'
+        assign preview = 'cards'
+        assign docs_path = 'group-sections/products/shop-similar-product'
+      when 'subcollection'
+        assign preview = 'cards'
+        assign docs_path = 'collection-and-product-page/collection-page/page-template-sections/sub-collection'
+    endcase
+    assign name_key = 'editor.metafield_hint.names.' | append: id
+    assign guidance_key = 'editor.metafield_hint.guidance.' | append: id
+    if state == 'expired'
+      assign guidance_key = guidance_key | append: '_expired'
+    endif
+    assign editor_only_tooltip = 'editor.metafield_hint.editor_only_tooltip' | t
+    if section_frame
+      assign frame_width = 'fluid_container'
+      if section.settings.section_width == 'fix_width'
+        assign frame_width = 'container'
+      elsif section.settings.section_width == 'full_width'
+        assign frame_width = 'full-width'
+      endif
+      if section.settings.show_divider
+        if section.settings.divider_top == 'line'
+          assign frame_divider = ' border-top'
+        endif
+        if section.settings.divider_bottom == 'line'
+          assign frame_divider = frame_divider | append: ' border-bottom'
+        endif
+      endif
+    endif
+  -%}
+  {%- if section_frame -%}
+    <div
+      class="section color-{{ section.settings.color_scheme }} gradient{{ frame_divider }}"
+      style="--section-pt: {{ section.settings.padding_top }}; --section-pb: {{ section.settings.padding_bottom }};"
+    >
+      <div class="{{ frame_width }}">
+  {%- endif -%}
+  <div class="border rounded p-sp-5 mb-sp-6 text-start" role="note" dir="auto">
+    <div class="flex align-center space-between gap-sp-3 mb-sp-3">
+      <p class="h6 lh-heading">{{ name_key | t }}</p>
+      <span class="fs-10 grey-color" title="{{ editor_only_tooltip | escape }}">
+        {{- 'editor.metafield_hint.editor_only' | t -}}
+      </span>
+    </div>
+    <p class="text-size lh-global">{{ guidance_key | t }}</p>
+    {%- if docs_path != blank -%}
+      <a
+        class="block w-fit mt-sp-3 btn-link underline text-size"
+        href="{{ docs_root | append: docs_path }}"
+        target="_blank"
+        rel="noopener"
+      >
+        {{- 'editor.metafield_hint.docs' | t -}}
+      </a>
+    {%- endif -%}
+    <div class="mt-sp-5 pt-sp-4 border-top grey-color pointer-none" aria-hidden="true">
+      {%- render 'editor-skeleton', type: preview -%}
+    </div>
+    <p class="mt-sp-3 fs-12 grey-color word-break">{{ 'editor.metafield_hint.source' | t: source: source }}</p>
+  </div>
+  {%- if section_frame -%}
+      </div>
+    </div>
+  {%- endif -%}
+{%- endif -%}

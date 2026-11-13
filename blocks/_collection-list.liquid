@@ -1,0 +1,110 @@
+{%- liquid
+  assign block_st = block.settings
+  assign section_st = section.settings
+  assign items_per_row = section_st.items_per_row
+  if section_st.section_width == 'fix_width'
+    assign section_width = 'container'
+  elsif section_st.section_width == 'full_width'
+    assign section_width = 'full-width'
+  else
+    assign section_width = 'fluid_container'
+  endif
+
+  assign image = block_st.collection_image | default: block_st.collection.image
+  assign collection_title = block_st.collection_title | default: block_st.collection.title
+  if collection_title == blank
+    assign collection_title = 'sections.collection_list.sample_name' | t
+  endif
+  assign collection_url = block_st.collection.url
+  if image.alt != blank
+    assign alt_text = image.alt
+  elsif collection_title != blank
+    assign alt_text = collection_title
+  else
+    assign alt_text = 'sections.collection_list.sample_name' | t
+  endif
+-%}
+{% if request.visual_preview_mode %}
+  {% style %}
+    :where(.border-bottom),
+    :where(.border) {
+      border-color: #bbbbbb;
+    }
+  {% endstyle %}
+{% endif %}
+<collection-hover class="collection-hover" {{ block.shopify_attributes }}>
+  <a
+    class="heading-color collection-list__content block-1025 border-bottom flex space-between gap-sp-3 content-center py-sp-3 py-md-sp-4"
+    {% if collection_url != blank %}
+      href="{{ collection_url }}"
+    {% else %}
+      role="link" aria-disabled="true"
+    {% endif %}
+    aria-label="{{ collection_title }}"
+  >
+    <div class="collection-list__content-inner transition flex space-between align-center gap-15 flex-1">
+      <div
+        class="collection-list__content-text h5 body-style body-font body_weight relative flex gap"
+        style="--gap: 8px;--gap-desktop: 8px;"
+      >
+        {{ collection_title }}
+        {%- if section.settings.show_product_count -%}
+          <div class="product-count heading-color fs-13 body_weight flex-auto">
+            {{ block_st.collection.products_count | default: 0 }}
+          </div>
+        {%- endif -%}
+      </div>
+      <span
+        class="collection-list__icon wh-1025-50 hidden flex-1025 flex-auto content-center border rounded-50 text-color pointer btn-hover overflow-hidden relative rtl-mirror"
+      >
+        <svg width="6" height="11" viewBox="0 0 6 11" fill="none">
+          <use href="#icon-next" />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="collection-list__image-hover block rounded w-custom-1025 h-full absolute-1025 opacity-0-1025 relative"
+      style="--width-dk: 12rem;"
+    >
+      {%- if image != blank -%}
+        {% render 'responsive-image',
+          type: 'other',
+          image: image,
+          image_alt: alt_text,
+          container: section_width,
+          column: items_per_row,
+          column_mobile: section_st.items_per_row_mobile,
+          class: 'rounded w-full'
+        %}
+      {%- else -%}
+        {% render 'placeholder-render', type: 'collection', class: 'img-placeholder h-full w-full' %}
+      {%- endif -%}
+    </div>
+  </a>
+</collection-hover>
+{% schema %}
+{
+  "name": "t:sections.collection-list.blocks.featured_collection.name",
+  "class": "collection-list__item motion-item",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:sections.collection-list.blocks.featured_collection.settings.collection.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image",
+      "label": "t:sections.collection-list.blocks.featured_collection.settings.image.label",
+      "info": "t:sections.collection-list.blocks.featured_collection.settings.image.info"
+    },
+    {
+      "type": "text",
+      "id": "collection_title",
+      "label": "t:sections.collection-list.blocks.featured_collection.settings.title.label",
+      "info": "t:sections.collection-list.blocks.featured_collection.settings.title.info"
+    }
+  ],
+  "presets": [{ "name": "t:sections.collection-list.blocks.featured_collection.name" }]
+}
+{% endschema %}

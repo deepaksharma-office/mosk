@@ -1,0 +1,457 @@
+{%- if closest.product != blank -%}
+  <ul class="list-unstyled flex column gap-10">
+    {%- for i in (1..5) -%}
+      {%- capture svg_icon -%}svg_icon_{{ i }}{%- endcapture -%}
+      {%- capture content -%}content_{{ i }}{%- endcapture -%}
+      {%- if block.settings[svg_icon] != 'none' or block.settings[content] != blank -%}
+        <li class="flex gap-10 align-center heading-color prose">
+          {%- if block.settings[svg_icon] != 'none' -%}
+            <span class="icon flex-auto w-custom fs-0" style="--width: 22px;">
+              {% render 'icon_svg_list', icon: block.settings[svg_icon], custom_width: '22', custom_height: '22' %}
+            </span>
+          {%- endif -%}
+          {%- if block.settings[content] != blank -%}
+            <span class="content">{{ block.settings[content] }}</span>
+          {%- endif -%}
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+{%- endif -%}
+{% schema %}
+{
+  "name": "t:sections.all.product_setting.icon_with_text.name",
+  "class": "block-product__icon-with-text my-custom slideIn-animate",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.product_setting.icon_with_text.heading.label_1"
+    },
+    {
+      "type": "select",
+      "id": "svg_icon_1",
+      "label": "t:sections.all.product_setting.icon_with_text.svg.label",
+      "default": "free_shipping",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.none.label"
+        },
+        {
+          "value": "free_shipping",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.free_shipping.label"
+        },
+        {
+          "value": "check_badge",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.check_badge.label"
+        },
+        {
+          "value": "message_communications",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.message_communications.label"
+        },
+        {
+          "value": "truck",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.truck.label"
+        },
+        {
+          "value": "question",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.question.label"
+        },
+        {
+          "value": "location",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.location.label"
+        },
+        {
+          "value": "leaf",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.leaf.label"
+        },
+        {
+          "value": "blossom",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.blossom.label"
+        },
+        {
+          "value": "payment",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.payment.label"
+        },
+        {
+          "value": "discount",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.discount.label"
+        },
+        {
+          "value": "order",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.order.label"
+        },
+        {
+          "value": "verified",
+          "label": "t:sections.all.icon.verified.label"
+        },
+        {
+          "value": "security",
+          "label": "t:sections.all.icon.security.label"
+        },
+        {
+          "value": "package",
+          "label": "t:sections.all.icon.package.label"
+        },
+        {
+          "value": "return",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.return.label"
+        },
+        {
+          "value": "return_package",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.return_package.label"
+        }
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "content_1",
+      "label": "t:sections.all.product_setting.icon_with_text.content.label",
+      "default": "<p>Icon with text</p>"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.product_setting.icon_with_text.heading.label_2"
+    },
+    {
+      "type": "select",
+      "id": "svg_icon_2",
+      "label": "t:sections.all.product_setting.icon_with_text.svg.label",
+      "default": "check_badge",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.none.label"
+        },
+        {
+          "value": "free_shipping",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.free_shipping.label"
+        },
+        {
+          "value": "check_badge",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.check_badge.label"
+        },
+        {
+          "value": "message_communications",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.message_communications.label"
+        },
+        {
+          "value": "truck",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.truck.label"
+        },
+        {
+          "value": "question",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.question.label"
+        },
+        {
+          "value": "location",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.location.label"
+        },
+        {
+          "value": "leaf",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.leaf.label"
+        },
+        {
+          "value": "blossom",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.blossom.label"
+        },
+        {
+          "value": "payment",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.payment.label"
+        },
+        {
+          "value": "discount",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.discount.label"
+        },
+        {
+          "value": "order",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.order.label"
+        },
+        {
+          "value": "verified",
+          "label": "t:sections.all.icon.verified.label"
+        },
+        {
+          "value": "security",
+          "label": "t:sections.all.icon.security.label"
+        },
+        {
+          "value": "package",
+          "label": "t:sections.all.icon.package.label"
+        },
+        {
+          "value": "return",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.return.label"
+        },
+        {
+          "value": "return_package",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.return_package.label"
+        }
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "content_2",
+      "label": "t:sections.all.product_setting.icon_with_text.content.label",
+      "default": "<p>Icon with text</p>"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.product_setting.icon_with_text.heading.label_3"
+    },
+    {
+      "type": "select",
+      "id": "svg_icon_3",
+      "label": "t:sections.all.product_setting.icon_with_text.svg.label",
+      "default": "message_communications",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.none.label"
+        },
+        {
+          "value": "free_shipping",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.free_shipping.label"
+        },
+        {
+          "value": "check_badge",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.check_badge.label"
+        },
+        {
+          "value": "message_communications",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.message_communications.label"
+        },
+        {
+          "value": "truck",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.truck.label"
+        },
+        {
+          "value": "question",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.question.label"
+        },
+        {
+          "value": "location",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.location.label"
+        },
+        {
+          "value": "leaf",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.leaf.label"
+        },
+        {
+          "value": "blossom",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.blossom.label"
+        },
+        {
+          "value": "payment",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.payment.label"
+        },
+        {
+          "value": "discount",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.discount.label"
+        },
+        {
+          "value": "order",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.order.label"
+        },
+        {
+          "value": "verified",
+          "label": "t:sections.all.icon.verified.label"
+        },
+        {
+          "value": "security",
+          "label": "t:sections.all.icon.security.label"
+        },
+        {
+          "value": "package",
+          "label": "t:sections.all.icon.package.label"
+        },
+        {
+          "value": "return",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.return.label"
+        },
+        {
+          "value": "return_package",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.return_package.label"
+        }
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "content_3",
+      "label": "t:sections.all.product_setting.icon_with_text.content.label",
+      "default": "<p>Icon with text</p>"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.product_setting.icon_with_text.heading.label_4"
+    },
+    {
+      "type": "select",
+      "id": "svg_icon_4",
+      "label": "t:sections.all.product_setting.icon_with_text.svg.label",
+      "default": "none",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.none.label"
+        },
+        {
+          "value": "free_shipping",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.free_shipping.label"
+        },
+        {
+          "value": "check_badge",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.check_badge.label"
+        },
+        {
+          "value": "message_communications",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.message_communications.label"
+        },
+        {
+          "value": "truck",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.truck.label"
+        },
+        {
+          "value": "question",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.question.label"
+        },
+        {
+          "value": "location",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.location.label"
+        },
+        {
+          "value": "leaf",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.leaf.label"
+        },
+        {
+          "value": "blossom",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.blossom.label"
+        },
+        {
+          "value": "payment",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.payment.label"
+        },
+        {
+          "value": "discount",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.discount.label"
+        },
+        {
+          "value": "order",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.order.label"
+        },
+        {
+          "value": "verified",
+          "label": "t:sections.all.icon.verified.label"
+        },
+        {
+          "value": "security",
+          "label": "t:sections.all.icon.security.label"
+        },
+        {
+          "value": "package",
+          "label": "t:sections.all.icon.package.label"
+        },
+        {
+          "value": "return",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.return.label"
+        },
+        {
+          "value": "return_package",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.return_package.label"
+        }
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "content_4",
+      "label": "t:sections.all.product_setting.icon_with_text.content.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.product_setting.icon_with_text.heading.label_5"
+    },
+    {
+      "type": "select",
+      "id": "svg_icon_5",
+      "label": "t:sections.all.product_setting.icon_with_text.svg.label",
+      "default": "none",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.none.label"
+        },
+        {
+          "value": "free_shipping",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.free_shipping.label"
+        },
+        {
+          "value": "check_badge",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.check_badge.label"
+        },
+        {
+          "value": "message_communications",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.message_communications.label"
+        },
+        {
+          "value": "truck",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.truck.label"
+        },
+        {
+          "value": "question",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.question.label"
+        },
+        {
+          "value": "location",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.location.label"
+        },
+        {
+          "value": "leaf",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.leaf.label"
+        },
+        {
+          "value": "blossom",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.blossom.label"
+        },
+        {
+          "value": "payment",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.payment.label"
+        },
+        {
+          "value": "discount",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.discount.label"
+        },
+        {
+          "value": "order",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.order.label"
+        },
+        {
+          "value": "verified",
+          "label": "t:sections.all.icon.verified.label"
+        },
+        {
+          "value": "security",
+          "label": "t:sections.all.icon.security.label"
+        },
+        {
+          "value": "package",
+          "label": "t:sections.all.icon.package.label"
+        },
+        {
+          "value": "return",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.return.label"
+        },
+        {
+          "value": "return_package",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.return_package.label"
+        }
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "content_5",
+      "label": "t:sections.all.product_setting.icon_with_text.content.label"
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.product_setting.icon_with_text.name" }]
+}
+{% endschema %}

@@ -1,0 +1,245 @@
+{% liquid
+  assign block_st = block.settings
+  assign icon_style = block_st.icon_style
+  assign row_style = block_st.row_style
+  assign background_row = block_st.background_row
+  assign gap_row = block_st.gap_row
+  assign gap_content = block_st.gap_content
+  assign border_radius_type = block_st.border_radius_type
+  assign border_radius_custom = block_st.border_radius_custom
+  assign padding_row = block_st.padding_row
+  assign heading_row_fs = block_st.heading_row_fs
+  assign heading_row_weight = block_st.heading_row_weight
+%}
+{% capture style %}
+  {%- if border_radius_type == 'custom' and row_style == 'background' %}--img-rounded: {{ border_radius_custom }}px;{% else %}--img-rounded: 0px;{% endif -%}
+  --padding-row: {{ padding_row }}px;--font-size: {{ heading_row_fs }};--heading-weight: {{ heading_row_weight }};--color-background-row: {{ background_row }};--gap-row: {{ gap_row }}px;--space-top: {{ gap_content }};
+{% endcapture %}
+
+<div
+  class="flexible-block accordion-block accordion-{{ block.id }} group-block--width-fill group-block--width-mb-fill w-full accordion-icon--{{ icon_style }} accordion-row--{{ row_style }}{% if block_st.inherit_color_scheme == false %} color-{{ block_st.color_scheme }}{% endif %} gradient switch-slide__mobile group-block--height{% if request.visual_preview_mode %} w-500 p-sp-5 rounded-5{% endif %}"
+  {{ block.shopify_attributes }}
+  style="{{ style | strip | strip_newlines }}"
+>
+  {% content_for 'blocks' %}
+</div>
+{% schema %}
+{
+  "name": "t:sections.custom_section.blocks.accordion.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.custom_section.blocks.accordion.how_to_use"
+    },
+    {
+      "type": "checkbox",
+      "id": "inherit_color_scheme",
+      "label": "t:sections.custom_section.blocks.page.inherit_color_scheme",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme",
+      "visible_if": "{{ block.settings.inherit_color_scheme == false }}"
+    },
+    {
+      "type": "header",
+      "content": "t:settings_schema.typography.name"
+    },
+    {
+      "type": "range",
+      "id": "heading_row_fs",
+      "label": "t:sections.custom_section.blocks.accordion.settings.settings.heading_size",
+      "min": 16,
+      "max": 32,
+      "default": 18,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "heading_row_weight",
+      "label": "t:sections.custom_section.blocks.accordion.settings.settings.heading_weight",
+      "options": [
+        {
+          "value": "600",
+          "label": "t:sections.custom_section.blocks.accordion.settings.settings.heading_weight"
+        },
+        {
+          "value": "500",
+          "label": "t:sections.custom_section.blocks.accordion.settings.settings.body_weight"
+        }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "range",
+      "id": "gap_content",
+      "label": "t:sections.custom_section.blocks.accordion.settings.gap_content",
+      "min": 0,
+      "max": 30,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.accordion.settings.icon_style.style"
+    },
+    {
+      "type": "select",
+      "id": "icon_style",
+      "label": "t:sections.custom_section.blocks.accordion.settings.icon_style.label",
+      "options": [
+        {
+          "value": "caret",
+          "label": "t:sections.custom_section.blocks.accordion.settings.icon_style.caret"
+        },
+        {
+          "value": "plus",
+          "label": "t:sections.custom_section.blocks.accordion.settings.icon_style.plus"
+        }
+      ],
+      "default": "caret"
+    },
+    {
+      "type": "select",
+      "id": "row_style",
+      "label": "t:sections.custom_section.blocks.accordion.settings.row_style.label",
+      "options": [
+        {
+          "value": "background",
+          "label": "t:sections.custom_section.blocks.accordion.settings.row_style.background"
+        },
+        {
+          "value": "divider",
+          "label": "t:sections.custom_section.blocks.accordion.settings.row_style.divider"
+        }
+      ],
+      "default": "divider"
+    },
+    {
+      "type": "color",
+      "id": "background_row",
+      "label": "t:sections.custom_section.blocks.accordion.settings.background_color",
+      "default": "#F2EFE6",
+      "visible_if": "{{ block.settings.row_style == 'background' }}"
+    },
+    {
+      "type": "select",
+      "id": "border_radius_type",
+      "label": "t:sections.custom_section.settings.appearance.settings.corner_radius.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.custom_section.settings.appearance.settings.corner_radius.options.none.label"
+        },
+        {
+          "value": "custom",
+          "label": "t:sections.custom_section.settings.appearance.settings.corner_radius.options.custom.label"
+        }
+      ],
+      "default": "custom",
+      "visible_if": "{{ block.settings.row_style == 'background' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_radius_custom",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.custom_section.settings.appearance.settings.corner_radius.custom_radius.label",
+      "default": 20,
+      "visible_if": "{{ block.settings.border_radius_type == 'custom' and block.settings.row_style == 'background' }}"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.accordion.settings.row_spacing"
+    },
+    {
+      "type": "range",
+      "id": "gap_row",
+      "label": "t:sections.custom_section.blocks.accordion.settings.gap_row",
+      "min": 0,
+      "max": 30,
+      "default": 12,
+      "unit": "px",
+      "visible_if": "{{ block.settings.row_style == 'background' }}"
+    },
+    {
+      "type": "range",
+      "id": "padding_row",
+      "label": "t:sections.custom_section.blocks.accordion.settings.padding_row",
+      "min": 0,
+      "max": 50,
+      "default": 24,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "_accordion-row"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.custom_section.blocks.accordion.name",
+      "category": "t:sections.group.blocks.layout",
+      "blocks": [
+        {
+          "type": "_accordion-row",
+          "settings": {
+            "heading": "How long does shipping take?",
+            "open": "true"
+          },
+          "blocks": [
+            {
+              "type": "text",
+              "settings": {
+                "text": "<p>Our orders typically arrive within 3–7 business days, depending on your location and chosen shipping method. Please note that holidays, weather conditions and peak shopping seasons can affect delivery times.</p>",
+                "text_align_desktop": "left",
+                "text_align_mobile": "left"
+              }
+            }
+          ]
+        },
+        {
+          "type": "_accordion-row",
+          "settings": {
+            "heading": "When will I get my money back?"
+          },
+          "blocks": [
+            {
+              "type": "text",
+              "settings": {
+                "text": "<p>Refunds are typically processed within 5–10 business days after your return is approved. The exact timing may vary depending on your bank or payment provider. You will receive a confirmation email once your refund has been issued.</p>",
+                "text_align_desktop": "left",
+                "text_align_mobile": "left"
+              }
+            }
+          ]
+        },
+        {
+          "type": "_accordion-row",
+          "settings": {
+            "heading": "How can I track my order?"
+          },
+          "blocks": [
+            {
+              "type": "text",
+              "settings": {
+                "text": "<p>Once your order ships, you’ll receive a confirmation email with a tracking link. You can click the link to see real-time updates on your shipment. If you haven’t received the email, please check your spam folder or contact our support team.</p>",
+                "text_align_desktop": "left",
+                "text_align_mobile": "left"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,112 @@
+.tabs-navigation::before {
+  content: "";
+  position: absolute;
+  bottom: 7px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #e0e0e0;
+  z-index: 0;
+}
+
+.stepper-item:is(.active, .is-completed) .stepper-label {
+  color: #1d1d1f;
+}
+
+.stepper-item.active .stepper-dot,
+.stepper-item.is-completed .stepper-dot {
+  border-color: #1d1d1f;
+}
+
+.stepper-item::after {
+  content: "";
+  position: absolute;
+  bottom: 7px;
+  inset-inline-start: calc(-50% - 4px);
+  width: 0;
+  height: 2px;
+  background: #1d1d1f;
+  z-index: -1;
+  transition: width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.stepper-item.active::after,
+.stepper-item.is-completed::after {
+  width: 100%;
+}
+
+.tab-panel[hidden] {
+  display: none;
+}
+
+.placement-product-option input[type="radio"],
+.color-option-label input[type="radio"] {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+}
+
+.placement-product-content .placement-product-image,
+.custom-color-list .color-option-image {
+  --color-border: transparent;
+}
+.placement-product-image::after,
+.color-option-image::after {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  transition: var(--transition);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  box-shadow: inset 0 0 0 var(--shadow-position, 0)
+    rgb(var(--color-white, #fff));
+}
+
+.placement-product-content:hover .placement-product-image,
+.color-option-content:hover .color-option-image {
+  --shadow-position: 4px;
+  --color-border: #e0e0e0;
+}
+.placement-product-option
+  input[type="radio"]:checked
+  ~ .placement-product-content
+  .placement-product-image,
+.color-option-label
+  input[type="radio"]:checked
+  ~ .color-option-content
+  .color-option-image {
+  border-color: var(--color-dark);
+  --shadow-position: 5px;
+  --color-border: #1d1d1f;
+}
+
+.placement-product-option
+  input[type="radio"]:focus-visible
+  ~ .placement-product-content
+  .placement-product-image {
+  border-color: var(--color-dark);
+  --shadow-position: 5px;
+  --color-border: #1d1d1f;
+}
+
+.color-option-label
+  input[type="radio"]:focus-visible
+  ~ .color-option-content
+  .color-option-image {
+  border-color: var(--color-dark);
+  --shadow-position: 5px;
+  --color-border: #1d1d1f;
+}
+
+.custom-text-counter.at-limit {
+  color: #1d1d1f;
+  opacity: 1;
+}
+
+.custom-text-counter {
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}

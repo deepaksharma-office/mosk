@@ -1,0 +1,72 @@
+{% if request.visual_preview_mode %}
+  <span class="visibility-hidden">{{ 'preview.content' | t }}</span>
+{% endif %}
+<span class="block-icon flex gap-sp-2 align-center heading-color prose" {{ block.shopify_attributes }}>
+  {%- if block.settings.svg_icon != 'none' -%}
+    <span class="icon flex-auto w-custom fs-0" style="--width: 16px;">
+      {%- render 'icon_svg_list', icon: block.settings.svg_icon, custom_width: 16, custom_height: 16 -%}
+    </span>
+  {%- endif -%}
+  {%- if block.settings.text != blank -%}
+    <span class="content prose">{{ block.settings.text }}</span>
+  {%- endif -%}
+</span>
+{% schema %}
+{
+  "name": "t:sections.all.product_setting.icon_with_text.name",
+  "settings": [
+    {
+      "type": "select",
+      "id": "svg_icon",
+      "label": "t:sections.all.product_setting.icon_with_text.svg.label",
+      "default": "verified",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.none.label"
+        },
+        {
+          "value": "free_shipping",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.free_shipping.label"
+        },
+        {
+          "value": "check_badge",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.check_badge.label"
+        },
+        {
+          "value": "message_communications",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.message_communications.label"
+        },
+        {
+          "value": "truck",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.truck.label"
+        },
+        {
+          "value": "payment",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.payment.label"
+        },
+        {
+          "value": "discount",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.discount.label"
+        },
+        {
+          "value": "order",
+          "label": "t:sections.all.product_setting.icon_with_text.icon.order.label"
+        },
+        {
+          "value": "verified",
+          "label": "t:sections.all.icon.verified.label"
+        }
+      ],
+      "info": "t:sections.all.product_setting.icon_with_text.info"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.all.product_setting.icon_with_text.content.label",
+      "default": "<p>Icon with text</p>"
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.product_setting.icon_with_text.name" }]
+}
+{% endschema %}

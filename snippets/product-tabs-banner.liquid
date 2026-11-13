@@ -1,0 +1,90 @@
+{% comment %}
+  Renders the banner of a Product tabs tab (horizontal layout)
+
+  Accepts:
+  - block: {Object} tab block (required)
+  - banner_ratio: {String} adapt | square | portrait_4_5 | portrait_3_4 (required)
+  - section_width: {String} container class (required)
+  - sticky_banner: {Boolean} keep the banner sticky on desktop only (optional)
+  - show_banner_mobile: {Boolean} show the banner on mobile (optional)
+
+  Usage:
+  {% render 'product-tabs-banner', block: block, banner_ratio: banner_ratio, section_width: section_width %}
+{% endcomment %}
+{%- liquid
+  assign block_st = block.settings
+  assign banner_image = block_st.banner_image
+  assign banner_alt = banner_image.alt | escape
+  if block_st.banner_heading != blank or block_st.banner_description != blank
+    assign banner_alt = ''
+  endif
+  assign banner_ratio_value = '4/5'
+  case banner_ratio
+    when 'adapt'
+      if banner_image != blank
+        assign banner_ratio_value = banner_image.aspect_ratio
+      endif
+    when 'square'
+      assign banner_ratio_value = '1/1'
+    when 'portrait_3_4'
+      assign banner_ratio_value = '3/4'
+  endcase
+-%}
+<div
+  class="product-tabs__banner col-1025-w-custom w-full{% if sticky_banner %} sticky-1025 align-self-start{% endif %}{% unless show_banner_mobile %} hidden block-1025{% endunless %}"
+  {% if sticky_banner %}
+    style="top: 4rem;"
+  {% endif %}
+>
+  <div
+    class="product-tabs__banner-media banner__media flex rounded"
+    style="--aspect-ratio: {{ banner_ratio_value }};"
+  >
+    {%- if banner_image != blank -%}
+      {% render 'responsive-image',
+        type: 'banner',
+        container: section_width,
+        image: banner_image,
+        image_alt: banner_alt,
+        column: 2,
+        motion: false
+      %}
+    {%- else -%}
+      {% render 'placeholder-render', type: 'collection-6', class: 'img-placeholder h-full w-full' %}
+    {%- endif -%}
+    <div
+      class="product-tabs__banner-content relative z-2 w-full p-sp-6 p-1025-sp-8 flex column justify-content-{{ block_st.vertical_alignment }} align-center align-1025-{{ block_st.content_alignment }} text-center text-1025-{{ block_st.content_alignment }} color-{{ block_st.banner_color_scheme }} gradient"
+      style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.2) 100%);"
+    >
+      {%- if block_st.banner_subheading != blank -%}
+        <div class="section-subheading h7 subheading_weight mb-sp-1 mb-md-sp-2">
+          {{ block_st.banner_subheading }}
+        </div>
+      {%- endif -%}
+      {%- if block_st.banner_heading != blank -%}
+        <div class="h3 heading-color mb-sp-5 mb-md-30" role="heading" aria-level="3">
+          {{ block_st.banner_heading }}
+        </div>
+      {%- endif -%}
+      {%- if block_st.banner_description != blank -%}
+        <div class="product-tabs__banner-description prose mb-sp-8">
+          {{ block_st.banner_description }}
+        </div>
+      {%- endif -%}
+      {%- if block_st.button_label != blank -%}
+        <a
+          {% if block_st.button_link != blank %}
+            href="{{ block_st.button_link }}"
+          {% else %}
+            role="link"
+            aria-disabled="true"
+          {% endif %}
+          class="btn-{{ block_st.button_type }}{% if block_st.button_type == 'link' %} border-animation w-fit{% else %} btn w-full w-1025-fit min-w-custom-md{% endif %} pointer mb-md-sp-5"
+          style="--min-width: 20rem;"
+        >
+          {{- block_st.button_label -}}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>

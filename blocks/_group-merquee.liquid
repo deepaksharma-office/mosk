@@ -1,0 +1,104 @@
+{% liquid
+  assign theme_st = settings
+  assign section_st = section.settings
+  assign block_st = block.settings
+  assign scroll_animation = theme_st.scroll_animation
+  assign scroll_animation = 'disable'
+  assign content_alignment = section_st.text_alignment
+  assign text_alignment_mobile = section_st.text_alignment_mobile
+%}
+{% capture style %}
+  --space-bottom: {{ block.settings.padding_bottom }};--space-top: {{ block.settings.padding_top }};
+  --bg-color-custom: {{ block_st.background_color | default: '#000000' }};
+  --radius: {{ block_st.border_radius }}px;
+  {% endcapture %}
+
+<div
+  class="block__heading mb-custom mt-custom{% if block_st.padding_bottom > 10 %} mb_auto-rsp{% endif %}{% if block_st.padding_top > 10 %} mt_auto-rsp{% endif %} flex justify-content-{{ text_alignment_mobile }} flex-md-{{ content_alignment }}"
+  style="{{ style | strip | strip_newlines }}"
+  {{ block.shopify_attributes }}
+>
+  {%- if scroll_animation != 'disable' -%}
+    <motion-effect
+      data-animate="fade-up"
+      class="block"
+    >
+  {%- endif -%}
+  <div class="flex group-merquee">
+    {% content_for 'blocks' %}
+  </div>
+  {%- if scroll_animation != 'disable' -%}
+    </motion-effect>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.group.decorative.marquee",
+  "class": "w-full",
+  "blocks": [
+    {
+      "type": "icon"
+    },
+    {
+      "type": "group-text"
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.settings.appearance.header"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_background",
+      "label": "t:sections.custom_section.blocks.settings.background.label",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:sections.custom_section.blocks.settings.background_color.label",
+      "default": "#000000",
+      "visible_if": "{{ block.settings.enable_background == true }}",
+      "alpha": true
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.custom_section.settings.appearance.settings.corner_radius.label",
+      "default": 0,
+      "visible_if": "{{ block.settings.enable_background == true }}"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.page.spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 10
+    }
+  ],
+  "presets": [{ "name": "t:sections.group.decorative.marquee" }]
+}
+{% endschema %}

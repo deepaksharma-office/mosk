@@ -1,0 +1,119 @@
+{% liquid
+  assign block_st = block.settings
+  assign image_bg = block_st.image_bg
+  assign color_bg = block_st.color_bg
+%}
+
+{%- style -%}
+  .justify-content-start .justify_block {
+    justify-content: start;
+  }
+  .justify-content-center .justify_block {
+    justify-content: center;
+  }
+  .justify-content-end .justify_block {
+    justify-content: end;
+  }
+  .press-media-container {
+    padding: 2.4rem 6.5rem 4rem 6.5rem;
+  }
+  .slide-with-media {
+    overflow: visible;
+    width: 153px;
+  }
+  @media screen and (min-width: 1025px) {
+    .slide-with-media {
+      width: 274px;
+    }
+  }
+  .slide-with-media .swiper-slide:not(.swiper-slide-active, .swiper-slide-next) .image-card-press {
+    opacity: 0 !important;
+  }
+  .slide-with-media .swiper-slide-next .image-card-press {
+    opacity: 0.7 !important;
+  }
+  .slide-with-media .swiper-slide-next + .swiper-slide .image-card-press {
+    opacity: 0.1 !important;
+  }
+{%- endstyle -%}
+<div class="w-full h-full align-center justify-content-center{% if block_st.hidden_on_mobile %} hidden flex-md{% else %} flex{% endif %}">
+  <div
+    class="flex wrap content-center w-full h-full relative press-media-container overflow-hidden"
+    style="--padding-inline: 60;--padding-block: 60;"
+  >
+    <div
+      class="banner-background__image absolute inset-0 w-full h-full object-fit-cover overlay-bg-custom z-0 overflow-hidden{% if image_bg == blank %} bg-custom{% endif %}"
+      style="{% if image_bg == blank %}--bg-color-custom: {{ color_bg }}{% endif %}"
+    >
+      {%- liquid
+        assign alt_default = 'accessibility.promotion_banner' | t
+        assign alt = image_bg.alt | default: alt_default | escape
+      -%}
+      {% if image_bg != blank %}
+        {% render 'responsive-image',
+          type: 'banner',
+          image: image_bg,
+          image_alt: alt,
+          motion: false,
+          class_motion: ' h-full'
+        -%}
+      {% endif %}
+    </div>
+    <slide-with-media
+      id="swiper-{{ block.id }}"
+      class="slide-with-media swiper w-full h-fit"
+      data-section-id="{{ block.id }}"
+    >
+      <div class="swiper-wrapper">
+        {% content_for 'blocks' %}
+      </div>
+    </slide-with-media>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "t:sections.press_card.blocks.media",
+  "class": "w-full col-md-w-custom col-md-w-custom-50 press_media",
+  "blocks": [
+    {
+      "type": "_press-image"
+    }
+  ],
+  "settings": [
+    {
+      "type": "color",
+      "id": "color_bg",
+      "label": "t:settings_schema.badges.settings.background_color.label",
+      "default": "#896957"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_bg",
+      "label": "t:sections.all.image.label",
+      "info": "t:sections.press_card.blocks.settings.press-image.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "hidden_on_mobile",
+      "label": "t:sections.custom_section.settings.layout.hide_on_mobile.label",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.press_card.blocks.media",
+      "blocks": [
+        {
+          "type": "_press-image"
+        },
+        {
+          "type": "_press-image"
+        },
+        {
+          "type": "_press-image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

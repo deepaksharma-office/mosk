@@ -1,0 +1,46 @@
+{%- liquid
+  assign block_st = block.settings
+  assign specifications_layout = section.settings.specifications_layout
+-%}
+
+<div
+  class="product-specifications-item detail-row flex gap {% if specifications_layout == 'list' %} space-between-1025 py-sp-3 py-1025-sp-4 border-bottom{% else %} py-sp-4 py-1025-sp-6 align-start border-bottom-dashed{% endif %}"
+  style="--gap: 0.8rem;--gap-desktop: 5rem;"
+  {{ block.shopify_attributes }}
+>
+  <div
+    class="row-title heading-color opacity{% if specifications_layout == 'list' %} min-w-custom{% else %} w-custom{% endif %}"
+    style="{% if specifications_layout == 'list' %}--min-width: 14rem;--opacity: 1;{% else %}--width: 10rem;--opacity: 0.7;{% endif %}"
+  >
+    {{ block_st.row_title }}
+  </div>
+  <div class="row-details{% if specifications_layout == 'list' %} text-end{% else %} text-start{% endif %} word-break{% if specifications_layout == 'grid' %} flex-1{% endif %}">
+    {{ block_st.row_details }}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.product-specifications.item_name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "row_title",
+      "label": "t:sections.all.content_setting.detail_list.detail_row.row_title",
+      "default": "Row title"
+    },
+    {
+      "type": "richtext",
+      "id": "row_details",
+      "label": "t:sections.all.content_setting.detail_list.detail_row.row_details",
+      "default": "<p>Row details</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.product-specifications.item_name"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,97 @@
+{% assign block_st = block.settings %}
+<div
+  class="w-custom h-auto flex heading-color mb-custom{% if block_st.spacing_bottom > 10 %} mb_auto-rsp{% endif %}"
+  style="--width: {{ block_st.icon_size }}px;--space-bottom: {{ block_st.spacing_bottom }};"
+>
+  {% if block_st.icon_image != blank %}
+    {%- liquid
+      assign alt_default = 'accessibility.promotion_banner' | t
+      assign alt = block_st.icon_image.alt | default: alt_default | escape
+    -%}
+    {% render 'responsive-image', type: 'other', image: block_st.icon_image, image_alt: alt, class: 'rounded' %}
+  {% elsif block_st.icon_svg != 'none' %}
+    {% render 'icon_svg_list',
+      icon: block_st.icon_svg,
+      custom_width: block_st.icon_size,
+      custom_height: block_st.icon_size
+    %}
+  {% else %}
+    <div
+      class="w-custom h-custom rounded"
+      style="--width: {{ block_st.icon_size }}px;--height: {{ block_st.icon_size }}px;--aspect-ratio:1/1;"
+    >
+      {%- render 'placeholder-render', type: 'product', class: 'img-placeholder' -%}
+    </div>
+  {% endif %}
+</div>
+{% schema %}
+{
+  "name": "t:sections.parallax-image.blocks.icon.name",
+  "class": "w-full flex justify_block",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "icon_image",
+      "label": "t:sections.all.image.label",
+      "info": "t:sections.parallax-image.blocks.icon.info"
+    },
+    {
+      "type": "select",
+      "id": "icon_svg",
+      "label": "t:sections.all.svg.label",
+      "default": "leaf",
+      "options": [
+        {
+          "value": "leaf",
+          "label": "t:sections.all.icon.leaf.label"
+        },
+        {
+          "value": "cruelty",
+          "label": "t:sections.all.icon.cruelty.label"
+        },
+        {
+          "value": "paraben",
+          "label": "t:sections.all.icon.paraben.label"
+        },
+        {
+          "value": "moon",
+          "label": "t:sections.all.icon.moon.label"
+        },
+        {
+          "value": "hive",
+          "label": "t:sections.all.icon.hive.label"
+        },
+        {
+          "value": "comb",
+          "label": "t:sections.all.icon.comb.label"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 30,
+      "max": 70,
+      "step": 1,
+      "unit": "px",
+      "default": 60,
+      "label": "t:sections.icon-box.settings.icon_settings.icon_size.label"
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.spacing_bottom",
+      "default": 15
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.parallax-image.blocks.icon.name"
+    }
+  ]
+}
+{% endschema %}

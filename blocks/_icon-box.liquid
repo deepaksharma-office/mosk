@@ -1,0 +1,190 @@
+{%- liquid
+  assign theme_st = settings
+  assign block_st = block.settings
+  assign heading_1 = block_st.heading_1
+  assign description_1 = block_st.description_1
+  assign heading_2 = block_st.heading_2
+  assign description_2 = block_st.description_2
+  assign heading_3 = block_st.heading_3
+  assign description_3 = block_st.description_3
+  assign heading_4 = block_st.heading_4
+  assign description_4 = block_st.description_4
+  assign size = 0
+  for i in (1..4)
+    assign heading_block = 'heading_' | append: i
+    assign description_block = 'description_' | append: i
+    assign heading = block_st[heading_block]
+    assign description = block_st[description_block]
+    if heading != blank or description != blank
+      assign size = size | plus: 1
+    endif
+  endfor
+  assign scroll_animation = theme_st.scroll_animation
+-%}
+<div
+  class="grid-info mb-custom"
+  style="--space-bottom: {{ block_st.spacing_bottom }};"
+  {{ block.shopify_attributes }}
+>
+  {%- if scroll_animation != 'disable' -%}
+    <motion-effect
+      data-animate="fade-up"
+      class="block"
+    >
+  {%- endif -%}
+  <ul
+    class="grid-info__content list-unstyled grid grid-cols gap row-as-col-gap w-full"
+    style="{% if size > 1 %}--col-number: 2;--col-tablet: 2;{% else %}--col-number:1;{% endif %}--gap-desktop: 3rem;--gap: 2rem;"
+  >
+    {%- if heading_1 != blank or description_1 != blank -%}
+      <li>
+        {%- if heading_1 != blank -%}
+          <div
+            class="grid-info__heading h2 mb-10"
+          >
+            {{ heading_1 }}
+          </div>
+        {%- endif -%}
+        {%- if description_1 != blank -%}
+          <div class="grid-info__description prose">
+            {{ description_1 }}
+          </div>
+        {%- endif -%}
+      </li>
+    {%- endif -%}
+    {%- if heading_2 != blank or description_2 != blank -%}
+      <li>
+        {%- if heading_2 != blank -%}
+          <div
+            class="grid-info__heading h2 mb-10"
+          >
+            {{ heading_2 }}
+          </div>
+        {%- endif -%}
+        {%- if description_2 != blank -%}
+          <div class="grid-info__description prose">
+            {{ description_2 }}
+          </div>
+        {%- endif -%}
+      </li>
+    {%- endif -%}
+    {%- if heading_3 != blank or description_3 != blank -%}
+      <li>
+        {%- if heading_3 != blank -%}
+          <div
+            class="grid-info__heading h2 mb-10"
+          >
+            {{ heading_3 }}
+          </div>
+        {%- endif -%}
+        {%- if description_3 != blank -%}
+          <div class="grid-info__description prose">
+            {{ description_3 }}
+          </div>
+        {%- endif -%}
+      </li>
+    {%- endif -%}
+    {%- if heading_4 != blank or description_4 != blank -%}
+      <li>
+        {%- if heading_4 != blank -%}
+          <div
+            class="grid-info__heading h2 mb-10"
+          >
+            {{ heading_4 }}
+          </div>
+        {%- endif -%}
+        {%- if description_4 != blank -%}
+          <div class="grid-info__description prose">
+            {{ description_4 }}
+          </div>
+        {%- endif -%}
+      </li>
+    {%- endif -%}
+  </ul>
+  {%- if scroll_animation != 'disable' -%}
+    </motion-effect>
+  {%- endif -%}
+</div>
+{% schema %}
+{
+  "name": "t:sections.multi_content.blocks.grid_info",
+  "class": "w-full",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.multi_content.blocks.grid_info_1"
+    },
+    {
+      "type": "text",
+      "id": "heading_1",
+      "label": "t:sections.all.content_setting.heading.label",
+      "default": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "description_1",
+      "label": "t:sections.all.content_setting.description.label",
+      "default": "<p>Add a short description for this section.</p>"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.multi_content.blocks.grid_info_2"
+    },
+    {
+      "type": "text",
+      "id": "heading_2",
+      "label": "t:sections.all.content_setting.heading.label",
+      "default": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "description_2",
+      "label": "t:sections.all.content_setting.description.label",
+      "default": "<p>Add a short description for this section.</p>"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.multi_content.blocks.grid_info_3"
+    },
+    {
+      "type": "text",
+      "id": "heading_3",
+      "label": "t:sections.all.content_setting.heading.label",
+      "default": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "description_3",
+      "label": "t:sections.all.content_setting.description.label",
+      "default": "<p>Add a short description for this section.</p>"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.multi_content.blocks.grid_info_4"
+    },
+    {
+      "type": "text",
+      "id": "heading_4",
+      "label": "t:sections.all.content_setting.heading.label",
+      "default": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "description_4",
+      "label": "t:sections.all.content_setting.description.label",
+      "default": "<p>Add a short description for this section.</p>"
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.spacing_bottom",
+      "default": 15
+    }
+  ],
+  "presets": [{ "name": "t:sections.multi_content.blocks.grid_info" }]
+}
+{% endschema %}

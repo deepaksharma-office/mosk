@@ -1,0 +1,173 @@
+{%- liquid
+  assign dropdowns_animation = section_st.dropdowns_animation
+-%}
+{% if link.links.size > 0 %}
+  {%- if type == 'classic' -%}
+    <div class="submenu classic color-default z-5{% if menu_mobile == blank %} {{ dropdowns_animation }} absolute submenu-desktop{% else %} bg-white sub-mb absolute inset-0 drawer drawer-right-mb overflow-hidden flex column{% endif %}">
+      <div class="menu-container py-1025-sp-6 bg-white custom-scrollbar overflow-auto">
+        {%- if menu_mobile != blank -%}
+          <div class="sticky top-0 flex gap-16 pt-sp-5 bg-white px-gutter-x align-center z-2">
+            <button
+              class="relative flex modal-button-close rounded-50 modal__close transition-short heading-color content-center btn-reset pointer"
+              is="button-close-model"
+              aria-label="{{ 'accessibility.button.close' | t }}"
+            >
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <use href="#icon-close" />
+              </svg>
+            </button>
+          </div>
+          <div class="submenu-header heading-color flex align-center space-between px-gutter-x py-sp-5 border-dash-bottom sticky top-0 bg-white z-3">
+            <div class="back-menu flex align-center gap-custom pointer" style="--gap: 24">
+              <button
+                class="pointer btn-reset flex align-center gap-sp-4 heading-color h7"
+                aria-label="{{ link.title }}"
+                style="{% if menu_mobile != blank %}--color-heading: var(--color-grey);{% endif %}"
+              >
+                <svg class="icon-back min-w-custom rtl-mirror" width="7" height="13" viewBox="0 0 8 14" fill="none">
+                  <use href="#icon-back" />
+                </svg>
+                <span class="fs-big-2 menu_weight{% if menu_mobile != blank %} text-start{% endif %}">
+                  {{- link.title -}}
+                </span>
+              </button>
+            </div>
+          </div>
+        {%- endif -%}
+  {%- else -%}
+    {%- if menu_mobile != blank -%}
+      <div class="sticky top-0 flex gap-16 pt-sp-5 bg-white px-gutter-x align-center z-2">
+        <button
+          class="relative flex modal-button-close rounded-50 modal__close transition-short heading-color content-center btn-reset pointer"
+          is="button-close-model"
+          aria-label="{{ 'accessibility.button.close' | t }}"
+        >
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <use href="#icon-close" />
+          </svg>
+        </button>
+      </div>
+      <div class="submenu-header heading-color flex align-center space-between px-gutter-x py-sp-5 border-dash-bottom sticky top-0 bg-white z-3">
+        <div class="back-menu flex align-center gap-custom pointer" style="--gap: 24">
+          <button
+            class="pointer btn-reset flex align-center gap-sp-4 heading-color h7"
+            aria-label="{{ link.title }}"
+            style="{% if menu_mobile != blank %}--color-heading: var(--color-grey);{% endif %}"
+          >
+            <svg class="icon-back min-w-custom rtl-mirror" width="7" height="13" viewBox="0 0 8 14" fill="none">
+              <use href="#icon-back" />
+            </svg>
+            <span class="fs-big-2 menu_weight{% if menu_mobile != blank %} text-start{% endif %}">
+              {{- link.title -}}
+            </span>
+          </button>
+        </div>
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+  <ul class="menu list-unstyled{% if type == 'classic' and menu_mobile == blank %} flex column gap-15{% endif %}{% if type != 'classic' and menu_mobile == blank %} sub-menu-mega flex wrap flex-cols gap row-gap-30{% endif %}{% if type != 'classic' and menu_mobile != blank %} px-gutter-x pb-10{% endif %}{% if menu_mobile != blank %} px-gutter-x{% endif %}">
+    {% for child_link in link.links %}
+      <li class="menu-link{% if child_link.links.size > 0 %} have-child{% if menu_mega == blank %} relative{% endif %}{% endif %}{% if menu_mega == blank and menu_mobile == blank %} px-30{% endif %}{% if menu_mobile != blank %} overflow-hidden{% endif %}{% if type == 'classic' and menu_mobile == blank %} classic-menu{% endif %}{% if forloop.last != true and menu_mobile != blank %} border-dash-bottom{% endif %}">
+        {%- if child_link.links.size > 0 -%}
+          {% if menu_mega != blank %}
+            <a
+              class="menu__item level-2{% if menu_mobile == blank %} heading-style{% endif %} h6 lh-global outlined-border relative"
+              href="{{ child_link.url }}"
+              aria-label="{{ child_link.title }}"
+            >
+              {{- child_link.title -}}
+            </a>
+          {%- else -%}
+            <details
+              class="details-normal not-highlight-tap"
+              is="submenu-details"
+              data-href="{{ link.url }}"
+              {% if type != 'classic' and menu_mobile == blank %}
+                open
+              {%- elsif menu_mobile != blank -%}
+                open
+              {% endif %}
+            >
+              <summary
+                class="menu__item level-2{% if type != 'classic' %} fs-big-2{% if menu_mobile == blank %} heading-style{% endif %}{% endif %}{% if menu_mobile != blank %} py-sp-4{% endif %} flex align-center gap-5 space-between inside-out-hover not-highlight-tap"
+                aria-label="{{ child_link.title }}"
+              >
+                <span class="menu__title outlined-border relative max-w-100">
+                  {{- child_link.title -}}
+                </span>
+                <span
+                  class="toggle-menu w-30 h-custom inline-flex flex-end align-center rtl-mirror"
+                  style="--height: 30px;"
+                >
+                  <svg
+                    class="icon icon-down icon-rotate transition-short heading-color"
+                    width="13"
+                    height="7"
+                    viewBox="0 0 13 7"
+                  >
+                    <use href="#icon-arrow-down-mb" />
+                  </svg>
+                </span>
+              </summary>
+            </details>
+          {% endif %}
+          <ul class="sub-children-menu list-unstyled flex column gap-sp-3 overflow-hidden-mb{% if menu_mega == blank and menu_mobile == blank %} overflow-hidden{% endif %}{% if menu_mega != blank and menu_mobile == blank %} mt-1025-sp-4{% endif %}">
+            {% for grandchild_link in child_link.links %}
+              <li class="menu-link{% if menu_mega == blank and menu_mobile == blank %} px-10{% endif %}{% if menu_mobile != blank %} px-sp-5{% endif %}">
+                <a
+                  class="menu__item level-3 outlined-border relative"
+                  href="{{ grandchild_link.url }}"
+                  aria-label="{{ grandchild_link.title }}"
+                >
+                  {{- grandchild_link.title -}}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {%- else -%}
+          <a
+            class="menu__item level-2{% if type != 'classic' %} fs-big-2{% if menu_mobile == blank %} heading-style{% endif %}{% endif %}{% if menu_mobile != blank %} fs-big-2 py-sp-4 block{% endif %} outlined-border relative{% if menu_mega != blank %} h6{% endif %}"
+            aria-label="{{ child_link.title }}"
+            href="{{ child_link.url }}"
+          >
+            {{- child_link.title -}}
+          </a>
+        {%- endif -%}
+      </li>
+    {% endfor %}
+  </ul>
+  {%- if type == 'classic' -%}
+    </div>
+    </div>
+  {%- endif -%}
+{%- else -%}
+  {%- if menu_mobile != blank -%}
+    <div class="sticky top-0 flex gap-16 pt-sp-5 bg-white px-gutter-x align-center z-2">
+      <button
+        class="relative flex modal-button-close rounded-50 modal__close transition-short heading-color content-center btn-reset pointer"
+        is="button-close-model"
+        aria-label="{{ 'accessibility.button.close' | t }}"
+      >
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <use href="#icon-close" />
+        </svg>
+      </button>
+    </div>
+    <div class="submenu-header heading-color flex align-center space-between px-gutter-x py-sp-5 border-dash-bottom sticky top-0 bg-white z-3">
+      <div class="back-menu flex align-center gap-custom pointer" style="--gap: 24">
+        <button
+          class="pointer btn-reset flex align-center gap-sp-4 heading-color h7"
+          aria-label="{{ link.title }}"
+          style="{% if menu_mobile != blank %}--color-heading: var(--color-grey);{% endif %}"
+        >
+          <svg class="icon-back min-w-custom rtl-mirror" width="7" height="13" viewBox="0 0 8 14" fill="none">
+            <use href="#icon-back" />
+          </svg>
+          <span class="fs-big-2 menu_weight{% if menu_mobile != blank %} text-start{% endif %}">
+            {{- link.title -}}
+          </span>
+        </button>
+      </div>
+    </div>
+  {%- endif -%}
+{% endif %}

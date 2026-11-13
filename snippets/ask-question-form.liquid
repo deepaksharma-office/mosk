@@ -1,0 +1,92 @@
+{%- form 'contact', id: 'ContactFormAsk', class: 'form-validation isolate field' -%}
+  <div class="contact__fields flex column row-md gap-20 mb-sp-5">
+    <div class="field relative flex-1">
+      <input
+        class="field__input w-full"
+        autocomplete="name"
+        type="text"
+        id="Ask-name"
+        name="contact[{{ 'templates.contact.form.name' | t }}]"
+        value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+        placeholder="{{ 'templates.contact.form.name' | t }}*"
+        required
+        minlength="2"
+      >
+      <label class="field__label" for="Ask-name">
+        {{ 'templates.contact.form.name' | t -}}
+      </label>
+    </div>
+    <div class="field relative flex-1">
+      <input
+        autocomplete="email"
+        type="email"
+        id="Ask-email"
+        class="field__input w-full"
+        name="contact[email]"
+        spellcheck="false"
+        autocapitalize="off"
+        value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+        aria-required="true"
+        {% if form.errors contains 'email' %}
+          aria-invalid="true"
+          aria-describedby="ContactForm-email-error"
+        {% endif %}
+        placeholder="{{ 'templates.contact.form.email' | t }}*"
+        required
+        pattern=".+\.[a-zA-Z]{2,6}"
+      >
+      <label class="field__label" for="Ask-email">
+        {{ 'templates.contact.form.email' | t }}
+        *</label
+      >
+    </div>
+    {%- if form.errors contains 'email' -%}
+      <small class="contact__field-error" id="ContactForm-email-error">
+        <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+        <span class="form__message error">
+          {{- form.errors.translated_fields.email | capitalize }}
+          {{ form.errors.messages.email -}}
+        </span>
+      </small>
+    {%- endif -%}
+  </div>
+  <div class="field relative mb-sp-5">
+    <input
+      type="tel"
+      id="Ask-phone"
+      class="field__input w-full"
+      autocomplete="tel"
+      name="contact[{{ 'templates.contact.form.phone' | t }}]"
+      pattern="[+0-9\-]*"
+      value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+      placeholder="{{ 'templates.contact.form.phone' | t }}*"
+      required
+    >
+    <label class="form__label field__label" for="Ask-phone">
+      {{ 'templates.contact.form.phone' | t }}
+      *</label
+    >
+  </div>
+  <div class="field relative">
+    <textarea
+      rows="10"
+      id="AskMessage"
+      class="text-area field__input w-full"
+      name="contact[{{ 'templates.contact.form.comment' | t }}]"
+      placeholder="{{ 'templates.contact.form.comment' | t }}*"
+      required
+      minlength="2"
+    >
+        {{- form.body -}}
+      </textarea>
+    <label class="form__label field__label" for="AskMessage">
+      {{ 'templates.contact.form.comment' | t }}
+      *
+    </label>
+  </div>
+  <div class="contact__button">
+    <button type="submit" class="btn mt-sp-5 mt-1025-30 w-full btn-primary">
+      {{ 'templates.contact.form.send' | t }}
+    </button>
+  </div>
+{%- endform -%}

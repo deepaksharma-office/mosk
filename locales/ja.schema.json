@@ -1,0 +1,4686 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "settings_schema": {
+    "layout": {
+      "name": "レイアウト",
+      "how_to_use": {
+        "label": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/theme-settings/layout)"
+      },
+      "settings": {
+        "page_width": {
+          "label": "ページ幅"
+        },
+        "site_style": {
+          "label": "丸い角",
+          "image": {
+            "label": "Image"
+          },
+          "button": {
+            "label": "ボタンの角の半径"
+          },
+          "input": {
+            "label": "コーナー半径を入力してください"
+          }
+        },
+        "select_preset": {
+          "label": "プリセットを選択",
+          "options__1": "化粧品",
+          "options__2": "ファッション",
+          "options__3": "ペット"
+        }
+      },
+      "rtl_support": {
+        "header": "RTL サポート",
+        "enable_rtl": "RTL サポートを有効にする",
+        "rtl_language": {
+          "label": "RTL 言語コード",
+          "info": "RTLレイアウトを使用する言語を、ISOコードをセミコロン区切りで入力して指定します。例：ar; fa; ku; pa; sd。空白の場合、すべての言語にRTLレイアウトが適用されます。"
+        }
+      }
+    },
+    "logo_favicon": {
+      "name": "ロゴとファビコン",
+      "how_to_use": {
+        "label": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/theme-settings/logo-and-favicon)"
+      },
+      "settings": {
+        "favicon": {
+          "label": "ファビコン"
+        },
+        "favicon_image": {
+          "label": "ファビコン画像",
+          "info": "32 x 32px .p​​ng を推奨"
+        },
+        "logo": {
+          "label": "ロゴ",
+          "logo_on_transparent": {
+            "label": "透明ヘッダーにロゴ"
+          }
+        },
+        "logo_width": {
+          "label": "ロゴの幅",
+          "info": "ロゴの幅はモバイル向けに自動的に最適化されます。"
+        }
+      }
+    },
+    "customer_account": {
+      "how_to_use": {
+        "label": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/theme-settings/customer-account)"
+      },
+      "name": "顧客アカウント",
+      "settings": {
+        "customer_account_menu": {
+          "label": "Menu"
+        },
+        "open_as": {
+          "label": "として開く",
+          "options": {
+            "popup": "ポップアップ",
+            "link": "リンク"
+          }
+        }
+      }
+    },
+    "colors": {
+      "name": "色",
+      "how_to_use": {
+        "label": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/theme-settings/colors)"
+      },
+      "settings": {
+        "palette_header": {
+          "label": "パレット"
+        },
+        "palette_info": {
+          "label": "テーマ全体で使いやすくするためにパレットの色を定義します。"
+        },
+        "general_header": {
+          "label": "一般的な"
+        },
+        "general_text": {
+          "label": "Text"
+        },
+        "general_heading": {
+          "label": "見出し"
+        },
+        "general_link": {
+          "label": "リンク"
+        },
+        "general_border": {
+          "label": "国境"
+        },
+        "background_header": {
+          "label": "背景"
+        },
+        "background": {
+          "label": "背景"
+        },
+        "background_2": {
+          "label": "背景2"
+        },
+        "background_gradient": {
+          "label": "背景のグラデーション",
+          "info": "可能な場合、背景のグラデーションが背景を置き換えます。"
+        },
+        "fill_button_header": {
+          "label": "塗りつぶしボタン"
+        },
+        "fill_button_background": {
+          "label": "背景"
+        },
+        "fill_button_text": {
+          "label": "Text"
+        },
+        "fill_button_background_hover": {
+          "label": "背景ホバー"
+        },
+        "fill_button_text_hover": {
+          "label": "テキストのホバー"
+        },
+        "outline_button_header": {
+          "label": "アウトラインボタン"
+        },
+        "outline_button_outline": {
+          "label": "Text"
+        },
+        "outline_button_outline_border": {
+          "label": "国境"
+        }
+      }
+    },
+    "typography": {
+      "name": "タイポグラフィ",
+      "how_to_use": {
+        "label": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)"
+      },
+      "settings": {
+        "font_weight": {
+          "default": "Default",
+          "inline": "列をなして",
+          "regular": "通常",
+          "medium": "中くらい"
+        },
+        "font_size": "フォントサイズ",
+        "body": {
+          "label": "体",
+          "font": {
+            "label": "フォント",
+            "info": "別のフォントを選択すると、ストアの速度に影響する可能性があります。 [システムフォントについて詳しくはこちら](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "base_size": "ベースサイズ"
+        },
+        "heading": {
+          "label": "見出し",
+          "font": {
+            "label": "フォント",
+            "info": "別のフォントを選択すると、ストアの速度に影響する可能性があります。 [システムフォントについて詳しくはこちら](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "sub_heading": {
+            "sub_heading_weight": "サブ見出しのフォントウェイト"
+          },
+          "text_transform": {
+            "label": "テキスト変換",
+            "unset": "未設定",
+            "capitalize": "大文字にする",
+            "uppercase": "大文字"
+          },
+          "heading_letter_spacing": {
+            "label": "文字間隔"
+          }
+        },
+        "menu": {
+          "label": "Menu",
+          "font": {
+            "label": "フォント",
+            "body_font": "体",
+            "heading_font": "見出し"
+          },
+          "uppercase": {
+            "label": "第1階層を大文字にする"
+          }
+        },
+        "button": {
+          "label": "ボタン",
+          "font": {
+            "label": "フォント",
+            "body_font": "体",
+            "heading_font": "見出し"
+          }
+        },
+        "text_preset": {
+          "header": "テキストプリセット",
+          "name": {
+            "heading_1": "見出し1",
+            "heading_2": "見出し2",
+            "heading_3": "見出し 3",
+            "heading_4": "見出し 4",
+            "heading_5": "見出し 5",
+            "heading_6": "見出し6"
+          },
+          "settings": {
+            "size": {
+              "label": "Size",
+              "18px": "18px",
+              "20px": "20px",
+              "22px": "22px",
+              "24px": "24px",
+              "26px": "26px",
+              "30px": "30px",
+              "36px": "36px",
+              "40px": "40px",
+              "46px": "46px",
+              "50px": "50px",
+              "56px": "56px",
+              "60px": "60px",
+              "80px": "80px"
+            },
+            "line_height": {
+              "label": "行の高さ",
+              "original": "オリジナル",
+              "small": "小",
+              "medium": "中くらい",
+              "large": "大きい",
+              "x_large": "特大"
+            }
+          }
+        }
+      }
+    },
+    "browser_tab_notifications": {
+      "name": "ブラウザタブの通知",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/theme-settings/browser-tab-notifications)",
+      "settings": {
+        "notification_info": "元のページタイトルを使用するには空白のままにしてください",
+        "enable_browser_tab_notifications": {
+          "label": "有効にする"
+        },
+        "first_notification": {
+          "label": "最初の通知"
+        },
+        "secondary_notification": {
+          "label": "二次通知"
+        }
+      }
+    },
+    "animation": {
+      "name": "アニメーション",
+      "how_to_use": {
+        "label": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/theme-settings/animation)"
+      },
+      "settings": {
+        "scroll_animation": {
+          "label": "スクロールアニメーション",
+          "options__1": {
+            "label": "無効にする"
+          },
+          "options__2": {
+            "label": "デスクトップのみ"
+          },
+          "options__3": {
+            "label": "すべての画面"
+          }
+        },
+        "enable_loading_page_effect": {
+          "heading": "ページ読み込み効果",
+          "label": "エフェクトを有効にする",
+          "loading": "読み込み中アイコン",
+          "info": "推奨画像幅 100x100px"
+        },
+        "image_lazy_loading": {
+          "label": "画像の遅延読み込みを有効にする"
+        },
+        "hover_effect": {
+          "label": "ホバー効果",
+          "info": "製品、バナー、コレクション、ブログなどのホバー カードに影響します。",
+          "fade_in": "フェードイン",
+          "zoom": "ズーム"
+        }
+      }
+    },
+    "product": {
+      "name": "製品カード",
+      "how_to_use": {
+        "label": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/theme-settings/product-cards)"
+      },
+      "settings": {
+        "enable_quickview": "クイックビューを有効にする",
+        "enable_quickadd": "クイック追加を有効にする",
+        "enable_color_swatches": "色見本を有効にする",
+        "show_tag": {
+          "hidden": "隠れた",
+          "desktop": "デスクトップのみ",
+          "all_devices": "すべての画面"
+        },
+        "show_scrolling_text": "スクロールするテキストを表示する",
+        "show_rate": {
+          "label": "表示レート",
+          "info": "評価を表示するには、商品評価アプリを追加してください。[詳細はこちら](https://help.shopify.com/en/manual/products/product-reviews/installation)"
+        },
+        "alignment": {
+          "label": "位置合わせ",
+          "left": "左",
+          "center": "中心"
+        },
+        "product_image": {
+          "label": "商品画像"
+        },
+        "show_image_hover": {
+          "label": "二次画像を表示"
+        },
+        "show_video_featured": {
+          "label": "ホバーでビデオを再生",
+          "info": "MP4 ビデオでのみ動作します。"
+        },
+        "product_image_ratio": {
+          "label": "画像比率",
+          "adapt_to_image": "画像に適応する",
+          "square": "正方形 (1:1)",
+          "portrait": "ポートレート (3:4)",
+          "landscape": "風景 (4:3)"
+        },
+        "mobile_options": {
+          "label": "モバイル設定"
+        },
+        "show_quick_add_mobile": {
+          "label": "モバイルでクイック追加ボタンを表示する"
+        },
+        "highlights_scrolling_text_metafield": {
+          "label": "スクロールテキスト メタフィールド",
+          "info": "商品メタフィールド。 商品カードのマーキーテキストとして表示。 Format: namespace.key. Default: custom.highlights_scrolling_text."
+        }
+      }
+    },
+    "badges": {
+      "name": "バッジ",
+      "how_to_use": {
+        "label": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/theme-settings/badges)"
+      },
+      "settings": {
+        "badge_color": {
+          "label": "テキストの色"
+        },
+        "show_badge": {
+          "label": "バッジを表示"
+        },
+        "background_color": {
+          "label": "背景色"
+        },
+        "sale": {
+          "label": "販売",
+          "format": {
+            "label": "形式",
+            "text": "Text",
+            "percentage": "パーセンテージ",
+            "fixed": "定額"
+          }
+        },
+        "new": {
+          "label": "新しい",
+          "new_badge_display_period": {
+            "label": "新しいバッジの表示期間",
+            "info": "製品が作成された日から「新品」としてラベル付けされる期間を選択します。"
+          }
+        },
+        "sold_out": {
+          "label": "売り切れ"
+        },
+        "custom_badge": {
+          "label": "カスタムバッジ",
+          "info": "[カスタムバッジの設定方法]についてはドキュメントに従ってください(https://nextsky.gitbook.io/purity-theme/theme-settings/badges#id-5.-custom-badge)"
+        }
+      }
+    },
+    "color_swatches": {
+      "name": "色見本",
+      "how_to_use": {
+        "label": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/theme-settings/color-swatch)"
+      },
+      "settings": {
+        "hide_sold_out_variant": {
+          "label": "売り切れのバリエーションを非表示にする"
+        },
+        "show_sale_in_variant_swatch": {
+          "label": "バリエーション見本でセールを表示"
+        },
+        "color_limit": {
+          "label": "表示する最大スウォッチ数"
+        },
+        "color_swatch_trigger": {
+          "label": "カラースウォッチトリガー",
+          "info": "カラーオプションの名前を定義します。カンマで区切ります。例えば。色、色"
+        },
+        "color_swatch_type": {
+          "label": "スウォッチタイプ",
+          "options__1": {
+            "label": "バリエーション画像"
+          },
+          "options__2": {
+            "label": "Color"
+          }
+        },
+        "color_swatch_shape": {
+          "label": "色の形",
+          "options__1": {
+            "label": "ラウンド"
+          },
+          "options__2": {
+            "label": "四角"
+          }
+        },
+        "color_swatch_custom": {
+          "label": "カスタムカラー",
+          "info": "有効な形式：Muesli: #ddd5bc または Muesli: image.png をカンマで区切る"
+        }
+      }
+    },
+    "cart": {
+      "name": "カート",
+      "how_to_use": {
+        "label": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/theme-settings/cart)"
+      },
+      "settings": {
+        "cart_action_desktop": {
+          "label": "デスクトップにカートを追加した後のアクション",
+          "drawer": "引き出し",
+          "page": "ページ"
+        },
+        "cart_mobile": {
+          "label": "モバイル設定",
+          "action": {
+            "label": "カート追加後のアクション",
+            "info": "顧客がモバイルで商品をカートに追加した後の動作を選択します。",
+            "option_1": "ミニカートを開く",
+            "option_2": "通知メッセージ",
+            "option_3": "カートを一度開いて、後で通知する"
+          },
+          "open_cart": {
+            "label": "カートを開く",
+            "info": "ヘッダーとモバイル ナビゲーション バーのカート アイコンをタップしたときにカートを開く方法を選択します。",
+            "option_1": "引き出し",
+            "option_2": "ポップアップ"
+          }
+        },
+        "free_shipping": {
+          "label": "送料無料メッセージ",
+          "paragraph": "[配送料]が正しく設定されていることを確認してください。(/admin/settings/shipping)",
+          "message": {
+            "label": "メッセージ",
+            "info": "送料無料の条件達成までの進捗を追跡するには [amount] を使用します。"
+          },
+          "minimum_amount": {
+            "label": "送料無料の最低金額",
+            "info": "整数を使用してください。通貨、記号、文字は含めないでください。"
+          }
+        },
+        "term_and_conditions": {
+          "label": "利用規約",
+          "enable": "ミニカートとカートページにチェックボックスを表示します。",
+          "text": "Text"
+        },
+        "cart_count_down": {
+          "label": "カートのカウントダウン",
+          "show_duration": {
+            "label": "ミニカートとカートページに表示"
+          },
+          "duration": {
+            "label": "間隔"
+          }
+        },
+        "product_recommendations": {
+          "label": "製品の推奨事項",
+          "heading": "見出し",
+          "enable_product_recommendations": "製品の推奨を有効にする",
+          "enable_product_recommendations_info": "推奨製品はミニカートとカートページに表示されます。",
+          "recommendation_product_type": {
+            "label": "製品推奨タイプ",
+            "auto": "自動",
+            "selected": "選択済み"
+          },
+          "select_product_recommendation": "Product",
+          "show_on_mobile": {
+            "label": "モバイルで表示する"
+          }
+        },
+        "gift_wrap": {
+          "label": "商品のギフトラッピング",
+          "select_product_gift_wrap": {
+            "label": "Product",
+            "info": "バリエーションのない製品でのみ機能します。"
+          }
+        },
+        "empty": {
+          "label": "空のカート設定",
+          "heading": "見出し",
+          "description": "説明",
+          "collection": {
+            "label": "コレクションリスト",
+            "info": "Collections will display their featured image by default. Use metafield to change image and text. Learn more"
+          },
+          "button_text": "ボタンラベル",
+          "button_link": {
+            "label": "ボタンリンク",
+            "info": "デフォルトは「すべてのコレクション」ページです"
+          },
+          "free_shipping": {
+            "label": "送料無料メッセージ"
+          },
+          "empty_cart_layout": {
+            "label": "空のカートのレイアウト",
+            "option_1": "リスト",
+            "option_2": "グリッド"
+          },
+          "collection_metafield": {
+            "label": "空のカート用コレクション メタフィールド",
+            "info": "コレクションメタフィールド。 空カートの画像と説明用（メタオブジェクト）。 Format: namespace.key. Default: custom.collection_empty. Fields: collection_image, collection_description."
+          }
+        },
+        "discount_progress_bar": {
+          "label": "割引プログレスバー",
+          "paragraph": "カートに最大3つの利用金額マイルストーンを表示します。対応するディスカウントコードまたは自動ディスカウントが [Shopify管理画面](/admin/discounts) で作成されていることを確認してください。",
+          "currency_info": "マイルストーンの金額はストアのデフォルト通貨で入力してください。現地通貨には自動的に換算されます。",
+          "enable": {
+            "label": "割引プログレスバーを有効にする",
+            "info": "有効にすると、カートドロワーとカートページ上部の単一の送料無料バーが置き換えられます。"
+          },
+          "milestone_1": {
+            "label": "マイルストーン 1"
+          },
+          "milestone_2": {
+            "label": "マイルストーン 2"
+          },
+          "milestone_3": {
+            "label": "マイルストーン 3"
+          },
+          "milestone": {
+            "amount": {
+              "label": "しきい値",
+              "info": "通貨記号や文字を含めず、きりの良い数字を使用してください。"
+            },
+            "label_text": {
+              "label": "ラベル"
+            },
+            "icon": {
+              "label": "アイコン",
+              "option_none": "なし",
+              "option_tag": "タグ",
+              "option_truck": "トラック",
+              "option_box": "ボックス"
+            }
+          },
+          "message": {
+            "text": {
+              "label": "進捗メッセージ",
+              "info": "[amount] と [label] を使って、残り金額と次の特典のラベルを表示します。"
+            },
+            "success": {
+              "label": "すべてのマイルストーン達成時のメッセージ"
+            }
+          }
+        }
+      }
+    },
+    "search": {
+      "name": "検索動作",
+      "how_to_use": {
+        "label": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/theme-settings/search-behavior)"
+      },
+      "settings": {
+        "type": {
+          "label": "タイプ",
+          "info": "ドロワーはモバイルのデフォルトのレイアウトです。",
+          "option_1": "ポップアップ",
+          "option_2": "引き出し",
+          "option_3": "検索バー"
+        },
+        "search_placeholder": {
+          "label": "プレースホルダを検索"
+        },
+        "speech_search": {
+          "label": "音声検索",
+          "enable": {
+            "label": "音声検索を有効にする"
+          }
+        },
+        "search_results": {
+          "label": "結果を表示",
+          "option_1": "Default",
+          "option_2": "タブ"
+        },
+        "recommendations": {
+          "popular_keywords": {
+            "label": "人気のある検索",
+            "info": "ストア内で人気の検索キーワードを顧客に推奨します。例: T シャツ、ドレス、黒。"
+          },
+          "products_recommended": {
+            "label": "製品の推奨事項",
+            "info": "お客様におすすめする商品を選定します。"
+          },
+          "collections_recommended": {
+            "label": "コレクションの推奨事項"
+          }
+        },
+        "results": {
+          "label": "検索結果"
+        },
+        "predictive_search": {
+          "label": "予測検索を有効にする",
+          "info": "ライブ検索結果。すべての言語で利用できるわけではありません。 [詳細](https://shopify.dev/themes/navigation-search/search/predictive-search#general-requirements-and-limitations)"
+        },
+        "show_search_history": {
+          "label": "検索履歴を表示する"
+        },
+        "show_price": {
+          "label": "商品価格を表示"
+        }
+      }
+    },
+    "social_media": {
+      "name": "ソーシャルメディア",
+      "how_to_use": {
+        "label": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/theme-settings/social-media)"
+      },
+      "settings": {
+        "social_account": {
+          "label": "ソーシャルアカウント",
+          "facebook": {
+            "label": "Facebook",
+            "info": "https://facebook.com/shopify"
+          },
+          "instagram": {
+            "label": "Instagram",
+            "info": "http://instagram.com/shopify"
+          },
+          "twitter": {
+            "label": "Twitter",
+            "info": "https://twitter.com/shopify"
+          },
+          "tiktok": {
+            "label": "Tiktok",
+            "info": "https://tiktok.com/@shopify"
+          },
+          "pinterest": {
+            "label": "Pinterest",
+            "info": "https://pinterest.com/shopify"
+          },
+          "youtube": {
+            "label": "Youtube",
+            "info": "https://www.youtube.com/shopify"
+          },
+          "vimeo": {
+            "label": "Vimeo",
+            "info": "https://vimeo.com/shopify"
+          },
+          "linkedin": {
+            "label": "リンクトイン",
+            "info": "https://linkedin.com/company/shopify"
+          },
+          "whatsapp": {
+            "label": "Whatsapp",
+            "info": "https://www.whatsapp.com/shopify"
+          },
+          "snapchat": {
+            "label": "Snapchat",
+            "info": "https://www.snapchat.com/add/shopify"
+          }
+        },
+        "sharing_options": {
+          "label": "共有オプション",
+          "facebook": {
+            "label": "Facebook に共有する"
+          },
+          "pinterest": {
+            "label": "Pinterest で共有する"
+          },
+          "twitter": {
+            "label": "Twitterでシェア"
+          },
+          "whatsapp": {
+            "label": "WhatsApp で共有する"
+          },
+          "email": {
+            "label": "電子メールで共有"
+          }
+        }
+      }
+    },
+    "currency": {
+      "name": "通貨形式",
+      "how_to_use": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/theme-settings/currency-format)",
+      "settings": {
+        "code": {
+          "label": "通貨コード",
+          "show_code": {
+            "label": "通貨コードを表示する",
+            "info": "カートとチェックアウトの価格には常に通貨コードが表示されます。例: 1.00 米ドル。"
+          }
+        }
+      }
+    },
+    "script_tracking": {
+      "name": "トラッキングとインサイト",
+      "settings": {
+        "how_to_use": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/theme-settings/tracking-and-insights)",
+        "scripts_tracking": {
+          "label": "コードスニペット",
+          "info": "追跡と分析のためにコード スニペットを追加します"
+        },
+        "appended_scripts": {
+          "label": "追加された位置",
+          "body": "ボディタグ",
+          "head": "ヘッドタグ"
+        }
+      }
+    }
+  },
+  "content": {
+    "manage_customer_accounts": "顧客アカウント設定で[表示設定を管理](/admin/settings/customer_accounts)。旧アカウントはサポートされていません。"
+  },
+  "sections": {
+    "all": {
+      "general": "一般的な",
+      "layout": {
+        "label": "セクション幅",
+        "fix_width": "固定幅",
+        "stretch_width": "幅を引き伸ばす",
+        "full_width": "全幅"
+      },
+      "colors": {
+        "label": "配色",
+        "info": "テーマのすべての色を編集するには、[カラーテーマ設定](/editor?context=theme&category=colors)に移動してください。ユーザー体験向上のため、テキストのコントラストを明確にしてください。"
+      },
+      "desktop_content_position": {
+        "label": "デスクトップのコンテンツの位置",
+        "info": "位置はモバイル向けに自動的に最適化されます。",
+        "info_2": "コンテンツファーストはデフォルトのモバイルレイアウトです。",
+        "group": {
+          "top": {
+            "label": "上"
+          },
+          "middle": {
+            "label": "真ん中"
+          },
+          "bottom": {
+            "label": "底"
+          }
+        },
+        "options__1": {
+          "label": "左上"
+        },
+        "options__2": {
+          "label": "上中央"
+        },
+        "options__3": {
+          "label": "右上"
+        },
+        "options__4": {
+          "label": "中段左"
+        },
+        "options__5": {
+          "label": "中央中央"
+        },
+        "options__6": {
+          "label": "中右"
+        },
+        "options__7": {
+          "label": "左下"
+        },
+        "options__8": {
+          "label": "中央下"
+        },
+        "options__9": {
+          "label": "右下"
+        }
+      },
+      "padding": {
+        "section_padding_heading": "セクションのパディング",
+        "padding_inline": {
+          "label": "インラインのパディング",
+          "info": "インラインのパディングはモバイル向けに自動的に最適化されます。"
+        },
+        "padding_block": {
+          "label": "パディングブロック",
+          "info": "パディング ブロックはモバイル向けに自動的に最適化されます。"
+        },
+        "padding_top": "上",
+        "padding_bottom": "底",
+        "spacing_bottom": "下の余白",
+        "image_spacing": "画像間隔",
+        "space_between": "間隔",
+        "column_gap": {
+          "label": "コラムギャップ",
+          "no_gap": "隙間なし",
+          "small": "小",
+          "medium": "中くらい",
+          "large": "大きい",
+          "x_large": "特大"
+        }
+      },
+      "space_between": {
+        "label": "アイテム間の間隔"
+      },
+      "width": {
+        "label": "幅",
+        "fill": "埋める",
+        "fit": "フィット"
+      },
+      "columns": {
+        "label": "列数"
+      },
+      "items_to_show": {
+        "label": "表示できる最大項目数"
+      },
+      "product_to_show": {
+        "label": "展示できる最大の商品数"
+      },
+      "text_alignment": {
+        "label": "コンテンツの配置",
+        "alignment": "位置合わせ",
+        "options__1": {
+          "label": "左"
+        },
+        "options__2": {
+          "label": "中心"
+        },
+        "options__3": {
+          "label": "右"
+        }
+      },
+      "content": {
+        "label": "コンテンツ"
+      },
+      "text": {
+        "label": "Text"
+      },
+      "content_position": {
+        "label": "コンテンツの位置",
+        "options__1": {
+          "label": "オーバーレイ画像",
+          "top": "上",
+          "middle": "真ん中",
+          "bottom": "底",
+          "text_above_button": "ボタン上のテキスト"
+        },
+        "options__2": {
+          "label": "画像の下"
+        }
+      },
+      "section_setting": {
+        "page_heading": {
+          "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "description": {
+            "label": "コンテンツ"
+          },
+          "heading": {
+            "label": "タイトル"
+          },
+          "breadcrumb": {
+            "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/breadcrumb)",
+            "label": "ブレッドクラム"
+          }
+        },
+        "enable_rounded_style": {
+          "label": "丸みを帯びたスタイルを有効にする"
+        }
+      },
+      "content_setting": {
+        "label": "コンテンツ設定",
+        "image": {
+          "label": "Image"
+        },
+        "subheading": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "サブ見出し",
+          "info": "各テキスト項目を垂直バー (|) で区切ると、項目間にドットが表示されます。"
+        },
+        "highlight_text": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/highlight-text)",
+          "label": "テキストを強調表示する",
+          "settings": {
+            "icons": {
+              "label": "アイコンを選択",
+              "options__1": {
+                "label": "None"
+              },
+              "options__2": {
+                "label": "スター"
+              },
+              "options__3": {
+                "label": "ドット"
+              }
+            }
+          }
+        },
+        "heading": {
+          "label": "見出し",
+          "info": "テキストを斜体で囲んで下線を追加します。エディターの斜体 (I) ボタンを使用して適用します。"
+        },
+        "heading_highlight": {
+          "label": "見出しのハイライトテキスト",
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading-highlight-text)"
+        },
+        "detail_list": {
+          "label": "詳細一覧",
+          "detail_row": {
+            "label": "Detail row",
+            "row_title": "Row title",
+            "row_details": "Row details"
+          },
+          "layout": {
+            "label": "レイアウト",
+            "specifications": "仕様",
+            "information_cards": "情報カード"
+          }
+        },
+        "description": {
+          "label": "説明",
+          "hide_on_mobile": {
+            "label": "モバイルでは説明を非表示にする"
+          },
+          "description": "製品の説明を表示します。利用可能な場合は短い説明メタフィールドを使用します。それ以外の場合は、デフォルトの製品説明に戻ります。詳細については、[サポートページ](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-7.-description)をご覧ください。"
+        },
+        "content": "コンテンツ",
+        "button_label": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "ボタンラベル",
+          "info": "ボタンを非表示にするには、ラベルを空白のままにします。"
+        },
+        "button_label-block": {
+          "name": "ラベル",
+          "label": "ボタン"
+        },
+        "link": {
+          "label": "リンク",
+          "info": "注: このリンク設定は画像に対してのみ機能し、ビデオには機能しません。"
+        },
+        "first_button_label": {
+          "name": "最初のボタン",
+          "label": "ボタンラベル",
+          "link": "ボタンリンク"
+        },
+        "second_button_label": {
+          "name": "2番目のボタン",
+          "label": "ボタンラベル",
+          "link": "ボタンリンク"
+        },
+        "button_type": {
+          "label": "タイプ",
+          "primary": {
+            "label": "主要な"
+          },
+          "outline": {
+            "label": "概要"
+          },
+          "link": {
+            "label": "リンク"
+          }
+        },
+        "show_view_all_button": {
+          "label": "「すべて表示」ボタンを表示",
+          "label_text": "ボタンラベル",
+          "default_text": "すべての商品を表示",
+          "default": "すべて表示"
+        },
+        "open_link_in_new_tab": {
+          "label": "リンクを新しいタブで開く"
+        },
+        "drawn_underline": {
+          "label": "見出しの下線アニメーションを有効にする",
+          "type": "下線スタイル",
+          "value": {
+            "simple_underline": "シンプルな下線",
+            "curve_underline": "曲線ストローク",
+            "squiggle_underline": "波形の下線"
+          },
+          "color": "下線の色"
+        },
+        "metrics": {
+          "label": "指標",
+          "item": {
+            "label": "指標アイテム",
+            "value": "値",
+            "description": "ラベル"
+          }
+        },
+        "citation": {
+          "label": "引用"
+        },
+        "heading_block_highlight": {
+          "label": "見出しのハイライトを有効にする",
+          "info": "テキストを斜体にするとハイライトになります。エディタの斜体 (I) ボタンで適用します。",
+          "type": "ハイライトのスタイル",
+          "text_highlight": "テキストハイライト",
+          "color": "ハイライトの色"
+        }
+      },
+      "content_header": {
+        "label": "セクションヘッダー",
+        "heading_size": {
+          "label": "見出しのサイズ",
+          "size": "Size",
+          "xs_small": {
+            "label": "超極小"
+          },
+          "x_small": {
+            "label": "極小"
+          },
+          "small": {
+            "label": "小"
+          },
+          "large": {
+            "label": "大きい"
+          },
+          "x_large": {
+            "label": "特大"
+          },
+          "base": {
+            "label": "ベースサイズ"
+          },
+          "options__1": {
+            "label": "見出し1"
+          },
+          "options__2": {
+            "label": "見出し2"
+          },
+          "options__3": {
+            "label": "見出し 3"
+          },
+          "options__4": {
+            "label": "見出し 4"
+          },
+          "options__5": {
+            "label": "見出し 5"
+          },
+          "options__7": {
+            "label": "見出し 7"
+          },
+          "options__0": {
+            "label": "見出し0"
+          }
+        }
+      },
+      "blog_setting": {
+        "show_category": "カテゴリを表示",
+        "show_tags": "タグを表示",
+        "show_date": "上映日",
+        "show_author": "著者を表示",
+        "show_excerpt": "抜粋を表示"
+      },
+      "media": {
+        "label": "タイプ"
+      },
+      "image": {
+        "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/image)",
+        "label": "Image",
+        "image_setting": "画像設定",
+        "width": "画像の幅",
+        "info_width": "画像はモバイル向けに自動的に最適化されます。",
+        "mobile_image": "モバイル画像",
+        "mobile_image_width": "モバイル画像の幅",
+        "aspect_ratio": {
+          "label": "画像比率",
+          "label_mb": "モバイルでの画像比率",
+          "label_video": "動画の比率",
+          "options__1": "正方形 (1:1)",
+          "options__2": "ポートレート (3:4)",
+          "options__3": "風景 (4:3)",
+          "options__4": "デスクトップと同じ",
+          "adapt": "画像に適応する"
+        },
+        "desktop_position": {
+          "label": "デスクトップ画像の位置",
+          "top": "上",
+          "right": "右",
+          "bottom": "底",
+          "left": "左",
+          "info": "モバイルでは画像がテキストの上に表示されます。"
+        },
+        "desktop_image_width": {
+          "label": "デスクトップ画像の幅"
+        }
+      },
+      "video": {
+        "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)",
+        "label": "Video",
+        "info": "画像設定をオーバーライドします",
+        "settings": {
+          "source": {
+            "label": "ソース",
+            "uploaded_video": {
+              "label": "ローカルビデオ"
+            },
+            "external_link": {
+              "label": "外部ビデオリンク"
+            }
+          }
+        },
+        "width": "動画の幅",
+        "width_unit_type": {
+          "label": "幅の単位タイプ",
+          "options": {
+            "percent": {
+              "label": "パーセント (%)"
+            },
+            "px": {
+              "label": "ピクセル (ピクセル)"
+            }
+          }
+        }
+      },
+      "video_mobile": {
+        "label": "モバイル動画"
+      },
+      "svg": {
+        "label": "SVGアイコン",
+        "custom_svg": {
+          "label": "カスタムSVG",
+          "info": "画像設定をオーバーライドします。"
+        }
+      },
+      "icon": {
+        "none": {
+          "label": "None"
+        },
+        "cruelty": {
+          "label": "残虐行為"
+        },
+        "paraben": {
+          "label": "パラベン"
+        },
+        "privacy-protection": {
+          "label": "プライバシー保護"
+        },
+        "secure-shopping": {
+          "label": "安全なショッピング"
+        },
+        "guarantee": {
+          "label": "保証"
+        },
+        "account": {
+          "label": "アカウント"
+        },
+        "leaf": {
+          "label": "葉"
+        },
+        "moon": {
+          "label": "月"
+        },
+        "hive": {
+          "label": "ハイブ"
+        },
+        "comb": {
+          "label": "櫛"
+        },
+        "free_shipping": {
+          "label": "送料無料"
+        },
+        "check_badge": {
+          "label": "チェックバッジ"
+        },
+        "message_communications": {
+          "label": "メッセージ通信"
+        },
+        "circular-text": {
+          "label": "回覧テキスト"
+        },
+        "beauty": {
+          "label": "顔"
+        },
+        "line": {
+          "label": "ライン"
+        },
+        "droplet": {
+          "label": "滴"
+        },
+        "smooth": {
+          "label": "スムーズ"
+        },
+        "shield": {
+          "label": "シールド"
+        },
+        "balloon": {
+          "label": "バルーン"
+        },
+        "brightening": {
+          "label": "ブライトニング"
+        },
+        "hydration": {
+          "label": "水分補給"
+        },
+        "coptic_cross": {
+          "label": "コプト十字"
+        },
+        "coil": {
+          "label": "コイル"
+        },
+        "verified": {
+          "label": "認証済み"
+        },
+        "security": {
+          "label": "安全"
+        },
+        "package": {
+          "label": "パッケージ"
+        },
+        "cat": {
+          "label": "猫"
+        }
+      },
+      "carousel": {
+        "header": "カルーセル設定",
+        "enable_carousel": {
+          "label": "カルーセルを有効にする",
+          "description": "カルーセルは、コレクションの合計がデスクトップ上の 1 行あたりのアイテム数より大きい場合にのみ表示されます。"
+        },
+        "show_navigation": {
+          "label": "ナビゲーションを表示"
+        },
+        "show_pagination": {
+          "label": "ページネーションを表示する",
+          "info": "モバイルでアイテム数を 1 または 2 として表示すると、モバイルでもページネーションが自動的に表示されます",
+          "info_single": "モバイルではページネーションが自動的に表示されます。",
+          "type": {
+            "label": "ページネーションのスタイル",
+            "progress_bar": "プログレスバー",
+            "dot": "ドット"
+          }
+        },
+        "reveal_slide": {
+          "label": "次のスライドを表示する",
+          "info": "次のスライドの一部を表示します。"
+        },
+        "enable_carousel_mobile": {
+          "label": "モバイルでカルーセルを有効にする"
+        },
+        "change_slide_every": "スライドを切り替える間隔",
+        "slide_auto_change": "自動変更スライド"
+      },
+      "mobile_options": {
+        "label": "モバイル設定",
+        "mobile_layout": {
+          "label": "モバイルレイアウト",
+          "show_text_bellow": {
+            "label": "モバイルで下のテキストを表示",
+            "info": "モバイルではテキストが画像の下に表示されます。"
+          },
+          "hidden_description_on_mobile": {
+            "label": "モバイルでは説明を非表示にする"
+          }
+        }
+      },
+      "items": {
+        "items_per_row": "行ごとの項目",
+        "items_per_row_mobile": "モバイルの行ごとの項目"
+      },
+      "columns_desktop": {
+        "label": "デスクトップ上の行ごとの項目"
+      },
+      "newsletter_setting": {
+        "email_placeholder": "電子メールのプレースホルダー",
+        "button_label": "ボタンラベル"
+      },
+      "pagination_type": {
+        "label": "ページネーションの種類",
+        "options__1": {
+          "label": "ページ番号"
+        },
+        "options__2": {
+          "label": "さらに読み込むボタン"
+        },
+        "options__3": {
+          "label": "無限スクロール"
+        }
+      },
+      "product_setting": {
+        "badges": {
+          "name": "バッジ"
+        },
+        "notify": {
+          "name": "商品再入荷のお知らせ"
+        },
+        "live_view": {
+          "name": "ライブビュー",
+          "settings": {
+            "min_number": "最小数",
+            "max_number": "最大数",
+            "interval_time": "インターバル時間",
+            "content": "コンテンツ",
+            "show_icon_eye": {
+              "label": "アイコンを表示"
+            }
+          },
+          "info": "ライブビュー数を表示することで製品アクティビティをシミュレートし、緊急性、社会的証明、コンバージョン率の向上に役立ちます。"
+        },
+        "shop_the_look": {
+          "name": "外観を購入する",
+          "settings": {
+            "heading": {
+              "label": "見出し"
+            }
+          },
+          "description": "ルックを完成させる関連商品を提案します。詳細は[サポートページ](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)をご覧ください。"
+        },
+        "stock_countdown": {
+          "name": "在庫カウントダウン",
+          "settings": {
+            "message": {
+              "label": "メッセージ",
+              "info": "在庫の残り数量を表示するにはショートコード [count] を使用します。このショートコードは削除したり、任意の位置に配置できます"
+            },
+            "stock_items": {
+              "label": "在庫数",
+              "info": "在庫商品が (X) 個未満の場合に表示します"
+            }
+          }
+        },
+        "product_meta": {
+          "name": "製品メタ",
+          "settings": {
+            "show_sku": {
+              "label": "SKUを表示"
+            },
+            "show_collections": {
+              "label": "コレクションを表示する"
+            },
+            "show_tags": {
+              "label": "タグを表示"
+            },
+            "show_type": {
+              "label": "ショータイプ"
+            }
+          }
+        },
+        "collapsible_row": {
+          "name": "アコーディオン列",
+          "settings": {
+            "info": "内容を説明する見出しを含めます。",
+            "content": "行の内容",
+            "content_page": "ページの行コンテンツ"
+          }
+        },
+        "accordion_row_drawer": {
+          "name": "アコーディオン列の引き出し",
+          "settings": {
+            "info": "内容を説明する見出しを含めます。",
+            "content": "行の内容",
+            "content_page": "ページの行コンテンツ"
+          }
+        },
+        "model_size": {
+          "name": "モデルサイズ",
+          "settings": {
+            "paragraph": {
+              "content": "モデルが着用しているサイズ、身長、体重、寸法を確認してください。 [このブロックの使い方を学ぶ](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)"
+            }
+          }
+        },
+        "title": {
+          "name": "商品タイトル"
+        },
+        "price": {
+          "name": "価格"
+        },
+        "rating": {
+          "name": "製品の評価"
+        },
+        "variant_picker": {
+          "name": "バリエーションピッカー",
+          "settings": {
+            "picker_type": {
+              "label": "タイプ",
+              "options__1": {
+                "label": "落ちる"
+              },
+              "options__2": {
+                "label": "丸薬"
+              }
+            },
+            "size_guide": {
+              "heading": "サイズ表",
+              "info": "選択したページからサイズ表情報を取得します。",
+              "settings": {
+                "size_trigger": {
+                  "label": "サイズトリガー",
+                  "info": "サイズオプションの名前を定義します。カンマで区切ります。例えば。サイズ、ミスラレ"
+                },
+                "show_size_guide": "サイズ表を表示",
+                "size_guide_label": "サイズチャートのラベル",
+                "size_guide_page": "サイズチャートページ",
+                "footer_content": "フッターの内容",
+                "custom_size_guide": {
+                  "label": "カスタムサイズチャート",
+                  "info__1": "コレクションまたは商品ごとに特定のサイズチャートを使用します。",
+                  "info__2": "商品またはコレクション用のカスタムサイズチャートを使用するには、namespaceとkeyが「custom.size_chart」のメタフィールドを作成してください。[詳細はこちら](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/size-chart)"
+                }
+              }
+            }
+          }
+        },
+        "buy_buttons": {
+          "name": "購入ボタン",
+          "settings": {
+            "show_dynamic_checkout": {
+              "label": "動的なチェックアウト ボタンを表示する",
+              "info": "ストアで利用可能な決済方法を使い、顧客はPayPalやApple Payなど希望のオプションを確認できます。[詳細はこちら](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+            },
+            "show_gift_card_recipient": {
+              "label": "ギフトカードの受取人情報フォームを表示する",
+              "info": "購入者は、予定された日に個人的なメッセージを添えてギフトカードを送信できます。 [詳細](https://help.shopify.com/manual/online-store/themes/customizing-themes/add-gift-card-recipient-fields)"
+            }
+          }
+        },
+        "subscription_widget": {
+          "name": "購読ウィジェット",
+          "settings": {
+            "info": "1 回限りの購入と、販売プラン グループごとに個別のカードが表示されます。このブロックを購入ボタンの上に配置します。",
+            "one_time_purchase_title": {
+              "label": "1回限りの購入タイトル"
+            },
+            "one_time_purchase_description": {
+              "label": "1 回限りの購入の説明"
+            },
+            "subscription_description": {
+              "label": "購読の説明"
+            },
+            "show_price": {
+              "label": "価格を表示"
+            }
+          }
+        },
+        "share": {
+          "name": "共有"
+        },
+        "complementary_products": {
+          "name": "補完的な製品",
+          "settings": {
+            "paragraph": {
+              "content": "補完商品を選択するには、Search & Discoveryアプリを追加してください。[詳細はこちら](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+            },
+            "product_list_limit": {
+              "label": "展示できる最大の商品数"
+            }
+          }
+        },
+        "pickup_avaiability": {
+          "name": "受け取り可能状況"
+        },
+        "media_lightbox": {
+          "name": "実際の動作を確認してください",
+          "settings": {
+            "enable_sticky": {
+              "label": "デスクトップでスティッキーを有効にする"
+            }
+          },
+          "description": "製品が使用されている実際の写真やビデオを表示します。詳細については、[サポートページ](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-16.-media-lightbox)をご覧ください。"
+        },
+        "highlights": {
+          "name": "ハイライト",
+          "description": "製品の主要なセールスポイントを紹介します。詳細については、[サポートページ](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-8.-highlights)をご覧ください。"
+        },
+        "key_features": {
+          "name": "主な特徴",
+          "description": "製品の主な機能と利点を列挙します。詳細については、[サポートページ](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-9.-key-features)をご覧ください。"
+        },
+        "ask_question": {
+          "name": "質問する"
+        },
+        "promotion_countdown": {
+          "name": "プロモーションカウントダウン",
+          "show_countdown_units": {
+            "label": "カウントダウン単位を表示"
+          },
+          "description": "カウントダウン タイマーを追加して、製品のプロモーションの緊急性を高めます。詳細については、[サポートページ](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-11.-promotion-countdown)をご覧ください。"
+        },
+        "promotion_alert": {
+          "name": "プロモーションのお知らせ",
+          "heading": {
+            "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+            "label": "見出し"
+          },
+          "description": {
+            "label": "説明"
+          },
+          "text_color": {
+            "label": "テキストの色"
+          }
+        },
+        "icon_with_text": {
+          "name": "テキスト付きのアイコン",
+          "heading": {
+            "label_1": "テキスト付きアイコン 1",
+            "label_2": "テキスト付きアイコン 2",
+            "label_3": "テキスト付きアイコン 3",
+            "label_4": "テキスト付きアイコン 4",
+            "label_5": "テキスト付きアイコン 5"
+          },
+          "info": "このコンテンツはモバイルでは自動的に非表示になります。",
+          "svg": {
+            "label": "SVGアイコン"
+          },
+          "content": {
+            "label": "コンテンツ"
+          },
+          "icon": {
+            "none": {
+              "label": "None"
+            },
+            "free_shipping": {
+              "label": "送料無料"
+            },
+            "check_badge": {
+              "label": "チェックバッジ"
+            },
+            "message_communications": {
+              "label": "メッセージ通信"
+            },
+            "truck": {
+              "label": "トラック"
+            },
+            "question": {
+              "label": "質問"
+            },
+            "location": {
+              "label": "位置"
+            },
+            "leaf": {
+              "label": "葉"
+            },
+            "blossom": {
+              "label": "花"
+            },
+            "payment": {
+              "label": "支払い"
+            },
+            "discount": {
+              "label": "Discount"
+            },
+            "order": {
+              "label": "注文"
+            },
+            "return": {
+              "label": "戻る"
+            },
+            "return_package": {
+              "label": "返品パッケージ"
+            }
+          }
+        },
+        "inventory_status": {
+          "name": "在庫状況",
+          "settings": {
+            "inventory_threshold": {
+              "label": "在庫しきい値が低い",
+              "info": "製品が在庫切れになりそうになったときに顧客に警告するには、この値を設定します。"
+            },
+            "inventory_base": {
+              "label": "基準在庫数量",
+              "info": "進行状況バーの製品在庫の初期数量を設定します。"
+            }
+          }
+        },
+        "disclosures": {
+          "name": "開示情報",
+          "description": "この商品に必要な安全上の警告および規制上の開示情報です。詳細は [サポートページ](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information) をご覧ください。",
+          "settings": {
+            "heading": {
+              "label": "見出し",
+              "default": "重要なお知らせ"
+            },
+            "open_by_default": {
+              "label": "デフォルトで開く"
+            }
+          }
+        }
+      },
+      "divider": {
+        "section_divider_heading": "セクション分割線",
+        "show_divider": "ディバイダーを表示する",
+        "top": "上部の区切り",
+        "top_info": "上のセクションの下部区切りがウェーブまたはカーブの場合は非表示",
+        "bottom_info": "下のセクションの上部区切りがウェーブまたはカーブの場合は線を非表示",
+        "bottom": "下部の区切り",
+        "none": "なし",
+        "line": "線",
+        "wave": "ウェーブ",
+        "curve_out": "外側カーブ",
+        "curve_in": "内側カーブ"
+      },
+      "metafield": {
+        "short_description": {
+          "label": "短い説明 メタフィールド",
+          "info": "商品メタフィールド。 短い説明がある場合に使用します。 Format: namespace.key. Default: custom.short_description."
+        },
+        "highlights": {
+          "label": "ハイライト メタフィールド",
+          "info": "商品メタフィールド。 ハイライトのアイコン/タイトルのリスト。 Format: namespace.key. Default: custom.highlights."
+        },
+        "key_features": {
+          "label": "主な特徴 メタフィールド",
+          "info": "商品メタフィールド。 タイトル/説明項目のリスト。 Format: namespace.key. Default: custom.key_features."
+        },
+        "media_lightbox": {
+          "label": "メディアライトボックス メタフィールド",
+          "info": "商品メタフィールド。 ギャラリー用の画像/動画のリスト。 Format: namespace.key. Default: custom.media_lightbox."
+        },
+        "model_size": {
+          "label": "モデルサイズ メタフィールド",
+          "info": "商品メタフィールド。 モデル採寸の（メタオブジェクト）。 Format: namespace.key. Default: custom.model_size."
+        },
+        "product_sizing": {
+          "label": "製品サイズ メタフィールド",
+          "info": "商品メタフィールド。 サイズスケール用のリスト。 Format: namespace.key. Default: custom.product_sizing."
+        },
+        "shop_the_look": {
+          "label": "ショップザルック メタフィールド",
+          "info": "商品メタフィールド。 ルック画像と商品のリスト。 Format: namespace.key. Default: custom.shop_the_look."
+        },
+        "similar_products": {
+          "label": "類似商品 メタフィールド",
+          "info": "商品メタフィールド。 類似商品のリスト。 Format: namespace.key. Default: custom.similar_products."
+        },
+        "frequently_bought_together": {
+          "label": "よく一緒に購入 メタフィールド",
+          "info": "商品メタフィールド。 一緒に購入する商品のリスト。 Format: namespace.key. Default: custom.frequently_bought_together."
+        },
+        "complete_the_look": {
+          "label": "ルックを完成 メタフィールド",
+          "info": "商品メタフィールド。 アウトフィット商品のリスト。 Format: namespace.key. Default: custom.complete_the_look."
+        },
+        "info_gallery": {
+          "label": "情報ギャラリー メタフィールド",
+          "info": "商品メタフィールド。 ギャラリーカード（画像＋テキスト）のリスト。 Format: namespace.key. Default: custom.info_gallery."
+        },
+        "compare_items": {
+          "label": "商品を比較 メタフィールド",
+          "info": "商品メタフィールド。 比較する商品のリスト。 Format: namespace.key. Default: custom.compare_items."
+        },
+        "ingredient_highlights": {
+          "label": "成分ハイライト メタフィールド",
+          "info": "商品メタフィールド。 比較行に表示されます。 Format: namespace.key. Default: custom.ingredient_highlights."
+        },
+        "subcollection": {
+          "label": "サブコレクション メタフィールド",
+          "info": "コレクションメタフィールド。 子コレクションのリスト。 Format: namespace.key. Default: custom.subcollection."
+        }
+      }
+    },
+    "group": {
+      "product": "Products",
+      "collection": "コレクション",
+      "storytelling": "ストーリーテリング",
+      "banners": "バナー",
+      "blog": "Blog",
+      "form": "フォーム",
+      "shopable": "買い物可能品",
+      "blocks": {
+        "basic": "基本",
+        "layout": "ユーティリティとレイアウト",
+        "custom": "Custom",
+        "forms": "フォーム"
+      },
+      "decorative": {
+        "name": "装飾的な",
+        "marquee": "マーキー",
+        "how_to_use_maquee": "[このブロックの使い方](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/marquee)"
+      },
+      "links": {
+        "name": "リンク",
+        "menu": "Menu",
+        "how_to_use_menu": "[このブロックの使い方](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)",
+        "how_to_use_popup_link": "[このブロックの使い方](https://nextsky.gitbook.io/purity-theme/group-blocks/links/popup-link)",
+        "popup_link": "ポップアップリンク"
+      },
+      "general": {
+        "name": "一般的な",
+        "image_box": "画像ボックス",
+        "image_box_use": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/overlay-group/search)"
+        }
+      }
+    },
+    "overlay_group": {
+      "name": "オーバーレイグループ"
+    },
+    "search": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/overlay-group/search)",
+      "name": "検索"
+    },
+    "footer": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/footer-group/footer)",
+      "name": "フッター",
+      "settings": {
+        "enable_back_top": {
+          "label": "トップに戻るを有効にする"
+        },
+        "show_policy": {
+          "label": "ポリシーのリンク",
+          "info": "[ポリシーを管理](/admin/settings/legal)"
+        },
+        "country_language": {
+          "content": "国/言語セレクター",
+          "info": "国/地域を追加するには、[マーケット設定](/admin/settings/markets)に移動します。言語を追加するには、[言語設定](/admin/settings/languages)に移動します。"
+        },
+        "enable_country_selector": {
+          "label": "国/地域セレクターを有効にする"
+        },
+        "width": {
+          "options__1": "16%",
+          "options__2": "20%",
+          "options__3": "25%",
+          "options__4": "33%",
+          "options__5": "50%",
+          "options__6": "66%",
+          "options__7": "75%",
+          "options__8": "86%",
+          "options__9": "100%"
+        },
+        "enable_language_selector": {
+          "label": "言語セレクターを有効にする"
+        },
+        "payment": {
+          "content": "支払い方法"
+        },
+        "payment_enable": {
+          "label": "支払いアイコンを表示する"
+        },
+        "menu_policies": {
+          "label": "フッター下部"
+        },
+        "header_follow": {
+          "content": "ショップでフォローする",
+          "info": "ストアフロントからShopアプリでストアをフォローできるようにするには、Shop Payを有効にする必要があります。[詳細はこちら](https://help.shopify.com/manual/online-store/themes/customizing-themes/follow-on-shop)"
+        },
+        "enable_follow_on_shop": {
+          "label": "ショップでのフォローを有効にする"
+        }
+      },
+      "blocks": {
+        "menu_block": {
+          "label": "Menu"
+        },
+        "newsletter_block": {
+          "name": "ニュースレター",
+          "info": "購読者は自動的に「マーケティングを承認した」顧客リストに追加されます。[詳細はこちら](https://help.shopify.com/manual/customers/manage-customers)",
+          "settings": {
+            "note": {
+              "label": "注記"
+            }
+          }
+        },
+        "contact_bar_block": {
+          "name": "コンタクトバー",
+          "settings": {
+            "store_address": "住所",
+            "store_phone": "電話",
+            "store_email": "Email",
+            "show_social": {
+              "label": "ソーシャルメディアアイコンを表示する",
+              "info": "ソーシャルメディアアカウントを表示するには、テーマ設定でリンクしてください。"
+            }
+          }
+        }
+      }
+    },
+    "header": {
+      "name": "ヘッダ",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header)",
+      "settings": {
+        "sticky_header_type": {
+          "label": "固定ヘッダー",
+          "options__1": {
+            "label": "None"
+          },
+          "options__2": {
+            "label": "上にスクロールすると"
+          },
+          "options__3": {
+            "label": "いつも"
+          }
+        },
+        "menu": {
+          "label": "Menu",
+          "menu_trigger": {
+            "label": "デスクトップのドロップダウン メニュー トリガー",
+            "options__1": {
+              "label": "クリック"
+            },
+            "options__2": {
+              "label": "ホバー"
+            }
+          },
+          "dropdowns_animation": {
+            "label": "ドロップダウンアニメーション",
+            "options__1": {
+              "label": "フェードイン"
+            },
+            "options__3": {
+              "label": "下から上へ"
+            }
+          }
+        },
+        "menu_mobile": {
+          "label": "モバイルメニューの設定",
+          "menu_icon": {
+            "label": "ハンバーガーアイコンの位置",
+            "info": "モバイルでハンバーガー メニューが表示される場所を選択します。"
+          }
+        },
+        "addons": {
+          "label": "アドオン",
+          "show_account": {
+            "label": "アカウントアイコンを表示"
+          },
+          "show_search": {
+            "label": "検索を表示"
+          },
+          "show_cart": {
+            "label": "ショッピングカートを表示"
+          },
+          "show_offer": {
+            "label": "オファーを表示"
+          },
+          "show_language": {
+            "label": "言語を表示する"
+          },
+          "show_currency": {
+            "label": "通貨を表示"
+          }
+        },
+        "transparent": {
+          "content": "透明ヘッダー",
+          "info": "ホームページの最初のセクションが、スライドショー、テキスト オーバーレイを含むビデオ、またはテキスト オーバーレイを含む画像のいずれかとして構成されていることを確認します。",
+          "transparent": {
+            "label": "透過ヘッダーを有効にする"
+          },
+          "text_icon_transparent": {
+            "label": "テキストとアイコンの色"
+          }
+        },
+        "blocks": {
+          "mega_menu": {
+            "name": "バナー（メガメニュー）",
+            "how_to_use": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#banner-mega-menu)",
+            "banners": {
+              "label": "バナー設定"
+            },
+            "promotion_1": {
+              "label": "バナー #1"
+            },
+            "promotion_2": {
+              "label": "バナー #2"
+            },
+            "promotion_3": {
+              "label": "バナー #3"
+            },
+            "promotion_4": {
+              "label": "バナー #4"
+            },
+            "promotion_5": {
+              "label": "バナー #5"
+            },
+            "info": "448px x 260pxを推奨"
+          },
+          "menu_item": {
+            "label": "メニュー項目",
+            "info": "メニュー項目を入力してメガ メニュー ドロップダウンを適用します。大文字と小文字を区別してください。"
+          },
+          "menu_column": {
+            "label": "デスクトップメニューの列"
+          },
+          "product": {
+            "name": "商品（メガメニュー）",
+            "how_to_use": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#product-mega-menu)",
+            "header": "Products"
+          },
+          "collection": {
+            "name": "コレクション（メガメニュー）",
+            "how_to_use": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#collection-mega-menu)",
+            "header": "コレクション"
+          },
+          "menu_highlight": {
+            "name": "メニューのハイライト",
+            "menu_items": {
+              "label": "ハイライトするメニュー項目",
+              "info": "ハイライトするメニュー項目の名前をカンマで区切って入力します (例: セール、新着)。大文字と小文字を区別してください。"
+            },
+            "highlight_color": {
+              "label": "ハイライトカラー"
+            },
+            "highlight_icon": {
+              "label": "ハイライトアイコン",
+              "options": {
+                "unset": "未設定",
+                "star": "スター",
+                "custom": "Custom"
+              }
+            },
+            "custom_icon": {
+              "label": "カスタムアイコン",
+              "info": "ハイライトされたメニュー項目の横に表示されるオプションのアイコン (推奨サイズ: 24x24px)"
+            }
+          }
+        },
+        "header_layout": {
+          "label": "デスクトップヘッダーレイアウト",
+          "info": "レイアウトはモバイル向けに自動的に最適化されます。",
+          "options__1": {
+            "label": "ロゴ左、メニュー中央"
+          },
+          "options__2": {
+            "label": "ロゴ中央、メニュー左"
+          },
+          "options__3": {
+            "label": "ロゴ中央、メニュー下"
+          },
+          "options__4": {
+            "label": "ロゴ左、メニュー下"
+          },
+          "options__5": {
+            "label": "ロゴ左、メニュー左"
+          }
+        }
+      }
+    },
+    "custom_liquid": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "how_to_use_block": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "name": "カスタムリキッド",
+      "liquid_code": "リキッドコード",
+      "info": "アプリ スニペットまたはその他の Liquid コードを追加して、高度なカスタマイズを作成します。",
+      "info_custom_liquid": "アプリ スニペットまたはその他のコードを追加して、高度なカスタマイズを作成します。 [詳細](https://shopify.dev/docs/api/liquid)"
+    },
+    "blog-posts": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/blog-posts)",
+      "name": "ブログ投稿",
+      "settings": {
+        "blog-post": {
+          "label": "ブログ投稿",
+          "blog_post_type": {
+            "label": "ブログ投稿の種類",
+            "category": "カテゴリ",
+            "select_blog": "選択されたブログ"
+          }
+        },
+        "blog": {
+          "label": "Blog"
+        }
+      }
+    },
+    "multi_content": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/multi-content)",
+      "name": "マルチコンテンツ",
+      "blocks": {
+        "label": "ブロック設定",
+        "bellow_image": "バッジの設定",
+        "badge": "バッジ",
+        "equal_height_adjustment": {
+          "label": "均等高さ調整"
+        },
+        "social_icon": "ソーシャルアイコン",
+        "grid_info": "グリッド情報",
+        "grid_info_1": "グリッド情報1",
+        "grid_info_2": "グリッド情報 2",
+        "grid_info_3": "グリッド情報 3",
+        "grid_info_4": "グリッド情報 4"
+      }
+    },
+    "grid_banner": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/banners/grid-banner)",
+      "name": "グリッドバナー",
+      "settings": {
+        "hidden_block_des_mobile": {
+          "label": "モバイルでは項目の説明を非表示にする"
+        }
+      },
+      "blocks": {
+        "item": {
+          "name": "バナー項目",
+          "show_arrow": "矢印アイコンを表示"
+        }
+      }
+    },
+    "scrolling_text": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/scrolling-text)",
+      "name": "スクロールテキスト",
+      "settings": {
+        "direction": {
+          "label": "方向",
+          "left": {
+            "label": "右から左へ"
+          },
+          "right": {
+            "label": "左から右へ"
+          }
+        },
+        "speed": {
+          "label": "スピード"
+        },
+        "text_size": {
+          "label": "Size"
+        },
+        "blocks": {
+          "image": {
+            "rounded_image": {
+              "label": "画像の角の半径"
+            },
+            "image_height": {
+              "label": "画像の高さ"
+            },
+            "image_width": {
+              "label": "幅"
+            }
+          }
+        }
+      }
+    },
+    "shopby-outfit": {
+      "name": "服装別にショッピング",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-by-outfit)",
+      "blocks": {
+        "outfit": {
+          "name": "服装",
+          "settings": {
+            "product": {
+              "label": "製品一覧"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "服装別にショッピング"
+      },
+      "setting": {
+        "media": {
+          "label": "メディアの種類"
+        },
+        "video_autoplay": {
+          "info": "これは、メディア タイプ ブロック設定でビデオが選択されている場合にのみ機能します。"
+        }
+      }
+    },
+    "collection-list": {
+      "name": "コレクションリスト",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/collection-list)",
+      "settings": {
+        "header": {
+          "collection": "Collection",
+          "collection_title": "コレクションタイトル",
+          "collection_card": "コレクションカード",
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "how_to_use_collection_title": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/page-heading)"
+        },
+        "collection_title_style": {
+          "label": "コレクションのタイトルのスタイル",
+          "text": "Text",
+          "button": "ボタン"
+        },
+        "show_product_count": {
+          "label": "製品数を表示"
+        },
+        "overlay_image_settings": "オーバーレイ画像の設定",
+        "overlay_image_color": "テキストの色",
+        "collection_overlay_image_color": "コレクションのテキストの色"
+      },
+      "blocks": {
+        "featured_collection": {
+          "name": "Collection",
+          "settings": {
+            "collection": {
+              "label": "Collection"
+            },
+            "image": {
+              "label": "Image",
+              "info": "コレクションの画像を使用するには空白のままにしてください",
+              "info_highlight": "コレクションの画像を使用する場合は空白のままにします。 330px x 520pxを推奨",
+              "info_suitable": "コレクションの画像を使用する場合は空白のままにします。 147px x 72pxを推奨",
+              "info_collection_item": "444px x 444pxを推奨"
+            },
+            "title": {
+              "label": "タイトル",
+              "info": "コレクションのタイトルを使用するには空白のままにしてください"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "コレクションリスト"
+      }
+    },
+    "quickview": {
+      "name": "クイックビュー",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/overlay-group/quickview)",
+      "settings": {
+        "paragraph": "このセクションではクイックビューポップアップをカスタマイズできます。"
+      }
+    },
+    "featured-collection": {
+      "name": "注目のコレクション",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/featured-collection)"
+    },
+    "expandable_card": {
+      "name": "拡張可能なカード",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/expandable-card)",
+      "settings": {
+        "card_header": "カード設定",
+        "interaction_behavior": {
+          "label": "インタラクション動作",
+          "options": {
+            "hover": "ホバー時に表示",
+            "drawer": "引き出しをクリックして開きます"
+          }
+        }
+      },
+      "blocks": {
+        "layered_card": {
+          "name": "レイヤードカード",
+          "settings": {
+            "media_header": "Image",
+            "description": "説明",
+            "drawer_page": "ページからの説明"
+          }
+        }
+      }
+    },
+    "featured-product": {
+      "name": "注目の製品",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/featured-product)",
+      "settings": {
+        "product": "Product"
+      }
+    },
+    "slideshow": {
+      "name": "スライドショー",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/slideshow)",
+      "settings": {
+        "loading_background_color": {
+          "label": "背景を読み込み中",
+          "info": "ビデオ スライドの読み込み中に表示される背景色。"
+        },
+        "slide_height": {
+          "label": "スライドの高さ",
+          "full_screen": "全画面表示",
+          "adapt_to_first_image": "最初の画像に適応する",
+          "small": "小",
+          "medium": "中くらい",
+          "large": "大きい"
+        },
+        "info": "1920px x 840pxを推奨",
+        "info_mobile": "390px x 572pxを推奨",
+        "blocks": {
+          "image": {
+            "label": "画像スライド",
+            "image_overlay_opacity": {
+              "label": "画像オーバーレイの不透明度",
+              "overlay_opacity": "オーバーレイの不透明度"
+            }
+          },
+          "video": {
+            "label": "動画スライド",
+            "video_setting": "動画設定",
+            "video_overlay_opacity": {
+              "label": "動画オーバーレイの不透明度"
+            }
+          }
+        }
+      }
+    },
+    "related-products": {
+      "name": "関連商品",
+      "how_to_use": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/related-products)"
+    },
+    "similar-products": {
+      "name": "同様の商品を購入する",
+      "how_to_use": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-product)"
+    },
+    "complete-the-look": {
+      "name": "見た目を完成させる",
+      "how_to_use": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/group-sections/products/complete-the-look)"
+    },
+    "similar-color": {
+      "name": "似た色を購入する",
+      "how_to_use": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-color)"
+    },
+    "quick-order-list": {
+      "name": "クイックオーダーリスト"
+    },
+    "newsletter": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/newsletter)",
+      "name": "ニュースレター",
+      "settings": {
+        "header": {
+          "heading_setting": "ニュースレターの設定"
+        }
+      }
+    },
+    "rich-text": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/rich-text)",
+      "name": "リッチテキスト",
+      "settings": {
+        "max_width": {
+          "label": "最大幅",
+          "info": "最大幅はモバイル向けに自動的に最適化されます。"
+        },
+        "rotating_text": "回覧テキスト",
+        "separator_spacing": {
+          "label": "区切りの間隔",
+          "info": "フレーズの間にある - や • などの区切りの両側に余白を追加します。"
+        }
+      }
+    },
+    "recently-viewed-products": {
+      "name": "最近見た商品",
+      "info": "ページを保存して最近閲覧した商品をロードします",
+      "how_to_use": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/recently-product)"
+    },
+    "info-gallery-products": {
+      "name": "主な成分",
+      "how_to_use": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metaobjects/info-gallery)"
+    },
+    "product-benefits": {
+      "name": "製品の利点",
+      "how_to_use": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/product-benefits)",
+      "settings": {
+        "media_header": "センターメディア",
+        "image": {
+          "label": "Image",
+          "info": "空の場合は商品のアイキャッチ画像を使用します。640 x 900px推奨。"
+        },
+        "media_width": {
+          "label": "デスクトップ上の画像の幅"
+        },
+        "video": {
+          "label": "Video"
+        },
+        "video_poster": {
+          "label": "動画ポスター画像"
+        }
+      },
+      "blocks": {
+        "benefit": {
+          "name": "利点",
+          "settings": {
+            "icon": {
+              "label": "アイコン"
+            }
+          }
+        }
+      }
+    },
+    "quiz-results-products": {
+      "name": "クイズ結果商品"
+    },
+    "quiz": {
+      "name": "クイズ",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/utilities-and-layout/quiz)",
+      "settings": {
+        "intro_header": "イントロ",
+        "enable_intro_step": {
+          "label": "イントロステップを有効にする"
+        },
+        "intro_button_label": {
+          "label": "開始ボタンのラベル"
+        },
+        "show_retake_button": {
+          "label": "再撮影ボタンを表示"
+        },
+        "retake_label": {
+          "label": "リテイクボタンのラベル"
+        },
+        "results_display_header": "結果表示",
+        "content_max_width": {
+          "label": "コンテンツの最大幅"
+        },
+        "show_back_button": {
+          "label": "戻るボタンを表示"
+        },
+        "email_header": "メールステップ",
+        "enable_email_step": {
+          "label": "電子メールを有効にするステップ"
+        },
+        "email_heading": {
+          "label": "メールの見出し"
+        },
+        "email_placeholder": {
+          "label": "電子メールのプレースホルダー"
+        },
+        "continue_label": {
+          "label": "続行ボタンのラベル"
+        },
+        "skip_label": {
+          "label": "スキップボタンのラベル"
+        },
+        "results_banner_image": {
+          "label": "結果バナー画像"
+        },
+        "fallback_products": {
+          "label": "フォールバック製品",
+          "info": "クイズの回答で強い一致または部分一致が返されない場合にのみ製品が表示されます。結果ページが空にならないように、バックアップとして使用します。"
+        },
+        "results_products_limit": {
+          "label": "展示できる最大の商品数"
+        }
+      }
+    },
+    "compare-products": {
+      "name": "製品を比較する",
+      "how_to_use": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/compare-items)",
+      "settings": {
+        "header": {
+          "label": "設定を比較する"
+        },
+        "show_price": "価格",
+        "show_ratings": "評価",
+        "show_vendor": "販売元",
+        "show_color": "Color",
+        "show_size": "Size",
+        "show_highlights": "ハイライト",
+        "show_availability": "可用性"
+      }
+    },
+    "bought-together-products": {
+      "name": "一緒に買った商品",
+      "how_to_use": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/frequently-bought-together)"
+    },
+    "media-with-text": {
+      "name": "テキストのあるメディア",
+      "info_image": {
+        "info_desktop": "950px x 844pxを推奨",
+        "info_mobile": "475px x 422pxを推奨",
+        "info_video": "画像設定をオーバーライドします。 950px x 844pxを推奨"
+      }
+    },
+    "product-specifications": {
+      "name": "製品仕様",
+      "item_name": "Product specifications item",
+      "specifications_layout": "仕様レイアウト",
+      "grid_gap": "グリッド間隔",
+      "mobile_rows_shown": "行",
+      "view_more_label": "「もっと見る」ボタンのラベル",
+      "view_less_label": "「閉じる」ボタンのラベル",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-specifications)"
+    },
+    "image-with-text": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/image-with-text)",
+      "name": "テキスト付きの画像",
+      "settings": {
+        "desktop_vertical_alignment": {
+          "label": "デスクトップの垂直方向の配置",
+          "top": "上",
+          "middle": "真ん中",
+          "bottom": "底"
+        },
+        "vertical_alignment": "垂直方向の配置",
+        "background_type": {
+          "label": "背景の種類",
+          "image": "Image",
+          "color": "Color"
+        },
+        "background_color": "背景色",
+        "background_image": "背景画像",
+        "text_color": "テキストの色",
+        "image_info": "696px x 500pxを推奨",
+        "offer_image_with_text_info": "360px x 200pxを推奨",
+        "image_caption": {
+          "label": "画像キャプション",
+          "heading": "見出し",
+          "description": "説明",
+          "position": "位置"
+        }
+      }
+    },
+    "before_after_result": {
+      "name": "ビフォーアフター",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/banners/before-after)",
+      "before_text": {
+        "label": "本文の前",
+        "default": "前に"
+      },
+      "after_text": {
+        "label": "テキストの後",
+        "default": "後"
+      }
+    },
+    "parallax-image-with-text": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/banners/parallax-split)",
+      "name": "視差分割",
+      "settings": {
+        "image": {
+          "image_1": {
+            "label": "画像1"
+          },
+          "image_2": {
+            "label": "画像2"
+          },
+          "image_3": {
+            "label": "画像3"
+          }
+        },
+        "parallax_image": {
+          "label": "視差画像"
+        }
+      }
+    },
+    "discount_popup": {
+      "info": "このセクションは購読後のポップアップ表示に使用します。",
+      "name": "割引ポップアップ",
+      "how_to_use": "[この設定の使い方](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/discount-popup)",
+      "settings": {
+        "discount_code": {
+          "label": "プロモーターリンク",
+          "info": "プロモーターリンクを取得するにはどうすればよいですか? [詳細](https://help.shopify.com/en/manual/discounts/managing-discount-codes#promote-a-discount-using-a-shareable-link)"
+        },
+        "discount_button": {
+          "label": "プロモーターボタンのラベル",
+          "default": "👉 10%オフでショップ"
+        },
+        "sub_heading": {
+          "default": "万歳！あなたは購読しています"
+        },
+        "info_image": "この画像はモバイルでは自動的に非表示になります。350px x 410px推奨"
+      }
+    },
+    "image-with-text-overlay": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/image-with-text-overlay)",
+      "name": "テキストオーバーレイを含む画像",
+      "countdown": "カウントダウンタイマー",
+      "count_down": "カウントダウン",
+      "how_to_use_count_down": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/countdown)",
+      "end_time": {
+        "label": "終了時刻",
+        "info": "例：mm-dd-yyyy"
+      },
+      "message": {
+        "label": "期限切れのメッセージ",
+        "info": "時間が期限切れになったときに表示されるメッセージです。"
+      },
+      "image_info": {
+        "info_desktop": "1392px x 500pxを推奨",
+        "info_mobile": "400px x 469pxを推奨"
+      }
+    },
+    "media-hero": {
+      "name": "メディアヒーロー",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/media-hero)",
+      "media": "メディア",
+      "info": "画像設定をオーバーライドします。"
+    },
+    "video": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/video)",
+      "name": "Video",
+      "settings": {
+        "video_local": {
+          "label": "ローカル動画",
+          "info_2": "ビデオ URL 設定をオーバーライドします。",
+          "info_multi_content_video": "ビデオ URL 設定をオーバーライドします。 684px x 500pxを推奨します。",
+          "info_poster": "動画と同じサイズを使用"
+        },
+        "video_link": {
+          "label": "動画URL",
+          "info": "YouTube または Vimeo URL を受け入れます"
+        },
+        "video_poster": {
+          "label": "動画ポスター"
+        },
+        "alt_description": {
+          "label": "動画の代替テキスト",
+          "info": "スクリーン リーダーを使用して顧客にビデオの説明をします。 [詳細](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#video-block)"
+        },
+        "autoplay": {
+          "label": "動画の自動再生",
+          "info": "自動再生のため動画は自動的にミュートされます"
+        },
+        "looping": {
+          "label": "動画のループ再生"
+        },
+        "show_action": {
+          "label": "ビデオコントロールを表示"
+        },
+        "aspect_ratio": {
+          "label": "アスペクト比",
+          "option__1": "16:9",
+          "option__2": "21:9",
+          "option__3": "ビデオに適応する"
+        },
+        "show_text_bellow": {
+          "label": "モバイルでビデオの下にテキストを表示",
+          "info": "モバイルではテキストが動画の下に表示されます。"
+        }
+      }
+    },
+    "main-password-content": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/other-pages/password-page)",
+      "name": "メインのパスワードページ",
+      "settings": {
+        "header__2": {
+          "content": "コンテンツ設定"
+        }
+      },
+      "blocks": {
+        "countdown_bn": {
+          "settings": {
+            "countdown_design": {
+              "label": "デザイン",
+              "options__1": {
+                "label": "Default"
+              },
+              "options__2": {
+                "label": "モダンな"
+              }
+            }
+          }
+        },
+        "form_subscribe": {
+          "name": "フォーム購読",
+          "settings": {
+            "email_placeholder": {
+              "label": "電子メールのプレースホルダーテキスト"
+            },
+            "btn_label": {
+              "label": "ボタンラベル"
+            }
+          }
+        }
+      }
+    },
+    "divider": {
+      "settings": {
+        "height": {
+          "label": "Height"
+        },
+        "color": {
+          "label": "Color"
+        }
+      }
+    },
+    "faq": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/faqs)",
+      "name": "よくある質問",
+      "main-faq": "メインのよくある質問ページ",
+      "heading": {
+        "content": "FAQメッセージ"
+      },
+      "info_image": "646px x 700pxを推奨",
+      "settings": {
+        "show_faqs_message": "FAQメッセージを表示",
+        "show_image": "画像を表示",
+        "open_all_question": "すべての質問を開いてください",
+        "framed": "額入り",
+        "faq_style": "よくある質問のスタイル",
+        "desktop_layout": {
+          "label": "デスクトップのレイアウト",
+          "horizontal": "横並び",
+          "vertical": "縦並び"
+        }
+      },
+      "blocks": {
+        "name": "よくある質問項目",
+        "settings": {
+          "question": {
+            "question": "質問",
+            "answer": "答え"
+          }
+        }
+      }
+    },
+    "page-faq": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/other-pages/faq-page)"
+    },
+    "video-with-text-overlay": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/video-with-text-overlay)",
+      "name": "テキストオーバーレイ付き動画",
+      "settings": {
+        "video_local": {
+          "label": "ローカル動画",
+          "info": "ビデオ URL 設定をオーバーライドします。 1392px x 550pxを推奨",
+          "info_mobile": "390px x 550pxを推奨"
+        },
+        "video_link": {
+          "label": "動画リンク"
+        },
+        "video_poster": {
+          "info": "ビデオと同じサイズ"
+        },
+        "overlay_opacity": "オーバーレイの不透明度",
+        "video_height": {
+          "label": "動画の高さ",
+          "options__1": {
+            "label": "ビデオに適応する"
+          },
+          "options__2": {
+            "label": "小"
+          },
+          "options__3": {
+            "label": "中くらい"
+          },
+          "options__4": {
+            "label": "大きい"
+          }
+        }
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "製品グリッド",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/product-grid)",
+      "settings": {
+        "items_per_page": {
+          "label": "ページごとに表示する項目"
+        },
+        "columns_desktop": {
+          "label": "デスクトップ上の行ごとの列数"
+        },
+        "show_product_counts": {
+          "label": "製品数を表示する"
+        }
+      }
+    },
+    "main-collection": {
+      "settings": {
+        "items_per_page": {
+          "label": "ページごとに表示する項目"
+        },
+        "columns_desktop": {
+          "label": "デスクトップ上の行ごとの列数"
+        },
+        "enable_filtering": {
+          "label": "フィルタリングを有効にする",
+          "info": "Search & Discovery アプリを使用してフィルターをカスタマイズします。 [詳細](https://help.shopify.com/manual/online-store/search-and-discovery/filters)"
+        },
+        "filter_type": {
+          "label": "デスクトップフィルターレイアウト",
+          "options__1": {
+            "label": "Horizontal"
+          },
+          "options__2": {
+            "label": "Vertical"
+          },
+          "options__3": {
+            "label": "引き出し"
+          }
+        },
+        "enable_sorting": {
+          "label": "並べ替えを有効にする"
+        },
+        "show_product_counts": {
+          "label": "製品数を表示する"
+        },
+        "header__1": {
+          "content": "フィルタリングと並べ替え"
+        }
+      },
+      "blocks": {
+        "promotion": {
+          "name": "プロモーション",
+          "promotion_position": {
+            "label": "昇進職"
+          },
+          "info": "330px 550pxを推奨"
+        },
+        "steps": {
+          "name": "ステップごとに買い物をする",
+          "info": "337px x 200pxを推奨"
+        }
+      }
+    },
+    "main-search": {
+      "name": "検索結果",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/other-pages/search-page)",
+      "settings": {
+        "search_results": {
+          "label": "結果を表示",
+          "option_1": "Default",
+          "option_2": "タブ"
+        }
+      }
+    },
+    "main-article": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/other-pages/blog-post-page)",
+      "name": "ブログ投稿",
+      "settings": {
+        "show_date": "発行日を表示する",
+        "show_comment": "コメントを表示",
+        "show_excerpt": "投稿の抜粋を表示",
+        "show_share": "共有ボタンを表示",
+        "blocks": {
+          "featured_image": "アイキャッチ画像",
+          "content_article": "コンテンツ",
+          "addons": "アドオン",
+          "prev_next_articles": "前後の記事"
+        }
+      },
+      "related": {
+        "heading": "関連記事",
+        "articles": {
+          "label": "記事",
+          "info": "この順序で表示します。空の場合は、このブログの最新記事を表示します。"
+        }
+      },
+      "blocks": {
+        "featured_image": {
+          "settings": {
+            "image_height": {
+              "label": "画像の高さ",
+              "options__1": {
+                "label": "画像に適応する"
+              },
+              "options__2": {
+                "label": "小"
+              },
+              "options__3": {
+                "label": "中くらい"
+              },
+              "options__4": {
+                "label": "大きい"
+              }
+            }
+          }
+        }
+      },
+      "related_product": {
+        "heading": "関連商品",
+        "products": {
+          "label": "商品"
+        }
+      }
+    },
+    "cart-drawer": {
+      "name": "カート引き出し",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/overlay-group/cart-drawer)",
+      "settings": {
+        "info": "カートドロワーを表示するには、テーマ設定の[カート設定](/editor?context=theme&category=cart)でカートタイプにドロワーを選択してください。",
+        "content": "",
+        "show_free_shipping_message": {
+          "label": "送料無料メッセージを表示",
+          "info": "テーマ設定で送料無料の最低金額を設定します。"
+        },
+        "show_cart_note": "カートメモを表示",
+        "show_estimate_shipping": "配送料の見積もりを表示",
+        "show_discount": "割引コードを表示",
+        "hide_check_badge_on_mobile": "モバイルで信頼バッジのブロックを非表示にする",
+        "hide_icon_with_text_on_mobile": "モバイルでテキストブロックのあるアイコンを非表示にする",
+        "show_gift_wrap": {
+          "label": "ギフト包装を表示",
+          "info": "テーマ設定でギフトラッピング商品を選択してください。"
+        },
+        "discount_progress_bar_active": "割引プログレスバーはテーマ設定で有効になっており、送料無料メッセージの代わりに表示されます。"
+      }
+    },
+    "main-list-collections": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-list-page)",
+      "name": "コレクション一覧ページ",
+      "blocks": {
+        "name": "Collection",
+        "settings": {
+          "collection_image": "コレクションイメージ"
+        }
+      },
+      "settings": {
+        "information_position": {
+          "label": "情報位置",
+          "options__1": {
+            "label": "オーバーレイ画像"
+          },
+          "options__2": {
+            "label": "蛇腹画像"
+          }
+        },
+        "collection_to_show": {
+          "label": "展示するコレクション",
+          "options__1": {
+            "label": "全て"
+          },
+          "options__2": {
+            "label": "選択済み"
+          }
+        },
+        "sort": {
+          "label": "コレクションの並び替え",
+          "options__1": {
+            "label": "アルファベット順、A～Z"
+          },
+          "options__2": {
+            "label": "アルファベット順、Z～A"
+          },
+          "options__3": {
+            "label": "日付、新しいものから古いものまで"
+          },
+          "options__4": {
+            "label": "日付、古いものから新しいものまで"
+          },
+          "options__5": {
+            "label": "製品数（多い順）"
+          },
+          "options__6": {
+            "label": "製品数（少ないものから多いものまで）"
+          }
+        }
+      }
+    },
+    "main-blog": {
+      "name": "ブログ投稿",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/other-pages/blog-page)",
+      "settings": {
+        "header": {
+          "content_post": "投稿設定"
+        },
+        "maximum_posts_to_show": {
+          "label": "表示する投稿の最大数"
+        },
+        "post_per_row_desktop": {
+          "label": "デスクトップ上の行ごとに投稿"
+        },
+        "show_all_tags": {
+          "label": "タグリストを表示"
+        }
+      },
+      "blocks": {
+        "name": "購読フォーム",
+        "settings": {
+          "show_email_icon": "メールアイコンを表示",
+          "form_position": "フォームの位置"
+        }
+      }
+    },
+    "main-product": {
+      "name": "製品情報",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "settings": {
+        "header": {
+          "content": "メディア"
+        },
+        "enable_sticky_desktop": {
+          "label": "デスクトップでスティッキー追加カートを有効にする"
+        },
+        "desktop_layout": {
+          "label": "デスクトップのレイアウト",
+          "group": {
+            "static": "グリッド",
+            "carousel": "カルーセル"
+          },
+          "one_columns": {
+            "label": "1列"
+          },
+          "options__1": {
+            "label": "2列"
+          },
+          "options__2": {
+            "label": "水平サムネイル"
+          },
+          "options__3": {
+            "label": "スタック"
+          },
+          "options__4": {
+            "label": "縦型サムネイル"
+          },
+          "options__5": {
+            "label": "縦型サムネイル（スクロール）"
+          },
+          "options__6": {
+            "label": "2列"
+          }
+        },
+        "thumbnail_carousel_setting": {
+          "label": "サムネイルカルーセル設定",
+          "number_thumbs": "サムネイルの数"
+        },
+        "media_position": {
+          "label": "デスクトップメディアの位置"
+        },
+        "media_width": {
+          "label": "デスクトップメディアの幅"
+        },
+        "mobile_thumbnails": {
+          "options__1": {
+            "label": "サムネイルを表示する"
+          },
+          "options__2": {
+            "label": "サムネイルを非表示にする"
+          }
+        },
+        "enable_video_looping": {
+          "label": "ビデオループを有効にする"
+        },
+        "enable_image_zoom": {
+          "label": "画像のズーム",
+          "options__1": {
+            "label": "無効にする"
+          },
+          "options__2": {
+            "label": "内部ズーム"
+          },
+          "options__3": {
+            "label": "ズームアウト"
+          }
+        },
+        "enable_image_lightbox": {
+          "label": "ライトボックスを有効にする"
+        },
+        "enable_video_autoplay": {
+          "label": "ビデオの自動再生を有効にする",
+          "info": "自動再生のため動画は自動的にミュートされます。YouTube/Vimeoでは機能しません。"
+        },
+        "enable_video_controls_default": {
+          "label": "カスタムビデオコントロールを有効にする",
+          "info": "YouTube/Vimeoでは機能しません。"
+        }
+      },
+      "blocks": {
+        "custom_product": {
+          "name": "カスタムオプション",
+          "tab_setting": {
+            "label": "タブラベル",
+            "tab_1": {
+              "label": "タブ 1"
+            },
+            "tab_2": {
+              "label": "タブ 2"
+            },
+            "tab_3": {
+              "label": "タブ 3"
+            }
+          },
+          "description": "顧客はカートに追加する前に、3 ステップのポップアップを通じて製品 (位置、テキスト、色) をカスタマイズできます。詳細については、[サポートページ](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/custom-options)をご覧ください。",
+          "placement": "配置",
+          "text": "Text",
+          "text_limit": "テキスト制限",
+          "note": "注記",
+          "color": {
+            "name": "Color",
+            "options": {
+              "color_1": "カラー1",
+              "color_2": "カラー2",
+              "color_3": "カラー3",
+              "color_4": "カラー4",
+              "color_5": "カラー5",
+              "color_6": "カラー6",
+              "color_7": "カラー7",
+              "color_8": "カラー8",
+              "color_9": "カラー9",
+              "color_10": "カラー10"
+            }
+          }
+        }
+      }
+    },
+    "main-cart-items": {
+      "name": "メインカート",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/other-pages/cart-page)",
+      "block": {
+        "icon_with_text": "テキスト付きのアイコン",
+        "trust_badges": "信頼バッジ"
+      }
+    },
+    "main-collection-banner": {
+      "name": "コレクションバナー",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/collection-banner)",
+      "settings": {
+        "heading": {
+          "label": "設定"
+        },
+        "use_collection_image": {
+          "label": "コレクション画像を使用",
+          "info": "背景画像設定を上書きする"
+        },
+        "image_height": {
+          "option__2": "内容に基づく"
+        },
+        "image_position": {
+          "label": "画像の位置",
+          "option__1": "左",
+          "option__2": "右"
+        },
+        "image_opacity": {
+          "label": "画像の不透明度"
+        }
+      }
+    },
+    "contact-form": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/contact-form)",
+      "name": "お問い合わせフォーム",
+      "settings": {
+        "name": "名前",
+        "email_placeholder": "Email",
+        "message": "メッセージ",
+        "option": "オプション",
+        "info_option": "オプションの名前を定義します。オプションはカンマで区切ります。例えば。製品、注文、プレス、その他"
+      }
+    },
+    "main-404": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/other-pages/404-page)",
+      "name": "メイン404",
+      "info_image": "500px x 288pxを推奨"
+    },
+    "main-activate-account": {
+      "name": "アカウントのアクティベーション"
+    },
+    "main-password-footer": {
+      "name": "パスワードフッター"
+    },
+    "main-account": {
+      "name": "アカウント"
+    },
+    "main-register": {
+      "name": "登録"
+    },
+    "main-login": {
+      "name": "ログイン"
+    },
+    "main-reset-password": {
+      "name": "パスワードのリセット"
+    },
+    "main-order": {
+      "name": "注文"
+    },
+    "main-addresses": {
+      "name": "住所"
+    },
+    "announcement-bar": {
+      "how_to_use": {
+        "label": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/announcement-bar)"
+      },
+      "name": "アナウンスバー",
+      "settings": {
+        "type": {
+          "name": "タイプ",
+          "options": {
+            "slide": {
+              "label": "カルーセル"
+            },
+            "marquee": {
+              "label": "マーキー"
+            }
+          }
+        },
+        "show_only_homepage": {
+          "label": "ホームページのみに表示"
+        },
+        "show_close_button": {
+          "label": "閉じるボタンを表示"
+        },
+        "enable_on_mobile": {
+          "label": "モバイルで有効にする"
+        },
+        "marquee_settings": {
+          "label": "マーキー設定",
+          "speed": {
+            "label": "スピード"
+          },
+          "show_icon": {
+            "label": "アイコンを表示"
+          }
+        }
+      },
+      "blocks": {
+        "name": "発表",
+        "setting": {
+          "label": "Text"
+        }
+      }
+    },
+    "multimedia_with_text": {
+      "blocks": {
+        "settings": {
+          "header": "メディア設定",
+          "media_style": {
+            "label": "メディアスタイル",
+            "options__1": {
+              "label": "丸い"
+            },
+            "options__2": {
+              "label": "楕円形"
+            },
+            "options__3": {
+              "label": "Default"
+            }
+          }
+        }
+      }
+    },
+    "product-tabs": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/vertical-product-tabs)",
+      "name": "製品タブ",
+      "setting": {
+        "layout": {
+          "label": "デスクトップのレイアウト",
+          "vertical": "Vertical",
+          "horizontal": "Horizontal"
+        },
+        "banner_header": "バナー",
+        "show_banner": "バナーを表示",
+        "sticky_banner": "固定バナー",
+        "portrait_4_5": "縦長 (4:5)",
+        "enable_carousel_info": "モバイルでは、商品レイアウトは常にカルーセルで表示されます。"
+      },
+      "blocks": {
+        "name": "タブ",
+        "header": "ブロック設定",
+        "settings": {
+          "hidden_des_mobile": {
+            "label": "モバイルではタブの説明を非表示にする"
+          },
+          "collection": {
+            "label": "Collection",
+            "description": "説明"
+          }
+        }
+      },
+      "presets": {
+        "product_tabs_with_banner": "バナー付き製品タブ"
+      }
+    },
+    "collection-highlights": {
+      "name": "コレクションのハイライト",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/collection-highlights)",
+      "settings": {
+        "highlight_collection_width": {
+          "label": "コレクションのハイライト幅"
+        }
+      },
+      "blocks": {
+        "header": "ブロック設定",
+        "type": {
+          "type_highlight": {
+            "header": "コレクションのハイライト設定",
+            "name": "コレクションのハイライト"
+          }
+        }
+      }
+    },
+    "collection-pills": {
+      "name": "コレクションピル",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/collections/collection-pills)",
+      "settings": {
+        "pill_style": {
+          "label": "ピルのスタイル"
+        },
+        "show_image_on_hover": {
+          "label": "ホバー時に画像を表示",
+          "info": "ホバー時の画像はモバイルでは非表示になります。"
+        },
+        "horizontal_scroll": {
+          "label": "横スクロール"
+        }
+      }
+    },
+    "suitable_products_finder": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/suitable-products-finder)",
+      "name": "適した商品ファインダー",
+      "settings": {
+        "collection_tab_header": {
+          "label": "コレクションタブ"
+        },
+        "collection_tab_style": {
+          "label": "コレクションタブのスタイル"
+        },
+        "collection_tab_style_options": {
+          "range_slider": {
+            "label": "レンジスライダー"
+          },
+          "pill_tabs": {
+            "label": "錠剤タブ"
+          }
+        },
+        "show_pill_tabs_with_heading": {
+          "label": "見出し付きインライン",
+          "info": "カラーピッカーを見出しと同じ行に表示します。"
+        },
+        "show_pill_tabs_color": {
+          "label": "カラードットを表示"
+        },
+        "pill_tabs_color": {
+          "label": "Color"
+        },
+        "pill_tabs_image": {
+          "info": "画像をアップロードすると、パターン画像が色より優先されます。"
+        },
+        "image_collection_width": {
+          "label": "画像の幅"
+        },
+        "range_slider": {
+          "settings": {
+            "show_range_slider": {
+              "label": "範囲スライダーを表示",
+              "info": "範囲スライダーはモバイルでは自動的に非表示になります。"
+            }
+          }
+        }
+      },
+      "preset": {
+        "ranger_slider": "製品ファインダー: レンジスライダー",
+        "pill_tabs": "製品検索: 錠剤",
+        "color_dots": "製品ファインダー: カラードット"
+      }
+    },
+    "icon-box": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/icon-box)",
+      "name": "アイコンボックス",
+      "settings": {
+        "icon_settings": {
+          "header": "アイコンの設定",
+          "icon_position": {
+            "label": "位置"
+          },
+          "icon_size": {
+            "label": "Size"
+          },
+          "radius_image": {
+            "label": "丸みを帯びたイメージ",
+            "info": "この設定はアイコンが画像の場合のみ機能します。"
+          }
+        }
+      }
+    },
+    "metric-banner": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/metric-banner)",
+      "name": "メトリックバナー",
+      "settings": {
+        "metric_setting": "メトリック設定",
+        "metric_font_size": "メートル法のフォントサイズ",
+        "enable_metric_animation": "メトリックアニメーションを有効にする",
+        "metric_value": {
+          "start": "メトリック開始値",
+          "end": "メトリック終了値"
+        },
+        "metric_unit": "メートル単位"
+      },
+      "block": {
+        "name": "メトリクス項目"
+      }
+    },
+    "compact_product_bundle": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/compact-product-bundle)",
+      "name": "コンパクトな製品バンドル",
+      "settings": {
+        "image": {
+          "label": "Image",
+          "info_desktop": "696px x 750pxを推奨",
+          "info_mobile": "350px x 303pxを推奨"
+        },
+        "enable_quick_add_for_items": {
+          "label": "アイテムのクイック追加を有効にする"
+        },
+        "hidden_button_mobile": {
+          "label": "モバイルの隠しボタン"
+        },
+        "products_show": {
+          "label": "製品は次のように表示されます",
+          "options__1": {
+            "label": "リスト"
+          },
+          "options__2": {
+            "label": "グリッド"
+          }
+        }
+      },
+      "presets": {
+        "name": "コンパクトな製品バンドル"
+      },
+      "blocks": {
+        "settings": {
+          "name": "Product",
+          "select_product": "Product",
+          "position_top": "垂直位置",
+          "position_left": "水平位置"
+        }
+      }
+    },
+    "mobile-navigation-bar": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/overlay-group/mobile-navigation-bar)",
+      "name": "モバイルナビゲーションバー",
+      "info": "このセクションはモバイルでのみ表示されます。モバイル表示に切り替えてください。",
+      "settings": {
+        "show_section": "モバイルナビゲーションバーを有効にする",
+        "show_shop": "ショーショップ",
+        "show_account": "アカウントを表示する",
+        "show_cart": "カートを表示",
+        "show_homepage": "ホームページを表示する"
+      }
+    },
+    "mobile_first": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/mobile-first)",
+      "name": "スポットライトギャラリー",
+      "image_1": "スポット画像 1",
+      "image_2": "スポット画像 2",
+      "image_3": "スポット画像 3",
+      "image_4": "スポット画像 4",
+      "image_5": "スポット画像 5",
+      "text_1": "スポットテキスト 1",
+      "text_2": "スポットテキスト 2",
+      "text_3": "スポットテキスト 3",
+      "text_4": "スポットテキスト 4",
+      "text_5": "スポットテキスト 5"
+    },
+    "shopable_video": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/shopable-video)",
+      "name": "ショッピング可能なビデオ",
+      "settings": {
+        "video_settings": {
+          "header": "動画設定"
+        },
+        "enable_sticky": {
+          "label": "ビデオスティッキーを有効にする",
+          "option_1": {
+            "label": "無効にする"
+          },
+          "option_2": {
+            "label": "デスクトップのみ"
+          },
+          "option_3": {
+            "label": "すべての画面"
+          }
+        },
+        "ratio": {
+          "adapt": {
+            "label": "最初のビデオに適応する"
+          }
+        },
+        "video": {
+          "auto_play": {
+            "info": "このブロックがアクティブまたは画面に表示されているとき、動画は自動再生されます"
+          }
+        },
+        "show_product_card": {
+          "label": "商品カードを表示"
+        }
+      },
+      "blocks": {
+        "name": "Video",
+        "settings": {
+          "poster_image": {
+            "label": "ポスター画像",
+            "info": "1080px x 1920pxを推奨"
+          },
+          "local_video": {
+            "label": "ローカルビデオ"
+          },
+          "select_product": {
+            "label": "Product"
+          }
+        }
+      }
+    },
+    "image_card": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/image-cards)",
+      "name": "画像カード",
+      "blocks": {
+        "header": "カード設定",
+        "group_name": "カード",
+        "info": "451px x 453pxを推奨"
+      }
+    },
+    "testimonials": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonials)",
+      "name": "プレス",
+      "settings": {
+        "header": "プレス設定",
+        "show_icon_quote": {
+          "label": "引用アイコンを表示"
+        }
+      },
+      "blocks": {
+        "name": "項目を押してください",
+        "settings": {
+          "quote": {
+            "label": "引用"
+          },
+          "info_image": "180px 60px推奨"
+        }
+      }
+    },
+    "press_card": {
+      "name": "プレスカード",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/press-card)",
+      "blocks": {
+        "content": "コンテンツ",
+        "media": "メディア",
+        "quote": "引用",
+        "settings": {
+          "show_icon_quote": "引用アイコンを表示",
+          "author_name": "著者名",
+          "quote_content": "見積内容",
+          "press-image": {
+            "info": "背景色の設定をオーバーライドします"
+          }
+        }
+      }
+    },
+    "scrolling_image": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/scrolling-image)",
+      "name": "ギャラリー画像",
+      "settings": {
+        "show_background_blur": {
+          "label": "ぼやけた背景を表示"
+        },
+        "show_icon_hover": {
+          "label": "インスタグラムアイコンをホバー時に表示"
+        },
+        "info_image": "303px x 303pxを推奨"
+      }
+    },
+    "featured_product_banner": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/featured-product-banner)",
+      "name": "注目の商品バナー",
+      "hide_icon_text": "モバイルでテキストブロックのあるアイコンを非表示にする",
+      "blocks": {
+        "name": "テキスト付きのアイコン"
+      },
+      "info": {
+        "info_desktop": "400px x 400pxを推奨",
+        "info_mobile": "300px x 300pxを推奨"
+      }
+    },
+    "product_testimonials": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-testimonials)",
+      "name": "製品の紹介",
+      "settings": {
+        "header": "お客様の声の設定",
+        "rating_color": {
+          "label": "評価色"
+        },
+        "rating_type": {
+          "label": "評価タイプ",
+          "default": "Default",
+          "modern": "モダンな",
+          "show": "評価を表示",
+          "show_before_after": "前後のテキストを表示"
+        },
+        "product_rounded": {
+          "label": "製品画像のコーナーR"
+        },
+        "show_verified_buyer": {
+          "label": "確認済みの購入者を表示"
+        },
+        "show_author_name": {
+          "label": "著者名を表示"
+        }
+      },
+      "blocks": {
+        "type": {
+          "media": {
+            "label": "お客様の声メディア"
+          },
+          "image_comparison": {
+            "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/image-comparison)",
+            "label": "お客様の声・画像比較",
+            "name": "画像比較",
+            "show_after_before_text": {
+              "label": "テキストの前後に表示"
+            }
+          }
+        },
+        "settings": {
+          "media": {
+            "label": "メディア設定",
+            "info": "448px x 246pxを推奨",
+            "before_after_image": {
+              "label": "ビフォーアフター画像"
+            },
+            "before_image": {
+              "label": "前に"
+            },
+            "after_image": {
+              "label": "後"
+            }
+          },
+          "information": {
+            "label": "情報設定",
+            "rating_star": {
+              "label": "星評価"
+            },
+            "select_product": {
+              "label": "Product"
+            },
+            "author_name": {
+              "label": "著者名"
+            },
+            "review_sumary": {
+              "label": "概要"
+            },
+            "use_richtext": {
+              "label": "リッチテキストを使用"
+            }
+          }
+        }
+      }
+    },
+    "routine-builder": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/routine-builder)",
+      "name": "ステップごとに買い物をする",
+      "blocks": {
+        "name": "ステップ",
+        "settings": {
+          "text_step": {
+            "label": "ステップタイトル"
+          },
+          "product_in_step": {
+            "label": "ステップ内の製品"
+          }
+        }
+      }
+    },
+    "newsletter_popup": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/overlay-group/newsletter-popup)",
+      "name": "ニュースレターのポップアップ",
+      "header": {
+        "heading": "一般設定"
+      },
+      "settings": {
+        "sections_width": {
+          "label": "幅",
+          "options": {
+            "options__1": "全幅",
+            "options__2": "自動"
+          }
+        },
+        "collections_selector": {
+          "setting": "コレクションセレクターの設定",
+          "label": "コレクションセレクターを有効にする",
+          "collection": {
+            "label_1": "コレクション 1",
+            "label_2": "コレクション 2",
+            "label_3": "コレクション 3",
+            "label_4": "コレクション 4",
+            "label_5": "コレクション5"
+          }
+        },
+        "newsletter_heading": "ニュースレターの設定",
+        "show_on_homepage": "ホームページのみに表示",
+        "discount_sticky": {
+          "setting": "割引粘着",
+          "label": "割引付箋を表示",
+          "heading": "コンテンツ",
+          "info": "コンテンツは、HTML タグを含む 25 文字で自動的に切り詰められます。"
+        },
+        "heading": "見出し",
+        "short_description": "説明",
+        "instructional_text": "説明文",
+        "email_placeholder": "電子メールのプレースホルダー",
+        "button_label": "ボタンラベル",
+        "banner_image": "バナー画像"
+      }
+    },
+    "featured-blog": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/featured-blog)",
+      "name": "注目のブログ"
+    },
+    "recommended_collection": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/recommended-collection)",
+      "name": "おすすめコレクション",
+      "blocks": {
+        "button": {
+          "info": "[collection] と [title] は自動置換される変数名です。名前は変更せず、テキスト内の位置は変更できます。[title] は任意です。コレクションセレクターのみ必要な場合は削除してください。",
+          "first_button_info": "画像付きフォーム：選択したフィルターで結果のコレクションを開きます"
+        },
+        "featured_collection": {
+          "title_info": "行内テキストのみ：[タイトル] のドロップダウンの選択肢として表示されます。コレクションブロックは画像付きフォームのレイアウトでは使用しません"
+        },
+        "filter_dropdown": {
+          "name": "フィルタードロップダウン",
+          "info": "画像付きフォームのレイアウトで使用します。先に Shopify の Search & Discovery アプリでフィルターを設定してください。",
+          "filter_name": {
+            "label": "フィルター名",
+            "info": "コレクションページに表示されるフィルター名をそのまま入力します。例：「犬の年齢層」。複数の言語ではラベルを ; で区切ります。価格フィルターには対応していません。"
+          },
+          "placeholder": "プレースホルダー"
+        },
+        "text": {
+          "name": "テキスト"
+        }
+      },
+      "background": {
+        "label": "背景画像を表示",
+        "header": "背景画像"
+      },
+      "image_info": {
+        "info_desktop": "1920px×700px推奨",
+        "info_mobile": "390px x 407pxを推奨"
+      },
+      "layout": {
+        "label": "レイアウト",
+        "inline": "行内テキスト",
+        "form": "画像付きフォーム"
+      },
+      "content_color_scheme": "コンテンツのカラースキーム",
+      "results_collection": {
+        "label": "結果のコレクション",
+        "info": "画像付きフォーム専用です。フィルタードロップダウンにはこのコレクションのフィルターが表示され、最初のボタンで開きます。空の場合はすべての商品を使用します。"
+      },
+      "presets": {
+        "form": "画像付きおすすめコレクション"
+      }
+    },
+    "offers-popup": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/overlay-group/offers-popup)",
+      "name": "オファーポップアップ",
+      "popup": {
+        "label": "見出しオファーポップアップ",
+        "info": "オーバーレイ グループのオファー ポップアップ ブロックのコンテンツをカスタマイズします。"
+      }
+    },
+    "outfit-finder": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/products/outfit-finder)",
+      "name": "服装ファインダー",
+      "settings": {
+        "product_listing": {
+          "label": "商品リストの設定"
+        },
+        "outfit_finder_logic": {
+          "label": "プレビュー設定"
+        },
+        "max_items_to_show": {
+          "label": "ページごとの商品",
+          "info": "最初に表示する商品数です。下にスクロールするとさらに読み込まれます。"
+        },
+        "max_items": {
+          "label": "衣装あたりの最大商品数",
+          "info": "顧客がプレビュー領域に追加できるアイテムの数を制限します。"
+        },
+        "product": {
+          "label": "おすすめのコーディネート",
+          "info": "ページの読み込み時にデフォルトでプレビュー領域に表示される製品を 3 つまで選択します。"
+        },
+        "notify_preview": {
+          "label": "空状態通知",
+          "info": "項目を追加する前にプレビュー領域に表示されるガイダンス テキスト。"
+        }
+      }
+    },
+    "scrolling-card": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scrolling-card)",
+      "name": "スクロールカード"
+    },
+    "scroll-scatter": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scroll-scatter)",
+      "name": "スクロールスキャッター"
+    },
+    "store-location": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/other-pages/store-location)",
+      "name": "店舗の場所",
+      "settings": {
+        "key_google_map": {
+          "label": "Google マップ API キー",
+          "info": "「Maps JavaScript」、「Places」、および「Geocoding」API が必要です。 [キーを取得](https://console.cloud.google.com/google/maps-apis/credentials)。"
+        },
+        "map_settings": {
+          "header": "マップ設定"
+        },
+        "allowed_countries": {
+          "label": "許可されている国",
+          "info": "顧客が店舗を検索できる場所を制御します。ISO 国コード (例: US、UK、CA) をカンマで区切って使用します。グローバルに検索するには空白のままにします。"
+        },
+        "radius_km": {
+          "label": "検索半径 (km)",
+          "info": "ストア結果の最大距離。"
+        }
+      },
+      "blocks": {
+        "name": "ストア",
+        "settings": {
+          "store_name": {
+            "label": "店舗名"
+          },
+          "store_address": {
+            "label": "店舗住所"
+          },
+          "store_email": {
+            "label": "店舗メール"
+          },
+          "store_phone": {
+            "label": "店舗電話番号"
+          },
+          "store_lat": {
+            "label": "店舗の緯度",
+            "info": "Google マップの座標から最初の番号をコピーします。"
+          },
+          "store_lng": {
+            "label": "店舗の経度",
+            "info": "Google マップの座標から 2 番目の数値をコピーします。"
+          },
+          "time_location": {
+            "monday": "月曜日",
+            "tuesday": "火曜日",
+            "wednesday": "水曜日",
+            "thursday": "木曜日",
+            "friday": "金曜日",
+            "saturday": "土曜日",
+            "sunday": "日曜日",
+            "open": "開ける",
+            "closed": "閉店",
+            "open_time_hour": "開館時間",
+            "open_time_minute": "オープン時間分",
+            "close_time_hour": "閉店時間",
+            "close_time_minute": "閉店時間分"
+          },
+          "time_schedule": {
+            "monday": "Schedule",
+            "tuesday": "Schedule",
+            "wednesday": "Schedule",
+            "thursday": "Schedule",
+            "friday": "Schedule",
+            "saturday": "Schedule",
+            "sunday": "Schedule"
+          }
+        }
+      }
+    },
+    "product-bundle": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/product-bundle)",
+      "name": "製品バンドル",
+      "settings": {
+        "discount": {
+          "name": "Discount",
+          "info": "割引の作成方法については [こちら](https://help.shopify.com/manual/discounts)",
+          "minimum": "最低限必要なもの",
+          "maximum": "最大アイテム数",
+          "edit_quantity": "商品ごとに数量変更を許可する",
+          "discount_title": "割引コード",
+          "discount_value": {
+            "name": "割引額",
+            "option": {
+              "fixed": {
+                "label": "定額",
+                "once_per_order": "注文ごとに 1 回"
+              },
+              "percentage": {
+                "label": "パーセンテージ"
+              }
+            }
+          }
+        },
+        "your_bundle": {
+          "name": "Discount",
+          "settings": {
+            "show_progress_bar": {
+              "label": "進行状況バーを表示する"
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "product_discount": {
+            "name": "製品バンドル",
+            "info": "選択するとコレクションを置き換えます。"
+          }
+        }
+      }
+    },
+    "shopable-image": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/shopable-image)",
+      "name": "ショッピング可能なイメージ",
+      "blocks": {
+        "tags": {
+          "name": "タグ",
+          "info": "タグの名前を定義します。カンマで区切ります。例えば。タグ1、タグ2",
+          "info_image": "448px x 600pxを推奨",
+          "settings": {
+            "show_verify_icon": {
+              "label": "アイコンのチェックマークを表示"
+            }
+          }
+        },
+        "lookbook": {
+          "name": "ルックブック",
+          "settings": {
+            "products": {
+              "label": "Products",
+              "position_top": "垂直位置",
+              "position_left": "水平位置",
+              "products": {
+                "otpion__1": {
+                  "label": "製品1"
+                },
+                "otpion__2": {
+                  "label": "製品2"
+                },
+                "otpion__3": {
+                  "label": "製品3"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parallax-image": {
+      "blocks": {
+        "icon": {
+          "name": "アイコン",
+          "info": "SVG アイコン設定をオーバーライドします"
+        }
+      }
+    },
+    "main-page": {
+      "name": "ページ"
+    },
+    "subcollection-list": {
+      "name": "サブコレクション",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/sub-collection)"
+    },
+    "before-you-leave": {
+      "name": "出発する前に",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/before-you-leave)",
+      "settings": {
+        "header": {
+          "recommended_products": "おすすめ商品"
+        },
+        "show_time": {
+          "label": "後の上映時間 (秒)"
+        },
+        "banner": {
+          "label": "バナー画像",
+          "info": "380px x 423pxを推奨"
+        },
+        "collection": {
+          "label": "Collection"
+        },
+        "code": {
+          "label": "割引コード"
+        }
+      }
+    },
+    "advanced-slideshow": {
+      "block": {
+        "slide": "スライド",
+        "settings": {
+          "type": {
+            "label": "タイプ",
+            "image": {
+              "label": "Image"
+            },
+            "video": {
+              "label": "Video"
+            }
+          },
+          "media_overlay": {
+            "label": "メディアオーバーレイ"
+          }
+        }
+      }
+    },
+    "custom_section": {
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/advanced/flexible-section)",
+      "name": "フレキシブルセクション",
+      "settings": {
+        "layout": {
+          "label": "レイアウト",
+          "direction": {
+            "label": "方向",
+            "options__1": {
+              "label": "Vertical"
+            },
+            "options__2": {
+              "label": "Horizontal"
+            }
+          },
+          "vertical_on_mobile": {
+            "label": "モバイルで縦並び"
+          },
+          "content_wrap": {
+            "label": "コンテンツラップ"
+          },
+          "height": {
+            "label": "Height",
+            "options": {
+              "auto": {
+                "label": "自動"
+              },
+              "custom": {
+                "label": "Custom"
+              }
+            },
+            "custom_height": {
+              "label": "カスタム高さ"
+            }
+          },
+          "gap": {
+            "label": "ギャップ"
+          },
+          "position": {
+            "label": "位置",
+            "options__1": {
+              "label": "上"
+            },
+            "options__2": {
+              "label": "中心"
+            },
+            "options__3": {
+              "label": "底"
+            }
+          },
+          "alignment": {
+            "label": "位置合わせ",
+            "label_mobile": "モバイルアライメント",
+            "options__1": {
+              "label": "左"
+            },
+            "options__2": {
+              "label": "中心"
+            },
+            "options__3": {
+              "label": "右"
+            },
+            "options__4": {
+              "label": "間隔"
+            }
+          },
+          "hide_on_mobile": {
+            "label": "モバイルでは非表示"
+          }
+        },
+        "appearance": {
+          "header": "外観",
+          "settings": {
+            "background_media": {
+              "label": "バックグラウンドメディア",
+              "options__2": {
+                "label": "Image"
+              },
+              "options__3": {
+                "label": "Video"
+              },
+              "options__1": {
+                "label": "None"
+              }
+            },
+            "border": {
+              "label": "国境",
+              "options": {
+                "none": "None",
+                "solid": "ソリッド"
+              },
+              "border_color": {
+                "label": "枠線の色"
+              },
+              "border_thickness": {
+                "label": "枠線の太さ"
+              }
+            },
+            "corner_radius": {
+              "label": "コーナー半径",
+              "options": {
+                "none": {
+                  "label": "None"
+                },
+                "rounded": {
+                  "label": "丸い"
+                },
+                "custom": {
+                  "label": "Custom"
+                },
+                "inherit": {
+                  "label": "継承する",
+                  "info": "「継承」に設定されている場合、このブロックはテーマ設定 ▸ レイアウト ▸ 丸い画像 のグローバルな角の丸い設定に従います。"
+                }
+              },
+              "custom_radius": {
+                "label": "カスタム半径"
+              }
+            },
+            "background_overlay": {
+              "label": "背景オーバーレイ",
+              "overlay_color": {
+                "label": "オーバーレイの色"
+              },
+              "overlay_style": {
+                "label": "オーバーレイスタイル",
+                "options__1": {
+                  "label": "ソリッド"
+                },
+                "options__2": {
+                  "label": "勾配"
+                }
+              },
+              "gradient_direction": {
+                "label": "勾配の方向",
+                "options__1": {
+                  "label": "Up"
+                },
+                "options__2": {
+                  "label": "下"
+                }
+              }
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "size": {
+            "label": "Size",
+            "height": {
+              "label": "Height"
+            },
+            "width": {
+              "label": "幅",
+              "custom_width": {
+                "label": "カスタム幅"
+              }
+            },
+            "mobile_width": {
+              "label": "モバイルの幅"
+            },
+            "options": {
+              "options__1": {
+                "label": "フィット"
+              },
+              "options__2": {
+                "label": "埋める"
+              },
+              "options__3": {
+                "label": "Custom"
+              },
+              "options__4": {
+                "label": "メディアの背景に適応する"
+              }
+            }
+          },
+          "background": {
+            "label": "背景"
+          },
+          "background_color": {
+            "label": "背景色"
+          }
+        },
+        "heading": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading)",
+          "label": "プリセット",
+          "heading_tag": {
+            "label": "見出しタグ",
+            "info": "見出しタグ (H1 ～ H6) を設定してコンテンツ階層を制御し、検索エンジンの SEO の読みやすさを高めます。",
+            "h1": "H1",
+            "h2": "H2",
+            "h3": "H3",
+            "h4": "H4",
+            "h5": "H5",
+            "h6": "H6"
+          },
+          "custom": "Custom",
+          "default": "Default",
+          "paragraph": "段落",
+          "h1": "見出し1",
+          "h2": "見出し2",
+          "h3": "見出し 3",
+          "h4": "見出し 4",
+          "h5": "見出し 5",
+          "h6": "見出し6",
+          "h7": "見出し 7",
+          "info": {
+            "edit_presets_in_theme_settings": "[テーマ設定]でプリセットを編集します(/editor?context=theme&category=typography)",
+            "label": "フォントサイズ"
+          },
+          "text_alignment": {
+            "desktop": "位置合わせ",
+            "mobile": "モバイルアライメント"
+          }
+        },
+        "logo": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "ロゴ",
+          "settings": {
+            "size": {
+              "name": "Size",
+              "unit": {
+                "label": "単位",
+                "option__1": {
+                  "label": "ピクセル"
+                },
+                "option__2": {
+                  "label": "パーセント"
+                }
+              },
+              "custom_mobile_size": {
+                "label": "カスタムモバイルサイズ"
+              },
+              "height": {
+                "label": "Height"
+              },
+              "mobile": {
+                "name": "モバイルサイズ"
+              }
+            }
+          }
+        },
+        "email_subscription": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/newsletter)",
+          "name": "ニュースレター"
+        },
+        "contact_form": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/contact-form)",
+          "name": "お問い合わせフォーム",
+          "settings": {
+            "name": "名前",
+            "email": "Email",
+            "message": "メッセージ",
+            "select_label": "ラベルを選択",
+            "default_select_label": "件名",
+            "option": "オプション",
+            "default_option": "製品、注文、プレス、その他",
+            "phone": "電話",
+            "submit_button": "送信ボタン",
+            "default_submit_button": "送信"
+          }
+        },
+        "accordion": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/accordion)",
+          "name": "アコーディオン",
+          "settings": {
+            "icon_style": {
+              "style": "スタイル",
+              "label": "アイコンのスタイル",
+              "caret": "カレット",
+              "plus": "プラス"
+            },
+            "row_style": {
+              "label": "行スタイル",
+              "background": "背景",
+              "divider": "ディバイダー"
+            },
+            "background_color": "背景色",
+            "row_spacing": "項目の間隔",
+            "gap_row": "ギャップ",
+            "padding_row": "パディング",
+            "gap_content": "間隔",
+            "accordion_row": "アコーディオン列",
+            "default_accordion_row": "アコーディオン見出し",
+            "accordion_content": "アコーディオンコンテンツ",
+            "settings": {
+              "heading": "見出し",
+              "heading_size": "見出しのサイズ",
+              "heading_weight": "見出し重量",
+              "body_weight": "体重",
+              "open_default": {
+                "label": "デフォルトを開く"
+              }
+            }
+          }
+        },
+        "group": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/group)",
+          "name": "グループ",
+          "settings": {
+            "link": "リンク",
+            "open_in_new_tab": {
+              "label": "リンクを新しいタブで開く"
+            }
+          }
+        },
+        "carousel": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/carousel)",
+          "name": "カルーセル"
+        },
+        "text": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/text)",
+          "name": "Text",
+          "default_text": "より良く、より長く使えるものを作ります。クリーンなデザインと誠実な素材で、実際の課題を解決する商品です。",
+          "text_color": {
+            "label": "テキストの色",
+            "body_color": "ボディカラー",
+            "heading_color": "見出しの色"
+          }
+        },
+        "button": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/button)"
+        },
+        "icon": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/icon)"
+        },
+        "page": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "ページ",
+          "inherit_color_scheme": "カラースキームを継承する",
+          "appearance": "外観",
+          "spacing": "間隔"
+        },
+        "spacer": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/spacer)",
+          "name": "スペーサー",
+          "mobile_settings": {
+            "label": "モバイル設定"
+          }
+        },
+        "divider": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "ディバイダー",
+          "settings": {
+            "thickness": "太さ",
+            "size": "Size",
+            "color": "Color"
+          }
+        },
+        "icon_list": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "アイコン一覧",
+          "item": "アイテム",
+          "open_new_tab": "新しいタブを開く"
+        },
+        "alert": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "アラート",
+          "dismiss_icon": "アイコンを閉じる",
+          "display_dismiss_icon": "閉じるアイコンを表示する"
+        },
+        "social_icons": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "ソーシャルアイコン",
+          "circle": "丸",
+          "rounded": "丸い",
+          "square": "四角",
+          "shape": "形",
+          "color": "Color",
+          "backgroup_color": "バックグループの色"
+        },
+        "progress_bar": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "プログレスバー",
+          "text_color": "テキストの色",
+          "percentage": "パーセンテージ",
+          "border_radius": "境界半径",
+          "display_percentage": "表示パーセンテージ",
+          "inner_text": "内部テキスト"
+        },
+        "counter": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/counter)",
+          "name": "カウンタ",
+          "counter_style": {
+            "label": "カウンタースタイル",
+            "default": "Default",
+            "circle": "丸"
+          },
+          "counter_layout": {
+            "label": "カウンターレイアウト",
+            "horizontal": "Horizontal",
+            "vertical": "Vertical"
+          },
+          "number_position": "番号の位置",
+          "space_between": "間隔",
+          "before_title": "タイトルの前",
+          "after_title": "タイトルの後",
+          "number_alignment": "番号の整列",
+          "stroke_color": "ストロークの色",
+          "indicator_color": "インジケーターの色",
+          "background_color": "背景色",
+          "text_color": "テキストの色",
+          "ending_number": "終了番号",
+          "starting_number": "開始番号",
+          "animation": "アニメーションの長さ (ミリ秒)"
+        },
+        "map": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/google-maps)",
+          "name": "Googleマップ",
+          "location": "位置",
+          "longitude": "経度",
+          "latitude": "緯度"
+        },
+        "jumbo_text": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+          "name": "ジャンボテキスト"
+        },
+        "tab": {
+          "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/tab)",
+          "name": "タブ",
+          "tab_row": "タブ項目",
+          "settings": {
+            "heading": "見出しスタイル",
+            "heading_preset": "見出しのプリセット",
+            "heading_alignment": "見出しの配置",
+            "heading_color": "見出しの色",
+            "content": "コンテンツスタイル",
+            "content_alignment": "コンテンツの配置"
+          }
+        },
+        "icon_with_text": {
+          "name": "テキスト付きのアイコン",
+          "icon_first": "アイコンが最初",
+          "icon_second": "アイコン 2 番目",
+          "svg_custom": "SVG カスタム"
+        },
+        "popup_link": {
+          "button_type_link": {
+            "label": "ボタンの種類",
+            "primary": {
+              "label": "主要な"
+            },
+            "outline": {
+              "label": "概要"
+            },
+            "link": {
+              "label": "リンク"
+            }
+          },
+          "popup_style": {
+            "label": "ポップアップスタイル"
+          },
+          "popup_type": {
+            "label": "ポップアップの種類"
+          },
+          "popup_width": {
+            "label": "デスクトップのポップアップ幅"
+          },
+          "icon_type": {
+            "label": "アイコンの種類",
+            "none": "None",
+            "arrow": "矢印",
+            "image": {
+              "label": "Image",
+              "size": "Size"
+            }
+          }
+        }
+      },
+      "preset": {
+        "promotion_banner": "柔軟性: プロモーション バナー",
+        "flexible_marquee": "フレキシブル: マーキー",
+        "story_tabs": "フレキシブル: タブ"
+      }
+    },
+    "text_image_pairing": {
+      "how_to_use": "[このブロックの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/text-image-pairing)",
+      "name": "テキストと画像のペアリング",
+      "settings": {
+        "text_default": "「自分だけの輝きを手に入れましょう[image_1]スワイプ ブレンドで輝き <br/> 美しいと感じてください[image_2]完全に見られます[image_3]祝ってください。」",
+        "info": {
+          "label": "画像を表示したい位置に、プレースホルダー形式 `[image_X]` を使用します。Xは画像のインデックスです。例：`[image_1]` は1枚目の画像に置き換えられます。"
+        },
+        "images": {
+          "label": "画像",
+          "image_style": {
+            "label": "画像スタイル"
+          },
+          "image_1": {
+            "label": "画像 #1"
+          },
+          "image_2": {
+            "label": "画像#2"
+          },
+          "image_3": {
+            "label": "画像 #3"
+          }
+        }
+      }
+    },
+    "product_sizing": {
+      "name": "製品のサイジング",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "info": "お客様が製品のフィット感を理解し、自信を持って適切なサイズを選択できるようにします。"
+    },
+    "size_recommendation": {
+      "name": "推奨サイズ",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/size-recommendation)",
+      "info": "身長、体重、体型、バストサイズ、カップサイズなどの簡単な入力を使用して、顧客が適切なサイズを見つけることができます。",
+      "data_usage_notice": {
+        "label": "データ使用量に関するお知らせ",
+        "info": "このメッセージは、サイズ推奨のために顧客情報がどのように使われるかを説明します。ストアのプライバシー方針に合わせて文言をカスタマイズできます。"
+      },
+      "no_size_match": {
+        "label": "サイズが一致しないというメッセージ",
+        "info": "顧客の入力に一致するサイズがない場合に表示されるメッセージ。"
+      },
+      "fit_recommendation_note": {
+        "label": "フィット推奨メモ",
+        "info": "サイズ推奨結果の後に表示されます。"
+      }
+    },
+    "sticky_image_with_text": {
+      "name": "スティッキー画像とテキスト",
+      "blocks": {
+        "group_text": {
+          "name": "テキストグループ",
+          "image": {
+            "label": "スクロール時の画像",
+            "info": "このグループが画面内に入ると、固定画像に表示されます。空のままにすると、前の画像を維持します。セクション設定の「スクロールで画像を切り替え」が必要です。"
+          }
+        },
+        "list_tag": {
+          "name": "タグリスト",
+          "tags": {
+            "label": "タグ",
+            "info": "各タグをカンマで区切ってください。"
+          },
+          "show_check": {
+            "label": "チェックアイコンを表示"
+          },
+          "chip_style": {
+            "label": "タグスタイル"
+          }
+        }
+      },
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/banners/sticky-image-with-text)",
+      "settings": {
+        "hide_image_mobile": {
+          "label": "モバイルで画像を非表示"
+        },
+        "change_image_on_scroll": {
+          "label": "スクロールで画像を切り替え",
+          "info": "各テキストグループが画面内に入るたびに、固定画像を切り替えます。画像は各テキストグループで設定します。セクションの画像は使いません。デスクトップのみです。"
+        }
+      }
+    },
+    "testimonial-images": {
+      "name": "お客様の声画像",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonial-images)",
+      "settings": {
+        "show_author_image": "著者画像を表示",
+        "hide_image_on_mobile": {
+          "label": "モバイルで画像を非表示"
+        }
+      },
+      "blocks": {
+        "review": "お客様の声",
+        "settings": {
+          "author_image": "著者画像"
+        }
+      }
+    },
+    "flow": {
+      "name": "フロー",
+      "blocks": {
+        "step": {
+          "name": "ステップ",
+          "heading": {
+            "label": "見出し"
+          },
+          "image": {
+            "label": "画像"
+          },
+          "product": {
+            "label": "商品"
+          }
+        }
+      },
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/flow)"
+    },
+    "parallax-scroll": {
+      "name": "パララックススクロール",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/parallax-scroll)",
+      "instructions": "カードを最大7枚まで追加できます。カードは左右交互に配置され、3枚ごとに自動的にインセットされます。",
+      "blocks": {
+        "info_card": {
+          "name": "情報カード"
+        }
+      },
+      "settings": {
+        "card_width": {
+          "label": "カード幅",
+          "info": "デスクトップでのカードの最大幅を設定します。小さい画面ではカードはレスポンシブのままです。"
+        },
+        "button_link": {
+          "info": "空白の場合、ボタンは無効状態で表示されます。"
+        },
+        "button_type": {
+          "info": "テーマで設定されたボタンスタイルを使用します。"
+        }
+      }
+    },
+    "benefit-tabs": {
+      "name": "利点タブ",
+      "how_to_use": "タブごとに利点タブブロックを追加し、各タブの中に利点ブロックを追加します。",
+      "settings": {
+        "text_alignment": {
+          "info": "タブボタンの配置にも適用されます。"
+        },
+        "mobile_alignment": {
+          "info": "モバイルとタブレットでは利点の配置を揃えます。デスクトップでは、利点はメディア側に揃います。"
+        }
+      },
+      "blocks": {
+        "tab": {
+          "name": "利点タブ",
+          "how_to_use": "バランスのよいレイアウトには、利点ブロックを6個まで推奨します。デスクトップでは、奇数の利点はメディアの左、偶数の利点は右に配置されます。",
+          "settings": {
+            "tab_label": {
+              "label": "タブラベル"
+            },
+            "image": {
+              "label": "前の画像",
+              "info": "950 x 1060px を推奨"
+            },
+            "image_after": {
+              "label": "後の画像",
+              "info": "前の画像と同じサイズを使用します。後の画像は、訪問者がスクロールすると表示されます。"
+            }
+          }
+        },
+        "benefit": {
+          "settings": {
+            "icon": {
+              "info": "空のときはプレースホルダーを表示します。120 x 120px を推奨"
+            }
+          }
+        }
+      }
+    },
+    "comparison-table": {
+      "name": "比較表",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/products/comparison-table)",
+      "settings": {
+        "table": {
+          "label": "表"
+        },
+        "comparison_heading": {
+          "label": "比較の見出し"
+        },
+        "show_column_images": {
+          "label": "列の画像を表示"
+        },
+        "color_column_highlight": {
+          "label": "列のハイライト色"
+        },
+        "table_notes": {
+          "label": "表の注記"
+        },
+        "show_labels": {
+          "label": "ラベルを表示"
+        },
+        "first_label": {
+          "label": "1つ目のラベル"
+        },
+        "second_label": {
+          "label": "2つ目のラベル"
+        },
+        "button_link": {
+          "label": "リンク"
+        }
+      },
+      "blocks": {
+        "column": {
+          "name": "列",
+          "settings": {
+            "highlight": {
+              "label": "この列を強調"
+            }
+          }
+        },
+        "row": {
+          "name": "行",
+          "settings": {
+            "icon_info": "この列の値の表示方法を選択します。",
+            "image_info": "画像を選択したときに表示する画像を追加します。",
+            "value": {
+              "yes": "はい",
+              "no": "いいえ"
+            },
+            "text_1": {
+              "label": "列1のテキスト",
+              "info": "テキストを選択したときに表示されます。値は列の順序に従うため、列ブロックの並べ替えは慎重に行ってください。"
+            },
+            "icon_1": {
+              "label": "列1のアイコン"
+            },
+            "image_1": {
+              "label": "列1の画像"
+            },
+            "text_2": {
+              "label": "列2のテキスト",
+              "info": "テキストを選択したときに表示されます。"
+            },
+            "icon_2": {
+              "label": "列2のアイコン"
+            },
+            "image_2": {
+              "label": "列2の画像"
+            },
+            "text_3": {
+              "label": "列3のテキスト",
+              "info": "テキストを選択したときに表示されます。"
+            },
+            "icon_3": {
+              "label": "列3のアイコン"
+            },
+            "image_3": {
+              "label": "列3の画像"
+            },
+            "text_4": {
+              "label": "列4のテキスト",
+              "info": "テキストを選択したときに表示されます。表が4列のときだけ使用します。"
+            },
+            "icon_4": {
+              "label": "列4のアイコン"
+            },
+            "image_4": {
+              "label": "列4の画像"
+            },
+            "column_1": "列1",
+            "column_2": "列2",
+            "column_3": "列3",
+            "column_4": "列4"
+          }
+        }
+      }
+    },
+    "image-with-text-carousel": {
+      "name": "テキスト付き画像カルーセル",
+      "how_to_use": "[このセクションの使い方を見る](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/image-with-text-carousel)",
+      "settings": {
+        "show_slide_counter": {
+          "label": "スライド番号を表示"
+        }
+      },
+      "blocks": {
+        "slide": {
+          "icon_info": "80 x 80px の .png または .svg を推奨"
+        }
+      }
+    },
+    "recommended-collection-filters": {
+      "name": "おすすめフィルター"
+    }
+  },
+  "blocks": {
+    "quiz-step": {
+      "name": "クイズの質問",
+      "settings": {
+        "stepper_label": {
+          "label": "ステッパーラベル",
+          "info": "進行状況バーに表示される短いラベル。例: 肌のタイプ、お悩み。"
+        },
+        "question_id": {
+          "label": "質問ID",
+          "info": "この質問の一意のID。オプションのスキップ質問で使用します（例：q1、q2）。"
+        },
+        "layout": {
+          "label": "オプションレイアウト",
+          "options": {
+            "pill": "ピルボタン",
+            "image": "イメージサークル"
+          }
+        }
+      }
+    },
+    "quiz-option": {
+      "name": "クイズオプション",
+      "settings": {
+        "label": {
+          "label": "ラベル"
+        },
+        "image": {
+          "label": "Image",
+          "info": "質問レイアウトがイメージサークルの場合に使用されます。"
+        },
+        "product_matching_header": "結果製品",
+        "strong_match": {
+          "label": "一次製品",
+          "info": "買い物客がこの回答を選択すると、クイズ結果の最初に表示されます。"
+        },
+        "partial_match": {
+          "label": "追加の製品",
+          "info": "クイズ結果では主要製品の後に表示されます。"
+        },
+        "exclude": {
+          "label": "決してお勧めしません",
+          "info": "買い物客がこの回答を選択すると、他の回答に表示されている場合でも、これらの商品を結果からブロックします。"
+        },
+        "skip_questions_header": "質問ロジック",
+        "skip_questions": {
+          "label": "質問をスキップする",
+          "info": "この回答が選択された場合にスキップするクイズの質問から質問 ID を入力してください。例: q3、q4"
+        }
+      }
+    }
+  }
+}

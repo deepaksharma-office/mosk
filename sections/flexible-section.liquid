@@ -1,0 +1,1326 @@
+{{ 'flexible-section.css' | asset_url | stylesheet_tag }}
+{% liquid
+  assign section_st = section.settings
+
+  case section_st.section_width
+    when 'fix_width'
+      assign section_width = 'container'
+    when 'full_width'
+      assign section_width = 'full-width'
+    else
+      assign section_width = 'fluid_container'
+  endcase
+
+  assign custom_layout = section_st.custom_layout
+  assign vertical_on_mobile = section_st.vertical_on_mobile
+  assign height_section = section_st.height_section
+
+  case height_section
+    when 'full_screen'
+      assign section_height = 'custom-section-h-full_screen'
+    when 'small', 'medium', 'large'
+      assign section_height = 'h-' | append: height_section | append: ' h-full'
+    when 'custom'
+      assign section_height = 'h-custom-section'
+      assign height_dk = section_st.custom_height
+      assign height_mb = height_dk | times: 0.7
+    else
+      assign section_height = ''
+  endcase
+
+  assign horizontal_position = section_st.horizontal_position
+  assign vertical_position = section_st.vertical_position
+  assign horizontal_alignment = section_st.horizontal_alignment
+  assign vertical_alignment = section_st.vertical_alignment
+
+  if custom_layout == 'horizontal'
+    if section_st.content_wrap
+      assign content_wrap = 'wrap'
+    else
+      assign content_wrap = 'flex-nowrap'
+    endif
+  endif
+
+  assign gap = section_st.gap
+  assign min_gap = gap | at_most: 20
+  assign border_between = section_st.border_between
+
+  if custom_layout == 'vertical'
+    assign class_layout = 'column'
+    case vertical_position
+      when 'top'
+        assign class_position = 'flex-start'
+      when 'center'
+        assign class_position = 'justify-center'
+      when 'bottom'
+        assign class_position = 'flex-end'
+      when 'space_between'
+        assign class_position = 'space-between'
+    endcase
+
+    case vertical_alignment
+      when 'start'
+        assign class_alignment = 'align-start'
+      when 'center'
+        assign class_alignment = 'align-center'
+      when 'end'
+        assign class_alignment = 'align-end'
+    endcase
+  else
+    if vertical_on_mobile
+      assign class_layout = 'row-1025 column'
+      case horizontal_position
+        when 'top'
+          assign class_position = 'flex-start align-1025-start'
+        when 'center'
+          assign class_position = 'justify-center align-1025-center'
+        when 'bottom'
+          assign class_position = 'flex-end align-1025-end'
+      endcase
+
+      case horizontal_alignment
+        when 'start'
+          assign class_alignment = 'align-start flex-1025-start'
+        when 'center'
+          assign class_alignment = 'align-center flex-1025-center'
+        when 'end'
+          assign class_alignment = 'align-end flex-1025-end'
+        when 'space_between'
+          assign class_alignment = 'space-between'
+      endcase
+    else
+      assign class_layout = 'row'
+      case horizontal_position
+        when 'top'
+          assign class_position = 'align-start'
+        when 'center'
+          assign class_position = 'align-center'
+        when 'bottom'
+          assign class_position = 'align-end'
+      endcase
+
+      case horizontal_alignment
+        when 'start'
+          assign class_alignment = 'flex-start'
+        when 'center'
+          assign class_alignment = 'justify-center'
+        when 'end'
+          assign class_alignment = 'flex-end'
+        when 'space_between'
+          assign class_alignment = 'space-between'
+      endcase
+    endif
+  endif
+
+  assign background_media = section_st.background_media
+  assign border_radius_type = section_st.border_radius_type
+  assign border_radius_custom = section_st.border_radius_custom
+  assign enable_background_overlay = section_st.enable_background_overlay
+  if background_media != 'none'
+    assign padding_block = section_st.padding_block | default: 50
+  else
+    assign padding_block = 0
+  endif
+%}
+
+{%- capture style -%}
+  --section-pt: {{ section_st.padding_top }};--section-pb: {{ section_st.padding_bottom }};
+  {%- if height_section == 'custom' -%}
+    --item-height: clamp({{ height_mb }}px, calc({{ height_mb }}px + ({{ height_dk }} - {{ height_mb }}) * ( (100vw - 360px) / (1440 - 360) ) ),{{ height_dk }}px);
+  {%- endif -%}
+  {%- if border_radius_type == 'custom' %}--img-rounded: {{ border_radius_custom }}px;{% endif -%}
+  --gap: clamp(calc({{ min_gap }} * 1px), calc({{ min_gap }} * 1px + ({{ gap }} - {{ min_gap }}) * var(--responsive-rate)), calc({{ gap }} * 1px));
+{%- endcapture -%}
+{% capture class %}
+section-flexible--wrapper flex row-gap gap {{ class_layout }} {{ class_alignment }} {{ class_position }} custom_layout {{ content_wrap }} overflow-hidden
+{% endcapture %}
+{% if request.visual_preview_mode %}
+  {% render '_preview-flexible-section' %}
+{% else %}
+  {%- render 'section-divider', position: 'top', style: section_st.divider_top, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+  <div
+    class="section color-{{ section_st.color_scheme }} gradient relative{%- if border_radius_type == 'custom' %} rounded{% endif %}{% if background_media == 'none' %} not-has-bg-media{% endif %}{% if section_st.show_divider and section_st.divider_top == 'line' %} border-top{% endif %}{% if section_st.show_divider and section_st.divider_bottom == 'line' %} border-bottom{% endif %} overflow-hidden relative z-1"
+    style="{{ style | strip | strip_newlines }}"
+  >
+    <div class="relative w-full h-full">
+      {% if background_media != 'none' %}
+        {% render 'background-media', settings_bg: section_st %}
+      {% endif %}
+      {% if enable_background_overlay %}
+        {% render 'overlay', settings_overlay: section_st, layer: '0' %}
+      {% endif %}
+      <div
+        class="flexible-container {{ section_width }} relative overflow-hidden"
+      >
+        <div
+          class="{{ class }} {{ section_height }} section{% if border_between %} enable_border_between{% endif %}"
+          style="--section-pt: {{ padding_block }};--section-pb: {{ padding_block }};"
+        >
+          {% content_for 'blocks' %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {%- render 'section-divider', position: 'bottom', style: section_st.divider_bottom, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.custom_section.name",
+  "class": "flexible-section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.custom_section.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "options": [
+        {
+          "value": "fix_width",
+          "label": "t:sections.all.layout.fix_width"
+        },
+        {
+          "value": "stretch_width",
+          "label": "t:sections.all.layout.stretch_width"
+        },
+        {
+          "value": "full_width",
+          "label": "t:sections.all.layout.full_width"
+        }
+      ],
+      "default": "fix_width",
+      "label": "t:sections.all.layout.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.settings.layout.label"
+    },
+    {
+      "type": "select",
+      "id": "custom_layout",
+      "options": [
+        {
+          "value": "vertical",
+          "label": "t:sections.custom_section.settings.layout.direction.options__1.label"
+        },
+        {
+          "value": "horizontal",
+          "label": "t:sections.custom_section.settings.layout.direction.options__2.label"
+        }
+      ],
+      "default": "vertical",
+      "label": "t:sections.custom_section.settings.layout.direction.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "vertical_on_mobile",
+      "label": "t:sections.custom_section.settings.layout.vertical_on_mobile.label",
+      "default": false,
+      "visible_if": "{{ section.settings.custom_layout == 'horizontal' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "content_wrap",
+      "label": "t:sections.custom_section.settings.layout.content_wrap.label",
+      "default": false,
+      "visible_if": "{{ section.settings.custom_layout == 'horizontal' }}"
+    },
+    {
+      "type": "select",
+      "id": "height_section",
+      "options": [
+        {
+          "value": "auto",
+          "label": "t:sections.custom_section.settings.layout.height.options.auto.label"
+        },
+        {
+          "value": "full_screen",
+          "label": "t:sections.slideshow.settings.slide_height.full_screen"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.slideshow.settings.slide_height.small"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.slideshow.settings.slide_height.medium"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.slideshow.settings.slide_height.large"
+        },
+        {
+          "value": "custom",
+          "label": "t:sections.custom_section.settings.layout.height.options.custom.label"
+        }
+      ],
+      "default": "auto",
+      "label": "t:sections.custom_section.settings.layout.height.label"
+    },
+    {
+      "type": "range",
+      "id": "custom_height",
+      "min": 100,
+      "max": 1000,
+      "step": 50,
+      "unit": "px",
+      "default": 400,
+      "label": "t:sections.custom_section.settings.layout.height.custom_height.label",
+      "visible_if": "{{ section.settings.height_section == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "horizontal_position",
+      "options": [
+        {
+          "value": "top",
+          "label": "t:sections.custom_section.settings.layout.position.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.custom_section.settings.layout.position.options__2.label"
+        },
+        {
+          "value": "bottom",
+          "label": "t:sections.custom_section.settings.layout.position.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.custom_section.settings.layout.position.label",
+      "visible_if": "{{ section.settings.custom_layout == 'horizontal' }}"
+    },
+    {
+      "type": "select",
+      "id": "vertical_position",
+      "options": [
+        {
+          "value": "top",
+          "label": "t:sections.custom_section.settings.layout.position.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.custom_section.settings.layout.position.options__2.label"
+        },
+        {
+          "value": "bottom",
+          "label": "t:sections.custom_section.settings.layout.position.options__3.label"
+        },
+        {
+          "value": "space_between",
+          "label": "t:sections.custom_section.settings.layout.alignment.options__4.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.custom_section.settings.layout.position.label",
+      "visible_if": "{{ section.settings.custom_layout == 'vertical' }}"
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.custom_section.settings.layout.alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.custom_section.settings.layout.alignment.options__2.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.custom_section.settings.layout.alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.custom_section.settings.layout.alignment.label",
+      "visible_if": "{{ section.settings.custom_layout == 'vertical' }}"
+    },
+    {
+      "type": "select",
+      "id": "horizontal_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.custom_section.settings.layout.alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.custom_section.settings.layout.alignment.options__2.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.custom_section.settings.layout.alignment.options__3.label"
+        },
+        {
+          "value": "space_between",
+          "label": "t:sections.custom_section.settings.layout.alignment.options__4.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.custom_section.settings.layout.alignment.label",
+      "visible_if": "{{ section.settings.custom_layout == 'horizontal' }}"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "default": 20,
+      "label": "t:sections.custom_section.settings.layout.gap.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.settings.appearance.header"
+    },
+    {
+      "type": "select",
+      "id": "background_media",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.custom_section.settings.appearance.settings.background_media.options__1.label"
+        },
+        {
+          "value": "image",
+          "label": "t:sections.custom_section.settings.appearance.settings.background_media.options__2.label"
+        },
+        {
+          "value": "video",
+          "label": "t:sections.custom_section.settings.appearance.settings.background_media.options__3.label"
+        }
+      ],
+      "default": "none",
+      "label": "t:sections.custom_section.settings.appearance.settings.background_media.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_bg",
+      "label": "t:sections.all.image.label",
+      "visible_if": "{{ section.settings.background_media == 'image' }}"
+    },
+    {
+      "type": "video",
+      "id": "video_local",
+      "label": "t:sections.video.settings.video_local.label",
+      "visible_if": "{{ section.settings.background_media == 'video' }}"
+    },
+    {
+      "type": "range",
+      "id": "padding_block",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_block.label",
+      "default": 50,
+      "visible_if": "{{ section.settings.background_media != 'none' }}"
+    },
+    {
+      "type": "select",
+      "id": "border_radius_type",
+      "label": "t:sections.custom_section.settings.appearance.settings.corner_radius.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.custom_section.settings.appearance.settings.corner_radius.options.none.label"
+        },
+        {
+          "value": "custom",
+          "label": "t:sections.custom_section.settings.appearance.settings.corner_radius.options.custom.label"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "border_radius_custom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.custom_section.settings.appearance.settings.corner_radius.custom_radius.label",
+      "default": 20,
+      "visible_if": "{{ section.settings.border_radius_type == 'custom' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_background_overlay",
+      "label": "t:sections.custom_section.settings.appearance.settings.background_overlay.label",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "background_overlay_color",
+      "label": "t:sections.custom_section.settings.appearance.settings.background_overlay.overlay_color.label",
+      "default": "#0000000F",
+      "visible_if": "{{ section.settings.enable_background_overlay }}",
+      "alpha": true
+    },
+    {
+      "type": "select",
+      "id": "background_overlay_style",
+      "options": [
+        {
+          "value": "solid",
+          "label": "t:sections.custom_section.settings.appearance.settings.background_overlay.overlay_style.options__1.label"
+        },
+        {
+          "value": "gradient",
+          "label": "t:sections.custom_section.settings.appearance.settings.background_overlay.overlay_style.options__2.label"
+        }
+      ],
+      "default": "solid",
+      "label": "t:sections.custom_section.settings.appearance.settings.background_overlay.overlay_style.label",
+      "visible_if": "{{ section.settings.enable_background_overlay }}"
+    },
+    {
+      "type": "select",
+      "id": "background_overlay_gradient_direction",
+      "options": [
+        {
+          "value": "to top",
+          "label": "t:sections.custom_section.settings.appearance.settings.background_overlay.gradient_direction.options__1.label"
+        },
+        {
+          "value": "to bottom",
+          "label": "t:sections.custom_section.settings.appearance.settings.background_overlay.gradient_direction.options__2.label"
+        }
+      ],
+      "default": "to top",
+      "label": "t:sections.custom_section.settings.appearance.settings.background_overlay.gradient_direction.label",
+      "visible_if": "{{ section.settings.background_overlay_style == 'gradient' and section.settings.enable_background_overlay }}"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.divider.section_divider_heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "t:sections.all.divider.show_divider",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "divider_top",
+      "label": "t:sections.all.divider.top",
+      "info": "t:sections.all.divider.top_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "line",
+      "visible_if": "{{ section.settings.show_divider }}"
+    },
+    {
+      "type": "select",
+      "id": "divider_bottom",
+      "label": "t:sections.all.divider.bottom",
+      "info": "t:sections.all.divider.bottom_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.show_divider }}"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading_block"
+    },
+    {
+      "type": "text"
+    },
+    {
+      "type": "button_block"
+    },
+    {
+      "type": "image"
+    },
+    {
+      "type": "video"
+    },
+    {
+      "type": "highlight-text"
+    },
+    {
+      "type": "icon"
+    },
+    {
+      "type": "_rotating-text"
+    },
+    {
+      "type": "group"
+    },
+    {
+      "type": "carousel"
+    },
+    {
+      "type": "marquee"
+    },
+    {
+      "type": "accordion"
+    },
+    {
+      "type": "text-image-pairing"
+    },
+    {
+      "type": "image-comparison"
+    },
+    {
+      "type": "image-with-text"
+    },
+    {
+      "type": "form-subscribe"
+    },
+    {
+      "type": "form-contact"
+    },
+    {
+      "type": "countdown"
+    },
+    {
+      "type": "counter-up"
+    },
+    {
+      "type": "popup-link"
+    },
+    {
+      "type": "spacer"
+    },
+    {
+      "type": "map"
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "tab"
+    },
+    {
+      "type": "@app"
+    },
+    {
+      "type": "custom-liquid"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.custom_section.name",
+      "category": "t:sections.group.blocks.layout"
+    },
+    {
+      "name": "t:sections.custom_section.preset.story_tabs",
+      "category": "t:sections.group.storytelling",
+      "blocks": {
+        "story_heading": {
+          "type": "heading_block",
+          "settings": {
+            "heading": "Why It Works",
+            "type_preset": "h2",
+            "heading_tag": "h2",
+            "width_block": "fill",
+            "custom_width": 100,
+            "text_align_desktop": "center",
+            "width_block_mobile": "fill",
+            "custom_width_mobile": 100,
+            "text_align_mobile": "center",
+            "padding_top": 0,
+            "padding_bottom": 20
+          }
+        },
+        "story_tabs": {
+          "type": "tab",
+          "settings": {
+            "type_preset": "h5",
+            "heading_alignment": "center",
+            "heading_color": "#1D1D1F",
+            "inherit_color_scheme": true,
+            "content_alignment": "center",
+            "padding_top": 0,
+            "padding_bottom": 0
+          },
+          "blocks": {
+            "story_description": {
+              "type": "_tab-row",
+              "settings": {
+                "heading": "Description"
+              },
+              "blocks": {
+                "description_image_with_text": {
+                  "type": "image-with-text",
+                  "settings": {
+                    "image_ratio": "landscape",
+                    "desktop_image_width": 50,
+                    "image_desktop_position": "left",
+                    "background_color": "#F3F0E8",
+                    "desktop_vertical_alignment": "center",
+                    "text_alignment": "start",
+                    "column_gap": "no_gap",
+                    "padding_content_inline": 50,
+                    "padding_content_block": 50,
+                    "width_block": "fill",
+                    "custom_width": 100,
+                    "width_block_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "text_alignment_mobile": "center",
+                    "padding_top": 0,
+                    "padding_bottom": 0
+                  },
+                  "blocks": {
+                    "description_subheading": {
+                      "type": "subheading",
+                      "settings": {
+                        "subheading": "Plant-Powered Care",
+                        "type_preset": "",
+                        "padding_top": 0,
+                        "padding_bottom": 8
+                      }
+                    },
+                    "description_heading": {
+                      "type": "heading",
+                      "settings": {
+                        "heading": "DeepClear Wash",
+                        "type_preset": "h2",
+                        "padding_top": 0,
+                        "padding_bottom": 16
+                      }
+                    },
+                    "description_text": {
+                      "type": "description",
+                      "settings": {
+                        "description": "<p>Our formula gently lifts away product buildup, excess oil, and hard-water minerals that leave hair dull and weighed down. It resets your scalp and strands to a clean, weightless base.</p>",
+                        "type_preset": "",
+                        "padding_top": 0,
+                        "padding_bottom": 24
+                      }
+                    },
+                    "description_button": {
+                      "type": "button",
+                      "settings": {
+                        "first_button_label": "Discover DeepClear",
+                        "first_button_type": "primary",
+                        "blank_first_button": false,
+                        "second_button_label": "",
+                        "second_button_type": "outline",
+                        "blank_second_button": false,
+                        "spacing_bottom": 0
+                      }
+                    }
+                  },
+                  "block_order": [
+                    "description_subheading",
+                    "description_heading",
+                    "description_text",
+                    "description_button"
+                  ]
+                }
+              },
+              "block_order": ["description_image_with_text"]
+            },
+            "story_benefits": {
+              "type": "_tab-row",
+              "settings": {
+                "heading": "Hair Benefits"
+              },
+              "blocks": {
+                "benefits_image_with_text": {
+                  "type": "image-with-text",
+                  "settings": {
+                    "image_ratio": "landscape",
+                    "desktop_image_width": 50,
+                    "image_desktop_position": "right",
+                    "background_color": "#F3F0E8",
+                    "desktop_vertical_alignment": "center",
+                    "text_alignment": "start",
+                    "column_gap": "no_gap",
+                    "padding_content_inline": 50,
+                    "padding_content_block": 50,
+                    "width_block": "fill",
+                    "custom_width": 100,
+                    "width_block_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "text_alignment_mobile": "center",
+                    "padding_top": 0,
+                    "padding_bottom": 0
+                  },
+                  "blocks": {
+                    "benefits_subheading": {
+                      "type": "subheading",
+                      "settings": {
+                        "subheading": "Healthy Hair Starts Here",
+                        "type_preset": "",
+                        "padding_top": 0,
+                        "padding_bottom": 8
+                      }
+                    },
+                    "benefits_heading": {
+                      "type": "heading",
+                      "settings": {
+                        "heading": "Clean, Soft and Balanced",
+                        "type_preset": "h2",
+                        "padding_top": 0,
+                        "padding_bottom": 16
+                      }
+                    },
+                    "benefits_text": {
+                      "type": "description",
+                      "settings": {
+                        "description": "<p>Refresh the scalp without stripping essential moisture. Hair feels lighter, softer, and ready for the rest of your care routine.</p>",
+                        "type_preset": "",
+                        "padding_top": 0,
+                        "padding_bottom": 24
+                      }
+                    },
+                    "benefits_button": {
+                      "type": "button",
+                      "settings": {
+                        "first_button_label": "Explore the Benefits",
+                        "first_button_type": "primary",
+                        "blank_first_button": false,
+                        "second_button_label": "",
+                        "second_button_type": "outline",
+                        "blank_second_button": false,
+                        "spacing_bottom": 0
+                      }
+                    }
+                  },
+                  "block_order": [
+                    "benefits_subheading",
+                    "benefits_heading",
+                    "benefits_text",
+                    "benefits_button"
+                  ]
+                }
+              },
+              "block_order": ["benefits_image_with_text"]
+            },
+            "story_ingredients": {
+              "type": "_tab-row",
+              "settings": {
+                "heading": "Ingredients"
+              },
+              "blocks": {
+                "ingredients_image_with_text": {
+                  "type": "image-with-text",
+                  "settings": {
+                    "image_ratio": "landscape",
+                    "desktop_image_width": 50,
+                    "image_desktop_position": "left",
+                    "background_color": "#F3F0E8",
+                    "desktop_vertical_alignment": "center",
+                    "text_alignment": "start",
+                    "column_gap": "no_gap",
+                    "padding_content_inline": 50,
+                    "padding_content_block": 50,
+                    "width_block": "fill",
+                    "custom_width": 100,
+                    "width_block_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "text_alignment_mobile": "center",
+                    "padding_top": 0,
+                    "padding_bottom": 0
+                  },
+                  "blocks": {
+                    "ingredients_subheading": {
+                      "type": "subheading",
+                      "settings": {
+                        "subheading": "Thoughtfully Selected",
+                        "type_preset": "",
+                        "padding_top": 0,
+                        "padding_bottom": 8
+                      }
+                    },
+                    "ingredients_heading": {
+                      "type": "heading",
+                      "settings": {
+                        "heading": "Effective by Nature",
+                        "type_preset": "h2",
+                        "padding_top": 0,
+                        "padding_bottom": 16
+                      }
+                    },
+                    "ingredients_text": {
+                      "type": "description",
+                      "settings": {
+                        "description": "<p>A considered blend of cleansing and conditioning ingredients helps remove impurities while keeping hair comfortable and manageable.</p>",
+                        "type_preset": "",
+                        "padding_top": 0,
+                        "padding_bottom": 24
+                      }
+                    },
+                    "ingredients_button": {
+                      "type": "button",
+                      "settings": {
+                        "first_button_label": "View Ingredients",
+                        "first_button_type": "primary",
+                        "blank_first_button": false,
+                        "second_button_label": "",
+                        "second_button_type": "outline",
+                        "blank_second_button": false,
+                        "spacing_bottom": 0
+                      }
+                    }
+                  },
+                  "block_order": [
+                    "ingredients_subheading",
+                    "ingredients_heading",
+                    "ingredients_text",
+                    "ingredients_button"
+                  ]
+                }
+              },
+              "block_order": ["ingredients_image_with_text"]
+            }
+          },
+          "block_order": ["story_description", "story_benefits", "story_ingredients"]
+        }
+      },
+      "block_order": ["story_heading", "story_tabs"],
+      "settings": {
+        "section_width": "fix_width",
+        "custom_layout": "vertical",
+        "vertical_on_mobile": false,
+        "content_wrap": false,
+        "height_section": "auto",
+        "horizontal_position": "center",
+        "vertical_position": "center",
+        "vertical_alignment": "center",
+        "horizontal_alignment": "center",
+        "gap": 0,
+        "background_media": "none",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "show_divider": false
+      }
+    },
+    {
+      "name": "t:sections.custom_section.preset.promotion_banner",
+      "category": "t:sections.group.storytelling",
+      "blocks": {
+        "group_9atgFr": {
+          "type": "group",
+          "settings": {
+            "color_scheme": "color-scheme-2",
+            "custom_layout": "horizontal",
+            "vertical_on_mobile": true,
+            "horizontal_position": "center",
+            "vertical_position": "space_between",
+            "vertical_alignment": "center",
+            "horizontal_alignment": "space_between",
+            "gap": 20,
+            "width_block": "fill",
+            "custom_width": 100,
+            "width_block_mobile": "fill",
+            "custom_width_mobile": 100,
+            "border_radius_type": "custom",
+            "border_radius_custom": 20,
+            "padding_inline": 40,
+            "padding_block": 27
+          },
+          "blocks": {
+            "group_EDnwWX": {
+              "type": "group",
+              "settings": {
+                "custom_layout": "vertical",
+                "horizontal_alignment": "center",
+                "vertical_alignment": "start",
+                "width_block": "fill",
+                "custom_width": 100,
+                "gap": 0,
+                "width_block_mobile": "fill",
+                "custom_width_mobile": 100
+              },
+              "blocks": {
+                "heading_block_fjD3PC": {
+                  "type": "heading_block",
+                  "settings": {
+                    "heading": "Get Exclusive Deals!",
+                    "type_preset": "h3",
+                    "heading_tag": "h2",
+                    "width_block": "fill",
+                    "text_align_desktop": "left",
+                    "text_align_mobile": "center",
+                    "width_block_mobile": "fill",
+                    "padding_bottom": 4
+                  }
+                },
+                "text_tLpAYh": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Become a member for exclusive discounts and early access to new drops.</p>",
+                    "text_color": "text-color",
+                    "text_size": 16,
+                    "width_block": "fill",
+                    "text_align_desktop": "left",
+                    "width_block_mobile": "fill",
+                    "text_align_mobile": "center"
+                  }
+                }
+              },
+              "block_order": ["heading_block_fjD3PC", "text_tLpAYh"]
+            },
+            "group_9nixp6": {
+              "type": "group",
+              "settings": {
+                "custom_layout": "horizontal",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "end",
+                "gap": 12,
+                "width_block": "custom",
+                "custom_width": 39,
+                "width_block_mobile": "fill",
+                "custom_width_mobile": 100
+              },
+              "blocks": {
+                "button_block_3MBqCK": {
+                  "type": "button_block",
+                  "settings": {
+                    "first_button_label": "Sign In",
+                    "first_button_link": "https://velyn.nextsky.co/account/login",
+                    "first_button_type": "primary",
+                    "width_block": "custom",
+                    "custom_width": 100,
+                    "width_block_mobile": "fill",
+                    "custom_width_mobile": 100
+                  }
+                },
+                "button_block_nnWN4z": {
+                  "type": "button_block",
+                  "settings": {
+                    "first_button_label": "Create Account",
+                    "first_button_link": "https://velyn.nextsky.co/account/register",
+                    "first_button_type": "outline",
+                    "width_block": "custom",
+                    "custom_width": 100,
+                    "width_block_mobile": "fill",
+                    "custom_width_mobile": 100
+                  }
+                }
+              },
+              "block_order": ["button_block_3MBqCK", "button_block_nnWN4z"]
+            }
+          },
+          "block_order": ["group_EDnwWX", "group_9nixp6"]
+        }
+      },
+      "block_order": ["group_9atgFr"],
+      "settings": {
+        "section_width": "fix_width",
+        "custom_layout": "vertical",
+        "height_section": "auto",
+        "horizontal_position": "center",
+        "vertical_position": "center",
+        "vertical_alignment": "center",
+        "horizontal_alignment": "center",
+        "gap": 20,
+        "padding_top": 0,
+        "padding_bottom": 100
+      }
+    },
+    {
+      "name": "t:sections.custom_section.preset.flexible_marquee",
+      "category": "t:sections.group.storytelling",
+      "blocks": {
+        "marquee_9EzFpn": {
+          "type": "marquee",
+          "name": "t:sections.group.decorative.marquee",
+          "settings": {
+            "inherit_color_scheme": true,
+            "direction": "left",
+            "speed": 40,
+            "space_between": 80,
+            "padding_top": 23,
+            "padding_bottom": 22
+          },
+          "blocks": {
+            "group_P89cBV": {
+              "type": "group",
+              "name": "t:sections.custom_section.blocks.group.name",
+              "settings": {
+                "open_in_new_tab": false,
+                "inherit_color_scheme": true,
+                "custom_layout": "horizontal",
+                "vertical_on_mobile": false,
+                "content_wrap": false,
+                "horizontal_position": "center",
+                "vertical_position": "center",
+                "vertical_alignment": "center",
+                "horizontal_alignment": "center",
+                "gap": 16,
+                "hidden_on_mobile": false,
+                "width_block": "fit",
+                "custom_width": 100,
+                "width_block_mobile": "fit",
+                "custom_width_mobile": 100,
+                "height_block": "fit",
+                "custom_height": 100,
+                "background_media": "none",
+                "border_radius_type": "none",
+                "border_radius_custom": 20,
+                "enable_background_overlay": false,
+                "background_overlay_color": "#00000026",
+                "background_overlay_style": "solid",
+                "background_overlay_gradient_direction": "to top",
+                "border_style": "none",
+                "border_color": "#e5e5e5",
+                "border_thickness": 1,
+                "padding_inline": 0,
+                "padding_block": 0
+              },
+              "blocks": {
+                "icon_qnGEX8": {
+                  "type": "icon",
+                  "settings": {
+                    "open_in_new_tab": false,
+                    "image_block": "",
+                    "icon_svg": "none",
+                    "image_width": 55,
+                    "image_width_mb": 55
+                  },
+                  "blocks": {}
+                },
+                "text_V8AMgn": {
+                  "type": "text",
+                  "name": "t:sections.custom_section.blocks.text.name",
+                  "settings": {
+                    "text": "<p>Sustainable Beauty</p>",
+                    "text_color": "text-color",
+                    "text_size": 16,
+                    "width_block": "fit",
+                    "custom_width": 100,
+                    "text_align_desktop": "center",
+                    "width_block_mobile": "fit",
+                    "custom_width_mobile": 100,
+                    "text_align_mobile": "center",
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "hide_description_on_mobile": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": ["icon_qnGEX8", "text_V8AMgn"]
+            },
+            "group_G7ciqi": {
+              "type": "group",
+              "name": "t:sections.custom_section.blocks.group.name",
+              "settings": {
+                "open_in_new_tab": false,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "custom_layout": "horizontal",
+                "vertical_on_mobile": false,
+                "content_wrap": false,
+                "horizontal_position": "center",
+                "vertical_position": "center",
+                "vertical_alignment": "center",
+                "horizontal_alignment": "center",
+                "gap": 16,
+                "hidden_on_mobile": false,
+                "width_block": "fit",
+                "custom_width": 100,
+                "width_block_mobile": "fit",
+                "custom_width_mobile": 100,
+                "height_block": "fit",
+                "custom_height": 100,
+                "background_media": "none",
+                "border_radius_type": "none",
+                "border_radius_custom": 20,
+                "enable_background_overlay": false,
+                "background_overlay_color": "#00000026",
+                "background_overlay_style": "solid",
+                "background_overlay_gradient_direction": "to top",
+                "border_style": "none",
+                "border_color": "#e5e5e5",
+                "border_thickness": 1,
+                "padding_inline": 0,
+                "padding_block": 0
+              },
+              "blocks": {
+                "icon_LcB3tb": {
+                  "type": "icon",
+                  "settings": {
+                    "link_image": "",
+                    "open_in_new_tab": false,
+                    "image_block": "shopify://shop_images/scrolling-text-62.png",
+                    "icon_svg": "none",
+                    "image_width": 55,
+                    "image_width_mb": 55
+                  },
+                  "blocks": {}
+                },
+                "text_PDqiRk": {
+                  "type": "text",
+                  "name": "t:sections.custom_section.blocks.text.name",
+                  "settings": {
+                    "text": "<p>Gentle Yet Effective</p>",
+                    "text_color": "text-color",
+                    "text_size": 16,
+                    "width_block": "fit",
+                    "custom_width": 100,
+                    "text_align_desktop": "center",
+                    "width_block_mobile": "fit",
+                    "custom_width_mobile": 100,
+                    "text_align_mobile": "center",
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "hide_description_on_mobile": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": ["icon_LcB3tb", "text_PDqiRk"]
+            },
+            "group_mA6RpN": {
+              "type": "group",
+              "name": "t:sections.custom_section.blocks.group.name",
+              "settings": {
+                "link_block": "",
+                "open_in_new_tab": false,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "custom_layout": "horizontal",
+                "vertical_on_mobile": false,
+                "content_wrap": false,
+                "horizontal_position": "center",
+                "vertical_position": "center",
+                "vertical_alignment": "center",
+                "horizontal_alignment": "center",
+                "gap": 16,
+                "hidden_on_mobile": false,
+                "width_block": "fit",
+                "custom_width": 100,
+                "width_block_mobile": "fit",
+                "custom_width_mobile": 100,
+                "height_block": "fit",
+                "custom_height": 100,
+                "background_media": "none",
+                "border_radius_type": "none",
+                "border_radius_custom": 20,
+                "enable_background_overlay": false,
+                "background_overlay_color": "#00000026",
+                "background_overlay_style": "solid",
+                "background_overlay_gradient_direction": "to top",
+                "border_style": "none",
+                "border_color": "#e5e5e5",
+                "border_thickness": 1,
+                "padding_inline": 0,
+                "padding_block": 0
+              },
+              "blocks": {
+                "icon_aNXcf6": {
+                  "type": "icon",
+                  "settings": {
+                    "link_image": "",
+                    "open_in_new_tab": false,
+                    "image_block": "shopify://shop_images/scrolling-text-63.png",
+                    "icon_svg": "none",
+                    "image_width": 55,
+                    "image_width_mb": 55
+                  },
+                  "blocks": {}
+                },
+                "text_DR8tTX": {
+                  "type": "text",
+                  "name": "t:sections.custom_section.blocks.text.name",
+                  "settings": {
+                    "text": "<p>Targeted Pore Care</p>",
+                    "text_color": "text-color",
+                    "text_size": 16,
+                    "width_block": "fit",
+                    "custom_width": 100,
+                    "text_align_desktop": "center",
+                    "width_block_mobile": "fit",
+                    "custom_width_mobile": 100,
+                    "text_align_mobile": "center",
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "hide_description_on_mobile": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": ["icon_aNXcf6", "text_DR8tTX"]
+            }
+          },
+          "block_order": ["group_P89cBV", "group_G7ciqi", "group_mA6RpN"]
+        }
+      },
+      "block_order": ["marquee_9EzFpn"],
+      "settings": {
+        "section_width": "full_width",
+        "color_scheme": "scheme-71ad6e77-818b-46af-a5ac-36e11fc517b6",
+        "custom_layout": "vertical",
+        "vertical_on_mobile": false,
+        "content_wrap": false,
+        "height_section": "auto",
+        "custom_height": 400,
+        "horizontal_position": "center",
+        "vertical_position": "center",
+        "vertical_alignment": "center",
+        "horizontal_alignment": "center",
+        "gap": 20,
+        "background_media": "none",
+        "padding_block": 50,
+        "border_radius_type": "none",
+        "border_radius_custom": 20,
+        "enable_background_overlay": false,
+        "background_overlay_color": "#000000",
+        "background_overlay_style": "solid",
+        "background_overlay_gradient_direction": "to top",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_divider": false
+      }
+    }
+  ]
+}
+{% endschema %}

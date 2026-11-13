@@ -1,0 +1,118 @@
+{%- liquid
+  assign body_font_bold = settings.body_font | font_modify: 'weight', 'bold'
+  assign body_font_italic = settings.body_font | font_modify: 'style', 'italic'
+  assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+  assign heading_font_regular = settings.heading_font | font_modify: 'weight', 'normal'
+  assign heading_font_medium = settings.heading_font | font_modify: 'weight', '500'
+  assign theme_font_urls_seen = '||'
+  assign theme_font_preload_urls = '||'
+-%}
+
+{%- case part -%}
+  {%- when 'preconnect' -%}
+    {%- unless settings.heading_font.system? and settings.body_font.system? -%}
+      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    {%- endunless -%}
+
+  {%- when 'preload' -%}
+    {%- unless settings.body_font.system? -%}
+      {%- assign theme_font_preload_url = settings.body_font | font_url -%}
+      {%- assign theme_font_preload_token = theme_font_preload_url | prepend: '|' | append: '|' -%}
+      {%- unless theme_font_preload_urls contains theme_font_preload_token -%}
+        {% comment %}theme-check-disable AssetPreload{% endcomment %}
+        <link rel="preload" as="font" href="{{ theme_font_preload_url }}" type="font/woff2" crossorigin>
+        {% comment %}theme-check-enable AssetPreload{% endcomment %}
+        {%- assign theme_font_preload_urls = theme_font_preload_urls | append: theme_font_preload_token -%}
+      {%- endunless -%}
+    {%- endunless -%}
+    {%- unless settings.heading_font.system? -%}
+      {%- assign theme_font_preload_url = settings.heading_font | font_url -%}
+      {%- assign theme_font_preload_token = theme_font_preload_url | prepend: '|' | append: '|' -%}
+      {%- unless theme_font_preload_urls contains theme_font_preload_token -%}
+        {% comment %}theme-check-disable AssetPreload{% endcomment %}
+        <link rel="preload" as="font" href="{{ theme_font_preload_url }}" type="font/woff2" crossorigin>
+        {% comment %}theme-check-enable AssetPreload{% endcomment %}
+        {%- assign theme_font_preload_urls = theme_font_preload_urls | append: theme_font_preload_token -%}
+      {%- endunless -%}
+    {%- endunless -%}
+
+  {%- when 'faces' -%}
+    {%- unless settings.body_font.system? -%}
+      {%- assign theme_font_url = settings.body_font | font_url -%}
+      {%- assign theme_font_url_token = theme_font_url | prepend: '|' | append: '|' -%}
+      {%- unless theme_font_urls_seen contains theme_font_url_token -%}
+        {{ settings.body_font | font_face: font_display: 'swap' }}
+        {%- assign theme_font_urls_seen = theme_font_urls_seen | append: theme_font_url_token -%}
+      {%- endunless -%}
+    {%- endunless -%}
+
+    {%- unless body_font_bold.system? -%}
+      {%- assign theme_font_url = body_font_bold | font_url -%}
+      {%- assign theme_font_url_token = theme_font_url | prepend: '|' | append: '|' -%}
+      {%- unless theme_font_urls_seen contains theme_font_url_token -%}
+        {{ body_font_bold | font_face: font_display: 'fallback' }}
+        {%- assign theme_font_urls_seen = theme_font_urls_seen | append: theme_font_url_token -%}
+      {%- endunless -%}
+    {%- endunless -%}
+
+    {%- unless body_font_italic.system? -%}
+      {%- assign theme_font_url = body_font_italic | font_url -%}
+      {%- assign theme_font_url_token = theme_font_url | prepend: '|' | append: '|' -%}
+      {%- unless theme_font_urls_seen contains theme_font_url_token -%}
+        {{ body_font_italic | font_face: font_display: 'optional' }}
+        {%- assign theme_font_urls_seen = theme_font_urls_seen | append: theme_font_url_token -%}
+      {%- endunless -%}
+    {%- endunless -%}
+
+    {%- unless body_font_bold_italic.system? -%}
+      {%- assign theme_font_url = body_font_bold_italic | font_url -%}
+      {%- assign theme_font_url_token = theme_font_url | prepend: '|' | append: '|' -%}
+      {%- unless theme_font_urls_seen contains theme_font_url_token -%}
+        {{ body_font_bold_italic | font_face: font_display: 'optional' }}
+        {%- assign theme_font_urls_seen = theme_font_urls_seen | append: theme_font_url_token -%}
+      {%- endunless -%}
+    {%- endunless -%}
+
+    {%- unless settings.heading_font.system? -%}
+      {%- assign theme_font_url = settings.heading_font | font_url -%}
+      {%- assign theme_font_url_token = theme_font_url | prepend: '|' | append: '|' -%}
+      {%- unless theme_font_urls_seen contains theme_font_url_token -%}
+        {{ settings.heading_font | font_face: font_display: 'swap' }}
+        {%- assign theme_font_urls_seen = theme_font_urls_seen | append: theme_font_url_token -%}
+      {%- endunless -%}
+    {%- endunless -%}
+
+    {%- if settings.select_preset == 'pets' -%}
+      {%- assign pets_subheading_font = settings.body_font | font_modify: 'weight', '600' -%}
+      {%- if pets_subheading_font -%}
+        {%- unless pets_subheading_font.system? -%}
+          {%- assign theme_font_url = pets_subheading_font | font_url -%}
+          {%- assign theme_font_url_token = theme_font_url | prepend: '|' | append: '|' -%}
+          {%- unless theme_font_urls_seen contains theme_font_url_token -%}
+            {{ pets_subheading_font | font_face: font_display: 'fallback' }}
+            {%- assign theme_font_urls_seen = theme_font_urls_seen | append: theme_font_url_token -%}
+          {%- endunless -%}
+        {%- endunless -%}
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if settings.subheading_weight == '400' -%}
+      {%- unless heading_font_regular.system? -%}
+        {%- assign theme_font_url = heading_font_regular | font_url -%}
+        {%- assign theme_font_url_token = theme_font_url | prepend: '|' | append: '|' -%}
+        {%- unless theme_font_urls_seen contains theme_font_url_token -%}
+          {{ heading_font_regular | font_face: font_display: 'fallback' }}
+          {%- assign theme_font_urls_seen = theme_font_urls_seen | append: theme_font_url_token -%}
+        {%- endunless -%}
+      {%- endunless -%}
+    {%- elsif settings.subheading_weight == '500' -%}
+      {%- unless heading_font_medium.system? -%}
+        {%- assign theme_font_url = heading_font_medium | font_url -%}
+        {%- assign theme_font_url_token = theme_font_url | prepend: '|' | append: '|' -%}
+        {%- unless theme_font_urls_seen contains theme_font_url_token -%}
+          {{ heading_font_medium | font_face: font_display: 'fallback' }}
+          {%- assign theme_font_urls_seen = theme_font_urls_seen | append: theme_font_url_token -%}
+        {%- endunless -%}
+      {%- endunless -%}
+    {%- endif -%}
+{%- endcase -%}

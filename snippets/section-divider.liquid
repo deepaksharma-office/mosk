@@ -1,0 +1,67 @@
+{%- doc -%}
+  @param {string} position - 'top' or 'bottom'
+  @param {string} style - 'none', 'line', 'wave', 'curve-out' or 'curve-in'
+  @param {object} color_scheme - The section's color_scheme setting
+  @param {boolean} [enabled] - Whether the section's dividers are enabled
+  @param {string} [max_width] - Maximum width for a section with a narrow content wrapper
+
+  @example
+  {% render 'section-divider', position: 'top', style: section_st.divider_top, color_scheme: section_st.color_scheme, enabled: section_st.show_divider %}
+{%- enddoc -%}
+{%- if enabled == false -%}
+  {%- assign style = 'none' -%}
+{%- endif -%}
+{%- if color_scheme == blank -%}
+  {%- assign color_scheme = settings.color_schemes | first -%}
+{%- endif -%}
+{%- if style == 'wave' or style == 'curve-out' or style == 'curve-in' -%}
+  <div
+    class="divider-{{ position }} divider-{{ position }}--{{ style }} relative{% if max_width != blank %} max-w-custom-all w-full mx-auto{% endif %} z-2"
+    {% if max_width != blank %}
+      style="--max-width: {{ max_width }};"
+    {% endif %}
+    aria-hidden="true"
+  >
+    {%- unless style == 'wave' -%}
+      <svg
+        class="divider__shape absolute top-0 left-0 block w-full pointer-none"
+        viewBox="0 0 1920 80"
+        preserveAspectRatio="none"
+        focusable="false"
+        style="color: {{ color_scheme.settings.background }};"
+      >
+        {%- if style == 'curve-out' -%}
+          <path d="M0 80C736 -26.667 1184 -26.667 1920 80V85H0Z" fill="currentColor"/>
+        {%- else -%}
+          <path d="M0 0C736 106.667 1184 106.667 1920 0V85H0Z" fill="currentColor"/>
+        {%- endif -%}
+      </svg>
+    {%- endunless -%}
+  </div>
+{%- endif -%}
+{%- if position == 'top' and style != 'none' -%}
+  <script>
+    (() => {
+      const section = document.currentScript.parentElement;
+      const sections = [...document.querySelectorAll('.shopify-section:not(.shopify-section-group-overlay-group)')];
+      const previous = sections[sections.indexOf(section) - 1];
+      if (!previous) return;
+      if (previous.querySelector(':scope > .divider-bottom')) section.classList.add('divider-after-shape');
+      if (section.querySelector(':scope > .divider-top')) previous.classList.add('divider-before-shape');
+    })();
+  </script>
+{%- endif -%}
+{%- if position == 'top' -%}
+  {%- liquid
+    assign wave_bottom = false
+    if section.settings.show_divider and section.settings.divider_bottom == 'wave'
+      assign wave_bottom = true
+    endif
+  -%}
+  {%- if style == 'wave' or wave_bottom -%}
+    <span
+      class="divider-wave{% if style == 'wave' %} divider-wave--top{% endif %}{% if wave_bottom %} divider-wave--bottom{% endif %}"
+      hidden
+    ></span>
+  {%- endif -%}
+{%- endif -%}

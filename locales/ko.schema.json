@@ -1,0 +1,4686 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "settings_schema": {
+    "layout": {
+      "name": "레이아웃",
+      "how_to_use": {
+        "label": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/theme-settings/layout)"
+      },
+      "settings": {
+        "page_width": {
+          "label": "페이지 너비"
+        },
+        "site_style": {
+          "label": "둥근 모서리",
+          "image": {
+            "label": "Image"
+          },
+          "button": {
+            "label": "버튼 모서리 반경"
+          },
+          "input": {
+            "label": "입력 모서리 반경"
+          }
+        },
+        "select_preset": {
+          "label": "프리셋 선택",
+          "options__1": "코스메틱",
+          "options__2": "패션",
+          "options__3": "반려동물"
+        }
+      },
+      "rtl_support": {
+        "header": "RTL 지원",
+        "enable_rtl": "RTL 지원 사용",
+        "rtl_language": {
+          "label": "RTL 언어 코드",
+          "info": "RTL 레이아웃을 사용하는 언어를 ISO 코드로 세미콜론으로 구분하여 입력하세요. 예: ar; fa; ku; pa; sd. 비워 두면 모든 언어에 RTL 레이아웃이 적용됩니다."
+        }
+      }
+    },
+    "logo_favicon": {
+      "name": "로고 및 파비콘",
+      "how_to_use": {
+        "label": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/theme-settings/logo-and-favicon)"
+      },
+      "settings": {
+        "favicon": {
+          "label": "파비콘"
+        },
+        "favicon_image": {
+          "label": "파비콘 이미지",
+          "info": "32 x 32px .png 권장"
+        },
+        "logo": {
+          "label": "로고",
+          "logo_on_transparent": {
+            "label": "투명 헤더용 로고"
+          }
+        },
+        "logo_width": {
+          "label": "로고 너비",
+          "info": "로고 너비는 모바일에 맞게 자동으로 최적화됩니다."
+        }
+      }
+    },
+    "customer_account": {
+      "how_to_use": {
+        "label": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/theme-settings/customer-account)"
+      },
+      "name": "고객 계정",
+      "settings": {
+        "customer_account_menu": {
+          "label": "Menu"
+        },
+        "open_as": {
+          "label": "열기 방식",
+          "options": {
+            "popup": "팝업",
+            "link": "링크"
+          }
+        }
+      }
+    },
+    "colors": {
+      "name": "색상",
+      "how_to_use": {
+        "label": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/theme-settings/colors)"
+      },
+      "settings": {
+        "palette_header": {
+          "label": "팔레트"
+        },
+        "palette_info": {
+          "label": "테마 전반에서 쉽게 사용할 수 있도록 팔레트 색상을 정의하세요"
+        },
+        "general_header": {
+          "label": "일반"
+        },
+        "general_text": {
+          "label": "Text"
+        },
+        "general_heading": {
+          "label": "제목"
+        },
+        "general_link": {
+          "label": "링크"
+        },
+        "general_border": {
+          "label": "테두리"
+        },
+        "background_header": {
+          "label": "배경"
+        },
+        "background": {
+          "label": "배경"
+        },
+        "background_2": {
+          "label": "배경 2"
+        },
+        "background_gradient": {
+          "label": "배경 그라데이션",
+          "info": "가능한 경우 배경 그라데이션이 배경을 대체합니다."
+        },
+        "fill_button_header": {
+          "label": "채우기 버튼"
+        },
+        "fill_button_background": {
+          "label": "배경"
+        },
+        "fill_button_text": {
+          "label": "Text"
+        },
+        "fill_button_background_hover": {
+          "label": "호버 배경"
+        },
+        "fill_button_text_hover": {
+          "label": "호버 텍스트"
+        },
+        "outline_button_header": {
+          "label": "아웃라인 버튼"
+        },
+        "outline_button_outline": {
+          "label": "Text"
+        },
+        "outline_button_outline_border": {
+          "label": "테두리"
+        }
+      }
+    },
+    "typography": {
+      "name": "타이포그래피",
+      "how_to_use": {
+        "label": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)"
+      },
+      "settings": {
+        "font_weight": {
+          "default": "Default",
+          "inline": "인라인",
+          "regular": "보통",
+          "medium": "중간"
+        },
+        "font_size": "글꼴 크기",
+        "body": {
+          "label": "본문",
+          "font": {
+            "label": "글꼴",
+            "info": "다른 글꼴을 선택하면 스토어 속도에 영향을 줄 수 있습니다. [시스템 글꼴에 대해 자세히 알아보기.](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "base_size": "기본 크기"
+        },
+        "heading": {
+          "label": "제목",
+          "font": {
+            "label": "글꼴",
+            "info": "다른 글꼴을 선택하면 스토어 속도에 영향을 줄 수 있습니다. [시스템 글꼴에 대해 자세히 알아보기.](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "sub_heading": {
+            "sub_heading_weight": "부제목 글꼴 두께"
+          },
+          "text_transform": {
+            "label": "텍스트 변환",
+            "unset": "설정 안 함",
+            "capitalize": "첫 글자 대문자",
+            "uppercase": "대문자"
+          },
+          "heading_letter_spacing": {
+            "label": "자간"
+          }
+        },
+        "menu": {
+          "label": "Menu",
+          "font": {
+            "label": "글꼴",
+            "body_font": "본문",
+            "heading_font": "제목"
+          },
+          "uppercase": {
+            "label": "첫 번째 레벨 대문자"
+          }
+        },
+        "button": {
+          "label": "버튼",
+          "font": {
+            "label": "글꼴",
+            "body_font": "본문",
+            "heading_font": "제목"
+          }
+        },
+        "text_preset": {
+          "header": "텍스트 프리셋",
+          "name": {
+            "heading_1": "제목 1",
+            "heading_2": "제목 2",
+            "heading_3": "제목 3",
+            "heading_4": "제목 4",
+            "heading_5": "제목 5",
+            "heading_6": "제목 6"
+          },
+          "settings": {
+            "size": {
+              "label": "Size",
+              "18px": "18px",
+              "20px": "20px",
+              "22px": "22px",
+              "24px": "24px",
+              "26px": "26px",
+              "30px": "30px",
+              "36px": "36px",
+              "40px": "40px",
+              "46px": "46px",
+              "50px": "50px",
+              "56px": "56px",
+              "60px": "60px",
+              "80px": "80px"
+            },
+            "line_height": {
+              "label": "행간",
+              "original": "원본",
+              "small": "작게",
+              "medium": "보통",
+              "large": "크게",
+              "x_large": "매우 크게"
+            }
+          }
+        }
+      }
+    },
+    "browser_tab_notifications": {
+      "name": "브라우저 탭 알림",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/theme-settings/browser-tab-notifications)",
+      "settings": {
+        "notification_info": "비워 두면 원래 페이지 제목을 사용합니다",
+        "enable_browser_tab_notifications": {
+          "label": "사용"
+        },
+        "first_notification": {
+          "label": "첫 번째 알림"
+        },
+        "secondary_notification": {
+          "label": "두 번째 알림"
+        }
+      }
+    },
+    "animation": {
+      "name": "애니메이션",
+      "how_to_use": {
+        "label": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/theme-settings/animation)"
+      },
+      "settings": {
+        "scroll_animation": {
+          "label": "스크롤 애니메이션",
+          "options__1": {
+            "label": "사용 안 함"
+          },
+          "options__2": {
+            "label": "데스크톱만"
+          },
+          "options__3": {
+            "label": "모든 화면"
+          }
+        },
+        "enable_loading_page_effect": {
+          "heading": "페이지 로딩 효과",
+          "label": "효과 사용",
+          "loading": "로딩 아이콘",
+          "info": "권장 이미지 너비 100x100px"
+        },
+        "image_lazy_loading": {
+          "label": "이미지 지연 로딩 사용"
+        },
+        "hover_effect": {
+          "label": "호버 효과",
+          "info": "제품, 배너, 컬렉션, 블로그 등의 호버 카드에 영향을 줍니다...",
+          "fade_in": "페이드 인",
+          "zoom": "확대"
+        }
+      }
+    },
+    "product": {
+      "name": "제품 카드",
+      "how_to_use": {
+        "label": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/theme-settings/product-cards)"
+      },
+      "settings": {
+        "enable_quickview": "퀵뷰 사용",
+        "enable_quickadd": "빠른 추가 사용",
+        "enable_color_swatches": "색상 스와치 사용",
+        "show_tag": {
+          "hidden": "숨김",
+          "desktop": "데스크톱만",
+          "all_devices": "모든 화면"
+        },
+        "show_scrolling_text": "스크롤 텍스트 표시",
+        "show_rate": {
+          "label": "평점 표시",
+          "info": "평점을 표시하려면 제품 평점 앱을 추가하세요. [자세히 알아보기](https://help.shopify.com/en/manual/products/product-reviews/installation)"
+        },
+        "alignment": {
+          "label": "정렬",
+          "left": "왼쪽",
+          "center": "가운데"
+        },
+        "product_image": {
+          "label": "제품 이미지"
+        },
+        "show_image_hover": {
+          "label": "보조 이미지 표시"
+        },
+        "show_video_featured": {
+          "label": "호버 시 동영상 재생",
+          "info": "MP4 동영상에만 작동합니다."
+        },
+        "product_image_ratio": {
+          "label": "이미지 비율",
+          "adapt_to_image": "이미지에 맞춤",
+          "square": "정사각형 (1:1)",
+          "portrait": "세로 (3:4)",
+          "landscape": "가로 (4:3)"
+        },
+        "mobile_options": {
+          "label": "모바일 설정"
+        },
+        "show_quick_add_mobile": {
+          "label": "모바일에서 빠른 추가 버튼 표시"
+        },
+        "highlights_scrolling_text_metafield": {
+          "label": "스크롤 텍스트 메타필드",
+          "info": "제품 메타필드. 제품 카드의 마퀴 텍스트로 표시됩니다. Format: namespace.key. Default: custom.highlights_scrolling_text."
+        }
+      }
+    },
+    "badges": {
+      "name": "배지",
+      "how_to_use": {
+        "label": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/theme-settings/badges)"
+      },
+      "settings": {
+        "badge_color": {
+          "label": "텍스트 색상"
+        },
+        "show_badge": {
+          "label": "배지 표시"
+        },
+        "background_color": {
+          "label": "배경 색상"
+        },
+        "sale": {
+          "label": "세일",
+          "format": {
+            "label": "형식",
+            "text": "Text",
+            "percentage": "퍼센트",
+            "fixed": "고정 금액"
+          }
+        },
+        "new": {
+          "label": "신상품",
+          "new_badge_display_period": {
+            "label": "신상품 배지 표시 기간",
+            "info": "제품 생성일부터 '신상품'으로 표시되는 기간을 선택하세요."
+          }
+        },
+        "sold_out": {
+          "label": "품절"
+        },
+        "custom_badge": {
+          "label": "맞춤 배지",
+          "info": "맞춤 배지 설정 방법은 [문서](https://nextsky.gitbook.io/purity-theme/theme-settings/badges#id-5.-custom-badge)를 참조하세요"
+        }
+      }
+    },
+    "color_swatches": {
+      "name": "색상 스와치",
+      "how_to_use": {
+        "label": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/theme-settings/color-swatch)"
+      },
+      "settings": {
+        "hide_sold_out_variant": {
+          "label": "품절 옵션 숨기기"
+        },
+        "show_sale_in_variant_swatch": {
+          "label": "옵션 스와치에 세일 표시"
+        },
+        "color_limit": {
+          "label": "최대 표시 스와치 수"
+        },
+        "color_swatch_trigger": {
+          "label": "색상 스와치 트리거",
+          "info": "색상 옵션 이름을 정의합니다. 쉼표로 구분하세요. 예: Color,Colour"
+        },
+        "color_swatch_type": {
+          "label": "스와치 유형",
+          "options__1": {
+            "label": "옵션 이미지"
+          },
+          "options__2": {
+            "label": "Color"
+          }
+        },
+        "color_swatch_shape": {
+          "label": "색상 모양",
+          "options__1": {
+            "label": "원형"
+          },
+          "options__2": {
+            "label": "정사각형"
+          }
+        },
+        "color_swatch_custom": {
+          "label": "맞춤 색상",
+          "info": "유효 형식: Muesli: #ddd5bc 또는 Muesli: image.png (쉼표로 구분)"
+        }
+      }
+    },
+    "cart": {
+      "name": "카트",
+      "how_to_use": {
+        "label": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/theme-settings/cart)"
+      },
+      "settings": {
+        "cart_action_desktop": {
+          "label": "데스크톱에서 장바구니 추가 후 동작",
+          "drawer": "드로어",
+          "page": "페이지"
+        },
+        "cart_mobile": {
+          "label": "모바일 설정",
+          "action": {
+            "label": "장바구니 추가 후 동작",
+            "info": "모바일에서 고객이 제품을 장바구니에 담은 후 동작을 선택하세요.",
+            "option_1": "미니 카트 열기",
+            "option_2": "알림 메시지",
+            "option_3": "처음에는 카트 열기, 이후 알림"
+          },
+          "open_cart": {
+            "label": "카트 열기 방식",
+            "info": "헤더 및 모바일 탐색 바의 카트 아이콘을 탭할 때 카트 열기 방식을 선택하세요.",
+            "option_1": "드로어",
+            "option_2": "팝업"
+          }
+        },
+        "free_shipping": {
+          "label": "무료 배송 메시지",
+          "paragraph": "[배송 요금](/admin/settings/shipping)이 올바르게 구성되어 있는지 확인하세요.",
+          "message": {
+            "label": "메시지",
+            "info": "[amount]를 사용하여 무료 배송 자격까지의 진행 상황을 추적하세요."
+          },
+          "minimum_amount": {
+            "label": "무료 배송 최소 금액",
+            "info": "반올림된 숫자를 사용하세요. 통화, 기호, 문자는 제외하세요."
+          }
+        },
+        "term_and_conditions": {
+          "label": "이용 약관",
+          "enable": "미니 카트 및 카트 페이지에 체크박스 표시.",
+          "text": "Text"
+        },
+        "cart_count_down": {
+          "label": "카트 카운트다운",
+          "show_duration": {
+            "label": "미니카트 및 카트 페이지에 표시"
+          },
+          "duration": {
+            "label": "기간"
+          }
+        },
+        "product_recommendations": {
+          "label": "제품 추천",
+          "heading": "제목",
+          "enable_product_recommendations": "제품 추천 사용",
+          "enable_product_recommendations_info": "제품 추천은 미니 카트와 카트 페이지에 표시됩니다.",
+          "recommendation_product_type": {
+            "label": "제품 추천 유형",
+            "auto": "자동",
+            "selected": "선택됨"
+          },
+          "select_product_recommendation": "Product",
+          "show_on_mobile": {
+            "label": "모바일에서 표시"
+          }
+        },
+        "gift_wrap": {
+          "label": "선물 포장 제품",
+          "select_product_gift_wrap": {
+            "label": "Product",
+            "info": "옵션이 없는 제품에만 작동합니다."
+          }
+        },
+        "empty": {
+          "label": "빈 카트 설정",
+          "heading": "제목",
+          "description": "설명",
+          "collection": {
+            "label": "컬렉션 목록",
+            "info": "Collections will display their featured image by default. Use metafield to change image and text. Learn more"
+          },
+          "button_text": "버튼 레이블",
+          "button_link": {
+            "label": "버튼 링크",
+            "info": "기본값은 전체 컬렉션 페이지입니다"
+          },
+          "free_shipping": {
+            "label": "무료 배송 메시지"
+          },
+          "empty_cart_layout": {
+            "label": "빈 카트 레이아웃",
+            "option_1": "목록",
+            "option_2": "그리드"
+          },
+          "collection_metafield": {
+            "label": "빈 카트 컬렉션 메타필드",
+            "info": "컬렉션 메타필드. 빈 카트 이미지/설명용 (메타오브젝트). Format: namespace.key. Default: custom.collection_empty. Fields: collection_image, collection_description."
+          }
+        },
+        "discount_progress_bar": {
+          "label": "할인 진행률 바",
+          "paragraph": "장바구니에 최대 3개의 구매 금액 마일스톤을 표시합니다. [Shopify 관리자.](/admin/discounts)에서 일치하는 할인 코드 또는 자동 할인이 생성되어 있는지 확인하세요.",
+          "currency_info": "마일스톤 금액은 스토어의 기본 통화로 입력하세요. 현지 통화로는 자동 변환됩니다.",
+          "enable": {
+            "label": "할인 진행률 바 사용",
+            "info": "사용하면 장바구니 서랍과 장바구니 페이지 위의 단일 무료 배송 바를 대체합니다."
+          },
+          "milestone_1": {
+            "label": "마일스톤 1"
+          },
+          "milestone_2": {
+            "label": "마일스톤 2"
+          },
+          "milestone_3": {
+            "label": "마일스톤 3"
+          },
+          "milestone": {
+            "amount": {
+              "label": "임계값",
+              "info": "통화 기호나 문자 없이 반올림된 숫자를 사용하세요."
+            },
+            "label_text": {
+              "label": "레이블"
+            },
+            "icon": {
+              "label": "아이콘",
+              "option_none": "없음",
+              "option_tag": "태그",
+              "option_truck": "트럭",
+              "option_box": "상자"
+            }
+          },
+          "message": {
+            "text": {
+              "label": "진행 메시지",
+              "info": "[amount]와 [label]을 사용하여 남은 금액과 다음 보상 레이블을 표시하세요."
+            },
+            "success": {
+              "label": "모든 마일스톤 달성 메시지"
+            }
+          }
+        }
+      }
+    },
+    "search": {
+      "name": "검색 동작",
+      "how_to_use": {
+        "label": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/theme-settings/search-behavior)"
+      },
+      "settings": {
+        "type": {
+          "label": "유형",
+          "info": "모바일에서는 드로어가 기본 레이아웃입니다.",
+          "option_1": "팝업",
+          "option_2": "드로어",
+          "option_3": "검색 바"
+        },
+        "search_placeholder": {
+          "label": "검색 플레이스홀더"
+        },
+        "speech_search": {
+          "label": "음성 검색",
+          "enable": {
+            "label": "음성 검색 사용"
+          }
+        },
+        "search_results": {
+          "label": "결과 표시",
+          "option_1": "Default",
+          "option_2": "탭"
+        },
+        "recommendations": {
+          "popular_keywords": {
+            "label": "인기 검색어",
+            "info": "스토어에서 인기 있는 검색 키워드를 고객에게 추천하세요. 예: t-shirt, dress, black."
+          },
+          "products_recommended": {
+            "label": "제품 추천",
+            "info": "고객에게 추천할 제품을 선택하세요."
+          },
+          "collections_recommended": {
+            "label": "컬렉션 추천"
+          }
+        },
+        "results": {
+          "label": "검색 결과"
+        },
+        "predictive_search": {
+          "label": "예측 검색 사용",
+          "info": "실시간 검색 결과입니다. 모든 언어에서 사용할 수 있는 것은 아닙니다. [자세히 알아보기](https://shopify.dev/themes/navigation-search/search/predictive-search#general-requirements-and-limitations)"
+        },
+        "show_search_history": {
+          "label": "검색 기록 표시"
+        },
+        "show_price": {
+          "label": "제품 가격 표시"
+        }
+      }
+    },
+    "social_media": {
+      "name": "소셜 미디어",
+      "how_to_use": {
+        "label": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/theme-settings/social-media)"
+      },
+      "settings": {
+        "social_account": {
+          "label": "소셜 계정",
+          "facebook": {
+            "label": "Facebook",
+            "info": "https://facebook.com/shopify"
+          },
+          "instagram": {
+            "label": "Instagram",
+            "info": "http://instagram.com/shopify"
+          },
+          "twitter": {
+            "label": "Twitter",
+            "info": "https://twitter.com/shopify"
+          },
+          "tiktok": {
+            "label": "Tiktok",
+            "info": "https://tiktok.com/@shopify"
+          },
+          "pinterest": {
+            "label": "Pinterest",
+            "info": "https://pinterest.com/shopify"
+          },
+          "youtube": {
+            "label": "Youtube",
+            "info": "https://www.youtube.com/shopify"
+          },
+          "vimeo": {
+            "label": "Vimeo",
+            "info": "https://vimeo.com/shopify"
+          },
+          "linkedin": {
+            "label": "Linkedin",
+            "info": "https://linkedin.com/company/shopify"
+          },
+          "whatsapp": {
+            "label": "Whatsapp",
+            "info": "https://www.whatsapp.com/shopify"
+          },
+          "snapchat": {
+            "label": "Snapchat",
+            "info": "https://www.snapchat.com/add/shopify"
+          }
+        },
+        "sharing_options": {
+          "label": "공유 옵션",
+          "facebook": {
+            "label": "Facebook에 공유"
+          },
+          "pinterest": {
+            "label": "Pinterest에 공유"
+          },
+          "twitter": {
+            "label": "Twitter에 공유"
+          },
+          "whatsapp": {
+            "label": "WhatsApp에 공유"
+          },
+          "email": {
+            "label": "이메일로 공유"
+          }
+        }
+      }
+    },
+    "currency": {
+      "name": "통화 형식",
+      "how_to_use": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/theme-settings/currency-format)",
+      "settings": {
+        "code": {
+          "label": "통화 코드",
+          "show_code": {
+            "label": "통화 코드 표시",
+            "info": "카트 및 결제 가격에는 항상 통화 코드가 표시됩니다. 예: $1.00 USD."
+          }
+        }
+      }
+    },
+    "script_tracking": {
+      "name": "추적 및 인사이트",
+      "settings": {
+        "how_to_use": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/theme-settings/tracking-and-insights)",
+        "scripts_tracking": {
+          "label": "코드 스니펫",
+          "info": "추적 및 인사이트를 위한 코드 스니펫을 추가하세요"
+        },
+        "appended_scripts": {
+          "label": "추가 위치",
+          "body": "Body 태그",
+          "head": "Head 태그"
+        }
+      }
+    }
+  },
+  "content": {
+    "manage_customer_accounts": "고객 계정 설정에서 [가시성 관리](/admin/settings/customer_accounts)하세요. 레거시 계정은 지원되지 않습니다."
+  },
+  "sections": {
+    "all": {
+      "general": "일반",
+      "layout": {
+        "label": "섹션 너비",
+        "fix_width": "고정 너비",
+        "stretch_width": "늘리기",
+        "full_width": "전체 너비"
+      },
+      "colors": {
+        "label": "색상 구성표",
+        "info": "테마의 모든 색상을 편집하려면 [색상 테마 설정](/editor?context=theme&category=colors)으로 이동하세요. 더 나은 사용자 경험을 위해 명확한 텍스트 대비를 유지하세요."
+      },
+      "desktop_content_position": {
+        "label": "데스크톱 콘텐츠 위치",
+        "info": "위치는 모바일에 맞게 자동으로 최적화됩니다.",
+        "info_2": "콘텐츠 우선이 기본 모바일 레이아웃입니다.",
+        "group": {
+          "top": {
+            "label": "상단"
+          },
+          "middle": {
+            "label": "중간"
+          },
+          "bottom": {
+            "label": "하단"
+          }
+        },
+        "options__1": {
+          "label": "왼쪽 상단"
+        },
+        "options__2": {
+          "label": "가운데 상단"
+        },
+        "options__3": {
+          "label": "오른쪽 상단"
+        },
+        "options__4": {
+          "label": "왼쪽 중간"
+        },
+        "options__5": {
+          "label": "가운데 중간"
+        },
+        "options__6": {
+          "label": "오른쪽 중간"
+        },
+        "options__7": {
+          "label": "왼쪽 하단"
+        },
+        "options__8": {
+          "label": "가운데 하단"
+        },
+        "options__9": {
+          "label": "오른쪽 하단"
+        }
+      },
+      "padding": {
+        "section_padding_heading": "섹션 패딩",
+        "padding_inline": {
+          "label": "인라인 패딩",
+          "info": "인라인 패딩은 모바일에 맞게 자동으로 최적화됩니다."
+        },
+        "padding_block": {
+          "label": "블록 패딩",
+          "info": "블록 패딩은 모바일에 맞게 자동으로 최적화됩니다."
+        },
+        "padding_top": "상단",
+        "padding_bottom": "하단",
+        "spacing_bottom": "하단 간격",
+        "image_spacing": "이미지 간격",
+        "space_between": "항목 간격",
+        "column_gap": {
+          "label": "열 간격",
+          "no_gap": "간격 없음",
+          "small": "작게",
+          "medium": "보통",
+          "large": "크게",
+          "x_large": "매우 크게"
+        }
+      },
+      "space_between": {
+        "label": "항목 간격"
+      },
+      "width": {
+        "label": "너비",
+        "fill": "채우기",
+        "fit": "맞춤"
+      },
+      "columns": {
+        "label": "열 수"
+      },
+      "items_to_show": {
+        "label": "최대 표시 항목 수"
+      },
+      "product_to_show": {
+        "label": "최대 표시 제품 수"
+      },
+      "text_alignment": {
+        "label": "콘텐츠 정렬",
+        "alignment": "정렬",
+        "options__1": {
+          "label": "왼쪽"
+        },
+        "options__2": {
+          "label": "가운데"
+        },
+        "options__3": {
+          "label": "오른쪽"
+        }
+      },
+      "content": {
+        "label": "콘텐츠"
+      },
+      "text": {
+        "label": "Text"
+      },
+      "content_position": {
+        "label": "콘텐츠 위치",
+        "options__1": {
+          "label": "이미지 오버레이",
+          "top": "상단",
+          "middle": "중간",
+          "bottom": "하단",
+          "text_above_button": "버튼 위 텍스트"
+        },
+        "options__2": {
+          "label": "이미지 아래"
+        }
+      },
+      "section_setting": {
+        "page_heading": {
+          "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "description": {
+            "label": "콘텐츠"
+          },
+          "heading": {
+            "label": "제목"
+          },
+          "breadcrumb": {
+            "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/breadcrumb)",
+            "label": "브레드크럼"
+          }
+        },
+        "enable_rounded_style": {
+          "label": "둥근 스타일 사용"
+        }
+      },
+      "content_setting": {
+        "label": "콘텐츠 설정",
+        "image": {
+          "label": "Image"
+        },
+        "subheading": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "부제목",
+          "info": "각 텍스트 항목을 세로 막대(|)로 구분하면 항목 사이에 점이 표시됩니다."
+        },
+        "highlight_text": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/highlight-text)",
+          "label": "하이라이트 텍스트",
+          "settings": {
+            "icons": {
+              "label": "아이콘 선택",
+              "options__1": {
+                "label": "None"
+              },
+              "options__2": {
+                "label": "별"
+              },
+              "options__3": {
+                "label": "점"
+              }
+            }
+          }
+        },
+        "heading": {
+          "label": "제목",
+          "info": "이탤릭으로 텍스트를 감싸면 밑줄이 추가됩니다. 편집기의 이탤릭(I) 버튼으로 적용하세요."
+        },
+        "heading_highlight": {
+          "label": "제목 하이라이트 텍스트",
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading-highlight-text)"
+        },
+        "detail_list": {
+          "label": "상세 목록",
+          "detail_row": {
+            "label": "Detail row",
+            "row_title": "Row title",
+            "row_details": "Row details"
+          },
+          "layout": {
+            "label": "레이아웃",
+            "specifications": "사양",
+            "information_cards": "정보 카드"
+          }
+        },
+        "description": {
+          "label": "설명",
+          "hide_on_mobile": {
+            "label": "모바일에서 설명 숨기기"
+          },
+          "description": "제품 설명을 표시합니다. 짧은 설명 메타필드가 있으면 사용하고, 없으면 기본 제품 설명을 사용합니다. 자세한 내용은 [지원 페이지](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-7.-description)를 참조하세요."
+        },
+        "content": "콘텐츠",
+        "button_label": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "버튼 레이블",
+          "info": "레이블을 비워 두면 버튼이 숨겨집니다."
+        },
+        "button_label-block": {
+          "name": "레이블",
+          "label": "버튼"
+        },
+        "link": {
+          "label": "링크",
+          "info": "참고: 이 링크 설정은 이미지만 적용되며 동영상에는 적용되지 않습니다."
+        },
+        "first_button_label": {
+          "name": "첫 번째 버튼",
+          "label": "버튼 레이블",
+          "link": "버튼 링크"
+        },
+        "second_button_label": {
+          "name": "두 번째 버튼",
+          "label": "버튼 레이블",
+          "link": "버튼 링크"
+        },
+        "button_type": {
+          "label": "유형",
+          "primary": {
+            "label": "기본"
+          },
+          "outline": {
+            "label": "아웃라인"
+          },
+          "link": {
+            "label": "링크"
+          }
+        },
+        "show_view_all_button": {
+          "label": "모두 보기 버튼 표시",
+          "label_text": "버튼 레이블",
+          "default_text": "모든 제품 보기",
+          "default": "모두 보기"
+        },
+        "open_link_in_new_tab": {
+          "label": "새 탭에서 링크 열기"
+        },
+        "drawn_underline": {
+          "label": "제목 밑줄 애니메이션 사용",
+          "type": "밑줄 스타일",
+          "value": {
+            "simple_underline": "단순 밑줄",
+            "curve_underline": "곡선 스트로크",
+            "squiggle_underline": "물결 밑줄"
+          },
+          "color": "밑줄 색상"
+        },
+        "metrics": {
+          "label": "지표",
+          "item": {
+            "label": "지표 항목",
+            "value": "값",
+            "description": "레이블"
+          }
+        },
+        "citation": {
+          "label": "인용"
+        },
+        "heading_block_highlight": {
+          "label": "제목 하이라이트 사용",
+          "info": "텍스트를 이탤릭으로 감싸면 하이라이트가 추가됩니다. 편집기의 이탤릭(I) 버튼으로 적용하세요.",
+          "type": "하이라이트 스타일",
+          "text_highlight": "텍스트 하이라이트",
+          "color": "하이라이트 색상"
+        }
+      },
+      "content_header": {
+        "label": "섹션 헤더",
+        "heading_size": {
+          "label": "제목 크기",
+          "size": "Size",
+          "xs_small": {
+            "label": "아주 작게"
+          },
+          "x_small": {
+            "label": "매우 작게"
+          },
+          "small": {
+            "label": "작게"
+          },
+          "large": {
+            "label": "크게"
+          },
+          "x_large": {
+            "label": "매우 크게"
+          },
+          "base": {
+            "label": "기본 크기"
+          },
+          "options__1": {
+            "label": "제목 1"
+          },
+          "options__2": {
+            "label": "제목 2"
+          },
+          "options__3": {
+            "label": "제목 3"
+          },
+          "options__4": {
+            "label": "제목 4"
+          },
+          "options__5": {
+            "label": "제목 5"
+          },
+          "options__7": {
+            "label": "제목 7"
+          },
+          "options__0": {
+            "label": "제목 0"
+          }
+        }
+      },
+      "blog_setting": {
+        "show_category": "카테고리 표시",
+        "show_tags": "태그 표시",
+        "show_date": "날짜 표시",
+        "show_author": "작성자 표시",
+        "show_excerpt": "요약 표시"
+      },
+      "media": {
+        "label": "유형"
+      },
+      "image": {
+        "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/image)",
+        "label": "Image",
+        "image_setting": "이미지 설정",
+        "width": "이미지 너비",
+        "info_width": "이미지는 모바일에 맞게 자동으로 최적화됩니다.",
+        "mobile_image": "모바일 이미지",
+        "mobile_image_width": "모바일 이미지 너비",
+        "aspect_ratio": {
+          "label": "이미지 비율",
+          "label_mb": "모바일 이미지 비율",
+          "label_video": "동영상 비율",
+          "options__1": "정사각형 (1:1)",
+          "options__2": "세로 (3:4)",
+          "options__3": "가로 (4:3)",
+          "options__4": "데스크톱과 동일",
+          "adapt": "이미지에 맞춤"
+        },
+        "desktop_position": {
+          "label": "데스크톱 이미지 위치",
+          "top": "상단",
+          "right": "오른쪽",
+          "bottom": "하단",
+          "left": "왼쪽",
+          "info": "모바일에서는 이미지가 텍스트 위에 표시됩니다."
+        },
+        "desktop_image_width": {
+          "label": "데스크톱 이미지 너비"
+        }
+      },
+      "video": {
+        "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)",
+        "label": "Video",
+        "info": "이미지 설정을 덮어씁니다",
+        "settings": {
+          "source": {
+            "label": "소스",
+            "uploaded_video": {
+              "label": "로컬 동영상"
+            },
+            "external_link": {
+              "label": "외부 동영상 링크"
+            }
+          }
+        },
+        "width": "동영상 너비",
+        "width_unit_type": {
+          "label": "너비 단위 유형",
+          "options": {
+            "percent": {
+              "label": "퍼센트 (%)"
+            },
+            "px": {
+              "label": "픽셀 (px)"
+            }
+          }
+        }
+      },
+      "video_mobile": {
+        "label": "모바일 동영상"
+      },
+      "svg": {
+        "label": "SVG 아이콘",
+        "custom_svg": {
+          "label": "맞춤 SVG",
+          "info": "이미지 설정을 덮어씁니다."
+        }
+      },
+      "icon": {
+        "none": {
+          "label": "None"
+        },
+        "cruelty": {
+          "label": "크루얼티"
+        },
+        "paraben": {
+          "label": "파라벤"
+        },
+        "privacy-protection": {
+          "label": "개인정보 보호"
+        },
+        "secure-shopping": {
+          "label": "안전한 쇼핑"
+        },
+        "guarantee": {
+          "label": "보증"
+        },
+        "account": {
+          "label": "계정"
+        },
+        "leaf": {
+          "label": "잎"
+        },
+        "moon": {
+          "label": "달"
+        },
+        "hive": {
+          "label": "벌집"
+        },
+        "comb": {
+          "label": "빗"
+        },
+        "free_shipping": {
+          "label": "무료 배송"
+        },
+        "check_badge": {
+          "label": "체크 배지"
+        },
+        "message_communications": {
+          "label": "메시지 커뮤니케이션"
+        },
+        "circular-text": {
+          "label": "원형 텍스트"
+        },
+        "beauty": {
+          "label": "얼굴"
+        },
+        "line": {
+          "label": "선"
+        },
+        "droplet": {
+          "label": "물방울"
+        },
+        "smooth": {
+          "label": "스무스"
+        },
+        "shield": {
+          "label": "방패"
+        },
+        "balloon": {
+          "label": "풍선"
+        },
+        "brightening": {
+          "label": "브라이트닝"
+        },
+        "hydration": {
+          "label": "수분"
+        },
+        "coptic_cross": {
+          "label": "콥트 십자가"
+        },
+        "coil": {
+          "label": "코일"
+        },
+        "verified": {
+          "label": "인증됨"
+        },
+        "security": {
+          "label": "보안"
+        },
+        "package": {
+          "label": "패키지"
+        },
+        "cat": {
+          "label": "고양이"
+        }
+      },
+      "carousel": {
+        "header": "캐러셀 설정",
+        "enable_carousel": {
+          "label": "캐러셀 사용",
+          "description": "데스크톱에서 전체 컬렉션 수가 행당 항목 수보다 많을 때만 캐러셀이 표시됩니다."
+        },
+        "show_navigation": {
+          "label": "탐색 표시"
+        },
+        "show_pagination": {
+          "label": "페이지네이션 표시",
+          "info": "모바일에서 항목 수를 1 또는 2로 표시하면 페이지네이션이 자동으로 표시됩니다",
+          "info_single": "모바일에서 페이지네이션이 자동으로 표시됩니다.",
+          "type": {
+            "label": "페이지네이션 스타일",
+            "progress_bar": "진행 표시줄",
+            "dot": "점"
+          }
+        },
+        "reveal_slide": {
+          "label": "다음 슬라이드 일부 표시",
+          "info": "다음 슬라이드의 일부를 미리 표시합니다."
+        },
+        "enable_carousel_mobile": {
+          "label": "모바일에서 캐러셀 사용"
+        },
+        "change_slide_every": "슬라이드 전환 간격",
+        "slide_auto_change": "슬라이드 자동 전환"
+      },
+      "mobile_options": {
+        "label": "모바일 설정",
+        "mobile_layout": {
+          "label": "모바일 레이아웃",
+          "show_text_bellow": {
+            "label": "모바일에서 텍스트를 아래에 표시",
+            "info": "모바일에서 텍스트가 이미지 아래에 표시됩니다."
+          },
+          "hidden_description_on_mobile": {
+            "label": "모바일에서 설명 숨기기"
+          }
+        }
+      },
+      "items": {
+        "items_per_row": "행당 항목 수",
+        "items_per_row_mobile": "모바일 행당 항목 수"
+      },
+      "columns_desktop": {
+        "label": "데스크톱 행당 항목 수"
+      },
+      "newsletter_setting": {
+        "email_placeholder": "이메일 플레이스홀더",
+        "button_label": "버튼 레이블"
+      },
+      "pagination_type": {
+        "label": "페이지네이션 유형",
+        "options__1": {
+          "label": "페이지 번호"
+        },
+        "options__2": {
+          "label": "더 보기 버튼"
+        },
+        "options__3": {
+          "label": "무한 스크롤"
+        }
+      },
+      "product_setting": {
+        "badges": {
+          "name": "배지"
+        },
+        "notify": {
+          "name": "재입고 알림"
+        },
+        "live_view": {
+          "name": "실시간 조회",
+          "settings": {
+            "min_number": "최소 수",
+            "max_number": "최대 수",
+            "interval_time": "간격 시간",
+            "content": "콘텐츠",
+            "show_icon_eye": {
+              "label": "아이콘 표시"
+            }
+          },
+          "info": "실시간 조회 수를 표시하여 제품 활동을 시뮬레이션하고, 긴급성·사회적 증거·전환율을 높입니다."
+        },
+        "shop_the_look": {
+          "name": "룩 쇼핑하기",
+          "settings": {
+            "heading": {
+              "label": "제목"
+            }
+          },
+          "description": "룩을 완성할 관련 제품을 제안합니다. 자세한 내용은 [지원 페이지](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)를 참조하세요"
+        },
+        "stock_countdown": {
+          "name": "재고 카운트다운",
+          "settings": {
+            "message": {
+              "label": "메시지",
+              "info": "재고 남은 수량을 표시하려면 단축 코드 [count]를 사용하세요. 이 단축 코드는 제거하거나 어디에나 넣을 수 있습니다"
+            },
+            "stock_items": {
+              "label": "재고 수량",
+              "info": "재고가 (X)개 미만일 때 표시"
+            }
+          }
+        },
+        "product_meta": {
+          "name": "제품 메타",
+          "settings": {
+            "show_sku": {
+              "label": "SKU 표시"
+            },
+            "show_collections": {
+              "label": "컬렉션 표시"
+            },
+            "show_tags": {
+              "label": "태그 표시"
+            },
+            "show_type": {
+              "label": "유형 표시"
+            }
+          }
+        },
+        "collapsible_row": {
+          "name": "아코디언 행",
+          "settings": {
+            "info": "내용을 설명하는 제목을 포함하세요.",
+            "content": "행 콘텐츠",
+            "content_page": "페이지에서 행 콘텐츠"
+          }
+        },
+        "accordion_row_drawer": {
+          "name": "아코디언 행 드로어",
+          "settings": {
+            "info": "내용을 설명하는 제목을 포함하세요.",
+            "content": "행 콘텐츠",
+            "content_page": "페이지에서 행 콘텐츠"
+          }
+        },
+        "model_size": {
+          "name": "모델 사이즈",
+          "settings": {
+            "paragraph": {
+              "content": "모델이 착용한 사이즈와 키, 몸무게, 치수를 확인하세요. [이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)"
+            }
+          }
+        },
+        "title": {
+          "name": "제품 제목"
+        },
+        "price": {
+          "name": "가격"
+        },
+        "rating": {
+          "name": "제품 평점"
+        },
+        "variant_picker": {
+          "name": "옵션 선택기",
+          "settings": {
+            "picker_type": {
+              "label": "유형",
+              "options__1": {
+                "label": "드롭다운"
+              },
+              "options__2": {
+                "label": "필"
+              }
+            },
+            "size_guide": {
+              "heading": "사이즈 차트",
+              "info": "선택한 페이지에서 사이즈 차트 정보를 가져옵니다.",
+              "settings": {
+                "size_trigger": {
+                  "label": "사이즈 트리거",
+                  "info": "사이즈 옵션 이름을 정의합니다. 쉼표로 구분하세요. 예: Size,Misurare"
+                },
+                "show_size_guide": "사이즈 차트 표시",
+                "size_guide_label": "사이즈 차트 레이블",
+                "size_guide_page": "사이즈 차트 페이지",
+                "footer_content": "푸터 콘텐츠",
+                "custom_size_guide": {
+                  "label": "맞춤 사이즈 차트",
+                  "info__1": "컬렉션 또는 제품별로 특정 사이즈 차트를 사용합니다.",
+                  "info__2": "제품 또는 컬렉션에 맞춤 사이즈 차트를 사용하려면 namespace와 key가 \"custom.size_chart\"인 메타필드를 만드세요.[자세히 알아보기](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/size-chart)"
+                }
+              }
+            }
+          }
+        },
+        "buy_buttons": {
+          "name": "구매 버튼",
+          "settings": {
+            "show_dynamic_checkout": {
+              "label": "동적 결제 버튼 표시",
+              "info": "스토어에서 사용 가능한 결제 수단을 바탕으로 고객이 선호하는 옵션(PayPal 또는 Apple Pay 등)을 볼 수 있습니다. [자세히 알아보기](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+            },
+            "show_gift_card_recipient": {
+              "label": "기프트 카드 수신자 정보 양식 표시",
+              "info": "구매자가 예약된 날짜에 개인 메시지와 함께 기프트 카드를 보낼 수 있습니다. [자세히 알아보기](https://help.shopify.com/manual/online-store/themes/customizing-themes/add-gift-card-recipient-fields)"
+            }
+          }
+        },
+        "subscription_widget": {
+          "name": "구독 위젯",
+          "settings": {
+            "info": "일회성 구매와 각 판매 플랜 그룹별 별도 카드를 표시합니다. 이 블록을 구매 버튼 위에 배치하세요.",
+            "one_time_purchase_title": {
+              "label": "일회성 구매 제목"
+            },
+            "one_time_purchase_description": {
+              "label": "일회성 구매 설명"
+            },
+            "subscription_description": {
+              "label": "구독 설명"
+            },
+            "show_price": {
+              "label": "가격 표시"
+            }
+          }
+        },
+        "share": {
+          "name": "공유"
+        },
+        "complementary_products": {
+          "name": "보완 제품",
+          "settings": {
+            "paragraph": {
+              "content": "보완 제품을 선택하려면 Search & Discovery 앱을 추가하세요. [자세히 알아보기](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+            },
+            "product_list_limit": {
+              "label": "최대 표시 제품 수"
+            }
+          }
+        },
+        "pickup_avaiability": {
+          "name": "픽업 가능 여부"
+        },
+        "media_lightbox": {
+          "name": "실제 사용 보기",
+          "settings": {
+            "enable_sticky": {
+              "label": "데스크톱에서 고정 사용"
+            }
+          },
+          "description": "실제 사용 중인 제품의 사진 또는 동영상을 보여줍니다. 자세한 내용은 [지원 페이지](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-16.-media-lightbox)를 참조하세요"
+        },
+        "highlights": {
+          "name": "하이라이트",
+          "description": "제품의 주요 판매 포인트를 소개합니다. 자세한 내용은 [지원 페이지](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-8.-highlights)를 참조하세요"
+        },
+        "key_features": {
+          "name": "주요 특징",
+          "description": "제품의 주요 특징과 이점을 나열합니다. 자세한 내용은 [지원 페이지](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-9.-key-features)를 참조하세요"
+        },
+        "ask_question": {
+          "name": "질문하기"
+        },
+        "promotion_countdown": {
+          "name": "프로모션 카운트다운",
+          "show_countdown_units": {
+            "label": "카운트다운 단위 표시"
+          },
+          "description": "제품 프로모션에 긴급성을 더하기 위해 카운트다운 타이머를 추가합니다. 자세한 내용은 [지원 페이지](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-11.-promotion-countdown)를 참조하세요."
+        },
+        "promotion_alert": {
+          "name": "프로모션 알림",
+          "heading": {
+            "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+            "label": "제목"
+          },
+          "description": {
+            "label": "설명"
+          },
+          "text_color": {
+            "label": "텍스트 색상"
+          }
+        },
+        "icon_with_text": {
+          "name": "아이콘과 텍스트",
+          "heading": {
+            "label_1": "아이콘과 텍스트 1",
+            "label_2": "아이콘과 텍스트 2",
+            "label_3": "아이콘과 텍스트 3",
+            "label_4": "아이콘과 텍스트 4",
+            "label_5": "아이콘과 텍스트 5"
+          },
+          "info": "이 콘텐츠는 모바일에서 자동으로 숨겨집니다.",
+          "svg": {
+            "label": "SVG 아이콘"
+          },
+          "content": {
+            "label": "콘텐츠"
+          },
+          "icon": {
+            "none": {
+              "label": "None"
+            },
+            "free_shipping": {
+              "label": "무료 배송"
+            },
+            "check_badge": {
+              "label": "체크 배지"
+            },
+            "message_communications": {
+              "label": "메시지 커뮤니케이션"
+            },
+            "truck": {
+              "label": "트럭"
+            },
+            "question": {
+              "label": "질문"
+            },
+            "location": {
+              "label": "위치"
+            },
+            "leaf": {
+              "label": "잎"
+            },
+            "blossom": {
+              "label": "꽃"
+            },
+            "payment": {
+              "label": "결제"
+            },
+            "discount": {
+              "label": "Discount"
+            },
+            "order": {
+              "label": "주문"
+            },
+            "return": {
+              "label": "반품"
+            },
+            "return_package": {
+              "label": "반품 패키지"
+            }
+          }
+        },
+        "inventory_status": {
+          "name": "재고 상태",
+          "settings": {
+            "inventory_threshold": {
+              "label": "낮은 재고 임계값",
+              "info": "제품이 품절되기 직전에 고객에게 알릴 값을 설정합니다."
+            },
+            "inventory_base": {
+              "label": "재고 기준 수량",
+              "info": "진행 표시줄용 제품 재고의 초기 수량을 설정합니다."
+            }
+          }
+        },
+        "disclosures": {
+          "name": "고지 사항",
+          "description": "이 제품에 필요한 안전 경고 및 규제 고지 사항입니다. 자세한 내용은 [지원 페이지](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)를 방문하세요.",
+          "settings": {
+            "heading": {
+              "label": "제목",
+              "default": "중요 정보"
+            },
+            "open_by_default": {
+              "label": "기본적으로 열기"
+            }
+          }
+        }
+      },
+      "divider": {
+        "section_divider_heading": "섹션 구분선",
+        "show_divider": "구분선 표시",
+        "top": "상단 구분선",
+        "top_info": "위 섹션의 하단 구분선이 물결 또는 곡선이면 숨김",
+        "bottom_info": "아래 섹션의 상단 구분선이 물결 또는 곡선이면 선이 숨겨집니다",
+        "bottom": "하단 구분선",
+        "none": "없음",
+        "line": "선",
+        "wave": "물결",
+        "curve_out": "바깥 곡선",
+        "curve_in": "안쪽 곡선"
+      },
+      "metafield": {
+        "short_description": {
+          "label": "짧은 설명 메타필드",
+          "info": "제품 메타필드. 짧은 설명이 있을 때 사용됩니다. Format: namespace.key. Default: custom.short_description."
+        },
+        "highlights": {
+          "label": "하이라이트 메타필드",
+          "info": "제품 메타필드. 하이라이트 아이콘/제목 목록. Format: namespace.key. Default: custom.highlights."
+        },
+        "key_features": {
+          "label": "주요 특징 메타필드",
+          "info": "제품 메타필드. 제목/설명 항목 목록. Format: namespace.key. Default: custom.key_features."
+        },
+        "media_lightbox": {
+          "label": "미디어 라이트박스 메타필드",
+          "info": "제품 메타필드. 갤러리용 이미지/동영상 목록. Format: namespace.key. Default: custom.media_lightbox."
+        },
+        "model_size": {
+          "label": "모델 사이즈 메타필드",
+          "info": "제품 메타필드. 모델 치수가 있는 (메타오브젝트). Format: namespace.key. Default: custom.model_size."
+        },
+        "product_sizing": {
+          "label": "제품 사이즈 메타필드",
+          "info": "제품 메타필드. 사이즈 스케일용 목록. Format: namespace.key. Default: custom.product_sizing."
+        },
+        "shop_the_look": {
+          "label": "룩 쇼핑하기 메타필드",
+          "info": "제품 메타필드. 룩 이미지 및 제품 목록. Format: namespace.key. Default: custom.shop_the_look."
+        },
+        "similar_products": {
+          "label": "유사 제품 메타필드",
+          "info": "제품 메타필드. 유사 제품 목록. Format: namespace.key. Default: custom.similar_products."
+        },
+        "frequently_bought_together": {
+          "label": "자주 함께 구매 메타필드",
+          "info": "제품 메타필드. 함께 구매할 제품 목록. Format: namespace.key. Default: custom.frequently_bought_together."
+        },
+        "complete_the_look": {
+          "label": "룩 완성하기 메타필드",
+          "info": "제품 메타필드. 아웃핏 제품 목록. Format: namespace.key. Default: custom.complete_the_look."
+        },
+        "info_gallery": {
+          "label": "정보 갤러리 메타필드",
+          "info": "제품 메타필드. 갤러리 카드(이미지 + 텍스트) 목록. Format: namespace.key. Default: custom.info_gallery."
+        },
+        "compare_items": {
+          "label": "항목 비교 메타필드",
+          "info": "제품 메타필드. 비교할 제품 목록. Format: namespace.key. Default: custom.compare_items."
+        },
+        "ingredient_highlights": {
+          "label": "성분 하이라이트 메타필드",
+          "info": "제품 메타필드. 비교 행에 표시됩니다. Format: namespace.key. Default: custom.ingredient_highlights."
+        },
+        "subcollection": {
+          "label": "하위 컬렉션 메타필드",
+          "info": "컬렉션 메타필드. 하위 컬렉션 목록. Format: namespace.key. Default: custom.subcollection."
+        }
+      }
+    },
+    "group": {
+      "product": "Products",
+      "collection": "컬렉션",
+      "storytelling": "스토리텔링",
+      "banners": "배너",
+      "blog": "Blog",
+      "form": "양식",
+      "shopable": "쇼핑 가능",
+      "blocks": {
+        "basic": "기본",
+        "layout": "유틸리티 & 레이아웃",
+        "custom": "Custom",
+        "forms": "양식"
+      },
+      "decorative": {
+        "name": "장식",
+        "marquee": "마퀴",
+        "how_to_use_maquee": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/marquee)"
+      },
+      "links": {
+        "name": "링크",
+        "menu": "Menu",
+        "how_to_use_menu": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)",
+        "how_to_use_popup_link": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/links/popup-link)",
+        "popup_link": "팝업 링크"
+      },
+      "general": {
+        "name": "일반",
+        "image_box": "이미지 박스",
+        "image_box_use": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/overlay-group/search)"
+        }
+      }
+    },
+    "overlay_group": {
+      "name": "오버레이 그룹"
+    },
+    "search": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/overlay-group/search)",
+      "name": "검색"
+    },
+    "footer": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/footer-group/footer)",
+      "name": "푸터",
+      "settings": {
+        "enable_back_top": {
+          "label": "맨 위로 이동 사용"
+        },
+        "show_policy": {
+          "label": "정책 링크",
+          "info": "[정책 관리](/admin/settings/legal)"
+        },
+        "country_language": {
+          "content": "국가/언어 선택기",
+          "info": "국가/지역을 추가하려면 [마켓 설정](/admin/settings/markets)으로 이동하세요. 언어를 추가하려면 [언어 설정](/admin/settings/languages)으로 이동하세요."
+        },
+        "enable_country_selector": {
+          "label": "국가/지역 선택기 사용"
+        },
+        "width": {
+          "options__1": "16%",
+          "options__2": "20%",
+          "options__3": "25%",
+          "options__4": "33%",
+          "options__5": "50%",
+          "options__6": "66%",
+          "options__7": "75%",
+          "options__8": "86%",
+          "options__9": "100%"
+        },
+        "enable_language_selector": {
+          "label": "언어 선택기 사용"
+        },
+        "payment": {
+          "content": "결제 수단"
+        },
+        "payment_enable": {
+          "label": "결제 아이콘 표시"
+        },
+        "menu_policies": {
+          "label": "푸터 하단"
+        },
+        "header_follow": {
+          "content": "Shop에서 팔로우",
+          "info": "스토어프론트에서 Shop 앱으로 스토어를 팔로우하려면 Shop Pay가 활성화되어야 합니다. [자세히 알아보기](https://help.shopify.com/manual/online-store/themes/customizing-themes/follow-on-shop)"
+        },
+        "enable_follow_on_shop": {
+          "label": "Shop에서 팔로우 사용"
+        }
+      },
+      "blocks": {
+        "menu_block": {
+          "label": "Menu"
+        },
+        "newsletter_block": {
+          "name": "뉴스레터",
+          "info": "구독자는 \"마케팅 수신 동의\" 고객 목록에 자동으로 추가됩니다. [자세히 알아보기](https://help.shopify.com/manual/customers/manage-customers)",
+          "settings": {
+            "note": {
+              "label": "참고"
+            }
+          }
+        },
+        "contact_bar_block": {
+          "name": "연락처 바",
+          "settings": {
+            "store_address": "주소",
+            "store_phone": "전화",
+            "store_email": "Email",
+            "show_social": {
+              "label": "소셜 미디어 아이콘 표시",
+              "info": "소셜 미디어 계정을 표시하려면 테마 설정에서 연결하세요."
+            }
+          }
+        }
+      }
+    },
+    "header": {
+      "name": "헤더",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header)",
+      "settings": {
+        "sticky_header_type": {
+          "label": "고정 헤더",
+          "options__1": {
+            "label": "None"
+          },
+          "options__2": {
+            "label": "위로 스크롤 시"
+          },
+          "options__3": {
+            "label": "항상"
+          }
+        },
+        "menu": {
+          "label": "Menu",
+          "menu_trigger": {
+            "label": "데스크톱 드롭다운 메뉴 트리거",
+            "options__1": {
+              "label": "클릭"
+            },
+            "options__2": {
+              "label": "호버"
+            }
+          },
+          "dropdowns_animation": {
+            "label": "드롭다운 애니메이션",
+            "options__1": {
+              "label": "페이드 인"
+            },
+            "options__3": {
+              "label": "아래에서 위로"
+            }
+          }
+        },
+        "menu_mobile": {
+          "label": "모바일 메뉴 설정",
+          "menu_icon": {
+            "label": "햄버거 아이콘 위치",
+            "info": "모바일에서 햄버거 메뉴가 표시될 위치를 선택하세요."
+          }
+        },
+        "addons": {
+          "label": "애드온",
+          "show_account": {
+            "label": "계정 아이콘 표시"
+          },
+          "show_search": {
+            "label": "검색 표시"
+          },
+          "show_cart": {
+            "label": "장바구니 표시"
+          },
+          "show_offer": {
+            "label": "오퍼 표시"
+          },
+          "show_language": {
+            "label": "언어 표시"
+          },
+          "show_currency": {
+            "label": "통화 표시"
+          }
+        },
+        "transparent": {
+          "content": "투명 헤더",
+          "info": "홈페이지의 첫 번째 섹션이 슬라이드쇼, 텍스트 오버레이가 있는 동영상 또는 텍스트 오버레이가 있는 이미지 중 하나로 구성되어 있는지 확인하세요.",
+          "transparent": {
+            "label": "투명 헤더 사용"
+          },
+          "text_icon_transparent": {
+            "label": "텍스트 및 아이콘 색상"
+          }
+        },
+        "blocks": {
+          "mega_menu": {
+            "name": "배너 (메가 메뉴)",
+            "how_to_use": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#banner-mega-menu)",
+            "banners": {
+              "label": "배너 설정"
+            },
+            "promotion_1": {
+              "label": "배너 #1"
+            },
+            "promotion_2": {
+              "label": "배너 #2"
+            },
+            "promotion_3": {
+              "label": "배너 #3"
+            },
+            "promotion_4": {
+              "label": "배너 #4"
+            },
+            "promotion_5": {
+              "label": "배너 #5"
+            },
+            "info": "448px x 260px 권장"
+          },
+          "menu_item": {
+            "label": "메뉴 항목",
+            "info": "메가 메뉴 드롭다운을 적용할 메뉴 항목을 입력하세요. 대소문자를 구분하세요."
+          },
+          "menu_column": {
+            "label": "데스크톱 메뉴 열"
+          },
+          "product": {
+            "name": "제품 (메가 메뉴)",
+            "how_to_use": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#product-mega-menu)",
+            "header": "Products"
+          },
+          "collection": {
+            "name": "컬렉션 (메가 메뉴)",
+            "how_to_use": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#collection-mega-menu)",
+            "header": "컬렉션"
+          },
+          "menu_highlight": {
+            "name": "메뉴 강조",
+            "menu_items": {
+              "label": "강조할 메뉴 항목",
+              "info": "강조할 메뉴 항목 이름을 쉼표로 구분하여 입력하세요(예: Sale, New Arrivals). 대소문자를 구분하세요."
+            },
+            "highlight_color": {
+              "label": "강조 색상"
+            },
+            "highlight_icon": {
+              "label": "강조 아이콘",
+              "options": {
+                "unset": "설정 안 함",
+                "star": "별",
+                "custom": "Custom"
+              }
+            },
+            "custom_icon": {
+              "label": "맞춤 아이콘",
+              "info": "강조된 메뉴 항목 옆에 표시할 선택적 아이콘(권장 크기: 24x24px)"
+            }
+          }
+        },
+        "header_layout": {
+          "label": "데스크톱 헤더 레이아웃",
+          "info": "레이아웃은 모바일에 맞게 자동으로 최적화됩니다.",
+          "options__1": {
+            "label": "로고 왼쪽, 메뉴 가운데"
+          },
+          "options__2": {
+            "label": "로고 가운데, 메뉴 왼쪽"
+          },
+          "options__3": {
+            "label": "로고 중앙, 메뉴 아래"
+          },
+          "options__4": {
+            "label": "로고 왼쪽, 메뉴 아래"
+          },
+          "options__5": {
+            "label": "로고 왼쪽, 메뉴 왼쪽"
+          }
+        }
+      }
+    },
+    "custom_liquid": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "how_to_use_block": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "name": "맞춤 Liquid",
+      "liquid_code": "Liquid 코드",
+      "info": "앱 스니펫 또는 기타 Liquid 코드를 추가하여 고급 맞춤 설정을 만드세요.",
+      "info_custom_liquid": "앱 스니펫 또는 기타 코드를 추가하여 고급 맞춤 설정을 만드세요. [자세히 알아보기](https://shopify.dev/docs/api/liquid)"
+    },
+    "blog-posts": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/blog-posts)",
+      "name": "블로그 게시물",
+      "settings": {
+        "blog-post": {
+          "label": "블로그 게시물",
+          "blog_post_type": {
+            "label": "블로그 게시물 유형",
+            "category": "카테고리",
+            "select_blog": "선택한 블로그"
+          }
+        },
+        "blog": {
+          "label": "Blog"
+        }
+      }
+    },
+    "multi_content": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/multi-content)",
+      "name": "멀티 콘텐츠",
+      "blocks": {
+        "label": "블록 설정",
+        "bellow_image": "배지 설정",
+        "badge": "배지",
+        "equal_height_adjustment": {
+          "label": "동일 높이 조정"
+        },
+        "social_icon": "소셜 아이콘",
+        "grid_info": "그리드 정보",
+        "grid_info_1": "그리드 정보 1",
+        "grid_info_2": "그리드 정보 2",
+        "grid_info_3": "그리드 정보 3",
+        "grid_info_4": "그리드 정보 4"
+      }
+    },
+    "grid_banner": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/banners/grid-banner)",
+      "name": "그리드 배너",
+      "settings": {
+        "hidden_block_des_mobile": {
+          "label": "모바일에서 항목 설명 숨기기"
+        }
+      },
+      "blocks": {
+        "item": {
+          "name": "배너 항목",
+          "show_arrow": "화살표 아이콘 표시"
+        }
+      }
+    },
+    "scrolling_text": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/scrolling-text)",
+      "name": "스크롤 텍스트",
+      "settings": {
+        "direction": {
+          "label": "방향",
+          "left": {
+            "label": "오른쪽에서 왼쪽"
+          },
+          "right": {
+            "label": "왼쪽에서 오른쪽"
+          }
+        },
+        "speed": {
+          "label": "속도"
+        },
+        "text_size": {
+          "label": "Size"
+        },
+        "blocks": {
+          "image": {
+            "rounded_image": {
+              "label": "이미지 모서리 반경"
+            },
+            "image_height": {
+              "label": "이미지 높이"
+            },
+            "image_width": {
+              "label": "너비"
+            }
+          }
+        }
+      }
+    },
+    "shopby-outfit": {
+      "name": "아웃핏별 쇼핑",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-by-outfit)",
+      "blocks": {
+        "outfit": {
+          "name": "아웃핏",
+          "settings": {
+            "product": {
+              "label": "제품 목록"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "아웃핏별 쇼핑"
+      },
+      "setting": {
+        "media": {
+          "label": "미디어 유형"
+        },
+        "video_autoplay": {
+          "info": "미디어 유형 블록 설정에서 동영상이 선택된 경우에만 작동합니다."
+        }
+      }
+    },
+    "collection-list": {
+      "name": "컬렉션 목록",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/collection-list)",
+      "settings": {
+        "header": {
+          "collection": "Collection",
+          "collection_title": "컬렉션 제목",
+          "collection_card": "컬렉션 카드",
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "how_to_use_collection_title": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/page-heading)"
+        },
+        "collection_title_style": {
+          "label": "컬렉션 제목 스타일",
+          "text": "Text",
+          "button": "버튼"
+        },
+        "show_product_count": {
+          "label": "제품 수 표시"
+        },
+        "overlay_image_settings": "오버레이 이미지 설정",
+        "overlay_image_color": "텍스트 색상",
+        "collection_overlay_image_color": "컬렉션 텍스트 색상"
+      },
+      "blocks": {
+        "featured_collection": {
+          "name": "Collection",
+          "settings": {
+            "collection": {
+              "label": "Collection"
+            },
+            "image": {
+              "label": "Image",
+              "info": "비워 두면 컬렉션 이미지를 사용합니다",
+              "info_highlight": "비워 두면 컬렉션 이미지를 사용합니다. 330px x 520px 권장",
+              "info_suitable": "비워 두면 컬렉션 이미지를 사용합니다. 147px x 72px 권장",
+              "info_collection_item": "444px x 444px 권장"
+            },
+            "title": {
+              "label": "제목",
+              "info": "비워 두면 컬렉션 제목을 사용합니다"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "컬렉션 목록"
+      }
+    },
+    "quickview": {
+      "name": "퀵뷰",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/overlay-group/quickview)",
+      "settings": {
+        "paragraph": "이 섹션에서 퀵뷰 팝업을 맞춤 설정할 수 있습니다."
+      }
+    },
+    "featured-collection": {
+      "name": "추천 컬렉션",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/featured-collection)"
+    },
+    "expandable_card": {
+      "name": "확장형 카드",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/expandable-card)",
+      "settings": {
+        "card_header": "카드 설정",
+        "interaction_behavior": {
+          "label": "상호 작용 동작",
+          "options": {
+            "hover": "호버 시 표시",
+            "drawer": "클릭 시 드로어 열기"
+          }
+        }
+      },
+      "blocks": {
+        "layered_card": {
+          "name": "레이어드 카드",
+          "settings": {
+            "media_header": "Image",
+            "description": "설명",
+            "drawer_page": "페이지에서 설명"
+          }
+        }
+      }
+    },
+    "featured-product": {
+      "name": "추천 제품",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/featured-product)",
+      "settings": {
+        "product": "Product"
+      }
+    },
+    "slideshow": {
+      "name": "슬라이드쇼",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/slideshow)",
+      "settings": {
+        "loading_background_color": {
+          "label": "로딩 배경",
+          "info": "동영상 슬라이드가 로드되는 동안 표시되는 배경 색상입니다."
+        },
+        "slide_height": {
+          "label": "슬라이드 높이",
+          "full_screen": "전체 화면",
+          "adapt_to_first_image": "첫 번째 이미지에 맞춤",
+          "small": "작게",
+          "medium": "보통",
+          "large": "크게"
+        },
+        "info": "1920px x 840px 권장",
+        "info_mobile": "390px x 572px 권장",
+        "blocks": {
+          "image": {
+            "label": "이미지 슬라이드",
+            "image_overlay_opacity": {
+              "label": "이미지 오버레이 불투명도",
+              "overlay_opacity": "오버레이 불투명도"
+            }
+          },
+          "video": {
+            "label": "동영상 슬라이드",
+            "video_setting": "동영상 설정",
+            "video_overlay_opacity": {
+              "label": "동영상 오버레이 불투명도"
+            }
+          }
+        }
+      }
+    },
+    "related-products": {
+      "name": "관련 제품",
+      "how_to_use": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/related-products)"
+    },
+    "similar-products": {
+      "name": "유사 제품 쇼핑",
+      "how_to_use": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-product)"
+    },
+    "complete-the-look": {
+      "name": "룩 완성하기",
+      "how_to_use": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/products/complete-the-look)"
+    },
+    "similar-color": {
+      "name": "유사 색상 쇼핑",
+      "how_to_use": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-color)"
+    },
+    "quick-order-list": {
+      "name": "빠른 주문 목록"
+    },
+    "newsletter": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/newsletter)",
+      "name": "뉴스레터",
+      "settings": {
+        "header": {
+          "heading_setting": "뉴스레터 설정"
+        }
+      }
+    },
+    "rich-text": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/rich-text)",
+      "name": "리치 텍스트",
+      "settings": {
+        "max_width": {
+          "label": "최대 너비",
+          "info": "최대 너비는 모바일에 맞게 자동으로 최적화됩니다."
+        },
+        "rotating_text": "원형 텍스트",
+        "separator_spacing": {
+          "label": "구분 기호 간격",
+          "info": "문구 사이의 - 또는 • 같은 구분 기호 양쪽에 간격을 추가합니다."
+        }
+      }
+    },
+    "recently-viewed-products": {
+      "name": "최근 본 제품",
+      "info": "최근 본 제품을 로드하려면 페이지를 저장하세요",
+      "how_to_use": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/recently-product)"
+    },
+    "info-gallery-products": {
+      "name": "주요 성분",
+      "how_to_use": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metaobjects/info-gallery)"
+    },
+    "product-benefits": {
+      "name": "제품 혜택",
+      "how_to_use": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/product-benefits)",
+      "settings": {
+        "media_header": "중앙 미디어",
+        "image": {
+          "label": "Image",
+          "info": "비어 있으면 제품 대표 이미지를 사용합니다. 640 x 900px 권장."
+        },
+        "media_width": {
+          "label": "데스크톱 이미지 너비"
+        },
+        "video": {
+          "label": "Video"
+        },
+        "video_poster": {
+          "label": "동영상 포스터 이미지"
+        }
+      },
+      "blocks": {
+        "benefit": {
+          "name": "혜택",
+          "settings": {
+            "icon": {
+              "label": "아이콘"
+            }
+          }
+        }
+      }
+    },
+    "quiz-results-products": {
+      "name": "퀴즈 결과 제품"
+    },
+    "quiz": {
+      "name": "퀴즈",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/utilities-and-layout/quiz)",
+      "settings": {
+        "intro_header": "인트로",
+        "enable_intro_step": {
+          "label": "인트로 단계 사용"
+        },
+        "intro_button_label": {
+          "label": "시작 버튼 레이블"
+        },
+        "show_retake_button": {
+          "label": "다시 하기 버튼 표시"
+        },
+        "retake_label": {
+          "label": "다시 하기 버튼 레이블"
+        },
+        "results_display_header": "결과 표시",
+        "content_max_width": {
+          "label": "콘텐츠 최대 너비"
+        },
+        "show_back_button": {
+          "label": "뒤로 버튼 표시"
+        },
+        "email_header": "이메일 단계",
+        "enable_email_step": {
+          "label": "이메일 단계 사용"
+        },
+        "email_heading": {
+          "label": "이메일 제목"
+        },
+        "email_placeholder": {
+          "label": "이메일 플레이스홀더"
+        },
+        "continue_label": {
+          "label": "계속 버튼 레이블"
+        },
+        "skip_label": {
+          "label": "건너뛰기 버튼 레이블"
+        },
+        "results_banner_image": {
+          "label": "결과 배너 이미지"
+        },
+        "fallback_products": {
+          "label": "대체 제품",
+          "info": "퀴즈 답변에서 강한 일치 또는 부분 일치가 없을 때만 표시되는 제품입니다. 결과 페이지가 비지 않도록 백업으로 사용하세요."
+        },
+        "results_products_limit": {
+          "label": "최대 표시 제품 수"
+        }
+      }
+    },
+    "compare-products": {
+      "name": "제품 비교",
+      "how_to_use": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/compare-items)",
+      "settings": {
+        "header": {
+          "label": "비교 설정"
+        },
+        "show_price": "가격",
+        "show_ratings": "평점",
+        "show_vendor": "판매자",
+        "show_color": "Color",
+        "show_size": "Size",
+        "show_highlights": "하이라이트",
+        "show_availability": "재고 여부"
+      }
+    },
+    "bought-together-products": {
+      "name": "함께 구매한 제품",
+      "how_to_use": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/frequently-bought-together)"
+    },
+    "media-with-text": {
+      "name": "텍스트가 있는 미디어",
+      "info_image": {
+        "info_desktop": "950px x 844px 권장",
+        "info_mobile": "475px x 422px 권장",
+        "info_video": "이미지 설정을 덮어씁니다. 950px x 844px 권장"
+      }
+    },
+    "product-specifications": {
+      "name": "제품 사양",
+      "item_name": "Product specifications item",
+      "specifications_layout": "사양 레이아웃",
+      "grid_gap": "그리드 간격",
+      "mobile_rows_shown": "행",
+      "view_more_label": "더 보기 버튼 레이블",
+      "view_less_label": "간략히 버튼 레이블",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-specifications)"
+    },
+    "image-with-text": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/image-with-text)",
+      "name": "텍스트가 있는 이미지",
+      "settings": {
+        "desktop_vertical_alignment": {
+          "label": "데스크톱 세로 정렬",
+          "top": "상단",
+          "middle": "중간",
+          "bottom": "하단"
+        },
+        "vertical_alignment": "세로 정렬",
+        "background_type": {
+          "label": "배경 유형",
+          "image": "Image",
+          "color": "Color"
+        },
+        "background_color": "배경 색상",
+        "background_image": "배경 이미지",
+        "text_color": "텍스트 색상",
+        "image_info": "696px x 500px 권장",
+        "offer_image_with_text_info": "360px x 200px 권장",
+        "image_caption": {
+          "label": "이미지 캡션",
+          "heading": "제목",
+          "description": "설명",
+          "position": "위치"
+        }
+      }
+    },
+    "before_after_result": {
+      "name": "전후 비교",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/banners/before-after)",
+      "before_text": {
+        "label": "전 텍스트",
+        "default": "전"
+      },
+      "after_text": {
+        "label": "후 텍스트",
+        "default": "후"
+      }
+    },
+    "parallax-image-with-text": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/banners/parallax-split)",
+      "name": "패럴랙스 분할",
+      "settings": {
+        "image": {
+          "image_1": {
+            "label": "이미지 1"
+          },
+          "image_2": {
+            "label": "이미지 2"
+          },
+          "image_3": {
+            "label": "이미지 3"
+          }
+        },
+        "parallax_image": {
+          "label": "패럴랙스 이미지"
+        }
+      }
+    },
+    "discount_popup": {
+      "info": "이 섹션은 구독 후 팝업을 표시하는 데 사용됩니다.",
+      "name": "할인 팝업",
+      "how_to_use": "[이 설정 사용 방법](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/discount-popup)",
+      "settings": {
+        "discount_code": {
+          "label": "프로모션 링크",
+          "info": "프로모션 링크를 얻는 방법은? [자세히 알아보기](https://help.shopify.com/en/manual/discounts/managing-discount-codes#promote-a-discount-using-a-shareable-link)"
+        },
+        "discount_button": {
+          "label": "프로모션 버튼 레이블",
+          "default": "👉 10% 할인으로 쇼핑하기"
+        },
+        "sub_heading": {
+          "default": "축하합니다! 구독이 완료되었습니다"
+        },
+        "info_image": "이 이미지는 모바일에서 자동으로 숨겨집니다. 350px x 410px 권장 "
+      }
+    },
+    "image-with-text-overlay": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/image-with-text-overlay)",
+      "name": "텍스트 오버레이 이미지",
+      "countdown": "카운트다운 타이머",
+      "count_down": "카운트다운",
+      "how_to_use_count_down": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/countdown)",
+      "end_time": {
+        "label": "종료 시간",
+        "info": "예: mm-dd-yyyy"
+      },
+      "message": {
+        "label": "만료 메시지",
+        "info": "시간이 만료되면 이 메시지가 표시됩니다."
+      },
+      "image_info": {
+        "info_desktop": "1392px x 500px 권장",
+        "info_mobile": "400px x 469px 권장"
+      }
+    },
+    "media-hero": {
+      "name": "미디어 히어로",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/media-hero)",
+      "media": "미디어",
+      "info": "이미지 설정을 덮어씁니다."
+    },
+    "video": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/video)",
+      "name": "Video",
+      "settings": {
+        "video_local": {
+          "label": "로컬 동영상",
+          "info_2": "동영상 URL 설정을 덮어씁니다.",
+          "info_multi_content_video": "동영상 URL 설정을 덮어씁니다. 684px x 500px 권장.",
+          "info_poster": "동영상과 동일한 크기를 사용하세요"
+        },
+        "video_link": {
+          "label": "동영상 URL",
+          "info": "YouTube 또는 Vimeo URL을 허용합니다"
+        },
+        "video_poster": {
+          "label": "동영상 포스터"
+        },
+        "alt_description": {
+          "label": "동영상 대체 텍스트",
+          "info": "스크린 리더를 사용하는 고객을 위해 동영상을 설명하세요. [자세히 알아보기](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#video-block)"
+        },
+        "autoplay": {
+          "label": "동영상 자동 재생",
+          "info": "자동 재생을 위해 동영상이 자동으로 음소거됩니다"
+        },
+        "looping": {
+          "label": "동영상 반복 재생"
+        },
+        "show_action": {
+          "label": "동영상 컨트롤 표시"
+        },
+        "aspect_ratio": {
+          "label": "종횡비",
+          "option__1": "16:9",
+          "option__2": "21:9",
+          "option__3": "동영상에 맞춤"
+        },
+        "show_text_bellow": {
+          "label": "모바일에서 동영상 아래 텍스트 표시",
+          "info": "모바일에서 텍스트가 동영상 아래에 표시됩니다."
+        }
+      }
+    },
+    "main-password-content": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/other-pages/password-page)",
+      "name": "메인 비밀번호 페이지",
+      "settings": {
+        "header__2": {
+          "content": "콘텐츠 설정"
+        }
+      },
+      "blocks": {
+        "countdown_bn": {
+          "settings": {
+            "countdown_design": {
+              "label": "디자인",
+              "options__1": {
+                "label": "Default"
+              },
+              "options__2": {
+                "label": "모던"
+              }
+            }
+          }
+        },
+        "form_subscribe": {
+          "name": "구독 양식",
+          "settings": {
+            "email_placeholder": {
+              "label": "이메일 플레이스홀더 텍스트"
+            },
+            "btn_label": {
+              "label": "버튼 레이블"
+            }
+          }
+        }
+      }
+    },
+    "divider": {
+      "settings": {
+        "height": {
+          "label": "Height"
+        },
+        "color": {
+          "label": "Color"
+        }
+      }
+    },
+    "faq": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/faqs)",
+      "name": "FAQ",
+      "main-faq": "메인 FAQ 페이지",
+      "heading": {
+        "content": "FAQ 메시지"
+      },
+      "info_image": "646px x 700px 권장",
+      "settings": {
+        "show_faqs_message": "FAQ 메시지 표시",
+        "show_image": "이미지 표시",
+        "open_all_question": "모든 질문 열기",
+        "framed": "프레임",
+        "faq_style": "FAQ 스타일",
+        "desktop_layout": {
+          "label": "데스크톱 레이아웃",
+          "horizontal": "가로",
+          "vertical": "세로"
+        }
+      },
+      "blocks": {
+        "name": "FAQ 항목",
+        "settings": {
+          "question": {
+            "question": "질문",
+            "answer": "답변"
+          }
+        }
+      }
+    },
+    "page-faq": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/other-pages/faq-page)"
+    },
+    "video-with-text-overlay": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/video-with-text-overlay)",
+      "name": "텍스트 오버레이 동영상",
+      "settings": {
+        "video_local": {
+          "label": "로컬 동영상",
+          "info": "동영상 URL 설정을 덮어씁니다. 1392px x 550px 권장",
+          "info_mobile": "390px x 550px 권장"
+        },
+        "video_link": {
+          "label": "동영상 링크"
+        },
+        "video_poster": {
+          "info": "동영상과 동일한 크기"
+        },
+        "overlay_opacity": "오버레이 불투명도",
+        "video_height": {
+          "label": "동영상 높이",
+          "options__1": {
+            "label": "동영상에 맞춤"
+          },
+          "options__2": {
+            "label": "작게"
+          },
+          "options__3": {
+            "label": "보통"
+          },
+          "options__4": {
+            "label": "크게"
+          }
+        }
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "제품 그리드",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/product-grid)",
+      "settings": {
+        "items_per_page": {
+          "label": "페이지당 표시 항목 수"
+        },
+        "columns_desktop": {
+          "label": "데스크톱 행당 열 수"
+        },
+        "show_product_counts": {
+          "label": "제품 수 표시"
+        }
+      }
+    },
+    "main-collection": {
+      "settings": {
+        "items_per_page": {
+          "label": "페이지당 표시 항목 수"
+        },
+        "columns_desktop": {
+          "label": "데스크톱 행당 열 수"
+        },
+        "enable_filtering": {
+          "label": "필터링 사용",
+          "info": "Search & Discovery 앱으로 필터를 맞춤 설정하세요. [자세히 알아보기](https://help.shopify.com/manual/online-store/search-and-discovery/filters)"
+        },
+        "filter_type": {
+          "label": "데스크톱 필터 레이아웃",
+          "options__1": {
+            "label": "Horizontal"
+          },
+          "options__2": {
+            "label": "Vertical"
+          },
+          "options__3": {
+            "label": "드로어"
+          }
+        },
+        "enable_sorting": {
+          "label": "정렬 사용"
+        },
+        "show_product_counts": {
+          "label": "제품 수 표시"
+        },
+        "header__1": {
+          "content": "필터링 및 정렬"
+        }
+      },
+      "blocks": {
+        "promotion": {
+          "name": "프로모션",
+          "promotion_position": {
+            "label": "프로모션 위치"
+          },
+          "info": "330px 550px 권장"
+        },
+        "steps": {
+          "name": "단계별 쇼핑",
+          "info": "337px x 200px 권장"
+        }
+      }
+    },
+    "main-search": {
+      "name": "검색 결과",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/other-pages/search-page)",
+      "settings": {
+        "search_results": {
+          "label": "결과 표시",
+          "option_1": "Default",
+          "option_2": "탭"
+        }
+      }
+    },
+    "main-article": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/other-pages/blog-post-page)",
+      "name": "블로그 게시물",
+      "settings": {
+        "show_date": "게시 날짜 표시",
+        "show_comment": "댓글 표시",
+        "show_excerpt": "게시물 요약 표시",
+        "show_share": "공유 버튼 표시",
+        "blocks": {
+          "featured_image": "대표 이미지",
+          "content_article": "콘텐츠",
+          "addons": "애드온",
+          "prev_next_articles": "이전 및 다음 글"
+        }
+      },
+      "related": {
+        "heading": "관련 글",
+        "articles": {
+          "label": "게시물",
+          "info": "이 순서대로 표시됩니다. 비워 두면 이 블로그의 최신 게시물이 표시됩니다."
+        }
+      },
+      "blocks": {
+        "featured_image": {
+          "settings": {
+            "image_height": {
+              "label": "이미지 높이",
+              "options__1": {
+                "label": "이미지에 맞춤"
+              },
+              "options__2": {
+                "label": "작게"
+              },
+              "options__3": {
+                "label": "보통"
+              },
+              "options__4": {
+                "label": "크게"
+              }
+            }
+          }
+        }
+      },
+      "related_product": {
+        "heading": "관련 제품",
+        "products": {
+          "label": "제품"
+        }
+      }
+    },
+    "cart-drawer": {
+      "name": "카트 드로어",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/overlay-group/cart-drawer)",
+      "settings": {
+        "info": "카트 드로어를 표시하려면 테마 설정으로 이동하여 [카트 설정](/editor?context=theme&category=cart)에서 카트 유형을 드로어로 선택하세요.",
+        "content": "",
+        "show_free_shipping_message": {
+          "label": "무료 배송 메시지 표시",
+          "info": "테마 설정에서 무료 배송 최소 금액을 설정하세요."
+        },
+        "show_cart_note": "카트 메모 표시",
+        "show_estimate_shipping": "예상 배송비 표시",
+        "show_discount": "할인 코드 표시",
+        "hide_check_badge_on_mobile": "모바일에서 신뢰 배지 블록 숨기기",
+        "hide_icon_with_text_on_mobile": "모바일에서 아이콘과 텍스트 블록 숨기기",
+        "show_gift_wrap": {
+          "label": "선물 포장 표시",
+          "info": "테마 설정에서 선물 포장 제품을 선택하세요."
+        },
+        "discount_progress_bar_active": "할인 진행률 바가 테마 설정에서 사용 중이며 무료 배송 메시지를 대체합니다."
+      }
+    },
+    "main-list-collections": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-list-page)",
+      "name": "컬렉션 목록 페이지",
+      "blocks": {
+        "name": "Collection",
+        "settings": {
+          "collection_image": "컬렉션 이미지"
+        }
+      },
+      "settings": {
+        "information_position": {
+          "label": "정보 위치",
+          "options__1": {
+            "label": "이미지 오버레이"
+          },
+          "options__2": {
+            "label": "이미지 아래"
+          }
+        },
+        "collection_to_show": {
+          "label": "표시할 컬렉션",
+          "options__1": {
+            "label": "전체"
+          },
+          "options__2": {
+            "label": "선택됨"
+          }
+        },
+        "sort": {
+          "label": "컬렉션 정렬 기준",
+          "options__1": {
+            "label": "알파벳순, A-Z"
+          },
+          "options__2": {
+            "label": "알파벳순, Z-A"
+          },
+          "options__3": {
+            "label": "날짜, 최신순"
+          },
+          "options__4": {
+            "label": "날짜, 오래된순"
+          },
+          "options__5": {
+            "label": "제품 수, 높은순"
+          },
+          "options__6": {
+            "label": "제품 수, 낮은순"
+          }
+        }
+      }
+    },
+    "main-blog": {
+      "name": "블로그 게시물",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/other-pages/blog-page)",
+      "settings": {
+        "header": {
+          "content_post": "게시물 설정"
+        },
+        "maximum_posts_to_show": {
+          "label": "최대 표시 게시물 수"
+        },
+        "post_per_row_desktop": {
+          "label": "데스크톱 행당 게시물 수"
+        },
+        "show_all_tags": {
+          "label": "태그 목록 표시"
+        }
+      },
+      "blocks": {
+        "name": "구독 양식",
+        "settings": {
+          "show_email_icon": "이메일 아이콘 표시",
+          "form_position": "양식 위치"
+        }
+      }
+    },
+    "main-product": {
+      "name": "제품 정보",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "settings": {
+        "header": {
+          "content": "미디어"
+        },
+        "enable_sticky_desktop": {
+          "label": "데스크톱에서 고정 장바구니 추가 사용"
+        },
+        "desktop_layout": {
+          "label": "데스크톱 레이아웃",
+          "group": {
+            "static": "그리드",
+            "carousel": "캐러셀"
+          },
+          "one_columns": {
+            "label": "1열"
+          },
+          "options__1": {
+            "label": "2열"
+          },
+          "options__2": {
+            "label": "가로 썸네일"
+          },
+          "options__3": {
+            "label": "스택"
+          },
+          "options__4": {
+            "label": "세로 썸네일"
+          },
+          "options__5": {
+            "label": "세로 썸네일 (스크롤)"
+          },
+          "options__6": {
+            "label": "2열"
+          }
+        },
+        "thumbnail_carousel_setting": {
+          "label": "썸네일 캐러셀 설정",
+          "number_thumbs": "썸네일 수"
+        },
+        "media_position": {
+          "label": "데스크톱 미디어 위치"
+        },
+        "media_width": {
+          "label": "데스크톱 미디어 너비"
+        },
+        "mobile_thumbnails": {
+          "options__1": {
+            "label": "썸네일 표시"
+          },
+          "options__2": {
+            "label": "썸네일 숨기기"
+          }
+        },
+        "enable_video_looping": {
+          "label": "동영상 반복 재생 사용"
+        },
+        "enable_image_zoom": {
+          "label": "이미지 확대",
+          "options__1": {
+            "label": "사용 안 함"
+          },
+          "options__2": {
+            "label": "내부 확대"
+          },
+          "options__3": {
+            "label": "외부 확대"
+          }
+        },
+        "enable_image_lightbox": {
+          "label": "라이트박스 사용"
+        },
+        "enable_video_autoplay": {
+          "label": "동영상 자동 재생 사용",
+          "info": "자동 재생을 위해 동영상이 자동으로 음소거됩니다. YouTube/Vimeo에서는 작동하지 않습니다."
+        },
+        "enable_video_controls_default": {
+          "label": "맞춤 동영상 컨트롤 사용",
+          "info": "YouTube/Vimeo에서는 작동하지 않습니다."
+        }
+      },
+      "blocks": {
+        "custom_product": {
+          "name": "맞춤 옵션",
+          "tab_setting": {
+            "label": "탭 레이블",
+            "tab_1": {
+              "label": "탭 1"
+            },
+            "tab_2": {
+              "label": "탭 2"
+            },
+            "tab_3": {
+              "label": "탭 3"
+            }
+          },
+          "description": "고객이 장바구니에 담기 전 3단계 팝업을 통해 위치, 텍스트, 색상을 맞춤 설정할 수 있습니다. 자세한 내용은 [지원 페이지](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/custom-options)를 참조하세요",
+          "placement": "배치",
+          "text": "Text",
+          "text_limit": "텍스트 제한",
+          "note": "참고",
+          "color": {
+            "name": "Color",
+            "options": {
+              "color_1": "색상 1",
+              "color_2": "색상 2",
+              "color_3": "색상 3",
+              "color_4": "색상 4",
+              "color_5": "색상 5",
+              "color_6": "색상 6",
+              "color_7": "색상 7",
+              "color_8": "색상 8",
+              "color_9": "색상 9",
+              "color_10": "색상 10"
+            }
+          }
+        }
+      }
+    },
+    "main-cart-items": {
+      "name": "메인 카트",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/other-pages/cart-page)",
+      "block": {
+        "icon_with_text": "아이콘과 텍스트",
+        "trust_badges": "신뢰 배지"
+      }
+    },
+    "main-collection-banner": {
+      "name": "컬렉션 배너",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/collection-banner)",
+      "settings": {
+        "heading": {
+          "label": "설정"
+        },
+        "use_collection_image": {
+          "label": "컬렉션 이미지 사용",
+          "info": "배경 이미지 설정을 덮어씁니다"
+        },
+        "image_height": {
+          "option__2": "콘텐츠 기준"
+        },
+        "image_position": {
+          "label": "이미지 위치",
+          "option__1": "왼쪽",
+          "option__2": "오른쪽"
+        },
+        "image_opacity": {
+          "label": "이미지 불투명도"
+        }
+      }
+    },
+    "contact-form": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/contact-form)",
+      "name": "문의 양식",
+      "settings": {
+        "name": "이름",
+        "email_placeholder": "Email",
+        "message": "메시지",
+        "option": "옵션",
+        "info_option": "옵션 이름을 정의합니다. 쉼표로 구분하세요. 예: Product, Order, Press, Other"
+      }
+    },
+    "main-404": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/other-pages/404-page)",
+      "name": "메인 404",
+      "info_image": "500px x 288px 권장"
+    },
+    "main-activate-account": {
+      "name": "계정 활성화"
+    },
+    "main-password-footer": {
+      "name": "비밀번호 푸터"
+    },
+    "main-account": {
+      "name": "계정"
+    },
+    "main-register": {
+      "name": "회원가입"
+    },
+    "main-login": {
+      "name": "로그인"
+    },
+    "main-reset-password": {
+      "name": "비밀번호 재설정"
+    },
+    "main-order": {
+      "name": "주문"
+    },
+    "main-addresses": {
+      "name": "주소"
+    },
+    "announcement-bar": {
+      "how_to_use": {
+        "label": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/announcement-bar)"
+      },
+      "name": "공지 바",
+      "settings": {
+        "type": {
+          "name": "유형",
+          "options": {
+            "slide": {
+              "label": "캐러셀"
+            },
+            "marquee": {
+              "label": "마퀴"
+            }
+          }
+        },
+        "show_only_homepage": {
+          "label": "홈페이지에만 표시"
+        },
+        "show_close_button": {
+          "label": "닫기 버튼 표시"
+        },
+        "enable_on_mobile": {
+          "label": "모바일에서 사용"
+        },
+        "marquee_settings": {
+          "label": "마퀴 설정",
+          "speed": {
+            "label": "속도"
+          },
+          "show_icon": {
+            "label": "아이콘 표시"
+          }
+        }
+      },
+      "blocks": {
+        "name": "공지",
+        "setting": {
+          "label": "Text"
+        }
+      }
+    },
+    "multimedia_with_text": {
+      "blocks": {
+        "settings": {
+          "header": "미디어 설정",
+          "media_style": {
+            "label": "미디어 스타일",
+            "options__1": {
+              "label": "둥글게"
+            },
+            "options__2": {
+              "label": "타원"
+            },
+            "options__3": {
+              "label": "Default"
+            }
+          }
+        }
+      }
+    },
+    "product-tabs": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/vertical-product-tabs)",
+      "name": "제품 탭",
+      "setting": {
+        "layout": {
+          "label": "데스크톱 레이아웃",
+          "vertical": "Vertical",
+          "horizontal": "Horizontal"
+        },
+        "banner_header": "배너",
+        "show_banner": "배너 표시",
+        "sticky_banner": "고정 배너",
+        "portrait_4_5": "세로 (4:5)",
+        "enable_carousel_info": "모바일에서는 제품 레이아웃이 항상 캐러셀로 표시됩니다."
+      },
+      "blocks": {
+        "name": "탭",
+        "header": "블록 설정",
+        "settings": {
+          "hidden_des_mobile": {
+            "label": "모바일에서 탭 설명 숨기기"
+          },
+          "collection": {
+            "label": "Collection",
+            "description": "설명"
+          }
+        }
+      },
+      "presets": {
+        "product_tabs_with_banner": "배너가 있는 제품 탭"
+      }
+    },
+    "collection-highlights": {
+      "name": "컬렉션 하이라이트",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/collection-highlights)",
+      "settings": {
+        "highlight_collection_width": {
+          "label": "컬렉션 하이라이트 너비"
+        }
+      },
+      "blocks": {
+        "header": "블록 설정",
+        "type": {
+          "type_highlight": {
+            "header": "컬렉션 하이라이트 설정",
+            "name": "컬렉션 하이라이트"
+          }
+        }
+      }
+    },
+    "collection-pills": {
+      "name": "컬렉션 필",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/collections/collection-pills)",
+      "settings": {
+        "pill_style": {
+          "label": "필 스타일"
+        },
+        "show_image_on_hover": {
+          "label": "마우스를 올리면 이미지 표시",
+          "info": "마우스 오버 이미지는 모바일에서 숨겨집니다."
+        },
+        "horizontal_scroll": {
+          "label": "가로 스크롤"
+        }
+      }
+    },
+    "suitable_products_finder": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/suitable-products-finder)",
+      "name": "적합한 제품 파인더",
+      "settings": {
+        "collection_tab_header": {
+          "label": "컬렉션 탭"
+        },
+        "collection_tab_style": {
+          "label": "컬렉션 탭 스타일"
+        },
+        "collection_tab_style_options": {
+          "range_slider": {
+            "label": "범위 슬라이더"
+          },
+          "pill_tabs": {
+            "label": "필 탭"
+          }
+        },
+        "show_pill_tabs_with_heading": {
+          "label": "제목과 인라인",
+          "info": "제목과 같은 줄에 색상 선택기를 표시합니다."
+        },
+        "show_pill_tabs_color": {
+          "label": "색상 점 표시"
+        },
+        "pill_tabs_color": {
+          "label": "Color"
+        },
+        "pill_tabs_image": {
+          "info": "이미지가 업로드되면 패턴 이미지가 색상을 덮어씁니다."
+        },
+        "image_collection_width": {
+          "label": "이미지 너비"
+        },
+        "range_slider": {
+          "settings": {
+            "show_range_slider": {
+              "label": "범위 슬라이더 표시",
+              "info": "범위 슬라이더는 모바일에서 자동으로 숨겨집니다."
+            }
+          }
+        }
+      },
+      "preset": {
+        "ranger_slider": "제품 파인더: 범위 슬라이더",
+        "pill_tabs": "제품 파인더: 필 탭",
+        "color_dots": "제품 파인더: 색상 점"
+      }
+    },
+    "icon-box": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/icon-box)",
+      "name": "아이콘 박스",
+      "settings": {
+        "icon_settings": {
+          "header": "아이콘 설정",
+          "icon_position": {
+            "label": "위치"
+          },
+          "icon_size": {
+            "label": "Size"
+          },
+          "radius_image": {
+            "label": "둥근 이미지",
+            "info": "이 설정은 아이콘이 이미지일 때만 작동합니다."
+          }
+        }
+      }
+    },
+    "metric-banner": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/metric-banner)",
+      "name": "지표 배너",
+      "settings": {
+        "metric_setting": "지표 설정",
+        "metric_font_size": "지표 글꼴 크기",
+        "enable_metric_animation": "지표 애니메이션 사용",
+        "metric_value": {
+          "start": "지표 시작 값",
+          "end": "지표 종료 값"
+        },
+        "metric_unit": "지표 단위"
+      },
+      "block": {
+        "name": "지표 항목"
+      }
+    },
+    "compact_product_bundle": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/compact-product-bundle)",
+      "name": "컴팩트 제품 번들",
+      "settings": {
+        "image": {
+          "label": "Image",
+          "info_desktop": "696px x 750px 권장",
+          "info_mobile": "350px x 303px 권장"
+        },
+        "enable_quick_add_for_items": {
+          "label": "항목에 빠른 추가 사용"
+        },
+        "hidden_button_mobile": {
+          "label": "모바일에서 버튼 숨기기"
+        },
+        "products_show": {
+          "label": "제품 표시 방식",
+          "options__1": {
+            "label": "목록"
+          },
+          "options__2": {
+            "label": "그리드"
+          }
+        }
+      },
+      "presets": {
+        "name": "컴팩트 제품 번들"
+      },
+      "blocks": {
+        "settings": {
+          "name": "Product",
+          "select_product": "Product",
+          "position_top": "세로 위치",
+          "position_left": "가로 위치"
+        }
+      }
+    },
+    "mobile-navigation-bar": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/overlay-group/mobile-navigation-bar)",
+      "name": "모바일 탐색 바",
+      "info": "이 섹션은 모바일에서만 표시됩니다. 모바일 보기로 전환하세요.",
+      "settings": {
+        "show_section": "모바일 탐색 바 사용",
+        "show_shop": "쇼핑 표시",
+        "show_account": "계정 표시",
+        "show_cart": "카트 표시",
+        "show_homepage": "홈페이지 표시"
+      }
+    },
+    "mobile_first": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/mobile-first)",
+      "name": "스포트라이트 갤러리",
+      "image_1": "스팟 이미지 1",
+      "image_2": "스팟 이미지 2",
+      "image_3": "스팟 이미지 3",
+      "image_4": "스팟 이미지 4",
+      "image_5": "스팟 이미지 5",
+      "text_1": "스팟 텍스트 1",
+      "text_2": "스팟 텍스트 2",
+      "text_3": "스팟 텍스트 3",
+      "text_4": "스팟 텍스트 4",
+      "text_5": "스팟 텍스트 5"
+    },
+    "shopable_video": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/shopable-video)",
+      "name": "쇼핑 가능 동영상",
+      "settings": {
+        "video_settings": {
+          "header": "동영상 설정"
+        },
+        "enable_sticky": {
+          "label": "동영상 고정 사용",
+          "option_1": {
+            "label": "사용 안 함"
+          },
+          "option_2": {
+            "label": "데스크톱만"
+          },
+          "option_3": {
+            "label": "모든 화면"
+          }
+        },
+        "ratio": {
+          "adapt": {
+            "label": "첫 번째 동영상에 맞춤"
+          }
+        },
+        "video": {
+          "auto_play": {
+            "info": "이 블록이 활성화되거나 화면에 보일 때 동영상이 자동 재생됩니다"
+          }
+        },
+        "show_product_card": {
+          "label": "제품 카드 표시"
+        }
+      },
+      "blocks": {
+        "name": "Video",
+        "settings": {
+          "poster_image": {
+            "label": "포스터 이미지",
+            "info": "1080px x 1920px 권장"
+          },
+          "local_video": {
+            "label": "로컬 동영상"
+          },
+          "select_product": {
+            "label": "Product"
+          }
+        }
+      }
+    },
+    "image_card": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/image-cards)",
+      "name": "이미지 카드",
+      "blocks": {
+        "header": "카드 설정",
+        "group_name": "카드",
+        "info": "451px x 453px 권장"
+      }
+    },
+    "testimonials": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonials)",
+      "name": "프레스",
+      "settings": {
+        "header": "프레스 설정",
+        "show_icon_quote": {
+          "label": "인용 아이콘 표시"
+        }
+      },
+      "blocks": {
+        "name": "프레스 항목",
+        "settings": {
+          "quote": {
+            "label": "인용"
+          },
+          "info_image": "180px 60px 권장"
+        }
+      }
+    },
+    "press_card": {
+      "name": "프레스 카드",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/press-card)",
+      "blocks": {
+        "content": "콘텐츠",
+        "media": "미디어",
+        "quote": "인용",
+        "settings": {
+          "show_icon_quote": "인용 아이콘 표시",
+          "author_name": "작성자 이름",
+          "quote_content": "인용 내용",
+          "press-image": {
+            "info": "배경 색상 설정을 덮어씁니다"
+          }
+        }
+      }
+    },
+    "scrolling_image": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/scrolling-image)",
+      "name": "갤러리 이미지",
+      "settings": {
+        "show_background_blur": {
+          "label": "흐린 배경 표시"
+        },
+        "show_icon_hover": {
+          "label": "호버 시 Instagram 아이콘 표시"
+        },
+        "info_image": "303px x 303px 권장"
+      }
+    },
+    "featured_product_banner": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/featured-product-banner)",
+      "name": "추천 제품 배너",
+      "hide_icon_text": "모바일에서 아이콘과 텍스트 블록 숨기기",
+      "blocks": {
+        "name": "아이콘과 텍스트"
+      },
+      "info": {
+        "info_desktop": "400px x 400px 권장",
+        "info_mobile": "300px x 300px 권장"
+      }
+    },
+    "product_testimonials": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-testimonials)",
+      "name": "제품 후기",
+      "settings": {
+        "header": "후기 설정",
+        "rating_color": {
+          "label": "평점 색상"
+        },
+        "rating_type": {
+          "label": "평점 유형",
+          "default": "Default",
+          "modern": "모던",
+          "show": "평점 표시",
+          "show_before_after": "전후 텍스트 표시"
+        },
+        "product_rounded": {
+          "label": "제품 이미지 모서리 반경"
+        },
+        "show_verified_buyer": {
+          "label": "인증 구매자 표시"
+        },
+        "show_author_name": {
+          "label": "작성자 이름 표시"
+        }
+      },
+      "blocks": {
+        "type": {
+          "media": {
+            "label": "후기 미디어"
+          },
+          "image_comparison": {
+            "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/image-comparison)",
+            "label": "후기 이미지 비교",
+            "name": "이미지 비교",
+            "show_after_before_text": {
+              "label": "전/후 텍스트 표시"
+            }
+          }
+        },
+        "settings": {
+          "media": {
+            "label": "미디어 설정",
+            "info": "448px x 246px 권장",
+            "before_after_image": {
+              "label": "전후 이미지"
+            },
+            "before_image": {
+              "label": "전"
+            },
+            "after_image": {
+              "label": "후"
+            }
+          },
+          "information": {
+            "label": "정보 설정",
+            "rating_star": {
+              "label": "별점"
+            },
+            "select_product": {
+              "label": "Product"
+            },
+            "author_name": {
+              "label": "작성자 이름"
+            },
+            "review_sumary": {
+              "label": "요약"
+            },
+            "use_richtext": {
+              "label": "리치 텍스트 사용"
+            }
+          }
+        }
+      }
+    },
+    "routine-builder": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/routine-builder)",
+      "name": "단계별 쇼핑",
+      "blocks": {
+        "name": "단계",
+        "settings": {
+          "text_step": {
+            "label": "단계 제목"
+          },
+          "product_in_step": {
+            "label": "단계의 제품"
+          }
+        }
+      }
+    },
+    "newsletter_popup": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/overlay-group/newsletter-popup)",
+      "name": "뉴스레터 팝업",
+      "header": {
+        "heading": "일반 설정"
+      },
+      "settings": {
+        "sections_width": {
+          "label": "너비",
+          "options": {
+            "options__1": "전체 너비",
+            "options__2": "자동"
+          }
+        },
+        "collections_selector": {
+          "setting": "컬렉션 선택기 설정",
+          "label": "컬렉션 선택기 사용",
+          "collection": {
+            "label_1": "컬렉션 1",
+            "label_2": "컬렉션 2",
+            "label_3": "컬렉션 3",
+            "label_4": "컬렉션 4",
+            "label_5": "컬렉션 5"
+          }
+        },
+        "newsletter_heading": "뉴스레터 설정",
+        "show_on_homepage": "홈페이지에만 표시",
+        "discount_sticky": {
+          "setting": "할인 스티키",
+          "label": "할인 스티키 표시",
+          "heading": "콘텐츠",
+          "info": "콘텐츠는 HTML 태그를 포함하여 25자에서 자동으로 잘립니다."
+        },
+        "heading": "제목",
+        "short_description": "설명",
+        "instructional_text": "안내 텍스트",
+        "email_placeholder": "이메일 플레이스홀더",
+        "button_label": "버튼 레이블",
+        "banner_image": "배너 이미지"
+      }
+    },
+    "featured-blog": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/featured-blog)",
+      "name": "추천 블로그"
+    },
+    "recommended_collection": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/recommended-collection)",
+      "name": "추천 컬렉션",
+      "blocks": {
+        "button": {
+          "info": "[collection] 및 [title]은 자동으로 대체되는 변수 이름입니다. 이름은 변경하지 말고 텍스트 내 위치만 변경할 수 있습니다. [title]은 선택 사항이며, 컬렉션 선택기만 원하면 제거하세요.",
+          "first_button_info": "이미지 포함 양식: 선택한 필터로 결과 컬렉션을 엽니다"
+        },
+        "featured_collection": {
+          "title_info": "한 줄 텍스트 전용: [제목] 드롭다운의 옵션으로 표시됩니다. 컬렉션 블록은 이미지 포함 양식 레이아웃에서 사용되지 않습니다"
+        },
+        "filter_dropdown": {
+          "name": "필터 드롭다운",
+          "info": "이미지 포함 양식 레이아웃에서 동작합니다. 먼저 Shopify Search & Discovery 앱에서 필터를 설정하세요.",
+          "filter_name": {
+            "label": "필터 이름",
+            "info": "컬렉션 페이지에 표시되는 필터 이름을 그대로 입력하세요. 예: 「반려견 연령대」. 여러 언어는 라벨을 ; 로 구분합니다. 가격 필터는 지원되지 않습니다."
+          },
+          "placeholder": "자리 표시자"
+        },
+        "text": {
+          "name": "텍스트"
+        }
+      },
+      "background": {
+        "label": "배경 이미지 표시",
+        "header": "배경 이미지"
+      },
+      "image_info": {
+        "info_desktop": "1920px x 700px 권장",
+        "info_mobile": "390px x 407px 권장"
+      },
+      "layout": {
+        "label": "레이아웃",
+        "inline": "한 줄 텍스트",
+        "form": "이미지 포함 양식"
+      },
+      "content_color_scheme": "콘텐츠 색상 구성표",
+      "results_collection": {
+        "label": "결과 컬렉션",
+        "info": "이미지 포함 양식 전용입니다. 필터 드롭다운에 이 컬렉션의 필터가 표시되고, 첫 번째 버튼이 컬렉션을 엽니다. 비워 두면 모든 제품을 사용합니다."
+      },
+      "presets": {
+        "form": "이미지가 있는 추천 컬렉션"
+      }
+    },
+    "offers-popup": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/overlay-group/offers-popup)",
+      "name": "오퍼 팝업",
+      "popup": {
+        "label": "오퍼 팝업 제목",
+        "info": "오버레이 그룹에서 오퍼 팝업 블록 콘텐츠를 맞춤 설정하세요."
+      }
+    },
+    "outfit-finder": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/products/outfit-finder)",
+      "name": "아웃핏 파인더",
+      "settings": {
+        "product_listing": {
+          "label": "제품 목록 설정"
+        },
+        "outfit_finder_logic": {
+          "label": "미리보기 설정"
+        },
+        "max_items_to_show": {
+          "label": "페이지당 제품 수",
+          "info": "처음에 표시되는 제품 수입니다. 아래로 스크롤하면 더 많은 항목이 로드됩니다."
+        },
+        "max_items": {
+          "label": "아웃핏당 최대 제품 수",
+          "info": "고객이 미리보기 영역에 추가할 수 있는 항목 수를 제한합니다."
+        },
+        "product": {
+          "label": "추천 아웃핏",
+          "info": "페이지 로드 시 미리보기 영역에 기본으로 표시할 제품을 최대 3개까지 선택하세요."
+        },
+        "notify_preview": {
+          "label": "빈 상태 알림",
+          "info": "항목이 추가되기 전 미리보기 영역에 표시되는 안내 텍스트입니다."
+        }
+      }
+    },
+    "scrolling-card": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scrolling-card)",
+      "name": "스크롤 카드"
+    },
+    "scroll-scatter": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scroll-scatter)",
+      "name": "스크롤 스캐터"
+    },
+    "store-location": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/other-pages/store-location)",
+      "name": "매장 위치",
+      "settings": {
+        "key_google_map": {
+          "label": "Google Maps API 키",
+          "info": "'Maps JavaScript', 'Places', 'Geocoding' API가 필요합니다. [키 받기](https://console.cloud.google.com/google/maps-apis/credentials)."
+        },
+        "map_settings": {
+          "header": "지도 설정"
+        },
+        "allowed_countries": {
+          "label": "허용 국가",
+          "info": "고객이 매장을 검색할 수 있는 지역을 제어합니다. ISO 국가 코드(예: US, UK, CA)를 쉼표로 구분하여 사용하세요. 비워 두면 전 세계 검색이 가능합니다."
+        },
+        "radius_km": {
+          "label": "검색 반경(km)",
+          "info": "매장 결과의 최대 거리입니다."
+        }
+      },
+      "blocks": {
+        "name": "매장",
+        "settings": {
+          "store_name": {
+            "label": "매장 이름"
+          },
+          "store_address": {
+            "label": "매장 주소"
+          },
+          "store_email": {
+            "label": "매장 이메일"
+          },
+          "store_phone": {
+            "label": "매장 전화"
+          },
+          "store_lat": {
+            "label": "매장 위도",
+            "info": "Google Maps 좌표에서 첫 번째 숫자를 복사하세요."
+          },
+          "store_lng": {
+            "label": "매장 경도",
+            "info": "Google Maps 좌표에서 두 번째 숫자를 복사하세요."
+          },
+          "time_location": {
+            "monday": "월요일",
+            "tuesday": "화요일",
+            "wednesday": "수요일",
+            "thursday": "목요일",
+            "friday": "금요일",
+            "saturday": "토요일",
+            "sunday": "일요일",
+            "open": "영업",
+            "closed": "휴무",
+            "open_time_hour": "오픈 시간(시)",
+            "open_time_minute": "오픈 시간(분)",
+            "close_time_hour": "마감 시간(시)",
+            "close_time_minute": "마감 시간(분)"
+          },
+          "time_schedule": {
+            "monday": "Schedule",
+            "tuesday": "Schedule",
+            "wednesday": "Schedule",
+            "thursday": "Schedule",
+            "friday": "Schedule",
+            "saturday": "Schedule",
+            "sunday": "Schedule"
+          }
+        }
+      }
+    },
+    "product-bundle": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/product-bundle)",
+      "name": "제품 번들",
+      "settings": {
+        "discount": {
+          "name": "Discount",
+          "info": "할인 생성 방법은 [여기](https://help.shopify.com/manual/discounts)에서 알아보세요",
+          "minimum": "최소 필요 항목 수",
+          "maximum": "최대 항목 수",
+          "edit_quantity": "각 제품의 수량 변경 허용",
+          "discount_title": "할인 코드",
+          "discount_value": {
+            "name": "할인 값",
+            "option": {
+              "fixed": {
+                "label": "고정 금액",
+                "once_per_order": "주문당 1회"
+              },
+              "percentage": {
+                "label": "퍼센트"
+              }
+            }
+          }
+        },
+        "your_bundle": {
+          "name": "Discount",
+          "settings": {
+            "show_progress_bar": {
+              "label": "진행 표시줄 표시"
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "product_discount": {
+            "name": "제품 번들",
+            "info": "선택 시 컬렉션을 대체합니다."
+          }
+        }
+      }
+    },
+    "shopable-image": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/shopable-image)",
+      "name": "쇼핑 가능 이미지",
+      "blocks": {
+        "tags": {
+          "name": "태그",
+          "info": "태그 이름을 정의합니다. 쉼표로 구분하세요. 예: Tag 1,Tag 2",
+          "info_image": "448px x 600px 권장",
+          "settings": {
+            "show_verify_icon": {
+              "label": "체크 아이콘 표시"
+            }
+          }
+        },
+        "lookbook": {
+          "name": "룩북",
+          "settings": {
+            "products": {
+              "label": "Products",
+              "position_top": "세로 위치",
+              "position_left": "가로 위치",
+              "products": {
+                "otpion__1": {
+                  "label": "제품 1"
+                },
+                "otpion__2": {
+                  "label": "제품 2"
+                },
+                "otpion__3": {
+                  "label": "제품 3"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parallax-image": {
+      "blocks": {
+        "icon": {
+          "name": "아이콘",
+          "info": "SVG 아이콘 설정을 덮어씁니다"
+        }
+      }
+    },
+    "main-page": {
+      "name": "페이지"
+    },
+    "subcollection-list": {
+      "name": "하위 컬렉션",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/sub-collection)"
+    },
+    "before-you-leave": {
+      "name": "떠나기 전",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/before-you-leave)",
+      "settings": {
+        "header": {
+          "recommended_products": "추천 제품"
+        },
+        "show_time": {
+          "label": "표시까지 대기 시간(초)"
+        },
+        "banner": {
+          "label": "배너 이미지",
+          "info": "380px x 423px 권장"
+        },
+        "collection": {
+          "label": "Collection"
+        },
+        "code": {
+          "label": "할인 코드"
+        }
+      }
+    },
+    "advanced-slideshow": {
+      "block": {
+        "slide": "슬라이드",
+        "settings": {
+          "type": {
+            "label": "유형",
+            "image": {
+              "label": "Image"
+            },
+            "video": {
+              "label": "Video"
+            }
+          },
+          "media_overlay": {
+            "label": "미디어 오버레이"
+          }
+        }
+      }
+    },
+    "custom_section": {
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/advanced/flexible-section)",
+      "name": "유연한 섹션",
+      "settings": {
+        "layout": {
+          "label": "레이아웃",
+          "direction": {
+            "label": "방향",
+            "options__1": {
+              "label": "Vertical"
+            },
+            "options__2": {
+              "label": "Horizontal"
+            }
+          },
+          "vertical_on_mobile": {
+            "label": "모바일에서 세로"
+          },
+          "content_wrap": {
+            "label": "콘텐츠 줄바꿈"
+          },
+          "height": {
+            "label": "Height",
+            "options": {
+              "auto": {
+                "label": "자동"
+              },
+              "custom": {
+                "label": "Custom"
+              }
+            },
+            "custom_height": {
+              "label": "맞춤 높이"
+            }
+          },
+          "gap": {
+            "label": "간격"
+          },
+          "position": {
+            "label": "위치",
+            "options__1": {
+              "label": "상단"
+            },
+            "options__2": {
+              "label": "가운데"
+            },
+            "options__3": {
+              "label": "하단"
+            }
+          },
+          "alignment": {
+            "label": "정렬",
+            "label_mobile": "모바일 정렬",
+            "options__1": {
+              "label": "왼쪽"
+            },
+            "options__2": {
+              "label": "가운데"
+            },
+            "options__3": {
+              "label": "오른쪽"
+            },
+            "options__4": {
+              "label": "양쪽 맞춤"
+            }
+          },
+          "hide_on_mobile": {
+            "label": "모바일에서 숨김"
+          }
+        },
+        "appearance": {
+          "header": "외관",
+          "settings": {
+            "background_media": {
+              "label": "배경 미디어",
+              "options__2": {
+                "label": "Image"
+              },
+              "options__3": {
+                "label": "Video"
+              },
+              "options__1": {
+                "label": "None"
+              }
+            },
+            "border": {
+              "label": "테두리",
+              "options": {
+                "none": "None",
+                "solid": "단색"
+              },
+              "border_color": {
+                "label": "테두리 색상"
+              },
+              "border_thickness": {
+                "label": "테두리 두께"
+              }
+            },
+            "corner_radius": {
+              "label": "모서리 반경",
+              "options": {
+                "none": {
+                  "label": "None"
+                },
+                "rounded": {
+                  "label": "둥글게"
+                },
+                "custom": {
+                  "label": "Custom"
+                },
+                "inherit": {
+                  "label": "상속",
+                  "info": "\"상속\"으로 설정하면 이 블록은 테마 설정 ▸ 레이아웃 ▸ 둥근 이미지의 전역 둥근 모서리 설정을 따릅니다."
+                }
+              },
+              "custom_radius": {
+                "label": "맞춤 반경"
+              }
+            },
+            "background_overlay": {
+              "label": "배경 오버레이",
+              "overlay_color": {
+                "label": "오버레이 색상"
+              },
+              "overlay_style": {
+                "label": "오버레이 스타일",
+                "options__1": {
+                  "label": "단색"
+                },
+                "options__2": {
+                  "label": "그라데이션"
+                }
+              },
+              "gradient_direction": {
+                "label": "그라데이션 방향",
+                "options__1": {
+                  "label": "위"
+                },
+                "options__2": {
+                  "label": "아래"
+                }
+              }
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "size": {
+            "label": "Size",
+            "height": {
+              "label": "Height"
+            },
+            "width": {
+              "label": "너비",
+              "custom_width": {
+                "label": "맞춤 너비"
+              }
+            },
+            "mobile_width": {
+              "label": "모바일 너비"
+            },
+            "options": {
+              "options__1": {
+                "label": "맞춤"
+              },
+              "options__2": {
+                "label": "채우기"
+              },
+              "options__3": {
+                "label": "Custom"
+              },
+              "options__4": {
+                "label": "미디어 배경에 맞춤"
+              }
+            }
+          },
+          "background": {
+            "label": "배경"
+          },
+          "background_color": {
+            "label": "배경 색상"
+          }
+        },
+        "heading": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading)",
+          "label": "프리셋",
+          "heading_tag": {
+            "label": "제목 태그",
+            "info": "제목 태그(H1–H6)를 설정하여 콘텐츠 계층을 제어하고 검색 엔진 SEO 가독성을 향상하세요.",
+            "h1": "H1",
+            "h2": "H2",
+            "h3": "H3",
+            "h4": "H4",
+            "h5": "H5",
+            "h6": "H6"
+          },
+          "custom": "Custom",
+          "default": "Default",
+          "paragraph": "단락",
+          "h1": "제목 1",
+          "h2": "제목 2",
+          "h3": "제목 3",
+          "h4": "제목 4",
+          "h5": "제목 5",
+          "h6": "제목 6",
+          "h7": "제목 7",
+          "info": {
+            "edit_presets_in_theme_settings": "[테마 설정](/editor?context=theme&category=typography)에서 프리셋을 편집하세요",
+            "label": "글꼴 크기"
+          },
+          "text_alignment": {
+            "desktop": "정렬",
+            "mobile": "모바일 정렬"
+          }
+        },
+        "logo": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "로고",
+          "settings": {
+            "size": {
+              "name": "Size",
+              "unit": {
+                "label": "단위",
+                "option__1": {
+                  "label": "픽셀"
+                },
+                "option__2": {
+                  "label": "퍼센트"
+                }
+              },
+              "custom_mobile_size": {
+                "label": "맞춤 모바일 크기"
+              },
+              "height": {
+                "label": "Height"
+              },
+              "mobile": {
+                "name": "모바일 크기"
+              }
+            }
+          }
+        },
+        "email_subscription": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/newsletter)",
+          "name": "뉴스레터"
+        },
+        "contact_form": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/contact-form)",
+          "name": "문의 양식",
+          "settings": {
+            "name": "이름",
+            "email": "Email",
+            "message": "메시지",
+            "select_label": "선택 레이블",
+            "default_select_label": "제목",
+            "option": "옵션",
+            "default_option": "제품, 주문, 언론, 기타",
+            "phone": "전화",
+            "submit_button": "제출 버튼",
+            "default_submit_button": "제출"
+          }
+        },
+        "accordion": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/accordion)",
+          "name": "아코디언",
+          "settings": {
+            "icon_style": {
+              "style": "스타일",
+              "label": "아이콘 스타일",
+              "caret": "캐럿",
+              "plus": "플러스"
+            },
+            "row_style": {
+              "label": "행 스타일",
+              "background": "배경",
+              "divider": "구분선"
+            },
+            "background_color": "배경 색상",
+            "row_spacing": "항목 간격",
+            "gap_row": "간격",
+            "padding_row": "패딩",
+            "gap_content": "간격",
+            "accordion_row": "아코디언 행",
+            "default_accordion_row": "아코디언 제목",
+            "accordion_content": "아코디언 콘텐츠",
+            "settings": {
+              "heading": "제목",
+              "heading_size": "제목 크기",
+              "heading_weight": "제목 두께",
+              "body_weight": "본문 두께",
+              "open_default": {
+                "label": "기본으로 열기"
+              }
+            }
+          }
+        },
+        "group": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/group)",
+          "name": "그룹",
+          "settings": {
+            "link": "링크",
+            "open_in_new_tab": {
+              "label": "새 탭에서 링크 열기"
+            }
+          }
+        },
+        "carousel": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/carousel)",
+          "name": "캐러셀"
+        },
+        "text": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/text)",
+          "name": "Text",
+          "default_text": "우리는 더 잘 작동하고 더 오래가는 것을 만듭니다. 깔끔한 디자인과 정직한 소재로 실제 문제를 해결합니다.",
+          "text_color": {
+            "label": "텍스트 색상",
+            "body_color": "본문 색상",
+            "heading_color": "제목 색상"
+          }
+        },
+        "button": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/button)"
+        },
+        "icon": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/icon)"
+        },
+        "page": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "페이지",
+          "inherit_color_scheme": "색상 구성표 상속",
+          "appearance": "외관",
+          "spacing": "간격"
+        },
+        "spacer": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/spacer)",
+          "name": "스페이서",
+          "mobile_settings": {
+            "label": "모바일 설정"
+          }
+        },
+        "divider": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "구분선",
+          "settings": {
+            "thickness": "두께",
+            "size": "Size",
+            "color": "Color"
+          }
+        },
+        "icon_list": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "아이콘 목록",
+          "item": "항목",
+          "open_new_tab": "새 탭에서 열기"
+        },
+        "alert": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "알림",
+          "dismiss_icon": "닫기 아이콘",
+          "display_dismiss_icon": "닫기 아이콘 표시"
+        },
+        "social_icons": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "소셜 아이콘",
+          "circle": "원형",
+          "rounded": "둥글게",
+          "square": "정사각형",
+          "shape": "모양",
+          "color": "Color",
+          "backgroup_color": "배경 색상"
+        },
+        "progress_bar": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "진행 표시줄",
+          "text_color": "텍스트 색상",
+          "percentage": "퍼센트",
+          "border_radius": "모서리 반경",
+          "display_percentage": "퍼센트 표시",
+          "inner_text": "내부 텍스트"
+        },
+        "counter": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/counter)",
+          "name": "카운터",
+          "counter_style": {
+            "label": "카운터 스타일",
+            "default": "Default",
+            "circle": "원형"
+          },
+          "counter_layout": {
+            "label": "카운터 레이아웃",
+            "horizontal": "Horizontal",
+            "vertical": "Vertical"
+          },
+          "number_position": "숫자 위치",
+          "space_between": "간격",
+          "before_title": "제목 앞",
+          "after_title": "제목 뒤",
+          "number_alignment": "숫자 정렬",
+          "stroke_color": "선 색상",
+          "indicator_color": "인디케이터 색상",
+          "background_color": "배경 색상",
+          "text_color": "텍스트 색상",
+          "ending_number": "종료 숫자",
+          "starting_number": "시작 숫자",
+          "animation": "애니메이션 시간(ms)"
+        },
+        "map": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/google-maps)",
+          "name": "Google 지도",
+          "location": "위치",
+          "longitude": "경도",
+          "latitude": "위도"
+        },
+        "jumbo_text": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+          "name": "점보 텍스트"
+        },
+        "tab": {
+          "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/tab)",
+          "name": "탭",
+          "tab_row": "탭 항목",
+          "settings": {
+            "heading": "제목 스타일",
+            "heading_preset": "제목 프리셋",
+            "heading_alignment": "제목 정렬",
+            "heading_color": "제목 색상",
+            "content": "콘텐츠 스타일",
+            "content_alignment": "콘텐츠 정렬"
+          }
+        },
+        "icon_with_text": {
+          "name": "아이콘과 텍스트",
+          "icon_first": "첫 번째 아이콘",
+          "icon_second": "두 번째 아이콘",
+          "svg_custom": "맞춤 SVG"
+        },
+        "popup_link": {
+          "button_type_link": {
+            "label": "버튼 유형",
+            "primary": {
+              "label": "기본"
+            },
+            "outline": {
+              "label": "아웃라인"
+            },
+            "link": {
+              "label": "링크"
+            }
+          },
+          "popup_style": {
+            "label": "팝업 스타일"
+          },
+          "popup_type": {
+            "label": "팝업 유형"
+          },
+          "popup_width": {
+            "label": "데스크톱 팝업 너비"
+          },
+          "icon_type": {
+            "label": "아이콘 유형",
+            "none": "None",
+            "arrow": "화살표",
+            "image": {
+              "label": "Image",
+              "size": "Size"
+            }
+          }
+        }
+      },
+      "preset": {
+        "promotion_banner": "유연: 프로모션 배너",
+        "flexible_marquee": "유연: 마퀴",
+        "story_tabs": "플렉시블: 탭"
+      }
+    },
+    "text_image_pairing": {
+      "how_to_use": "[이 블록 사용 방법](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/text-image-pairing)",
+      "name": "텍스트 이미지 페어링",
+      "settings": {
+        "text_default": "\"나만의 광채[image_1]스와이프 블렌드 샤인 <br/> 아름다움을 느끼다[image_2]온전히 보이다[image_3]축하하다.\"",
+        "info": {
+          "label": "이미지가 나타날 위치에 특정 플레이스홀더 형식 `[image_X]`를 사용하세요. X는 이미지 인덱스입니다. 예: `[image_1]`은 첫 번째 이미지로 대체됩니다."
+        },
+        "images": {
+          "label": "이미지",
+          "image_style": {
+            "label": "이미지 스타일"
+          },
+          "image_1": {
+            "label": "이미지 #1"
+          },
+          "image_2": {
+            "label": "이미지 #2"
+          },
+          "image_3": {
+            "label": "이미지 #3"
+          }
+        }
+      }
+    },
+    "product_sizing": {
+      "name": "제품 사이즈",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "info": "고객이 제품 핏을 이해하고 자신 있게 올바른 사이즈를 선택하도록 돕습니다."
+    },
+    "size_recommendation": {
+      "name": "사이즈 추천",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/size-recommendation)",
+      "info": "키, 몸무게, 체형, 가슴 사이즈, 컵 사이즈 등 간단한 입력으로 고객이 올바른 사이즈를 찾도록 돕습니다.",
+      "data_usage_notice": {
+        "label": "데이터 사용 안내",
+        "info": "이 메시지는 사이즈 추천을 위해 고객 정보가 어떻게 사용되는지 설명합니다. 스토어의 개인정보 톤에 맞게 문구를 맞춤 설정할 수 있습니다."
+      },
+      "no_size_match": {
+        "label": "사이즈 불일치 메시지",
+        "info": "고객 입력과 일치하는 사이즈가 없을 때 표시되는 메시지입니다."
+      },
+      "fit_recommendation_note": {
+        "label": "핏 추천 참고",
+        "info": "사이즈 추천 결과 뒤에 표시됩니다."
+      }
+    },
+    "sticky_image_with_text": {
+      "name": "스티키 이미지와 텍스트",
+      "blocks": {
+        "group_text": {
+          "name": "텍스트 그룹",
+          "image": {
+            "label": "스크롤 시 이미지",
+            "info": "이 그룹이 화면에 들어오면 고정 이미지에 표시됩니다. 비워 두면 이전 이미지가 유지됩니다. 섹션 설정에서 「스크롤 시 이미지 변경」이 필요합니다."
+          }
+        },
+        "list_tag": {
+          "name": "태그 목록",
+          "tags": {
+            "label": "태그",
+            "info": "각 태그를 쉼표로 구분하세요."
+          },
+          "show_check": {
+            "label": "체크 아이콘 표시"
+          },
+          "chip_style": {
+            "label": "태그 스타일"
+          }
+        }
+      },
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/banners/sticky-image-with-text)",
+      "settings": {
+        "hide_image_mobile": {
+          "label": "모바일에서 이미지 숨기기"
+        },
+        "change_image_on_scroll": {
+          "label": "스크롤 시 이미지 변경",
+          "info": "각 텍스트 그룹이 화면에 들어올 때마다 고정 이미지를 바꿉니다. 이미지는 각 텍스트 그룹에서 설정하며, 섹션 이미지는 사용되지 않습니다. 데스크톱 전용입니다."
+        }
+      }
+    },
+    "testimonial-images": {
+      "name": "추천 이미지",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonial-images)",
+      "settings": {
+        "show_author_image": "작성자 이미지 표시",
+        "hide_image_on_mobile": {
+          "label": "모바일에서 이미지 숨기기"
+        }
+      },
+      "blocks": {
+        "review": "추천",
+        "settings": {
+          "author_image": "작성자 이미지"
+        }
+      }
+    },
+    "flow": {
+      "name": "플로우",
+      "blocks": {
+        "step": {
+          "name": "단계",
+          "heading": {
+            "label": "제목"
+          },
+          "image": {
+            "label": "이미지"
+          },
+          "product": {
+            "label": "제품"
+          }
+        }
+      },
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/flow)"
+    },
+    "parallax-scroll": {
+      "name": "패럴랙스 스크롤",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/parallax-scroll)",
+      "instructions": "카드를 최대 7개까지 추가하세요. 카드는 좌우로 번갈아 배치되며 세 번째마다 자동으로 안쪽에 배치됩니다.",
+      "blocks": {
+        "info_card": {
+          "name": "정보 카드"
+        }
+      },
+      "settings": {
+        "card_width": {
+          "label": "카드 너비",
+          "info": "데스크톱에서 카드의 최대 너비를 설정합니다. 작은 화면에서는 카드가 반응형으로 유지됩니다."
+        },
+        "button_link": {
+          "info": "비워 두면 버튼이 비활성 상태로 표시됩니다."
+        },
+        "button_type": {
+          "info": "테마에서 구성한 버튼 스타일을 사용합니다."
+        }
+      }
+    },
+    "benefit-tabs": {
+      "name": "혜택 탭",
+      "how_to_use": "각 탭에 혜택 탭 블록을 추가한 다음, 각 탭 안에 혜택 블록을 추가하세요.",
+      "settings": {
+        "text_alignment": {
+          "info": "탭 버튼의 정렬에도 적용됩니다."
+        },
+        "mobile_alignment": {
+          "info": "모바일과 태블릿에서 혜택을 정렬합니다. 데스크톱에서는 혜택이 미디어 쪽으로 정렬됩니다."
+        }
+      },
+      "blocks": {
+        "tab": {
+          "name": "혜택 탭",
+          "how_to_use": "균형 잡힌 레이아웃에는 혜택 블록을 최대 6개까지 권장합니다. 데스크톱에서 홀수 혜택은 미디어 왼쪽, 짝수 혜택은 오른쪽에 배치됩니다.",
+          "settings": {
+            "tab_label": {
+              "label": "탭 라벨"
+            },
+            "image": {
+              "label": "이전 이미지",
+              "info": "950 x 1060px 권장"
+            },
+            "image_after": {
+              "label": "이후 이미지",
+              "info": "이전 이미지와 같은 크기를 사용하세요. 이후 이미지는 방문자가 스크롤하면 나타납니다."
+            }
+          }
+        },
+        "benefit": {
+          "settings": {
+            "icon": {
+              "info": "비어 있으면 자리 표시자를 표시합니다. 120 x 120px 권장"
+            }
+          }
+        }
+      }
+    },
+    "comparison-table": {
+      "name": "비교표",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/products/comparison-table)",
+      "settings": {
+        "table": {
+          "label": "표"
+        },
+        "comparison_heading": {
+          "label": "비교 제목"
+        },
+        "show_column_images": {
+          "label": "열 이미지 표시"
+        },
+        "color_column_highlight": {
+          "label": "열 강조 색상"
+        },
+        "table_notes": {
+          "label": "표 메모"
+        },
+        "show_labels": {
+          "label": "라벨 표시"
+        },
+        "first_label": {
+          "label": "첫 번째 라벨"
+        },
+        "second_label": {
+          "label": "두 번째 라벨"
+        },
+        "button_link": {
+          "label": "링크"
+        }
+      },
+      "blocks": {
+        "column": {
+          "name": "열",
+          "settings": {
+            "highlight": {
+              "label": "이 열 강조"
+            }
+          }
+        },
+        "row": {
+          "name": "행",
+          "settings": {
+            "icon_info": "이 열에서 값을 표시하는 방법을 선택하세요.",
+            "image_info": "이미지를 선택했을 때 표시할 이미지를 추가하세요.",
+            "value": {
+              "yes": "예",
+              "no": "아니요"
+            },
+            "text_1": {
+              "label": "열 1 텍스트",
+              "info": "텍스트를 선택하면 표시됩니다. 값은 열 순서를 따르므로 열 블록의 순서를 신중히 바꾸세요."
+            },
+            "icon_1": {
+              "label": "열 1 아이콘"
+            },
+            "image_1": {
+              "label": "열 1 이미지"
+            },
+            "text_2": {
+              "label": "열 2 텍스트",
+              "info": "텍스트를 선택하면 표시됩니다."
+            },
+            "icon_2": {
+              "label": "열 2 아이콘"
+            },
+            "image_2": {
+              "label": "열 2 이미지"
+            },
+            "text_3": {
+              "label": "열 3 텍스트",
+              "info": "텍스트를 선택하면 표시됩니다."
+            },
+            "icon_3": {
+              "label": "열 3 아이콘"
+            },
+            "image_3": {
+              "label": "열 3 이미지"
+            },
+            "text_4": {
+              "label": "열 4 텍스트",
+              "info": "텍스트를 선택하면 표시됩니다. 표에 열이 4개일 때만 사용됩니다."
+            },
+            "icon_4": {
+              "label": "열 4 아이콘"
+            },
+            "image_4": {
+              "label": "열 4 이미지"
+            },
+            "column_1": "열 1",
+            "column_2": "열 2",
+            "column_3": "열 3",
+            "column_4": "열 4"
+          }
+        }
+      }
+    },
+    "image-with-text-carousel": {
+      "name": "텍스트 포함 이미지 캐러셀",
+      "how_to_use": "[이 섹션 사용 방법](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/image-with-text-carousel)",
+      "settings": {
+        "show_slide_counter": {
+          "label": "슬라이드 번호 표시"
+        }
+      },
+      "blocks": {
+        "slide": {
+          "icon_info": "80 x 80px .png 또는 .svg 권장"
+        }
+      }
+    },
+    "recommended-collection-filters": {
+      "name": "추천 필터"
+    }
+  },
+  "blocks": {
+    "quiz-step": {
+      "name": "퀴즈 질문",
+      "settings": {
+        "stepper_label": {
+          "label": "스테퍼 레이블",
+          "info": "진행 표시줄에 표시되는 짧은 레이블입니다. 예: 피부 타입, 고민."
+        },
+        "question_id": {
+          "label": "질문 ID",
+          "info": "이 질문의 고유 ID입니다. 옵션의 질문 건너뛰기에 사용됩니다(예: q1, q2)."
+        },
+        "layout": {
+          "label": "옵션 레이아웃",
+          "options": {
+            "pill": "필 버튼",
+            "image": "이미지 원형"
+          }
+        }
+      }
+    },
+    "quiz-option": {
+      "name": "퀴즈 옵션",
+      "settings": {
+        "label": {
+          "label": "레이블"
+        },
+        "image": {
+          "label": "Image",
+          "info": "질문 레이아웃이 이미지 원형일 때 사용됩니다."
+        },
+        "product_matching_header": "결과 제품",
+        "strong_match": {
+          "label": "주요 제품",
+          "info": "쇼핑객이 이 답변을 선택하면 퀴즈 결과 맨 앞에 표시됩니다."
+        },
+        "partial_match": {
+          "label": "추가 제품",
+          "info": "퀴즈 결과에서 주요 제품 다음에 표시됩니다."
+        },
+        "exclude": {
+          "label": "추천하지 않음",
+          "info": "쇼핑객이 이 답변을 선택하면 다른 답변에 포함되어 있어도 결과에서 이 제품을 제외합니다."
+        },
+        "skip_questions_header": "질문 로직",
+        "skip_questions": {
+          "label": "질문 건너뛰기",
+          "info": "이 답변 선택 시 건너뛸 퀴즈 질문 ID를 입력하세요. 예: q3, q4"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{%- liquid
+  assign block_st = block.settings
+  assign section_st = section.settings
+  assign tags = block_st.tags | split: '|'
+  assign content_alignment = section_st.text_alignment
+  assign text_alignment_mobile = section_st.text_alignment_mobile | default: content_alignment
+  assign is_primary = false
+  if block_st.chip_style == 'primary' or block_st.chip_style == 'soft'
+    assign is_primary = true
+  endif
+-%}
+
+{%- if block_st.tags != blank -%}
+  <ul
+    class="list-tag justify_block list-unstyled flex wrap w-full gap-custom justify-content-{{ text_alignment_mobile }} flex-md-{{ content_alignment }}"
+    style="--gap: {{ block_st.spacing }};"
+    role="list"
+    {{ block.shopify_attributes }}
+  >
+    {%- for tag in tags -%}
+      {%- assign tag_label = tag | strip -%}
+      {%- if tag_label != blank -%}
+        <li
+          class="list-tag__item inline-flex align-center gap-6 py-10 px-sp-6 rounded{% if is_primary %} border-0 bg-custom{% else %} border{% endif %}"
+          style="--img-rounded: calc(infinity * 1px);{% if is_primary %} --bg-color-custom: var(--color-border);{% endif %}"
+        >
+          {%- if block_st.show_check -%}
+            <svg
+              class="list-tag__check shrink-0 opacity w-custom h-custom"
+              style="--opacity: 0.85; --width: 14px; --height: 10px;"
+              viewBox="0 0.589844 15 10.820312"
+              preserveAspectRatio="none"
+              fill="none"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <use href="#icon-tick"></use>
+            </svg>
+          {%- endif -%}
+          <span>{{ tag_label }}</span>
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.sticky_image_with_text.blocks.list_tag.name",
+  "class": "w-full",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tags",
+      "label": "t:sections.sticky_image_with_text.blocks.list_tag.tags.label",
+      "info": "t:sections.sticky_image_with_text.blocks.list_tag.tags.info",
+      "default": "Rosa Damascena | Bio-fermented | Plant-Based"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_check",
+      "label": "t:sections.sticky_image_with_text.blocks.list_tag.show_check.label",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "chip_style",
+      "label": "t:sections.sticky_image_with_text.blocks.list_tag.chip_style.label",
+      "options": [
+        { "value": "primary", "label": "t:sections.all.content_setting.button_type.primary.label" },
+        { "value": "outline", "label": "t:sections.all.content_setting.button_type.outline.label" }
+      ],
+      "default": "outline"
+    },
+    {
+      "type": "range",
+      "id": "spacing",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 8,
+      "label": "t:sections.all.padding.space_between"
+    }
+  ],
+  "presets": [
+    { "name": "t:sections.sticky_image_with_text.blocks.list_tag.name", "category": "t:sections.group.blocks.basic" }
+  ]
+}
+{% endschema %}

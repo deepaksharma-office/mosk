@@ -1,0 +1,152 @@
+{%- unless template == 'index' or template == '404' -%}
+  {%- assign t = template | split: '.' | first -%}
+  <nav class="breadcrumbs flex {{ class }}" role="navigation" aria-label="breadcrumbs">
+    <ul class="navigation__breadcrumb-list list-unstyled my-0 px-0 fs-small flex wrap">
+      <li class="bls__breadcrumb-item flex align-center flex align-center">
+        <a
+          class="navigation__breadcrumb-link word-break heading-color subheading_weight"
+          href="{{ routes.root_url }}"
+          aria-label="{{- 'general.breadcrumb.home' | t -}}"
+        >
+          {{- 'general.breadcrumb.home' | t -}}
+        </a>
+        <span class="navigation__breadcrumb-separator px-sp-3 flex rtl-mirror">
+          <svg
+            class="icon icon--arrow-right"
+            width="4"
+            height="7"
+            viewBox="0 0 4 7"
+            focusable="false"
+            aria-hidden="true"
+          >
+            <use href="#icon-arrow-next-breadscrumbs"></use>
+          </svg>
+        </span>
+      </li>
+      {%- case t -%}
+        {%- when 'page' -%}
+          <li class="navigation__breadcrumb-item flex align-center">
+            <span class="navigation__breadcrumb-link word-break" aria-current="page">
+              {{- page.title -}}
+            </span>
+          </li>
+        {%- when 'product' -%}
+          {%- if collection.url -%}
+            <li class="navigation__breadcrumb-item dash-between flex align-center">
+              {{ collection.title | link_to: collection.url }}
+            </li>
+            <span class="navigation__breadcrumb-separator px-sp-3 flex content-center rtl-mirror">
+              <svg
+                class="icon icon--arrow-right"
+                width="4"
+                height="7"
+                viewBox="0 0 4 7"
+                focusable="false"
+                aria-hidden="true"
+              >
+                <use href="#icon-arrow-next-breadscrumbs"></use>
+              </svg>
+            </span>
+          {%- endif -%}
+          <li class="navigation__breadcrumb-item dash-between flex align-center">
+            <span class="navigation__breadcrumb-link word-break" aria-current="page">
+              {{- product.title -}}
+            </span>
+          </li>
+        {%- when 'collection' -%}
+          {% if collection.handle %}
+            {%- if current_tags -%}
+              <li class="navigation__breadcrumb-item flex align-center">
+                {{ collection.title | link_to: collection.url }}
+              </li>
+              <span class="navigation__breadcrumb-separator px-sp-3 flex content-center rtl-mirror">
+                <svg
+                  class="icon icon--arrow-right"
+                  width="4"
+                  height="7"
+                  viewBox="0 0 4 7"
+                  focusable="false"
+                  aria-hidden="true"
+                >
+                  <use href="#icon-arrow-next-breadscrumbs"></use>
+                </svg>
+              </span>
+              <li class="navigation__breadcrumb-item flex align-center">
+                <span class="navigation__breadcrumb-link word-break" aria-current="page">
+                  {{- current_tags | join: ' + ' -}}
+                </span>
+              </li>
+            {%- else -%}
+              <li class="navigation__breadcrumb-item flex align-center">
+                <span class="navigation__breadcrumb-link word-break" aria-current="page">
+                  {{- collection.title -}}
+                </span>
+              </li>
+            {%- endif -%}
+          {% endif %}
+        {%- when 'blog' -%}
+          {%- if current_tags -%}
+            <li class="navigation__breadcrumb-item flex align-center heading-color">
+              {{ blog.title | link_to: blog.url }}
+            </li>
+            <span class="navigation__breadcrumb-separator px-sp-3 flex content-center rtl-mirror">
+              <svg
+                class="icon icon--arrow-right"
+                width="4"
+                height="7"
+                viewBox="0 0 4 7"
+                focusable="false"
+                aria-hidden="true"
+              >
+                <use href="#icon-arrow-next-breadscrumbs"></use>
+              </svg>
+            </span>
+            <li class="navigation__breadcrumb-item flex align-center">
+              <span class="navigation__breadcrumb-link word-break" aria-current="page">
+                {{- current_tags | join: ' + ' -}}
+              </span>
+            </li>
+          {%- else -%}
+            <li class="navigation__breadcrumb-item flex align-center">
+              <span class="navigation__breadcrumb-link word-break" aria-current="page">
+                {{- blog.title -}}
+              </span>
+            </li>
+          {%- endif -%}
+        {%- when 'article' -%}
+          <li class="navigation__breadcrumb-item flex content-center heading-color">
+            {{ blog.title | link_to: blog.url }}
+          </li>
+          <span class="navigation__breadcrumb-separator px-sp-3 flex content-center rtl-mirror">
+            <svg
+              class="icon icon--arrow-right"
+              width="4"
+              height="7"
+              viewBox="0 0 4 7"
+              focusable="false"
+              aria-hidden="true"
+            >
+              <use href="#icon-arrow-next-breadscrumbs"></use>
+            </svg>
+          </span>
+          <li class="navigation__breadcrumb-item flex align-center">
+            <span class="navigation__breadcrumb-link word-break" aria-current="page">
+              {{- article.title -}}
+            </span>
+          </li>
+        {%- when 'search' -%}
+          <li class="navigation__breadcrumb-item flex align-center">
+            <span class="navigation__breadcrumb-link word-break" aria-current="page">
+              {{- 'general.breadcrumb.search' | t -}}
+            </span>
+          </li>
+        {%- else -%}
+          <li class="navigation__breadcrumb-item flex align-center">
+            <span class="navigation__breadcrumb-link word-break" aria-current="page">
+              {{- page_title -}}
+            </span>
+          </li>
+      {%- endcase -%}
+    </ul>
+  </nav>
+{%- endunless -%}

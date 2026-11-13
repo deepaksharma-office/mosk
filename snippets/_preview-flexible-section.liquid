@@ -1,0 +1,103 @@
+{% # theme-check-disable %}
+{% style %}
+  .swiper .swiper-slide:not(.swiper-slide-active) {
+    opacity: 0 !important;
+  }
+  .preview-heading > span {
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 36px;
+  }
+  .preview-effect {
+    color: #522af5;
+    position: relative;
+  }
+  .preview-effect::before {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background: #522af5;
+    mask: url('data:image/svg+xml;utf8,<svg width="201" height="12" viewBox="0 0 201 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 10C12.9143 7.12288 32.9903 2.38603 39.5898 2.02502C46.1894 1.65854 44.8695 5.39989 41.6751 7.87224C40.8654 9.13577 43.2723 10.6947 59.3553 6.79469L70.7908 4.03244C72.1107 3.70972 74.8837 3.49093 75.4715 5.21392C76.2147 7.36902 80.8843 9.21782 95.0262 8.9498C109.157 8.68725 129.632 5.13734 143.785 4.21294C157.927 3.28855 169.995 2.40244 199 4.19653" stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/></svg>')
+      no-repeat center;
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg width="201" height="12" viewBox="0 0 201 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 10C12.9143 7.12288 32.9903 2.38603 39.5898 2.02502C46.1894 1.65854 44.8695 5.39989 41.6751 7.87224C40.8654 9.13577 43.2723 10.6947 59.3553 6.79469L70.7908 4.03244C72.1107 3.70972 74.8837 3.49093 75.4715 5.21392C76.2147 7.36902 80.8843 9.21782 95.0262 8.9498C109.157 8.68725 129.632 5.13734 143.785 4.21294C157.927 3.28855 169.995 2.40244 199 4.19653" stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/></svg>')
+      no-repeat center;
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    clip-path: inset(0 100% 0 0);
+    animation: drawPath 1.5s ease-in-out 0.5s forwards;
+  }
+
+  @keyframes drawPath {
+    from {
+      clip-path: inset(0 100% 0 0);
+    }
+    to {
+      clip-path: inset(0 0% 0 0);
+    }
+  }
+{% endstyle %}
+<div class="flex column content-center preview-heading text-center">
+  {{ 'flexible-section.text_preview.heading_html' | t }}
+</div>
+<slide-section
+  data-autoplay="true"
+  data-auto-play-speed="2000"
+  data-effect="fade"
+  data-loop="true"
+  data-speed="300"
+  data-slideshow="1"
+  data-mobile="1"
+  data-tablet="1"
+  data-desktop="1"
+  class="swiper text-center"
+>
+  <div class="swiper-wrapper align-center">
+    <div class="swiper-slide">
+      <div class="flex column content-center">
+        <img
+          src="{{- 'preview_slide_1.webp' | asset_url -}}"
+          width="900"
+          height="581"
+          class="rounded"
+        >
+        <span class="fs-big-2">
+          {{ 'flexible-section.text_preview.slide_1' | t }}
+        </span>
+      </div>
+    </div>
+
+    <div class="swiper-slide">
+      <div class="flex column content-center">
+        <img
+          src="{{- 'preview_slide_2.webp' | asset_url -}}"
+          width="900"
+          height="581"
+          class="rounded"
+        >
+        <span class="fs-big-2">
+          {{ 'flexible-section.text_preview.slide_2' | t }}
+        </span>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <div class="flex column content-center">
+        <img
+          src="{{- 'preview_slide_3.webp' | asset_url -}}"
+          width="900"
+          height="581"
+          class="rounded"
+        >
+        <span class="fs-big-2">
+          {{ 'flexible-section.text_preview.slide_3' | t }}
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="swiper-pagination"
+  ></div>
+</slide-section>
+{% # theme-check-enable %}

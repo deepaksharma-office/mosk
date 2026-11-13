@@ -1,0 +1,4686 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "settings_schema": {
+    "layout": {
+      "name": "Oppsett",
+      "how_to_use": {
+        "label": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/theme-settings/layout)"
+      },
+      "settings": {
+        "page_width": {
+          "label": "Sidebredde"
+        },
+        "site_style": {
+          "label": "Avrundede hjørner",
+          "image": {
+            "label": "Image"
+          },
+          "button": {
+            "label": "Knappens hjørneradius"
+          },
+          "input": {
+            "label": "Inngående hjørneradius"
+          }
+        },
+        "select_preset": {
+          "label": "Velg forhåndsinnstilling",
+          "options__1": "Kosmetikk",
+          "options__2": "Mote",
+          "options__3": "Kjæledyr"
+        }
+      },
+      "rtl_support": {
+        "header": "RTL-støtte",
+        "enable_rtl": "Aktiver RTL-støtte",
+        "rtl_language": {
+          "label": "RTL språkkode",
+          "info": "Spesifiser språkene som bruker RTL-layout ved å skrive inn ISO-kodene deres, atskilt med semikolon. For eksempel: ar; fa; ku; pa; sd. Hvis det står tomt, vil RTL-layout brukes på alle språk."
+        }
+      }
+    },
+    "logo_favicon": {
+      "name": "Logo og favorittikon",
+      "how_to_use": {
+        "label": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/theme-settings/logo-and-favicon)"
+      },
+      "settings": {
+        "favicon": {
+          "label": "Favorittikon"
+        },
+        "favicon_image": {
+          "label": "Favorittbilde",
+          "info": "32 x 32px .png anbefales"
+        },
+        "logo": {
+          "label": "Logo",
+          "logo_on_transparent": {
+            "label": "Logo på gjennomsiktig overskrift"
+          }
+        },
+        "logo_width": {
+          "label": "Logo bredde",
+          "info": "Logobredden er automatisk optimalisert for mobil."
+        }
+      }
+    },
+    "customer_account": {
+      "how_to_use": {
+        "label": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/theme-settings/customer-account)"
+      },
+      "name": "Kundekonto",
+      "settings": {
+        "customer_account_menu": {
+          "label": "Menu"
+        },
+        "open_as": {
+          "label": "Åpne som",
+          "options": {
+            "popup": "Popup",
+            "link": "Lenke"
+          }
+        }
+      }
+    },
+    "colors": {
+      "name": "Farger",
+      "how_to_use": {
+        "label": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/theme-settings/colors)"
+      },
+      "settings": {
+        "palette_header": {
+          "label": "Palett"
+        },
+        "palette_info": {
+          "label": "Definer fargene for paletten for enklere bruk på tvers av temaet"
+        },
+        "general_header": {
+          "label": "Generelt"
+        },
+        "general_text": {
+          "label": "Text"
+        },
+        "general_heading": {
+          "label": "Overskrift"
+        },
+        "general_link": {
+          "label": "Lenke"
+        },
+        "general_border": {
+          "label": "Grense"
+        },
+        "background_header": {
+          "label": "Bakgrunn"
+        },
+        "background": {
+          "label": "Bakgrunn"
+        },
+        "background_2": {
+          "label": "Bakgrunn 2"
+        },
+        "background_gradient": {
+          "label": "Bakgrunnsgradient",
+          "info": "Bakgrunnsgradient erstatter bakgrunn der det er mulig."
+        },
+        "fill_button_header": {
+          "label": "Fyll-knapp"
+        },
+        "fill_button_background": {
+          "label": "Bakgrunn"
+        },
+        "fill_button_text": {
+          "label": "Text"
+        },
+        "fill_button_background_hover": {
+          "label": "Hover i bakgrunnen"
+        },
+        "fill_button_text_hover": {
+          "label": "Hold musepekeren over teksten"
+        },
+        "outline_button_header": {
+          "label": "Konturknapp"
+        },
+        "outline_button_outline": {
+          "label": "Text"
+        },
+        "outline_button_outline_border": {
+          "label": "Grense"
+        }
+      }
+    },
+    "typography": {
+      "name": "Typografi",
+      "how_to_use": {
+        "label": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)"
+      },
+      "settings": {
+        "font_weight": {
+          "default": "Default",
+          "inline": "Inline",
+          "regular": "Regelmessig",
+          "medium": "Medium"
+        },
+        "font_size": "Skriftstørrelse",
+        "body": {
+          "label": "Kropp",
+          "font": {
+            "label": "Font",
+            "info": "Velg en annen skrifttype kan påvirke hastigheten til butikken din. [Finn ut mer om systemfonter.](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "base_size": "Base størrelse"
+        },
+        "heading": {
+          "label": "Overskrift",
+          "font": {
+            "label": "Font",
+            "info": "Velg en annen skrifttype kan påvirke hastigheten til butikken din. [Finn ut mer om systemfonter.](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "sub_heading": {
+            "sub_heading_weight": "Underoverskrift skriftvekt"
+          },
+          "text_transform": {
+            "label": "Tekstforvandling",
+            "unset": "Deaktivert",
+            "capitalize": "Bruk store bokstaver",
+            "uppercase": "Store bokstaver"
+          },
+          "heading_letter_spacing": {
+            "label": "Bokstavavstand"
+          }
+        },
+        "menu": {
+          "label": "Menu",
+          "font": {
+            "label": "Font",
+            "body_font": "Kropp",
+            "heading_font": "Overskrift"
+          },
+          "uppercase": {
+            "label": "Store bokstaver på første nivå"
+          }
+        },
+        "button": {
+          "label": "Knapp",
+          "font": {
+            "label": "Font",
+            "body_font": "Kropp",
+            "heading_font": "Overskrift"
+          }
+        },
+        "text_preset": {
+          "header": "Forhåndsinnstillinger for tekst",
+          "name": {
+            "heading_1": "Overskrift 1",
+            "heading_2": "Overskrift 2",
+            "heading_3": "Overskrift 3",
+            "heading_4": "Overskrift 4",
+            "heading_5": "Overskrift 5",
+            "heading_6": "Overskrift 6"
+          },
+          "settings": {
+            "size": {
+              "label": "Size",
+              "18px": "18px",
+              "20px": "20px",
+              "22px": "22px",
+              "24px": "24px",
+              "26px": "26px",
+              "30px": "30px",
+              "36px": "36px",
+              "40px": "40px",
+              "46px": "46px",
+              "50px": "50px",
+              "56px": "56px",
+              "60px": "60px",
+              "80px": "80px"
+            },
+            "line_height": {
+              "label": "Linjehøyde",
+              "original": "Opprinnelig",
+              "small": "Liten",
+              "medium": "Medium",
+              "large": "Stor",
+              "x_large": "X-Large"
+            }
+          }
+        }
+      }
+    },
+    "browser_tab_notifications": {
+      "name": "Nettleserfanevarsler",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/theme-settings/browser-tab-notifications)",
+      "settings": {
+        "notification_info": "La stå tomt for å bruke den opprinnelige sidetittelen",
+        "enable_browser_tab_notifications": {
+          "label": "Aktiver"
+        },
+        "first_notification": {
+          "label": "Første varsel"
+        },
+        "secondary_notification": {
+          "label": "Sekundær varsling"
+        }
+      }
+    },
+    "animation": {
+      "name": "Animasjon",
+      "how_to_use": {
+        "label": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/theme-settings/animation)"
+      },
+      "settings": {
+        "scroll_animation": {
+          "label": "Rull animasjon",
+          "options__1": {
+            "label": "Deaktiver"
+          },
+          "options__2": {
+            "label": "Kun skrivebord"
+          },
+          "options__3": {
+            "label": "Alle skjermer"
+          }
+        },
+        "enable_loading_page_effect": {
+          "heading": "Sideinnlastingseffekt",
+          "label": "Aktiver effekt",
+          "loading": "Laster ikon",
+          "info": "Anbefalt bildebredde 100x100px"
+        },
+        "image_lazy_loading": {
+          "label": "Aktiver lat innlasting av bilde"
+        },
+        "hover_effect": {
+          "label": "Hover effekt",
+          "info": "Påvirker hover-kort som: produkt, banner, samling, blogg...",
+          "fade_in": "Fade inn",
+          "zoom": "Zoom"
+        }
+      }
+    },
+    "product": {
+      "name": "Produktkort",
+      "how_to_use": {
+        "label": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/theme-settings/product-cards)"
+      },
+      "settings": {
+        "enable_quickview": "Aktiver hurtigvisning",
+        "enable_quickadd": "Aktiver rask tilføyelse",
+        "enable_color_swatches": "Aktiver fargeprøver",
+        "show_tag": {
+          "hidden": "Skjult",
+          "desktop": "Kun skrivebord",
+          "all_devices": "Alle skjermer"
+        },
+        "show_scrolling_text": "Vis rulletekst",
+        "show_rate": {
+          "label": "Vis pris",
+          "info": "For å vise en vurdering, legg til en produktvurderingsapp. [Finn ut mer](https://help.shopify.com/en/manual/products/product-reviews/installation)"
+        },
+        "alignment": {
+          "label": "Justering",
+          "left": "Venstre",
+          "center": "Senter"
+        },
+        "product_image": {
+          "label": "Produktbilde"
+        },
+        "show_image_hover": {
+          "label": "Vis sekundærbilde"
+        },
+        "show_video_featured": {
+          "label": "Spill av video mens du holder musepekeren",
+          "info": "Fungerer kun med MP4-video."
+        },
+        "product_image_ratio": {
+          "label": "Bildeforhold",
+          "adapt_to_image": "Tilpass til bildet",
+          "square": "Firkantet (1:1)",
+          "portrait": "Portrett (3:4)",
+          "landscape": "Landskap (4:3)"
+        },
+        "mobile_options": {
+          "label": "Mobilinnstillinger"
+        },
+        "show_quick_add_mobile": {
+          "label": "Vis hurtiglegg til-knapp på mobil"
+        },
+        "highlights_scrolling_text_metafield": {
+          "label": "Rullende tekst Metafelt",
+          "info": "Produktmetafelt. Vises som rullende tekst på produktkort. Format: namespace.key. Default: custom.highlights_scrolling_text."
+        }
+      }
+    },
+    "badges": {
+      "name": "Merker",
+      "how_to_use": {
+        "label": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/theme-settings/badges)"
+      },
+      "settings": {
+        "badge_color": {
+          "label": "Tekstfarge"
+        },
+        "show_badge": {
+          "label": "Vis merke"
+        },
+        "background_color": {
+          "label": "Bakgrunnsfarge"
+        },
+        "sale": {
+          "label": "Salg",
+          "format": {
+            "label": "Format",
+            "text": "Text",
+            "percentage": "Prosentdel",
+            "fixed": "Fast beløp"
+          }
+        },
+        "new": {
+          "label": "Ny",
+          "new_badge_display_period": {
+            "label": "Ny merkeperiode",
+            "info": "Velg hvor lenge produktene skal merkes som \"Nye\" fra den dagen de lages."
+          }
+        },
+        "sold_out": {
+          "label": "Utsolgt"
+        },
+        "custom_badge": {
+          "label": "Egendefinert merke",
+          "info": "Følg dokumentet for å se [hvordan konfigurerer du tilpasset merke](https://nextsky.gitbook.io/purity-theme/theme-settings/badges#id-5.-custom-badge)"
+        }
+      }
+    },
+    "color_swatches": {
+      "name": "Fargeprøver",
+      "how_to_use": {
+        "label": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/theme-settings/color-swatch)"
+      },
+      "settings": {
+        "hide_sold_out_variant": {
+          "label": "Skjul utsolgte varianter"
+        },
+        "show_sale_in_variant_swatch": {
+          "label": "Vis salg i variant fargeprøve"
+        },
+        "color_limit": {
+          "label": "Maksimalt antall fargeprøver å vise"
+        },
+        "color_swatch_trigger": {
+          "label": "Fargeprøveutløser",
+          "info": "Definer navnet på fargealternativet. Skill med komma. F.eks. Farge, Farge"
+        },
+        "color_swatch_type": {
+          "label": "Fargeprøvetype",
+          "options__1": {
+            "label": "Variant bilde"
+          },
+          "options__2": {
+            "label": "Color"
+          }
+        },
+        "color_swatch_shape": {
+          "label": "Fargeform",
+          "options__1": {
+            "label": "Rund"
+          },
+          "options__2": {
+            "label": "Kvadrat"
+          }
+        },
+        "color_swatch_custom": {
+          "label": "Egendefinerte farger",
+          "info": "Gyldig format: Müsli: #ddd5bc eller Müsli: image.png atskilt med komma"
+        }
+      }
+    },
+    "cart": {
+      "name": "Handlevogn",
+      "how_to_use": {
+        "label": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/theme-settings/cart)"
+      },
+      "settings": {
+        "cart_action_desktop": {
+          "label": "Handling etter å legge til handlekurv på skrivebordet",
+          "drawer": "Skuff",
+          "page": "Side"
+        },
+        "cart_mobile": {
+          "label": "Mobilinnstillinger",
+          "action": {
+            "label": "Handling etter å legge til handlekurv",
+            "info": "Velg hva som skjer etter at en kunde legger til et produkt i handlekurven på mobil.",
+            "option_1": "Åpen minivogn",
+            "option_2": "Varsle melding",
+            "option_3": "Åpne handlekurven én gang, gi beskjed etter"
+          },
+          "open_cart": {
+            "label": "Åpne vogn som",
+            "info": "Velg hvordan handlekurven åpnes når du trykker på handlekurvikonet i overskriften og mobilnavigasjonslinjen.",
+            "option_1": "Skuff",
+            "option_2": "Popup"
+          }
+        },
+        "free_shipping": {
+          "label": "Gratis fraktmelding",
+          "paragraph": "Sørg for at du har konfigurert [fraktpriser.](/admin/settings/shipping)",
+          "message": {
+            "label": "Beskjed",
+            "info": "Bruk [amount] for å spore fremgangen din mot å kvalifisere deg for gratis frakt."
+          },
+          "minimum_amount": {
+            "label": "Gratis frakt minimumsbeløp",
+            "info": "Bruk runde tall. Ekskluder valuta, symboler og bokstaver."
+          }
+        },
+        "term_and_conditions": {
+          "label": "Vilkår og betingelser",
+          "enable": "Vis avmerkingsboks i minivogn og handlekurvside.",
+          "text": "Text"
+        },
+        "cart_count_down": {
+          "label": "Handlevogn teller ned",
+          "show_duration": {
+            "label": "Vises på minivogn og handlevognside"
+          },
+          "duration": {
+            "label": "Varighet"
+          }
+        },
+        "product_recommendations": {
+          "label": "Produktanbefalinger",
+          "heading": "Overskrift",
+          "enable_product_recommendations": "Aktiver produktanbefalinger",
+          "enable_product_recommendations_info": "Produktanbefalinger vil bli vist på mini- og handlekurvsiden.",
+          "recommendation_product_type": {
+            "label": "Produktanbefalingstype",
+            "auto": "Auto",
+            "selected": "Valgt"
+          },
+          "select_product_recommendation": "Product",
+          "show_on_mobile": {
+            "label": "Vis på mobil"
+          }
+        },
+        "gift_wrap": {
+          "label": "Produkt gavepapir",
+          "select_product_gift_wrap": {
+            "label": "Product",
+            "info": "Fungerer kun med produkter uten varianter."
+          }
+        },
+        "empty": {
+          "label": "Tøm handlekurvinnstillinger",
+          "heading": "Overskrift",
+          "description": "Beskrivelse",
+          "collection": {
+            "label": "Samlingsliste",
+            "info": "Collections will display their featured image by default. Use metafield to change image and text. Learn more"
+          },
+          "button_text": "Knappetekst",
+          "button_link": {
+            "label": "Knappelenke",
+            "info": "Standard er Samling alle siden"
+          },
+          "free_shipping": {
+            "label": "Gratis fraktmelding"
+          },
+          "empty_cart_layout": {
+            "label": "Tom vognoppsett",
+            "option_1": "Liste",
+            "option_2": "Rutenett"
+          },
+          "collection_metafield": {
+            "label": "Tom-kurv-kolleksjon Metafelt",
+            "info": "Kolleksjonsmetafelt. (metaobjekt) for bilde og beskrivelse på tom kurv. Format: namespace.key. Default: custom.collection_empty. Fields: collection_image, collection_description."
+          }
+        },
+        "discount_progress_bar": {
+          "label": "Rabattfremdriftslinje",
+          "paragraph": "Vis opptil 3 forbruksmål i handlekurven. Sørg for at en matching rabattkode eller automatisk rabatt er opprettet i [Shopify-admin.](/admin/discounts)",
+          "currency_info": "Skriv inn målbeløp i butikkens standardvaluta. De konverteres automatisk for lokale valutaer.",
+          "enable": {
+            "label": "Aktiver rabattfremdriftslinje",
+            "info": "Når den er aktivert, erstatter den den enkelte gratis frakt-linjen ovenfor i handlekurvskuffen og på handlekurvsiden."
+          },
+          "milestone_1": {
+            "label": "Milepæl 1"
+          },
+          "milestone_2": {
+            "label": "Milepæl 2"
+          },
+          "milestone_3": {
+            "label": "Milepæl 3"
+          },
+          "milestone": {
+            "amount": {
+              "label": "Terskel",
+              "info": "Bruk runde tall uten valutasymboler eller bokstaver."
+            },
+            "label_text": {
+              "label": "Etikett"
+            },
+            "icon": {
+              "label": "Ikon",
+              "option_none": "Ingen",
+              "option_tag": "Merkelapp",
+              "option_truck": "Lastebil",
+              "option_box": "Eske"
+            }
+          },
+          "message": {
+            "text": {
+              "label": "Fremdriftsmelding",
+              "info": "Bruk [amount] og [label] for å vise gjenstående beløp og etiketten for neste belønning."
+            },
+            "success": {
+              "label": "Melding når alle milepæler er nådd"
+            }
+          }
+        }
+      }
+    },
+    "search": {
+      "name": "Søkeatferd",
+      "how_to_use": {
+        "label": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/theme-settings/search-behavior)"
+      },
+      "settings": {
+        "type": {
+          "label": "Type",
+          "info": "Skuff er standardoppsett på mobil.",
+          "option_1": "Popup",
+          "option_2": "Skuff",
+          "option_3": "Søkefelt"
+        },
+        "search_placeholder": {
+          "label": "Søk plassholder"
+        },
+        "speech_search": {
+          "label": "Talesøk",
+          "enable": {
+            "label": "Aktiver talesøk"
+          }
+        },
+        "search_results": {
+          "label": "Vis resultater",
+          "option_1": "Default",
+          "option_2": "Tab"
+        },
+        "recommendations": {
+          "popular_keywords": {
+            "label": "Populært søk",
+            "info": "Anbefal populære søkeord i butikken din til kunder. For eksempel: t-skjorte, kjole, svart."
+          },
+          "products_recommended": {
+            "label": "Produktanbefaling",
+            "info": "Velg et produkt å anbefale for kunder."
+          },
+          "collections_recommended": {
+            "label": "Samlingsanbefaling"
+          }
+        },
+        "results": {
+          "label": "Søkeresultater"
+        },
+        "predictive_search": {
+          "label": "Aktiver prediktivt søk",
+          "info": "Live søkeresultater. Ikke tilgjengelig på alle språk. [Finn ut mer](https://shopify.dev/themes/navigation-search/search/predictive-search#general-requirements-and-limitations)"
+        },
+        "show_search_history": {
+          "label": "Vis søkehistorikk"
+        },
+        "show_price": {
+          "label": "Vis produktpris"
+        }
+      }
+    },
+    "social_media": {
+      "name": "Sosiale medier",
+      "how_to_use": {
+        "label": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/theme-settings/social-media)"
+      },
+      "settings": {
+        "social_account": {
+          "label": "Sosiale kontoer",
+          "facebook": {
+            "label": "Facebook",
+            "info": "https://facebook.com/shopify"
+          },
+          "instagram": {
+            "label": "Instagram",
+            "info": "http://instagram.com/shopify"
+          },
+          "twitter": {
+            "label": "Twitter",
+            "info": "https://twitter.com/shopify"
+          },
+          "tiktok": {
+            "label": "Tiktok",
+            "info": "https://tiktok.com/@shopify"
+          },
+          "pinterest": {
+            "label": "Pinterest",
+            "info": "https://pinterest.com/shopify"
+          },
+          "youtube": {
+            "label": "Youtube",
+            "info": "https://www.youtube.com/shopify"
+          },
+          "vimeo": {
+            "label": "Vimeo",
+            "info": "https://vimeo.com/shopify"
+          },
+          "linkedin": {
+            "label": "Linkedin",
+            "info": "https://linkedin.com/company/shopify"
+          },
+          "whatsapp": {
+            "label": "Whatsapp",
+            "info": "https://www.whatsapp.com/shopify"
+          },
+          "snapchat": {
+            "label": "Snapchat",
+            "info": "https://www.snapchat.com/add/shopify"
+          }
+        },
+        "sharing_options": {
+          "label": "Delingsalternativer",
+          "facebook": {
+            "label": "Del til Facebook"
+          },
+          "pinterest": {
+            "label": "Del til Pinterest"
+          },
+          "twitter": {
+            "label": "Del til Twitter"
+          },
+          "whatsapp": {
+            "label": "Del til WhatsApp"
+          },
+          "email": {
+            "label": "Del til e-post"
+          }
+        }
+      }
+    },
+    "currency": {
+      "name": "Valutaformat",
+      "how_to_use": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/theme-settings/currency-format)",
+      "settings": {
+        "code": {
+          "label": "Valutakoder",
+          "show_code": {
+            "label": "Vis valutakoder",
+            "info": "Handlevogn og kassepriser viser alltid valutakoder. Eksempel: $1,00 USD."
+          }
+        }
+      }
+    },
+    "script_tracking": {
+      "name": "Sporing og innsikt",
+      "settings": {
+        "how_to_use": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/theme-settings/tracking-and-insights)",
+        "scripts_tracking": {
+          "label": "Kodebit",
+          "info": "Legg til kodebiten din for sporing og innsikt"
+        },
+        "appended_scripts": {
+          "label": "Stilling vedlagt",
+          "body": "Kroppsmerke",
+          "head": "Hodemerke"
+        }
+      }
+    }
+  },
+  "content": {
+    "manage_customer_accounts": "[Administrer synlighet](/admin/settings/customer_accounts) i kundekontoinnstillingene. Eldre kontoer støttes ikke."
+  },
+  "sections": {
+    "all": {
+      "general": "Generelt",
+      "layout": {
+        "label": "Seksjonsbredde",
+        "fix_width": "Fast bredde",
+        "stretch_width": "Strekkbredde",
+        "full_width": "Full bredde"
+      },
+      "colors": {
+        "label": "Fargeskjema",
+        "info": "For å redigere alle temaets farger, gå til [fargetemainnstillinger](/editor?context=theme&category=colors). Sørg for tydelig tekstkontrast for bedre brukeropplevelse."
+      },
+      "desktop_content_position": {
+        "label": "Innholdsposisjon på skrivebordet",
+        "info": "Posisjonen er automatisk optimalisert for mobil.",
+        "info_2": "Innhold først er standard mobillayout.",
+        "group": {
+          "top": {
+            "label": "Topp"
+          },
+          "middle": {
+            "label": "Midten"
+          },
+          "bottom": {
+            "label": "Bunn"
+          }
+        },
+        "options__1": {
+          "label": "Øverst til venstre"
+        },
+        "options__2": {
+          "label": "Øverst i midten"
+        },
+        "options__3": {
+          "label": "Øverst til høyre"
+        },
+        "options__4": {
+          "label": "Midt til venstre"
+        },
+        "options__5": {
+          "label": "Midt i midten"
+        },
+        "options__6": {
+          "label": "Midt til høyre"
+        },
+        "options__7": {
+          "label": "Nederst til venstre"
+        },
+        "options__8": {
+          "label": "Nederst i midten"
+        },
+        "options__9": {
+          "label": "Nederst til høyre"
+        }
+      },
+      "padding": {
+        "section_padding_heading": "Seksjonspolstring",
+        "padding_inline": {
+          "label": "Inline polstring",
+          "info": "Inline polstring er automatisk optimalisert for mobil."
+        },
+        "padding_block": {
+          "label": "Polstring blokk",
+          "info": "Polstringsblokk er automatisk optimalisert for mobil."
+        },
+        "padding_top": "Topp",
+        "padding_bottom": "Bunn",
+        "spacing_bottom": "Mellomrom bunn",
+        "image_spacing": "Bildeavstand",
+        "space_between": "Mellomrom",
+        "column_gap": {
+          "label": "Kolonnegap",
+          "no_gap": "Ingen gap",
+          "small": "Liten",
+          "medium": "Medium",
+          "large": "Stor",
+          "x_large": "X-Large"
+        }
+      },
+      "space_between": {
+        "label": "Mellomrom mellom elementer"
+      },
+      "width": {
+        "label": "Bredde",
+        "fill": "Fylle",
+        "fit": "Passe"
+      },
+      "columns": {
+        "label": "Antall kolonner"
+      },
+      "items_to_show": {
+        "label": "Maksimalt antall elementer å vise"
+      },
+      "product_to_show": {
+        "label": "Maksimalt antall produkter å vise"
+      },
+      "text_alignment": {
+        "label": "Innholdsjustering",
+        "alignment": "Justering",
+        "options__1": {
+          "label": "Venstre"
+        },
+        "options__2": {
+          "label": "Senter"
+        },
+        "options__3": {
+          "label": "Høyre"
+        }
+      },
+      "content": {
+        "label": "Innhold"
+      },
+      "text": {
+        "label": "Text"
+      },
+      "content_position": {
+        "label": "Innholdsposisjon",
+        "options__1": {
+          "label": "Overleggsbilde",
+          "top": "Topp",
+          "middle": "Midten",
+          "bottom": "Bunn",
+          "text_above_button": "Tekst over knappen"
+        },
+        "options__2": {
+          "label": "Bildet under"
+        }
+      },
+      "section_setting": {
+        "page_heading": {
+          "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "description": {
+            "label": "Innhold"
+          },
+          "heading": {
+            "label": "Tittel"
+          },
+          "breadcrumb": {
+            "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/breadcrumb)",
+            "label": "Brødsmule"
+          }
+        },
+        "enable_rounded_style": {
+          "label": "Aktiver avrundet stil"
+        }
+      },
+      "content_setting": {
+        "label": "Innholdsinnstillinger",
+        "image": {
+          "label": "Image"
+        },
+        "subheading": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "Underoverskrift",
+          "info": "Skill hvert tekstelement med en vertikal strek (|) for å vise en prikk mellom elementene."
+        },
+        "highlight_text": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/highlight-text)",
+          "label": "Fremhev tekst",
+          "settings": {
+            "icons": {
+              "label": "Velg ikon",
+              "options__1": {
+                "label": "None"
+              },
+              "options__2": {
+                "label": "Stjerne"
+              },
+              "options__3": {
+                "label": "Prikk"
+              }
+            }
+          }
+        },
+        "heading": {
+          "label": "Overskrift",
+          "info": "Legg til en understreking ved å sette inn tekst i kursiv. Bruk kursiv (I)-knappen i redigeringsprogrammet for å bruke den."
+        },
+        "heading_highlight": {
+          "label": "Overskriftsuthevingstekst",
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading-highlight-text)"
+        },
+        "detail_list": {
+          "label": "Detaljliste",
+          "detail_row": {
+            "label": "Detail row",
+            "row_title": "Row title",
+            "row_details": "Row details"
+          },
+          "layout": {
+            "label": "Oppsett",
+            "specifications": "Spesifikasjoner",
+            "information_cards": "Infokort"
+          }
+        },
+        "description": {
+          "label": "Beskrivelse",
+          "hide_on_mobile": {
+            "label": "Skjul beskrivelse på mobil"
+          },
+          "description": "Vis produktbeskrivelsen din. Bruker metafeltet for kort beskrivelse hvis tilgjengelig, ellers faller tilbake til standard produktbeskrivelse. For mer informasjon besøk vår [støtteside](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-7.-description)."
+        },
+        "content": "Innhold",
+        "button_label": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "Knappetekst",
+          "info": "La etiketten være tom for å skjule knappen."
+        },
+        "button_label-block": {
+          "name": "Etikett",
+          "label": "Knapp"
+        },
+        "link": {
+          "label": "Lenke",
+          "info": "Merk: Denne koblingsinnstillingen fungerer bare for bilder, ikke videoer."
+        },
+        "first_button_label": {
+          "name": "Første knapp",
+          "label": "Knappetekst",
+          "link": "Knappelenke"
+        },
+        "second_button_label": {
+          "name": "Andre knapp",
+          "label": "Knappetekst",
+          "link": "Knappelenke"
+        },
+        "button_type": {
+          "label": "Type",
+          "primary": {
+            "label": "Primær"
+          },
+          "outline": {
+            "label": "Omriss"
+          },
+          "link": {
+            "label": "Lenke"
+          }
+        },
+        "show_view_all_button": {
+          "label": "Vis Vis alle-knappen",
+          "label_text": "Knappetekst",
+          "default_text": "Se alle produkter",
+          "default": "Se alle"
+        },
+        "open_link_in_new_tab": {
+          "label": "Åpne lenken i ny fane"
+        },
+        "drawn_underline": {
+          "label": "Aktiver overskriftsunderstrekingsanimasjon",
+          "type": "Understrek stil",
+          "value": {
+            "simple_underline": "Enkel understreking",
+            "curve_underline": "Kurveslag",
+            "squiggle_underline": "Snurret understreking"
+          },
+          "color": "Understrekingsfarge"
+        },
+        "metrics": {
+          "label": "Nøkkeltall",
+          "item": {
+            "label": "Nøkkeltallselement",
+            "value": "Verdi",
+            "description": "Etikett"
+          }
+        },
+        "citation": {
+          "label": "Sitering"
+        },
+        "heading_block_highlight": {
+          "label": "Aktiver utheving av overskrift",
+          "info": "Legg til en utheving ved å sette teksten i kursiv. Bruk knappen Kursiv (I) i redigeringsverktøyet.",
+          "type": "Uthevingsstil",
+          "text_highlight": "Tekstutheving",
+          "color": "Uthevingsfarge"
+        }
+      },
+      "content_header": {
+        "label": "Seksjonsoverskrift",
+        "heading_size": {
+          "label": "Overskriftsstørrelse",
+          "size": "Size",
+          "xs_small": {
+            "label": "XS-liten"
+          },
+          "x_small": {
+            "label": "X-Small"
+          },
+          "small": {
+            "label": "Liten"
+          },
+          "large": {
+            "label": "Stor"
+          },
+          "x_large": {
+            "label": "X-Large"
+          },
+          "base": {
+            "label": "Base størrelse"
+          },
+          "options__1": {
+            "label": "Overskrift 1"
+          },
+          "options__2": {
+            "label": "Overskrift 2"
+          },
+          "options__3": {
+            "label": "Overskrift 3"
+          },
+          "options__4": {
+            "label": "Overskrift 4"
+          },
+          "options__5": {
+            "label": "Overskrift 5"
+          },
+          "options__7": {
+            "label": "Overskrift 7"
+          },
+          "options__0": {
+            "label": "Overskrift 0"
+          }
+        }
+      },
+      "blog_setting": {
+        "show_category": "Vis kategori",
+        "show_tags": "Vis tagger",
+        "show_date": "Vis dato",
+        "show_author": "Vis forfatter",
+        "show_excerpt": "Vis utdrag"
+      },
+      "media": {
+        "label": "Type"
+      },
+      "image": {
+        "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/image)",
+        "label": "Image",
+        "image_setting": "Bildeinnstillinger",
+        "width": "Bildebredde",
+        "info_width": "Bildet er automatisk optimalisert for mobil.",
+        "mobile_image": "Mobil bilde",
+        "mobile_image_width": "Mobil bildebredde",
+        "aspect_ratio": {
+          "label": "Bildeforhold",
+          "label_mb": "Bildeforhold på mobil",
+          "label_video": "Videoforhold",
+          "options__1": "Firkantet (1:1)",
+          "options__2": "Portrett (3:4)",
+          "options__3": "Landskap (4:3)",
+          "options__4": "Samme som skrivebord",
+          "adapt": "Tilpass til bildet"
+        },
+        "desktop_position": {
+          "label": "Plassering av skrivebordsbilde",
+          "top": "Topp",
+          "right": "Høyre",
+          "bottom": "Bunn",
+          "left": "Venstre",
+          "info": "Bildet vises over teksten på mobilen."
+        },
+        "desktop_image_width": {
+          "label": "Skrivebordsbildebredde"
+        }
+      },
+      "video": {
+        "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)",
+        "label": "Video",
+        "info": "Overstyrer bildeinnstillingen",
+        "settings": {
+          "source": {
+            "label": "Kilde",
+            "uploaded_video": {
+              "label": "Lokal video"
+            },
+            "external_link": {
+              "label": "Ekstern videolink"
+            }
+          }
+        },
+        "width": "Videobredde",
+        "width_unit_type": {
+          "label": "Bredde enhetstype",
+          "options": {
+            "percent": {
+              "label": "Prosent (%)"
+            },
+            "px": {
+              "label": "Piksler (px)"
+            }
+          }
+        }
+      },
+      "video_mobile": {
+        "label": "Video mobil"
+      },
+      "svg": {
+        "label": "Svg-ikon",
+        "custom_svg": {
+          "label": "Egendefinert svg",
+          "info": "Overstyrer bildeinnstillingen."
+        }
+      },
+      "icon": {
+        "none": {
+          "label": "None"
+        },
+        "cruelty": {
+          "label": "Grusomhet"
+        },
+        "paraben": {
+          "label": "Paraben"
+        },
+        "privacy-protection": {
+          "label": "Personvern"
+        },
+        "secure-shopping": {
+          "label": "Sikker shopping"
+        },
+        "guarantee": {
+          "label": "Garanti"
+        },
+        "account": {
+          "label": "Konto"
+        },
+        "leaf": {
+          "label": "Blad"
+        },
+        "moon": {
+          "label": "Måne"
+        },
+        "hive": {
+          "label": "Hive"
+        },
+        "comb": {
+          "label": "Kam"
+        },
+        "free_shipping": {
+          "label": "Gratis frakt"
+        },
+        "check_badge": {
+          "label": "Sjekk merket"
+        },
+        "message_communications": {
+          "label": "Meldingskommunikasjon"
+        },
+        "circular-text": {
+          "label": "Sirkulær tekst"
+        },
+        "beauty": {
+          "label": "Ansikt"
+        },
+        "line": {
+          "label": "Linje"
+        },
+        "droplet": {
+          "label": "Dråpe"
+        },
+        "smooth": {
+          "label": "Glatt"
+        },
+        "shield": {
+          "label": "Skjold"
+        },
+        "balloon": {
+          "label": "Ballong"
+        },
+        "brightening": {
+          "label": "Lysere"
+        },
+        "hydration": {
+          "label": "Hydrering"
+        },
+        "coptic_cross": {
+          "label": "Koptisk kors"
+        },
+        "coil": {
+          "label": "Spole"
+        },
+        "verified": {
+          "label": "Verifisert"
+        },
+        "security": {
+          "label": "Sikkerhet"
+        },
+        "package": {
+          "label": "Pakke"
+        },
+        "cat": {
+          "label": "Katt"
+        }
+      },
+      "carousel": {
+        "header": "Karusellinnstillinger",
+        "enable_carousel": {
+          "label": "Aktiver karusell",
+          "description": "Karusellen vises bare når den totale samlingen er større enn elementene per rad på skrivebordet."
+        },
+        "show_navigation": {
+          "label": "Vis navigasjon"
+        },
+        "show_pagination": {
+          "label": "Vis paginering",
+          "info": "Paginering vil automatisk vises på mobil hvis du viser antall varer på mobil som 1 eller 2",
+          "info_single": "Paginering vises automatisk på mobil.",
+          "type": {
+            "label": "Pagineringsstil",
+            "progress_bar": "Fremdriftslinje",
+            "dot": "Prikker"
+          }
+        },
+        "reveal_slide": {
+          "label": "Avslør neste lysbilde",
+          "info": "Vis en del av det kommende lysbildet."
+        },
+        "enable_carousel_mobile": {
+          "label": "Aktiver karusell på mobil"
+        },
+        "change_slide_every": "Bytt lysbilder hver",
+        "slide_auto_change": "Bytt lysbilde automatisk"
+      },
+      "mobile_options": {
+        "label": "Mobilinnstillinger",
+        "mobile_layout": {
+          "label": "Mobil layout",
+          "show_text_bellow": {
+            "label": "Vis tekst nedenfor på mobil",
+            "info": "Teksten vises under bildet på mobilen."
+          },
+          "hidden_description_on_mobile": {
+            "label": "Skjul beskrivelse på mobil"
+          }
+        }
+      },
+      "items": {
+        "items_per_row": "Elementer per rad",
+        "items_per_row_mobile": "Varer per rad på mobil"
+      },
+      "columns_desktop": {
+        "label": "Elementer per rad på skrivebordet"
+      },
+      "newsletter_setting": {
+        "email_placeholder": "E-postplassholder",
+        "button_label": "Knappetekst"
+      },
+      "pagination_type": {
+        "label": "Pagineringstype",
+        "options__1": {
+          "label": "Sidetall"
+        },
+        "options__2": {
+          "label": "Last inn mer-knappen"
+        },
+        "options__3": {
+          "label": "Uendelig rulling"
+        }
+      },
+      "product_setting": {
+        "badges": {
+          "name": "Merker"
+        },
+        "notify": {
+          "name": "Varsle produktgjenoppretting"
+        },
+        "live_view": {
+          "name": "Direktevisning",
+          "settings": {
+            "min_number": "Minste tall",
+            "max_number": "Maks antall",
+            "interval_time": "Intervalltid",
+            "content": "Innhold",
+            "show_icon_eye": {
+              "label": "Vis ikon"
+            }
+          },
+          "info": "Simulerer produktaktivitet ved å vise live view-tellinger, bidrar til å øke hastegrad, sosial bevis og konverteringsfrekvenser."
+        },
+        "shop_the_look": {
+          "name": "Handle utseendet",
+          "settings": {
+            "heading": {
+              "label": "Overskrift"
+            }
+          },
+          "description": "Foreslå relaterte produkter for å fullføre utseendet. For mer informasjon besøk vår [støtteside](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)"
+        },
+        "stock_countdown": {
+          "name": "Lagernedtelling",
+          "settings": {
+            "message": {
+              "label": "Beskjed",
+              "info": "Bruk kort kode [count] for å vise gjenværende mengde produkter på lager. Du kan fjerne eller legge denne korte koden hvor som helst"
+            },
+            "stock_items": {
+              "label": "Lagervarer",
+              "info": "Vis når mindre enn (X) varer er på lager"
+            }
+          }
+        },
+        "product_meta": {
+          "name": "Produktmeta",
+          "settings": {
+            "show_sku": {
+              "label": "Vis SKU"
+            },
+            "show_collections": {
+              "label": "Vis samlinger"
+            },
+            "show_tags": {
+              "label": "Vis tagger"
+            },
+            "show_type": {
+              "label": "Vis type"
+            }
+          }
+        },
+        "collapsible_row": {
+          "name": "Trekkspillrekke",
+          "settings": {
+            "info": "Ta med en overskrift som forklarer innholdet.",
+            "content": "Radinnhold",
+            "content_page": "Rad innhold fra siden"
+          }
+        },
+        "accordion_row_drawer": {
+          "name": "Trekkspill radskuff",
+          "settings": {
+            "info": "Ta med en overskrift som forklarer innholdet.",
+            "content": "Radinnhold",
+            "content_page": "Rad innhold fra siden"
+          }
+        },
+        "model_size": {
+          "name": "Modellstørrelse",
+          "settings": {
+            "paragraph": {
+              "content": "Se hvilken størrelse modellen har på seg, sammen med høyde, vekt og mål. [Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)"
+            }
+          }
+        },
+        "title": {
+          "name": "Produkttittel"
+        },
+        "price": {
+          "name": "Pris"
+        },
+        "rating": {
+          "name": "Produktvurdering"
+        },
+        "variant_picker": {
+          "name": "Variantvelger",
+          "settings": {
+            "picker_type": {
+              "label": "Type",
+              "options__1": {
+                "label": "Dropdown"
+              },
+              "options__2": {
+                "label": "Piller"
+              }
+            },
+            "size_guide": {
+              "heading": "Størrelseskart",
+              "info": "Få informasjon om størrelseskart fra valgt side.",
+              "settings": {
+                "size_trigger": {
+                  "label": "Størrelsesutløser",
+                  "info": "Definer navnet på størrelsesalternativet. Skill med komma. F.eks. Størrelse, Misurare"
+                },
+                "show_size_guide": "Vis størrelsestabell",
+                "size_guide_label": "Størrelsestabelletikett",
+                "size_guide_page": "Størrelsesdiagramside",
+                "footer_content": "Bunntekstinnhold",
+                "custom_size_guide": {
+                  "label": "Egendefinert størrelsestabell",
+                  "info__1": "Bruke spesifikke størrelsestabeller for hver samling eller produkt.",
+                  "info__2": "For å bruke et tilpasset størrelsesdiagram for produkt eller samling, lag metafelt med navneområde og nøkkel: \"custom.size_chart\".[Les mer](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/size-chart)"
+                }
+              }
+            }
+          }
+        },
+        "buy_buttons": {
+          "name": "Kjøp knapper",
+          "settings": {
+            "show_dynamic_checkout": {
+              "label": "Vis dynamiske betalingsknapper",
+              "info": "Ved å bruke betalingsmetodene som er tilgjengelige i butikken din, ser kundene deres foretrukne alternativ, som PayPal eller Apple Pay. [Finn ut mer](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+            },
+            "show_gift_card_recipient": {
+              "label": "Vis mottakerinformasjonsskjema for gavekort",
+              "info": "Lar kjøpere sende gavekort på en planlagt dato sammen med en personlig melding. [Finn ut mer](https://help.shopify.com/manual/online-store/themes/customizing-themes/add-gift-card-recipient-fields)"
+            }
+          }
+        },
+        "subscription_widget": {
+          "name": "Abonnementswidget",
+          "settings": {
+            "info": "Viser engangskjøp og et separat kort for hver salgsplangruppe. Plasser denne blokken over Kjøp-knappene.",
+            "one_time_purchase_title": {
+              "label": "Engangskjøpstittel"
+            },
+            "one_time_purchase_description": {
+              "label": "Engangskjøpsbeskrivelse"
+            },
+            "subscription_description": {
+              "label": "Abonnementsbeskrivelse"
+            },
+            "show_price": {
+              "label": "Vis pris"
+            }
+          }
+        },
+        "share": {
+          "name": "Dele"
+        },
+        "complementary_products": {
+          "name": "Komplementære produkter",
+          "settings": {
+            "paragraph": {
+              "content": "For å velge komplementære produkter, legg til Søk og oppdagelse-appen. [Finn ut mer](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+            },
+            "product_list_limit": {
+              "label": "Maksimalt antall produkter å vise"
+            }
+          }
+        },
+        "pickup_avaiability": {
+          "name": "Henting tilgjengelig"
+        },
+        "media_lightbox": {
+          "name": "Se det i aksjon",
+          "settings": {
+            "enable_sticky": {
+              "label": "Aktiver sticky på skrivebordet"
+            }
+          },
+          "description": "Vis virkelige bilder eller videoer av produktet ditt som er i bruk. For mer informasjon besøk vår [støtteside](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-16.-media-lightbox)"
+        },
+        "highlights": {
+          "name": "Høydepunkter",
+          "description": "Vis frem de viktigste salgsargumentene til produktet ditt. For mer informasjon besøk vår [støtteside](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-8.-highlights)"
+        },
+        "key_features": {
+          "name": "Nøkkelfunksjoner",
+          "description": "List opp hovedfunksjonene og fordelene med produktet ditt. For mer informasjon besøk vår [støtteside](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-9.-key-features)"
+        },
+        "ask_question": {
+          "name": "Still et spørsmål"
+        },
+        "promotion_countdown": {
+          "name": "Kampanjenedtelling",
+          "show_countdown_units": {
+            "label": "Vis nedtellingsenheter"
+          },
+          "description": "Legg til en nedtellingstidtaker for å gjøre det haster med markedsføringen av produktet ditt. For mer informasjon besøk vår [støtteside](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-11.-promotion-countdown)."
+        },
+        "promotion_alert": {
+          "name": "Kampanjevarsel",
+          "heading": {
+            "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+            "label": "Overskrift"
+          },
+          "description": {
+            "label": "Beskrivelse"
+          },
+          "text_color": {
+            "label": "Tekstfarge"
+          }
+        },
+        "icon_with_text": {
+          "name": "Ikon med tekst",
+          "heading": {
+            "label_1": "Ikon med tekst 1",
+            "label_2": "Ikon med tekst 2",
+            "label_3": "Ikon med tekst 3",
+            "label_4": "Ikon med tekst 4",
+            "label_5": "Ikon med tekst 5"
+          },
+          "info": "Dette innholdet blir automatisk skjult på mobil.",
+          "svg": {
+            "label": "Svg-ikon"
+          },
+          "content": {
+            "label": "Innhold"
+          },
+          "icon": {
+            "none": {
+              "label": "None"
+            },
+            "free_shipping": {
+              "label": "Gratis frakt"
+            },
+            "check_badge": {
+              "label": "Sjekk merket"
+            },
+            "message_communications": {
+              "label": "Meldingskommunikasjon"
+            },
+            "truck": {
+              "label": "Lastebil"
+            },
+            "question": {
+              "label": "Spørsmål"
+            },
+            "location": {
+              "label": "Sted"
+            },
+            "leaf": {
+              "label": "Blad"
+            },
+            "blossom": {
+              "label": "Blossom"
+            },
+            "payment": {
+              "label": "Betaling"
+            },
+            "discount": {
+              "label": "Discount"
+            },
+            "order": {
+              "label": "Bestille"
+            },
+            "return": {
+              "label": "Retur"
+            },
+            "return_package": {
+              "label": "Returpakke"
+            }
+          }
+        },
+        "inventory_status": {
+          "name": "Lagerstatus",
+          "settings": {
+            "inventory_threshold": {
+              "label": "Lav lagerterskel",
+              "info": "Angi denne verdien for å varsle kunder når et produkt er i ferd med å gå ut av lager."
+            },
+            "inventory_base": {
+              "label": "Lagergrunnlag",
+              "info": "Angi den første mengden av produktbeholdningen for fremdriftsindikator."
+            }
+          }
+        },
+        "disclosures": {
+          "name": "Opplysninger",
+          "description": "Påkrevde sikkerhetsadvarsler og regulatoriske opplysninger for dette produktet. For mer informasjon, besøk vår [støtteside](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information).",
+          "settings": {
+            "heading": {
+              "label": "Overskrift",
+              "default": "Viktig informasjon"
+            },
+            "open_by_default": {
+              "label": "Åpen som standard"
+            }
+          }
+        }
+      },
+      "divider": {
+        "section_divider_heading": "Seksjonsdeler",
+        "show_divider": "Vis skillelinje",
+        "top": "Øvre avdeler",
+        "top_info": "Skjules når seksjonen ovenfor har en nedre avdeler av typen Bølge eller Kurve",
+        "bottom_info": "Linjen skjules når seksjonen nedenfor har en øvre avdeler av typen Bølge eller Kurve",
+        "bottom": "Nedre avdeler",
+        "none": "Ingen",
+        "line": "Linje",
+        "wave": "Bølge",
+        "curve_out": "Kurve ut",
+        "curve_in": "Kurve inn"
+      },
+      "metafield": {
+        "short_description": {
+          "label": "Kort beskrivelse Metafelt",
+          "info": "Produktmetafelt. Brukes når en kort beskrivelse er tilgjengelig. Format: namespace.key. Default: custom.short_description."
+        },
+        "highlights": {
+          "label": "Høydepunkter Metafelt",
+          "info": "Produktmetafelt. Liste over highlight-ikoner/titler. Format: namespace.key. Default: custom.highlights."
+        },
+        "key_features": {
+          "label": "Nøkkelfunksjoner Metafelt",
+          "info": "Produktmetafelt. Liste over tittel/beskrivelse-elementer. Format: namespace.key. Default: custom.key_features."
+        },
+        "media_lightbox": {
+          "label": "Medie-lightbox Metafelt",
+          "info": "Produktmetafelt. Liste over bilder/videoer til galleriet. Format: namespace.key. Default: custom.media_lightbox."
+        },
+        "model_size": {
+          "label": "Modellstørrelse Metafelt",
+          "info": "Produktmetafelt. (metaobjekt) med modellmål. Format: namespace.key. Default: custom.model_size."
+        },
+        "product_sizing": {
+          "label": "Produktstørrelser Metafelt",
+          "info": "Produktmetafelt. Liste til størrelsesskalaen. Format: namespace.key. Default: custom.product_sizing."
+        },
+        "shop_the_look": {
+          "label": "Handle looket Metafelt",
+          "info": "Produktmetafelt. Liste over look-bilder og produkter. Format: namespace.key. Default: custom.shop_the_look."
+        },
+        "similar_products": {
+          "label": "Lignende produkter Metafelt",
+          "info": "Produktmetafelt. Liste over lignende produkter. Format: namespace.key. Default: custom.similar_products."
+        },
+        "frequently_bought_together": {
+          "label": "Ofte kjøpt sammen Metafelt",
+          "info": "Produktmetafelt. Liste over produkter å kjøpe sammen. Format: namespace.key. Default: custom.frequently_bought_together."
+        },
+        "complete_the_look": {
+          "label": "Fullfør looket Metafelt",
+          "info": "Produktmetafelt. Liste over outfit-produkter. Format: namespace.key. Default: custom.complete_the_look."
+        },
+        "info_gallery": {
+          "label": "Infogalleri Metafelt",
+          "info": "Produktmetafelt. Liste over gallerikort (bilde + tekst). Format: namespace.key. Default: custom.info_gallery."
+        },
+        "compare_items": {
+          "label": "Sammenlign varer Metafelt",
+          "info": "Produktmetafelt. Liste over produkter å sammenligne. Format: namespace.key. Default: custom.compare_items."
+        },
+        "ingredient_highlights": {
+          "label": "Ingredienshøydepunkter Metafelt",
+          "info": "Produktmetafelt. Vises i sammenligningsraden. Format: namespace.key. Default: custom.ingredient_highlights."
+        },
+        "subcollection": {
+          "label": "Underkolleksjon Metafelt",
+          "info": "Kolleksjonsmetafelt. Liste over underordnede kolleksjoner. Format: namespace.key. Default: custom.subcollection."
+        }
+      }
+    },
+    "group": {
+      "product": "Products",
+      "collection": "Samlinger",
+      "storytelling": "Historiefortelling",
+      "banners": "Bannere",
+      "blog": "Blog",
+      "form": "Skjemaer",
+      "shopable": "Shopables",
+      "blocks": {
+        "basic": "Grunnleggende",
+        "layout": "Verktøy og layout",
+        "custom": "Custom",
+        "forms": "Skjemaer"
+      },
+      "decorative": {
+        "name": "Dekorativt",
+        "marquee": "Marquee",
+        "how_to_use_maquee": "[Hvordan bruke denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/marquee)"
+      },
+      "links": {
+        "name": "Lenker",
+        "menu": "Menu",
+        "how_to_use_menu": "[Hvordan bruke denne blokken](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)",
+        "how_to_use_popup_link": "[Hvordan bruke denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/links/popup-link)",
+        "popup_link": "Popup-lenke"
+      },
+      "general": {
+        "name": "Generelt",
+        "image_box": "Bildeboks",
+        "image_box_use": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/overlay-group/search)"
+        }
+      }
+    },
+    "overlay_group": {
+      "name": "Overleggsgruppe"
+    },
+    "search": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/overlay-group/search)",
+      "name": "Søk"
+    },
+    "footer": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/footer-group/footer)",
+      "name": "Bunntekst",
+      "settings": {
+        "enable_back_top": {
+          "label": "Aktiver tilbake til toppen"
+        },
+        "show_policy": {
+          "label": "Retningslinjer",
+          "info": "[Administrer retningslinjer](/admin/settings/legal)"
+        },
+        "country_language": {
+          "content": "Land/språkvelger",
+          "info": "For å legge til et land/region, gå til [markedsinnstillingene.](/admin/settings/markets). For å legge til et språk, gå til [språkinnstillingene.](/admin/settings/languages)"
+        },
+        "enable_country_selector": {
+          "label": "Aktiver land/region-velger"
+        },
+        "width": {
+          "options__1": "16%",
+          "options__2": "20%",
+          "options__3": "25%",
+          "options__4": "33%",
+          "options__5": "50%",
+          "options__6": "66%",
+          "options__7": "75%",
+          "options__8": "86%",
+          "options__9": "100%"
+        },
+        "enable_language_selector": {
+          "label": "Aktiver språkvelger"
+        },
+        "payment": {
+          "content": "Betalingsmetoder"
+        },
+        "payment_enable": {
+          "label": "Vis betalingsikoner"
+        },
+        "menu_policies": {
+          "label": "Bunntekst nederst"
+        },
+        "header_follow": {
+          "content": "Følg med på Shop",
+          "info": "For å la kunder følge butikken din på Shop-appen fra butikkfronten din, må Shop Pay være aktivert. [Finn ut mer](https://help.shopify.com/manual/online-store/themes/customizing-themes/follow-on-shop)"
+        },
+        "enable_follow_on_shop": {
+          "label": "Aktiver Følg på butikk"
+        }
+      },
+      "blocks": {
+        "menu_block": {
+          "label": "Menu"
+        },
+        "newsletter_block": {
+          "name": "Nyhetsbrev",
+          "info": "Abonnenter legges automatisk til din \"akseptert markedsføring\"-kundeliste. [Finn ut mer](https://help.shopify.com/manual/customers/manage-customers)",
+          "settings": {
+            "note": {
+              "label": "Note"
+            }
+          }
+        },
+        "contact_bar_block": {
+          "name": "Kontaktlinje",
+          "settings": {
+            "store_address": "Adresse",
+            "store_phone": "Telefon",
+            "store_email": "Email",
+            "show_social": {
+              "label": "Vis ikoner for sosiale medier",
+              "info": "For å vise kontoene dine for sosiale medier, koble dem til i temainnstillingene."
+            }
+          }
+        }
+      }
+    },
+    "header": {
+      "name": "Overskrift",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header)",
+      "settings": {
+        "sticky_header_type": {
+          "label": "Klistret overskrift",
+          "options__1": {
+            "label": "None"
+          },
+          "options__2": {
+            "label": "På scroll opp"
+          },
+          "options__3": {
+            "label": "Alltid"
+          }
+        },
+        "menu": {
+          "label": "Menu",
+          "menu_trigger": {
+            "label": "Utløser for rullegardinmenyen på skrivebordet",
+            "options__1": {
+              "label": "Klikk"
+            },
+            "options__2": {
+              "label": "Hold musepekeren"
+            }
+          },
+          "dropdowns_animation": {
+            "label": "Dropdown-animasjon",
+            "options__1": {
+              "label": "Fade inn"
+            },
+            "options__3": {
+              "label": "Ned til opp"
+            }
+          }
+        },
+        "menu_mobile": {
+          "label": "Mobilmenyinnstillinger",
+          "menu_icon": {
+            "label": "Hamburgerikonposisjon",
+            "info": "Velg hvor hamburgermenyen skal vises på mobil."
+          }
+        },
+        "addons": {
+          "label": "Tillegg",
+          "show_account": {
+            "label": "Vis kontoikon"
+          },
+          "show_search": {
+            "label": "Vis søk"
+          },
+          "show_cart": {
+            "label": "Vis handlekurv"
+          },
+          "show_offer": {
+            "label": "Vis tilbud"
+          },
+          "show_language": {
+            "label": "Vis språk"
+          },
+          "show_currency": {
+            "label": "Vis valuta"
+          }
+        },
+        "transparent": {
+          "content": "Gjennomsiktig overskrift",
+          "info": "Sørg for at den første delen på hjemmesiden din er konfigurert som en av følgende: en lysbildefremvisning, en video med et tekstoverlegg eller et bilde med et tekstoverlegg.",
+          "transparent": {
+            "label": "Aktiver gjennomsiktig overskrift"
+          },
+          "text_icon_transparent": {
+            "label": "Tekst og ikonfarge"
+          }
+        },
+        "blocks": {
+          "mega_menu": {
+            "name": "Banner (megameny)",
+            "how_to_use": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#banner-mega-menu)",
+            "banners": {
+              "label": "Bannerinnstillinger"
+            },
+            "promotion_1": {
+              "label": "Bannere #1"
+            },
+            "promotion_2": {
+              "label": "Bannere #2"
+            },
+            "promotion_3": {
+              "label": "Bannere #3"
+            },
+            "promotion_4": {
+              "label": "Bannere #4"
+            },
+            "promotion_5": {
+              "label": "Bannere #5"
+            },
+            "info": "448px x 260px anbefales"
+          },
+          "menu_item": {
+            "label": "Menyelement",
+            "info": "Gå inn på menyelementet for å bruke en megameny-rullegardin. Vennligst skille mellom store og små bokstaver."
+          },
+          "menu_column": {
+            "label": "Skrivebordsmenykolonner"
+          },
+          "product": {
+            "name": "Produkter (Mega meny)",
+            "how_to_use": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#product-mega-menu)",
+            "header": "Products"
+          },
+          "collection": {
+            "name": "Samlinger (Mega meny)",
+            "how_to_use": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#collection-mega-menu)",
+            "header": "Samlinger"
+          },
+          "menu_highlight": {
+            "name": "Menyutheving",
+            "menu_items": {
+              "label": "Menyelementer for å markere",
+              "info": "Skriv inn navnene på menyelementene som skal utheves, atskilt med komma (f.eks. Salg, New Arrivals). Vennligst skille mellom store og små bokstaver."
+            },
+            "highlight_color": {
+              "label": "Fremhev farge"
+            },
+            "highlight_icon": {
+              "label": "Uthev ikon",
+              "options": {
+                "unset": "Deaktivert",
+                "star": "Stjerne",
+                "custom": "Custom"
+              }
+            },
+            "custom_icon": {
+              "label": "Egendefinert ikon",
+              "info": "Valgfritt ikon for å vise ved siden av uthevede menyelementer (anbefalt størrelse: 24x24px)"
+            }
+          }
+        },
+        "header_layout": {
+          "label": "Skrivebordstopplayout",
+          "info": "Oppsettet optimaliseres automatisk for mobil.",
+          "options__1": {
+            "label": "Logo venstre, menysenter"
+          },
+          "options__2": {
+            "label": "Logosenter, meny til venstre"
+          },
+          "options__3": {
+            "label": "Logo i midten, meny under"
+          },
+          "options__4": {
+            "label": "Logo til venstre, meny under"
+          },
+          "options__5": {
+            "label": "Logo til venstre, meny til venstre"
+          }
+        }
+      }
+    },
+    "custom_liquid": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "how_to_use_block": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "name": "Tilpasset væske",
+      "liquid_code": "Flytende kode",
+      "info": "Legg til appbiter eller annen flytende kode for å lage avanserte tilpasninger.",
+      "info_custom_liquid": "Legg til appbiter eller annen kode for å lage avanserte tilpasninger. [Finn ut mer](https://shopify.dev/docs/api/liquid)"
+    },
+    "blog-posts": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/blog-posts)",
+      "name": "Blogginnlegg",
+      "settings": {
+        "blog-post": {
+          "label": "Blogginnlegg",
+          "blog_post_type": {
+            "label": "Type blogginnlegg",
+            "category": "Kategori",
+            "select_blog": "Utvalgte blogger"
+          }
+        },
+        "blog": {
+          "label": "Blog"
+        }
+      }
+    },
+    "multi_content": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/multi-content)",
+      "name": "Multiinnhold",
+      "blocks": {
+        "label": "Blokker innstillinger",
+        "bellow_image": "Merkeinnstillinger",
+        "badge": "Skilt",
+        "equal_height_adjustment": {
+          "label": "Lik høydejustering"
+        },
+        "social_icon": "Sosiale ikoner",
+        "grid_info": "Rutenettinformasjon",
+        "grid_info_1": "Rutenettinformasjon 1",
+        "grid_info_2": "Rutenettinfo 2",
+        "grid_info_3": "Rutenettinformasjon 3",
+        "grid_info_4": "Rutenettinformasjon 4"
+      }
+    },
+    "grid_banner": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/banners/grid-banner)",
+      "name": "Rutenettbanner",
+      "settings": {
+        "hidden_block_des_mobile": {
+          "label": "Skjul varebeskrivelse på mobil"
+        }
+      },
+      "blocks": {
+        "item": {
+          "name": "Bannerelement",
+          "show_arrow": "Vis pilikon"
+        }
+      }
+    },
+    "scrolling_text": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/scrolling-text)",
+      "name": "Rulletekst",
+      "settings": {
+        "direction": {
+          "label": "Retning",
+          "left": {
+            "label": "Høyre til venstre"
+          },
+          "right": {
+            "label": "Venstre til høyre"
+          }
+        },
+        "speed": {
+          "label": "Fart"
+        },
+        "text_size": {
+          "label": "Size"
+        },
+        "blocks": {
+          "image": {
+            "rounded_image": {
+              "label": "Bilde hjørneradius"
+            },
+            "image_height": {
+              "label": "Bildehøyde"
+            },
+            "image_width": {
+              "label": "Bredde"
+            }
+          }
+        }
+      }
+    },
+    "shopby-outfit": {
+      "name": "Handle etter antrekk",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-by-outfit)",
+      "blocks": {
+        "outfit": {
+          "name": "Antrekk",
+          "settings": {
+            "product": {
+              "label": "Produktliste"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Handle etter antrekk"
+      },
+      "setting": {
+        "media": {
+          "label": "Medietype"
+        },
+        "video_autoplay": {
+          "info": "Det fungerer bare når Video er valgt i Media Type-blokkinnstillingene."
+        }
+      }
+    },
+    "collection-list": {
+      "name": "Samlingsliste",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/collection-list)",
+      "settings": {
+        "header": {
+          "collection": "Collection",
+          "collection_title": "Samlingstittel",
+          "collection_card": "Samlekort",
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "how_to_use_collection_title": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/sections/page-heading)"
+        },
+        "collection_title_style": {
+          "label": "Samlingstittelstil",
+          "text": "Text",
+          "button": "Knapp"
+        },
+        "show_product_count": {
+          "label": "Vis produktantall"
+        },
+        "overlay_image_settings": "Innstillinger for overleggsbilde",
+        "overlay_image_color": "Tekstfarge",
+        "collection_overlay_image_color": "Samlingers tekstfarge"
+      },
+      "blocks": {
+        "featured_collection": {
+          "name": "Collection",
+          "settings": {
+            "collection": {
+              "label": "Collection"
+            },
+            "image": {
+              "label": "Image",
+              "info": "La stå tomt for å bruke samlingens bilde",
+              "info_highlight": "La stå tomt for å bruke samlingens bilde. 330px x 520px anbefales",
+              "info_suitable": "La stå tomt for å bruke samlingens bilde. 147px x 72px anbefales",
+              "info_collection_item": "444px x 444px anbefales"
+            },
+            "title": {
+              "label": "Tittel",
+              "info": "La stå tomt for å bruke samlingens tittel"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Samlingsliste"
+      }
+    },
+    "quickview": {
+      "name": "Hurtigvisning",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/overlay-group/quickview)",
+      "settings": {
+        "paragraph": "Denne delen lar deg tilpasse hurtigvisningen."
+      }
+    },
+    "featured-collection": {
+      "name": "Utvalgt samling",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/featured-collection)"
+    },
+    "expandable_card": {
+      "name": "Utvidbart kort",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/expandable-card)",
+      "settings": {
+        "card_header": "Kortinnstillinger",
+        "interaction_behavior": {
+          "label": "Interaksjonsatferd",
+          "options": {
+            "hover": "Vis ved pekeren",
+            "drawer": "Klikk på åpne skuff"
+          }
+        }
+      },
+      "blocks": {
+        "layered_card": {
+          "name": "Lagdelte kort",
+          "settings": {
+            "media_header": "Image",
+            "description": "Beskrivelse",
+            "drawer_page": "Beskrivelse fra side"
+          }
+        }
+      }
+    },
+    "featured-product": {
+      "name": "Utvalgt produkt",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/featured-product)",
+      "settings": {
+        "product": "Product"
+      }
+    },
+    "slideshow": {
+      "name": "Lysbildefremvisning",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/slideshow)",
+      "settings": {
+        "loading_background_color": {
+          "label": "Laster inn bakgrunn",
+          "info": "Bakgrunnsfarge vises mens videolysbildet lastes inn."
+        },
+        "slide_height": {
+          "label": "Sklihøyde",
+          "full_screen": "Fullskjerm",
+          "adapt_to_first_image": "Tilpass det første bildet",
+          "small": "Liten",
+          "medium": "Medium",
+          "large": "Stor"
+        },
+        "info": "1920px x 840px anbefales",
+        "info_mobile": "390px x 572px anbefales",
+        "blocks": {
+          "image": {
+            "label": "Bildelysbilde",
+            "image_overlay_opacity": {
+              "label": "Opasitet for bildeoverlegg",
+              "overlay_opacity": "Overleggsopasitet"
+            }
+          },
+          "video": {
+            "label": "Video lysbilde",
+            "video_setting": "Videoinnstillinger",
+            "video_overlay_opacity": {
+              "label": "Opasitet for videooverlegg"
+            }
+          }
+        }
+      }
+    },
+    "related-products": {
+      "name": "Relaterte produkter",
+      "how_to_use": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/related-products)"
+    },
+    "similar-products": {
+      "name": "Handle lignende produkt",
+      "how_to_use": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-product)"
+    },
+    "complete-the-look": {
+      "name": "Fullfør utseendet",
+      "how_to_use": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/group-sections/products/complete-the-look)"
+    },
+    "similar-color": {
+      "name": "Handle lignende farge",
+      "how_to_use": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-color)"
+    },
+    "quick-order-list": {
+      "name": "Rask bestillingsliste"
+    },
+    "newsletter": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/newsletter)",
+      "name": "Nyhetsbrev",
+      "settings": {
+        "header": {
+          "heading_setting": "Innstilling av nyhetsbrev"
+        }
+      }
+    },
+    "rich-text": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/rich-text)",
+      "name": "Rik tekst",
+      "settings": {
+        "max_width": {
+          "label": "Maks bredde",
+          "info": "Maks bredde er automatisk optimalisert for mobil."
+        },
+        "rotating_text": "Sirkulær tekst",
+        "separator_spacing": {
+          "label": "Skilleavstand",
+          "info": "Legger til mellomrom på begge sider av skilletegn som - eller • mellom fraser."
+        }
+      }
+    },
+    "recently-viewed-products": {
+      "name": "Nylig viste produkter",
+      "info": "Lagre siden for å laste nylig viste produkter",
+      "how_to_use": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/recently-product)"
+    },
+    "info-gallery-products": {
+      "name": "Nøkkelingredienser",
+      "how_to_use": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metaobjects/info-gallery)"
+    },
+    "product-benefits": {
+      "name": "Produktfordeler",
+      "how_to_use": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/product-benefits)",
+      "settings": {
+        "media_header": "Senter media",
+        "image": {
+          "label": "Image",
+          "info": "Bruker produktbildet når det er tomt. 640 x 900 piksler anbefales."
+        },
+        "media_width": {
+          "label": "Bildebredde på skrivebordet"
+        },
+        "video": {
+          "label": "Video"
+        },
+        "video_poster": {
+          "label": "Videoplakatbilde"
+        }
+      },
+      "blocks": {
+        "benefit": {
+          "name": "Fordel",
+          "settings": {
+            "icon": {
+              "label": "Ikon"
+            }
+          }
+        }
+      }
+    },
+    "quiz-results-products": {
+      "name": "Quizresultater produkter"
+    },
+    "quiz": {
+      "name": "Quiz",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/utilities-and-layout/quiz)",
+      "settings": {
+        "intro_header": "Intro",
+        "enable_intro_step": {
+          "label": "Aktiver introduksjonstrinn"
+        },
+        "intro_button_label": {
+          "label": "Startknappetikett"
+        },
+        "show_retake_button": {
+          "label": "Vis gjentak-knappen"
+        },
+        "retake_label": {
+          "label": "Ta etiketten på knappen på nytt"
+        },
+        "results_display_header": "Resultatvisning",
+        "content_max_width": {
+          "label": "Innhold maks bredde"
+        },
+        "show_back_button": {
+          "label": "Vis tilbake-knapp"
+        },
+        "email_header": "E-post trinn",
+        "enable_email_step": {
+          "label": "Aktiver e-posttrinn"
+        },
+        "email_heading": {
+          "label": "E-postoverskrift"
+        },
+        "email_placeholder": {
+          "label": "E-postplassholder"
+        },
+        "continue_label": {
+          "label": "Fortsett knappetikett"
+        },
+        "skip_label": {
+          "label": "Hopp over knappetikett"
+        },
+        "results_banner_image": {
+          "label": "Resultatbannerbilde"
+        },
+        "fallback_products": {
+          "label": "Reserveprodukter",
+          "info": "Produkter som vises kun når quizsvar ikke gir sterke eller delvise treff. Bruk som en sikkerhetskopi slik at resultatsiden aldri er tom."
+        },
+        "results_products_limit": {
+          "label": "Maksimalt antall produkter å vise"
+        }
+      }
+    },
+    "compare-products": {
+      "name": "Sammenlign produkter",
+      "how_to_use": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/compare-items)",
+      "settings": {
+        "header": {
+          "label": "Sammenlign innstillinger"
+        },
+        "show_price": "Pris",
+        "show_ratings": "Vurderinger",
+        "show_vendor": "Selger",
+        "show_color": "Color",
+        "show_size": "Size",
+        "show_highlights": "Høydepunkter",
+        "show_availability": "Tilgjengelighet"
+      }
+    },
+    "bought-together-products": {
+      "name": "Kjøpte produkter sammen",
+      "how_to_use": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/frequently-bought-together)"
+    },
+    "media-with-text": {
+      "name": "Medier med tekst",
+      "info_image": {
+        "info_desktop": "950px x 844px anbefales",
+        "info_mobile": "475px x 422px anbefales",
+        "info_video": "Overstyrer bildeinnstillingen. 950px x 844px anbefales"
+      }
+    },
+    "product-specifications": {
+      "name": "Produktspesifikasjoner",
+      "item_name": "Product specifications item",
+      "specifications_layout": "Spesifikasjonslayout",
+      "grid_gap": "Rutenettavstand",
+      "mobile_rows_shown": "Rader",
+      "view_more_label": "Etikett for Vis mer-knappen",
+      "view_less_label": "Etikett for Vis mindre-knappen",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-specifications)"
+    },
+    "image-with-text": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/image-with-text)",
+      "name": "Bilde med tekst",
+      "settings": {
+        "desktop_vertical_alignment": {
+          "label": "Desktop vertikal justering",
+          "top": "Topp",
+          "middle": "Midten",
+          "bottom": "Bunn"
+        },
+        "vertical_alignment": "Vertikal justering",
+        "background_type": {
+          "label": "Bakgrunnstype",
+          "image": "Image",
+          "color": "Color"
+        },
+        "background_color": "Bakgrunnsfarge",
+        "background_image": "Bakgrunnsbilde",
+        "text_color": "Tekstfarge",
+        "image_info": "696px x 500px anbefales",
+        "offer_image_with_text_info": "360px x 200px anbefales",
+        "image_caption": {
+          "label": "Bildetekst",
+          "heading": "Overskrift",
+          "description": "Beskrivelse",
+          "position": "Posisjon"
+        }
+      }
+    },
+    "before_after_result": {
+      "name": "Før etter",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/banners/before-after)",
+      "before_text": {
+        "label": "Før tekst",
+        "default": "Før"
+      },
+      "after_text": {
+        "label": "Etter tekst",
+        "default": "Etter"
+      }
+    },
+    "parallax-image-with-text": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/banners/parallax-split)",
+      "name": "Parallaksedeling",
+      "settings": {
+        "image": {
+          "image_1": {
+            "label": "Bilde 1"
+          },
+          "image_2": {
+            "label": "Bilde 2"
+          },
+          "image_3": {
+            "label": "Bilde 3"
+          }
+        },
+        "parallax_image": {
+          "label": "Parallakse bilde"
+        }
+      }
+    },
+    "discount_popup": {
+      "info": "Denne delen brukes til å vise en popup etter abonnement.",
+      "name": "Rabatt popup",
+      "how_to_use": "[Hvordan bruker du denne innstillingen](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/discount-popup)",
+      "settings": {
+        "discount_code": {
+          "label": "Kampanjelenke",
+          "info": "Hvordan få promoto-lenke? [Finn ut mer](https://help.shopify.com/en/manual/discounts/managing-discount-codes#promote-a-discount-using-a-shareable-link)"
+        },
+        "discount_button": {
+          "label": "Kampanjeknappetikett",
+          "default": "👉 Handle med 10% rabatt"
+        },
+        "sub_heading": {
+          "default": "Hurra! Du abonnerer"
+        },
+        "info_image": "Dette bildet vil bli skjult automatisk på mobilen. 350px x 410px anbefales"
+      }
+    },
+    "image-with-text-overlay": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/image-with-text-overlay)",
+      "name": "Bilde med tekstoverlegg",
+      "countdown": "Nedtellingstidtaker",
+      "count_down": "Nedtelling",
+      "how_to_use_count_down": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/countdown)",
+      "end_time": {
+        "label": "Sluttid",
+        "info": "f.eks. mm-dd-åååå"
+      },
+      "message": {
+        "label": "Utløpt melding",
+        "info": "Denne meldingen vises når tiden er utløpt."
+      },
+      "image_info": {
+        "info_desktop": "1392px x 500px anbefales",
+        "info_mobile": "400px x 469px anbefales"
+      }
+    },
+    "media-hero": {
+      "name": "Mediehelt",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/media-hero)",
+      "media": "Media",
+      "info": "Overstyrer bildeinnstillingen."
+    },
+    "video": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/video)",
+      "name": "Video",
+      "settings": {
+        "video_local": {
+          "label": "Video lokal",
+          "info_2": "Overstyrer Video URL-innstillingen.",
+          "info_multi_content_video": "Overstyrer Video URL-innstillingen. 684px x 500px anbefales.",
+          "info_poster": "Bruk samme dimensjoner som video"
+        },
+        "video_link": {
+          "label": "Video-URL",
+          "info": "Godtar YouTube eller Vimeo URL"
+        },
+        "video_poster": {
+          "label": "Videoplakat"
+        },
+        "alt_description": {
+          "label": "Video alt tekst",
+          "info": "Beskriv videoen for kunder som bruker skjermlesere. [Finn ut mer](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#video-block)"
+        },
+        "autoplay": {
+          "label": "Automatisk avspilling av video",
+          "info": "Videoer dempes automatisk for å tillate autoavspilling"
+        },
+        "looping": {
+          "label": "Videoloop"
+        },
+        "show_action": {
+          "label": "Vis videokontroller"
+        },
+        "aspect_ratio": {
+          "label": "Sideforhold",
+          "option__1": "16:9",
+          "option__2": "21:9",
+          "option__3": "Tilpass til video"
+        },
+        "show_text_bellow": {
+          "label": "Vis tekst under video på mobil",
+          "info": "Teksten vises under videoen på mobilen."
+        }
+      }
+    },
+    "main-password-content": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/other-pages/password-page)",
+      "name": "Hovedpassordside",
+      "settings": {
+        "header__2": {
+          "content": "Innholdsinnstilling"
+        }
+      },
+      "blocks": {
+        "countdown_bn": {
+          "settings": {
+            "countdown_design": {
+              "label": "Design",
+              "options__1": {
+                "label": "Default"
+              },
+              "options__2": {
+                "label": "Moderne"
+              }
+            }
+          }
+        },
+        "form_subscribe": {
+          "name": "Abonner på skjema",
+          "settings": {
+            "email_placeholder": {
+              "label": "E-postplassholdertekst"
+            },
+            "btn_label": {
+              "label": "Knappetekst"
+            }
+          }
+        }
+      }
+    },
+    "divider": {
+      "settings": {
+        "height": {
+          "label": "Height"
+        },
+        "color": {
+          "label": "Color"
+        }
+      }
+    },
+    "faq": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/faqs)",
+      "name": "Vanlige spørsmål",
+      "main-faq": "Hovedsiden for ofte stilte spørsmål",
+      "heading": {
+        "content": "Vanlige spørsmål"
+      },
+      "info_image": "646px x 700px anbefales",
+      "settings": {
+        "show_faqs_message": "Vis vanlige spørsmål",
+        "show_image": "Vis bilde",
+        "open_all_question": "Åpne alle spørsmål",
+        "framed": "Innrammet",
+        "faq_style": "FAQ-stil",
+        "desktop_layout": {
+          "label": "Skrivebordsoppsett",
+          "horizontal": "Horisontal",
+          "vertical": "Vertikal"
+        }
+      },
+      "blocks": {
+        "name": "Vanlige spørsmål",
+        "settings": {
+          "question": {
+            "question": "Spørsmål",
+            "answer": "Svare"
+          }
+        }
+      }
+    },
+    "page-faq": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/other-pages/faq-page)"
+    },
+    "video-with-text-overlay": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/video-with-text-overlay)",
+      "name": "Video med tekstoverlegg",
+      "settings": {
+        "video_local": {
+          "label": "Video lokal",
+          "info": "Overstyrer Video URL-innstillingen. 1392px x 550px anbefales",
+          "info_mobile": "390px x 550px anbefales"
+        },
+        "video_link": {
+          "label": "Videolink"
+        },
+        "video_poster": {
+          "info": "Samme dimensjoner som video"
+        },
+        "overlay_opacity": "Overleggsopasitet",
+        "video_height": {
+          "label": "Video høyde",
+          "options__1": {
+            "label": "Tilpass til video"
+          },
+          "options__2": {
+            "label": "Liten"
+          },
+          "options__3": {
+            "label": "Medium"
+          },
+          "options__4": {
+            "label": "Stor"
+          }
+        }
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "Produktrutenett",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/product-grid)",
+      "settings": {
+        "items_per_page": {
+          "label": "Elementer som skal vises per side"
+        },
+        "columns_desktop": {
+          "label": "Kolonner per rad på skrivebordet"
+        },
+        "show_product_counts": {
+          "label": "Vis produkttellinger"
+        }
+      }
+    },
+    "main-collection": {
+      "settings": {
+        "items_per_page": {
+          "label": "Elementer som skal vises per side"
+        },
+        "columns_desktop": {
+          "label": "Kolonner per rad på skrivebordet"
+        },
+        "enable_filtering": {
+          "label": "Aktiver filtrering",
+          "info": "Tilpass filtre med Search & Discovery-appen. [Finn ut mer](https://help.shopify.com/manual/online-store/search-and-discovery/filters)"
+        },
+        "filter_type": {
+          "label": "Skrivebordsfilteroppsett",
+          "options__1": {
+            "label": "Horizontal"
+          },
+          "options__2": {
+            "label": "Vertical"
+          },
+          "options__3": {
+            "label": "Skuff"
+          }
+        },
+        "enable_sorting": {
+          "label": "Aktiver sortering"
+        },
+        "show_product_counts": {
+          "label": "Vis produkttellinger"
+        },
+        "header__1": {
+          "content": "Filtrering og sortering"
+        }
+      },
+      "blocks": {
+        "promotion": {
+          "name": "Forfremmelse",
+          "promotion_position": {
+            "label": "Forfremmelsesstilling"
+          },
+          "info": "330px 550px anbefales"
+        },
+        "steps": {
+          "name": "Handle for steg",
+          "info": "337px x 200px anbefales"
+        }
+      }
+    },
+    "main-search": {
+      "name": "Søkeresultater",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/other-pages/search-page)",
+      "settings": {
+        "search_results": {
+          "label": "Vis resultater",
+          "option_1": "Default",
+          "option_2": "Tab"
+        }
+      }
+    },
+    "main-article": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/other-pages/blog-post-page)",
+      "name": "Blogginnlegg",
+      "settings": {
+        "show_date": "Vis publiseringsdato",
+        "show_comment": "Vis kommentar",
+        "show_excerpt": "Vis innleggsutdrag",
+        "show_share": "Vis deleknapp",
+        "blocks": {
+          "featured_image": "Utvalgt bilde",
+          "content_article": "Innhold",
+          "addons": "Tillegg",
+          "prev_next_articles": "Forrige og neste artikler"
+        }
+      },
+      "related": {
+        "heading": "Relaterte artikler",
+        "articles": {
+          "label": "Artikler",
+          "info": "Vises i denne rekkefølgen. La stå tomt for å vise de nyeste artiklene fra denne bloggen."
+        }
+      },
+      "blocks": {
+        "featured_image": {
+          "settings": {
+            "image_height": {
+              "label": "Bildehøyde",
+              "options__1": {
+                "label": "Tilpass til bildet"
+              },
+              "options__2": {
+                "label": "Liten"
+              },
+              "options__3": {
+                "label": "Medium"
+              },
+              "options__4": {
+                "label": "Stor"
+              }
+            }
+          }
+        }
+      },
+      "related_product": {
+        "heading": "Relaterte produkter",
+        "products": {
+          "label": "Produkter"
+        }
+      }
+    },
+    "cart-drawer": {
+      "name": "Vognskuff",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/overlay-group/cart-drawer)",
+      "settings": {
+        "info": "For å vise vognskuffen, gå til Temainnstillinger og velg Skuff som vogntype i [vogninnstillinger.](/editor?context=theme&category=cart)",
+        "content": "",
+        "show_free_shipping_message": {
+          "label": "Vis gratis fraktmelding",
+          "info": "Angi minimumsbeløpet for gratis frakt i temainnstillingene."
+        },
+        "show_cart_note": "Vis handlekurv notat",
+        "show_estimate_shipping": "Vis estimat for frakt",
+        "show_discount": "Vis rabattkode",
+        "hide_check_badge_on_mobile": "Skjul blokkering av tillitsmerker på mobil",
+        "hide_icon_with_text_on_mobile": "Skjul ikon med tekstblokk på mobil",
+        "show_gift_wrap": {
+          "label": "Vis gavepapir",
+          "info": "Velg gavepapirprodukter i temainnstillingene."
+        },
+        "discount_progress_bar_active": "Rabattfremdriftslinjen er aktivert i temainnstillinger og erstatter meldingen om gratis frakt."
+      }
+    },
+    "main-list-collections": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-list-page)",
+      "name": "Samlingslisteside",
+      "blocks": {
+        "name": "Collection",
+        "settings": {
+          "collection_image": "Samlingsbilde"
+        }
+      },
+      "settings": {
+        "information_position": {
+          "label": "Informasjonsposisjon",
+          "options__1": {
+            "label": "Overleggsbilde"
+          },
+          "options__2": {
+            "label": "Bilde under"
+          }
+        },
+        "collection_to_show": {
+          "label": "Samlinger å vise",
+          "options__1": {
+            "label": "Alle"
+          },
+          "options__2": {
+            "label": "Valgt"
+          }
+        },
+        "sort": {
+          "label": "Sorter samlinger etter",
+          "options__1": {
+            "label": "Alfabetisk, A-Å"
+          },
+          "options__2": {
+            "label": "Alfabetisk, Z-A"
+          },
+          "options__3": {
+            "label": "Dato, nytt til gammelt"
+          },
+          "options__4": {
+            "label": "Dato, gammelt til nytt"
+          },
+          "options__5": {
+            "label": "Produktantall, høyt til lavt"
+          },
+          "options__6": {
+            "label": "Produktantall, lavt til høyt"
+          }
+        }
+      }
+    },
+    "main-blog": {
+      "name": "Blogginnlegg",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/other-pages/blog-page)",
+      "settings": {
+        "header": {
+          "content_post": "Innstillinger for innlegg"
+        },
+        "maximum_posts_to_show": {
+          "label": "Maksimalt antall innlegg å vise"
+        },
+        "post_per_row_desktop": {
+          "label": "Post per rad på skrivebordet"
+        },
+        "show_all_tags": {
+          "label": "Vis etikettliste"
+        }
+      },
+      "blocks": {
+        "name": "Abonnerskjema",
+        "settings": {
+          "show_email_icon": "Vis e-postikon",
+          "form_position": "Skjemaposisjon"
+        }
+      }
+    },
+    "main-product": {
+      "name": "Produktinformasjon",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "settings": {
+        "header": {
+          "content": "Media"
+        },
+        "enable_sticky_desktop": {
+          "label": "Aktiver klebrig legge til handlekurv på skrivebordet"
+        },
+        "desktop_layout": {
+          "label": "Skrivebordsoppsett",
+          "group": {
+            "static": "Rutenett",
+            "carousel": "Karusell"
+          },
+          "one_columns": {
+            "label": "1 kolonne"
+          },
+          "options__1": {
+            "label": "2 kolonner"
+          },
+          "options__2": {
+            "label": "Horisontale miniatyrbilder"
+          },
+          "options__3": {
+            "label": "Stable"
+          },
+          "options__4": {
+            "label": "Vertikale miniatyrbilder"
+          },
+          "options__5": {
+            "label": "Vertikale miniatyrbilder (Rull)"
+          },
+          "options__6": {
+            "label": "2 kolonner"
+          }
+        },
+        "thumbnail_carousel_setting": {
+          "label": "Innstilling for miniatyrkarusell",
+          "number_thumbs": "Antall miniatyrbilder"
+        },
+        "media_position": {
+          "label": "Desktop medieposisjon"
+        },
+        "media_width": {
+          "label": "Mediebredde på skrivebordet"
+        },
+        "mobile_thumbnails": {
+          "options__1": {
+            "label": "Vis miniatyrbilder"
+          },
+          "options__2": {
+            "label": "Skjul miniatyrbilder"
+          }
+        },
+        "enable_video_looping": {
+          "label": "Aktiver videolooping"
+        },
+        "enable_image_zoom": {
+          "label": "Bildezoom",
+          "options__1": {
+            "label": "Deaktiver"
+          },
+          "options__2": {
+            "label": "Zoom innvendig"
+          },
+          "options__3": {
+            "label": "Zoom ut"
+          }
+        },
+        "enable_image_lightbox": {
+          "label": "Aktiver lysboks"
+        },
+        "enable_video_autoplay": {
+          "label": "Aktiver autoavspilling av video",
+          "info": "Videoer dempes automatisk for å tillate autoavspilling. Fungerer ikke for YouTube/Vimeo."
+        },
+        "enable_video_controls_default": {
+          "label": "Aktiver tilpassede videokontroller",
+          "info": "Fungerer ikke for YouTube/Vimeo."
+        }
+      },
+      "blocks": {
+        "custom_product": {
+          "name": "Egendefinerte alternativer",
+          "tab_setting": {
+            "label": "Faneetiketter",
+            "tab_1": {
+              "label": "Fane 1"
+            },
+            "tab_2": {
+              "label": "Fane 2"
+            },
+            "tab_3": {
+              "label": "Fane 3"
+            }
+          },
+          "description": "La kundene tilpasse produktet – posisjon, tekst og farge – gjennom en 3-trinns popup før de legges i handlekurven. For mer informasjon besøk vår [støtteside](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/custom-options)",
+          "placement": "Plassering",
+          "text": "Text",
+          "text_limit": "Tekstgrense",
+          "note": "Note",
+          "color": {
+            "name": "Color",
+            "options": {
+              "color_1": "Farge 1",
+              "color_2": "Farge 2",
+              "color_3": "Farge 3",
+              "color_4": "Farge 4",
+              "color_5": "Farge 5",
+              "color_6": "Farge 6",
+              "color_7": "Farge 7",
+              "color_8": "Farge 8",
+              "color_9": "Farge 9",
+              "color_10": "Farge 10"
+            }
+          }
+        }
+      }
+    },
+    "main-cart-items": {
+      "name": "Hovedvogn",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/other-pages/cart-page)",
+      "block": {
+        "icon_with_text": "Ikon med tekst",
+        "trust_badges": "Tillitsmerker"
+      }
+    },
+    "main-collection-banner": {
+      "name": "Samlingsbanner",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/collection-banner)",
+      "settings": {
+        "heading": {
+          "label": "Innstillinger"
+        },
+        "use_collection_image": {
+          "label": "Bruk samlingsbilde",
+          "info": "Overstyr bakgrunnsbildeinnstillingen"
+        },
+        "image_height": {
+          "option__2": "Basert på innhold"
+        },
+        "image_position": {
+          "label": "Bildeposisjon",
+          "option__1": "Venstre",
+          "option__2": "Høyre"
+        },
+        "image_opacity": {
+          "label": "Bildeopasitet"
+        }
+      }
+    },
+    "contact-form": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/contact-form)",
+      "name": "Kontaktskjema",
+      "settings": {
+        "name": "Navn",
+        "email_placeholder": "Email",
+        "message": "Beskjed",
+        "option": "Alternativ",
+        "info_option": "Definer navnet på alternativet. Skill alternativene med komma. F.eks. Produkt, Ordre, Presse, Annet"
+      }
+    },
+    "main-404": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/other-pages/404-page)",
+      "name": "Hoved 404",
+      "info_image": "500px x 288px anbefales"
+    },
+    "main-activate-account": {
+      "name": "Kontoaktivering"
+    },
+    "main-password-footer": {
+      "name": "Passordbunntekst"
+    },
+    "main-account": {
+      "name": "Konto"
+    },
+    "main-register": {
+      "name": "Registrering"
+    },
+    "main-login": {
+      "name": "Logg inn"
+    },
+    "main-reset-password": {
+      "name": "Tilbakestill passord"
+    },
+    "main-order": {
+      "name": "Bestille"
+    },
+    "main-addresses": {
+      "name": "Adresser"
+    },
+    "announcement-bar": {
+      "how_to_use": {
+        "label": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/announcement-bar)"
+      },
+      "name": "Kunngjøringslinje",
+      "settings": {
+        "type": {
+          "name": "Type",
+          "options": {
+            "slide": {
+              "label": "Karusell"
+            },
+            "marquee": {
+              "label": "Marquee"
+            }
+          }
+        },
+        "show_only_homepage": {
+          "label": "Vises kun på hjemmesiden"
+        },
+        "show_close_button": {
+          "label": "Vis lukkeknapp"
+        },
+        "enable_on_mobile": {
+          "label": "Aktiver på mobil"
+        },
+        "marquee_settings": {
+          "label": "Marquee-innstillinger",
+          "speed": {
+            "label": "Fart"
+          },
+          "show_icon": {
+            "label": "Vis ikon"
+          }
+        }
+      },
+      "blocks": {
+        "name": "Kunngjøring",
+        "setting": {
+          "label": "Text"
+        }
+      }
+    },
+    "multimedia_with_text": {
+      "blocks": {
+        "settings": {
+          "header": "Medieinnstillinger",
+          "media_style": {
+            "label": "Mediestil",
+            "options__1": {
+              "label": "Avrundet"
+            },
+            "options__2": {
+              "label": "Oval"
+            },
+            "options__3": {
+              "label": "Default"
+            }
+          }
+        }
+      }
+    },
+    "product-tabs": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/vertical-product-tabs)",
+      "name": "Produktfaner",
+      "setting": {
+        "layout": {
+          "label": "Skrivebordsoppsett",
+          "vertical": "Vertical",
+          "horizontal": "Horizontal"
+        },
+        "banner_header": "Banner",
+        "show_banner": "Vis banner",
+        "sticky_banner": "Festet banner",
+        "portrait_4_5": "Stående (4:5)",
+        "enable_carousel_info": "På mobil vises produktoppsettet alltid som en karusell."
+      },
+      "blocks": {
+        "name": "Tab",
+        "header": "Blokker innstillinger",
+        "settings": {
+          "hidden_des_mobile": {
+            "label": "Skjul fanebeskrivelse på mobil"
+          },
+          "collection": {
+            "label": "Collection",
+            "description": "Beskrivelse"
+          }
+        }
+      },
+      "presets": {
+        "product_tabs_with_banner": "Produktfaner med banner"
+      }
+    },
+    "collection-highlights": {
+      "name": "Høydepunkter fra samlingen",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/collection-highlights)",
+      "settings": {
+        "highlight_collection_width": {
+          "label": "Samlingen fremhever bredden"
+        }
+      },
+      "blocks": {
+        "header": "Blokker innstillinger",
+        "type": {
+          "type_highlight": {
+            "header": "Innstillinger for samling fremhever",
+            "name": "Høydepunkter fra samlingen"
+          }
+        }
+      }
+    },
+    "collection-pills": {
+      "name": "Samlingspiller",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/collections/collection-pills)",
+      "settings": {
+        "pill_style": {
+          "label": "Pillestil"
+        },
+        "show_image_on_hover": {
+          "label": "Vis bilde ved peking",
+          "info": "Bilde ved peking skjules på mobil."
+        },
+        "horizontal_scroll": {
+          "label": "Horisontal rulling"
+        }
+      }
+    },
+    "suitable_products_finder": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/suitable-products-finder)",
+      "name": "Egnede produkter finner",
+      "settings": {
+        "collection_tab_header": {
+          "label": "Samling-fanen"
+        },
+        "collection_tab_style": {
+          "label": "Samlingsfanestil"
+        },
+        "collection_tab_style_options": {
+          "range_slider": {
+            "label": "Avstandsglidebryter"
+          },
+          "pill_tabs": {
+            "label": "Pilletabletter"
+          }
+        },
+        "show_pill_tabs_with_heading": {
+          "label": "Inline med overskrift",
+          "info": "Vis fargevelgeren på samme linje som overskriften."
+        },
+        "show_pill_tabs_color": {
+          "label": "Vis fargepunkt"
+        },
+        "pill_tabs_color": {
+          "label": "Color"
+        },
+        "pill_tabs_image": {
+          "info": "Mønsterbildet vil overstyre fargen når et bilde lastes opp."
+        },
+        "image_collection_width": {
+          "label": "Bildebredde"
+        },
+        "range_slider": {
+          "settings": {
+            "show_range_slider": {
+              "label": "Vis rekkeviddeglidebryteren",
+              "info": "Avstandsglidebryteren skjules automatisk på mobilen."
+            }
+          }
+        }
+      },
+      "preset": {
+        "ranger_slider": "Produktsøker: Range-glidebryter",
+        "pill_tabs": "Produktfinner: Pillefaner",
+        "color_dots": "Produktfinner: Fargeprikker"
+      }
+    },
+    "icon-box": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/icon-box)",
+      "name": "Ikonboks",
+      "settings": {
+        "icon_settings": {
+          "header": "Ikoninnstillinger",
+          "icon_position": {
+            "label": "Posisjon"
+          },
+          "icon_size": {
+            "label": "Size"
+          },
+          "radius_image": {
+            "label": "Avrundet bilde",
+            "info": "Denne innstillingen fungerer bare når ikonet er et bilde."
+          }
+        }
+      }
+    },
+    "metric-banner": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/metric-banner)",
+      "name": "Metrisk banner",
+      "settings": {
+        "metric_setting": "Metriske innstillinger",
+        "metric_font_size": "Metrisk skriftstørrelse",
+        "enable_metric_animation": "Aktiver metrisk animasjon",
+        "metric_value": {
+          "start": "Metrisk startverdi",
+          "end": "Metrisk sluttverdi"
+        },
+        "metric_unit": "Metrisk enhet"
+      },
+      "block": {
+        "name": "Metrisk element"
+      }
+    },
+    "compact_product_bundle": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/compact-product-bundle)",
+      "name": "Kompakt produktpakke",
+      "settings": {
+        "image": {
+          "label": "Image",
+          "info_desktop": "696px x 750px anbefales",
+          "info_mobile": "350px x 303px anbefales"
+        },
+        "enable_quick_add_for_items": {
+          "label": "Aktiver rask tilføyelse for varer"
+        },
+        "hidden_button_mobile": {
+          "label": "Skjult knapp på mobil"
+        },
+        "products_show": {
+          "label": "Produktene vises som",
+          "options__1": {
+            "label": "Liste"
+          },
+          "options__2": {
+            "label": "Rutenett"
+          }
+        }
+      },
+      "presets": {
+        "name": "Kompakt produktpakke"
+      },
+      "blocks": {
+        "settings": {
+          "name": "Product",
+          "select_product": "Product",
+          "position_top": "Vertikal posisjon",
+          "position_left": "Horisontal posisjon"
+        }
+      }
+    },
+    "mobile-navigation-bar": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/overlay-group/mobile-navigation-bar)",
+      "name": "Mobil navigasjonslinje",
+      "info": "Denne delen vises kun på mobil. Vennligst bytt til mobilvisning.",
+      "settings": {
+        "show_section": "Aktiver mobilnavigasjonslinjen",
+        "show_shop": "Vis butikk",
+        "show_account": "Vis konto",
+        "show_cart": "Vis handlekurv",
+        "show_homepage": "Vis hjemmesiden"
+      }
+    },
+    "mobile_first": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/mobile-first)",
+      "name": "Spotlight-galleri",
+      "image_1": "Spotbilde 1",
+      "image_2": "Spotbilde 2",
+      "image_3": "Spotbilde 3",
+      "image_4": "Spotbilde 4",
+      "image_5": "Spotbilde 5",
+      "text_1": "Spottekst 1",
+      "text_2": "Spottekst 2",
+      "text_3": "Spottekst 3",
+      "text_4": "Spottekst 4",
+      "text_5": "Spottekst 5"
+    },
+    "shopable_video": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/shopable-video)",
+      "name": "Kjøpbar video",
+      "settings": {
+        "video_settings": {
+          "header": "Videoinnstillinger"
+        },
+        "enable_sticky": {
+          "label": "Aktiver video sticky",
+          "option_1": {
+            "label": "Deaktiver"
+          },
+          "option_2": {
+            "label": "Kun skrivebord"
+          },
+          "option_3": {
+            "label": "Alle skjermer"
+          }
+        },
+        "ratio": {
+          "adapt": {
+            "label": "Tilpass den første videoen"
+          }
+        },
+        "video": {
+          "auto_play": {
+            "info": "Videoen spilles av automatisk når denne blokken er aktiv eller synlig på skjermen"
+          }
+        },
+        "show_product_card": {
+          "label": "Vis produktkort"
+        }
+      },
+      "blocks": {
+        "name": "Video",
+        "settings": {
+          "poster_image": {
+            "label": "Plakatbilde",
+            "info": "1080px x 1920px anbefales"
+          },
+          "local_video": {
+            "label": "Lokal video"
+          },
+          "select_product": {
+            "label": "Product"
+          }
+        }
+      }
+    },
+    "image_card": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/image-cards)",
+      "name": "Bildekort",
+      "blocks": {
+        "header": "Kortinnstillinger",
+        "group_name": "Kort",
+        "info": "451px x 453px anbefales"
+      }
+    },
+    "testimonials": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonials)",
+      "name": "Pressen",
+      "settings": {
+        "header": "Trykk på innstillinger",
+        "show_icon_quote": {
+          "label": "Vis sitatikon"
+        }
+      },
+      "blocks": {
+        "name": "Trykk på element",
+        "settings": {
+          "quote": {
+            "label": "Sitere"
+          },
+          "info_image": "180px 60px anbefales"
+        }
+      }
+    },
+    "press_card": {
+      "name": "Trykk på Kort",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/press-card)",
+      "blocks": {
+        "content": "Innhold",
+        "media": "Media",
+        "quote": "Sitere",
+        "settings": {
+          "show_icon_quote": "Vis sitatikon",
+          "author_name": "Forfatternavn",
+          "quote_content": "Sitat innhold",
+          "press-image": {
+            "info": "Overstyrer bakgrunnsfargeinnstillingen"
+          }
+        }
+      }
+    },
+    "scrolling_image": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/scrolling-image)",
+      "name": "Galleribilde",
+      "settings": {
+        "show_background_blur": {
+          "label": "Vis uskarp bakgrunn"
+        },
+        "show_icon_hover": {
+          "label": "Vis instagramikon når du holder musepekeren"
+        },
+        "info_image": "303px x 303px anbefales"
+      }
+    },
+    "featured_product_banner": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/featured-product-banner)",
+      "name": "Utvalgt produktbanner",
+      "hide_icon_text": "Skjul ikon med tekstblokker på mobil",
+      "blocks": {
+        "name": "Ikon med tekst"
+      },
+      "info": {
+        "info_desktop": "400px x 400px anbefales",
+        "info_mobile": "300px x 300px anbefales"
+      }
+    },
+    "product_testimonials": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-testimonials)",
+      "name": "Produkt attester",
+      "settings": {
+        "header": "Innstillinger for attester",
+        "rating_color": {
+          "label": "Rangeringsfarge"
+        },
+        "rating_type": {
+          "label": "Vurderingstype",
+          "default": "Default",
+          "modern": "Moderne",
+          "show": "Vis vurdering",
+          "show_before_after": "Vis før etter tekst"
+        },
+        "product_rounded": {
+          "label": "Produktbilde hjørneradius"
+        },
+        "show_verified_buyer": {
+          "label": "Vis bekreftet kjøper"
+        },
+        "show_author_name": {
+          "label": "Vis forfatternavn"
+        }
+      },
+      "blocks": {
+        "type": {
+          "media": {
+            "label": "Anbefalingsmedier"
+          },
+          "image_comparison": {
+            "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/image-comparison)",
+            "label": "Testimonial bilde sammenligning",
+            "name": "Bildesammenligning",
+            "show_after_before_text": {
+              "label": "Vis før/etter tekst"
+            }
+          }
+        },
+        "settings": {
+          "media": {
+            "label": "Medieinnstillinger",
+            "info": "448px x 246px anbefales",
+            "before_after_image": {
+              "label": "Før etter bilder"
+            },
+            "before_image": {
+              "label": "Før"
+            },
+            "after_image": {
+              "label": "Etter"
+            }
+          },
+          "information": {
+            "label": "Informasjonsinnstillinger",
+            "rating_star": {
+              "label": "Vurderingsstjerne"
+            },
+            "select_product": {
+              "label": "Product"
+            },
+            "author_name": {
+              "label": "Forfatternavn"
+            },
+            "review_sumary": {
+              "label": "Sammendrag"
+            },
+            "use_richtext": {
+              "label": "Bruk rik tekst"
+            }
+          }
+        }
+      }
+    },
+    "routine-builder": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/routine-builder)",
+      "name": "Handle for steg",
+      "blocks": {
+        "name": "Skritt",
+        "settings": {
+          "text_step": {
+            "label": "Trinntittel"
+          },
+          "product_in_step": {
+            "label": "Produkt i trinn"
+          }
+        }
+      }
+    },
+    "newsletter_popup": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/overlay-group/newsletter-popup)",
+      "name": "Nyhetsbrev popup",
+      "header": {
+        "heading": "Generelle innstillinger"
+      },
+      "settings": {
+        "sections_width": {
+          "label": "Bredde",
+          "options": {
+            "options__1": "Full bredde",
+            "options__2": "Auto"
+          }
+        },
+        "collections_selector": {
+          "setting": "Innstillinger for samlingsvelger",
+          "label": "Aktiver samlingsvelger",
+          "collection": {
+            "label_1": "Samling 1",
+            "label_2": "Samling 2",
+            "label_3": "Samling 3",
+            "label_4": "Samling 4",
+            "label_5": "Samling 5"
+          }
+        },
+        "newsletter_heading": "Nyhetsbrevinnstillinger",
+        "show_on_homepage": "Vises kun på hjemmesiden",
+        "discount_sticky": {
+          "setting": "Rabatt klissete",
+          "label": "Vis rabatt sticky",
+          "heading": "Innhold",
+          "info": "Innhold avkortes automatisk med 25 tegn, inkludert HTML-koder."
+        },
+        "heading": "Overskrift",
+        "short_description": "Beskrivelse",
+        "instructional_text": "Instruksjonstekst",
+        "email_placeholder": "E-postplassholder",
+        "button_label": "Knappetekst",
+        "banner_image": "Bannerbilde"
+      }
+    },
+    "featured-blog": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/featured-blog)",
+      "name": "Utvalgt blogg"
+    },
+    "recommended_collection": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/recommended-collection)",
+      "name": "Anbefalt samling",
+      "blocks": {
+        "button": {
+          "info": "[samling] og [tittel] er variabelnavn som automatisk erstattes. Ikke endre navnene, men du kan endre deres plassering i teksten. [tittel] er valgfritt – fjern den hvis du bare vil ha samlingsvelgeren.",
+          "first_button_info": "Skjema med bilde: åpner resultatkollesjonen med de valgte filtrene"
+        },
+        "featured_collection": {
+          "title_info": "Kun tekst på linje: vises som et alternativ i rullegardinmenyen [tittel]. Kolleksjonsblokker brukes ikke i oppsettet Skjema med bilde"
+        },
+        "filter_dropdown": {
+          "name": "Filterrullegardin",
+          "info": "Fungerer med oppsettet Skjema med bilde. Sett opp filteret først i Shopify-appen Search & Discovery.",
+          "filter_name": {
+            "label": "Filternavn",
+            "info": "Skriv inn filteretiketten nøyaktig slik den vises på kolleksjonssidene, for eksempel \"Hundens aldersgruppe\". For flere språk skiller du etikettene med ;. Prisfiltre støttes ikke."
+          },
+          "placeholder": "Plassholder"
+        },
+        "text": {
+          "name": "Tekst"
+        }
+      },
+      "background": {
+        "label": "Vis bakgrunnsbilde",
+        "header": "Bakgrunnsbilde"
+      },
+      "image_info": {
+        "info_desktop": "1920px x 700px anbefales",
+        "info_mobile": "390px x 407px anbefales"
+      },
+      "layout": {
+        "label": "Oppsett",
+        "inline": "Tekst på linje",
+        "form": "Skjema med bilde"
+      },
+      "content_color_scheme": "Innholdsfargeskjema",
+      "results_collection": {
+        "label": "Resultatkollesjon",
+        "info": "Kun Skjema med bilde. Filterrullegardiner viser filtrene for denne kolleksjonen, og den første knappen åpner den. La stå tomt for å bruke alle produkter."
+      },
+      "presets": {
+        "form": "Anbefalt kolleksjon med bilde"
+      }
+    },
+    "offers-popup": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/overlay-group/offers-popup)",
+      "name": "Tilbyr popup",
+      "popup": {
+        "label": "Overskriftstilbud popup",
+        "info": "Tilpass popup-blokkinnholdet for tilbud i overleggsgruppen."
+      }
+    },
+    "outfit-finder": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/products/outfit-finder)",
+      "name": "Antrekksfinner",
+      "settings": {
+        "product_listing": {
+          "label": "Innstillinger for produktoppføringer"
+        },
+        "outfit_finder_logic": {
+          "label": "Forhåndsvisningsinnstillinger"
+        },
+        "max_items_to_show": {
+          "label": "Produkter per side",
+          "info": "Antall produkter som vises først. Hvis du ruller nedover, lastes flere elementer."
+        },
+        "max_items": {
+          "label": "Maks produkter per antrekk",
+          "info": "Begrenser hvor mange elementer en kunde kan legge til i forhåndsvisningsområdet."
+        },
+        "product": {
+          "label": "Foreslått antrekk",
+          "info": "Velg opptil 3 produkter som skal vises i forhåndsvisningsområdet som standard når siden lastes inn."
+        },
+        "notify_preview": {
+          "label": "Tom tilstandsmelding",
+          "info": "Veiledningstekst vist i forhåndsvisningsområdet før noen elementer legges til."
+        }
+      }
+    },
+    "scrolling-card": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scrolling-card)",
+      "name": "Rullekort"
+    },
+    "scroll-scatter": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scroll-scatter)",
+      "name": "Rull scatter"
+    },
+    "store-location": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/other-pages/store-location)",
+      "name": "Butikkplassering",
+      "settings": {
+        "key_google_map": {
+          "label": "Google Maps API-nøkkel",
+          "info": "Krever API-er for 'Maps JavaScript', 'Places' og 'Geocoding'. [Få nøkkel](https://console.cloud.google.com/google/maps-apis/credentials)."
+        },
+        "map_settings": {
+          "header": "Kartinnstillinger"
+        },
+        "allowed_countries": {
+          "label": "Tillatte land",
+          "info": "Kontroller hvor kunder kan søke etter butikker. Bruk ISO-landskoder (f.eks. USA, Storbritannia, CA) atskilt med komma. La stå tomt for å søke globalt."
+        },
+        "radius_km": {
+          "label": "Søkeradius (km)",
+          "info": "Maks avstand for butikkresultater."
+        }
+      },
+      "blocks": {
+        "name": "Lager",
+        "settings": {
+          "store_name": {
+            "label": "Butikknavn"
+          },
+          "store_address": {
+            "label": "Butikkadresse"
+          },
+          "store_email": {
+            "label": "Butikk e-post"
+          },
+          "store_phone": {
+            "label": "Lagre telefon"
+          },
+          "store_lat": {
+            "label": "Store breddegrad",
+            "info": "Kopier det første tallet fra Google Maps-koordinater."
+          },
+          "store_lng": {
+            "label": "Lagre lengdegrad",
+            "info": "Kopier det andre tallet fra Google Maps-koordinater."
+          },
+          "time_location": {
+            "monday": "mandag",
+            "tuesday": "tirsdag",
+            "wednesday": "onsdag",
+            "thursday": "torsdag",
+            "friday": "fredag",
+            "saturday": "lørdag",
+            "sunday": "søndag",
+            "open": "Åpne",
+            "closed": "Lukket",
+            "open_time_hour": "Åpen tid time",
+            "open_time_minute": "Åpen tid minutt",
+            "close_time_hour": "Stengetid time",
+            "close_time_minute": "Stengetid minutt"
+          },
+          "time_schedule": {
+            "monday": "Schedule",
+            "tuesday": "Schedule",
+            "wednesday": "Schedule",
+            "thursday": "Schedule",
+            "friday": "Schedule",
+            "saturday": "Schedule",
+            "sunday": "Schedule"
+          }
+        }
+      }
+    },
+    "product-bundle": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/product-bundle)",
+      "name": "Produktpakke",
+      "settings": {
+        "discount": {
+          "name": "Discount",
+          "info": "Finn ut hvordan du oppretter rabatt [her](https://help.shopify.com/manual/discounts)",
+          "minimum": "Minimumselementer å kreve",
+          "maximum": "Maksimalt antall varer",
+          "edit_quantity": "Tillat kvantumsendring for hvert produkt",
+          "discount_title": "Rabattkode",
+          "discount_value": {
+            "name": "Rabattverdi",
+            "option": {
+              "fixed": {
+                "label": "Fast beløp",
+                "once_per_order": "En gang per bestilling"
+              },
+              "percentage": {
+                "label": "Prosentdel"
+              }
+            }
+          }
+        },
+        "your_bundle": {
+          "name": "Discount",
+          "settings": {
+            "show_progress_bar": {
+              "label": "Vis fremdriftslinje"
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "product_discount": {
+            "name": "Produktpakke",
+            "info": "Erstatter samling når valgt."
+          }
+        }
+      }
+    },
+    "shopable-image": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/sections/shopable-image)",
+      "name": "Kjøpbart bilde",
+      "blocks": {
+        "tags": {
+          "name": "Tagger",
+          "info": "Definer navnet på tagger. Skill med komma. F.eks. Tag 1, Tag 2",
+          "info_image": "448px x 600px anbefales",
+          "settings": {
+            "show_verify_icon": {
+              "label": "Vis ikonhake"
+            }
+          }
+        },
+        "lookbook": {
+          "name": "Lookbook",
+          "settings": {
+            "products": {
+              "label": "Products",
+              "position_top": "Vertikal posisjon",
+              "position_left": "Horisontal posisjon",
+              "products": {
+                "otpion__1": {
+                  "label": "Produkt 1"
+                },
+                "otpion__2": {
+                  "label": "Produkt 2"
+                },
+                "otpion__3": {
+                  "label": "Produkt 3"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parallax-image": {
+      "blocks": {
+        "icon": {
+          "name": "Ikon",
+          "info": "Overstyrer svg-ikoninnstillingen"
+        }
+      }
+    },
+    "main-page": {
+      "name": "Side"
+    },
+    "subcollection-list": {
+      "name": "Undersamling",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/sub-collection)"
+    },
+    "before-you-leave": {
+      "name": "Før du drar",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/before-you-leave)",
+      "settings": {
+        "header": {
+          "recommended_products": "Anbefalte produkter"
+        },
+        "show_time": {
+          "label": "Vis tid etter (sekunder)"
+        },
+        "banner": {
+          "label": "Bannerbilde",
+          "info": "380px x 423px anbefales"
+        },
+        "collection": {
+          "label": "Collection"
+        },
+        "code": {
+          "label": "Rabattkode"
+        }
+      }
+    },
+    "advanced-slideshow": {
+      "block": {
+        "slide": "Lysbilde",
+        "settings": {
+          "type": {
+            "label": "Type",
+            "image": {
+              "label": "Image"
+            },
+            "video": {
+              "label": "Video"
+            }
+          },
+          "media_overlay": {
+            "label": "Medieoverlegg"
+          }
+        }
+      }
+    },
+    "custom_section": {
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/advanced/flexible-section)",
+      "name": "Fleksibel seksjon",
+      "settings": {
+        "layout": {
+          "label": "Oppsett",
+          "direction": {
+            "label": "Retning",
+            "options__1": {
+              "label": "Vertical"
+            },
+            "options__2": {
+              "label": "Horizontal"
+            }
+          },
+          "vertical_on_mobile": {
+            "label": "Vertikal på mobil"
+          },
+          "content_wrap": {
+            "label": "Innholdsinnpakning"
+          },
+          "height": {
+            "label": "Height",
+            "options": {
+              "auto": {
+                "label": "Auto"
+              },
+              "custom": {
+                "label": "Custom"
+              }
+            },
+            "custom_height": {
+              "label": "Egendefinert høyde"
+            }
+          },
+          "gap": {
+            "label": "Mellomrom"
+          },
+          "position": {
+            "label": "Posisjon",
+            "options__1": {
+              "label": "Topp"
+            },
+            "options__2": {
+              "label": "Senter"
+            },
+            "options__3": {
+              "label": "Bunn"
+            }
+          },
+          "alignment": {
+            "label": "Justering",
+            "label_mobile": "Mobil justering",
+            "options__1": {
+              "label": "Venstre"
+            },
+            "options__2": {
+              "label": "Senter"
+            },
+            "options__3": {
+              "label": "Høyre"
+            },
+            "options__4": {
+              "label": "Mellomrom mellom"
+            }
+          },
+          "hide_on_mobile": {
+            "label": "Skjult på mobil"
+          }
+        },
+        "appearance": {
+          "header": "Utseende",
+          "settings": {
+            "background_media": {
+              "label": "Bakgrunnsmedier",
+              "options__2": {
+                "label": "Image"
+              },
+              "options__3": {
+                "label": "Video"
+              },
+              "options__1": {
+                "label": "None"
+              }
+            },
+            "border": {
+              "label": "Grenser",
+              "options": {
+                "none": "None",
+                "solid": "Fast"
+              },
+              "border_color": {
+                "label": "Kantfarge"
+              },
+              "border_thickness": {
+                "label": "Kanttykkelse"
+              }
+            },
+            "corner_radius": {
+              "label": "Hjørneradius",
+              "options": {
+                "none": {
+                  "label": "None"
+                },
+                "rounded": {
+                  "label": "Avrundet"
+                },
+                "custom": {
+                  "label": "Custom"
+                },
+                "inherit": {
+                  "label": "Arve",
+                  "info": "Hvis satt til \"Inherit\", vil denne blokken følge den globale innstillingen for avrundede hjørner i Temainnstillinger ▸ Layout ▸ Avrundet bilde."
+                }
+              },
+              "custom_radius": {
+                "label": "Egendefinert radius"
+              }
+            },
+            "background_overlay": {
+              "label": "Bakgrunnsoverlegg",
+              "overlay_color": {
+                "label": "Overleggsfarge"
+              },
+              "overlay_style": {
+                "label": "Overleggsstil",
+                "options__1": {
+                  "label": "Fast"
+                },
+                "options__2": {
+                  "label": "Gradient"
+                }
+              },
+              "gradient_direction": {
+                "label": "Gradientretning",
+                "options__1": {
+                  "label": "Opp"
+                },
+                "options__2": {
+                  "label": "Ned"
+                }
+              }
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "size": {
+            "label": "Size",
+            "height": {
+              "label": "Height"
+            },
+            "width": {
+              "label": "Bredde",
+              "custom_width": {
+                "label": "Egendefinert bredde"
+              }
+            },
+            "mobile_width": {
+              "label": "Mobil bredde"
+            },
+            "options": {
+              "options__1": {
+                "label": "Passe"
+              },
+              "options__2": {
+                "label": "Fylle"
+              },
+              "options__3": {
+                "label": "Custom"
+              },
+              "options__4": {
+                "label": "Tilpass mediebakgrunnen"
+              }
+            }
+          },
+          "background": {
+            "label": "Bakgrunn"
+          },
+          "background_color": {
+            "label": "Bakgrunnsfarge"
+          }
+        },
+        "heading": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading)",
+          "label": "Forhåndsinnstilt",
+          "heading_tag": {
+            "label": "Overskrift tag",
+            "info": "Sett overskriftstaggen (H1–H6) for å kontrollere innholdshierarki og forbedre SEO-lesbarheten for søkemotorer.",
+            "h1": "H1",
+            "h2": "H2",
+            "h3": "H3",
+            "h4": "H4",
+            "h5": "H5",
+            "h6": "H6"
+          },
+          "custom": "Custom",
+          "default": "Default",
+          "paragraph": "Avsnitt",
+          "h1": "Overskrift 1",
+          "h2": "Overskrift 2",
+          "h3": "Overskrift 3",
+          "h4": "Overskrift 4",
+          "h5": "Overskrift 5",
+          "h6": "Overskrift 6",
+          "h7": "Overskrift 7",
+          "info": {
+            "edit_presets_in_theme_settings": "Rediger forhåndsinnstillinger i [temainnstillinger](/editor?context=theme&category=typography)",
+            "label": "Skriftstørrelse"
+          },
+          "text_alignment": {
+            "desktop": "Justering",
+            "mobile": "Mobil justering"
+          }
+        },
+        "logo": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Logo",
+          "settings": {
+            "size": {
+              "name": "Size",
+              "unit": {
+                "label": "Enhet",
+                "option__1": {
+                  "label": "Pixel"
+                },
+                "option__2": {
+                  "label": "Prosent"
+                }
+              },
+              "custom_mobile_size": {
+                "label": "Egendefinert mobilstørrelse"
+              },
+              "height": {
+                "label": "Height"
+              },
+              "mobile": {
+                "name": "Mobil størrelse"
+              }
+            }
+          }
+        },
+        "email_subscription": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/newsletter)",
+          "name": "Nyhetsbrev"
+        },
+        "contact_form": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/contact-form)",
+          "name": "Kontaktskjema",
+          "settings": {
+            "name": "Navn",
+            "email": "Email",
+            "message": "Beskjed",
+            "select_label": "Velg etikett",
+            "default_select_label": "Tema",
+            "option": "Alternativ",
+            "default_option": "Produkt, Ordre, Presse, Annet",
+            "phone": "Telefon",
+            "submit_button": "Send inn-knapp",
+            "default_submit_button": "Send inn"
+          }
+        },
+        "accordion": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/accordion)",
+          "name": "Trekkspill",
+          "settings": {
+            "icon_style": {
+              "style": "Stil",
+              "label": "Ikon stil",
+              "caret": "Carret",
+              "plus": "Pluss"
+            },
+            "row_style": {
+              "label": "Radstil",
+              "background": "Bakgrunn",
+              "divider": "Avdeler"
+            },
+            "background_color": "Bakgrunnsfarge",
+            "row_spacing": "Vareavstand",
+            "gap_row": "Mellomrom",
+            "padding_row": "Polstring",
+            "gap_content": "Mellomrom mellom",
+            "accordion_row": "Trekkspillrekke",
+            "default_accordion_row": "Trekkspilloverskrift",
+            "accordion_content": "Trekkspillinnhold",
+            "settings": {
+              "heading": "Overskrift",
+              "heading_size": "Overskriftsstørrelse",
+              "heading_weight": "Kursvekt",
+              "body_weight": "Kroppsvekt",
+              "open_default": {
+                "label": "Åpne standard"
+              }
+            }
+          }
+        },
+        "group": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/group)",
+          "name": "Gruppe",
+          "settings": {
+            "link": "Lenke",
+            "open_in_new_tab": {
+              "label": "Åpne lenken i ny fane"
+            }
+          }
+        },
+        "carousel": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/carousel)",
+          "name": "Karusell"
+        },
+        "text": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/text)",
+          "name": "Text",
+          "default_text": "Vi lager ting som fungerer bedre og varer lenger. Våre produkter løser reelle problemer med rent design og ærlige materialer.",
+          "text_color": {
+            "label": "Tekstfarge",
+            "body_color": "Kroppsfarge",
+            "heading_color": "Overskriftsfarge"
+          }
+        },
+        "button": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/button)"
+        },
+        "icon": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/icon)"
+        },
+        "page": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Side",
+          "inherit_color_scheme": "Arve fargevalg",
+          "appearance": "Utseende",
+          "spacing": "Avstand"
+        },
+        "spacer": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/spacer)",
+          "name": "Avstandsstykke",
+          "mobile_settings": {
+            "label": "Mobilinnstillinger"
+          }
+        },
+        "divider": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Avdeler",
+          "settings": {
+            "thickness": "Tykkelse",
+            "size": "Size",
+            "color": "Color"
+          }
+        },
+        "icon_list": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Ikonliste",
+          "item": "Punkt",
+          "open_new_tab": "Åpne ny fane"
+        },
+        "alert": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Varsle",
+          "dismiss_icon": "Avvis ikon",
+          "display_dismiss_icon": "Vis avvisningsikon"
+        },
+        "social_icons": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Sosiale ikoner",
+          "circle": "Sirkel",
+          "rounded": "Avrundet",
+          "square": "Kvadrat",
+          "shape": "Form",
+          "color": "Color",
+          "backgroup_color": "Bakgrunnsfarge"
+        },
+        "progress_bar": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Fremdriftslinje",
+          "text_color": "Tekstfarge",
+          "percentage": "Prosentdel",
+          "border_radius": "Kanteradius",
+          "display_percentage": "Visningsprosent",
+          "inner_text": "Indre tekst"
+        },
+        "counter": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/counter)",
+          "name": "Disk",
+          "counter_style": {
+            "label": "Counter stil",
+            "default": "Default",
+            "circle": "Sirkel"
+          },
+          "counter_layout": {
+            "label": "Diskoppsett",
+            "horizontal": "Horizontal",
+            "vertical": "Vertical"
+          },
+          "number_position": "Nummerposisjon",
+          "space_between": "Mellomrom mellom",
+          "before_title": "Før tittel",
+          "after_title": "Etter tittel",
+          "number_alignment": "Nummerjustering",
+          "stroke_color": "Slagfarge",
+          "indicator_color": "Indikatorfarge",
+          "background_color": "Bakgrunnsfarge",
+          "text_color": "Tekstfarge",
+          "ending_number": "Sluttnummer",
+          "starting_number": "Startnummer",
+          "animation": "Animasjonsvarighet (ms)"
+        },
+        "map": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/google-maps)",
+          "name": "Google Maps",
+          "location": "Sted",
+          "longitude": "Lengdegrad",
+          "latitude": "Breddegrad"
+        },
+        "jumbo_text": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+          "name": "Jumbo tekst"
+        },
+        "tab": {
+          "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/tab)",
+          "name": "Tab",
+          "tab_row": "Faneelement",
+          "settings": {
+            "heading": "Overskriftsstil",
+            "heading_preset": "Forhåndsinnstilt kurs",
+            "heading_alignment": "Overskriftsjustering",
+            "heading_color": "Overskriftsfarge",
+            "content": "Innholdsstil",
+            "content_alignment": "Innholdsjustering"
+          }
+        },
+        "icon_with_text": {
+          "name": "Ikon med tekst",
+          "icon_first": "Ikon først",
+          "icon_second": "Ikon nummer to",
+          "svg_custom": "SVG tilpasset"
+        },
+        "popup_link": {
+          "button_type_link": {
+            "label": "Type knapp",
+            "primary": {
+              "label": "Primær"
+            },
+            "outline": {
+              "label": "Omriss"
+            },
+            "link": {
+              "label": "Lenke"
+            }
+          },
+          "popup_style": {
+            "label": "Popup-stil"
+          },
+          "popup_type": {
+            "label": "Popup-type"
+          },
+          "popup_width": {
+            "label": "Popup-bredde skrivebord"
+          },
+          "icon_type": {
+            "label": "Ikontype",
+            "none": "None",
+            "arrow": "Pil",
+            "image": {
+              "label": "Image",
+              "size": "Size"
+            }
+          }
+        }
+      },
+      "preset": {
+        "promotion_banner": "Fleksibel: Kampanjebanner",
+        "flexible_marquee": "Fleksibel: Marquee",
+        "story_tabs": "Fleksibel: Fane"
+      }
+    },
+    "text_image_pairing": {
+      "how_to_use": "[Lær hvordan du bruker denne blokken](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/text-image-pairing)",
+      "name": "Sammenkobling av tekstbilder",
+      "settings": {
+        "text_default": "«Eig din glød[image_1]sveip blanding glans <br/> føl deg vakker[image_2]bli sett fullt[image_3]feire.\"",
+        "info": {
+          "label": "Bruk et bestemt plassholderformat `[image_X]` der du vil at bildet skal vises. X er bildeindeksen. For eksempel: `[image_1]` vil bli erstattet av det første bildet."
+        },
+        "images": {
+          "label": "Bilder",
+          "image_style": {
+            "label": "Bildestil"
+          },
+          "image_1": {
+            "label": "Bilde #1"
+          },
+          "image_2": {
+            "label": "Bilde #2"
+          },
+          "image_3": {
+            "label": "Bilde #3"
+          }
+        }
+      }
+    },
+    "product_sizing": {
+      "name": "Produktdimensjonering",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "info": "Hjelper kundene å forstå hvordan produktet passer og velge riktig størrelse med tillit."
+    },
+    "size_recommendation": {
+      "name": "Størrelsesanbefaling",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/size-recommendation)",
+      "info": "Hjelper kundene med å finne riktig størrelse ved å bruke enkle input som høyde, vekt, kroppsform, bystestørrelse og skålstørrelse.",
+      "data_usage_notice": {
+        "label": "Merknad om databruk",
+        "info": "Denne meldingen forklarer hvordan kundeinformasjon brukes til størrelsesanbefalinger. Du kan tilpasse ordlyden for å matche butikkens personverntone."
+      },
+      "no_size_match": {
+        "label": "Ingen melding om størrelse samsvarer",
+        "info": "Melding vises når ingen størrelse samsvarer med kundens inndata."
+      },
+      "fit_recommendation_note": {
+        "label": "Tilpasningsanbefaling",
+        "info": "Vises etter resultater for størrelsesanbefaling."
+      }
+    },
+    "sticky_image_with_text": {
+      "name": "Fest bilde med tekst",
+      "blocks": {
+        "group_text": {
+          "name": "Tekstgruppe",
+          "image": {
+            "label": "Bilde ved rulling",
+            "info": "Vises i det festede bildet når denne gruppen rulles inn i visningen. La stå tomt for å beholde forrige bilde. Krever \"Bytt bilde ved rulling\" i seksjonsinnstillingene."
+          }
+        },
+        "list_tag": {
+          "name": "Taggliste",
+          "tags": {
+            "label": "Tagger",
+            "info": "Skill hvert tagg med komma."
+          },
+          "show_check": {
+            "label": "Vis avkrysningsikon"
+          },
+          "chip_style": {
+            "label": "Taggstil"
+          }
+        }
+      },
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/banners/sticky-image-with-text)",
+      "settings": {
+        "hide_image_mobile": {
+          "label": "Skjul bilde på mobil"
+        },
+        "change_image_on_scroll": {
+          "label": "Bytt bilde ved rulling",
+          "info": "Bytter det festede bildet når hver tekstgruppe rulles inn i visningen. Angi bildet i hver tekstgruppe. Seksjonsbildet brukes ikke. Kun skrivebord."
+        }
+      }
+    },
+    "testimonial-images": {
+      "name": "Anbefalingsbilder",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonial-images)",
+      "settings": {
+        "show_author_image": "Vis forfatterbilde",
+        "hide_image_on_mobile": {
+          "label": "Skjul bilde på mobil"
+        }
+      },
+      "blocks": {
+        "review": "Anbefaling",
+        "settings": {
+          "author_image": "Forfatterbilde"
+        }
+      }
+    },
+    "flow": {
+      "name": "Flyt",
+      "blocks": {
+        "step": {
+          "name": "Trinn",
+          "heading": {
+            "label": "Overskrift"
+          },
+          "image": {
+            "label": "Bilde"
+          },
+          "product": {
+            "label": "Produkt"
+          }
+        }
+      },
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/flow)"
+    },
+    "parallax-scroll": {
+      "name": "Parallakse-rulling",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/parallax-scroll)",
+      "instructions": "Legg til opptil 7 kort. Kortene veksler side, og hvert tredje kort innsettes automatisk.",
+      "blocks": {
+        "info_card": {
+          "name": "Infokort"
+        }
+      },
+      "settings": {
+        "card_width": {
+          "label": "Kortbredde",
+          "info": "Angir maksimal kortbredde på skrivebord. Kortene forblir responsive på mindre skjermer."
+        },
+        "button_link": {
+          "info": "Hvis den står tom, vises knappen som deaktivert."
+        },
+        "button_type": {
+          "info": "Bruker knappestilene som er konfigurert av temaet."
+        }
+      }
+    },
+    "benefit-tabs": {
+      "name": "Fordelsfaner",
+      "how_to_use": "Legg til en Fordelsfane-blokk for hver fane, og legg deretter til Fordel-blokker i hver fane.",
+      "settings": {
+        "text_alignment": {
+          "info": "Justerer også faneknappene."
+        },
+        "mobile_alignment": {
+          "info": "Justerer fordeler på mobil og nettbrett. På skrivebordet justeres fordelene mot mediet."
+        }
+      },
+      "blocks": {
+        "tab": {
+          "name": "Fordelsfane",
+          "how_to_use": "Opptil 6 Fordel-blokker anbefales for et balansert oppsett. På skrivebordet står fordeler med oddetall til venstre for mediet, og fordeler med partall står til høyre.",
+          "settings": {
+            "tab_label": {
+              "label": "Faneetikett"
+            },
+            "image": {
+              "label": "Bilde før",
+              "info": "950 x 1060px anbefales"
+            },
+            "image_after": {
+              "label": "Bilde etter",
+              "info": "Bruk samme størrelse som bildet før. Bildet etter vises når den besøkende ruller."
+            }
+          }
+        },
+        "benefit": {
+          "settings": {
+            "icon": {
+              "info": "Viser en plassholder når det er tomt. 120 x 120px anbefales"
+            }
+          }
+        }
+      }
+    },
+    "comparison-table": {
+      "name": "Sammenligningstabell",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/products/comparison-table)",
+      "settings": {
+        "table": {
+          "label": "Tabell"
+        },
+        "comparison_heading": {
+          "label": "Sammenligningsoverskrift"
+        },
+        "show_column_images": {
+          "label": "Vis kolonnebilder"
+        },
+        "color_column_highlight": {
+          "label": "Farge på kolonnemarkering"
+        },
+        "table_notes": {
+          "label": "Tabellnotater"
+        },
+        "show_labels": {
+          "label": "Vis etiketter"
+        },
+        "first_label": {
+          "label": "Første etikett"
+        },
+        "second_label": {
+          "label": "Andre etikett"
+        },
+        "button_link": {
+          "label": "Lenke"
+        }
+      },
+      "blocks": {
+        "column": {
+          "name": "Kolonne",
+          "settings": {
+            "highlight": {
+              "label": "Uthev denne kolonnen"
+            }
+          }
+        },
+        "row": {
+          "name": "Rad",
+          "settings": {
+            "icon_info": "Velg hvordan verdien vises i denne kolonnen.",
+            "image_info": "Legg til et bilde som vises når Bilde er valgt.",
+            "value": {
+              "yes": "Ja",
+              "no": "Nei"
+            },
+            "text_1": {
+              "label": "Kolonne 1-tekst",
+              "info": "Vises når Tekst er valgt. Verdiene følger kolonnerekkefølgen, så endre rekkefølgen på Kolonne-blokkene med omhu."
+            },
+            "icon_1": {
+              "label": "Kolonne 1-ikon"
+            },
+            "image_1": {
+              "label": "Kolonne 1-bilde"
+            },
+            "text_2": {
+              "label": "Kolonne 2-tekst",
+              "info": "Vises når Tekst er valgt."
+            },
+            "icon_2": {
+              "label": "Kolonne 2-ikon"
+            },
+            "image_2": {
+              "label": "Kolonne 2-bilde"
+            },
+            "text_3": {
+              "label": "Kolonne 3-tekst",
+              "info": "Vises når Tekst er valgt."
+            },
+            "icon_3": {
+              "label": "Kolonne 3-ikon"
+            },
+            "image_3": {
+              "label": "Kolonne 3-bilde"
+            },
+            "text_4": {
+              "label": "Kolonne 4-tekst",
+              "info": "Vises når Tekst er valgt. Brukes bare når tabellen har fire kolonner."
+            },
+            "icon_4": {
+              "label": "Kolonne 4-ikon"
+            },
+            "image_4": {
+              "label": "Kolonne 4-bilde"
+            },
+            "column_1": "Kolonne 1",
+            "column_2": "Kolonne 2",
+            "column_3": "Kolonne 3",
+            "column_4": "Kolonne 4"
+          }
+        }
+      }
+    },
+    "image-with-text-carousel": {
+      "name": "Bilde med tekstkarusell",
+      "how_to_use": "[Lær hvordan du bruker denne seksjonen](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/image-with-text-carousel)",
+      "settings": {
+        "show_slide_counter": {
+          "label": "Vis lysbildeteller"
+        }
+      },
+      "blocks": {
+        "slide": {
+          "icon_info": "80 x 80px .png eller .svg anbefales"
+        }
+      }
+    },
+    "recommended-collection-filters": {
+      "name": "Anbefalte filtre"
+    }
+  },
+  "blocks": {
+    "quiz-step": {
+      "name": "Quiz-spørsmål",
+      "settings": {
+        "stepper_label": {
+          "label": "Trinnmerke",
+          "info": "Kort etikett vist på fremdriftslinjen. Eksempel: Hudtype, Bekymring."
+        },
+        "question_id": {
+          "label": "Spørsmåls-ID",
+          "info": "Unik ID for dette spørsmålet. Brukes til å hoppe over spørsmål om alternativer (f.eks. q1, q2)."
+        },
+        "layout": {
+          "label": "Alternativ layout",
+          "options": {
+            "pill": "Pilleknapper",
+            "image": "Bildesirkler"
+          }
+        }
+      }
+    },
+    "quiz-option": {
+      "name": "Quiz-alternativ",
+      "settings": {
+        "label": {
+          "label": "Etikett"
+        },
+        "image": {
+          "label": "Image",
+          "info": "Brukes når spørsmålsoppsettet er Bildesirkler."
+        },
+        "product_matching_header": "Resultatprodukter",
+        "strong_match": {
+          "label": "Primære produkter",
+          "info": "Vises først i quizresultater når kunder velger dette svaret."
+        },
+        "partial_match": {
+          "label": "Flere produkter",
+          "info": "Vist etter primærprodukter i quizresultater."
+        },
+        "exclude": {
+          "label": "Anbefal aldri",
+          "info": "Blokker disse produktene fra resultater når kunder velger dette svaret, selv om de vises i andre svar."
+        },
+        "skip_questions_header": "Spørsmålslogikk",
+        "skip_questions": {
+          "label": "Hopp over spørsmål",
+          "info": "Skriv inn spørsmåls-ID-er fra quizspørsmål for å hoppe over når dette svaret er valgt. Eksempel: q3, q4"
+        }
+      }
+    }
+  }
+}

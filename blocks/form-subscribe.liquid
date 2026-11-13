@@ -1,0 +1,203 @@
+{% liquid
+  assign block_st = block.settings
+%}
+{% capture style %}
+--space-bottom: {{ block_st.padding_bottom }};--space-top: {{ block_st.padding_top }};--space-left: 0;--space-right: 0;--space-min-left: 0;--space-min-right: 0;--input-color: #444;
+{%- if block_st.padding_top > 20 -%}--space-min-top: {{ block_st.padding_top | times: 0.67 }};{%- else -%}--space-min-top: {{ block_st.padding_top }};{%- endif -%}
+{%- if block_st.padding_bottom > 20 -%}--space-min-bottom: {{ block_st.padding_bottom | times: 0.67 }};{%- else -%}--space-min-bottom: {{ block_st.padding_bottom }};{%- endif -%}
+{% endcapture %}
+{% if request.visual_preview_mode %}
+  <div
+    class="block__form_subscribe bg-white p-sp-5 rounded-5"
+  >
+    <input
+      type="hidden"
+      name="contact[tags]"
+      value="newsletter"
+    >
+    <div
+      class="field relative flex wrap gap-10"
+    >
+      <input
+        id="email_contact--{{ block.id }}"
+        type="email"
+        required
+        name="contact[email]"
+        placeholder="{{ block_st.email_placeholder }}"
+        class="field__input password__subcribe-input btn-radius min-w-custom js-custom-input"
+        style="--min-width: 30rem;"
+      >
+      <label for="email_contact--{{ block.id }}" class="field__label"> {{ block_st.email_placeholder }} * </label>
+      <button
+        type="submit"
+        class="btn pointer btn-primary relative word-wrap relative"
+        style="--width: 20rem;"
+      >
+        <span> {{ block_st.btn_label }}</span>
+      </button>
+    </div>
+  </div>
+{% else %}
+  <div
+    class="flexible-block block__form_subscribe group-block--height-{{ block_st.height_block }} group-block--width-{{ block_st.width_block }} group-block--width-mb-{{ block_st.width_block_mobile }} group-block--height size-style spacing-style switch-slide__mobile"
+    style="{{ style | strip | strip_newlines }};{% render 'size-style', settings: block_st, is_group: true %}"
+    {{ block.shopify_attributes }}
+  >
+    {%- form 'customer', class: 'form-validation form-password-page' -%}
+      <input
+        type="hidden"
+        name="contact[tags]"
+        value="newsletter"
+      >
+      <div
+        class="field relative flex gap-10 m-custom wrap"
+        style="--m-custom: 1px;"
+      >
+        <div class="relative flex flex-1">
+          <input
+            id="email_contact--{{ block.id }}"
+            type="email"
+            required
+            name="contact[email]"
+            value="{% if customer %}{{ customer.email }}{% endif %}"
+            placeholder="{{ block_st.email_placeholder }}"
+            class="field__input password__subcribe-input btn-radius js-custom-input w-full"
+            {% if form.errors %}
+              aria-invalid="true"
+              aria-describedby="Password-error--{{ section.id }}"
+            {% elsif form.posted_successfully? %}
+              aria-describedby="Password-success--{{ section.id }}"
+            {% endif %}
+          >
+          <label for="email_contact--{{ block.id }}" class="field__label"> {{ block_st.email_placeholder }} * </label>
+        </div>
+        <button
+          type="submit"
+          class="btn pointer btn-primary relative word-wrap relative"
+          style="--width: 20rem;"
+        >
+          <span class="hidden-on-load"> {{ block_st.btn_label }}</span>
+          {%- render 'loader' -%}
+        </button>
+      </div>
+    {%- endform -%}
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.custom_section.blocks.email_subscription.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.custom_section.blocks.email_subscription.how_to_use"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "t:sections.main-password-content.blocks.form_subscribe.settings.email_placeholder.label",
+      "default": "Enter your email..."
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "t:sections.main-password-content.blocks.form_subscribe.settings.btn_label.label",
+      "default": "Subscribe"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.settings.size.label"
+    },
+    {
+      "type": "select",
+      "id": "width_block",
+      "label": "t:sections.custom_section.blocks.settings.size.width.label",
+      "default": "fit",
+      "options": [
+        {
+          "value": "fit",
+          "label": "t:sections.custom_section.blocks.settings.size.options.options__1.label"
+        },
+        {
+          "value": "fill",
+          "label": "t:sections.custom_section.blocks.settings.size.options.options__2.label"
+        },
+        {
+          "value": "custom",
+          "label": "t:sections.custom_section.blocks.settings.size.options.options__3.label"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "custom_width",
+      "min": 5,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100,
+      "label": "t:sections.custom_section.blocks.settings.size.width.custom_width.label",
+      "visible_if": "{{ block.settings.width_block == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "width_block_mobile",
+      "label": "t:sections.custom_section.blocks.settings.size.mobile_width.label",
+      "default": "fill",
+      "options": [
+        {
+          "value": "fit",
+          "label": "t:sections.custom_section.blocks.settings.size.options.options__1.label"
+        },
+        {
+          "value": "fill",
+          "label": "t:sections.custom_section.blocks.settings.size.options.options__2.label"
+        },
+        {
+          "value": "custom",
+          "label": "t:sections.custom_section.blocks.settings.size.options.options__3.label"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "custom_width_mobile",
+      "min": 5,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100,
+      "label": "t:sections.custom_section.blocks.settings.size.width.custom_width.label",
+      "visible_if": "{{ block.settings.width_block_mobile == 'custom' }}"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.page.spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    { "name": "t:sections.custom_section.blocks.email_subscription.name", "category": "t:sections.group.blocks.forms" }
+  ]
+}
+{% endschema %}

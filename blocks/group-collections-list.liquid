@@ -1,0 +1,145 @@
+{%- liquid
+  assign theme_st = settings
+  assign section_st = section.settings
+  assign block_st = block.settings
+  assign scroll_animation = theme_st.scroll_animation
+  assign align_vertical = block_st.align_vertical
+  assign heading_size = section_st.heading_size
+  assign header_size = ''
+  if heading_size == 'small'
+    assign header_size = 'h3'
+  elsif heading_size == 'large'
+    assign header_size = 'h1'
+  endif
+-%}
+{% style %}
+  .blocks-container .shopify-block:first-child .collection-list__content-inner {
+    padding-top: 0;
+  }
+{% endstyle %}
+
+<div class="w-full h-full flex align-{{ align_vertical }}">
+  <div class="w-full">
+    {%- if section_st.title != blank or section_st.description != blank or section_st.subheading != blank -%}
+      <div
+        class="section-header section-header__in-blocks d-none block-1025 text-{{ section_st.text_alignment }}{% if section.blocks.size > 0 %} mb-40{% endif %}"
+      >
+        {% assign animate_delay = 25 %}
+        {%- if section_st.subheading != blank -%}
+          {% if scroll_animation %}
+            <motion-effect
+              data-animate="fade-up"
+              data-animate-delay="{{ animate_delay }}"
+              class="block"
+            >
+          {% endif %}
+          <div class="section-subheading h7 mb-5 mb-md-10 subheading_weight fs-big-2 mb-10">
+            {{ section.settings.subheading }}
+          </div>
+          {% if scroll_animation %}
+            </motion-effect>
+          {% endif %}
+        {%- endif -%}
+        {%- if section_st.title != blank -%}
+          {% assign animate_delay = animate_delay | plus: 50 %}
+          {% if scroll_animation %}
+            <motion-effect
+              data-animate="fade-up"
+              data-animate-delay="{{ animate_delay }}"
+              class="block"
+            >
+          {% endif %}
+          <h2 class="block section-heading {{ header_size }}">
+            {{ section.settings.title }}
+          </h2>
+          {% if scroll_animation %}
+            </motion-effect>
+          {% endif %}
+        {%- endif -%}
+        {%- if section_st.description != blank -%}
+          {% assign animate_delay = animate_delay | plus: 50 %}
+          {% if scroll_animation %}
+            <motion-effect
+              data-animate="fade-up"
+              data-animate-delay="{{ animate_delay }}"
+              class="block"
+            >
+          {% endif %}
+          <div class="section-description mt-15 prose">
+            {{ section.settings.description }}
+          </div>
+          {% if scroll_animation %}
+            </motion-effect>
+          {% endif %}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+    {% if request.visual_preview_mode %}
+      <div
+        class="section-header section-header__in-blocks d-none block-1025 text-{{ section_st.text_alignment }}{% if section.blocks.size > 0 %} mb-40{% endif %}"
+      >
+        <div class="section-subheading h7 mb-5 mb-md-10 subheading_weight fs-big-2 mb-10">
+          {{ 'general.content.subheading' | t }}
+        </div>
+        <h2 class="block section-heading {{ header_size }}">
+          {{ 'general.content.heading' | t }}
+        </h2>
+      </div>
+    {% endif %}
+    <div class="blocks-container">
+      {% content_for 'blocks' %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "t:sections.collection-list.name",
+  "class": "group--collection-list w-full col-1025-remaining",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "_collection-list"
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "align_vertical",
+      "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.label",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.top"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.middle"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.image-with-text.settings.desktop_vertical_alignment.bottom"
+        }
+      ],
+      "default": "center"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.collection-list.name",
+      "blocks": [
+        {
+          "type": "_collection-list"
+        },
+        {
+          "type": "_collection-list"
+        },
+        {
+          "type": "_collection-list"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

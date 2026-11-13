@@ -1,0 +1,358 @@
+{%- liquid
+  assign items_to_show = block.settings.items_to_show
+  assign show_navigation = block.settings.show_navigation
+  assign show_pagination = block.settings.show_pagination
+  assign block_heading = block.settings.block_heading
+  assign enable_sticky = block.settings.enable_sticky
+  assign items_per_row_tablet = items_to_show
+  assign items_per_row_mb = ''
+  if items_to_show > 3
+    assign items_per_row_tablet = items_to_show | minus: 1
+    assign items_per_row_mb = items_to_show | minus: 1.5
+  else
+    assign items_per_row_tablet = items_to_show
+    assign items_per_row_mb = items_per_row_tablet
+  endif
+  assign autoplay_video = 'autoplay'
+  assign video_index = 1
+  assign video_sticky_index = 1
+  assign metafield_path = block.settings.metafield | default: 'custom.media_lightbox' | strip
+  assign metafield_parts = metafield_path | split: '.'
+  assign metafield_namespace = metafield_parts[0] | default: 'custom'
+  assign metafield_key = metafield_parts[1] | default: 'media_lightbox'
+  assign media_lightbox = closest.product.metafields[metafield_namespace][metafield_key]
+-%}
+{%- capture style -%}
+  --swiper-navigation-size: 3.6rem;--gap: 1rem; --gap-desktop: 1rem;--item-desktop: {{ items_to_show }};--item-tablet: {{ items_per_row_tablet }};--item-mb: {{ items_per_row_mb }};
+{%- endcapture -%}
+{% style %}
+  .media-lightbox-popup-slide {
+    --height: 57rem;
+  }
+  @media (min-width: 1025px) {
+    .modal-lightbox {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 767.98px) {
+    .free-scroll {
+      padding-inline: var(--bs-gutter-x, 1.5rem);
+      margin-inline: calc(var(--bs-gutter-x, 1.5rem) * -1);
+    }
+  }
+  .video-local-lightbox.is-play .play-button {
+    opacity: 0;
+    pointer-events: none;
+  }
+{% endstyle %}
+{%- if closest.product != blank -%}
+  {%- if media_lightbox.value -%}
+    <div class="swiper__controls-group">
+      {% if block_heading != blank %}
+        <div
+          class="flex gap-10 align-center space-between mb-sp-5 lh-global"
+          style="--position-arrow: static;--swiper-navigation-size: 20px;--padding: 0;"
+        >
+          <div class="recommendations-heading h6 fs-22">
+            {{ block_heading }}
+          </div>
+          {% if show_navigation %}
+            {%- render 'swiper-navigation',
+              type: 'custom_nav',
+              class-custom: 'custom-navigation flex align-center gap-15'
+            -%}
+          {% endif %}
+        </div>
+      {% endif %}
+      <script type="module" src="{{ 'media-lightbox-gallery.js' | asset_url }}"></script>
+      {% if items_to_show > 3 %}
+        <div class="free-scroll overflow-hidden">
+      {% endif %}
+      <slide-section
+        class="swiper media-lightbox-slide{% if items_to_show > 3 %} overflow-visible-mb{% endif %}"
+        data-section-id="{{ section.id }}"
+        data-effect="slide"
+        data-speed="300"
+        data-pagination="custom"
+        data-desktop="{{ items_to_show }}"
+        data-mobile="{{ items_per_row_mb }}"
+        data-tablet="{{ items_per_row_tablet }}"
+        data-spacing="10"
+        style="{{ style | strip | strip_newlines }}"
+      >
+        {% if block_heading == blank -%}
+          {% if show_navigation %}
+            {%- render 'swiper-navigation' -%}
+          {% endif %}
+        {% endif %}
+        <div class="swiper-wrapper">
+          {%- for media in media_lightbox.value -%}
+            <div class="swiper-slide">
+              {%- assign image_alt = media.alt | default: closest.product.title | escape -%}
+              <div class="media-lightbox-item cursor-zoom-in">
+                <video-local-lightbox
+                  tabindex="0"
+                  data-position="{{ forloop.index | minus: 1 }}"
+                  class="video-local-lightbox fs-0 rounded w-full h-full flex content-center focus-inset-inside{% if autoplay_video != blank %} is-play{% endif %}"
+                  {% if media.media_type == 'video' -%}
+                    data-video-index="{{ video_index }}"
+                    {%- assign video_index = video_index | plus: 1 -%}
+                  {% endif %}
+                  {{ autoplay_video }}
+                >
+                  {% if media.media_type == 'video' -%}
+                    <div class="video-thumbnail">
+                      {%- render 'responsive-image', type: 'banner', image: media.preview_image, image_alt: image_alt, class: 'rounded-10' -%}
+                    </div>
+                    <template>
+                      {{
+                        media
+                        | video_tag: image_size: '1100x', autoplay: true, controls: false, muted: true, alt: image_alt
+                      }}
+                    </template>
+                    {%- assign autoplay_video = blank -%}
+                  {% else %}
+                    {%- render 'responsive-image', type: 'banner', image: media, image_alt: image_alt, class: 'rounded-10' %}
+                  {% endif %}
+                  <button
+                    aria-label="{{ 'accessibility.play_button.video' | t }}"
+                    class="play-button play-button-popup absolute transition pointer border-0 inline-flex align-center justify-content-center transition"
+                    style="--button-width: 4rem; --button-height: 4rem;"
+                  >
+                    {%- render 'icon-play' -%}
+                  </button>
+                </video-local-lightbox>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+        {%- if show_pagination -%}
+          <div
+            class="swiper-pagination"
+          ></div>
+        {% endif %}
+      </slide-section>
+      {% if items_to_show > 3 %}
+        </div>
+      {% endif %}
+      <template class="media-lightbox-popup">
+        <media-lightbox-popup
+          class="modal modal_type_popup active_smooth fixed right-30 bottom-30 z-10 flex align-center flex-end"
+          role="dialog"
+        >
+          <div
+            class="modal-lightbox modal-popup-inner invisible-1025 flex column modal-focus transition modal-draggable rounded max-w-custom bg-white w-full"
+            tabindex="-1"
+            style="--max-width: 33rem;--width: 4.6rem; --height: 4.6rem;--swiper-navigation-size: 4.6rem;--position-arrow: static;"
+          >
+            <button
+              class="modal__close absolute pointer overflow-hidden btn-reset w-custom h-custom bg-custom blur inline-flex content-center absolute z-3 top-custom right-sp-3 rounded-50 shadow color-white"
+              aria-label="{{ 'accessibility.close' | t }}"
+              style="--color-grey: rgb(var(--color-white));--top-custom: 26px;"
+            >
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 14 14"
+                fill="none"
+                class="transition-short will-change icon-zoom"
+              >
+                <use href="#icon-close"></use>
+              </svg>
+            </button>
+            <slide-section
+              class="swiper media-lightbox-popup-slide w-full h-custom"
+              data-effect="slide"
+              data-direction="vertical"
+              data-mousewheel="true"
+              data-muted-video="true"
+              data-loop="true"
+              data-speed="300"
+              data-spacing="0"
+              data-mobile="1"
+              data-desktop="1"
+              data-tablet="1"
+            >
+              {%- render 'swiper-navigation', class_prev: ' dif-style', class_next: ' dif-style' -%}
+              <div class="swiper-wrapper">
+                {%- for media in media_lightbox.value -%}
+                  <div class="swiper-slide">
+                    {%- assign image_alt = media.alt | default: closest.product.title | escape -%}
+                    <div class="media-lightbox-item w-full h-full">
+                      {% if media.media_type == 'video' -%}
+                        <video-lightbox-item class="w-full h-full">
+                          <button
+                            aria-label="{{ 'accessibility.play_button.video' | t }}"
+                            class="play-button transition-short opacity-0 absolute m-auto btn-reset bg-custom blur rounded-50 z-1 pointer inline-flex content-center active"
+                            style="--button-width: 5rem; --button-height: 5rem;"
+                          >
+                            {%- render 'icon-play' -%}
+                            {% render 'icon-pause' %}
+                          </button>
+                          <button
+                            aria-label="{{ 'accessibility.mute_button.video' | t }}"
+                            class="mute-button mute-button-popup absolute right-sp-3 bottom-12 btn-reset bg-custom blur rounded-50 z-1 pointer"
+                          >
+                            {%- render 'icon-mute-open' -%}
+                            {% render 'icon-mute-close' %}
+                          </button>
+                          {%- liquid
+                            assign source = media.sources
+                            assign source_url = ''
+                            for s in source
+                              if s.format == 'mp4'
+                                assign source_url = s.url
+                                break
+                              endif
+                            endfor
+                            assign poster = media.preview_image | image_url: width: 500
+                          -%}
+                          <div class="smooth_loading absolute inset-0 flex content-center bg-grey transition">
+                            <span class="loader"></span>
+                          </div>
+                          <video
+                            preload="metadata"
+                            class="smooth_loading-video w-full"
+                            loop
+                            muted
+                            playsinline
+                            autoplay
+                            poster="{{ poster }}"
+                            src="{{ source_url }}"
+                          ></video>
+                        </video-lightbox-item>
+                      {% else %}
+                        {% render 'responsive-image', type: 'banner', image: media, image_alt: image_alt, disable_lazy_loading: true, class: 'rounded-10 h-full' %}
+                      {% endif %}
+                    </div>
+                  </div>
+                {%- endfor -%}
+              </div>
+            </slide-section>
+            {% render 'card-product',
+              card_product: closest.product,
+              section_id: section.id,
+              disable_hover_image: true,
+              disable_show_video: true,
+              disable_lazy_loading: true,
+              disable_badge: true,
+              disable_vendor: true,
+              disable_rate: true,
+              disable_tag: true,
+              disable_countdown: true,
+              disable_scrolling_text: true,
+              disable_color_swatches: true,
+              show_quickadd: true,
+              class: ' swiper-slide bg-white rounded-10 absolute z-2',
+              style_layout: ' flex',
+              image_class: ' flex-auto w-custom rounded-0',
+              image_rounded: ' rounded-0',
+              info_class: ' flex-1 mt-0 mt-1025-0 px-sp-3 py-18 lh-normal',
+              align_left_only: true,
+              type: 'action_bellow'
+            %}
+          </div>
+        </media-lightbox-popup>
+      </template>
+    </div>
+    {% if enable_sticky -%}
+      {%- for media in media_lightbox.value -%}
+        {% if media.media_type == 'video' -%}
+          {%- assign image_alt = media.alt | default: closest.product.title | escape -%}
+          <video-local-lightbox-sticky
+            class="sticky-video right-depend_overlay hidden pointer transition-drawer fixed z-5 w-custom visibility-hidden opacity-0 flex-md w-custom rounded"
+            style="--width: 15rem;"
+          >
+            <video-local-scroll class="video-local flex" data-video-index="{{ video_sticky_index }}" tabindex="0">
+              <div class="video-thumbnail">
+                {% render 'responsive-image', type: 'other', image: media.preview_image, image_alt: image_alt, class: 'rounded-10' %}
+              </div>
+              <template>
+                {{
+                  media
+                  | video_tag:
+                    image_size: '1100x',
+                    autoplay: true,
+                    loop: true,
+                    controls: false,
+                    muted: true,
+                    alt: image_alt
+                }}
+              </template>
+            </video-local-scroll>
+            <button
+              class="sticky__close btn-reset inline-flex rounded-50 overflow-hidden absolute top-custom right-custom w-custom h-custom content-center color-white bg-custom blur"
+              style="--width: 3.4rem;--height: 3.4rem; top: 10px; right: 10px;--bg-color-custom:rgba(0, 0, 0, 0.30);--blur: 2.5px;"
+              aria-label="{{ 'accessibility.button.close' | t }}"
+            >
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                <use href="#icon-close"></use>
+              </svg>
+            </button>
+          </video-local-lightbox-sticky>
+          {%- assign video_sticky_index = video_sticky_index | plus: 1 -%}
+          {% break %}
+        {% endif %}
+      {%- endfor -%}
+    {% endif %}
+  {% elsif request.design_mode %}
+    {%- render 'editor-metafield-hint', id: 'media_lightbox', source: metafield_path -%}
+  {% endif %}
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.all.product_setting.media_lightbox.name",
+  "class": "block-product__media-lightbox my-custom slideIn-animate",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.all.product_setting.media_lightbox.description"
+    },
+    {
+      "type": "text",
+      "id": "metafield",
+      "label": "t:sections.all.metafield.media_lightbox.label",
+      "info": "t:sections.all.metafield.media_lightbox.info",
+      "default": "custom.media_lightbox"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.product_setting.media_lightbox.name"
+    },
+    {
+      "type": "text",
+      "id": "block_heading",
+      "label": "t:sections.all.content_setting.heading.label",
+      "default": "See it in action"
+    },
+    {
+      "type": "range",
+      "id": "items_to_show",
+      "label": "t:sections.all.columns_desktop.label",
+      "min": 3,
+      "max": 5,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "default": true,
+      "label": "t:sections.all.carousel.show_navigation.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination",
+      "default": false,
+      "label": "t:sections.all.carousel.show_pagination.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky",
+      "default": false,
+      "label": "t:sections.all.product_setting.media_lightbox.settings.enable_sticky.label"
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.product_setting.media_lightbox.name" }]
+}
+{% endschema %}

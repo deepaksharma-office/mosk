@@ -1,0 +1,218 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {
+        "section_width": "fix_width",
+        "text_alignment": "start",
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "heading": {
+      "type": "page-heading",
+      "blocks": {
+        "heading_cVehNH": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ page.title }}"
+          }
+        },
+        "description_PdnN6k": {
+          "type": "description",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_cVehNH",
+        "description_PdnN6k"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_width": "fix_width",
+        "color_scheme": "",
+        "text_alignment": "none",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "image_with_text_overlay_Jbtknh": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_PWDBCA": {
+          "type": "heading",
+          "settings": {
+            "heading": "Your Beauty Bundle",
+            "type_preset": "h1",
+            "padding_top": 0,
+            "padding_bottom": 16
+          },
+          "blocks": {}
+        },
+        "description_xWpK7H": {
+          "type": "description",
+          "settings": {
+            "description": "<p>Choose a cleanser, toner, serum and moisturizer to customize your routine (at 50% off!)</p>",
+            "type_preset": "",
+            "padding_top": 0,
+            "padding_bottom": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_PWDBCA",
+        "description_xWpK7H"
+      ],
+      "custom_css": [],
+      "settings": {
+        "section_width": "fix_width",
+        "color_scheme": "scheme-b057792d-f0df-4ed0-973f-3dd88bca67d5",
+        "image": "",
+        "overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "text_alignment": "center",
+        "max_width": 100,
+        "padding_content_inline": 30,
+        "padding_content_block": 95,
+        "show_text_bellow_mobile": false,
+        "text_alignment_mobile": "center",
+        "padding_top": 0,
+        "padding_bottom": 60,
+        "show_divider": false
+      }
+    },
+    "product_bundle_FFF7zW": {
+      "type": "product-bundle",
+      "blocks": {
+        "product_discount_mC7FdP": {
+          "type": "_product-discount",
+          "settings": {
+            "collection": "bundle-product",
+            "products": [],
+            "items_to_show": 6,
+            "items_per_row": 3,
+            "column_gap": "medium"
+          },
+          "blocks": {}
+        },
+        "group_your_bundle_nYxdii": {
+          "type": "_group-your-bundle",
+          "settings": {
+            "title": "Bundle Build",
+            "description": "<p><strong>Save up to 50%</strong> when you<strong> buy min 3 products</strong> plus unlock more exclusive perks!</p>",
+            "heading_size": "medium",
+            "text_alignment": "center",
+            "show_progress_bar": true,
+            "enable_quantity": true
+          },
+          "blocks": {
+            "icon_with_text_bundle_Cgyi3p": {
+              "type": "_icon-with-text-bundle",
+              "settings": {
+                "svg_icon": "verified",
+                "text": "<p>Free shipping over $175</p>"
+              },
+              "blocks": {}
+            },
+            "icon_with_text_bundle_YyPVwW": {
+              "type": "_icon-with-text-bundle",
+              "settings": {
+                "svg_icon": "verified",
+                "text": "<p>Unlock perks and get other rewards</p>"
+              },
+              "blocks": {}
+            },
+            "icon_with_text_bundle_6LPCwm": {
+              "type": "_icon-with-text-bundle",
+              "settings": {
+                "svg_icon": "verified",
+                "text": "<p>Get 1 free samples with every order</p>"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "icon_with_text_bundle_Cgyi3p",
+            "icon_with_text_bundle_YyPVwW",
+            "icon_with_text_bundle_6LPCwm"
+          ]
+        }
+      },
+      "block_order": [
+        "product_discount_mC7FdP",
+        "group_your_bundle_nYxdii"
+      ],
+      "name": "t:sections.product-bundle.name",
+      "settings": {
+        "section_width": "fix_width",
+        "color_scheme": "",
+        "subheading": "",
+        "title": "",
+        "drawn_underline": true,
+        "drawn_underline_type": "squiggle_underline",
+        "drawn_underline_color": "#ffb005",
+        "description": "",
+        "heading_size": "medium",
+        "text_alignment": "center",
+        "discount_title": "Build Your Bundle",
+        "discount_value": "percentage",
+        "value_percentage": 50,
+        "once_per_order": false,
+        "minimum": 3,
+        "maximum": 3,
+        "padding_top": 0,
+        "padding_bottom": 100
+      }
+    },
+    "featured_collection_UWEja3": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.name",
+      "settings": {
+        "section_width": "fix_width",
+        "color_scheme": "",
+        "subheading": "",
+        "heading": "<p>Others Also Bought</p>",
+        "drawn_underline": true,
+        "drawn_underline_type": "squiggle_underline",
+        "drawn_underline_color": "#ffb005",
+        "description": "<p>Check out similar products people are loving. Click to explore trending styles.</p>",
+        "heading_size": "medium",
+        "text_alignment": "center",
+        "show_view_all_button": false,
+        "view_all_button_label": "View all product",
+        "btn_type": "link",
+        "collection": "prepare",
+        "items_to_show": 4,
+        "items_per_row": 4,
+        "column_gap": "medium",
+        "enable_carousel": false,
+        "show_navigation": true,
+        "show_pagination": false,
+        "reveal_slide": false,
+        "items_per_row_mobile": 2,
+        "hide_description_on_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "show_divider": true
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "heading",
+    "image_with_text_overlay_Jbtknh",
+    "product_bundle_FFF7zW",
+    "featured_collection_UWEja3"
+  ]
+}

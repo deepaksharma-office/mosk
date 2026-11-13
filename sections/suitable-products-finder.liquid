@@ -1,0 +1,1139 @@
+{%- liquid
+  assign theme_st = settings
+  assign section_st = section.settings
+  assign scroll_animation = theme_st.scroll_animation
+  if section_st.section_width == 'fix_width'
+    assign section_width = 'container'
+  elsif section_st.section_width == 'full_width'
+    assign section_width = 'full-width'
+  else
+    assign section_width = 'fluid_container'
+  endif
+  assign heading_size = section_st.heading_size
+  assign text_alignment = section_st.text_alignment
+  assign items_per_row = section_st.items_per_row
+  assign show_pagination = section_st.show_pagination
+  assign show_navigation = section_st.show_navigation
+  assign reveal_slide = section_st.reveal_slide
+  assign items_to_show = section_st.items_to_show
+
+  assign header_size = ''
+  if heading_size == 'small'
+    assign header_size = 'h3'
+  elsif heading_size == 'large'
+    assign header_size = 'h1-size'
+  endif
+
+  assign items_per_row_mobile = section_st.items_per_row_mobile
+  assign data_free_scroll = 'false'
+  if items_per_row_mobile > 1 and items_per_row_mobile < 2
+    assign data_free_scroll = 'true'
+  elsif items_per_row_mobile > 2 and items_per_row_mobile < 3
+    assign data_free_scroll = 'true'
+  endif
+
+  assign items_per_row_tablet = items_per_row
+  if items_per_row > 3
+    assign items_per_row_tablet = items_per_row | minus: 1
+  endif
+
+  assign column_gap_slide = 0
+  assign column_gap_mb = 0
+  if section_st.column_gap == 'large'
+    assign column_gap_slide = 32
+    assign column_gap_mb = 24
+  elsif section_st.column_gap == 'medium'
+    assign column_gap_slide = 24
+    assign column_gap_mb = 12
+  elsif section_st.column_gap == 'small'
+    assign column_gap_slide = 16
+    assign column_gap_mb = 8
+  endif
+  assign block_size = section.blocks.size
+  assign size_dot_range_slider = 26
+  assign total_gap = block_size | minus: 1
+  assign total_gap_size = 24 | times: total_gap
+  assign image_collection_width = section_st.image_collection_width
+  assign width_range_slider = image_collection_width | times: block_size | plus: total_gap_size
+  assign animate_delay = 25
+
+  assign class_pagination = ''
+  if show_pagination == false
+    if items_per_row_mobile == 1 or items_per_row_mobile == 2
+      assign class_pagination = ' hidden-md block'
+    elsif items_per_row_mobile > 1 and items_per_row_mobile < 2
+      assign class_pagination = ' hidden'
+    endif
+  endif
+  assign heading = section_st.title
+  assign show_view_all_button = section_st.show_view_all_button
+  assign drawn_underline = section_st.drawn_underline
+  assign drawn_underline_type = section_st.drawn_underline_type
+  assign drawn_underline_color = section_st.drawn_underline_color
+  if drawn_underline
+    assign scroll_animation = 'disable'
+  endif
+
+  assign tab_show_in_heading = false
+  if section_st.collection_tab_style == 'pill_tabs' and section_st.show_pill_tabs_with_heading == true
+    if text_alignment != 'center'
+      assign tab_show_in_heading = true
+    endif
+  endif
+
+  assign rtl_codes = theme_st.language_code_rtl | split: ','
+  assign is_rtl_lang = false
+  for code in rtl_codes
+    assign code_value = code | strip
+    if code_value == request.locale.iso_code
+      assign is_rtl_lang = true
+    endif
+  endfor
+  assign is_rtl = false
+  if theme_st.enable_rtl and is_rtl_lang
+    assign is_rtl = true
+  endif
+
+  assign range_slider_bg = section_st.range_slider_background
+  if is_rtl and range_slider_bg != blank
+    assign range_slider_bg = range_slider_bg | replace: '90deg', '270deg' | replace: 'to right', 'to left'
+  endif
+-%}
+{%- capture style -%} --section-pt: {{ section_st.padding_top }}; --section-pb: {{ section_st.padding_bottom }};--image-collection-width: {{ image_collection_width }}px;--gap-desktop: {{ column_gap_slide }}px;--gap: {{ column_gap_mb }}px;
+{%- endcapture -%}
+{%- capture col_style -%}
+  --col-desktop: {{ items_per_row }};--col-number:{{ items_per_row_mobile }};--col-tablet: {{ items_per_row_tablet }};--repeat: {{ section.blocks.size }}; --col-mobile: {{ items_per_row_mobile }};  --gap-desktop: {{ column_gap_slide }}px;--gap: {{ column_gap_mb }}px;--item-desktop: {{ items_per_row }};--item-tablet: {{ items_per_row_tablet }};--item-mb: {{ items_per_row_mobile }};
+{%- endcapture -%}
+{%- render 'section-divider', position: 'top', style: section_st.divider_top, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+<div
+  class="section color-{{ section_st.color_scheme }} gradient{% if data_free_scroll == 'true' or reveal_slide %} overflow-hidden{% endif %} overflow-hidden-mb{% if section_st.show_divider and section_st.divider_top == 'line' %} border-top{% endif %}{% if section_st.show_divider and section_st.divider_bottom == 'line' %} border-bottom{% endif %}"
+  style="{{ style | strip | strip_newlines }}"
+>
+  <div class="{{ section_width }}">
+    <suitable-finder
+      class="element-tabs__content relative"
+      data-size-dot="{{ size_dot_range_slider }}"
+      data-spacing="30"
+      {% if is_rtl %}
+        data-rtl="true"
+      {% endif %}
+    >
+      {%- if heading != blank or section_st.description != blank or section_st.subheading != blank -%}
+        <div
+          class="section-header text-{{ text_alignment }}{% if tab_show_in_heading %} flex column space-between gap-sp-4 gap-1025-sp-8 align-start{% else %} not_show_tab_in_heading{% endif %}{% if tab_show_in_heading and text_alignment == 'end' %} row-reverse-1025{% else %} row-1025{% endif %}"
+        >
+          {% if tab_show_in_heading %}
+            <div
+              class="wrapper-container w-full flex space-between gap-sp-2 max-w-custom align-center{% if text_alignment == 'end' %} row-reverse{% endif %}"
+              style="--max-width: 38%;"
+            >
+              <div class="wrapper-header text-{{ text_alignment }} flex-1">
+          {% endif %}
+          {%- if section_st.subheading != blank -%}
+            {% if scroll_animation != 'disable' %}
+              <motion-effect
+                data-animate="fade-up"
+                data-animate-delay="{{ animate_delay }}"
+                class="block"
+              >
+            {% endif %}
+            <div class="section-subheading h7 mb-5 mb-md-10 subheading_weight">
+              {{ section.settings.subheading }}
+            </div>
+            {% if scroll_animation != 'disable' %}
+              </motion-effect>
+            {% endif %}
+          {%- endif -%}
+          {%- if heading != blank -%}
+            {% if tab_show_in_heading %}
+              <div
+                class="flex row space-between align-center gap-sp-4{% if text_alignment == 'end' %} row-reverse{% endif %}"
+              >
+            {% endif %}
+            {% if scroll_animation != 'disable' or drawn_underline %}
+              <motion-effect
+                data-animate="{% if scroll_animation != 'disable' %}fade-up{% else %}highlighted-text{% endif %}"
+                data-animate-delay="{{ animate_delay }}"
+                class="block"
+              >
+            {% endif %}
+            <h2 class="block section-heading {{ header_size }}">
+              {% if drawn_underline %}
+                {%- capture squiggle_svg_1 -%}
+                <svg viewBox="0 0 184 26" fill="none"><use href="#squiggle-svg-1" /></svg>
+              {%- endcapture -%}
+                {%- capture squiggle_svg_2 -%}
+                <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-2" /></svg>
+              {%- endcapture -%}
+                {%- capture squiggle_svg_3 -%}
+                  <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-3" /></svg>
+              {%- endcapture -%}
+                {%- capture squiggle_svg_4 -%}
+                <svg viewBox="0 0 220 20"fill="none"><use href="#squiggle-svg-4" /></svg>
+              {%- endcapture -%}
+                {%- capture squiggle_svg_5 -%}
+                <svg viewBox="0 0 140 24" fill="none" role="presentation" preserveAspectRatio="none"><use href="#squiggle-svg-5" /></svg>
+              {%- endcapture -%}
+                {%- assign result = heading -%}
+                {%- assign parts = result | split: '<em>' -%}
+                {%- assign em_count = parts | size | minus: 1 -%}
+
+                {%- for i in (1..em_count) -%}
+                  {%- assign idx = i | plus: 0 -%}
+                  {%- assign chunk = parts[idx] | default: '' -%}
+                  {%- assign text = chunk | split: '</em>' | first | strip_html | strip -%}
+                  {%- assign len_text = text | size -%}
+                  {%- capture open_em -%}
+                {%- liquid
+                  if drawn_underline_type == 'simple_underline'
+                    assign svg = squiggle_svg_4 | append: '</em>'
+                  elsif drawn_underline_type == 'curve_underline'
+                    assign svg = squiggle_svg_5 | append: '</em>'
+                  else
+                    if len_text <= 4
+                      assign svg = squiggle_svg_1 | append: '</em>'
+                    elsif len_text <= 6
+                      assign svg = squiggle_svg_2 | append: '</em>'
+                    else
+                      assign svg = squiggle_svg_3 | append: '</em>'
+                    endif
+                  endif
+                -%}
+                <em class="highlighted-text relative inline-flex{% if drawn_underline_type == 'simple_underline' %} simple_underline{% endif %} {{ drawn_underline_type }} not-italic" style="--animate-color:{{ drawn_underline_color }}">{{ svg }}</em>
+              {%- endcapture -%}
+                  {%- assign open_em = open_em | remove: '</em>' -%}
+                  {%- assign heading = heading | replace_first: '<em>', open_em -%}
+                {%- endfor -%}
+              {% endif %}
+              {{- heading -}}
+            </h2>
+            {% if scroll_animation != 'disable' or drawn_underline %}
+              </motion-effect>
+            {% endif %}
+            {% if tab_show_in_heading %}
+              {% if show_view_all_button and section_st.collection_tab_style == 'pill_tabs' %}
+                <div
+                  class="flex text-center justify-content-center max-w-custom-all hidden-1025"
+                  style="--max-width: 15rem;"
+                >
+                  <a
+                    role="link"
+                    aria-disabled="true"
+                    class="pointer{% if section_st.btn_type != 'link' %} btn{% endif %} btn-{{ section_st.btn_type }} max-w-100 border-animation view-all-btn"
+                    aria-label="{{ section.settings.view_all_button_label }}"
+                  >
+                    {{ section.settings.view_all_button_label }}
+                  </a>
+                </div>
+              {% endif %}
+              </div>
+            {% endif %}
+          {%- endif -%}
+          {%- if section_st.description != blank -%}
+            {% if scroll_animation != 'disable' %}
+              {% assign animate_delay = animate_delay | plus: 50 %}
+              <motion-effect
+                data-animate="fade-up"
+                data-animate-delay="{{ animate_delay }}"
+                class="block"
+              >
+            {% endif %}
+            <div class="section-description mt-sp-4 prose{% if section_st.hide_description_on_mobile %} hidden block-1025{% endif %}">
+              {{ section.settings.description }}
+            </div>
+            {% if scroll_animation != 'disable' %}
+              </motion-effect>
+            {% endif %}
+          {%- endif -%}
+          {% if tab_show_in_heading %}
+            </div>
+            </div>
+          {%- endif -%}
+          {% if tab_show_in_heading %}
+            <div
+              class="w-full w-1025-auto gap-sp-8 flex flex-1025-{{ text_alignment }} type-{{ section_st.media_type }} overflow-y-hidden align-center"
+            >
+              <div class="product-tabs__header-content p-1 pb-0 hidden-scrollbar overflow-x-scroll-mb flex gap-sp-2">
+                {%- for block in section.blocks -%}
+                  {%- liquid
+                    assign block_st = block.settings
+                    assign collection_title = block_st.collection_title
+                    if collection_title == blank
+                      assign collection_title = collections[block_st.collection].title
+                    endif
+                    if collection_title == blank
+                      assign collection_title = 'sections.collection_list.sample_name' | t
+                    endif
+                  -%}
+                  {%- if collection_title != blank -%}
+                    <div
+                      class="product-tabs__header-item product-tabs__header-item-js flex content-center pointer gap-6 border fs-small px-sp-4 py-6  btn-rounded{% if forloop.first %} active{% endif %} not-highlight-tap"
+                      data-block-id="{{ block.id }}"
+                      data-href="{{ collections[block_st.collection].url }}"
+                      tabindex="0"
+                      data-position="{{ forloop.index }}"
+                      data-tab-id="tab-{{ forloop.index }}"
+                      {{ block.shopify_attributes }}
+                    >
+                      {% if section_st.collection_tab_style == 'pill_tabs' and section_st.show_pill_tabs_color %}
+                        {% if block_st.collection_pill_image == blank %}
+                          <div
+                            class="product-tabs__header-pill-color w-custom h-custom rounded-50"
+                            style="background-color: {{ block_st.collection_pill_color }};--width: 1.4rem;--height: 1.4rem;"
+                          ></div>
+                        {% else %}
+                          <div
+                            class="product-tabs__header-pill-color w-custom h-custom rounded-50"
+                            style="--width: 1.4rem;--height: 1.4rem;"
+                          >
+                            {% render 'responsive-image',
+                              type: 'other',
+                              image: block_st.collection_pill_image,
+                              image_alt: block_st.collection_pill_image.alt_text,
+                              container: section_width,
+                              class: 'rounded-50 w-full h-full'
+                            %}
+                          </div>
+                        {% endif %}
+                      {% endif %}
+                      <div
+                        class="product-tabs__header-title suitable-products pb-0 word-break heading-color text-center flex-1"
+                      >
+                        {{ collection_title }}
+                      </div>
+                    </div>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+              {% if show_view_all_button and section_st.collection_tab_style == 'pill_tabs' %}
+                <div
+                  class="flex-1025 text-center justify-content-center max-w-custom-all hidden h-fit"
+                  style="--max-width: 15rem;"
+                >
+                  <a
+                    role="link"
+                    aria-disabled="true"
+                    class="pointer{% if section_st.btn_type != 'link' %} btn{% endif %} btn-{{ section_st.btn_type }} max-w-100 border-animation view-all-btn"
+                    aria-label="{{ section.settings.view_all_button_label }}"
+                  >
+                    {{ section.settings.view_all_button_label }}
+                  </a>
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {%- endif -%}
+      <div
+        class="product-tabs__header"
+      >
+        {% if tab_show_in_heading == false %}
+          <div class="product-tabs__header flex{% if section_st.collection_tab_style == 'pill_tabs' %} flex-1025-{{ text_alignment }}{% else %} column-md align-{{ text_alignment }}{% endif %} type-{{ section_st.media_type }} mb-sp-6 mb-1025-sp-10 overflow-y-hidden">
+            <div class="product-tabs__header-content p-1 pb-0 hidden-scrollbar overflow-x-scroll-mb flex{% if section_st.collection_tab_style == 'range_slider' %} gap-sp-4 gap-1025-sp-6{% else %} gap-sp-2{% endif %}{% if section_st.show_range_slider == false %} hidden_range{% endif %}">
+              {%- for block in section.blocks -%}
+                {%- liquid
+                  assign block_st = block.settings
+                  assign collection_title = block_st.collection_title
+                  if collection_title == blank
+                    assign collection_title = collections[block_st.collection].title
+                  endif
+                  if collection_title == blank
+                    assign collection_title = 'sections.collection_list.sample_name' | t
+                  endif
+                  assign image = block_st.collection_image | default: block_st.collection.image
+                  assign collection_media = collections[block_st.collection].featured_image
+                  if image.alt != blank
+                    assign alt_text = image.alt
+                  elsif collection_title != blank
+                    assign alt_text = collection_title
+                  elsif collection_media != blank
+                    assign alt_text = collection_media.alt
+                  else
+                    assign alt_text = 'sections.collection_list.sample_name' | t
+                  endif
+                  assign aspect_ratio = '2'
+                  assign class = 'rounded'
+                  case section_st.media_type
+                    when 'rounded'
+                      assign aspect_ratio = '1/1'
+                      assign class = 'rounded-50'
+                    when 'oval'
+                      assign aspect_ratio = '2'
+                    else
+                      if image != blank
+                        assign aspect_ratio = image.aspect_ratio
+                      else
+                        assign aspect_ratio = '2'
+                      endif
+                  endcase
+                -%}
+                {%- if collection_title != blank -%}
+                  <div
+                    class="product-tabs__header-item product-tabs__header-item-js flex content-center pointer{% if section_st.collection_tab_style == 'range_slider' %} column {% else %} gap-6 border px-sp-4 py-6 fs-small btn-rounded{% endif %}{% if forloop.first %} active{% endif %} not-highlight-tap"
+                    data-block-id="{{ block.id }}"
+                    tabindex="0"
+                    data-position="{{ forloop.index }}"
+                    data-tab-id="tab-{{ forloop.index }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {% if section_st.collection_tab_style == 'range_slider' %}
+                      <div
+                        class="product-tabs__header-image mb-sp-1 mb-1025-sp-2 w-custom max-w-100 {{ class }}"
+                        style="--aspect-ratio: {{ aspect_ratio }};{% if section_st.media_type == 'oval' %}--img-rounded: 50px;{% elsif section_st.media_type == 'rounded' %}--img-rounded: 50%;{% endif %}; --width: clamp(calc(var(--image-collection-width) * 75/100), 12vw, var(--image-collection-width));"
+                      >
+                        {%- if image != blank or collection_media != blank -%}
+                          {%- if image != blank -%}
+                            {% render 'responsive-image',
+                              type: 'other',
+                              image: image,
+                              image_alt: alt_text,
+                              container: section_width,
+                              column: items_per_row,
+                              column_mobile: section_st.items_per_row_mobile,
+                              padding: column_gap_slide,
+                              class: class,
+                              motion: false
+                            %}
+                          {% else %}
+                            {% render 'responsive-image',
+                              type: 'other',
+                              image: collection_media,
+                              image_alt: alt_text,
+                              container: section_width,
+                              column: items_per_row,
+                              column_mobile: section_st.items_per_row_mobile,
+                              padding: column_gap_slide,
+                              class: class,
+                              motion: true,
+                              animate: 'fade-in'
+                            %}
+                          {% endif %}
+                        {%- else -%}
+                          {% liquid
+                            assign class_placeholder = 'img-placeholder h-full w-full rounded'
+                            if section_st.media_type == 'rounded'
+                              assign class_placeholder = 'img-placeholder h-full w-full rounded-50'
+                            endif
+                          %}
+                          {% render 'placeholder-render',
+                            type: 'collection',
+                            class: class_placeholder,
+                            motion: true,
+                            animate: 'fade-in'
+                          %}
+                        {%- endif -%}
+                      </div>
+                    {% endif %}
+                    {% if section_st.collection_tab_style == 'pill_tabs' and section_st.show_pill_tabs_color %}
+                      {% if block_st.collection_pill_image == blank %}
+                        <div
+                          class="product-tabs__header-pill-color w-custom h-custom rounded-50"
+                          style="background-color: {{ block_st.collection_pill_color }};--width: 1.4rem;--height: 1.4rem;"
+                        ></div>
+                      {% else %}
+                        <div
+                          class="product-tabs__header-pill-color w-custom h-custom rounded-50"
+                          style="--width: 1.4rem;--height: 1.4rem;"
+                        >
+                          {% render 'responsive-image',
+                            type: 'other',
+                            image: block_st.collection_pill_image,
+                            image_alt: block_st.collection_pill_image.alt_text,
+                            container: section_width,
+                            class: 'rounded-50 w-full h-full'
+                          %}
+                        </div>
+                      {% endif %}
+                    {% endif %}
+                    <div
+                      class="product-tabs__header-title suitable-products pb-0 word-break heading-color text-center max-w-custom-md flex-1"
+                      style="{% if section_st.collection_tab_style == 'range_slider' %}--max-width: {{image_collection_width}}px;{% endif %}"
+                    >
+                      {{ collection_title }}
+                    </div>
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+            {%- if section_st.show_range_slider and section_st.collection_tab_style == 'range_slider' -%}
+              <range-slider
+                class="range-slider relative w-full max-w-custom-md block hidden-mobile mt-sp-4"
+                style="--thumb-size:{{ size_dot_range_slider }}px;--bg-color-custom: {{ range_slider_bg }};--width-range-slider: {{ width_range_slider }}px;--max-width: var(--width-range-slider);--height: 4px;"
+              >
+                <label for="range-slider" class="visually-hidden">
+                  {{ 'suitable-finder-product.range-slider' | t }}
+                </label>
+                <input
+                  type="range"
+                  min="1"
+                  max="{{ width_range_slider }}"
+                  value="1"
+                  step="1"
+                  class="m-0 w-full max-w-custom-md relative bg-custom custom-range"
+                  id="range-slider"
+                >
+              </range-slider>
+            {%- endif -%}
+          </div>
+        {% endif %}
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign block_st = block.settings
+            assign collection = collections[block_st.collection]
+          -%}
+          {%- if collection.products.size > 0 -%}
+            {% if forloop.index > 1 %}
+              <template class="tabs__content">
+            {% endif %}
+            <div
+              class="product-tabs__content-item product-tabs__content-item-{{ block.id }}{% if forloop.first %} active{% else %} hidden{% endif %}"
+              data-block-id="{{ block.id }}"
+              {{ block.shopify_attributes }}
+            >
+              <slide-section
+                class="swiper hover-action{% if reveal_slide %} reveal_on_scroll{% endif %}{% if data_free_scroll == 'true' %} overflow-visible-mb{% endif %}"
+                data-section-id="{{ block.id }}"
+                data-autoplay="false"
+                data-effect="slide"
+                data-loop="false"
+                data-speed="300"
+                data-spacing="{{ column_gap_slide }}"
+                data-mobile="{{ items_per_row_mobile }}"
+                data-desktop="{{ items_per_row }}"
+                data-tablet="{{ items_per_row_tablet }}"
+                data-free-scroll="{{ data_free_scroll }}"
+                style="{{ col_style | strip | strip_newlines }}"
+                data-arrow-center-image="true"
+              >
+                {% if show_navigation %}
+                  {%- render 'swiper-navigation', show_on_hover: true -%}
+                {% endif %}
+                <div class="swiper-wrapper">
+                  {%- for product in collection.products limit: items_to_show -%}
+                    {% render 'card-product',
+                      enable_motion: true,
+                      card_product: product,
+                      section_id: block.id,
+                      class: ' swiper-slide motion-item',
+                      container: section_width,
+                      column: items_per_row,
+                      column_mobile: items_per_row_mobile,
+                      padding: column_gap_slide,
+                      indexFor: forloop.index,
+                      animate: 'zoom-out-small'
+                    %}
+                  {%- endfor -%}
+                </div>
+                <div
+                  class="swiper-pagination {{ class_pagination }}"
+                ></div>
+              </slide-section>
+              {% liquid
+                assign display_view_all = false
+                if show_view_all_button and section_st.collection_tab_style == 'pill_tabs'
+                  if tab_show_in_heading == false or text_alignment == 'center'
+                    assign display_view_all = true
+                  endif
+                endif
+                if show_view_all_button and section_st.collection_tab_style != 'pill_tabs'
+                  assign display_view_all = true
+                endif
+              %}
+              {% if display_view_all %}
+                <div class="mt-sp-5 mt-1025-sp-10 flex text-center justify-content-center">
+                  <a
+                    href="{{ collection.url }}"
+                    class="pointer{% if section_st.btn_type != 'link' %} btn{% endif %} btn-{{ section_st.btn_type }} max-w-100 border-animation"
+                    aria-label="{{ section.settings.view_all_button_label }}"
+                  >
+                    {{ section.settings.view_all_button_label }}
+                  </a>
+                </div>
+              {% endif %}
+            </div>
+            {% if forloop.index > 1 %}
+              </template>
+            {% endif %}
+          {%- else -%}
+            <div
+              class="product-tabs__content-item product-tabs__content-item-{{ block.id }}{% if forloop.first %} active{% else %} hidden{% endif %}"
+              data-block-id="{{ block.id }}"
+              {{ block.shopify_attributes }}
+            >
+              <slide-section
+                class="swiper hover-action{% if reveal_slide %} reveal_on_scroll{% endif %}{% if data_free_scroll == 'true' %} overflow-visible-mb{% endif %}"
+                data-section-id="{{ block.id }}"
+                data-autoplay="false"
+                data-effect="slide"
+                data-loop="false"
+                data-speed="300"
+                data-spacing="{{ column_gap_slide }}"
+                data-mobile="{{ items_per_row_mobile }}"
+                data-desktop="{{ items_per_row }}"
+                data-tablet="{{ items_per_row_tablet }}"
+                data-free-scroll="{{ data_free_scroll }}"
+                style="{{ col_style | strip | strip_newlines }}"
+                data-arrow-center-image="true"
+              >
+                {% if show_navigation %}
+                  {%- render 'swiper-navigation', show_on_hover: true -%}
+                {% endif %}
+                <div class="swiper-wrapper">
+                  {%- for product in (1..5) -%}
+                    {% render 'card-product',
+                      enable_motion: true,
+                      section_id: block.id,
+                      class: ' swiper-slide motion-item',
+                      container: section_width,
+                      column: items_per_row,
+                      column_mobile: items_per_row_mobile,
+                      padding: column_gap_slide,
+                      indexFor: forloop.index,
+                      animate: 'zoom-out-small'
+                    %}
+                  {%- endfor -%}
+                </div>
+                <div
+                  class="swiper-pagination {{ class_pagination }}"
+                ></div>
+              </slide-section>
+
+              {% if display_view_all %}
+                <div class="mt-sp-5 mt-1025-sp-10 flex text-center justify-content-center">
+                  <a
+                    role="link"
+                    aria-disabled="true"
+                    class="pointer{% if section_st.btn_type != 'link' %} btn{% endif %} btn-{{ section_st.btn_type }} max-w-100 border-animation"
+                    aria-label="{{ section.settings.view_all_button_label }}"
+                  >
+                    {{ section.settings.view_all_button_label }}
+                  </a>
+                </div>
+              {% endif %}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </suitable-finder>
+  </div>
+</div>
+{%- render 'section-divider', position: 'bottom', style: section_st.divider_bottom, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+
+{% schema %}
+{
+  "name": "t:sections.suitable_products_finder.name",
+  "tag": "section",
+  "class": "section section-suitable-finder",
+  "max_blocks": 5,
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.suitable_products_finder.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "options": [
+        {
+          "value": "fix_width",
+          "label": "t:sections.all.layout.fix_width"
+        },
+        {
+          "value": "stretch_width",
+          "label": "t:sections.all.layout.stretch_width"
+        },
+        {
+          "value": "full_width",
+          "label": "t:sections.all.layout.full_width"
+        }
+      ],
+      "default": "fix_width",
+      "label": "t:sections.all.layout.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_header.label"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.all.content_setting.subheading.label"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "default": "<p>Heading</p>",
+      "label": "t:sections.all.content_setting.heading.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "drawn_underline",
+      "default": true,
+      "label": "t:sections.all.content_setting.drawn_underline.label",
+      "info": "t:sections.all.content_setting.heading.info"
+    },
+    {
+      "type": "select",
+      "id": "drawn_underline_type",
+      "label": "t:sections.all.content_setting.drawn_underline.type",
+      "default": "squiggle_underline",
+      "visible_if": "{{ section.settings.drawn_underline != false }}",
+      "options": [
+        {
+          "value": "simple_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.simple_underline"
+        },
+        {
+          "value": "curve_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.curve_underline"
+        },
+        {
+          "value": "squiggle_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.squiggle_underline"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "drawn_underline_color",
+      "label": "t:sections.all.content_setting.drawn_underline.color",
+      "default": "#FFB005",
+      "alpha": true,
+      "visible_if": "{{ section.settings.drawn_underline != false }}"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.all.content_setting.description.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "large",
+          "label": "t:sections.all.content_header.heading_size.options__1.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.all.content_header.heading_size.options__2.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.all.content_header.heading_size.options__3.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.all.content_header.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.all.text_alignment.alignment"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all_button",
+      "default": false,
+      "label": "t:sections.all.content_setting.show_view_all_button.label"
+    },
+    {
+      "type": "text",
+      "id": "view_all_button_label",
+      "default": "t:sections.all.content_setting.show_view_all_button.default_text",
+      "label": "t:sections.all.content_setting.show_view_all_button.label_text",
+      "visible_if": "{{ section.settings.show_view_all_button == true }}"
+    },
+    {
+      "type": "select",
+      "label": "t:sections.custom_section.blocks.popup_link.button_type_link.label",
+      "id": "btn_type",
+      "options": [
+        {
+          "value": "primary",
+          "label": "t:sections.custom_section.blocks.popup_link.button_type_link.primary.label"
+        },
+        {
+          "value": "outline",
+          "label": "t:sections.custom_section.blocks.popup_link.button_type_link.outline.label"
+        },
+        {
+          "value": "link",
+          "label": "t:sections.custom_section.blocks.popup_link.button_type_link.link.label"
+        }
+      ],
+      "default": "link",
+      "visible_if": "{{ section.settings.show_view_all_button == true }}"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.suitable_products_finder.settings.collection_tab_header.label"
+    },
+    {
+      "type": "select",
+      "id": "collection_tab_style",
+      "options": [
+        {
+          "value": "range_slider",
+          "label": "t:sections.suitable_products_finder.settings.collection_tab_style_options.range_slider.label"
+        },
+        {
+          "value": "pill_tabs",
+          "label": "t:sections.suitable_products_finder.settings.collection_tab_style_options.pill_tabs.label"
+        }
+      ],
+      "default": "range_slider",
+      "label": "t:sections.suitable_products_finder.settings.collection_tab_style.label"
+    },
+    {
+      "type": "range",
+      "id": "image_collection_width",
+      "label": "t:sections.suitable_products_finder.settings.image_collection_width.label",
+      "default": 150,
+      "min": 100,
+      "max": 200,
+      "step": 1,
+      "unit": "px",
+      "visible_if": "{{ section.settings.collection_tab_style == 'range_slider' }}"
+    },
+    {
+      "type": "select",
+      "id": "media_type",
+      "options": [
+        {
+          "value": "oval",
+          "label": "t:sections.multimedia_with_text.blocks.settings.media_style.options__2.label"
+        },
+        {
+          "value": "rounded",
+          "label": "t:sections.multimedia_with_text.blocks.settings.media_style.options__1.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.multimedia_with_text.blocks.settings.media_style.options__3.label"
+        }
+      ],
+      "default": "oval",
+      "label": "t:sections.multimedia_with_text.blocks.settings.media_style.label",
+      "visible_if": "{{ section.settings.collection_tab_style == 'range_slider' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_range_slider",
+      "default": true,
+      "label": "t:sections.suitable_products_finder.settings.range_slider.settings.show_range_slider.label",
+      "info": "t:sections.suitable_products_finder.settings.range_slider.settings.show_range_slider.info",
+      "visible_if": "{{ section.settings.collection_tab_style == 'range_slider' }}"
+    },
+    {
+      "type": "color_background",
+      "id": "range_slider_background",
+      "label": "t:settings_schema.colors.settings.background_gradient.label",
+      "default": "linear-gradient(90deg, #F7C09D 0%, #CD6D45 50%, #6E4136 100%)",
+      "visible_if": "{{ section.settings.collection_tab_style == 'range_slider' and section.settings.show_range_slider == true }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pill_tabs_with_heading",
+      "default": true,
+      "label": "t:sections.suitable_products_finder.settings.show_pill_tabs_with_heading.label",
+      "info": "t:sections.suitable_products_finder.settings.show_pill_tabs_with_heading.info",
+      "visible_if": "{{ section.settings.collection_tab_style == 'pill_tabs' and section.settings.text_alignment != 'center' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pill_tabs_color",
+      "default": true,
+      "label": "t:sections.suitable_products_finder.settings.show_pill_tabs_color.label",
+      "visible_if": "{{ section.settings.collection_tab_style == 'pill_tabs' }}"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.carousel.header"
+    },
+    {
+      "type": "range",
+      "id": "items_to_show",
+      "label": "t:sections.all.items_to_show.label",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "items_per_row",
+      "label": "t:sections.all.columns_desktop.label",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "column_gap",
+      "options": [
+        {
+          "value": "no_gap",
+          "label": "t:sections.all.padding.column_gap.no_gap"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.all.padding.column_gap.small"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.all.padding.column_gap.medium"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.all.padding.column_gap.large"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.all.padding.column_gap.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "default": true,
+      "label": "t:sections.all.carousel.show_navigation.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination",
+      "default": false,
+      "label": "t:sections.all.carousel.show_pagination.label",
+      "info": "t:sections.all.carousel.show_pagination.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "reveal_slide",
+      "default": false,
+      "label": "t:sections.all.carousel.reveal_slide.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.mobile_options.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_description_on_mobile",
+      "default": false,
+      "label": "t:sections.all.content_setting.description.hide_on_mobile.label"
+    },
+    {
+      "type": "range",
+      "id": "items_per_row_mobile",
+      "label": "t:sections.all.items.items_per_row_mobile",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.5
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.divider.section_divider_heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "t:sections.all.divider.show_divider",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "divider_top",
+      "label": "t:sections.all.divider.top",
+      "info": "t:sections.all.divider.top_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "line",
+      "visible_if": "{{ section.settings.show_divider }}"
+    },
+    {
+      "type": "select",
+      "id": "divider_bottom",
+      "label": "t:sections.all.divider.bottom",
+      "info": "t:sections.all.divider.bottom_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.show_divider }}"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "featured_collection",
+      "name": "t:sections.collection-list.blocks.featured_collection.name",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "t:sections.product-tabs.blocks.settings.collection.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "collection_image",
+          "label": "t:sections.collection-list.blocks.featured_collection.settings.image.label",
+          "info": "t:sections.collection-list.blocks.featured_collection.settings.image.info_suitable",
+          "visible_if": "{{ section.settings.collection_tab_style == 'range_slider' }}"
+        },
+        {
+          "type": "color",
+          "id": "collection_pill_color",
+          "label": "t:sections.suitable_products_finder.settings.pill_tabs_color.label",
+          "default": "#3A60E6",
+          "visible_if": "{{ section.settings.collection_tab_style == 'pill_tabs' and section.settings.show_pill_tabs_color == true }}"
+        },
+        {
+          "type": "image_picker",
+          "id": "collection_pill_image",
+          "label": "t:sections.collection-list.blocks.featured_collection.settings.image.label",
+          "info": "t:sections.suitable_products_finder.settings.pill_tabs_image.info",
+          "visible_if": "{{ section.settings.collection_tab_style == 'pill_tabs' and section.settings.show_pill_tabs_color == true }}"
+        },
+        {
+          "type": "text",
+          "id": "collection_title",
+          "label": "t:sections.collection-list.blocks.featured_collection.settings.title.label",
+          "info": "t:sections.collection-list.blocks.featured_collection.settings.title.info",
+          "default": "Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.suitable_products_finder.preset.ranger_slider",
+      "category": "t:sections.group.product",
+      "settings": {
+        "collection_tab_style": "range_slider"
+      },
+      "blocks": [
+        {
+          "type": "featured_collection"
+        },
+        {
+          "type": "featured_collection"
+        },
+        {
+          "type": "featured_collection"
+        },
+        {
+          "type": "featured_collection"
+        }
+      ]
+    },
+    {
+      "name": "t:sections.suitable_products_finder.preset.pill_tabs",
+      "category": "t:sections.group.product",
+      "settings": {
+        "text_alignment": "start",
+        "collection_tab_style": "pill_tabs",
+        "show_pill_tabs_color": false
+      },
+      "blocks": [
+        {
+          "type": "featured_collection"
+        },
+        {
+          "type": "featured_collection"
+        },
+        {
+          "type": "featured_collection"
+        },
+        {
+          "type": "featured_collection"
+        }
+      ]
+    },
+    {
+      "name": "t:sections.suitable_products_finder.preset.color_dots",
+      "category": "t:sections.group.product",
+      "settings": {
+        "text_alignment": "start",
+        "collection_tab_style": "pill_tabs",
+        "show_pill_tabs_color": true
+      },
+      "blocks": [
+        {
+          "type": "featured_collection"
+        },
+        {
+          "type": "featured_collection"
+        },
+        {
+          "type": "featured_collection"
+        },
+        {
+          "type": "featured_collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

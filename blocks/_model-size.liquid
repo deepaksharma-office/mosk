@@ -1,0 +1,98 @@
+{%- liquid
+  assign block_st = block.settings
+  assign product = closest.product
+  assign metafield_path = block_st.metafield | default: 'custom.model_size' | strip
+  assign metafield_parts = metafield_path | split: '.'
+  assign metafield_namespace = metafield_parts[0] | default: 'custom'
+  assign metafield_key = metafield_parts[1] | default: 'model_size'
+  assign model_size = product.metafields[metafield_namespace][metafield_key].value
+  assign height = model_size.height | default: ''
+  assign size = model_size.size | default: ''
+  assign shoulder_width = model_size.shoulder_width | default: ''
+  assign weight = model_size.weight | default: ''
+  assign bust = model_size.bust
+  assign waist = model_size.waist
+  assign hips = model_size.hips
+-%}
+<details class="collapsible-row border-bottom py-sp-4" is="collapsible-row">
+  <summary class="collapsible-row__summary not-highlight-tap flex space-between">
+    <div class="collapsible-heading h6 lh-global">
+      {{ block_st.heading }}
+    </div>
+    <span
+      class="toggle-menu w-30 h-custom inline-flex flex-end align-center"
+    >
+      <svg class="icon icon-down icon-rotate transition-short" width="14" height="8" viewBox="0 0 14 8">
+        <use href="#icon-arrow-down-facet" />
+      </svg>
+    </span>
+  </summary>
+  <div class="collapsible-row__content overflow-hidden">
+    <div class="faq_content-inner mt-15">
+      {% if model_size and model_size != empty %}
+        <p class="mb-sp-2">
+          {{ 'products.product.model_size_title.title' | t: height: height, size: size }}
+        </p>
+        <div class="flex row-1025 column gap-sp-4 space-between row-gap-sp-1">
+          <div class="flex-1">
+            {% if height %}
+              <p>
+                {{ 'products.product.model_size_title.height' | t }}
+                {{ height }}
+              </p>
+            {% endif %}
+            {% if shoulder_width %}
+              <p>
+                {{ 'products.product.model_size_title.shoulder_width' | t }}
+                {{ shoulder_width }}
+              </p>
+            {% endif %}
+          </div>
+          <div class="flex-1">
+            {% if weight %}
+              <p>
+                {{ 'products.product.model_size_title.weight' | t }}
+                {{ weight }}
+              </p>
+            {% endif %}
+            {% if bust and waist and hips %}
+              <p>
+                {{ 'products.product.model_size_title.bust_waist_hips' | t }}
+                {{ bust }}/{{ waist }}/{{ hips }}
+              </p>
+            {% endif %}
+          </div>
+        </div>
+      {% elsif request.design_mode %}
+        {%- render 'editor-metafield-hint', id: 'model_size', source: metafield_path -%}
+      {% endif %}
+    </div>
+  </div>
+</details>
+{% schema %}
+{
+  "name": "t:sections.all.product_setting.model_size.name",
+  "class": "block-model-size block-product__collapsible",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.all.product_setting.model_size.settings.paragraph.content"
+    },
+    {
+      "type": "text",
+      "id": "metafield",
+      "label": "t:sections.all.metafield.model_size.label",
+      "info": "t:sections.all.metafield.model_size.info",
+      "default": "custom.model_size"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Model Size",
+      "label": "t:sections.all.content_setting.heading.label",
+      "info": "t:sections.all.product_setting.collapsible_row.settings.info"
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.product_setting.model_size.name" }]
+}
+{% endschema %}

@@ -1,0 +1,212 @@
+{%- liquid
+  assign block_st = block.settings
+  assign section_st = section.settings
+  if section_st.section_width == 'fix_width'
+    assign section_width = 'container'
+  elsif section_st.section_width == 'full_width'
+    assign section_width = 'full-width'
+  else
+    assign section_width = 'fluid_container'
+  endif
+  assign padding_content_inline = section_st.padding_content_inline
+  assign padding_content_block = section_st.padding_content_block
+  assign radius_image_class = ''
+  assign radius_content_class = ''
+
+  assign gap_item = 0
+  if section_st.gap_item == 'large'
+    assign gap_item = 32
+  elsif section_st.gap_item == 'medium'
+    assign gap_item = 24
+  elsif section_st.gap_item == 'small'
+    assign gap_item = 16
+  endif
+
+  if gap_item == 0
+    if section_st.image_desktop_position == 'left'
+      assign radius_image_class = 'rounded-1025-left rounded-top-mb'
+      assign radius_content_class = 'rounded-1025-right rounded-bottom-mb'
+    elsif section_st.image_desktop_position == 'right'
+      assign radius_image_class = 'rounded-1025-right rounded-top-mb'
+      assign radius_content_class = 'rounded-1025-left rounded-bottom-mb'
+    elsif section_st.image_desktop_position == 'top'
+      assign radius_image_class = 'rounded-top'
+      assign radius_content_class = 'rounded-bottom'
+    endif
+  else
+    assign radius_image_class = 'rounded'
+    if section_st.enable_rounded_content == true
+      assign radius_content_class = 'rounded'
+    endif
+  endif
+
+  if request.visual_preview_mode
+    assign radius_image_class = 'rounded-1025-left rounded-top-mb'
+    assign radius_content_class = 'rounded-1025-right rounded-bottom-mb'
+  endif
+
+  if request.visual_preview_mode
+    assign padding_content_class = 'p-sp-5 p-1025-40'
+  endif
+
+  if padding_content_inline > 20
+    assign padding_content_class = padding_content_class | append: ' px-custom'
+  else
+    assign padding_content_class = padding_content_class | append: ' x-min-value'
+  endif
+
+  if padding_content_block > 24
+    assign padding_content_class = padding_content_class | append: ' py-custom'
+  else
+    assign padding_content_class = padding_content_class | append: ' y-min-value'
+  endif
+
+  assign image_ratio = section_st.image_ratio
+  assign ratio = '3/4'
+  assign ratio_mobile = '3/4'
+
+  if image_ratio != 'adapt'
+    case image_ratio
+      when 'square'
+        assign ratio = '1/1'
+        assign ratio_mobile = '1/1'
+      when 'landscape'
+        assign ratio = '4/3'
+        assign ratio_mobile = '4/3'
+      when 'portrait'
+        assign ratio = '3/4'
+        assign ratio_mobile = '3/4'
+    endcase
+  else
+    if block_st.image != blank
+      assign ratio = block_st.image.aspect_ratio
+      if block_st.image_mobile != blank
+        assign ratio_mobile = block_st.image_mobile.aspect_ratio
+      else
+        assign ratio_mobile = ratio
+      endif
+    else
+      assign ratio = '3/4'
+      assign ratio_mobile = '3/4'
+    endif
+  endif
+-%}
+{% style %}
+  {% if request.visual_preview_mode %}
+    .bg-custom {
+      background-color: #ECE7DA;
+    }
+  {% endif %}
+{% endstyle %}
+<div
+  class="flex wrap hover-effect gap{% if section_st.image_desktop_position == 'right' %} row-reverse-md{% endif %}{% if section_st.image_desktop_position == 'top' %} flex-column{% endif %}"
+  style="--col-width:49%;--gap-desktop: {{ gap_item }}px;--gap: {{ gap_item }}px;--padding-inline: {{ section_st.padding_content_inline }};--padding-block: {{ section_st.padding_content_block }};--responsive-min-rate: 0.6"
+>
+  <div class="image-with-text__media-item w-full{% if section_st.image_desktop_position != 'top' %} col-1025-w-custom{% endif %}">
+    <div
+      class="image-with-text__media banner__media {{ radius_image_class }} h-full"
+      style="--aspect-ratio-mb: {{ ratio_mobile }}; --aspect-ratio: {{ ratio }};"
+    >
+      {%- liquid
+        assign alt = 'general.image.image_alt_default' | t
+        if block_st.image.alt
+          assign alt = block_st.image.alt | escape
+        endif
+      -%}
+      {%- if block_st.image != blank or block_st.image_mobile != blank -%}
+        {% render 'responsive-image',
+          type: 'other',
+          container: section_width,
+          image: block_st.image,
+          image_alt: alt,
+          image_mobile: block_st.image_mobile,
+          motion: true,
+          animate: 'zoom-out-small'
+        %}
+      {% else %}
+        {% render 'placeholder-render',
+          type: 'collection-6',
+          class: 'img-placeholder h-full w-full',
+          motion: true,
+          animate: 'zoom-out-small'
+        %}
+      {% endif %}
+    </div>
+  </div>
+  <div class="w-full{% if section_st.image_desktop_position != 'top' %} col-1025-remaining{% endif %} flex text-{{ section_st.content_alignment }}">
+    <div
+      class="image-with-text__wrapper w-full flex bg-custom {{ radius_content_class }}"
+      style="--bg-color-custom: {{ section_st.background_color }};"
+    >
+      <div class="image-with-text__text-item-inner overflow-hidden w-full align-self-{{ section_st.desktop_vertical_alignment }} {{ padding_content_class }} text-{{ section_st.text_alignment_mobile }} text-md-{{ section_st.text_alignment }}">
+        {% content_for 'blocks' %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.image_card.blocks.group_name",
+  "class": "blocks-group-image-card swiper-slide",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "heading"
+    },
+    {
+      "type": "subheading"
+    },
+    {
+      "type": "description"
+    },
+    {
+      "type": "button"
+    },
+    {
+      "type": "highlight-text"
+    },
+    {
+      "type": "_countdown_timer"
+    }
+  ],
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.all.image.label",
+      "info": "t:sections.image_card.blocks.info"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "t:sections.all.image.mobile_image",
+      "info": "t:sections.image_card.blocks.info"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.image_card.blocks.group_name",
+      "blocks": [
+        {
+          "type": "highlight-text"
+        },
+        {
+          "type": "heading"
+        },
+        {
+          "type": "description"
+        },
+        {
+          "type": "button"
+        },
+        {
+          "type": "_countdown_timer"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

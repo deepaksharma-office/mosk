@@ -1,0 +1,69 @@
+{%- liquid
+  assign metafield_path = block.settings.metafield | default: 'custom.key_features' | strip
+  assign metafield_parts = metafield_path | split: '.'
+  assign metafield_namespace = metafield_parts[0] | default: 'custom'
+  assign metafield_key = metafield_parts[1] | default: 'key_features'
+  assign key_features = closest.product.metafields[metafield_namespace][metafield_key]
+-%}
+{%- if closest.product != blank -%}
+  {%- if key_features.value -%}
+    <div class="py-sp-5 py-1025-sp-6 px-sp-5 px-1025-sp-6 border rounded">
+      {%- if block.settings.heading != blank -%}
+        <p class="h7 mb-sp-2 heading-font heading_weight">
+          {{ block.settings.heading }}
+        </p>
+      {%- endif -%}
+      <ul class="flex gap-5 list-unstyled column">
+        {%- for features in key_features.value -%}
+          {%- if features.title or features.description -%}
+            <li class="flex gap-sp-3 align-start">
+              <div class="flex content-center">
+                <span class="flex-auto heading-color">
+                  <svg width="14" height="10" viewBox="0 0 16 12" fill="none">
+                    <use href="#icon-tick"></use>
+                  </svg>
+                </span>
+              </div>
+              <div class="key__features-inner" dir="auto">
+                {% if features.title %}
+                  <span class="features-title-label">{{ features.title }}: </span>
+                {% endif %}
+                {% if features.description %}
+                  <span class="features-description-value">{{ features.description }}</span>
+                {% endif %}
+              </div>
+            </li>
+          {% endif %}
+        {%- endfor -%}
+      </ul>
+    </div>
+  {% elsif request.design_mode %}
+    {%- render 'editor-metafield-hint', id: 'key_features', source: metafield_path -%}
+  {% endif %}
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.all.product_setting.key_features.name",
+  "class": "block-product__key-features my-custom slideIn-animate",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.all.product_setting.key_features.description"
+    },
+    {
+      "type": "text",
+      "id": "metafield",
+      "label": "t:sections.all.metafield.key_features.label",
+      "info": "t:sections.all.metafield.key_features.info",
+      "default": "custom.key_features"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "default": "Key Features",
+      "label": "t:sections.all.content_setting.heading.label"
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.product_setting.key_features.name" }]
+}
+{% endschema %}

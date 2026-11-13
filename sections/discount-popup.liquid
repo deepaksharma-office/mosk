@@ -1,0 +1,297 @@
+{% liquid
+  assign section_st = section.settings
+  assign sections_width = section_st.sections_width
+  assign discount_code = section_st.discount_code
+  assign heading = section_st.heading
+  assign description = section_st.description
+  assign button_text = section_st.button_text
+  assign subheading = section_st.subheading
+  assign banner_image = section_st.discount_banner
+
+  assign class_button_close_position = ' right-sp-3'
+  if section_st.image_desktop_position == 'right'
+    if banner_image != blank
+      assign class_button_close_position = ' right-sp-3 left-1025-sp-3'
+    else
+      assign class_button_close_position = ' right-sp-3 right-1025-sp-3'
+    endif
+  else
+    assign class_button_close_position = ' right-sp-3 right-1025-sp-3'
+  endif
+%}
+{% style %}
+  discount-modal-popup.active {
+    visibility: visible;
+    opacity: 1;
+  }
+  @media (min-width: 768px) {
+    .section_width_fullscreen .modal-popup-inner {
+      max-width: 100%;
+      height: 100%;
+      max-height: 100%;
+      width: 100%;
+    }
+    .section_width_fullscreen .modal__close {
+      top: 3rem;
+      background-color: rgba(var(--color-white), var(--opacity, 1));
+      --color-grey: #1d1d1f;
+      width: 5rem;
+      height: 5rem;
+    }
+    .section_width_fullscreen .modal__close.right-1025-sp-3 {
+      inset-inline-end: 3rem;
+    }
+    .section_width_fullscreen .modal__close.left-1025-sp-3 {
+      inset-inline-start: 3rem;
+    }
+    .section_width_fullscreen .section-heading {
+      font-size: var(--h2);
+    }
+    .min-height-popup {
+      min-height: 51rem;
+    }
+  }
+  @media (min-width: 1025px) {
+    .modal-popup-inner.w-1025-fit:not(.modal-popup-inner-fullwidth) {
+      width: fit-content;
+    }
+  }
+{% endstyle %}
+<discount-popup data-section-id="{{ section.id }}">
+  <discount-modal-popup
+    drawer
+    class="newsletter-modal-popup modal modal_type_popup section_width_{{ sections_width }} active-modal-js fixed inset-0 z-31 flex align-center invisible transition content-hidden"
+  >
+    <modal-overlay class="modal-overlay invisible transition-drawer cursor-crosshair"></modal-overlay>
+    <div
+      class="modal-popup-inner invisible modal-focus modal-body modal-draggable transition-drawer{% if sections_width == 'auto' %} rounded {% else %} modal-popup-inner-fullwidth{% endif %} min-w-custom-md max-w-custom-md{% if banner_image == blank %} w-1025-fit{% endif %} m-auto w-full z-15"
+      style="{% if sections_width == 'auto' and banner_image != blank %}--max-width: 86rem;{% endif %};{% if sections_width == 'auto' and banner_image == blank %}--min-width: 43rem;--max-width: 86rem;{% endif %}"
+      tabindex="-1"
+    >
+      <draggable-modal class="block hidden-1025 relative pointer"></draggable-modal>
+      <button
+        is="button-close-model"
+        class="modal__close modal-button-close z-5 rounded-50 absolute top-sp-3{{ class_button_close_position }} rounded-50 pointer btn-reset flex content-center{% if sections_width == 'fullscreen' %} border{% endif %}"
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 14 14"
+          fill="none"
+          class="transition-short will-change icon-zoom"
+        >
+          <use href="#icon-close"></use>
+        </svg>
+      </button>
+      <div class="drawer__body drawer__body-item h-full">
+        <div
+          class="flex notification-wrapper gap{% if section_st.image_desktop_position == 'right' %} row-reverse-md{% endif %}{% if sections_width == 'fullscreen' %} h-full{% endif %}"
+          style="--col-width: {% if banner_image != blank %}{{ section_st.desktop_image_width }}{% else %}0{% endif %}%;--gap-desktop: 0px;--gap: 0px;"
+        >
+          {% if banner_image != blank %}
+            <div class="image-with-text__media-item w-full col-1025-w-custom block-1025 hidden">
+              <div
+                class="image-with-text__media banner__media h-full hidden block-md"
+                style="--aspect-ratio: {{ banner_image.aspect_ratio }}"
+              >
+                {%- liquid
+                  assign alt = 'general.image.image_alt_default' | t
+                  if banner_image.alt
+                    assign alt = banner_image.alt | escape
+                  endif
+                -%}
+                {%- if banner_image != blank -%}
+                  {% render 'responsive-image', type: 'other', image: banner_image, image_alt: alt %}
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+          <div class="discount_content-wrapper w-full text-center flex column max-h-100 p-gutter-x p-md-40 overflow-y-auto custom-scrollbar content-center bg-white{% if sections_width == 'auto' and banner_image == blank %} min-height-popup{% endif %}">
+            <div
+              class="discount_content-inner{% if sections_width == 'fullscreen' %} max-w-1025 w-full mx-auto{% endif %}"
+              style="{% if banner_image != blank %}--max-width: 35rem;{% else %}--max-width: 40rem;{% endif %}"
+            >
+              {%- if section.settings.heading != blank
+                or section.settings.description != blank
+                or section.settings.button_text != blank
+                or section.settings.subheading != blank
+              -%}
+                {%- if section.settings.subheading != blank -%}
+                  <div class="section-subheading fs-big-2 mb-5 mb-1025-10 heading-color subheading_weight">
+                    {{ section.settings.subheading }}
+                  </div>
+                {% endif %}
+                {%- if section.settings.heading != blank -%}
+                  <div
+                    class="section-heading h2"
+                  >
+                    {{ section.settings.heading }}
+                  </div>
+                {%- endif -%}
+                {%- if section.settings.description != blank -%}
+                  <div
+                    class="section-description mt-sp-3 prose"
+                  >
+                    {{ section.settings.description }}
+                  </div>
+                {%- endif -%}
+                {%- if section.settings.button_text != blank -%}
+                  <a
+                    tabindex="0"
+                    aria-label="{{ button_text }}"
+                    class="block btn btn-primary w-full text-center{% if sections_width == 'fullscreen' %} mt-sp-3 mt-1025-sp-8{% else %} mt-sp-3 mt-1025-sp-6{% endif %}"
+                    href="{{ discount_code }}"
+                  >
+                    {{ section.settings.button_text }}
+                  </a>
+                {% endif %}
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </discount-modal-popup>
+</discount-popup>
+{% if request.visual_preview_mode %}
+  <div class="discount_content-inner w-full text-center flex column max-h-100 p-gutter-x p-md-40 overflow-y-auto custom-scrollbar content-center">
+    {%- if heading != blank or description != blank or button_text != blank or subheading != blank -%}
+      {%- if subheading != blank -%}
+        <div class="section-subheading fs-big-2 mb-5 mb-1025-10 heading-color subheading_weight">
+          {{ section.settings.subheading }}
+        </div>
+      {% endif %}
+      {%- if section.settings.heading != blank -%}
+        <div
+          class="section-heading h2 mb-sp-3 mb-1025-sp-6"
+        >
+          {{ section.settings.heading }}
+        </div>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <div
+          class="section-description mt-sp-6 prose"
+        >
+          {{ section.settings.description }}
+        </div>
+      {%- endif -%}
+      {%- if button_text != blank -%}
+        <a
+          aria-label="{{ button_text }}"
+          class="btn btn-primary w-full text-center"
+          href="{{ discount_code }}"
+        >
+          {{ section.settings.button_text }}
+        </a>
+      {% endif %}
+    {%- endif -%}
+  </div>
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.discount_popup.name",
+  "tag": "section",
+  "class": "overlay-section overlay-discount",
+  "limit": 1,
+  "enabled_on": {
+    "groups": ["custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.discount_popup.how_to_use"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.discount_popup.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.newsletter_popup.header.heading"
+    },
+    {
+      "type": "select",
+      "id": "sections_width",
+      "options": [
+        {
+          "value": "fullscreen",
+          "label": "t:sections.newsletter_popup.settings.sections_width.options.options__1"
+        },
+        {
+          "value": "auto",
+          "label": "t:sections.newsletter_popup.settings.sections_width.options.options__2"
+        }
+      ],
+      "default": "auto",
+      "label": "t:sections.newsletter_popup.settings.sections_width.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "discount_banner",
+      "label": "t:sections.newsletter_popup.settings.banner_image",
+      "info": "t:sections.discount_popup.settings.info_image"
+    },
+    {
+      "type": "range",
+      "id": "desktop_image_width",
+      "min": 30,
+      "max": 60,
+      "step": 1,
+      "unit": "%",
+      "default": 40,
+      "label": "t:sections.all.image.width"
+    },
+    {
+      "type": "select",
+      "id": "image_desktop_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.all.image.desktop_position.left"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.all.image.desktop_position.right"
+        }
+      ],
+      "default": "left",
+      "label": "t:sections.all.image.desktop_position.label"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.all.content_setting.subheading.label",
+      "default": "t:sections.discount_popup.settings.sub_heading.default"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "t:sections.all.content_setting.heading.label",
+      "default": "🎉 <br/> Get 10% Off Your First Order!"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.all.content_setting.description.label"
+    },
+    {
+      "type": "url",
+      "id": "discount_code",
+      "label": "t:sections.discount_popup.settings.discount_code.label",
+      "info": "t:sections.discount_popup.settings.discount_code.info"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "t:sections.discount_popup.settings.discount_button.label",
+      "default": "t:sections.discount_popup.settings.discount_button.default"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.discount_popup.name"
+    }
+  ]
+}
+{% endschema %}

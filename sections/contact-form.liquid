@@ -1,0 +1,469 @@
+{% liquid
+  assign theme_st = settings
+  assign section_st = section.settings
+  assign scroll_animation = theme_st.scroll_animation
+  assign contact_id = 'ContactForm-' | append: section.id
+  assign heading = section_st.heading
+  assign drawn_underline = section_st.drawn_underline
+  assign drawn_underline_type = section_st.drawn_underline_type
+  assign drawn_underline_color = section_st.drawn_underline_color
+  if drawn_underline
+    assign scroll_animation = 'disable'
+  endif
+%}
+{%- capture style -%}
+  --section-pt: {{ section_st.padding_top }}; --section-pb: {{ section_st.padding_bottom }};
+{%- endcapture -%}
+{%- render 'section-divider', position: 'top', style: section_st.divider_top, color_scheme: section_st.color_scheme, max_width: '72.4rem', enabled: section_st.show_divider -%}
+<div
+  class="color-{{ section_st.color_scheme }} gradient section stretch_width flex column content-center w-full max-w-custom-all mx-auto{% if section_st.show_divider and section_st.divider_top == 'line' %} border-top{% endif %}{% if section_st.show_divider and section_st.divider_bottom == 'line' %} border-bottom{% endif %}"
+  style="{{ style | strip | strip_newlines }}--max-width: 72.4rem;--bs-gutter-x: 2rem;"
+>
+  <div class="contact_form-inner w-full">
+    <div class="contact_form-field w-full">
+      {%- if section.settings.heading != blank or section.settings.description != blank -%}
+        {% assign animate_delay = 25 %}
+        <div
+          class="section-header text-{{ section_st.text_alignment }}"
+        >
+          {%- if section.settings.heading != blank -%}
+            {% if scroll_animation != 'disable' or drawn_underline %}
+              <motion-effect
+                data-animate="{% if scroll_animation != 'disable' %}fade-up{% else %}highlighted-text{% endif %}"
+                data-animate-delay="{{ animate_delay }}"
+                class="block"
+              >
+            {% endif %}
+            <h2 class="section-heading">
+              {% if drawn_underline %}
+                {%- capture squiggle_svg_1 -%}
+              <svg viewBox="0 0 184 26" fill="none"><use href="#squiggle-svg-1" /></svg>
+            {%- endcapture -%}
+                {%- capture squiggle_svg_2 -%}
+             <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-2" /></svg>
+            {%- endcapture -%}
+                {%- capture squiggle_svg_3 -%}
+               <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-3" /></svg>
+            {%- endcapture -%}
+                {%- capture squiggle_svg_4 -%}
+              <svg viewBox="0 0 220 20" fill="none" role="presentation" preserveAspectRatio="none"><use href="#squiggle-svg-4" /></svg>
+            {%- endcapture -%}
+                {%- capture squiggle_svg_5 -%}
+              <svg viewBox="0 0 140 24" fill="none"><use href="#squiggle-svg-5" /></svg>
+            {%- endcapture -%}
+                {%- assign result = heading -%}
+                {%- assign parts = result | split: '<em>' -%}
+                {%- assign em_count = parts | size | minus: 1 -%}
+
+                {%- for i in (1..em_count) -%}
+                  {%- assign idx = i | plus: 0 -%}
+                  {%- assign chunk = parts[idx] | default: '' -%}
+                  {%- assign text = chunk | split: '</em>' | first | strip_html | strip -%}
+                  {%- assign len_text = text | size -%}
+                  {%- capture open_em -%}
+              {%- liquid
+                if drawn_underline_type == 'simple_underline'
+                  assign svg = squiggle_svg_4 | append: '</em>'
+                elsif drawn_underline_type == 'curve_underline'
+                  assign svg = squiggle_svg_5 | append: '</em>'
+                else
+                  if len_text <= 4
+                    assign svg = squiggle_svg_1 | append: '</em>'
+                  elsif len_text <= 6
+                    assign svg = squiggle_svg_2 | append: '</em>'
+                  else
+                    assign svg = squiggle_svg_3 | append: '</em>'
+                  endif
+                endif
+              -%}
+              <em class="highlighted-text relative inline-flex{% if drawn_underline_type == 'simple_underline' %} simple_underline{% endif %} {{ drawn_underline_type }} not-italic" style="--animate-color:{{ drawn_underline_color }}">{{ svg }}</em>
+            {%- endcapture -%}
+                  {%- assign open_em = open_em | remove: '</em>' -%}
+                  {%- assign heading = heading | replace_first: '<em>', open_em -%}
+                {%- endfor -%}
+              {% endif %}
+              {{- heading -}}
+            </h2>
+            {% if scroll_animation != 'disable' or drawn_underline %}
+              </motion-effect>
+            {% endif %}
+          {%- endif -%}
+          {%- if section.settings.description != blank -%}
+            {% assign animate_delay = animate_delay | plus: 50 %}
+            {% if scroll_animation != 'disable' %}
+              <motion-effect
+                data-animate="fade-up"
+                data-animate-delay="{{ animate_delay }}"
+                class="block"
+              >
+            {% endif %}
+            <div
+              class="short-des mt-sp-4 prose max-w-custom mx-auto"
+              style="--max-width: 60rem;"
+            >
+              {{ section.settings.description }}
+            </div>
+            {% if scroll_animation != 'disable' %}
+              </motion-effect>
+            {% endif %}
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+      {%- form 'contact', id: contact_id, class: 'form-validation isolate field' -%}
+        {%- if form.posted_successfully? -%}
+          <div
+            class="form-status form-status form__message success mb-10 flex align-center gap-10 mb-10"
+            tabindex="-1"
+            autofocus
+          >
+            <div class="flex content-center">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" class="flex-auto w-18">
+                <use href="#icon-success"></use>
+              </svg>
+            </div>
+            {{ 'templates.contact.form.post_success' | t }}
+          </div>
+        {%- elsif form.errors -%}
+          <div class="form__message error mb-10">
+            <div
+              class="flex align-center gap-10"
+              role="alert"
+              tabindex="-1"
+              autofocus
+            >
+              <div class="flex content-center">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" class="flex-auto w-18">
+                  <use href="#icon-error"></use>
+                </svg>
+              </div>
+              {{ 'templates.contact.form.error_heading' | t }}
+            </div>
+            <ul class="list-unstyled w-custom fs-small" style="--width: calc(100% - 24px)">
+              <li>
+                <a
+                  href="#ContactForm-email"
+                  class="color-inherit"
+                  aria-label=" {{ form.errors.translated_fields.email }}"
+                >
+                  {{ form.errors.translated_fields.email | capitalize }}
+                  {{ form.errors.messages.email }}
+                </a>
+              </li>
+            </ul>
+          </div>
+        {%- endif -%}
+        <div
+          class="contact__fields field grid-cols"
+        >
+          <div class="flex column flex-md-row gap-sp-4 gap-1025-sp-6 mb-sp-4 mb-1025-25">
+            <div
+              class="field relative w-full flex wrap"
+            >
+              <input
+                class="field__input w-full"
+                autocomplete="name"
+                type="text"
+                id="ContactFormName-{{ section.id }}"
+                name="contact[name]"
+                required
+                minlength="2"
+                value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+                placeholder="{{ section.settings.name }}"
+              >
+              <label class="field__label" for="ContactFormName-{{ section.id }}"> {{ section.settings.name }} *</label>
+            </div>
+            <div class="field relative w-full flex wrap field--with-error">
+              <input
+                autocomplete="email"
+                type="email"
+                id="ContactFormEmail-{{ section.id }}"
+                class="field__input w-full"
+                name="contact[email]"
+                spellcheck="false"
+                autocapitalize="off"
+                autocorrect="off"
+                value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                aria-required="true"
+                {% if form.errors contains 'email' %}
+                  aria-invalid="true"
+                  aria-describedby="ContactForm-email-error"
+                {% endif %}
+                placeholder="{{ section.settings.email_placeholder }}"
+                required
+                pattern=".+\.[a-zA-Z]{2,6}"
+              >
+              <label class="field__label" for="ContactFormEmail-{{ section.id }}">
+                {{ section.settings.email_placeholder }} *
+              </label>
+              {%- if form.errors contains 'email' -%}
+                <div class="contact__field-error error flex align-center mt-10" id="ContactForm-email-error">
+                  <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+                  <div class="flex content-center">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" class="flex-auto w-18">
+                      <use href="#icon-error"></use>
+                    </svg>
+                  </div>
+                  <span class="form__message">
+                    {{- form.errors.translated_fields.email | capitalize }}
+                    {{ form.errors.messages.email -}}
+                  </span>
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+        <div class="field relative w-full flex wrap field-contact-subject mb-sp-4 mb-1025-25">
+          <select
+            id="ContactFormSubject-{{ section.id }}"
+            class="select w-full contact-form-subject contact-page-select"
+            name="contact[subject]"
+            required
+          >
+            <option value="" disabled selected></option>
+            {%- if section.settings.option_select != blank -%}
+              {%- assign options = section.settings.option_select | split: ',' -%}
+              {%- for option in options -%}
+                {%- assign option_trimmed = option | strip -%}
+                {%- if option_trimmed != blank -%}
+                  <option value="{{ option_trimmed }}">{{ option_trimmed }}</option>
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endif -%}
+          </select>
+          <label for="ContactFormSubject-{{ section.id }}" class="field__label">
+            {{ 'templates.contact.subject.name' | t }}
+          </label>
+        </div>
+        <div
+          class="field relative w-full flex wrap"
+        >
+          <textarea
+            rows="3"
+            id="ContactFormMessage-{{ section.id }}"
+            class="text-area field__input w-full"
+            aria-required="true"
+            aria-invalid="true"
+            name="contact[body]"
+            placeholder="{{ section.settings.message }}"
+            required
+            minlength="2"
+            style="--input-padding: 2.5rem;--input-padding-start: 2.5rem;--input-padding-end: 2.5rem;--input-padding-top: 2.5rem;--input-padding-bottom: 2.5rem;">
+        {{- form.body -}}
+        </textarea>
+          <label class="form__label field__label" for="ContactFormMessage-{{ section.id }}">
+            {{ section.settings.message }} *
+          </label>
+        </div>
+        <div
+          class="contact__button mt-30 mt-1025-sp-10 flex justify-center"
+        >
+          <button
+            type="submit"
+            class="btn pointer btn-primary w-1025-custom w-full max-w-100 relative"
+            style="--width-1025: 25rem;"
+          >
+            <span class="hidden-on-load transition-short">{{ section.settings.button_label }}</span>
+            {%- render 'loader' -%}
+          </button>
+        </div>
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+{%- render 'section-divider', position: 'bottom', style: section_st.divider_bottom, color_scheme: section_st.color_scheme, max_width: '72.4rem', enabled: section_st.show_divider -%}
+
+{% schema %}
+{
+  "name": "t:sections.contact-form.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.contact-form.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_header.label"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "default": "<p>Contact form</p>",
+      "label": "t:sections.all.content_setting.heading.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "drawn_underline",
+      "default": true,
+      "label": "t:sections.all.content_setting.drawn_underline.label",
+      "info": "t:sections.all.content_setting.heading.info"
+    },
+    {
+      "type": "select",
+      "id": "drawn_underline_type",
+      "label": "t:sections.all.content_setting.drawn_underline.type",
+      "default": "squiggle_underline",
+      "visible_if": "{{ section.settings.drawn_underline != false }}",
+      "options": [
+        {
+          "value": "simple_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.simple_underline"
+        },
+        {
+          "value": "curve_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.curve_underline"
+        },
+        {
+          "value": "squiggle_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.squiggle_underline"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "drawn_underline_color",
+      "label": "t:sections.all.content_setting.drawn_underline.color",
+      "default": "#FFB005",
+      "alpha": true,
+      "visible_if": "{{ section.settings.drawn_underline != false }}"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.all.content_setting.description.label",
+      "default": "<p>Add a short description for this section.</p>"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "left",
+      "label": "t:sections.all.text_alignment.alignment"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.contact-form.name"
+    },
+    {
+      "type": "text",
+      "id": "name",
+      "label": "t:sections.contact-form.settings.name",
+      "default": "Name"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "t:sections.contact-form.settings.email_placeholder",
+      "default": "Enter your email..."
+    },
+    {
+      "type": "text",
+      "id": "message",
+      "label": "t:sections.contact-form.settings.message",
+      "default": "Your comment"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.all.content_setting.button_label.label",
+      "default": "Send message"
+    },
+    {
+      "type": "textarea",
+      "id": "option_select",
+      "label": "t:sections.contact-form.settings.option",
+      "default": "Product, Order, Press, Other",
+      "info": "t:sections.contact-form.settings.info_option"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.divider.section_divider_heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "t:sections.all.divider.show_divider",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "divider_top",
+      "label": "t:sections.all.divider.top",
+      "info": "t:sections.all.divider.top_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "line",
+      "visible_if": "{{ section.settings.show_divider }}"
+    },
+    {
+      "type": "select",
+      "id": "divider_bottom",
+      "label": "t:sections.all.divider.bottom",
+      "info": "t:sections.all.divider.bottom_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.show_divider }}"
+    }
+  ]
+}
+{% endschema %}

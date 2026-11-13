@@ -1,0 +1,672 @@
+{%- liquid
+  assign theme_st = settings
+  assign section_st = section.settings
+  assign scroll_animation = theme_st.scroll_animation
+
+  if section_st.section_width == 'fix_width'
+    assign section_width = 'container'
+  elsif section_st.section_width == 'full_width'
+    assign section_width = 'full-width'
+  else
+    assign section_width = 'fluid_container'
+  endif
+
+  assign heading_size = section_st.heading_size
+  assign text_alignment = section_st.text_alignment
+  assign heading = section_st.heading
+  assign drawn_underline = section_st.drawn_underline
+  assign drawn_underline_type = section_st.drawn_underline_type
+  assign drawn_underline_color = section_st.drawn_underline_color
+  if drawn_underline
+    assign scroll_animation = 'disable'
+  endif
+
+  assign header_size = ''
+  if heading_size == 'small'
+    assign header_size = 'h3'
+  elsif heading_size == 'large'
+    assign header_size = 'h1'
+  endif
+
+  assign center_image = section_st.image
+  if center_image == blank and product != blank
+    assign center_image = product.featured_image
+  endif
+
+  assign has_video = false
+  if section_st.video_local != blank
+    assign has_video = true
+  endif
+
+  assign has_content = false
+  if section.blocks.size > 0 or center_image != blank or has_video
+    assign has_content = true
+  endif
+
+  assign benefit_blocks_count = 0
+  for block in section.blocks
+    if block.settings.heading != blank or block.settings.description != blank or block.settings.icon != blank
+      assign benefit_blocks_count = benefit_blocks_count | plus: 1
+    endif
+  endfor
+-%}
+
+{%- if has_content -%}
+  {{ 'section-product-benefits.css' | asset_url | stylesheet_tag }}
+  {%- capture style -%}
+    --section-pt: {{ section_st.padding_top }}; --section-pb: {{ section_st.padding_bottom }};
+    --media-width: {{ section_st.media_width }}px;
+    --media-width-mobile: 220px;
+  {%- endcapture -%}
+
+  {%- render 'section-divider', position: 'top', style: section_st.divider_top, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+  <div
+    class="section color-{{ section_st.color_scheme }} gradient product-benefits{% if section_st.show_divider and section_st.divider_top == 'line' %} border-top{% endif %}{% if section_st.show_divider and section_st.divider_bottom == 'line' %} border-bottom{% endif %}"
+    style="{{ style | strip | strip_newlines }}"
+  >
+    <div class="{{ section_width }}">
+      {%- if section_st.subheading != blank or heading != blank or section_st.description != blank -%}
+        <div class="section-header text-{{ text_alignment }}">
+          {%- assign animate_delay = 50 -%}
+          {%- if section_st.subheading != blank -%}
+            {%- if scroll_animation != 'disable' -%}
+              <motion-effect data-animate="fade-up" data-animate-delay="{{ animate_delay }}" class="block">
+            {%- endif -%}
+            <div class="section-subheading fs-big-2 mb-sp-1 mb-1025-sp-2 heading-color subheading_weight">
+              {{ section_st.subheading }}
+            </div>
+            {%- if scroll_animation != 'disable' -%}
+              </motion-effect>
+            {%- endif -%}
+          {%- endif -%}
+
+          {%- if heading != blank -%}
+            {%- assign animate_delay = animate_delay | plus: 50 -%}
+            {%- if scroll_animation != 'disable' or drawn_underline -%}
+              <motion-effect
+                data-animate="{% if scroll_animation != 'disable' %}fade-up{% else %}highlighted-text{% endif %}"
+                data-animate-delay="{{ animate_delay }}"
+                class="block"
+              >
+            {%- endif -%}
+            <h2 class="section-heading {{ header_size }}">
+              {%- if drawn_underline -%}
+                {%- capture squiggle_svg_1 -%}
+                  <svg viewBox="0 0 184 26" fill="none"><use href="#squiggle-svg-1" /></svg>
+                {%- endcapture -%}
+                {%- capture squiggle_svg_2 -%}
+                  <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-2" /></svg>
+                {%- endcapture -%}
+                {%- capture squiggle_svg_3 -%}
+                  <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-3" /></svg>
+                {%- endcapture -%}
+                {%- capture squiggle_svg_4 -%}
+                  <svg viewBox="0 0 220 20" fill="none"><use href="#squiggle-svg-4" /></svg>
+                {%- endcapture -%}
+                {%- capture squiggle_svg_5 -%}
+                  <svg viewBox="0 0 140 24" fill="none" role="presentation" preserveAspectRatio="none"><use href="#squiggle-svg-5" /></svg>
+                {%- endcapture -%}
+                {%- assign result = heading -%}
+                {%- assign parts = result | split: '<em>' -%}
+                {%- assign em_count = parts | size | minus: 1 -%}
+                {%- for i in (1..em_count) -%}
+                  {%- assign idx = i | plus: 0 -%}
+                  {%- assign chunk = parts[idx] | default: '' -%}
+                  {%- assign text = chunk | split: '</em>' | first | strip_html | strip -%}
+                  {%- assign len_text = text | size -%}
+                  {%- capture open_em -%}
+                    {%- liquid
+                      if drawn_underline_type == 'simple_underline'
+                        assign svg = squiggle_svg_4 | append: '</em>'
+                      elsif drawn_underline_type == 'curve_underline'
+                        assign svg = squiggle_svg_5 | append: '</em>'
+                      else
+                        if len_text <= 4
+                          assign svg = squiggle_svg_1 | append: '</em>'
+                        elsif len_text <= 6
+                          assign svg = squiggle_svg_2 | append: '</em>'
+                        else
+                          assign svg = squiggle_svg_3 | append: '</em>'
+                        endif
+                      endif
+                    -%}
+                    <em class="highlighted-text relative inline-flex{% if drawn_underline_type == 'simple_underline' %} simple_underline{% endif %} {{ drawn_underline_type }} not-italic" style="--animate-color:{{ drawn_underline_color }}">{{ svg }}</em>
+                  {%- endcapture -%}
+                  {%- assign open_em = open_em | remove: '</em>' -%}
+                  {%- assign heading = heading | replace_first: '<em>', open_em -%}
+                {%- endfor -%}
+              {%- endif -%}
+              {{- heading -}}
+            </h2>
+            {%- if scroll_animation != 'disable' or drawn_underline -%}
+              </motion-effect>
+            {%- endif -%}
+          {%- endif -%}
+
+          {%- if section_st.description != blank -%}
+            {%- assign animate_delay = animate_delay | plus: 50 -%}
+            {%- if scroll_animation != 'disable' -%}
+              <motion-effect data-animate="fade-up" data-animate-delay="{{ animate_delay }}" class="block">
+            {%- endif -%}
+            <div class="section-description mt-sp-4 prose">
+              {{ section_st.description }}
+            </div>
+            {%- if scroll_animation != 'disable' -%}
+              </motion-effect>
+            {%- endif -%}
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <div class="product-benefits__wrapper align-center grid-1025" style="--ring-gap: clamp(1.5rem, 2vw, 2.4rem);">
+        <div class="product-benefits__img z-2 relative w-full m-auto justify-self-center align-self-center ">
+          <div class="product-benefits__img-inner relative z-1 block overflow-hidden w-full h-full">
+            {%- if has_video -%}
+              <video-local
+                class="product-benefits__video block relative overflow-hidden w-full h-full"
+                aria-label="{{ section_st.video_alt | escape }}"
+              >
+                <div class="video-thumbnail absolute inset-0 overflow-hidden">
+                  {%- liquid
+                    assign poster = section_st.video_poster | default: section_st.video_local.preview_image
+                    assign image_alt = poster.alt | default: product.title | escape
+                  -%}
+                  {% render 'responsive-image',
+                    type: 'banner',
+                    image: poster,
+                    image_alt: image_alt,
+                    class: 'w-full h-full object-cover block z-1 relative'
+                  %}
+                </div>
+                <div class="video-foreground video-has-bg">
+                  <template>
+                    {{
+                      section_st.video_local
+                      | video_tag:
+                        image_size: '1100x',
+                        autoplay: true,
+                        loop: section_st.video_loop,
+                        controls: false,
+                        muted: true,
+                        alt: section_st.video_alt,
+                        class: 'w-full h-full object-cover rounded-0 block z-1 relative'
+                    }}
+                  </template>
+                </div>
+              </video-local>
+            {%- else -%}
+              {%- if center_image != blank -%}
+                {%- assign image_alt = center_image.alt | default: product.title | escape -%}
+                {% render 'responsive-image',
+                  type: 'banner',
+                  image: center_image,
+                  image_alt: image_alt,
+                  class: 'w-full h-full object-cover block z-1 relative'
+                %}
+              {%- else -%}
+                {%- render 'placeholder-render',
+                  type: 'product',
+                  motion: false,
+                  class: 'img-placeholder h-full w-full object-cover block z-1 relative'
+                -%}
+              {%- endif -%}
+            {%- endif -%}
+          </div>
+        </div>
+
+        {%- if benefit_blocks_count > 0 -%}
+          <div class="product-benefits__icons-container z-1 block-1025 hidden">
+            <div class="product-benefits__icon-list product-benefits__icon-list--column grid align-center">
+              {%- assign benefit_position = 0 -%}
+              {%- for block in section.blocks -%}
+                {%- liquid
+                  assign block_st = block.settings
+                  assign has_benefit = false
+                  if block_st.heading != blank or block_st.description != blank or block_st.icon != blank
+                    assign has_benefit = true
+                  endif
+                -%}
+                {%- if has_benefit -%}
+                  {%- assign benefit_position = benefit_position | plus: 1 -%}
+                  {%- assign benefit_side = benefit_position | modulo: 2 -%}
+                  {%- if scroll_animation != 'disable' -%}
+                    <motion-effect
+                      data-animate="fade-up"
+                      class="block product-benefits__icon-item{% if benefit_side == 1 %} text-start product-benefits__icon-item--left{% else %} text-end product-benefits__icon-item--right{% endif %}"
+                      data-block-id="{{ block.id }}"
+                      {{ block.shopify_attributes }}
+                    >
+                  {%- else -%}
+                    <div
+                      class="product-benefits__icon-item{% if benefit_side == 1 %} text-start product-benefits__icon-item--left{% else %} text-end product-benefits__icon-item--right{% endif %}"
+                      data-block-id="{{ block.id }}"
+                      {{ block.shopify_attributes }}
+                    >
+                  {%- endif -%}
+                  {%- if block_st.icon != blank -%}
+                    <div class="product-benefits__icon-item-icon">
+                      {%- assign icon_alt = block_st.icon.alt
+                        | default: block_st.heading
+                        | default: product.title
+                        | escape
+                      -%}
+                      {{
+                        block_st.icon
+                        | image_url: width: 96
+                        | image_tag: alt: icon_alt, class: 'product-benefits__icon-item-image', loading: 'lazy'
+                      }}
+                    </div>
+                  {%- endif -%}
+                  {%- if block_st.heading != blank -%}
+                    <h3 class="product-benefits__icon-item-title h5 heading_weight heading-color mb-10">
+                      {{ block_st.heading }}
+                    </h3>
+                  {%- endif -%}
+                  {%- if block_st.description != blank -%}
+                    <div class="product-benefits__icon-item-text rte">
+                      {{ block_st.description }}
+                    </div>
+                  {%- endif -%}
+                  {%- if scroll_animation != 'disable' -%}
+                    </motion-effect>
+                  {%- else -%}
+                    </div>
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          </div>
+
+          <div class="product-benefits__mobile-slider mt-22 hidden-1025 pt-custom">
+            <slide-section
+              class="swiper"
+              data-section-id="{{ section.id }}"
+              data-autoplay="false"
+              data-effect="slide"
+              data-loop="false"
+              data-speed="300"
+              data-mobile="1"
+              data-tablet="1"
+              data-desktop="1"
+            >
+              <div class="swiper-wrapper">
+                {%- for block in section.blocks -%}
+                  {%- liquid
+                    assign block_st = block.settings
+                    assign has_benefit = false
+                    if block_st.heading != blank or block_st.description != blank or block_st.icon != blank
+                      assign has_benefit = true
+                    endif
+                  -%}
+                  {%- if has_benefit -%}
+                    <div class="swiper-slide">
+                      <div
+                        class="product-benefits__icon-item text-center"
+                        data-block-id="{{ block.id }}"
+                        {{ block.shopify_attributes }}
+                      >
+                        {%- if block_st.icon != blank -%}
+                          <div class="product-benefits__icon-item-icon">
+                            {%- assign icon_alt = block_st.icon.alt
+                              | default: block_st.heading
+                              | default: product.title
+                              | escape
+                            -%}
+                            {{
+                              block_st.icon
+                              | image_url: width: 96
+                              | image_tag: alt: icon_alt, class: 'product-benefits__icon-item-image', loading: 'lazy'
+                            }}
+                          </div>
+                        {%- endif -%}
+                        {%- if block_st.heading != blank -%}
+                          <h3 class="product-benefits__icon-item-title h5 mb-10 heading_weight heading-color">
+                            {{ block_st.heading }}
+                          </h3>
+                        {%- endif -%}
+                        {%- if block_st.description != blank -%}
+                          <div class="product-benefits__icon-item-text rte">
+                            {{ block_st.description }}
+                          </div>
+                        {%- endif -%}
+                      </div>
+                    </div>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+              <div class="swiper-pagination"></div>
+            </slide-section>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+  {%- render 'section-divider', position: 'bottom', style: section_st.divider_bottom, color_scheme: section_st.color_scheme, enabled: section_st.show_divider -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.product-benefits.name",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.product-benefits.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "options": [
+        {
+          "value": "fix_width",
+          "label": "t:sections.all.layout.fix_width"
+        },
+        {
+          "value": "stretch_width",
+          "label": "t:sections.all.layout.stretch_width"
+        },
+        {
+          "value": "full_width",
+          "label": "t:sections.all.layout.full_width"
+        }
+      ],
+      "default": "fix_width",
+      "label": "t:sections.all.layout.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content_header.label"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.all.content_setting.subheading.label"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "t:sections.all.content_setting.heading.label",
+      "default": "<p>Product Benefits</p>",
+      "info": "t:sections.all.content_setting.heading.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "drawn_underline",
+      "default": true,
+      "label": "t:sections.all.content_setting.drawn_underline.label",
+      "info": "t:sections.all.content_setting.heading.info"
+    },
+    {
+      "type": "select",
+      "id": "drawn_underline_type",
+      "label": "t:sections.all.content_setting.drawn_underline.type",
+      "default": "squiggle_underline",
+      "visible_if": "{{ section.settings.drawn_underline != false }}",
+      "options": [
+        {
+          "value": "simple_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.simple_underline"
+        },
+        {
+          "value": "curve_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.curve_underline"
+        },
+        {
+          "value": "squiggle_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.squiggle_underline"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "drawn_underline_color",
+      "label": "t:sections.all.content_setting.drawn_underline.color",
+      "default": "#FFB005",
+      "alpha": true,
+      "visible_if": "{{ section.settings.drawn_underline != false }}"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.all.content_setting.description.label",
+      "default": "<p></p>"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "t:sections.all.content_header.heading_size.label",
+      "options": [
+        {
+          "value": "large",
+          "label": "t:sections.all.content_header.heading_size.options__1.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.all.content_header.heading_size.options__2.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.all.content_header.heading_size.options__3.label"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.all.text_alignment.alignment"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.product-benefits.settings.media_header"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.product-benefits.settings.image.label",
+      "info": "t:sections.product-benefits.settings.image.info"
+    },
+    {
+      "type": "range",
+      "id": "media_width",
+      "min": 220,
+      "max": 420,
+      "step": 10,
+      "unit": "px",
+      "label": "t:sections.product-benefits.settings.media_width.label",
+      "default": 370
+    },
+    {
+      "type": "video",
+      "id": "video_local",
+      "label": "t:sections.product-benefits.settings.video.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "video_poster",
+      "label": "t:sections.product-benefits.settings.video_poster.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "video_loop",
+      "label": "t:sections.video.settings.looping.label",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "video_alt",
+      "label": "t:sections.video.settings.alt_description.label",
+      "default": "Product video"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.divider.section_divider_heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "t:sections.all.divider.show_divider",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "divider_top",
+      "label": "t:sections.all.divider.top",
+      "info": "t:sections.all.divider.top_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "line",
+      "visible_if": "{{ section.settings.show_divider }}"
+    },
+    {
+      "type": "select",
+      "id": "divider_bottom",
+      "label": "t:sections.all.divider.bottom",
+      "info": "t:sections.all.divider.bottom_info",
+      "options": [
+        { "value": "none", "label": "t:sections.all.divider.none" },
+        { "value": "line", "label": "t:sections.all.divider.line" },
+        { "value": "wave", "label": "t:sections.all.divider.wave" },
+        { "value": "curve-out", "label": "t:sections.all.divider.curve_out" },
+        { "value": "curve-in", "label": "t:sections.all.divider.curve_in" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.show_divider }}"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "t:sections.product-benefits.blocks.benefit.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "t:sections.product-benefits.blocks.benefit.settings.icon.label"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "t:sections.all.content_setting.heading.label",
+          "default": "This is heading text"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "t:sections.all.content_setting.description.label",
+          "default": "<p>Add a short description for this section.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.product-benefits.name",
+      "category": "t:sections.group.banners",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "heading": "This is heading text",
+            "description": "<p>Add a short description for this section.</p>"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "heading": "This is heading text",
+            "description": "<p>Add a short description for this section.</p>"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "heading": "This is heading text",
+            "description": "<p>Add a short description for this section.</p>"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "heading": "This is heading text",
+            "description": "<p>Add a short description for this section.</p>"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "heading": "This is heading text",
+            "description": "<p>Add a short description for this section.</p>"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "heading": "This is heading text",
+            "description": "<p>Add a short description for this section.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

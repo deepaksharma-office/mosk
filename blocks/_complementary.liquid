@@ -1,0 +1,128 @@
+{%- liquid
+  assign product = closest.product
+  assign block_heading = block.settings.block_heading
+  assign show_navigation = block.settings.show_navigation
+  assign product_list_limit = block.settings.product_list_limit
+-%}
+{%- capture style -%}
+  --gap: 1rem; --gap-desktop: 1rem;--item-desktop: 1;--item-tablet: 1;--item-mb: 1;
+{%- endcapture -%}
+{% if product.metafields.custom.external_affiliate == blank %}
+  <product-recommendations
+    {{ block.shopify_attributes }}
+    class="swiper__controls-group"
+    data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&intent=complementary&limit={{ product_list_limit }}"
+    style="--position-arrow: static;--swiper-navigation-size: 20px;--padding: 0;"
+  >
+    {%- if recommendations.performed and recommendations.products_count > 0 -%}
+      {% if block_heading != blank %}
+        <div class="flex gap-10 align-center space-between mb-sp-5 pt-sp-4">
+          <div class="recommendations-heading h6 fs-22 lh-global">
+            {{ block_heading }}
+          </div>
+          {% if show_navigation %}
+            {%- render 'swiper-navigation',
+              type: 'custom_nav',
+              class-custom: 'custom-navigation flex align-center gap-15'
+            -%}
+          {% endif %}
+        </div>
+      {% endif %}
+      <slide-section
+        class="swiper p-1 border rounded"
+        data-section-id="{{ section.id }}"
+        data-effect="slide"
+        data-speed="300"
+        data-pagination="custom"
+        data-desktop="1"
+        data-mobile="1"
+        data-tablet="1"
+        data-spacing="10"
+        style="{{ style | strip | strip_newlines }}"
+      >
+        <div class="swiper-wrapper" style="--width: clamp(5rem, 5vw, 6rem);">
+          {%- for product in recommendations.products limit: product_list_limit %}
+            {% assign modulo = forloop.index0 | modulo: 2 %}
+            {%- # theme-check-disable UnclosedHTMLElement -%}
+            {% assign class_name = ' py-sp-4' %}
+            {%- if modulo == 0 -%}
+              <div class="swiper-slide px-sp-4 px-1025-sp-6 py-1025-sp-2">
+            {%- endif -%}
+            {% if modulo == 0 and recommendations.products_count > 1 %}
+              {% assign class_name = class_name | append: ' border-bottom-dashed' %}
+            {% endif %}
+            {% render 'card-product',
+              card_product: product,
+              section_id: section.id,
+              disable_hover_image: true,
+              disable_show_video: true,
+              disable_lazy_loading: true,
+              disable_badge: true,
+              disable_rate: true,
+              disable_tag: true,
+              disable_countdown: true,
+              disable_scrolling_text: true,
+              disable_color_swatches: true,
+              show_quickadd: true,
+              class: class_name,
+              style_layout: ' flex gap-sp-4 align-center',
+              image_class: ' flex-auto w-custom rounded-10',
+              image_rounded: ' rounded-10',
+              info_class: ' flex-1 mt-0 mt-1025-0',
+              type: 'action_beside',
+              align_left_only: true,
+              button_type: 'text'
+            %}
+            {% if modulo == 1 or forloop.last %}
+              </div>
+            {% endif %}
+          {%- endfor -%}
+        </div>
+
+        {% if block_heading == blank %}
+          {% if show_navigation %}
+            {%- render 'swiper-navigation',
+              navigation_custom: true,
+              type: 'custom_nav',
+              class-custom: 'flex content-center gap-5 mt-custom'
+            -%}
+          {% endif %}
+        {% endif %}
+      </slide-section>
+    {% endif %}
+  </product-recommendations>
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.all.product_setting.complementary_products.name",
+  "class": "mb-custom",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.all.product_setting.complementary_products.settings.paragraph.content"
+    },
+    {
+      "type": "text",
+      "id": "block_heading",
+      "label": "t:sections.all.content_setting.heading.label",
+      "default": "Pairs well with"
+    },
+    {
+      "type": "range",
+      "id": "product_list_limit",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 10,
+      "label": "t:sections.all.product_setting.complementary_products.settings.product_list_limit.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "default": true,
+      "label": "t:sections.all.carousel.show_navigation.label"
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.product_setting.complementary_products.name" }]
+}
+{% endschema %}

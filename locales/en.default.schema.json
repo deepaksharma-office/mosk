@@ -1,0 +1,4686 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "settings_schema": {
+    "layout": {
+      "name": "Layout",
+      "how_to_use": {
+        "label": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/theme-settings/layout)"
+      },
+      "settings": {
+        "page_width": {
+          "label": "Page width"
+        },
+        "site_style": {
+          "label": "Rounded corners",
+          "image": {
+            "label": "Image"
+          },
+          "button": {
+            "label": "Button corner radius"
+          },
+          "input": {
+            "label": "Input corner radius"
+          }
+        },
+        "select_preset": {
+          "label": "Select preset",
+          "options__1": "Cosmetics",
+          "options__2": "Fashion",
+          "options__3": "Pets"
+        }
+      },
+      "rtl_support": {
+        "header": "RTL support",
+        "enable_rtl": "Enable RTL Support",
+        "rtl_language": {
+          "label": "RTL Language Code",
+          "info": "Specify the languages that use RTL layout by entering their ISO codes, separated by semicolons. For example: ar; fa; ku; pa; sd. If left blank, RTL layout will be applied to all languages."
+        }
+      }
+    },
+    "logo_favicon": {
+      "name": "Logo and favicon",
+      "how_to_use": {
+        "label": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/theme-settings/logo-and-favicon)"
+      },
+      "settings": {
+        "favicon": {
+          "label": "Favicon"
+        },
+        "favicon_image": {
+          "label": "Favicon image",
+          "info": "32 x 32px .png recommended"
+        },
+        "logo": {
+          "label": "Logo",
+          "logo_on_transparent": {
+            "label": "Logo on transparent header"
+          }
+        },
+        "logo_width": {
+          "label": "Logo width",
+          "info": "Logo width is automatically optimized for mobile."
+        }
+      }
+    },
+    "customer_account": {
+      "how_to_use": {
+        "label": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/theme-settings/customer-account)"
+      },
+      "name": "Customer account",
+      "settings": {
+        "customer_account_menu": {
+          "label": "Menu"
+        },
+        "open_as": {
+          "label": "Open as",
+          "options": {
+            "popup": "Popup",
+            "link": "Link"
+          }
+        }
+      }
+    },
+    "colors": {
+      "name": "Colors",
+      "how_to_use": {
+        "label": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/theme-settings/colors)"
+      },
+      "settings": {
+        "palette_header": {
+          "label": "Palette"
+        },
+        "palette_info": {
+          "label": "Define the colors for the palette for easier use across the theme"
+        },
+        "general_header": {
+          "label": "General"
+        },
+        "general_text": {
+          "label": "Text"
+        },
+        "general_heading": {
+          "label": "Heading"
+        },
+        "general_link": {
+          "label": "Link"
+        },
+        "general_border": {
+          "label": "Border"
+        },
+        "background_header": {
+          "label": "Background"
+        },
+        "background": {
+          "label": "Background"
+        },
+        "background_2": {
+          "label": "Background 2"
+        },
+        "background_gradient": {
+          "label": "Background gradient",
+          "info": "Background gradient replaces background where possible."
+        },
+        "fill_button_header": {
+          "label": "Fill button"
+        },
+        "fill_button_background": {
+          "label": "Background"
+        },
+        "fill_button_text": {
+          "label": "Text"
+        },
+        "fill_button_background_hover": {
+          "label": "Background hover"
+        },
+        "fill_button_text_hover": {
+          "label": "Text hover"
+        },
+        "outline_button_header": {
+          "label": "Outline button"
+        },
+        "outline_button_outline": {
+          "label": "Text"
+        },
+        "outline_button_outline_border": {
+          "label": "Border"
+        }
+      }
+    },
+    "typography": {
+      "name": "Typography",
+      "how_to_use": {
+        "label": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)"
+      },
+      "settings": {
+        "font_weight": {
+          "default": "Default",
+          "inline": "Inline",
+          "regular": "Regular",
+          "medium": "Medium"
+        },
+        "font_size": "Font size",
+        "body": {
+          "label": "Body",
+          "font": {
+            "label": "Font",
+            "info": "Select a different font can affect the speed of your store. [Learn more about system fonts.](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "base_size": "Base size"
+        },
+        "heading": {
+          "label": "Heading",
+          "font": {
+            "label": "Font",
+            "info": "Select a different font can affect the speed of your store. [Learn more about system fonts.](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "sub_heading": {
+            "sub_heading_weight": "Subheading font weight"
+          },
+          "text_transform": {
+            "label": "Text transform",
+            "unset": "Unset",
+            "capitalize": "Capitalize",
+            "uppercase": "Uppercase"
+          },
+          "heading_letter_spacing": {
+            "label": "Letter spacing"
+          }
+        },
+        "menu": {
+          "label": "Menu",
+          "font": {
+            "label": "Font",
+            "body_font": "Body",
+            "heading_font": "Heading"
+          },
+          "uppercase": {
+            "label": "Uppercase first level"
+          }
+        },
+        "button": {
+          "label": "Button",
+          "font": {
+            "label": "Font",
+            "body_font": "Body",
+            "heading_font": "Heading"
+          }
+        },
+        "text_preset": {
+          "header": "Text presets",
+          "name": {
+            "heading_1": "Heading 1",
+            "heading_2": "Heading 2",
+            "heading_3": "Heading 3",
+            "heading_4": "Heading 4",
+            "heading_5": "Heading 5",
+            "heading_6": "Heading 6"
+          },
+          "settings": {
+            "size": {
+              "label": "Size",
+              "18px": "18px",
+              "20px": "20px",
+              "22px": "22px",
+              "24px": "24px",
+              "26px": "26px",
+              "30px": "30px",
+              "36px": "36px",
+              "40px": "40px",
+              "46px": "46px",
+              "50px": "50px",
+              "56px": "56px",
+              "60px": "60px",
+              "80px": "80px"
+            },
+            "line_height": {
+              "label": "Line height",
+              "original": "Original",
+              "small": "Small",
+              "medium": "Medium",
+              "large": "Large",
+              "x_large": "X-Large"
+            }
+          }
+        }
+      }
+    },
+    "browser_tab_notifications": {
+      "name": "Browser tab notifications",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/theme-settings/browser-tab-notifications)",
+      "settings": {
+        "notification_info": "Leave blank to use your original page title",
+        "enable_browser_tab_notifications": {
+          "label": "Enable"
+        },
+        "first_notification": {
+          "label": "First notification"
+        },
+        "secondary_notification": {
+          "label": "Secondary notification"
+        }
+      }
+    },
+    "animation": {
+      "name": "Animation",
+      "how_to_use": {
+        "label": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/theme-settings/animation)"
+      },
+      "settings": {
+        "scroll_animation": {
+          "label": "Scroll animation",
+          "options__1": {
+            "label": "Disable"
+          },
+          "options__2": {
+            "label": "Desktop only"
+          },
+          "options__3": {
+            "label": "All screens"
+          }
+        },
+        "enable_loading_page_effect": {
+          "heading": "Page loading effect",
+          "label": "Enable effect",
+          "loading": "Loading icon",
+          "info": "Recommended image width 100x100px"
+        },
+        "image_lazy_loading": {
+          "label": "Enable image lazy loading"
+        },
+        "hover_effect": {
+          "label": "Hover effect",
+          "info": "Affects hover cards such as: product, banner, collection, blog...",
+          "fade_in": "Fade in",
+          "zoom": "Zoom"
+        }
+      }
+    },
+    "product": {
+      "name": "Product cards",
+      "how_to_use": {
+        "label": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/theme-settings/product-cards)"
+      },
+      "settings": {
+        "enable_quickview": "Enable quick view",
+        "enable_quickadd": "Enable quick add",
+        "enable_color_swatches": "Enable color swatches",
+        "show_tag": {
+          "hidden": "Hidden",
+          "desktop": "Desktop only",
+          "all_devices": "All screens"
+        },
+        "show_scrolling_text": "Show scrolling text",
+        "highlights_scrolling_text_metafield": {
+          "label": "Scrolling text metafield",
+          "info": "Product metafield shown as marquee text on product cards. Format: namespace.key. Default: custom.highlights_scrolling_text."
+        },
+        "show_rate": {
+          "label": "Show rate",
+          "info": "To display a rating, add a product rating app. [Learn more](https://help.shopify.com/en/manual/products/product-reviews/installation)"
+        },
+        "alignment": {
+          "label": "Alignment",
+          "left": "Left",
+          "center": "Center"
+        },
+        "product_image": {
+          "label": "Product image"
+        },
+        "show_image_hover": {
+          "label": "Show secondary image"
+        },
+        "show_video_featured": {
+          "label": "Play video on hover",
+          "info": "Only works with MP4 video."
+        },
+        "product_image_ratio": {
+          "label": "Image ratio",
+          "adapt_to_image": "Adapt to image",
+          "square": "Square (1:1)",
+          "portrait": "Portrait (3:4)",
+          "landscape": "Landscape (4:3)"
+        },
+        "mobile_options": {
+          "label": "Mobile settings"
+        },
+        "show_quick_add_mobile": {
+          "label": "Show quick add button on mobile"
+        }
+      }
+    },
+    "badges": {
+      "name": "Badges",
+      "how_to_use": {
+        "label": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/theme-settings/badges)"
+      },
+      "settings": {
+        "badge_color": {
+          "label": "Text color"
+        },
+        "show_badge": {
+          "label": "Show badge"
+        },
+        "background_color": {
+          "label": "Background color"
+        },
+        "sale": {
+          "label": "Sale",
+          "format": {
+            "label": "Format",
+            "text": "Text",
+            "percentage": "Percentage",
+            "fixed": "Fixed amount"
+          }
+        },
+        "new": {
+          "label": "New",
+          "new_badge_display_period": {
+            "label": "New badge display period",
+            "info": "Choose how long products are labeled as 'New' from the day they are created."
+          }
+        },
+        "sold_out": {
+          "label": "Sold out"
+        },
+        "custom_badge": {
+          "label": "Custom badge",
+          "info": "Please follow the document to see [how to setup custom badge](https://nextsky.gitbook.io/purity-theme/theme-settings/badges#id-5.-custom-badge)"
+        }
+      }
+    },
+    "color_swatches": {
+      "name": "Color swatches",
+      "how_to_use": {
+        "label": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/theme-settings/color-swatch)"
+      },
+      "settings": {
+        "hide_sold_out_variant": {
+          "label": "Hide sold out variants"
+        },
+        "show_sale_in_variant_swatch": {
+          "label": "Show sale in variant swatch"
+        },
+        "color_limit": {
+          "label": "Maximum swatches to show"
+        },
+        "color_swatch_trigger": {
+          "label": "Color swatch trigger",
+          "info": "Define the name of color option. Separate by a comma. Eg. Color,Colour"
+        },
+        "color_swatch_type": {
+          "label": "Swatch type",
+          "options__1": {
+            "label": "Variant image"
+          },
+          "options__2": {
+            "label": "Color"
+          }
+        },
+        "color_swatch_shape": {
+          "label": "Color shape",
+          "options__1": {
+            "label": "Round"
+          },
+          "options__2": {
+            "label": "Square"
+          }
+        },
+        "color_swatch_custom": {
+          "label": "Custom colors",
+          "info": "Valid format: Muesli: #ddd5bc or Muesli: image.png separate by a comma"
+        }
+      }
+    },
+    "cart": {
+      "name": "Cart",
+      "how_to_use": {
+        "label": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/theme-settings/cart)"
+      },
+      "settings": {
+        "cart_action_desktop": {
+          "label": "Action after add cart on desktop",
+          "drawer": "Drawer",
+          "page": "Page"
+        },
+        "cart_mobile": {
+          "label": "Mobile settings",
+          "action": {
+            "label": "Action after add cart",
+            "info": "Select what happens after a customer adds a product to cart on mobile.",
+            "option_1": "Open mini cart",
+            "option_2": "Notify message",
+            "option_3": "Open cart once, notify after"
+          },
+          "open_cart": {
+            "label": "Open cart as",
+            "info": "Choose how the cart opens when tapping the cart icon in header and mobile navigation bar.",
+            "option_1": "Drawer",
+            "option_2": "Popup"
+          }
+        },
+        "free_shipping": {
+          "label": "Free shipping message",
+          "paragraph": "Make sure that you have properly configured your [shipping rates.](/admin/settings/shipping)",
+          "message": {
+            "label": "Message",
+            "info": "Utilize [amount] to track your advancement towards qualifying for free shipping."
+          },
+          "minimum_amount": {
+            "label": "Free shipping minimum amount",
+            "info": "Use round numbers. Exclude currency, symbols, and letters."
+          }
+        },
+        "discount_progress_bar": {
+          "label": "Discount progress bar",
+          "paragraph": "Show up to 3 spending milestones in the cart. Make sure a matching discount code or automatic discount is created in your [Shopify admin.](/admin/discounts)",
+          "currency_info": "Enter milestone amounts in your store's default currency. They are converted automatically for local currencies.",
+          "enable": {
+            "label": "Enable discount progress bar",
+            "info": "When enabled, this replaces the single free shipping bar above in the cart drawer and cart page."
+          },
+          "milestone_1": {
+            "label": "Milestone 1"
+          },
+          "milestone_2": {
+            "label": "Milestone 2"
+          },
+          "milestone_3": {
+            "label": "Milestone 3"
+          },
+          "milestone": {
+            "amount": {
+              "label": "Threshold",
+              "info": "Use round numbers without currency symbols or letters."
+            },
+            "label_text": {
+              "label": "Label"
+            },
+            "icon": {
+              "label": "Icon",
+              "option_none": "None",
+              "option_tag": "Tag",
+              "option_truck": "Truck",
+              "option_box": "Box"
+            }
+          },
+          "message": {
+            "text": {
+              "label": "Progress message",
+              "info": "Use [amount] and [label] to display the remaining amount and the next reward's label."
+            },
+            "success": {
+              "label": "All milestones reached message"
+            }
+          }
+        },
+        "term_and_conditions": {
+          "label": "Terms and conditions",
+          "enable": "Show checkbox in mini cart and cart page.",
+          "text": "Text"
+        },
+        "cart_count_down": {
+          "label": "Cart count down",
+          "show_duration": {
+            "label": "Show on minicart and cart page"
+          },
+          "duration": {
+            "label": "Duration"
+          }
+        },
+        "product_recommendations": {
+          "label": "Product recommendations",
+          "heading": "Heading",
+          "enable_product_recommendations": "Enable product recommendations",
+          "enable_product_recommendations_info": "Product recommendations will be shown on the mini cart and cart page.",
+          "recommendation_product_type": {
+            "label": "Product recommendations type",
+            "auto": "Auto",
+            "selected": "Selected"
+          },
+          "select_product_recommendation": "Product",
+          "show_on_mobile": {
+            "label": "Show on mobile"
+          }
+        },
+        "gift_wrap": {
+          "label": "Product gift wrap",
+          "select_product_gift_wrap": {
+            "label": "Product",
+            "info": "Only works with products without variants."
+          }
+        },
+        "empty": {
+          "label": "Empty cart settings",
+          "heading": "Heading",
+          "description": "Description",
+          "collection": {
+            "label": "Collection list",
+            "info": "Collections will display their featured image by default. Use metafield to change image and text."
+          },
+          "collection_metafield": {
+            "label": "Collection empty metafield",
+            "info": "Collection metafield (metaobject) for custom image and description on empty cart. Format: namespace.key. Default: custom.collection_empty. Fields: collection_image, collection_description."
+          },
+          "button_text": "Button label",
+          "button_link": {
+            "label": "Button link",
+            "info": "Default is Collection all page"
+          },
+          "free_shipping": {
+            "label": "Free shipping message"
+          },
+          "empty_cart_layout": {
+            "label": "Empty cart layout",
+            "option_1": "List",
+            "option_2": "Grid"
+          }
+        }
+      }
+    },
+    "search": {
+      "name": "Search behavior",
+      "how_to_use": {
+        "label": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/theme-settings/search-behavior)"
+      },
+      "settings": {
+        "type": {
+          "label": "Type",
+          "info": "Drawer is the default layout on mobile.",
+          "option_1": "Popup",
+          "option_2": "Drawer",
+          "option_3": "Search bar"
+        },
+        "search_placeholder": {
+          "label": "Search placeholder"
+        },
+        "speech_search": {
+          "label": "Speech search",
+          "enable": {
+            "label": "Enable speech search"
+          }
+        },
+        "search_results": {
+          "label": "Show results",
+          "option_1": "Default",
+          "option_2": "Tab"
+        },
+        "recommendations": {
+          "popular_keywords": {
+            "label": "Popular search",
+            "info": "Recommend popular searched keywords in your store to customers. For example: t-shirt, dress, black."
+          },
+          "products_recommended": {
+            "label": "Products recommendation",
+            "info": "Select a product to recommend for customers."
+          },
+          "collections_recommended": {
+            "label": "Collections recommendation"
+          }
+        },
+        "results": {
+          "label": "Search results"
+        },
+        "predictive_search": {
+          "label": "Enable predictive search",
+          "info": "Live search results. Not available in all languages. [Learn more](https://shopify.dev/themes/navigation-search/search/predictive-search#general-requirements-and-limitations)"
+        },
+        "show_search_history": {
+          "label": "Show search history"
+        },
+        "show_price": {
+          "label": "Show product price"
+        }
+      }
+    },
+    "social_media": {
+      "name": "Social media",
+      "how_to_use": {
+        "label": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/theme-settings/social-media)"
+      },
+      "settings": {
+        "social_account": {
+          "label": "Social accounts",
+          "facebook": {
+            "label": "Facebook",
+            "info": "https://facebook.com/shopify"
+          },
+          "instagram": {
+            "label": "Instagram",
+            "info": "http://instagram.com/shopify"
+          },
+          "twitter": {
+            "label": "Twitter",
+            "info": "https://twitter.com/shopify"
+          },
+          "tiktok": {
+            "label": "Tiktok",
+            "info": "https://tiktok.com/@shopify"
+          },
+          "pinterest": {
+            "label": "Pinterest",
+            "info": "https://pinterest.com/shopify"
+          },
+          "youtube": {
+            "label": "Youtube",
+            "info": "https://www.youtube.com/shopify"
+          },
+          "vimeo": {
+            "label": "Vimeo",
+            "info": "https://vimeo.com/shopify"
+          },
+          "linkedin": {
+            "label": "Linkedin",
+            "info": "https://linkedin.com/company/shopify"
+          },
+          "whatsapp": {
+            "label": "Whatsapp",
+            "info": "https://www.whatsapp.com/shopify"
+          },
+          "snapchat": {
+            "label": "Snapchat",
+            "info": "https://www.snapchat.com/add/shopify"
+          }
+        },
+        "sharing_options": {
+          "label": "Sharing options",
+          "facebook": {
+            "label": "Share to Facebook"
+          },
+          "pinterest": {
+            "label": "Share to Pinterest"
+          },
+          "twitter": {
+            "label": "Share to Twitter"
+          },
+          "whatsapp": {
+            "label": "Share to WhatsApp"
+          },
+          "email": {
+            "label": "Share to Email"
+          }
+        }
+      }
+    },
+    "currency": {
+      "name": "Currency format",
+      "how_to_use": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/theme-settings/currency-format)",
+      "settings": {
+        "code": {
+          "label": "Currency codes",
+          "show_code": {
+            "label": "Show currency codes",
+            "info": "Cart and checkout prices always show currency codes. Example: $1.00 USD."
+          }
+        }
+      }
+    },
+    "script_tracking": {
+      "name": "Tracking & Insights",
+      "settings": {
+        "how_to_use": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/theme-settings/tracking-and-insights)",
+        "scripts_tracking": {
+          "label": "Code snippet",
+          "info": "Add your code snippet for tracking and insights"
+        },
+        "appended_scripts": {
+          "label": "Position appended",
+          "body": "Body tag",
+          "head": "Head tag"
+        }
+      }
+    }
+  },
+  "content": {
+    "manage_customer_accounts": "[Manage visibility](/admin/settings/customer_accounts) in customer account settings. Legacy accounts not supported."
+  },
+  "sections": {
+    "sticky_image_with_text": {
+      "name": "Sticky image with text",
+      "blocks": {
+        "group_text": {
+          "name": "Text group",
+          "image": {
+            "label": "Image on scroll",
+            "info": "Shown in the sticky image when this group scrolls into view. Leave empty to keep the previous image. Requires \"Change image on scroll\" in the section settings."
+          }
+        },
+        "list_tag": {
+          "name": "Tag list",
+          "tags": {
+            "label": "Tags",
+            "info": "Separate each tag with a vertical bar (|)."
+          },
+          "show_check": {
+            "label": "Show check icon"
+          },
+          "chip_style": {
+            "label": "Tag style"
+          }
+        }
+      },
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/banners/sticky-image-with-text)",
+      "settings": {
+        "hide_image_mobile": {
+          "label": "Hide image on mobile"
+        },
+        "change_image_on_scroll": {
+          "label": "Change image on scroll",
+          "info": "Swap the sticky image as each text group scrolls into view. Set the image in each text group; the section image is not used. Desktop only."
+        }
+      }
+    },
+    "all": {
+      "general": "General",
+      "metafield": {
+        "short_description": {
+          "label": "Short description metafield",
+          "info": "Product metafield used when a short description is available. Format: namespace.key. Default: custom.short_description."
+        },
+        "highlights": {
+          "label": "Highlights metafield",
+          "info": "Product metafield list of highlight icons/titles. Format: namespace.key. Default: custom.highlights."
+        },
+        "key_features": {
+          "label": "Key features metafield",
+          "info": "Product metafield list of feature title/description items. Format: namespace.key. Default: custom.key_features."
+        },
+        "media_lightbox": {
+          "label": "Media lightbox metafield",
+          "info": "Product metafield list of images/videos for the lightbox gallery. Format: namespace.key. Default: custom.media_lightbox."
+        },
+        "model_size": {
+          "label": "Model size metafield",
+          "info": "Product metafield (metaobject) with model measurements. Format: namespace.key. Default: custom.model_size."
+        },
+        "product_sizing": {
+          "label": "Product sizing metafield",
+          "info": "Product metafield list used for the sizing scale. Format: namespace.key. Default: custom.product_sizing."
+        },
+        "shop_the_look": {
+          "label": "Shop the look metafield",
+          "info": "Product metafield list of look images and products. Format: namespace.key. Default: custom.shop_the_look."
+        },
+        "similar_products": {
+          "label": "Similar products metafield",
+          "info": "Product metafield list of similar products. Format: namespace.key. Default: custom.similar_products."
+        },
+        "frequently_bought_together": {
+          "label": "Frequently bought together metafield",
+          "info": "Product metafield list of products to buy together. Format: namespace.key. Default: custom.frequently_bought_together."
+        },
+        "complete_the_look": {
+          "label": "Complete the look metafield",
+          "info": "Product metafield list of outfit products. Format: namespace.key. Default: custom.complete_the_look."
+        },
+        "info_gallery": {
+          "label": "Info gallery metafield",
+          "info": "Product metafield list of gallery cards (image + text). Format: namespace.key. Default: custom.info_gallery."
+        },
+        "compare_items": {
+          "label": "Compare items metafield",
+          "info": "Product metafield list of products to compare. Format: namespace.key. Default: custom.compare_items."
+        },
+        "ingredient_highlights": {
+          "label": "Ingredient highlights metafield",
+          "info": "Product metafield shown in the compare highlights row. Format: namespace.key. Default: custom.ingredient_highlights."
+        },
+        "subcollection": {
+          "label": "Subcollection metafield",
+          "info": "Collection metafield list of child collections. Format: namespace.key. Default: custom.subcollection."
+        }
+      },
+      "layout": {
+        "label": "Section width",
+        "fix_width": "Fixed width",
+        "stretch_width": "Stretch width",
+        "full_width": "Full width"
+      },
+      "colors": {
+        "label": "Color scheme",
+        "info": "To edit all your theme's colors, go to your [color theme settings](/editor?context=theme&category=colors). Ensure clear text contrast for better user experience."
+      },
+      "desktop_content_position": {
+        "label": "Desktop content position",
+        "info": "Position is automatically optimized for mobile.",
+        "info_2": "Content first is the default mobile layout.",
+        "group": {
+          "top": {
+            "label": "Top"
+          },
+          "middle": {
+            "label": "Middle"
+          },
+          "bottom": {
+            "label": "Bottom"
+          }
+        },
+        "options__1": {
+          "label": "Top left"
+        },
+        "options__2": {
+          "label": "Top center"
+        },
+        "options__3": {
+          "label": "Top right"
+        },
+        "options__4": {
+          "label": "Middle left"
+        },
+        "options__5": {
+          "label": "Middle center"
+        },
+        "options__6": {
+          "label": "Middle right"
+        },
+        "options__7": {
+          "label": "Bottom left"
+        },
+        "options__8": {
+          "label": "Bottom center"
+        },
+        "options__9": {
+          "label": "Bottom right"
+        }
+      },
+      "padding": {
+        "section_padding_heading": "Section padding",
+        "padding_inline": {
+          "label": "Padding inline",
+          "info": "Padding inline is automatically optimized for mobile."
+        },
+        "padding_block": {
+          "label": "Padding block",
+          "info": "Padding block is automatically optimized for mobile."
+        },
+        "padding_top": "Top",
+        "padding_bottom": "Bottom",
+        "spacing_bottom": "Spacing bottom",
+        "image_spacing": "Image spacing",
+        "space_between": "Space Between",
+        "column_gap": {
+          "label": "Column gap",
+          "no_gap": "No gap",
+          "small": "Small",
+          "medium": "Medium",
+          "large": "Large",
+          "x_large": "X-Large"
+        }
+      },
+      "space_between": {
+        "label": "Space between items"
+      },
+      "width": {
+        "label": "Width",
+        "fill": "Fill",
+        "fit": "Fit"
+      },
+      "columns": {
+        "label": "Number of columns"
+      },
+      "items_to_show": {
+        "label": "Maximum items to show"
+      },
+      "product_to_show": {
+        "label": "Maximum products to show"
+      },
+      "text_alignment": {
+        "label": "Content alignment",
+        "alignment": "Alignment",
+        "options__1": {
+          "label": "Left"
+        },
+        "options__2": {
+          "label": "Center"
+        },
+        "options__3": {
+          "label": "Right"
+        }
+      },
+      "content": {
+        "label": "Content"
+      },
+      "text": {
+        "label": "Text"
+      },
+      "content_position": {
+        "label": "Content position",
+        "options__1": {
+          "label": "Overlay image",
+          "top": "Top",
+          "middle": "Middle",
+          "bottom": "Bottom",
+          "text_above_button": "Text above button"
+        },
+        "options__2": {
+          "label": "Below image"
+        }
+      },
+      "section_setting": {
+        "page_heading": {
+          "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "description": {
+            "label": "Content"
+          },
+          "heading": {
+            "label": "Title"
+          },
+          "breadcrumb": {
+            "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/breadcrumb)",
+            "label": "Breadcrumb"
+          }
+        },
+        "enable_rounded_style": {
+          "label": "Enable rounded style"
+        }
+      },
+      "content_setting": {
+        "label": "Content settings",
+        "image": {
+          "label": "Image"
+        },
+        "subheading": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "Subheading",
+          "info": "Separate each text item with a vertical bar (|) to display a dot between items."
+        },
+        "highlight_text": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/highlight-text)",
+          "label": "Highlight text",
+          "settings": {
+            "icons": {
+              "label": "Select icon",
+              "options__1": {
+                "label": "None"
+              },
+              "options__2": {
+                "label": "Star"
+              },
+              "options__3": {
+                "label": "Dot"
+              }
+            }
+          }
+        },
+        "heading": {
+          "label": "Heading",
+          "info": "Add an underline by wrapping text in italics. Use the Italic (I) button in the editor to apply it."
+        },
+        "heading_highlight": {
+          "label": "Heading highlight text",
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading-highlight-text)"
+        },
+        "detail_list": {
+          "label": "Detail list",
+          "layout": {
+            "label": "Layout",
+            "specifications": "Row",
+            "information_cards": "Grid"
+          },
+          "detail_row": {
+            "label": "Information item",
+            "row_title": "Heading",
+            "row_details": "Description"
+          }
+        },
+        "metrics": {
+          "label": "Metrics",
+          "item": {
+            "label": "Metric item",
+            "value": "Value",
+            "description": "Label"
+          }
+        },
+        "description": {
+          "label": "Description",
+          "hide_on_mobile": {
+            "label": "Hide description on mobile"
+          },
+          "description": "Display your product description. Uses the short description metafield if available, otherwise falls back to the default product description. For more information visit our [Support page](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-7.-description)."
+        },
+        "citation": {
+          "label": "Citation"
+        },
+        "content": "Content",
+        "button_label": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "Button label",
+          "info": "Leave the label blank to hide the button."
+        },
+        "button_label-block": {
+          "name": "Label",
+          "label": "Button"
+        },
+        "link": {
+          "label": "Link",
+          "info": "Note: This link setting only works for images, not videos."
+        },
+        "first_button_label": {
+          "name": "First button",
+          "label": "Button label",
+          "link": "Button link"
+        },
+        "second_button_label": {
+          "name": "Second button",
+          "label": "Button label",
+          "link": "Button link"
+        },
+        "button_type": {
+          "label": "Type",
+          "primary": {
+            "label": "Primary"
+          },
+          "outline": {
+            "label": "Outline"
+          },
+          "link": {
+            "label": "Link"
+          }
+        },
+        "show_view_all_button": {
+          "label": "Show view all button",
+          "label_text": "Button label",
+          "default_text": "View all Products",
+          "default": "View all"
+        },
+        "open_link_in_new_tab": {
+          "label": "Open link in new tab"
+        },
+        "drawn_underline": {
+          "label": "Enable heading underline animation",
+          "type": "Underline style",
+          "value": {
+            "simple_underline": "Simple underline",
+            "curve_underline": "Curve stroke",
+            "squiggle_underline": "Squiggle underline"
+          },
+          "color": "Underline color"
+        },
+        "heading_block_highlight": {
+          "label": "Enable heading highlight",
+          "info": "Add a highlight by wrapping text in italics. Use the Italic (I) button in the editor to apply it.",
+          "type": "Highlight style",
+          "text_highlight": "Text highlight",
+          "color": "Highlight color"
+        }
+      },
+      "content_header": {
+        "label": "Section header",
+        "heading_size": {
+          "label": "Heading size",
+          "size": "Size",
+          "xs_small": {
+            "label": "XS-Small"
+          },
+          "x_small": {
+            "label": "X-Small"
+          },
+          "small": {
+            "label": "Small"
+          },
+          "large": {
+            "label": "Large"
+          },
+          "x_large": {
+            "label": "X-Large"
+          },
+          "base": {
+            "label": "Base size"
+          },
+          "options__1": {
+            "label": "Heading 1"
+          },
+          "options__2": {
+            "label": "Heading 2"
+          },
+          "options__3": {
+            "label": "Heading 3"
+          },
+          "options__4": {
+            "label": "Heading 4"
+          },
+          "options__5": {
+            "label": "Heading 5"
+          },
+          "options__7": {
+            "label": "Heading 7"
+          },
+          "options__0": {
+            "label": "Heading 0"
+          }
+        }
+      },
+      "blog_setting": {
+        "show_category": "Show category",
+        "show_tags": "Show tags",
+        "show_date": "Show date",
+        "show_author": "Show author",
+        "show_excerpt": "Show excerpts"
+      },
+      "media": {
+        "label": "Type"
+      },
+      "image": {
+        "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/image)",
+        "label": "Image",
+        "image_setting": "Image settings",
+        "width": "Image width",
+        "info_width": "Image is automatically optimized for mobile.",
+        "mobile_image": "Mobile image",
+        "mobile_image_width": "Mobile image width",
+        "aspect_ratio": {
+          "label": "Image ratio",
+          "label_mb": "Image ratio on mobile",
+          "label_video": "Video ratio",
+          "options__1": "Square (1:1)",
+          "options__2": "Portrait (3:4)",
+          "options__3": "Landscape (4:3)",
+          "options__4": "Same as desktop",
+          "adapt": "Adapt to image"
+        },
+        "desktop_position": {
+          "label": "Desktop image position",
+          "top": "Top",
+          "right": "Right",
+          "bottom": "Bottom",
+          "left": "Left",
+          "info": "Image will be shown above text on mobile."
+        },
+        "desktop_image_width": {
+          "label": "Desktop image width"
+        }
+      },
+      "video": {
+        "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)",
+        "label": "Video",
+        "info": "Overrides the image setting",
+        "settings": {
+          "source": {
+            "label": "Source",
+            "uploaded_video": {
+              "label": "Local video"
+            },
+            "external_link": {
+              "label": "External video link"
+            }
+          }
+        },
+        "width": "Video width",
+        "width_unit_type": {
+          "label": "Width unit type",
+          "options": {
+            "percent": {
+              "label": "Percent (%)"
+            },
+            "px": {
+              "label": "Pixels (px)"
+            }
+          }
+        }
+      },
+      "video_mobile": {
+        "label": "Video mobile"
+      },
+      "svg": {
+        "label": "Svg icon",
+        "custom_svg": {
+          "label": "Custom svg",
+          "info": "Overrides the image setting."
+        }
+      },
+      "icon": {
+        "none": {
+          "label": "None"
+        },
+        "cruelty": {
+          "label": "Cruelty"
+        },
+        "paraben": {
+          "label": "Paraben"
+        },
+        "privacy-protection": {
+          "label": "Privacy Protection"
+        },
+        "secure-shopping": {
+          "label": "Secure Shopping"
+        },
+        "guarantee": {
+          "label": "Guarantee"
+        },
+        "account": {
+          "label": "Account"
+        },
+        "leaf": {
+          "label": "Leaf"
+        },
+        "moon": {
+          "label": "Moon"
+        },
+        "hive": {
+          "label": "Hive"
+        },
+        "comb": {
+          "label": "Comb"
+        },
+        "free_shipping": {
+          "label": "Free shipping"
+        },
+        "check_badge": {
+          "label": "Check badge"
+        },
+        "message_communications": {
+          "label": "Message communications"
+        },
+        "circular-text": {
+          "label": "Circular text"
+        },
+        "cat": {
+          "label": "Cat"
+        },
+        "beauty": {
+          "label": "Face"
+        },
+        "line": {
+          "label": "Line"
+        },
+        "droplet": {
+          "label": "Droplet"
+        },
+        "smooth": {
+          "label": "Smooth"
+        },
+        "shield": {
+          "label": "Shield"
+        },
+        "balloon": {
+          "label": "Balloon"
+        },
+        "brightening": {
+          "label": "Brightening"
+        },
+        "hydration": {
+          "label": "Hydration"
+        },
+        "coptic_cross": {
+          "label": "Coptic cross"
+        },
+        "coil": {
+          "label": "Coil"
+        },
+        "verified": {
+          "label": "Verified"
+        },
+        "security": {
+          "label": "Security"
+        },
+        "package": {
+          "label": "Package"
+        }
+      },
+      "carousel": {
+        "header": "Carousel settings",
+        "enable_carousel": {
+          "label": "Enable carousel",
+          "description": "Carousel shows only when total collections is larger than the items per row on desktop."
+        },
+        "show_navigation": {
+          "label": "Show navigation"
+        },
+        "show_pagination": {
+          "label": "Show pagination",
+          "info": "Pagination will automatically show on mobile if you display the number of items on mobile as 1 or 2",
+          "info_single": "Pagination will automatically show on mobile.",
+          "type": {
+            "label": "Pagination style",
+            "progress_bar": "Progress bar",
+            "dot": "Dots"
+          }
+        },
+        "reveal_slide": {
+          "label": "Reveal next slide",
+          "info": "Display a part of the upcoming slide."
+        },
+        "enable_carousel_mobile": {
+          "label": "Enable carousel on mobile"
+        },
+        "change_slide_every": "Change slides every",
+        "slide_auto_change": "Auto-change slide"
+      },
+      "mobile_options": {
+        "label": "Mobile settings",
+        "mobile_layout": {
+          "label": "Mobile layout",
+          "show_text_bellow": {
+            "label": "Show text below on mobile",
+            "info": "Text will be shown below image on mobile."
+          },
+          "hidden_description_on_mobile": {
+            "label": "Hide description on mobile"
+          }
+        }
+      },
+      "items": {
+        "items_per_row": "Items per row",
+        "items_per_row_mobile": "Items per row on mobile"
+      },
+      "columns_desktop": {
+        "label": "Items per row on desktop"
+      },
+      "newsletter_setting": {
+        "email_placeholder": "Email placeholder",
+        "button_label": "Button label"
+      },
+      "pagination_type": {
+        "label": "Pagination type",
+        "options__1": {
+          "label": "Page number"
+        },
+        "options__2": {
+          "label": "Load more button"
+        },
+        "options__3": {
+          "label": "Infinite scroll"
+        }
+      },
+      "product_setting": {
+        "badges": {
+          "name": "Badges"
+        },
+        "notify": {
+          "name": "Notify product re-stock"
+        },
+        "live_view": {
+          "name": "Live view",
+          "settings": {
+            "min_number": "Min number",
+            "max_number": "Max number",
+            "interval_time": "Interval time",
+            "content": "Content",
+            "show_icon_eye": {
+              "label": "Show icon"
+            }
+          },
+          "info": "Simulates product activity by showing live view counts, helping boost urgency, social proof, and conversion rates."
+        },
+        "shop_the_look": {
+          "name": "Shop the look",
+          "settings": {
+            "heading": {
+              "label": "Heading"
+            }
+          },
+          "description": "Suggest related products to complete the look. For more information visit our [Support page](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)"
+        },
+        "stock_countdown": {
+          "name": "Stock countdown",
+          "settings": {
+            "message": {
+              "label": "Message",
+              "info": "Use short code [count] to display the remaining quantity of products in stock. You can remove or put this short code anywhere"
+            },
+            "stock_items": {
+              "label": "Stock items",
+              "info": "Show when less than (X) items are in stock"
+            }
+          }
+        },
+        "product_meta": {
+          "name": "Product meta",
+          "settings": {
+            "show_sku": {
+              "label": "Show SKU"
+            },
+            "show_collections": {
+              "label": "Show collections"
+            },
+            "show_tags": {
+              "label": "Show tags"
+            },
+            "show_type": {
+              "label": "Show type"
+            }
+          }
+        },
+        "collapsible_row": {
+          "name": "Accordion row",
+          "settings": {
+            "info": "Include a heading that explains the content.",
+            "content": "Row content",
+            "content_page": "Row content from page"
+          }
+        },
+        "accordion_row_drawer": {
+          "name": "Accordion row drawer",
+          "settings": {
+            "info": "Include a heading that explains the content.",
+            "content": "Row content",
+            "content_page": "Row content from page"
+          }
+        },
+        "model_size": {
+          "name": "Model size",
+          "settings": {
+            "paragraph": {
+              "content": "See what size the model is wearing, along with height, weight, and measurements. [Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)"
+            }
+          }
+        },
+        "title": {
+          "name": "Product title"
+        },
+        "price": {
+          "name": "Price"
+        },
+        "rating": {
+          "name": "Product rating"
+        },
+        "variant_picker": {
+          "name": "Variant picker",
+          "settings": {
+            "picker_type": {
+              "label": "Type",
+              "options__1": {
+                "label": "Dropdown"
+              },
+              "options__2": {
+                "label": "Pills"
+              }
+            },
+            "size_guide": {
+              "heading": "Size chart",
+              "info": "Get size chart information from selected page.",
+              "settings": {
+                "size_trigger": {
+                  "label": "Size trigger",
+                  "info": "Define the name of size option. Separate by a comma. Eg. Size,Misurare"
+                },
+                "show_size_guide": "Show size chart",
+                "size_guide_label": "Size chart label",
+                "size_guide_page": "Size chart page",
+                "footer_content": "Footer content",
+                "custom_size_guide": {
+                  "label": "Custom size chart",
+                  "info__1": "Using specific size charts for each collection or product.",
+                  "info__2": "To use a custom size charts for product or collection, create metafield with namespace and key: \"custom.size_chart\".[Learn more](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/size-chart)"
+                }
+              }
+            }
+          }
+        },
+        "disclosures": {
+          "name": "Disclosures",
+          "description": "Required safety warnings and regulatory disclosures for this product. For more information visit our [Support page](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information).",
+          "settings": {
+            "heading": {
+              "label": "Heading",
+              "default": "Important Information"
+            },
+            "open_by_default": {
+              "label": "Open by default"
+            }
+          }
+        },
+        "buy_buttons": {
+          "name": "Buy buttons",
+          "settings": {
+            "show_dynamic_checkout": {
+              "label": "Show dynamic checkout buttons",
+              "info": "Using the payment methods available on your store, customers see their preferred option, like PayPal or Apple Pay. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+            },
+            "show_gift_card_recipient": {
+              "label": "Show recipient information form for gift cards",
+              "info": "Allows buyers to send gift cards on a scheduled date along with a personal message. [Learn more](https://help.shopify.com/manual/online-store/themes/customizing-themes/add-gift-card-recipient-fields)"
+            }
+          }
+        },
+        "subscription_widget": {
+          "name": "Subscription widget",
+          "settings": {
+            "info": "Displays one-time purchase and a separate card for each selling plan group. Place this block above Buy buttons.",
+            "one_time_purchase_title": {
+              "label": "One-time purchase title"
+            },
+            "one_time_purchase_description": {
+              "label": "One-time purchase description"
+            },
+            "subscription_description": {
+              "label": "Subscription description"
+            },
+            "show_price": {
+              "label": "Show price"
+            }
+          }
+        },
+        "share": {
+          "name": "Share"
+        },
+        "complementary_products": {
+          "name": "Complementary products",
+          "settings": {
+            "paragraph": {
+              "content": "To select complementary products, add the Search & Discovery app. [Learn more](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+            },
+            "product_list_limit": {
+              "label": "Maximum products to show"
+            }
+          }
+        },
+        "pickup_avaiability": {
+          "name": "Pickup availability"
+        },
+        "media_lightbox": {
+          "name": "See it in action",
+          "settings": {
+            "enable_sticky": {
+              "label": "Enable sticky on desktop"
+            }
+          },
+          "description": "Show real-life photos or videos of your product in use. For more information visit our [Support page](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-16.-media-lightbox)"
+        },
+        "highlights": {
+          "name": "Highlights",
+          "description": "Showcase the key selling points of your product. For more information visit our [Support page](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-8.-highlights)"
+        },
+        "key_features": {
+          "name": "Key features",
+          "description": "List the main features and benefits of your product. For more information visit our [Support page](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-9.-key-features)"
+        },
+        "ask_question": {
+          "name": "Ask a question"
+        },
+        "promotion_countdown": {
+          "name": "Promotion countdown",
+          "show_countdown_units": {
+            "label": "Show countdown units"
+          },
+          "description": "Add a countdown timer to create urgency for your product's promotion. For more information visit our [Support page](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-11.-promotion-countdown)."
+        },
+        "promotion_alert": {
+          "name": "Promotion alert",
+          "heading": {
+            "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+            "label": "Heading"
+          },
+          "description": {
+            "label": "Description"
+          },
+          "text_color": {
+            "label": "Text color"
+          }
+        },
+        "icon_with_text": {
+          "name": "Icon with text",
+          "heading": {
+            "label_1": "Icon with text 1",
+            "label_2": "Icon with text 2",
+            "label_3": "Icon with text 3",
+            "label_4": "Icon with text 4",
+            "label_5": "Icon with text 5"
+          },
+          "info": "This content will be automatically hidden on mobile.",
+          "svg": {
+            "label": "Svg icon"
+          },
+          "content": {
+            "label": "Content"
+          },
+          "icon": {
+            "none": {
+              "label": "None"
+            },
+            "free_shipping": {
+              "label": "Free shipping"
+            },
+            "check_badge": {
+              "label": "Check badge"
+            },
+            "message_communications": {
+              "label": "Message communications"
+            },
+            "truck": {
+              "label": "Truck"
+            },
+            "question": {
+              "label": "Question"
+            },
+            "location": {
+              "label": "Location"
+            },
+            "leaf": {
+              "label": "Leaf"
+            },
+            "blossom": {
+              "label": "Blossom"
+            },
+            "payment": {
+              "label": "Payment"
+            },
+            "discount": {
+              "label": "Discount"
+            },
+            "order": {
+              "label": "Order"
+            },
+            "return": {
+              "label": "Return"
+            },
+            "return_package": {
+              "label": "Return package"
+            }
+          }
+        },
+        "inventory_status": {
+          "name": "Inventory status",
+          "settings": {
+            "inventory_threshold": {
+              "label": "Low inventory threshold",
+              "info": "Set this value to alert customers when a product is about to go out of stock."
+            },
+            "inventory_base": {
+              "label": "Inventory base quantity",
+              "info": "Set the initial quantity of your product inventory for progress bar."
+            }
+          }
+        }
+      },
+      "divider": {
+        "section_divider_heading": "Section divider",
+        "show_divider": "Show divider",
+        "top": "Top divider",
+        "top_info": "Hidden when the section above has a Wave or Curve bottom divider",
+        "bottom_info": "Line is hidden when the section below has a Wave or Curve top divider",
+        "bottom": "Bottom divider",
+        "none": "None",
+        "line": "Line",
+        "wave": "Wave",
+        "curve_out": "Curve out",
+        "curve_in": "Curve in"
+      }
+    },
+    "group": {
+      "product": "Products",
+      "collection": "Collections",
+      "storytelling": "Storytelling",
+      "banners": "Banners",
+      "blog": "Blog",
+      "form": "Forms",
+      "shopable": "Shopables",
+      "blocks": {
+        "basic": "Basic",
+        "layout": "Utilities & Layout",
+        "custom": "Custom",
+        "forms": "Forms"
+      },
+      "decorative": {
+        "name": "Decorative",
+        "marquee": "Marquee",
+        "how_to_use_maquee": "[How to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/marquee)"
+      },
+      "links": {
+        "name": "Links",
+        "menu": "Menu",
+        "how_to_use_menu": "[How to use this block](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)",
+        "how_to_use_popup_link": "[How to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/links/popup-link)",
+        "popup_link": "Popup link"
+      },
+      "general": {
+        "name": "General",
+        "image_box": "Image box",
+        "image_box_use": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/overlay-group/search)"
+        }
+      }
+    },
+    "overlay_group": {
+      "name": "Overlay group"
+    },
+    "search": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/overlay-group/search)",
+      "name": "Search"
+    },
+    "footer": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/footer-group/footer)",
+      "name": "Footer",
+      "settings": {
+        "enable_back_top": {
+          "label": "Enable back to top"
+        },
+        "show_policy": {
+          "label": "Policy links",
+          "info": "[Manage policies](/admin/settings/legal)"
+        },
+        "country_language": {
+          "content": "Country/language selector",
+          "info": "To add a country/region, go to your [market settings.](/admin/settings/markets). To add a language, go to your [language settings.](/admin/settings/languages)"
+        },
+        "enable_country_selector": {
+          "label": "Enable country/region selector"
+        },
+        "width": {
+          "options__1": "16%",
+          "options__2": "20%",
+          "options__3": "25%",
+          "options__4": "33%",
+          "options__5": "50%",
+          "options__6": "66%",
+          "options__7": "75%",
+          "options__8": "86%",
+          "options__9": "100%"
+        },
+        "enable_language_selector": {
+          "label": "Enable language selector"
+        },
+        "payment": {
+          "content": "Payment methods"
+        },
+        "payment_enable": {
+          "label": "Show payment icons"
+        },
+        "menu_policies": {
+          "label": "Footer bottom"
+        },
+        "header_follow": {
+          "content": "Follow on Shop",
+          "info": "To allow customers to follow your store on the Shop app from your storefront, Shop Pay must be enabled. [Learn more](https://help.shopify.com/manual/online-store/themes/customizing-themes/follow-on-shop)"
+        },
+        "enable_follow_on_shop": {
+          "label": "Enable Follow on Shop"
+        }
+      },
+      "blocks": {
+        "menu_block": {
+          "label": "Menu"
+        },
+        "newsletter_block": {
+          "name": "Newsletter",
+          "info": "Subscribers are automatically added to your “accepted marketing” customer list. [Learn more](https://help.shopify.com/manual/customers/manage-customers)",
+          "settings": {
+            "note": {
+              "label": "Note"
+            }
+          }
+        },
+        "contact_bar_block": {
+          "name": "Contact bar",
+          "settings": {
+            "store_address": "Address",
+            "store_phone": "Phone",
+            "store_email": "Email",
+            "show_social": {
+              "label": "Show social media icons",
+              "info": "To display your social media accounts, link them in your theme settings."
+            }
+          }
+        }
+      }
+    },
+    "header": {
+      "name": "Header",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header)",
+      "settings": {
+        "header_layout": {
+          "label": "Desktop header layout",
+          "info": "Layout is automatically optimized for mobile.",
+          "options__1": {
+            "label": "Logo left, menu center"
+          },
+          "options__2": {
+            "label": "Logo center, menu left"
+          },
+          "options__3": {
+            "label": "Logo center, menu below"
+          },
+          "options__4": {
+            "label": "Logo left, menu below"
+          },
+          "options__5": {
+            "label": "Logo left, menu left"
+          }
+        },
+        "sticky_header_type": {
+          "label": "Sticky header",
+          "options__1": {
+            "label": "None"
+          },
+          "options__2": {
+            "label": "On scroll up"
+          },
+          "options__3": {
+            "label": "Always"
+          }
+        },
+        "menu": {
+          "label": "Menu",
+          "menu_trigger": {
+            "label": "Desktop dropdown menu trigger",
+            "options__1": {
+              "label": "Click"
+            },
+            "options__2": {
+              "label": "Hover"
+            }
+          },
+          "dropdowns_animation": {
+            "label": "Dropdowns animation",
+            "options__1": {
+              "label": "Fade in"
+            },
+            "options__3": {
+              "label": "Down to up"
+            }
+          }
+        },
+        "menu_mobile": {
+          "label": "Mobile menu settings",
+          "menu_icon": {
+            "label": "Hamburger icon position",
+            "info": "Choose where the hamburger menu appears on mobile."
+          }
+        },
+        "addons": {
+          "label": "Addons",
+          "show_account": {
+            "label": "Show account icon"
+          },
+          "show_search": {
+            "label": "Show search"
+          },
+          "show_cart": {
+            "label": " Show shopping cart"
+          },
+          "show_offer": {
+            "label": " Show offer"
+          },
+          "show_language": {
+            "label": "Show language"
+          },
+          "show_currency": {
+            "label": "Show currency"
+          }
+        },
+        "transparent": {
+          "content": "Transparent header",
+          "info": "Ensure the first section on your homepage is configured as one of the following: a Slideshow, a Video with a text overlay, or an Image with a text overlay.",
+          "transparent": {
+            "label": "Enable transparent header"
+          },
+          "text_icon_transparent": {
+            "label": " Text and icon color"
+          }
+        },
+        "blocks": {
+          "mega_menu": {
+            "name": "Banner (Mega menu)",
+            "how_to_use": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#banner-mega-menu)",
+            "banners": {
+              "label": "Banners settings"
+            },
+            "promotion_1": {
+              "label": "Banners #1"
+            },
+            "promotion_2": {
+              "label": "Banners #2"
+            },
+            "promotion_3": {
+              "label": "Banners #3"
+            },
+            "promotion_4": {
+              "label": "Banners #4"
+            },
+            "promotion_5": {
+              "label": "Banners #5"
+            },
+            "info": "448px x 260px recommended"
+          },
+          "menu_item": {
+            "label": "Menu item",
+            "info": "Enter menu item to apply a mega menu dropdown. Please distinguish between uppercase and lowercase letters."
+          },
+          "menu_column": {
+            "label": "Desktop menu columns"
+          },
+          "product": {
+            "name": "Products (Mega menu)",
+            "how_to_use": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#product-mega-menu)",
+            "header": "Products"
+          },
+          "collection": {
+            "name": "Collections (Mega menu)",
+            "how_to_use": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#collection-mega-menu)",
+            "header": "Collections"
+          },
+          "menu_highlight": {
+            "name": "Menu highlight",
+            "menu_items": {
+              "label": "Menu items to highlight",
+              "info": "Enter the names of menu items to highlight, separated by commas (e.g., Sale, New Arrivals). Please distinguish between uppercase and lowercase letters."
+            },
+            "highlight_color": {
+              "label": "Highlight color"
+            },
+            "highlight_icon": {
+              "label": "Highlight icon",
+              "options": {
+                "unset": "Unset",
+                "star": "Star",
+                "custom": "Custom"
+              }
+            },
+            "custom_icon": {
+              "label": "Custom icon",
+              "info": "Optional icon to display next to highlighted menu items (recommended size: 24x24px)"
+            }
+          }
+        }
+      }
+    },
+    "custom_liquid": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "how_to_use_block": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "name": "Custom Liquid",
+      "liquid_code": "Liquid code",
+      "info": "Add app snippets or other Liquid code to create advanced customizations.",
+      "info_custom_liquid": "Add app snippets or other code to create advanced customizations. [Learn more](https://shopify.dev/docs/api/liquid)"
+    },
+    "blog-posts": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/blog-posts)",
+      "name": "Blog posts",
+      "settings": {
+        "blog-post": {
+          "label": "Blog post",
+          "blog_post_type": {
+            "label": "Blog post type",
+            "category": "Category",
+            "select_blog": "Selected blogs"
+          }
+        },
+        "blog": {
+          "label": "Blog"
+        }
+      }
+    },
+    "multi_content": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/multi-content)",
+      "name": "Multi content",
+      "blocks": {
+        "label": "Block settings",
+        "bellow_image": "Badge settings",
+        "badge": "Badge",
+        "equal_height_adjustment": {
+          "label": "Equal height adjustment"
+        },
+        "social_icon": "Social icons",
+        "grid_info": "Grid info",
+        "grid_info_1": "Grid info 1",
+        "grid_info_2": "Grid info 2",
+        "grid_info_3": "Grid info 3",
+        "grid_info_4": "Grid info 4"
+      }
+    },
+    "grid_banner": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/banners/grid-banner)",
+      "name": "Grid banner",
+      "settings": {
+        "hidden_block_des_mobile": {
+          "label": "Hide item description on mobile"
+        }
+      },
+      "blocks": {
+        "item": {
+          "name": "Banner item",
+          "show_arrow": "Show arrow icon"
+        }
+      }
+    },
+    "scrolling_text": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/scrolling-text)",
+      "name": "Scrolling text",
+      "settings": {
+        "direction": {
+          "label": "Direction",
+          "left": {
+            "label": "Right to left"
+          },
+          "right": {
+            "label": "Left to right"
+          }
+        },
+        "speed": {
+          "label": "Speed"
+        },
+        "text_size": {
+          "label": "Size"
+        },
+        "blocks": {
+          "image": {
+            "rounded_image": {
+              "label": "Image corner radius"
+            },
+            "image_height": {
+              "label": "Image height"
+            },
+            "image_width": {
+              "label": "Width"
+            }
+          }
+        }
+      }
+    },
+    "shopby-outfit": {
+      "name": "Shop by outfit",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-by-outfit)",
+      "blocks": {
+        "outfit": {
+          "name": "Outfit",
+          "settings": {
+            "product": {
+              "label": "Product list"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Shop by outfit"
+      },
+      "setting": {
+        "media": {
+          "label": "Media type"
+        },
+        "video_autoplay": {
+          "info": "It only works when Video is selected in the Media Type block settings."
+        }
+      }
+    },
+    "collection-list": {
+      "name": "Collection list",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/collection-list)",
+      "settings": {
+        "header": {
+          "collection": "Collection",
+          "collection_title": "Collection title",
+          "collection_card": "Collection card",
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "how_to_use_collection_title": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/sections/page-heading)"
+        },
+        "collection_title_style": {
+          "label": "Collection title style",
+          "text": "Text",
+          "button": "Button"
+        },
+        "show_product_count": {
+          "label": "Show product count"
+        },
+        "overlay_image_settings": "Overlay image settings",
+        "overlay_image_color": "Text color",
+        "collection_overlay_image_color": "Collections text color"
+      },
+      "blocks": {
+        "featured_collection": {
+          "name": "Collection",
+          "settings": {
+            "collection": {
+              "label": "Collection"
+            },
+            "image": {
+              "label": "Image",
+              "info": "Leave blank to use collection's image",
+              "info_highlight": "Leave blank to use collection's image. 330px x 520px recommended",
+              "info_suitable": "Leave blank to use collection's image. 147px x 72px recommended",
+              "info_collection_item": "444px x 444px recommended"
+            },
+            "title": {
+              "label": "Title",
+              "info": "Leave blank to use collection's title"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Collection list"
+      }
+    },
+    "quickview": {
+      "name": "Quickview",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/overlay-group/quickview)",
+      "settings": {
+        "paragraph": "This section allows you to customize the quickview popup."
+      }
+    },
+    "featured-collection": {
+      "name": "Featured collection",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/featured-collection)"
+    },
+    "expandable_card": {
+      "name": "Expandable card",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/expandable-card)",
+      "settings": {
+        "card_header": "Card settings",
+        "interaction_behavior": {
+          "label": "Interaction behavior",
+          "options": {
+            "hover": "Show on hover",
+            "drawer": "Click open drawer"
+          }
+        }
+      },
+      "blocks": {
+        "layered_card": {
+          "name": "Layered cards",
+          "settings": {
+            "media_header": "Image",
+            "description": "Description",
+            "drawer_page": "Description from page"
+          }
+        }
+      }
+    },
+    "featured-product": {
+      "name": "Featured product",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/featured-product)",
+      "settings": {
+        "product": "Product"
+      }
+    },
+    "slideshow": {
+      "name": "Slideshow",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/slideshow)",
+      "settings": {
+        "loading_background_color": {
+          "label": "Loading background",
+          "info": "Background color shown while the video slide is loading."
+        },
+        "slide_height": {
+          "label": "Slide height",
+          "full_screen": "Full screen",
+          "adapt_to_first_image": "Adapt to first image",
+          "small": "Small",
+          "medium": "Medium",
+          "large": "Large"
+        },
+        "info": "1920px x 840px recommended",
+        "info_mobile": "390px x 572px recommended",
+        "blocks": {
+          "image": {
+            "label": "Image slide",
+            "image_overlay_opacity": {
+              "label": "Image overlay opacity",
+              "overlay_opacity": "Overlay opacity"
+            }
+          },
+          "video": {
+            "label": "Video slide",
+            "video_setting": "Video settings",
+            "video_overlay_opacity": {
+              "label": "Video overlay opacity"
+            }
+          }
+        }
+      }
+    },
+    "related-products": {
+      "name": "Related products",
+      "how_to_use": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/related-products)"
+    },
+    "similar-products": {
+      "name": "Shop similar product",
+      "how_to_use": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-product)"
+    },
+    "complete-the-look": {
+      "name": "Complete the look",
+      "how_to_use": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/group-sections/products/complete-the-look)"
+    },
+    "similar-color": {
+      "name": "Shop Similar Color",
+      "how_to_use": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-color)"
+    },
+    "quick-order-list": {
+      "name": "Quick order list"
+    },
+    "newsletter": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/newsletter)",
+      "name": "Newsletter",
+      "settings": {
+        "header": {
+          "heading_setting": "Newsletter setting"
+        }
+      }
+    },
+    "rich-text": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/rich-text)",
+      "name": "Rich text",
+      "settings": {
+        "max_width": {
+          "label": "Max width",
+          "info": "Max width is automatically optimized for mobile."
+        },
+        "rotating_text": "Circular text",
+        "separator_spacing": {
+          "label": "Separator spacing",
+          "info": "Adds space on both sides of separators like - or • between phrases."
+        }
+      }
+    },
+    "recently-viewed-products": {
+      "name": "Recently viewed products",
+      "info": "Save the page to load recently viewed products",
+      "how_to_use": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/recently-product)"
+    },
+    "info-gallery-products": {
+      "name": "Key ingredients",
+      "how_to_use": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metaobjects/info-gallery)"
+    },
+    "product-benefits": {
+      "name": "Product benefits",
+      "how_to_use": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/product-benefits)",
+      "settings": {
+        "media_header": "Center media",
+        "image": {
+          "label": "Image",
+          "info": "Uses the product featured image when empty. 640 x 900px recommended."
+        },
+        "media_width": {
+          "label": "Image width on desktop"
+        },
+        "video": {
+          "label": "Video"
+        },
+        "video_poster": {
+          "label": "Video poster image"
+        }
+      },
+      "blocks": {
+        "benefit": {
+          "name": "Benefit",
+          "settings": {
+            "icon": {
+              "label": "Icon"
+            }
+          }
+        }
+      }
+    },
+    "benefit-tabs": {
+      "name": "Benefit tabs",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/banners/benefit-tabs)",
+      "settings": {
+        "text_alignment": {
+          "info": "Also aligns the tab buttons."
+        },
+        "mobile_alignment": {
+          "info": "Aligns benefits on mobile and tablet. On desktop, benefits align toward the media."
+        }
+      },
+      "blocks": {
+        "tab": {
+          "name": "Benefit tab",
+          "how_to_use": "Up to 6 Benefit blocks recommended for a balanced layout. On desktop, odd benefits sit left of the media and even benefits sit right.",
+          "settings": {
+            "tab_label": {
+              "label": "Tab label"
+            },
+            "image": {
+              "label": "Image before",
+              "info": "950 x 1060px recommended."
+            },
+            "image_after": {
+              "label": "Image after",
+              "info": "Use the same size as the before image. The after image is revealed as the visitor scrolls."
+            }
+          }
+        },
+        "benefit": {
+          "settings": {
+            "icon": {
+              "info": "Shows a placeholder when empty. 120 x 120px recommended."
+            }
+          }
+        }
+      }
+    },
+    "quiz-results-products": {
+      "name": "Quiz results products"
+    },
+    "quiz": {
+      "name": "Quiz",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/utilities-and-layout/quiz)",
+      "settings": {
+        "intro_header": "Intro",
+        "enable_intro_step": {
+          "label": "Enable intro step"
+        },
+        "intro_button_label": {
+          "label": "Start button label"
+        },
+        "show_retake_button": {
+          "label": "Show retake button"
+        },
+        "retake_label": {
+          "label": "Retake button label"
+        },
+        "results_display_header": "Results display",
+        "content_max_width": {
+          "label": "Content max width"
+        },
+        "show_back_button": {
+          "label": "Show back button"
+        },
+        "email_header": "Email step",
+        "enable_email_step": {
+          "label": "Enable email step"
+        },
+        "email_heading": {
+          "label": "Email heading"
+        },
+        "email_placeholder": {
+          "label": "Email placeholder"
+        },
+        "continue_label": {
+          "label": "Continue button label"
+        },
+        "skip_label": {
+          "label": "Skip button label"
+        },
+        "results_banner_image": {
+          "label": "Results banner image"
+        },
+        "fallback_products": {
+          "label": "Fallback products",
+          "info": "Products shown only when quiz answers do not return any strong or partial matches. Use as a backup so the results page is never empty."
+        },
+        "results_products_limit": {
+          "label": "Maximum products to show"
+        }
+      }
+    },
+    "compare-products": {
+      "name": "Compare products",
+      "how_to_use": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/compare-items)",
+      "settings": {
+        "header": {
+          "label": "Compare settings"
+        },
+        "show_price": "Price",
+        "show_ratings": "Ratings",
+        "show_vendor": "Vendor",
+        "show_color": "Color",
+        "show_size": "Size",
+        "show_highlights": "Highlights",
+        "show_availability": "Availability"
+      }
+    },
+    "bought-together-products": {
+      "name": "Bought together products",
+      "how_to_use": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/frequently-bought-together)"
+    },
+    "media-with-text": {
+      "name": "Media with text",
+      "info_image": {
+        "info_desktop": "950px x 844px recommended",
+        "info_mobile": "475px x 422px recommended",
+        "info_video": "Overrides the image setting. 950px x 844px recommended"
+      }
+    },
+    "comparison-table": {
+      "name": "Comparison table",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/products/comparison-table)",
+      "settings": {
+        "table": {
+          "label": "Table"
+        },
+        "comparison_heading": {
+          "label": "Comparison heading"
+        },
+        "show_column_images": {
+          "label": "Show column images"
+        },
+        "color_column_highlight": {
+          "label": "Color column highlight"
+        },
+        "table_notes": {
+          "label": "Table notes"
+        },
+        "show_labels": {
+          "label": "Show labels"
+        },
+        "first_label": {
+          "label": "First label"
+        },
+        "second_label": {
+          "label": "Second label"
+        },
+        "button_link": {
+          "label": "Link"
+        }
+      },
+      "blocks": {
+        "column": {
+          "name": "Column",
+          "settings": {
+            "highlight": {
+              "label": "Highlight this column"
+            }
+          }
+        },
+        "row": {
+          "name": "Row",
+          "settings": {
+            "icon_info": "Choose how to display the value in this column.",
+            "image_info": "Add an image to display when Image is selected.",
+            "value": {
+              "yes": "Yes",
+              "no": "No"
+            },
+            "text_1": {
+              "label": "Column 1 text",
+              "info": "Shown when Text is selected. Values follow the column order, so reorder the Column blocks with care."
+            },
+            "icon_1": {
+              "label": "Column 1 icon"
+            },
+            "image_1": {
+              "label": "Column 1 image"
+            },
+            "text_2": {
+              "label": "Column 2 text",
+              "info": "Shown when Text is selected."
+            },
+            "icon_2": {
+              "label": "Column 2 icon"
+            },
+            "image_2": {
+              "label": "Column 2 image"
+            },
+            "text_3": {
+              "label": "Column 3 text",
+              "info": "Shown when Text is selected."
+            },
+            "icon_3": {
+              "label": "Column 3 icon"
+            },
+            "image_3": {
+              "label": "Column 3 image"
+            },
+            "text_4": {
+              "label": "Column 4 text",
+              "info": "Shown when Text is selected. Only used when the table has four columns."
+            },
+            "icon_4": {
+              "label": "Column 4 icon"
+            },
+            "image_4": {
+              "label": "Column 4 image"
+            },
+            "column_1": "Column 1",
+            "column_2": "Column 2",
+            "column_3": "Column 3",
+            "column_4": "Column 4"
+          }
+        }
+      }
+    },
+    "product-specifications": {
+      "name": "Product specifications",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-specifications)",
+      "item_name": "Specifications item",
+      "specifications_layout": "Specifications layout",
+      "grid_gap": "Grid gap",
+      "mobile_rows_shown": "Rows",
+      "view_more_label": "View more button label",
+      "view_less_label": "View less button label"
+    },
+    "image-with-text": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/image-with-text)",
+      "name": "Image with text",
+      "settings": {
+        "desktop_vertical_alignment": {
+          "label": "Desktop vertical alignment",
+          "top": "Top",
+          "middle": "Middle",
+          "bottom": "Bottom"
+        },
+        "vertical_alignment": "Vertical alignment",
+        "background_type": {
+          "label": "Background type",
+          "image": "Image",
+          "color": "Color"
+        },
+        "background_color": "Background color",
+        "background_image": "Background image",
+        "text_color": "Text color",
+        "image_info": "696px x 500px recommended",
+        "image_caption": {
+          "label": "Image caption",
+          "heading": "Heading",
+          "description": "Description",
+          "position": "Position"
+        },
+        "offer_image_with_text_info": "360px x 200px recommended"
+      }
+    },
+    "before_after_result": {
+      "name": "Before after",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/banners/before-after)",
+      "before_text": {
+        "label": "Before text",
+        "default": "Before"
+      },
+      "after_text": {
+        "label": "After text",
+        "default": "After"
+      }
+    },
+    "parallax-image-with-text": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/banners/parallax-split)",
+      "name": "Parallax split",
+      "settings": {
+        "image": {
+          "image_1": {
+            "label": "Image 1"
+          },
+          "image_2": {
+            "label": "Image 2"
+          },
+          "image_3": {
+            "label": "Image 3"
+          }
+        },
+        "parallax_image": {
+          "label": "Parallax image"
+        }
+      }
+    },
+    "discount_popup": {
+      "info": "This section is used to display a popup after subscription.",
+      "name": "Discount popup",
+      "how_to_use": "[How to use this setting](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/discount-popup)",
+      "settings": {
+        "discount_code": {
+          "label": "Promoto link",
+          "info": "How to get promoto link? [Learn more](https://help.shopify.com/en/manual/discounts/managing-discount-codes#promote-a-discount-using-a-shareable-link)"
+        },
+        "discount_button": {
+          "label": "Promoto button label",
+          "default": "👉 Shop with 10% Off"
+        },
+        "sub_heading": {
+          "default": "Hooray! You are subscribed"
+        },
+        "info_image": "This image will be hidden automatically on mobile. 350px x 410px recommended "
+      }
+    },
+    "image-with-text-overlay": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/image-with-text-overlay)",
+      "name": "Image with text overlay",
+      "countdown": "Countdown timer",
+      "count_down": "Countdown",
+      "how_to_use_count_down": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/countdown)",
+      "end_time": {
+        "label": "End time",
+        "info": "e.g. mm-dd-yyyy"
+      },
+      "message": {
+        "label": "Expired message",
+        "info": "This message will be displayed when the time has expired."
+      },
+      "image_info": {
+        "info_desktop": "1392px x 500px recommended",
+        "info_mobile": "400px x 469px recommended"
+      }
+    },
+    "media-hero": {
+      "name": "Media hero",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/media-hero)",
+      "media": "Media",
+      "info": "Overrides the Image setting."
+    },
+    "video": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/video)",
+      "name": "Video",
+      "settings": {
+        "video_local": {
+          "label": "Video local",
+          "info_2": "Overrides the Video URL setting.",
+          "info_multi_content_video": "Overrides the Video URL setting. 684px x 500px recommended.",
+          "info_poster": "Use same dimensions as video"
+        },
+        "video_link": {
+          "label": "Video URL",
+          "info": "Accepts YouTube or Vimeo URL"
+        },
+        "video_poster": {
+          "label": "Video poster"
+        },
+        "alt_description": {
+          "label": "Video alt text",
+          "info": "Describe the video for customers using screen readers. [Learn more](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#video-block)"
+        },
+        "autoplay": {
+          "label": "Video auto play",
+          "info": "Videos are muted automatically to allow autoplay"
+        },
+        "looping": {
+          "label": "Video looping"
+        },
+        "show_action": {
+          "label": "Show video controls"
+        },
+        "aspect_ratio": {
+          "label": "Aspect ratio",
+          "option__1": "16:9",
+          "option__2": "21:9",
+          "option__3": "Adapt to video"
+        },
+        "show_text_bellow": {
+          "label": "Show text bellow video on mobile",
+          "info": "Text will be shown below video on mobile."
+        }
+      }
+    },
+    "main-password-content": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/other-pages/password-page)",
+      "name": "Main password page",
+      "settings": {
+        "header__2": {
+          "content": "Content setting"
+        }
+      },
+      "blocks": {
+        "countdown_bn": {
+          "settings": {
+            "countdown_design": {
+              "label": "Design",
+              "options__1": {
+                "label": "Default"
+              },
+              "options__2": {
+                "label": "Modern"
+              }
+            }
+          }
+        },
+        "form_subscribe": {
+          "name": "Form subscribe",
+          "settings": {
+            "email_placeholder": {
+              "label": "Email placeholder text"
+            },
+            "btn_label": {
+              "label": "Button label"
+            }
+          }
+        }
+      }
+    },
+    "divider": {
+      "settings": {
+        "height": {
+          "label": "Height"
+        },
+        "color": {
+          "label": "Color"
+        }
+      }
+    },
+    "faq": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/faqs)",
+      "name": "Faqs",
+      "main-faq": "Main faq page",
+      "heading": {
+        "content": "Faqs message"
+      },
+      "info_image": "646px x 700px recommended",
+      "settings": {
+        "show_faqs_message": "Show faqs message",
+        "show_image": "Show image",
+        "open_all_question": "Open all questions",
+        "framed": "Framed",
+        "faq_style": "Faq style",
+        "desktop_layout": {
+          "label": "Desktop layout",
+          "horizontal": "Horizontal",
+          "vertical": "Vertical"
+        }
+      },
+      "blocks": {
+        "name": "Faq items",
+        "settings": {
+          "question": {
+            "question": "Question",
+            "answer": "Answer"
+          }
+        }
+      }
+    },
+    "page-faq": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/other-pages/faq-page)"
+    },
+    "video-with-text-overlay": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/video-with-text-overlay)",
+      "name": "Video with text overlay",
+      "settings": {
+        "video_local": {
+          "label": "Video local",
+          "info": "Overrides the Video URL setting. 1392px x 550px recommended",
+          "info_mobile": "390px x 550px recommended"
+        },
+        "video_link": {
+          "label": "Video link"
+        },
+        "video_poster": {
+          "info": "Same dimensions as video"
+        },
+        "overlay_opacity": "Overlay opacity",
+        "video_height": {
+          "label": "Video height",
+          "options__1": {
+            "label": "Adapt to video"
+          },
+          "options__2": {
+            "label": "Small"
+          },
+          "options__3": {
+            "label": "Medium"
+          },
+          "options__4": {
+            "label": "Large"
+          }
+        }
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "Product grid",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/product-grid)",
+      "settings": {
+        "items_per_page": {
+          "label": "Items to show per page"
+        },
+        "columns_desktop": {
+          "label": "Columns per row on desktop"
+        },
+        "show_product_counts": {
+          "label": "Show product counts"
+        }
+      }
+    },
+    "main-collection": {
+      "settings": {
+        "items_per_page": {
+          "label": "Items to show per page"
+        },
+        "columns_desktop": {
+          "label": "Columns per row on desktop"
+        },
+        "enable_filtering": {
+          "label": "Enable filtering",
+          "info": "Customize filters with the Search & Discovery app. [Learn more](https://help.shopify.com/manual/online-store/search-and-discovery/filters)"
+        },
+        "filter_type": {
+          "label": "Desktop filter layout",
+          "options__1": {
+            "label": "Horizontal"
+          },
+          "options__2": {
+            "label": "Vertical"
+          },
+          "options__3": {
+            "label": "Drawer"
+          }
+        },
+        "enable_sorting": {
+          "label": "Enable sorting"
+        },
+        "show_product_counts": {
+          "label": "Show product counts"
+        },
+        "header__1": {
+          "content": "Filtering and sorting"
+        }
+      },
+      "blocks": {
+        "promotion": {
+          "name": "Promotion",
+          "promotion_position": {
+            "label": "Promotion position"
+          },
+          "info": "330px 550px recommended"
+        },
+        "steps": {
+          "name": "Shop by step",
+          "info": "337px x 200px recommended"
+        }
+      }
+    },
+    "main-search": {
+      "name": "Search results",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/other-pages/search-page)",
+      "settings": {
+        "search_results": {
+          "label": "Show results",
+          "option_1": "Default",
+          "option_2": "Tab"
+        }
+      }
+    },
+    "main-article": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/other-pages/blog-post-page)",
+      "name": "Blog post",
+      "settings": {
+        "show_date": "Show published date",
+        "show_comment": "Show comment",
+        "show_excerpt": "Show post excerpt",
+        "show_share": "Show share button",
+        "blocks": {
+          "featured_image": "Featured image",
+          "content_article": "Content",
+          "addons": "Addons",
+          "prev_next_articles": "Previous and next articles"
+        }
+      },
+      "related": {
+        "heading": "Related articles",
+        "articles": {
+          "label": "Articles",
+          "info": "Shown in this order. Leave empty to show the latest articles from this blog."
+        }
+      },
+      "related_product": {
+        "heading": "Related products",
+        "products": {
+          "label": "Products"
+        }
+      },
+      "blocks": {
+        "featured_image": {
+          "settings": {
+            "image_height": {
+              "label": "Image height",
+              "options__1": {
+                "label": "Adapt to image"
+              },
+              "options__2": {
+                "label": "Small"
+              },
+              "options__3": {
+                "label": "Medium"
+              },
+              "options__4": {
+                "label": "Large"
+              }
+            }
+          }
+        }
+      }
+    },
+    "cart-drawer": {
+      "name": "Cart drawer",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/overlay-group/cart-drawer)",
+      "settings": {
+        "info": "To display the cart drawer, please go to Theme settings and select Drawer as the cart type in the [cart settings.](/editor?context=theme&category=cart)",
+        "content": "",
+        "show_free_shipping_message": {
+          "label": "Show free shipping message",
+          "info": "Set the minimum amount for Free Shipping in the theme settings."
+        },
+        "discount_progress_bar_active": "The discount progress bar is enabled in Theme settings and replaces the free shipping message.",
+        "show_cart_note": "Show cart note",
+        "show_estimate_shipping": "Show estimate shipping",
+        "show_discount": "Show discounts code",
+        "hide_check_badge_on_mobile": "Hide Trust badges block on mobile",
+        "hide_icon_with_text_on_mobile": "Hide Icon with text block on mobile",
+        "show_gift_wrap": {
+          "label": "Show gift wrap",
+          "info": "Please select gift wrap products in the theme settings."
+        }
+      }
+    },
+    "main-list-collections": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-list-page)",
+      "name": "Collections list page",
+      "blocks": {
+        "name": "Collection",
+        "settings": {
+          "collection_image": "Collection image"
+        }
+      },
+      "settings": {
+        "information_position": {
+          "label": "Information position",
+          "options__1": {
+            "label": "Overlay image"
+          },
+          "options__2": {
+            "label": "Bellow image"
+          }
+        },
+        "collection_to_show": {
+          "label": "Collections to show",
+          "options__1": {
+            "label": "All"
+          },
+          "options__2": {
+            "label": "Selected"
+          }
+        },
+        "sort": {
+          "label": "Sort collections by",
+          "options__1": {
+            "label": "Alphabetically, A-Z"
+          },
+          "options__2": {
+            "label": "Alphabetically, Z-A"
+          },
+          "options__3": {
+            "label": "Date, new to old"
+          },
+          "options__4": {
+            "label": "Date, old to new"
+          },
+          "options__5": {
+            "label": "Product counts, high to low"
+          },
+          "options__6": {
+            "label": "Product counts, low to high"
+          }
+        }
+      }
+    },
+    "main-blog": {
+      "name": "Blog posts",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/other-pages/blog-page)",
+      "settings": {
+        "header": {
+          "content_post": "Post settings"
+        },
+        "maximum_posts_to_show": {
+          "label": "Maximum posts to show"
+        },
+        "post_per_row_desktop": {
+          "label": "Post per row on desktop"
+        },
+        "show_all_tags": {
+          "label": "Show tags list"
+        }
+      },
+      "blocks": {
+        "name": "Subscribe form",
+        "settings": {
+          "show_email_icon": "Show email icon",
+          "form_position": "Form position"
+        }
+      }
+    },
+    "main-product": {
+      "name": "Product information",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "settings": {
+        "header": {
+          "content": "Media"
+        },
+        "enable_sticky_desktop": {
+          "label": "Enable sticky add cart on desktop"
+        },
+        "desktop_layout": {
+          "label": "Desktop layout",
+          "group": {
+            "static": "Grid",
+            "carousel": "Carousel"
+          },
+          "one_columns": {
+            "label": "1 column"
+          },
+          "options__1": {
+            "label": "2 columns"
+          },
+          "options__2": {
+            "label": "Horizontal thumbnails"
+          },
+          "options__3": {
+            "label": "Stack"
+          },
+          "options__4": {
+            "label": "Vertical thumbnails"
+          },
+          "options__5": {
+            "label": "Vertical thumbnails (Scroll)"
+          },
+          "options__6": {
+            "label": "2 columns"
+          }
+        },
+        "thumbnail_carousel_setting": {
+          "label": "Thumbnail carousel setting",
+          "number_thumbs": "Number of thumbnails"
+        },
+        "media_position": {
+          "label": "Desktop media position"
+        },
+        "media_width": {
+          "label": "Desktop media width"
+        },
+        "mobile_thumbnails": {
+          "options__1": {
+            "label": "Show thumbnails"
+          },
+          "options__2": {
+            "label": "Hide thumbnails"
+          }
+        },
+        "enable_video_looping": {
+          "label": "Enable video looping"
+        },
+        "enable_image_zoom": {
+          "label": "Image zoom",
+          "options__1": {
+            "label": "Disable"
+          },
+          "options__2": {
+            "label": "Zoom inner"
+          },
+          "options__3": {
+            "label": "Zoom out"
+          }
+        },
+        "enable_image_lightbox": {
+          "label": "Enable lightbox"
+        },
+        "enable_video_autoplay": {
+          "label": "Enable video autoplay",
+          "info": "Videos are muted automatically to allow autoplay. Won't work for YouTube/Vimeo."
+        },
+        "enable_video_controls_default": {
+          "label": "Enable video controls custom",
+          "info": "Won't work for YouTube/Vimeo."
+        }
+      },
+      "blocks": {
+        "custom_product": {
+          "name": "Custom options",
+          "tab_setting": {
+            "label": "Tab labels",
+            "tab_1": {
+              "label": "Tab 1"
+            },
+            "tab_2": {
+              "label": "Tab 2"
+            },
+            "tab_3": {
+              "label": "Tab 3"
+            }
+          },
+          "description": "Let customers personalize the product — position, text, and color — through a 3-step popup before adding to cart. For more information visit our [Support page](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/custom-options)",
+          "placement": "Placement",
+          "text": "Text",
+          "text_limit": "Text limit",
+          "note": "Note",
+          "color": {
+            "name": "Color",
+            "options": {
+              "color_1": "Color 1",
+              "color_2": "Color 2",
+              "color_3": "Color 3",
+              "color_4": "Color 4",
+              "color_5": "Color 5",
+              "color_6": "Color 6",
+              "color_7": "Color 7",
+              "color_8": "Color 8",
+              "color_9": "Color 9",
+              "color_10": "Color 10"
+            }
+          }
+        }
+      }
+    },
+    "main-cart-items": {
+      "name": "Main cart",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/other-pages/cart-page)",
+      "block": {
+        "icon_with_text": "Icon with text",
+        "trust_badges": "Trust badges"
+      }
+    },
+    "main-collection-banner": {
+      "name": "Collection banner",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/collection-banner)",
+      "settings": {
+        "heading": {
+          "label": "Settings"
+        },
+        "use_collection_image": {
+          "label": "Use collection image",
+          "info": "Override background image setting"
+        },
+        "image_height": {
+          "option__2": "Base on content"
+        },
+        "image_position": {
+          "label": "Image position",
+          "option__1": "Left",
+          "option__2": "Right"
+        },
+        "image_opacity": {
+          "label": "Image opacity"
+        }
+      }
+    },
+    "contact-form": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/contact-form)",
+      "name": "Contact form",
+      "settings": {
+        "name": "Name",
+        "email_placeholder": "Email",
+        "message": "Message",
+        "option": "Option",
+        "info_option": "Define the name of option. Separate options with a comma. E.g. Product, Order, Press, Other"
+      }
+    },
+    "main-404": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/other-pages/404-page)",
+      "name": "Main 404",
+      "info_image": "500px x 288px recommended"
+    },
+    "main-activate-account": {
+      "name": "Account activation"
+    },
+    "main-password-footer": {
+      "name": "Password footer"
+    },
+    "main-account": {
+      "name": "Account"
+    },
+    "main-register": {
+      "name": "Registration"
+    },
+    "main-login": {
+      "name": "Login"
+    },
+    "main-reset-password": {
+      "name": "Password reset"
+    },
+    "main-order": {
+      "name": "Order"
+    },
+    "main-addresses": {
+      "name": "Addresses"
+    },
+    "announcement-bar": {
+      "how_to_use": {
+        "label": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/announcement-bar)"
+      },
+      "name": "Announcement bar",
+      "settings": {
+        "type": {
+          "name": "Type",
+          "options": {
+            "slide": {
+              "label": "Carousel"
+            },
+            "marquee": {
+              "label": "Marquee"
+            }
+          }
+        },
+        "show_only_homepage": {
+          "label": "Show only on homepage"
+        },
+        "show_close_button": {
+          "label": "Show close button"
+        },
+        "enable_on_mobile": {
+          "label": "Enable on mobile"
+        },
+        "marquee_settings": {
+          "label": "Marquee settings",
+          "speed": {
+            "label": "Speed"
+          },
+          "show_icon": {
+            "label": "Show icon"
+          }
+        }
+      },
+      "blocks": {
+        "name": "Announcement",
+        "setting": {
+          "label": "Text"
+        }
+      }
+    },
+    "multimedia_with_text": {
+      "blocks": {
+        "settings": {
+          "header": "Media settings",
+          "media_style": {
+            "label": "Media style",
+            "options__1": {
+              "label": "Rounded"
+            },
+            "options__2": {
+              "label": "Oval"
+            },
+            "options__3": {
+              "label": "Default"
+            }
+          }
+        }
+      }
+    },
+    "product-tabs": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/vertical-product-tabs)",
+      "name": "Product tabs",
+      "setting": {
+        "layout": {
+          "label": "Desktop layout",
+          "vertical": "Vertical",
+          "horizontal": "Horizontal"
+        },
+        "banner_header": "Banner",
+        "show_banner": "Show banner",
+        "sticky_banner": "Sticky banner",
+        "portrait_4_5": "Portrait (4:5)",
+        "enable_carousel_info": "On mobile, the product layout will always be displayed as a carousel."
+      },
+      "blocks": {
+        "name": "Tab",
+        "header": "Block settings",
+        "settings": {
+          "hidden_des_mobile": {
+            "label": "Hide tab description on mobile"
+          },
+          "collection": {
+            "label": "Collection",
+            "description": "Description"
+          }
+        }
+      },
+      "presets": {
+        "product_tabs_with_banner": "Product tabs with banner"
+      }
+    },
+    "collection-highlights": {
+      "name": "Collection highlights",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/collection-highlights)",
+      "settings": {
+        "highlight_collection_width": {
+          "label": "Collection highlights width"
+        }
+      },
+      "blocks": {
+        "header": "Block settings",
+        "type": {
+          "type_highlight": {
+            "header": "Collection highlights settings",
+            "name": "Collection highlights"
+          }
+        }
+      }
+    },
+    "collection-pills": {
+      "name": "Collection pills",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/collections/collection-pills)",
+      "settings": {
+        "pill_style": {
+          "label": "Pill style"
+        },
+        "show_image_on_hover": {
+          "label": "Show image on hover",
+          "info": "Image hover will be hidden on mobile."
+        },
+        "horizontal_scroll": {
+          "label": "Horizontal scroll"
+        }
+      }
+    },
+    "suitable_products_finder": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/suitable-products-finder)",
+      "name": "Suitable products finder",
+      "settings": {
+        "collection_tab_header": {
+          "label": "Collection tab"
+        },
+        "collection_tab_style": {
+          "label": "Collection tab style"
+        },
+        "collection_tab_style_options": {
+          "range_slider": {
+            "label": "Range slider"
+          },
+          "pill_tabs": {
+            "label": "Pill tabs"
+          }
+        },
+        "show_pill_tabs_with_heading": {
+          "label": "Inline with heading",
+          "info": "Show the color picker on the same line as the heading."
+        },
+        "show_pill_tabs_color": {
+          "label": "Show color dot"
+        },
+        "pill_tabs_color": {
+          "label": "Color"
+        },
+        "pill_tabs_image": {
+          "info": "The Pattern image will override the Color when an image is uploaded."
+        },
+        "image_collection_width": {
+          "label": "Image width"
+        },
+        "range_slider": {
+          "settings": {
+            "show_range_slider": {
+              "label": "Show range slider",
+              "info": "Range slider will be automatically hidden on mobile."
+            }
+          }
+        }
+      },
+      "preset": {
+        "ranger_slider": "Product finder: Range slider",
+        "pill_tabs": "Product finder: Pill tabs",
+        "color_dots": "Product finder: Color dots"
+      }
+    },
+    "icon-box": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/icon-box)",
+      "name": "Icon box",
+      "settings": {
+        "icon_settings": {
+          "header": "Icon settings",
+          "icon_position": {
+            "label": "Position"
+          },
+          "icon_size": {
+            "label": "Size"
+          },
+          "radius_image": {
+            "label": "Rounded image",
+            "info": "This setting only works when the icon is an image."
+          }
+        }
+      }
+    },
+    "metric-banner": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/metric-banner)",
+      "name": "Metric banner",
+      "settings": {
+        "metric_setting": "Metric settings",
+        "metric_font_size": "Metric font size",
+        "enable_metric_animation": "Enable metric animation",
+        "metric_value": {
+          "start": "Metric start value",
+          "end": "Metric end value"
+        },
+        "metric_unit": "Metric unit"
+      },
+      "block": {
+        "name": "Metric item"
+      }
+    },
+    "compact_product_bundle": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/compact-product-bundle)",
+      "name": "Compact product bundle",
+      "settings": {
+        "image": {
+          "label": "Image",
+          "info_desktop": "696px x 750px recommended",
+          "info_mobile": "350px x 303px recommended"
+        },
+        "enable_quick_add_for_items": {
+          "label": "Enable quick add for items"
+        },
+        "hidden_button_mobile": {
+          "label": "Hidden button on mobile"
+        },
+        "products_show": {
+          "label": "Products show as",
+          "options__1": {
+            "label": "List"
+          },
+          "options__2": {
+            "label": "Grid"
+          }
+        }
+      },
+      "presets": {
+        "name": "Compact product bundle"
+      },
+      "blocks": {
+        "settings": {
+          "name": "Product",
+          "select_product": "Product",
+          "position_top": "Vertical position",
+          "position_left": "Horizontal position"
+        }
+      }
+    },
+    "mobile-navigation-bar": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/overlay-group/mobile-navigation-bar)",
+      "name": "Mobile navigation bar",
+      "info": "This section only shows on mobile. Please switch to mobile view.",
+      "settings": {
+        "show_section": "Enable mobile navigation bar",
+        "show_shop": "Show shop",
+        "show_account": "Show account",
+        "show_cart": "Show cart",
+        "show_homepage": "Show home page"
+      }
+    },
+    "mobile_first": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/mobile-first)",
+      "name": "Spotlight gallery",
+      "image_1": "Spot image 1",
+      "image_2": "Spot image 2",
+      "image_3": "Spot image 3",
+      "image_4": "Spot image 4",
+      "image_5": "Spot image 5",
+      "text_1": "Spot text 1",
+      "text_2": "Spot text 2",
+      "text_3": "Spot text 3",
+      "text_4": "Spot text 4",
+      "text_5": "Spot text 5"
+    },
+    "shopable_video": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/shopable-video)",
+      "name": "Shopable video",
+      "settings": {
+        "video_settings": {
+          "header": "Video settings"
+        },
+        "enable_sticky": {
+          "label": "Enable video sticky",
+          "option_1": {
+            "label": "Disable"
+          },
+          "option_2": {
+            "label": "Desktop only"
+          },
+          "option_3": {
+            "label": "All screens"
+          }
+        },
+        "ratio": {
+          "adapt": {
+            "label": "Adapt to first video"
+          }
+        },
+        "video": {
+          "auto_play": {
+            "info": "Video will autoplay when this block is active or visible on screen"
+          }
+        },
+        "show_product_card": {
+          "label": "Show product card",
+        }
+      },
+      "blocks": {
+        "name": "Video",
+        "settings": {
+          "poster_image": {
+            "label": "Poster image",
+            "info": "1080px x 1920px recommended"
+          },
+          "local_video": {
+            "label": "Local video"
+          },
+          "select_product": {
+            "label": "Product"
+          }
+        }
+      }
+    },
+    "image_card": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/image-cards)",
+      "name": "Image cards",
+      "blocks": {
+        "header": "Card settings",
+        "group_name": "Card",
+        "info": "451px x 453px recommended"
+      }
+    },
+    "testimonials": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonials)",
+      "name": "Press",
+      "settings": {
+        "header": "Press settings",
+        "show_icon_quote": {
+          "label": "Show quote icon"
+        }
+      },
+      "blocks": {
+        "name": "Press item",
+        "settings": {
+          "quote": {
+            "label": "Quote"
+          },
+          "info_image": "180px 60px recommended"
+        }
+      }
+    },
+    "press_card": {
+      "name": "Press Card",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/press-card)",
+      "blocks": {
+        "content": "Content",
+        "media": "Media",
+        "quote": "Quote",
+        "settings": {
+          "show_icon_quote": "Show quote icon",
+          "author_name": "Author name",
+          "quote_content": "Quote content",
+          "press-image": {
+            "info": "Overrides the background color setting"
+          }
+        }
+      }
+    },
+    "image-with-text-carousel": {
+      "name": "Image with text carousel",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/image-with-text-carousel)",
+      "settings": {
+        "show_slide_counter": {
+          "label": "Show slide counter"
+        }
+      },
+      "blocks": {
+        "slide": {
+          "icon_info": "80 x 80px .png or .svg recommended"
+        }
+      }
+    },
+    "testimonial-images": {
+      "name": "Testimonial images",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonial-images)",
+      "settings": {
+        "show_author_image": "Show author image",
+        "hide_image_on_mobile": {
+          "label": "Hide image on mobile"
+        }
+      },
+      "blocks": {
+        "review": "Testimonial",
+        "settings": {
+          "author_image": "Author image"
+        }
+      }
+    },
+    "scrolling_image": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/scrolling-image)",
+      "name": "Gallery image",
+      "settings": {
+        "show_background_blur": {
+          "label": "Show blurred background"
+        },
+        "show_icon_hover": {
+          "label": "Show instagram icon on hover"
+        },
+        "info_image": "303px x 303px recommended"
+      }
+    },
+    "featured_product_banner": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/featured-product-banner)",
+      "name": "Featured product banner",
+      "hide_icon_text": "Hide icon with text blocks on mobile",
+      "blocks": {
+        "name": "Icon with text"
+      },
+      "info": {
+        "info_desktop": "400px x 400px recommended",
+        "info_mobile": "300px x 300px recommended"
+      }
+    },
+    "product_testimonials": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-testimonials)",
+      "name": "Product testimonials",
+      "settings": {
+        "header": "Testimonials settings",
+        "rating_color": {
+          "label": "Rating color"
+        },
+        "rating_type": {
+          "label": "Rating type",
+          "default": "Default",
+          "modern": "Modern",
+          "show": "Show rating",
+          "show_before_after": "Show before after text"
+        },
+        "product_rounded": {
+          "label": "Product image corner radius"
+        },
+        "show_verified_buyer": {
+          "label": "Show verified buyer"
+        },
+        "show_author_name": {
+          "label": "Show author name"
+        }
+      },
+      "blocks": {
+        "type": {
+          "media": {
+            "label": "Testimonial media"
+          },
+          "image_comparison": {
+            "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/image-comparison)",
+            "label": "Testimonial image comparison",
+            "name": "Image comparison",
+            "show_after_before_text": {
+              "label": "Show before/after text"
+            }
+          }
+        },
+        "settings": {
+          "media": {
+            "label": "Media settings",
+            "info": "448px x 246px recommended",
+            "before_after_image": {
+              "label": "Before after images"
+            },
+            "before_image": {
+              "label": "Before"
+            },
+            "after_image": {
+              "label": "After"
+            }
+          },
+          "information": {
+            "label": "Information settings",
+            "rating_star": {
+              "label": "Rating star"
+            },
+            "select_product": {
+              "label": "Product"
+            },
+            "author_name": {
+              "label": "Author name"
+            },
+            "review_sumary": {
+              "label": "Summary"
+            },
+            "use_richtext": {
+              "label": "Use richtext"
+            }
+          }
+        }
+      }
+    },
+    "routine-builder": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/routine-builder)",
+      "name": "Shop by step",
+      "blocks": {
+        "name": "Step",
+        "settings": {
+          "text_step": {
+            "label": "Step title"
+          },
+          "product_in_step": {
+            "label": "Product in step"
+          }
+        }
+      }
+    },
+    "flow": {
+      "name": "Flow",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/flow)",
+      "blocks": {
+        "step": {
+          "name": "Step",
+          "heading": {
+            "label": "Heading"
+          },
+          "image": {
+            "label": "Image"
+          },
+          "product": {
+            "label": "Product"
+          }
+        }
+      }
+    },
+    "newsletter_popup": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/overlay-group/newsletter-popup)",
+      "name": "Newsletter popup",
+      "header": {
+        "heading": "General settings"
+      },
+      "settings": {
+        "sections_width": {
+          "label": "Width",
+          "options": {
+            "options__1": "Full width",
+            "options__2": "Auto"
+          }
+        },
+        "collections_selector": {
+          "setting": "Collection selector settings",
+          "label": "Enable collections selector",
+          "collection": {
+            "label_1": "Collection 1",
+            "label_2": "Collection 2",
+            "label_3": "Collection 3",
+            "label_4": "Collection 4",
+            "label_5": "Collection 5"
+          }
+        },
+        "newsletter_heading": "Newsletter settings",
+        "show_on_homepage": "Show only on homepage",
+        "discount_sticky": {
+          "setting": "Discount sticky",
+          "label": "Show discount sticky",
+          "heading": "Content",
+          "info": "Content will auto truncate at 25 characters, including HTML tags."
+        },
+        "heading": "Heading",
+        "short_description": "Description",
+        "instructional_text": "Instructional text",
+        "email_placeholder": "Email placeholder",
+        "button_label": "Button label",
+        "banner_image": "Banner image"
+      }
+    },
+    "featured-blog": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/featured-blog)",
+      "name": "Featured blog"
+    },
+    "recommended_collection": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/recommended-collection). Form with image: each Filter dropdown block becomes one dropdown, and Collection blocks are not used. Filter dropdowns need filters set up in the Shopify Search & Discovery app.",
+      "name": "Recommended collection",
+      "blocks": {
+        "button": {
+          "info": "[collection] and [title] are variable names that will be automatically replaced. Don't change the names, but you can change their position in the text. [title] is optional — remove it if you only want the collection selector.",
+          "first_button_info": "Form with image: opens the results collection with the chosen filters"
+        },
+        "featured_collection": {
+          "title_info": "Inline text only: shown as an option of the [title] dropdown. Collection blocks are not used in the Form with image layout"
+        },
+        "filter_dropdown": {
+          "name": "Filter dropdown",
+          "info": "Works with the Form with image layout. Set up the filter first in the Shopify Search & Discovery app.",
+          "filter_name": {
+            "label": "Filter name",
+            "info": "Enter the filter label exactly as it shows on your collection pages, for example \"Dog age group\". For several languages, separate the labels with ;. Price filters aren't supported."
+          },
+          "placeholder": "Placeholder"
+        },
+        "text": {
+          "name": "Text"
+        }
+      },
+      "background": {
+        "label": "Show image",
+        "header": "Image"
+      },
+      "image_info": {
+        "info_desktop": "Inline text: 1920px x 700px recommended. Form with image: 1400px x 1200px recommended",
+        "info_mobile": "Inline text: 390px x 407px recommended. Form with image: 780px x 672px recommended"
+      },
+      "layout": {
+        "label": "Layout",
+        "inline": "Inline text",
+        "form": "Form with image"
+      },
+      "content_color_scheme": "Content color scheme",
+      "results_collection": {
+        "label": "Results collection",
+        "info": "Form with image only. Filter dropdowns show the filters of this collection, and the first button opens it. Leave empty to use all products."
+      },
+      "presets": {
+        "form": "Recommended collection with image"
+      }
+    },
+    "offers-popup": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/overlay-group/offers-popup)",
+      "name": "Offers popup",
+      "popup": {
+        "label": "Heading offer popup",
+        "info": "Customize the Offers Popup block content in the Overlay Group."
+      }
+    },
+    "outfit-finder": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/products/outfit-finder)",
+      "name": "Outfit finder",
+      "settings": {
+        "product_listing": {
+          "label": "Product listing settings"
+        },
+        "outfit_finder_logic": {
+          "label": "Preview settings"
+        },
+        "max_items_to_show": {
+          "label": "Products per page",
+          "info": "The number of products displayed initially. Scrolling down will load more items."
+        },
+        "max_items": {
+          "label": "Max products per outfit",
+          "info": "Limits how many items a customer can add to the preview area."
+        },
+        "product": {
+          "label": "Suggested outfit",
+          "info": "Select up to 3 products to be displayed in the preview area by default when the page loads."
+        },
+        "notify_preview": {
+          "label": "Empty state notification",
+          "info": "Guidance text shown in the preview area before any items are added."
+        }
+      }
+    },
+    "scrolling-card": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scrolling-card)",
+      "name": "Scrolling card"
+    },
+    "scroll-scatter": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scroll-scatter)",
+      "name": "Scroll scatter"
+    },
+    "parallax-scroll": {
+      "name": "Parallax scroll",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/parallax-scroll)",
+      "instructions": "Add up to 7 cards. Cards alternate sides and every third card is inset automatically.",
+      "blocks": {
+        "info_card": {
+          "name": "Info card"
+        }
+      },
+      "settings": {
+        "card_width": {
+          "label": "Card width",
+          "info": "Sets the maximum card width on desktop. Cards remain responsive on smaller screens."
+        },
+        "button_link": {
+          "info": "If left blank, the button is shown as disabled."
+        },
+        "button_type": {
+          "info": "Uses the button styles configured by the theme."
+        }
+      }
+    },
+    "store-location": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/other-pages/store-location)",
+      "name": "Store location",
+      "settings": {
+        "key_google_map": {
+          "label": "Google Maps API key",
+          "info": "Requires 'Maps JavaScript', 'Places', and 'Geocoding' APIs. [Get Key](https://console.cloud.google.com/google/maps-apis/credentials)."
+        },
+        "map_settings": {
+          "header": "Map settings"
+        },
+        "allowed_countries": {
+          "label": "Allowed countries",
+          "info": "Control where customers can search for stores.. Use ISO country codes (e.g. US, UK, CA) separated by commas. Leave blank to search globally."
+        },
+        "radius_km": {
+          "label": "Search radius (km)",
+          "info": "Max distance for store results."
+        }
+      },
+      "blocks": {
+        "name": "Store",
+        "settings": {
+          "store_name": {
+            "label": "Store name"
+          },
+          "store_address": {
+            "label": "Store address"
+          },
+          "store_email": {
+            "label": "Store email"
+          },
+          "store_phone": {
+            "label": "Store phone"
+          },
+          "store_lat": {
+            "label": "Store latitude",
+            "info": "Copy the first number from Google Maps coordinates."
+          },
+          "store_lng": {
+            "label": "Store longitude",
+            "info": "Copy the second number from Google Maps coordinates."
+          },
+          "time_location": {
+            "monday": "Monday",
+            "tuesday": "Tuesday",
+            "wednesday": "Wednesday",
+            "thursday": "Thursday",
+            "friday": "Friday",
+            "saturday": "Saturday",
+            "sunday": "Sunday",
+            "open": "Open",
+            "closed": "Closed",
+            "open_time_hour": "Open time hour",
+            "open_time_minute": "Open time minute",
+            "close_time_hour": "Close time hour",
+            "close_time_minute": "Close time minute"
+          },
+          "time_schedule": {
+            "monday": "Schedule",
+            "tuesday": "Schedule",
+            "wednesday": "Schedule",
+            "thursday": "Schedule",
+            "friday": "Schedule",
+            "saturday": "Schedule",
+            "sunday": "Schedule"
+          }
+        }
+      }
+    },
+    "product-bundle": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/product-bundle)",
+      "name": "Product bundle",
+      "settings": {
+        "discount": {
+          "name": "Discount",
+          "info": "Learn how to create discount [here](https://help.shopify.com/manual/discounts)",
+          "minimum": "Minimum items to require",
+          "maximum": "Maximum items",
+          "edit_quantity": "Allow quantity change for each product",
+          "discount_title": "Discount code",
+          "discount_value": {
+            "name": "Discount value",
+            "option": {
+              "fixed": {
+                "label": "Fixed amount",
+                "once_per_order": "Once Per Order"
+              },
+              "percentage": {
+                "label": "Percentage"
+              }
+            }
+          }
+        },
+        "your_bundle": {
+          "name": "Discount",
+          "settings": {
+            "show_progress_bar": {
+              "label": "Show progress bar"
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "product_discount": {
+            "name": "Product bundle",
+            "info": "Replaces collection when selected."
+          }
+        }
+      }
+    },
+    "shopable-image": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/sections/shopable-image)",
+      "name": "Shopable image",
+      "blocks": {
+        "tags": {
+          "name": "Tags",
+          "info": "Define the name of tags. Separate by a comma. Eg. Tag 1,Tag 2",
+          "info_image": "448px x 600px recommended",
+          "settings": {
+            "show_verify_icon": {
+              "label": "Show icon tick"
+            }
+          }
+        },
+        "lookbook": {
+          "name": "Lookbook",
+          "settings": {
+            "products": {
+              "label": "Products",
+              "position_top": "Vertical position",
+              "position_left": "Horizontal position",
+              "products": {
+                "otpion__1": {
+                  "label": "Product 1"
+                },
+                "otpion__2": {
+                  "label": "Product 2"
+                },
+                "otpion__3": {
+                  "label": "Product 3"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parallax-image": {
+      "blocks": {
+        "icon": {
+          "name": "Icon",
+          "info": "Overrides the svg icon setting"
+        }
+      }
+    },
+    "main-page": {
+      "name": "Page"
+    },
+    "subcollection-list": {
+      "name": "Sub collection",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/sub-collection)"
+    },
+    "before-you-leave": {
+      "name": "Before you leave",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/before-you-leave)",
+      "settings": {
+        "header": {
+          "recommended_products": "Recommended products"
+        },
+        "show_time": {
+          "label": "Show time after (seconds)"
+        },
+        "banner": {
+          "label": "Banner image",
+          "info": "380px x 423px recommended"
+        },
+        "collection": {
+          "label": "Collection"
+        },
+        "code": {
+          "label": "Discount code"
+        }
+      }
+    },
+    "advanced-slideshow": {
+      "block": {
+        "slide": "Slide",
+        "settings": {
+          "type": {
+            "label": "Type",
+            "image": {
+              "label": "Image"
+            },
+            "video": {
+              "label": "Video"
+            }
+          },
+          "media_overlay": {
+            "label": "Media overlay"
+          }
+        }
+      }
+    },
+    "custom_section": {
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/group-sections/advanced/flexible-section)",
+      "name": "Flexible section",
+      "settings": {
+        "layout": {
+          "label": "Layout",
+          "direction": {
+            "label": "Direction",
+            "options__1": {
+              "label": "Vertical"
+            },
+            "options__2": {
+              "label": "Horizontal"
+            }
+          },
+          "vertical_on_mobile": {
+            "label": "Vertical on mobile"
+          },
+          "content_wrap": {
+            "label": "Content wrap"
+          },
+          "height": {
+            "label": "Height",
+            "options": {
+              "auto": {
+                "label": "Auto"
+              },
+              "custom": {
+                "label": "Custom"
+              }
+            },
+            "custom_height": {
+              "label": "Custom height"
+            }
+          },
+          "gap": {
+            "label": "Gap"
+          },
+          "position": {
+            "label": "Position",
+            "options__1": {
+              "label": "Top"
+            },
+            "options__2": {
+              "label": "Center"
+            },
+            "options__3": {
+              "label": "Bottom"
+            }
+          },
+          "alignment": {
+            "label": "Alignment",
+            "label_mobile": "Mobile alignment",
+            "options__1": {
+              "label": "Left"
+            },
+            "options__2": {
+              "label": "Center"
+            },
+            "options__3": {
+              "label": "Right"
+            },
+            "options__4": {
+              "label": "Space between"
+            }
+          },
+          "hide_on_mobile": {
+            "label": "Hidden on mobile"
+          }
+        },
+        "appearance": {
+          "header": "Appearance",
+          "settings": {
+            "background_media": {
+              "label": "Background media",
+              "options__2": {
+                "label": "Image"
+              },
+              "options__3": {
+                "label": "Video"
+              },
+              "options__1": {
+                "label": "None"
+              }
+            },
+            "border": {
+              "label": "Borders",
+              "options": {
+                "none": "None",
+                "solid": "Solid"
+              },
+              "border_color": {
+                "label": "Border color"
+              },
+              "border_thickness": {
+                "label": "Border thickness"
+              }
+            },
+            "corner_radius": {
+              "label": "Corner radius",
+              "options": {
+                "none": {
+                  "label": "None"
+                },
+                "rounded": {
+                  "label": "Rounded"
+                },
+                "custom": {
+                  "label": "Custom"
+                },
+                "inherit": {
+                  "label": "Inherit",
+                  "info": "If set to \"Inherit\", this block will follow the global rounded corners setting in Theme settings ▸ Layout ▸ Rounded image."
+                }
+              },
+              "custom_radius": {
+                "label": "Custom radius"
+              }
+            },
+            "background_overlay": {
+              "label": "Background overlay",
+              "overlay_color": {
+                "label": "Overlay color"
+              },
+              "overlay_style": {
+                "label": "Overlay style",
+                "options__1": {
+                  "label": "Solid"
+                },
+                "options__2": {
+                  "label": "Gradient"
+                }
+              },
+              "gradient_direction": {
+                "label": "Gradient direction",
+                "options__1": {
+                  "label": "Up"
+                },
+                "options__2": {
+                  "label": "Down"
+                }
+              }
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "size": {
+            "label": "Size",
+            "height": {
+              "label": "Height"
+            },
+            "width": {
+              "label": "Width",
+              "custom_width": {
+                "label": "Custom width"
+              }
+            },
+            "mobile_width": {
+              "label": "Mobile width"
+            },
+            "options": {
+              "options__1": {
+                "label": "Fit"
+              },
+              "options__2": {
+                "label": "Fill"
+              },
+              "options__3": {
+                "label": "Custom"
+              },
+              "options__4": {
+                "label": "Adapt to media background"
+              }
+            }
+          },
+          "background": {
+            "label": "Background"
+          },
+          "background_color": {
+            "label": "Background color"
+          }
+        },
+        "heading": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading)",
+          "label": "Preset",
+          "heading_tag": {
+            "label": "Heading tag",
+            "info": "Set the heading tag (H1–H6) to control content hierarchy and enhance SEO readability for search engines.",
+            "h1": "H1",
+            "h2": "H2",
+            "h3": "H3",
+            "h4": "H4",
+            "h5": "H5",
+            "h6": "H6"
+          },
+          "custom": "Custom",
+          "default": "Default",
+          "paragraph": "Paragraph",
+          "h1": "Heading 1",
+          "h2": "Heading 2",
+          "h3": "Heading 3",
+          "h4": "Heading 4",
+          "h5": "Heading 5",
+          "h6": "Heading 6",
+          "h7": "Heading 7",
+          "info": {
+            "edit_presets_in_theme_settings": "Edit presets in [theme settings](/editor?context=theme&category=typography)",
+            "label": "Font size"
+          },
+          "text_alignment": {
+            "desktop": "Alignment",
+            "mobile": "Mobile alignment"
+          }
+        },
+        "logo": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Logo",
+          "settings": {
+            "size": {
+              "name": "Size",
+              "unit": {
+                "label": "Unit",
+                "option__1": {
+                  "label": "Pixel"
+                },
+                "option__2": {
+                  "label": "Percent"
+                }
+              },
+              "custom_mobile_size": {
+                "label": "Custom mobile size"
+              },
+              "height": {
+                "label": "Height"
+              },
+              "mobile": {
+                "name": "Mobile size"
+              }
+            }
+          }
+        },
+        "email_subscription": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/newsletter)",
+          "name": "Newsletter"
+        },
+        "contact_form": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/contact-form)",
+          "name": "Contact form",
+          "settings": {
+            "name": "Name",
+            "email": "Email",
+            "message": "Message",
+            "select_label": "Select label",
+            "default_select_label": "Subject",
+            "option": "Option",
+            "default_option": "Product, Order, Press, Other",
+            "phone": "Phone",
+            "submit_button": "Submit button",
+            "default_submit_button": "Submit"
+          }
+        },
+        "accordion": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/accordion)",
+          "name": "Accordion",
+          "settings": {
+            "icon_style": {
+              "style": "Style",
+              "label": "Icon style",
+              "caret": "Carret",
+              "plus": "Plus"
+            },
+            "row_style": {
+              "label": "Row style",
+              "background": "Background",
+              "divider": "Divider"
+            },
+            "background_color": "Background color",
+            "row_spacing": "Item spacing",
+            "gap_row": "Gap",
+            "padding_row": "Padding",
+            "gap_content": "Space between",
+            "accordion_row": "Accordion row",
+            "default_accordion_row": "Accordion heading",
+            "accordion_content": "Accordion content",
+            "settings": {
+              "heading": "Heading",
+              "heading_size": "Heading size",
+              "heading_weight": "Heading weight",
+              "body_weight": "Body weight",
+              "open_default": {
+                "label": "Open default"
+              }
+            }
+          }
+        },
+        "group": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/group)",
+          "name": "Group",
+          "settings": {
+            "link": "Link",
+            "open_in_new_tab": {
+              "label": "Open link in new tab"
+            }
+          }
+        },
+        "carousel": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/carousel)",
+          "name": "Carousel"
+        },
+        "text": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/text)",
+          "name": "Text",
+          "default_text": "We make things that work better and last longer. Our products solve real problems with clean design and honest materials.",
+          "text_color": {
+            "label": "Text color",
+            "body_color": "Body color",
+            "heading_color": "Heading color"
+          }
+        },
+        "button": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/button)"
+        },
+        "icon": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/icon)"
+        },
+        "page": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Page",
+          "inherit_color_scheme": "Inherit color scheme",
+          "appearance": "Appearance",
+          "spacing": "Spacing"
+        },
+        "spacer": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/spacer)",
+          "name": "Spacer",
+          "mobile_settings": {
+            "label": "Mobile settings"
+          }
+        },
+        "divider": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Divider",
+          "settings": {
+            "thickness": "Thickness",
+            "size": "Size",
+            "color": "Color"
+          }
+        },
+        "icon_list": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Icon list",
+          "item": "Item",
+          "open_new_tab": "Open new tab"
+        },
+        "alert": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Alert",
+          "dismiss_icon": "Dismiss icon",
+          "display_dismiss_icon": "Display dismiss icon"
+        },
+        "social_icons": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Social icons",
+          "circle": "Circle",
+          "rounded": "Rounded",
+          "square": "Square",
+          "shape": "Shape",
+          "color": "Color",
+          "backgroup_color": "Backgroup color"
+        },
+        "progress_bar": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "Progress bar",
+          "text_color": "Text Color",
+          "percentage": "Percentage",
+          "border_radius": "Border Radius",
+          "display_percentage": "Display Percentage",
+          "inner_text": "Inner Text"
+        },
+        "counter": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/counter)",
+          "name": "Counter",
+          "counter_style": {
+            "label": "Counter style",
+            "default": "Default",
+            "circle": "Circle"
+          },
+          "counter_layout": {
+            "label": "Counter layout",
+            "horizontal": "Horizontal",
+            "vertical": "Vertical"
+          },
+          "number_position": "Number Position",
+          "space_between": "Space between",
+          "before_title": "Before title",
+          "after_title": "After title",
+          "number_alignment": "Number alignment",
+          "stroke_color": "Stroke Color",
+          "indicator_color": "Indicator Color",
+          "background_color": "Background color",
+          "text_color": "Text color",
+          "ending_number": "Ending number",
+          "starting_number": "Starting number",
+          "animation": "Animation duration (ms)"
+        },
+        "map": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/google-maps)",
+          "name": "Google maps",
+          "location": "Location",
+          "longitude": "Longitude",
+          "latitude": "Latitude"
+        },
+        "jumbo_text": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+          "name": "Jumbo text"
+        },
+        "tab": {
+          "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/tab)",
+          "name": "Tab",
+          "tab_row": "Tab item",
+          "settings": {
+            "heading": "Heading style",
+            "heading_preset": "Heading preset",
+            "heading_alignment": "Heading alignment",
+            "heading_color": "Heading color",
+            "content": "Content style",
+            "content_alignment": "Content alignment"
+          }
+        },
+        "icon_with_text": {
+          "name": "Icon with text",
+          "icon_first": "Icon first",
+          "icon_second": "Icon second",
+          "svg_custom": "SVG custom"
+        },
+        "popup_link": {
+          "button_type_link": {
+            "label": "Button type",
+            "primary": {
+              "label": "Primary"
+            },
+            "outline": {
+              "label": "Outline"
+            },
+            "link": {
+              "label": "Link"
+            }
+          },
+          "popup_style": {
+            "label": "Popup style"
+          },
+          "popup_type": {
+            "label": "Popup type"
+          },
+          "popup_width": {
+            "label": "Popup width desktop"
+          },
+          "icon_type": {
+            "label": "Icon type",
+            "none": "None",
+            "arrow": "Arrow",
+            "image": {
+              "label": "Image",
+              "size": "Size"
+            }
+          }
+        }
+      },
+      "preset": {
+        "promotion_banner": "Flexible: Promotion banner",
+        "flexible_marquee": "Flexible: Marquee",
+        "story_tabs": "Flexible: Tab"
+      }
+    },
+    "text_image_pairing": {
+      "how_to_use": "[Learn how to use this block](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/text-image-pairing)",
+      "name": "Text image pairing",
+      "settings": {
+        "text_default": "\"Own your glow[image_1]swipe blend shine <br/> feel beautiful[image_2]be seen fully[image_3]celebrate.\"",
+        "info": {
+          "label": "Use a specific placeholder format `[image_X]` where you want the image to appear. X is the image index. For example: `[image_1]` will be replaced by the first image."
+        },
+        "images": {
+          "label": "Images",
+          "image_style": {
+            "label": "Image style"
+          },
+          "image_1": {
+            "label": "Image #1"
+          },
+          "image_2": {
+            "label": "Image #2"
+          },
+          "image_3": {
+            "label": "Image #3"
+          }
+        }
+      }
+    },
+    "product_sizing": {
+      "name": "Product sizing",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "info": "Helps customers understand how the product fits and choose the right size with confidence."
+    },
+    "size_recommendation": {
+      "name": "Size recommendation",
+      "how_to_use": "[Learn how to use this section](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/size-recommendation)",
+      "info": "Helps customers find the right size using simple inputs like height, weight, body shape, bust size, and cup size.",
+      "data_usage_notice": {
+        "label": "Data usage notice",
+        "info": "This message explains how customer details are used for size recommendations. You can customize the wording to match your store’s privacy tone."
+      },
+      "no_size_match": {
+        "label": "No size match message",
+        "info": "Message displayed when no size matches the customer's inputs."
+      },
+      "fit_recommendation_note": {
+        "label": "Fit recommendation note",
+        "info": "Displayed after size recommendation results."
+      }
+    },
+    "recommended-collection-filters": {
+      "name": "Recommended filters"
+    }
+  },
+  "blocks": {
+    "quiz-step": {
+      "name": "Quiz question",
+      "settings": {
+        "stepper_label": {
+          "label": "Stepper label",
+          "info": "Short label shown on the progress bar. Example: Skin type, Concern."
+        },
+        "question_id": {
+          "label": "Question ID",
+          "info": "Unique ID for this question. Used by skip questions on options (e.g. q1, q2)."
+        },
+        "layout": {
+          "label": "Option layout",
+          "options": {
+            "pill": "Pill buttons",
+            "image": "Image circles"
+          }
+        }
+      }
+    },
+    "quiz-option": {
+      "name": "Quiz option",
+      "settings": {
+        "label": {
+          "label": "Label"
+        },
+        "image": {
+          "label": "Image",
+          "info": "Used when the question layout is Image circles."
+        },
+        "product_matching_header": "Result products",
+        "strong_match": {
+          "label": "Primary products",
+          "info": "Shown first in quiz results when shoppers select this answer."
+        },
+        "partial_match": {
+          "label": "Additional products",
+          "info": "Shown after primary products in quiz results."
+        },
+        "exclude": {
+          "label": "Never recommend",
+          "info": "Block these products from results when shoppers select this answer, even if they appear in other answers."
+        },
+        "skip_questions_header": "Question logic",
+        "skip_questions": {
+          "label": "Skip questions",
+          "info": "Enter question IDs from quiz questions to skip when this answer is selected. Example: q3, q4"
+        }
+      }
+    }
+  }
+}

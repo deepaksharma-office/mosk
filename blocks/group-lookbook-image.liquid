@@ -1,0 +1,171 @@
+{%- liquid
+  assign block_st = block.settings
+  assign items_per_row = block_st.items_per_row
+  assign show_pagination = block_st.show_pagination
+  assign show_navigation = block_st.show_navigation
+  assign items_per_row_mobile = block_st.items_per_row_mobile
+
+  assign items_per_row_tablet = items_per_row
+  if items_per_row > 2
+    assign items_per_row_tablet = items_per_row | minus: 1
+  endif
+  assign data_free_scroll = 'false'
+  if items_per_row_mobile > 1 and items_per_row_mobile < 2
+    assign data_free_scroll = 'true'
+  elsif items_per_row_mobile > 2 and items_per_row_mobile < 3
+    assign data_free_scroll = 'true'
+  endif
+  assign column_gap_slide = 0
+  assign column_gap_mb = 0
+  if block_st.column_gap == 'large'
+    assign column_gap_slide = 32
+    assign column_gap_mb = 24
+  elsif block_st.column_gap == 'medium'
+    assign column_gap_slide = 24
+    assign column_gap_mb = 12
+  elsif block_st.column_gap == 'small'
+    assign column_gap_slide = 16
+    assign column_gap_mb = 8
+  endif
+
+  assign class_pagination = ''
+  if show_pagination == false and items_per_row_mobile != 1.5
+    assign class_pagination = ' hidden-md block'
+  elsif show_pagination == false and items_per_row_mobile == 1.5
+    assign class_pagination = ' hidden'
+  endif
+-%}
+{%- capture col_style -%}
+  --item-desktop: {{ items_per_row }};--item-tablet: {{ items_per_row_tablet }};--item-mb: {{ items_per_row_mobile }}; --gap-desktop: {{ column_gap_slide }}px;--gap: {{ column_gap_mb }}px;
+{%- endcapture -%}
+{% style %}
+  {% if request.visual_preview_mode %}
+    shopable-image-slide{
+      width: 35rem;
+    }
+  {% endif %}
+{% endstyle %}
+{% if data_free_scroll == 'true' %}
+  <div class="free-scroll">
+{% endif %}
+<shopable-image-slide
+  class="swiper hover-action{% if data_free_scroll == 'true' %} overflow-visible-mb{% endif %}"
+  data-section-id="{{ block.id }}"
+  data-autoplay="false"
+  data-effect="slide"
+  data-loop="false"
+  data-speed="500"
+  data-spacing="{{ column_gap_slide }}"
+  data-mobile="{{ items_per_row_mobile }}"
+  data-desktop="{{ items_per_row }}"
+  data-tablet="{{ items_per_row_tablet }}"
+  style="{{ col_style | strip | strip_newlines }}"
+>
+  {% if show_navigation %}
+    {%- render 'swiper-navigation', show_on_hover: true -%}
+  {% endif %}
+  <div class="swiper-wrapper">
+    {% content_for 'blocks' %}
+  </div>
+  <div
+    class="swiper-pagination {{ class_pagination }}"
+  ></div>
+</shopable-image-slide>
+{% if data_free_scroll == 'true' %}
+  </div>
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.shopable-image.blocks.lookbook.name",
+  "class": "w-full col-1025-remaining col-md-w-custom-50",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "_products-lookbook"
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.carousel.header"
+    },
+    {
+      "type": "range",
+      "id": "items_per_row",
+      "label": "t:sections.all.columns_desktop.label",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "select",
+      "id": "column_gap",
+      "options": [
+        {
+          "value": "no_gap",
+          "label": "t:sections.all.padding.column_gap.no_gap"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.all.padding.column_gap.small"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.all.padding.column_gap.medium"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.all.padding.column_gap.large"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.all.padding.column_gap.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "default": false,
+      "label": "t:sections.all.carousel.show_navigation.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination",
+      "default": false,
+      "label": "t:sections.all.carousel.show_pagination.label",
+      "info": "t:sections.all.carousel.show_pagination.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.mobile_options.label"
+    },
+    {
+      "type": "range",
+      "id": "items_per_row_mobile",
+      "label": "t:sections.all.items.items_per_row_mobile",
+      "min": 1,
+      "max": 2,
+      "step": 0.5,
+      "default": 1.5
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.shopable-image.blocks.lookbook.name",
+      "blocks": [
+        {
+          "type": "_products-lookbook"
+        },
+        {
+          "type": "_products-lookbook"
+        },
+        {
+          "type": "_products-lookbook"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

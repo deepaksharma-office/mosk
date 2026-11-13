@@ -1,0 +1,4686 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "settings_schema": {
+    "layout": {
+      "name": "版面",
+      "how_to_use": {
+        "label": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/theme-settings/layout)"
+      },
+      "settings": {
+        "page_width": {
+          "label": "頁面寬度"
+        },
+        "site_style": {
+          "label": "圓角",
+          "image": {
+            "label": "Image"
+          },
+          "button": {
+            "label": "按鈕圓角半徑"
+          },
+          "input": {
+            "label": "輸入框圓角半徑"
+          }
+        },
+        "select_preset": {
+          "label": "選擇預設組合",
+          "options__1": "美妝",
+          "options__2": "時尚",
+          "options__3": "寵物"
+        }
+      },
+      "rtl_support": {
+        "header": "RTL 支援",
+        "enable_rtl": "啟用 RTL 支援",
+        "rtl_language": {
+          "label": "RTL 語言代碼",
+          "info": "輸入使用 RTL 版面的語言 ISO 代碼，以分號分隔。例如：ar; fa; ku; pa; sd。若留空，RTL 版面將套用至所有語言。"
+        }
+      }
+    },
+    "logo_favicon": {
+      "name": "標誌與網站圖示",
+      "how_to_use": {
+        "label": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/theme-settings/logo-and-favicon)"
+      },
+      "settings": {
+        "favicon": {
+          "label": "網站圖示"
+        },
+        "favicon_image": {
+          "label": "網站圖示圖片",
+          "info": "建議使用 32 x 32px 的 .png"
+        },
+        "logo": {
+          "label": "標誌",
+          "logo_on_transparent": {
+            "label": "透明標頭上的標誌"
+          }
+        },
+        "logo_width": {
+          "label": "標誌寬度",
+          "info": "標誌寬度會自動針對行動裝置最佳化。"
+        }
+      }
+    },
+    "customer_account": {
+      "how_to_use": {
+        "label": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/theme-settings/customer-account)"
+      },
+      "name": "顧客帳號",
+      "settings": {
+        "customer_account_menu": {
+          "label": "Menu"
+        },
+        "open_as": {
+          "label": "開啟方式",
+          "options": {
+            "popup": "彈出視窗",
+            "link": "連結"
+          }
+        }
+      }
+    },
+    "colors": {
+      "name": "顏色",
+      "how_to_use": {
+        "label": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/theme-settings/colors)"
+      },
+      "settings": {
+        "palette_header": {
+          "label": "色盤"
+        },
+        "palette_info": {
+          "label": "定義色盤顏色，方便在主題中使用"
+        },
+        "general_header": {
+          "label": "一般"
+        },
+        "general_text": {
+          "label": "Text"
+        },
+        "general_heading": {
+          "label": "標題"
+        },
+        "general_link": {
+          "label": "連結"
+        },
+        "general_border": {
+          "label": "邊框"
+        },
+        "background_header": {
+          "label": "背景"
+        },
+        "background": {
+          "label": "背景"
+        },
+        "background_2": {
+          "label": "背景 2"
+        },
+        "background_gradient": {
+          "label": "背景漸層",
+          "info": "背景漸層會在可能的情況下取代背景。"
+        },
+        "fill_button_header": {
+          "label": "填色按鈕"
+        },
+        "fill_button_background": {
+          "label": "背景"
+        },
+        "fill_button_text": {
+          "label": "Text"
+        },
+        "fill_button_background_hover": {
+          "label": "懸停背景"
+        },
+        "fill_button_text_hover": {
+          "label": "懸停文字"
+        },
+        "outline_button_header": {
+          "label": "外框按鈕"
+        },
+        "outline_button_outline": {
+          "label": "Text"
+        },
+        "outline_button_outline_border": {
+          "label": "邊框"
+        }
+      }
+    },
+    "typography": {
+      "name": "字體排印",
+      "how_to_use": {
+        "label": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)"
+      },
+      "settings": {
+        "font_weight": {
+          "default": "Default",
+          "inline": "行內",
+          "regular": "一般",
+          "medium": "中等"
+        },
+        "font_size": "字體大小",
+        "body": {
+          "label": "內文",
+          "font": {
+            "label": "字體",
+            "info": "選擇不同字體可能會影響商店速度。[深入瞭解系統字體。](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "base_size": "基本尺寸"
+        },
+        "heading": {
+          "label": "標題",
+          "font": {
+            "label": "字體",
+            "info": "選擇不同字體可能會影響商店速度。[深入瞭解系統字體。](https://help.shopify.com/en/manual/online-store/store-speed/improving-speed#fonts)"
+          },
+          "sub_heading": {
+            "sub_heading_weight": "副標題字重"
+          },
+          "text_transform": {
+            "label": "文字轉換",
+            "unset": "未設定",
+            "capitalize": "字首大寫",
+            "uppercase": "全大寫"
+          },
+          "heading_letter_spacing": {
+            "label": "字距"
+          }
+        },
+        "menu": {
+          "label": "Menu",
+          "font": {
+            "label": "字體",
+            "body_font": "內文",
+            "heading_font": "標題"
+          },
+          "uppercase": {
+            "label": "第一層全大寫"
+          }
+        },
+        "button": {
+          "label": "按鈕",
+          "font": {
+            "label": "字體",
+            "body_font": "內文",
+            "heading_font": "標題"
+          }
+        },
+        "text_preset": {
+          "header": "文字預設",
+          "name": {
+            "heading_1": "標題 1",
+            "heading_2": "標題 2",
+            "heading_3": "標題 3",
+            "heading_4": "標題 4",
+            "heading_5": "標題 5",
+            "heading_6": "標題 6"
+          },
+          "settings": {
+            "size": {
+              "label": "Size",
+              "18px": "18px",
+              "20px": "20px",
+              "22px": "22px",
+              "24px": "24px",
+              "26px": "26px",
+              "30px": "30px",
+              "36px": "36px",
+              "40px": "40px",
+              "46px": "46px",
+              "50px": "50px",
+              "56px": "56px",
+              "60px": "60px",
+              "80px": "80px"
+            },
+            "line_height": {
+              "label": "行高",
+              "original": "原始",
+              "small": "小",
+              "medium": "中",
+              "large": "大",
+              "x_large": "特大"
+            }
+          }
+        }
+      }
+    },
+    "browser_tab_notifications": {
+      "name": "瀏覽器分頁通知",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/theme-settings/browser-tab-notifications)",
+      "settings": {
+        "notification_info": "留空以使用原始頁面標題",
+        "enable_browser_tab_notifications": {
+          "label": "啟用"
+        },
+        "first_notification": {
+          "label": "第一則通知"
+        },
+        "secondary_notification": {
+          "label": "第二則通知"
+        }
+      }
+    },
+    "animation": {
+      "name": "動畫",
+      "how_to_use": {
+        "label": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/theme-settings/animation)"
+      },
+      "settings": {
+        "scroll_animation": {
+          "label": "捲動動畫",
+          "options__1": {
+            "label": "停用"
+          },
+          "options__2": {
+            "label": "僅桌面版"
+          },
+          "options__3": {
+            "label": "所有螢幕"
+          }
+        },
+        "enable_loading_page_effect": {
+          "heading": "頁面載入效果",
+          "label": "啟用效果",
+          "loading": "載入圖示",
+          "info": "建議圖片寬度 100x100px"
+        },
+        "image_lazy_loading": {
+          "label": "啟用圖片延遲載入"
+        },
+        "hover_effect": {
+          "label": "懸停效果",
+          "info": "影響懸停卡片，例如：商品、橫幅、系列、部落格…",
+          "fade_in": "淡入",
+          "zoom": "縮放"
+        }
+      }
+    },
+    "product": {
+      "name": "商品卡片",
+      "how_to_use": {
+        "label": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/theme-settings/product-cards)"
+      },
+      "settings": {
+        "enable_quickview": "啟用快速檢視",
+        "enable_quickadd": "啟用快速加入",
+        "enable_color_swatches": "啟用顏色色票",
+        "show_tag": {
+          "hidden": "隱藏",
+          "desktop": "僅桌面版",
+          "all_devices": "所有螢幕"
+        },
+        "show_scrolling_text": "顯示捲動文字",
+        "show_rate": {
+          "label": "顯示評分",
+          "info": "若要顯示評分，請新增商品評分應用程式。[深入瞭解](https://help.shopify.com/en/manual/products/product-reviews/installation)"
+        },
+        "alignment": {
+          "label": "對齊",
+          "left": "靠左",
+          "center": "置中"
+        },
+        "product_image": {
+          "label": "商品圖片"
+        },
+        "show_image_hover": {
+          "label": "顯示第二張圖片"
+        },
+        "show_video_featured": {
+          "label": "懸停時播放影片",
+          "info": "僅適用於 MP4 影片。"
+        },
+        "product_image_ratio": {
+          "label": "圖片比例",
+          "adapt_to_image": "配合圖片",
+          "square": "正方形 (1:1)",
+          "portrait": "直向 (3:4)",
+          "landscape": "橫向 (4:3)"
+        },
+        "mobile_options": {
+          "label": "行動裝置設定"
+        },
+        "show_quick_add_mobile": {
+          "label": "在行動裝置上顯示快速加入按鈕"
+        },
+        "highlights_scrolling_text_metafield": {
+          "label": "捲動文字 中繼欄位",
+          "info": "產品中繼欄位。 以跑馬燈形式顯示在產品卡片上。 Format: namespace.key. Default: custom.highlights_scrolling_text."
+        }
+      }
+    },
+    "badges": {
+      "name": "徽章",
+      "how_to_use": {
+        "label": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/theme-settings/badges)"
+      },
+      "settings": {
+        "badge_color": {
+          "label": "文字顏色"
+        },
+        "show_badge": {
+          "label": "顯示徽章"
+        },
+        "background_color": {
+          "label": "背景顏色"
+        },
+        "sale": {
+          "label": "特價",
+          "format": {
+            "label": "格式",
+            "text": "Text",
+            "percentage": "百分比",
+            "fixed": "固定金額"
+          }
+        },
+        "new": {
+          "label": "新品",
+          "new_badge_display_period": {
+            "label": "新品徽章顯示期間",
+            "info": "選擇商品自建立日起標示為「新品」的時間長度。"
+          }
+        },
+        "sold_out": {
+          "label": "售完"
+        },
+        "custom_badge": {
+          "label": "自訂徽章",
+          "info": "請依照文件查看[如何設定自訂徽章](https://nextsky.gitbook.io/purity-theme/theme-settings/badges#id-5.-custom-badge)"
+        }
+      }
+    },
+    "color_swatches": {
+      "name": "顏色色票",
+      "how_to_use": {
+        "label": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/theme-settings/color-swatch)"
+      },
+      "settings": {
+        "hide_sold_out_variant": {
+          "label": "隱藏售完款式"
+        },
+        "show_sale_in_variant_swatch": {
+          "label": "在款式色票中顯示特價"
+        },
+        "color_limit": {
+          "label": "最多顯示的色票數"
+        },
+        "color_swatch_trigger": {
+          "label": "顏色色票觸發條件",
+          "info": "定義顏色選項名稱。以逗號分隔。例如：Color,Colour"
+        },
+        "color_swatch_type": {
+          "label": "色票類型",
+          "options__1": {
+            "label": "款式圖片"
+          },
+          "options__2": {
+            "label": "Color"
+          }
+        },
+        "color_swatch_shape": {
+          "label": "顏色形狀",
+          "options__1": {
+            "label": "圓形"
+          },
+          "options__2": {
+            "label": "方形"
+          }
+        },
+        "color_swatch_custom": {
+          "label": "自訂顏色",
+          "info": "有效格式：Muesli: #ddd5bc 或 Muesli: image.png，以逗號分隔"
+        }
+      }
+    },
+    "cart": {
+      "name": "購物車",
+      "how_to_use": {
+        "label": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/theme-settings/cart)"
+      },
+      "settings": {
+        "cart_action_desktop": {
+          "label": "桌面版加入購物車後的動作",
+          "drawer": "抽屜",
+          "page": "頁面"
+        },
+        "cart_mobile": {
+          "label": "行動裝置設定",
+          "action": {
+            "label": "加入購物車後的動作",
+            "info": "選擇顧客在行動裝置上將商品加入購物車後會發生的情況。",
+            "option_1": "開啟迷你購物車",
+            "option_2": "顯示通知訊息",
+            "option_3": "首次開啟購物車，之後顯示通知"
+          },
+          "open_cart": {
+            "label": "開啟購物車為",
+            "info": "選擇點擊標頭與行動導覽列中的購物車圖示時，購物車的開啟方式。",
+            "option_1": "抽屜",
+            "option_2": "彈出視窗"
+          }
+        },
+        "free_shipping": {
+          "label": "免運訊息",
+          "paragraph": "請確認您已正確設定[運費費率。](/admin/settings/shipping)",
+          "message": {
+            "label": "訊息",
+            "info": "使用 [amount] 追蹤距離符合免運資格的進度。"
+          },
+          "minimum_amount": {
+            "label": "免運最低金額",
+            "info": "請使用整數。請勿包含貨幣、符號與字母。"
+          }
+        },
+        "term_and_conditions": {
+          "label": "條款與條件",
+          "enable": "在迷你購物車與購物車頁面顯示核取方塊。",
+          "text": "Text"
+        },
+        "cart_count_down": {
+          "label": "購物車倒數計時",
+          "show_duration": {
+            "label": "在迷你購物車與購物車頁面顯示"
+          },
+          "duration": {
+            "label": "持續時間"
+          }
+        },
+        "product_recommendations": {
+          "label": "商品推薦",
+          "heading": "標題",
+          "enable_product_recommendations": "啟用商品推薦",
+          "enable_product_recommendations_info": "商品推薦會顯示在迷你購物車與購物車頁面。",
+          "recommendation_product_type": {
+            "label": "商品推薦類型",
+            "auto": "自動",
+            "selected": "已選取"
+          },
+          "select_product_recommendation": "Product",
+          "show_on_mobile": {
+            "label": "在行動裝置上顯示"
+          }
+        },
+        "gift_wrap": {
+          "label": "商品禮品包裝",
+          "select_product_gift_wrap": {
+            "label": "Product",
+            "info": "僅適用於沒有多款式的商品。"
+          }
+        },
+        "empty": {
+          "label": "空購物車設定",
+          "heading": "標題",
+          "description": "說明",
+          "collection": {
+            "label": "系列清單",
+            "info": "Collections will display their featured image by default. Use metafield to change image and text. Learn more"
+          },
+          "button_text": "按鈕標籤",
+          "button_link": {
+            "label": "按鈕連結",
+            "info": "預設為所有商品系列頁面"
+          },
+          "free_shipping": {
+            "label": "免運訊息"
+          },
+          "empty_cart_layout": {
+            "label": "空購物車版面",
+            "option_1": "清單",
+            "option_2": "網格"
+          },
+          "collection_metafield": {
+            "label": "空購物車系列 中繼欄位",
+            "info": "系列中繼欄位。 用於空購物車圖片與說明的（中繼物件）。 Format: namespace.key. Default: custom.collection_empty. Fields: collection_image, collection_description."
+          }
+        },
+        "discount_progress_bar": {
+          "label": "折扣進度條",
+          "paragraph": "在購物車中最多顯示 3 個消費里程碑。請確認已在 [Shopify 後台](/admin/discounts) 建立相符的折扣碼或自動折扣。",
+          "currency_info": "請以商店的預設貨幣輸入里程碑金額。系統會自動換算為當地貨幣。",
+          "enable": {
+            "label": "啟用折扣進度條",
+            "info": "啟用後，將取代購物車抽屜和購物車頁面上方的單一免運費進度條。"
+          },
+          "milestone_1": {
+            "label": "里程碑 1"
+          },
+          "milestone_2": {
+            "label": "里程碑 2"
+          },
+          "milestone_3": {
+            "label": "里程碑 3"
+          },
+          "milestone": {
+            "amount": {
+              "label": "門檻",
+              "info": "請使用不含貨幣符號或字母的整數。"
+            },
+            "label_text": {
+              "label": "標籤"
+            },
+            "icon": {
+              "label": "圖示",
+              "option_none": "無",
+              "option_tag": "標籤",
+              "option_truck": "卡車",
+              "option_box": "箱子"
+            }
+          },
+          "message": {
+            "text": {
+              "label": "進度訊息",
+              "info": "使用 [amount] 和 [label] 顯示剩餘金額和下一個獎勵的標籤。"
+            },
+            "success": {
+              "label": "達成所有里程碑的訊息"
+            }
+          }
+        }
+      }
+    },
+    "search": {
+      "name": "搜尋行為",
+      "how_to_use": {
+        "label": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/theme-settings/search-behavior)"
+      },
+      "settings": {
+        "type": {
+          "label": "類型",
+          "info": "抽屜是移動端的預設佈局。",
+          "option_1": "彈出視窗",
+          "option_2": "抽屜",
+          "option_3": "搜尋列"
+        },
+        "search_placeholder": {
+          "label": "搜尋佔位符"
+        },
+        "speech_search": {
+          "label": "語音搜尋",
+          "enable": {
+            "label": "啟用語音搜尋"
+          }
+        },
+        "search_results": {
+          "label": "顯示結果",
+          "option_1": "Default",
+          "option_2": "分頁"
+        },
+        "recommendations": {
+          "popular_keywords": {
+            "label": "熱門搜尋",
+            "info": "向客戶推薦商店中的熱門搜尋關鍵詞。例如：t-shirt, dress, black。"
+          },
+          "products_recommended": {
+            "label": "產品推薦",
+            "info": "選擇要向客戶推薦的產品。"
+          },
+          "collections_recommended": {
+            "label": "系列推薦"
+          }
+        },
+        "results": {
+          "label": "搜尋結果"
+        },
+        "predictive_search": {
+          "label": "啟用預測搜尋",
+          "info": "實時搜尋結果。並非所有語言都可用。[瞭解更多](https://shopify.dev/themes/navigation-search/search/predictive-search#general-requirements-and-limitations)"
+        },
+        "show_search_history": {
+          "label": "顯示搜尋歷史"
+        },
+        "show_price": {
+          "label": "顯示產品價格"
+        }
+      }
+    },
+    "social_media": {
+      "name": "社交媒體",
+      "how_to_use": {
+        "label": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/theme-settings/social-media)"
+      },
+      "settings": {
+        "social_account": {
+          "label": "社交賬戶",
+          "facebook": {
+            "label": "Facebook",
+            "info": "https://facebook.com/shopify"
+          },
+          "instagram": {
+            "label": "Instagram",
+            "info": "http://instagram.com/shopify"
+          },
+          "twitter": {
+            "label": "Twitter",
+            "info": "https://twitter.com/shopify"
+          },
+          "tiktok": {
+            "label": "Tiktok",
+            "info": "https://tiktok.com/@shopify"
+          },
+          "pinterest": {
+            "label": "Pinterest",
+            "info": "https://pinterest.com/shopify"
+          },
+          "youtube": {
+            "label": "Youtube",
+            "info": "https://www.youtube.com/shopify"
+          },
+          "vimeo": {
+            "label": "Vimeo",
+            "info": "https://vimeo.com/shopify"
+          },
+          "linkedin": {
+            "label": "Linkedin",
+            "info": "https://linkedin.com/company/shopify"
+          },
+          "whatsapp": {
+            "label": "Whatsapp",
+            "info": "https://www.whatsapp.com/shopify"
+          },
+          "snapchat": {
+            "label": "Snapchat",
+            "info": "https://www.snapchat.com/add/shopify"
+          }
+        },
+        "sharing_options": {
+          "label": "分享選項",
+          "facebook": {
+            "label": "分享到 Facebook"
+          },
+          "pinterest": {
+            "label": "分享到 Pinterest"
+          },
+          "twitter": {
+            "label": "分享到 Twitter"
+          },
+          "whatsapp": {
+            "label": "分享到 WhatsApp"
+          },
+          "email": {
+            "label": "分享到電子郵件"
+          }
+        }
+      }
+    },
+    "currency": {
+      "name": "貨幣格式",
+      "how_to_use": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/theme-settings/currency-format)",
+      "settings": {
+        "code": {
+          "label": "貨幣程式碼",
+          "show_code": {
+            "label": "顯示貨幣程式碼",
+            "info": "購物車和結賬價格始終顯示貨幣程式碼。例如：$1.00 USD。"
+          }
+        }
+      }
+    },
+    "script_tracking": {
+      "name": "跟蹤與洞察",
+      "settings": {
+        "how_to_use": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/theme-settings/tracking-and-insights)",
+        "scripts_tracking": {
+          "label": "程式碼片段",
+          "info": "新增用於跟蹤與洞察的程式碼片段"
+        },
+        "appended_scripts": {
+          "label": "追加位置",
+          "body": "Body 標籤",
+          "head": "Head 標籤"
+        }
+      }
+    }
+  },
+  "content": {
+    "manage_customer_accounts": "在客戶賬戶設定中[管理可見性](/admin/settings/customer_accounts)。不支援舊版賬戶。"
+  },
+  "sections": {
+    "all": {
+      "general": "常規",
+      "layout": {
+        "label": "區塊寬度",
+        "fix_width": "固定寬度",
+        "stretch_width": "拉伸寬度",
+        "full_width": "全寬"
+      },
+      "colors": {
+        "label": "配色方案",
+        "info": "要編輯主題的所有顏色，請前往[顏色主題設定](/editor?context=theme&category=colors)。確保文字對比清晰以提升使用者體驗。"
+      },
+      "desktop_content_position": {
+        "label": "桌面內容位置",
+        "info": "位置會自動針對移動端最佳化。",
+        "info_2": "內容優先是預設的移動端佈局。",
+        "group": {
+          "top": {
+            "label": "頂部"
+          },
+          "middle": {
+            "label": "中間"
+          },
+          "bottom": {
+            "label": "底部"
+          }
+        },
+        "options__1": {
+          "label": "左上"
+        },
+        "options__2": {
+          "label": "中上"
+        },
+        "options__3": {
+          "label": "右上"
+        },
+        "options__4": {
+          "label": "左中"
+        },
+        "options__5": {
+          "label": "正中"
+        },
+        "options__6": {
+          "label": "右中"
+        },
+        "options__7": {
+          "label": "左下"
+        },
+        "options__8": {
+          "label": "中下"
+        },
+        "options__9": {
+          "label": "右下"
+        }
+      },
+      "padding": {
+        "section_padding_heading": "區塊內邊距",
+        "padding_inline": {
+          "label": "行內內邊距",
+          "info": "行內內邊距會自動針對移動端最佳化。"
+        },
+        "padding_block": {
+          "label": "塊級內邊距",
+          "info": "塊級內邊距會自動針對移動端最佳化。"
+        },
+        "padding_top": "頂部",
+        "padding_bottom": "底部",
+        "spacing_bottom": "底部間距",
+        "image_spacing": "圖片間距",
+        "space_between": "間距",
+        "column_gap": {
+          "label": "列間距",
+          "no_gap": "無間距",
+          "small": "小",
+          "medium": "中",
+          "large": "大",
+          "x_large": "特大"
+        }
+      },
+      "space_between": {
+        "label": "專案間距"
+      },
+      "width": {
+        "label": "寬度",
+        "fill": "填充",
+        "fit": "適應"
+      },
+      "columns": {
+        "label": "列數"
+      },
+      "items_to_show": {
+        "label": "最多顯示專案數"
+      },
+      "product_to_show": {
+        "label": "最多顯示產品數"
+      },
+      "text_alignment": {
+        "label": "內容對齊",
+        "alignment": "對齊",
+        "options__1": {
+          "label": "左"
+        },
+        "options__2": {
+          "label": "居中"
+        },
+        "options__3": {
+          "label": "右"
+        }
+      },
+      "content": {
+        "label": "內容"
+      },
+      "text": {
+        "label": "Text"
+      },
+      "content_position": {
+        "label": "內容位置",
+        "options__1": {
+          "label": "疊加在圖片上",
+          "top": "頂部",
+          "middle": "中間",
+          "bottom": "底部",
+          "text_above_button": "文字在按鈕上方"
+        },
+        "options__2": {
+          "label": "圖片下方"
+        }
+      },
+      "section_setting": {
+        "page_heading": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "description": {
+            "label": "內容"
+          },
+          "heading": {
+            "label": "標題"
+          },
+          "breadcrumb": {
+            "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/breadcrumb)",
+            "label": "麵包屑"
+          }
+        },
+        "enable_rounded_style": {
+          "label": "啟用圓角樣式"
+        }
+      },
+      "content_setting": {
+        "label": "內容設定",
+        "image": {
+          "label": "Image"
+        },
+        "subheading": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "副標題",
+          "info": "用豎線（|）分隔每個文字項，以在專案之間顯示圓點。"
+        },
+        "highlight_text": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/highlight-text)",
+          "label": "高亮文字",
+          "settings": {
+            "icons": {
+              "label": "選擇圖示",
+              "options__1": {
+                "label": "None"
+              },
+              "options__2": {
+                "label": "星形"
+              },
+              "options__3": {
+                "label": "圓點"
+              }
+            }
+          }
+        },
+        "heading": {
+          "label": "標題",
+          "info": "透過將文字設為斜體來新增下劃線。在編輯器中使用斜體（I）按鈕應用。"
+        },
+        "heading_highlight": {
+          "label": "標題高亮文字",
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading-highlight-text)"
+        },
+        "detail_list": {
+          "label": "詳情列表",
+          "detail_row": {
+            "label": "Detail row",
+            "row_title": "Row title",
+            "row_details": "Row details"
+          },
+          "layout": {
+            "label": "版面",
+            "specifications": "規格",
+            "information_cards": "資訊卡片"
+          }
+        },
+        "description": {
+          "label": "描述",
+          "hide_on_mobile": {
+            "label": "在移動端隱藏描述"
+          },
+          "description": "顯示產品描述。如有短描述元欄位則優先使用，否則回退到預設產品描述。更多資訊請訪問我們的[支援頁面](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-7.-description)。"
+        },
+        "content": "內容",
+        "button_label": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "label": "按鈕標籤",
+          "info": "將標籤留空可隱藏按鈕。"
+        },
+        "button_label-block": {
+          "name": "標籤",
+          "label": "按鈕"
+        },
+        "link": {
+          "label": "連結",
+          "info": "注意：此連結設定僅適用於圖片，不適用於影片。"
+        },
+        "first_button_label": {
+          "name": "第一個按鈕",
+          "label": "按鈕標籤",
+          "link": "按鈕連結"
+        },
+        "second_button_label": {
+          "name": "第二個按鈕",
+          "label": "按鈕標籤",
+          "link": "按鈕連結"
+        },
+        "button_type": {
+          "label": "型別",
+          "primary": {
+            "label": "主要"
+          },
+          "outline": {
+            "label": "描邊"
+          },
+          "link": {
+            "label": "連結"
+          }
+        },
+        "show_view_all_button": {
+          "label": "顯示檢視全部按鈕",
+          "label_text": "按鈕標籤",
+          "default_text": "檢視全部產品",
+          "default": "檢視全部"
+        },
+        "open_link_in_new_tab": {
+          "label": "在新標籤頁開啟連結"
+        },
+        "drawn_underline": {
+          "label": "啟用標題下劃線動畫",
+          "type": "下劃線樣式",
+          "value": {
+            "simple_underline": "簡單下劃線",
+            "curve_underline": "曲線描邊",
+            "squiggle_underline": "波浪下劃線"
+          },
+          "color": "下劃線顏色"
+        },
+        "metrics": {
+          "label": "指標",
+          "item": {
+            "label": "指標項目",
+            "value": "數值",
+            "description": "標籤"
+          }
+        },
+        "citation": {
+          "label": "引用來源"
+        },
+        "heading_block_highlight": {
+          "label": "啟用標題高亮",
+          "info": "將文字設為斜體即可新增高亮。在編輯器中使用斜體（I）按鈕套用。",
+          "type": "高亮樣式",
+          "text_highlight": "文字高亮",
+          "color": "高亮顏色"
+        }
+      },
+      "content_header": {
+        "label": "區塊標題",
+        "heading_size": {
+          "label": "標題尺寸",
+          "size": "Size",
+          "xs_small": {
+            "label": "超小"
+          },
+          "x_small": {
+            "label": "特小"
+          },
+          "small": {
+            "label": "小"
+          },
+          "large": {
+            "label": "大"
+          },
+          "x_large": {
+            "label": "特大"
+          },
+          "base": {
+            "label": "基礎尺寸"
+          },
+          "options__1": {
+            "label": "標題 1"
+          },
+          "options__2": {
+            "label": "標題 2"
+          },
+          "options__3": {
+            "label": "標題 3"
+          },
+          "options__4": {
+            "label": "標題 4"
+          },
+          "options__5": {
+            "label": "標題 5"
+          },
+          "options__7": {
+            "label": "標題 7"
+          },
+          "options__0": {
+            "label": "標題 0"
+          }
+        }
+      },
+      "blog_setting": {
+        "show_category": "顯示分類",
+        "show_tags": "顯示標籤",
+        "show_date": "顯示日期",
+        "show_author": "顯示作者",
+        "show_excerpt": "顯示摘要"
+      },
+      "media": {
+        "label": "型別"
+      },
+      "image": {
+        "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/image)",
+        "label": "Image",
+        "image_setting": "圖片設定",
+        "width": "圖片寬度",
+        "info_width": "圖片會自動針對移動端最佳化。",
+        "mobile_image": "移動端圖片",
+        "mobile_image_width": "移動端圖片寬度",
+        "aspect_ratio": {
+          "label": "圖片比例",
+          "label_mb": "移動端圖片比例",
+          "label_video": "影片比例",
+          "options__1": "方形 (1:1)",
+          "options__2": "豎向 (3:4)",
+          "options__3": "橫向 (4:3)",
+          "options__4": "與桌面相同",
+          "adapt": "適應圖片"
+        },
+        "desktop_position": {
+          "label": "桌面圖片位置",
+          "top": "頂部",
+          "right": "右側",
+          "bottom": "底部",
+          "left": "左側",
+          "info": "圖片在移動端將顯示在文字上方。"
+        },
+        "desktop_image_width": {
+          "label": "桌面圖片寬度"
+        }
+      },
+      "video": {
+        "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)",
+        "label": "Video",
+        "info": "將覆蓋圖片設定",
+        "settings": {
+          "source": {
+            "label": "來源",
+            "uploaded_video": {
+              "label": "本地影片"
+            },
+            "external_link": {
+              "label": "外部影片連結"
+            }
+          }
+        },
+        "width": "影片寬度",
+        "width_unit_type": {
+          "label": "寬度單位型別",
+          "options": {
+            "percent": {
+              "label": "百分比 (%)"
+            },
+            "px": {
+              "label": "畫素 (px)"
+            }
+          }
+        }
+      },
+      "video_mobile": {
+        "label": "移動端影片"
+      },
+      "svg": {
+        "label": "Svg 圖示",
+        "custom_svg": {
+          "label": "自定義 svg",
+          "info": "將覆蓋圖片設定。"
+        }
+      },
+      "icon": {
+        "none": {
+          "label": "None"
+        },
+        "cruelty": {
+          "label": "無殘忍"
+        },
+        "paraben": {
+          "label": "對羥基苯甲酸酯"
+        },
+        "privacy-protection": {
+          "label": "隱私保護"
+        },
+        "secure-shopping": {
+          "label": "安全購物"
+        },
+        "guarantee": {
+          "label": "保障"
+        },
+        "account": {
+          "label": "賬戶"
+        },
+        "leaf": {
+          "label": "葉子"
+        },
+        "moon": {
+          "label": "月亮"
+        },
+        "hive": {
+          "label": "蜂巢"
+        },
+        "comb": {
+          "label": "梳子"
+        },
+        "free_shipping": {
+          "label": "免運費"
+        },
+        "check_badge": {
+          "label": "勾選徽章"
+        },
+        "message_communications": {
+          "label": "訊息通訊"
+        },
+        "circular-text": {
+          "label": "環形文字"
+        },
+        "beauty": {
+          "label": "面部"
+        },
+        "line": {
+          "label": "線條"
+        },
+        "droplet": {
+          "label": "水滴"
+        },
+        "smooth": {
+          "label": "柔滑"
+        },
+        "shield": {
+          "label": "盾牌"
+        },
+        "balloon": {
+          "label": "氣球"
+        },
+        "brightening": {
+          "label": "提亮"
+        },
+        "hydration": {
+          "label": "保溼"
+        },
+        "coptic_cross": {
+          "label": "科普特十字"
+        },
+        "coil": {
+          "label": "線圈"
+        },
+        "verified": {
+          "label": "已驗證"
+        },
+        "security": {
+          "label": "安全"
+        },
+        "package": {
+          "label": "包裹"
+        },
+        "cat": {
+          "label": "貓"
+        }
+      },
+      "carousel": {
+        "header": "輪播設定",
+        "enable_carousel": {
+          "label": "啟用輪播",
+          "description": "僅當系列總數大於桌面每行專案數時才顯示輪播。"
+        },
+        "show_navigation": {
+          "label": "顯示導航"
+        },
+        "show_pagination": {
+          "label": "顯示分頁",
+          "info": "如果移動端每行顯示 1 或 2 個專案，分頁將自動在移動端顯示",
+          "info_single": "分頁將自動在移動端顯示。",
+          "type": {
+            "label": "分頁樣式",
+            "progress_bar": "進度條",
+            "dot": "圓點"
+          }
+        },
+        "reveal_slide": {
+          "label": "顯示下一張幻燈片",
+          "info": "顯示即將到來的幻燈片的一部分。"
+        },
+        "enable_carousel_mobile": {
+          "label": "在移動端啟用輪播"
+        },
+        "change_slide_every": "幻燈片切換間隔",
+        "slide_auto_change": "自動切換幻燈片"
+      },
+      "mobile_options": {
+        "label": "移動端設定",
+        "mobile_layout": {
+          "label": "移動端佈局",
+          "show_text_bellow": {
+            "label": "在移動端顯示下方文字",
+            "info": "文字在移動端將顯示在圖片下方。"
+          },
+          "hidden_description_on_mobile": {
+            "label": "在移動端隱藏描述"
+          }
+        }
+      },
+      "items": {
+        "items_per_row": "每行專案數",
+        "items_per_row_mobile": "移動端每行專案數"
+      },
+      "columns_desktop": {
+        "label": "桌面每行專案數"
+      },
+      "newsletter_setting": {
+        "email_placeholder": "郵箱佔位符",
+        "button_label": "按鈕標籤"
+      },
+      "pagination_type": {
+        "label": "分頁型別",
+        "options__1": {
+          "label": "頁碼"
+        },
+        "options__2": {
+          "label": "載入更多按鈕"
+        },
+        "options__3": {
+          "label": "無限滾動"
+        }
+      },
+      "product_setting": {
+        "badges": {
+          "name": "徽章"
+        },
+        "notify": {
+          "name": "到貨通知"
+        },
+        "live_view": {
+          "name": "實時瀏覽",
+          "settings": {
+            "min_number": "最小數量",
+            "max_number": "最大數量",
+            "interval_time": "間隔時間",
+            "content": "內容",
+            "show_icon_eye": {
+              "label": "顯示圖示"
+            }
+          },
+          "info": "透過顯示實時瀏覽人數模擬產品活躍度，有助於提升緊迫感、社會認同和轉化率。"
+        },
+        "shop_the_look": {
+          "name": "整套購買",
+          "settings": {
+            "heading": {
+              "label": "標題"
+            }
+          },
+          "description": "推薦相關產品以完成搭配。更多資訊請訪問我們的[支援頁面](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)"
+        },
+        "stock_countdown": {
+          "name": "庫存倒計時",
+          "settings": {
+            "message": {
+              "label": "訊息",
+              "info": "使用短程式碼 [count] 顯示剩餘庫存數量。您可以刪除或將該短程式碼放在任意位置"
+            },
+            "stock_items": {
+              "label": "庫存數量",
+              "info": "當庫存少於 (X) 件時顯示"
+            }
+          }
+        },
+        "product_meta": {
+          "name": "產品元資訊",
+          "settings": {
+            "show_sku": {
+              "label": "顯示 SKU"
+            },
+            "show_collections": {
+              "label": "顯示系列"
+            },
+            "show_tags": {
+              "label": "顯示標籤"
+            },
+            "show_type": {
+              "label": "顯示型別"
+            }
+          }
+        },
+        "collapsible_row": {
+          "name": "手風琴行",
+          "settings": {
+            "info": "新增一個說明內容的標題。",
+            "content": "行內容",
+            "content_page": "來自頁面的行內容"
+          }
+        },
+        "accordion_row_drawer": {
+          "name": "手風琴行抽屜",
+          "settings": {
+            "info": "新增一個說明內容的標題。",
+            "content": "行內容",
+            "content_page": "來自頁面的行內容"
+          }
+        },
+        "model_size": {
+          "name": "模特尺碼",
+          "settings": {
+            "paragraph": {
+              "content": "檢視模特穿著的尺碼，以及身高、體重和三圍。[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/video)"
+            }
+          }
+        },
+        "title": {
+          "name": "產品標題"
+        },
+        "price": {
+          "name": "價格"
+        },
+        "rating": {
+          "name": "產品評分"
+        },
+        "variant_picker": {
+          "name": "多屬性選擇器",
+          "settings": {
+            "picker_type": {
+              "label": "型別",
+              "options__1": {
+                "label": "下拉選單"
+              },
+              "options__2": {
+                "label": "膠囊"
+              }
+            },
+            "size_guide": {
+              "heading": "尺碼錶",
+              "info": "從所選頁面獲取尺碼錶資訊。",
+              "settings": {
+                "size_trigger": {
+                  "label": "尺碼觸發器",
+                  "info": "定義尺碼選項的名稱。用逗號分隔。例如：Size,Misurare"
+                },
+                "show_size_guide": "顯示尺碼錶",
+                "size_guide_label": "尺碼錶標籤",
+                "size_guide_page": "尺碼錶頁面",
+                "footer_content": "頁尾內容",
+                "custom_size_guide": {
+                  "label": "自定義尺碼錶",
+                  "info__1": "為每個系列或產品使用特定尺碼錶。",
+                  "info__2": "要為產品或系列使用自定義尺碼錶，請建立名稱空間和鍵為 \"custom.size_chart\" 的元欄位。[瞭解更多](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/size-chart)"
+                }
+              }
+            }
+          }
+        },
+        "buy_buttons": {
+          "name": "購買按鈕",
+          "settings": {
+            "show_dynamic_checkout": {
+              "label": "顯示動態結賬按鈕",
+              "info": "根據商店可用的支付方式，客戶會看到其偏好選項，如 PayPal 或 Apple Pay。[瞭解更多](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+            },
+            "show_gift_card_recipient": {
+              "label": "顯示禮品卡收件人資訊表單",
+              "info": "允許買家在指定日期傳送禮品卡並附上個性化留言。[瞭解更多](https://help.shopify.com/manual/online-store/themes/customizing-themes/add-gift-card-recipient-fields)"
+            }
+          }
+        },
+        "subscription_widget": {
+          "name": "訂閱小元件",
+          "settings": {
+            "info": "顯示一次性購買以及每個銷售計劃組的獨立卡片。請將此區塊放在購買按鈕上方。",
+            "one_time_purchase_title": {
+              "label": "一次性購買標題"
+            },
+            "one_time_purchase_description": {
+              "label": "一次性購買描述"
+            },
+            "subscription_description": {
+              "label": "訂閱描述"
+            },
+            "show_price": {
+              "label": "顯示價格"
+            }
+          }
+        },
+        "share": {
+          "name": "分享"
+        },
+        "complementary_products": {
+          "name": "互補產品",
+          "settings": {
+            "paragraph": {
+              "content": "要選擇互補產品，請新增 Search & Discovery 應用。[瞭解更多](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+            },
+            "product_list_limit": {
+              "label": "最多顯示產品數"
+            }
+          }
+        },
+        "pickup_avaiability": {
+          "name": "自提可用性"
+        },
+        "media_lightbox": {
+          "name": "實際效果展示",
+          "settings": {
+            "enable_sticky": {
+              "label": "在桌面端啟用粘性定位"
+            }
+          },
+          "description": "展示產品實際使用場景的照片或影片。更多資訊請訪問我們的[支援頁面](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-16.-media-lightbox)"
+        },
+        "highlights": {
+          "name": "亮點",
+          "description": "展示產品的關鍵賣點。更多資訊請訪問我們的[支援頁面](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-8.-highlights)"
+        },
+        "key_features": {
+          "name": "關鍵特性",
+          "description": "列出產品的主要特點和優勢。更多資訊請訪問我們的[支援頁面](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-9.-key-features)"
+        },
+        "ask_question": {
+          "name": "提問"
+        },
+        "promotion_countdown": {
+          "name": "促銷倒計時",
+          "show_countdown_units": {
+            "label": "顯示倒計時單位"
+          },
+          "description": "新增倒計時以營造產品促銷緊迫感。更多資訊請訪問我們的[支援頁面](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information#id-11.-promotion-countdown)。"
+        },
+        "promotion_alert": {
+          "name": "促銷提醒",
+          "heading": {
+            "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+            "label": "標題"
+          },
+          "description": {
+            "label": "描述"
+          },
+          "text_color": {
+            "label": "文字顏色"
+          }
+        },
+        "icon_with_text": {
+          "name": "圖示與文字",
+          "heading": {
+            "label_1": "圖示與文字 1",
+            "label_2": "圖示與文字 2",
+            "label_3": "圖示與文字 3",
+            "label_4": "圖示與文字 4",
+            "label_5": "圖示與文字 5"
+          },
+          "info": "此內容將在移動端自動隱藏。",
+          "svg": {
+            "label": "Svg 圖示"
+          },
+          "content": {
+            "label": "內容"
+          },
+          "icon": {
+            "none": {
+              "label": "None"
+            },
+            "free_shipping": {
+              "label": "免運費"
+            },
+            "check_badge": {
+              "label": "勾選徽章"
+            },
+            "message_communications": {
+              "label": "訊息通訊"
+            },
+            "truck": {
+              "label": "卡車"
+            },
+            "question": {
+              "label": "問題"
+            },
+            "location": {
+              "label": "位置"
+            },
+            "leaf": {
+              "label": "葉子"
+            },
+            "blossom": {
+              "label": "花朵"
+            },
+            "payment": {
+              "label": "支付"
+            },
+            "discount": {
+              "label": "Discount"
+            },
+            "order": {
+              "label": "訂單"
+            },
+            "return": {
+              "label": "退貨"
+            },
+            "return_package": {
+              "label": "退貨包裹"
+            }
+          }
+        },
+        "inventory_status": {
+          "name": "庫存狀態",
+          "settings": {
+            "inventory_threshold": {
+              "label": "低庫存閾值",
+              "info": "設定此值以在產品即將售罄時提醒客戶。"
+            },
+            "inventory_base": {
+              "label": "庫存基準數量",
+              "info": "設定產品庫存的初始數量以用於進度條。"
+            }
+          }
+        },
+        "disclosures": {
+          "name": "揭露資訊",
+          "description": "此產品的必要安全警告與法規揭露資訊。如需更多資訊，請造訪我們的 [支援頁面](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)。",
+          "settings": {
+            "heading": {
+              "label": "標題",
+              "default": "重要資訊"
+            },
+            "open_by_default": {
+              "label": "預設展開"
+            }
+          }
+        }
+      },
+      "divider": {
+        "section_divider_heading": "區塊分隔線",
+        "show_divider": "顯示分隔線",
+        "top": "頂部分隔",
+        "top_info": "當上方區塊的底部分隔為波浪或弧線時隱藏",
+        "bottom_info": "當下方區塊的頂部分隔為波浪或弧線時隱藏直線",
+        "bottom": "底部分隔",
+        "none": "無",
+        "line": "直線",
+        "wave": "波浪",
+        "curve_out": "外弧",
+        "curve_in": "內弧"
+      },
+      "metafield": {
+        "short_description": {
+          "label": "簡短說明 中繼欄位",
+          "info": "產品中繼欄位。 有簡短說明時使用。 Format: namespace.key. Default: custom.short_description."
+        },
+        "highlights": {
+          "label": "亮點 中繼欄位",
+          "info": "產品中繼欄位。 亮點圖示/標題列表。 Format: namespace.key. Default: custom.highlights."
+        },
+        "key_features": {
+          "label": "主要特色 中繼欄位",
+          "info": "產品中繼欄位。 標題/說明項目列表。 Format: namespace.key. Default: custom.key_features."
+        },
+        "media_lightbox": {
+          "label": "媒體燈箱 中繼欄位",
+          "info": "產品中繼欄位。 圖庫的圖片/影片列表。 Format: namespace.key. Default: custom.media_lightbox."
+        },
+        "model_size": {
+          "label": "模特尺寸 中繼欄位",
+          "info": "產品中繼欄位。 含模特尺寸的（中繼物件）。 Format: namespace.key. Default: custom.model_size."
+        },
+        "product_sizing": {
+          "label": "產品尺寸 中繼欄位",
+          "info": "產品中繼欄位。 用於尺寸刻度的列表。 Format: namespace.key. Default: custom.product_sizing."
+        },
+        "shop_the_look": {
+          "label": "購買整套造型 中繼欄位",
+          "info": "產品中繼欄位。 造型圖片與產品列表。 Format: namespace.key. Default: custom.shop_the_look."
+        },
+        "similar_products": {
+          "label": "相似產品 中繼欄位",
+          "info": "產品中繼欄位。 相似產品列表。 Format: namespace.key. Default: custom.similar_products."
+        },
+        "frequently_bought_together": {
+          "label": "經常一起購買 中繼欄位",
+          "info": "產品中繼欄位。 一起購買的產品列表。 Format: namespace.key. Default: custom.frequently_bought_together."
+        },
+        "complete_the_look": {
+          "label": "搭配完成造型 中繼欄位",
+          "info": "產品中繼欄位。 造型單品列表。 Format: namespace.key. Default: custom.complete_the_look."
+        },
+        "info_gallery": {
+          "label": "資訊圖庫 中繼欄位",
+          "info": "產品中繼欄位。 圖庫卡片列表（圖片 + 文字）。 Format: namespace.key. Default: custom.info_gallery."
+        },
+        "compare_items": {
+          "label": "比較商品 中繼欄位",
+          "info": "產品中繼欄位。 用於比較的產品列表。 Format: namespace.key. Default: custom.compare_items."
+        },
+        "ingredient_highlights": {
+          "label": "成分亮點 中繼欄位",
+          "info": "產品中繼欄位。 顯示在比較列中。 Format: namespace.key. Default: custom.ingredient_highlights."
+        },
+        "subcollection": {
+          "label": "子系列 中繼欄位",
+          "info": "系列中繼欄位。 子系列列表。 Format: namespace.key. Default: custom.subcollection."
+        }
+      }
+    },
+    "group": {
+      "product": "Products",
+      "collection": "系列",
+      "storytelling": "故事敘述",
+      "banners": "橫幅",
+      "blog": "Blog",
+      "form": "表單",
+      "shopable": "可購物元素",
+      "blocks": {
+        "basic": "基礎",
+        "layout": "工具與佈局",
+        "custom": "Custom",
+        "forms": "表單"
+      },
+      "decorative": {
+        "name": "裝飾",
+        "marquee": "跑馬燈",
+        "how_to_use_maquee": "[如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/marquee)"
+      },
+      "links": {
+        "name": "連結",
+        "menu": "Menu",
+        "how_to_use_menu": "[如何使用此區塊](https://nextsky.gitbook.io/purity-theme/theme-settings/typography)",
+        "how_to_use_popup_link": "[如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/links/popup-link)",
+        "popup_link": "彈窗連結"
+      },
+      "general": {
+        "name": "常規",
+        "image_box": "圖片框",
+        "image_box_use": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/overlay-group/search)"
+        }
+      }
+    },
+    "overlay_group": {
+      "name": "疊加組"
+    },
+    "search": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/overlay-group/search)",
+      "name": "搜尋"
+    },
+    "footer": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/footer-group/footer)",
+      "name": "頁尾",
+      "settings": {
+        "enable_back_top": {
+          "label": "啟用返回頂部"
+        },
+        "show_policy": {
+          "label": "政策連結",
+          "info": "[管理政策](/admin/settings/legal)"
+        },
+        "country_language": {
+          "content": "國家/語言選擇器",
+          "info": "要新增國家/地區，請前往[市場設定](/admin/settings/markets)。要新增語言，請前往[語言設定](/admin/settings/languages)"
+        },
+        "enable_country_selector": {
+          "label": "啟用國家/地區選擇器"
+        },
+        "width": {
+          "options__1": "16%",
+          "options__2": "20%",
+          "options__3": "25%",
+          "options__4": "33%",
+          "options__5": "50%",
+          "options__6": "66%",
+          "options__7": "75%",
+          "options__8": "86%",
+          "options__9": "100%"
+        },
+        "enable_language_selector": {
+          "label": "啟用語言選擇器"
+        },
+        "payment": {
+          "content": "支付方式"
+        },
+        "payment_enable": {
+          "label": "顯示支付圖示"
+        },
+        "menu_policies": {
+          "label": "頁尾底部"
+        },
+        "header_follow": {
+          "content": "在 Shop 上關注",
+          "info": "要允許客戶從店面在 Shop 應用上關注您的商店，必須啟用 Shop Pay。[瞭解更多](https://help.shopify.com/manual/online-store/themes/customizing-themes/follow-on-shop)"
+        },
+        "enable_follow_on_shop": {
+          "label": "啟用在 Shop 上關注"
+        }
+      },
+      "blocks": {
+        "menu_block": {
+          "label": "Menu"
+        },
+        "newsletter_block": {
+          "name": "電子報",
+          "info": "訂閱者會自動新增到您的“接受營銷”客戶列表。[瞭解更多](https://help.shopify.com/manual/customers/manage-customers)",
+          "settings": {
+            "note": {
+              "label": "備註"
+            }
+          }
+        },
+        "contact_bar_block": {
+          "name": "聯絡欄",
+          "settings": {
+            "store_address": "地址",
+            "store_phone": "電話",
+            "store_email": "Email",
+            "show_social": {
+              "label": "顯示社交媒體圖示",
+              "info": "要顯示社交媒體賬戶，請在主題設定中關聯它們。"
+            }
+          }
+        }
+      }
+    },
+    "header": {
+      "name": "頁首",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header)",
+      "settings": {
+        "sticky_header_type": {
+          "label": "粘性頁首",
+          "options__1": {
+            "label": "None"
+          },
+          "options__2": {
+            "label": "向上滾動時"
+          },
+          "options__3": {
+            "label": "始終"
+          }
+        },
+        "menu": {
+          "label": "Menu",
+          "menu_trigger": {
+            "label": "桌面下拉選單觸發方式",
+            "options__1": {
+              "label": "點選"
+            },
+            "options__2": {
+              "label": "懸停"
+            }
+          },
+          "dropdowns_animation": {
+            "label": "下拉動畫",
+            "options__1": {
+              "label": "淡入"
+            },
+            "options__3": {
+              "label": "自下而上"
+            }
+          }
+        },
+        "menu_mobile": {
+          "label": "移動端選單設定",
+          "menu_icon": {
+            "label": "漢堡圖示位置",
+            "info": "選擇漢堡選單在移動端的顯示位置。"
+          }
+        },
+        "addons": {
+          "label": "附加功能",
+          "show_account": {
+            "label": "顯示賬戶圖示"
+          },
+          "show_search": {
+            "label": "顯示搜尋"
+          },
+          "show_cart": {
+            "label": " 顯示購物車"
+          },
+          "show_offer": {
+            "label": " 顯示優惠"
+          },
+          "show_language": {
+            "label": "顯示語言"
+          },
+          "show_currency": {
+            "label": "顯示貨幣"
+          }
+        },
+        "transparent": {
+          "content": "透明頁首",
+          "info": "請確保首頁的第一個區塊配置為以下之一：幻燈片、帶文字疊加的影片，或帶文字疊加的圖片。",
+          "transparent": {
+            "label": "啟用透明頁首"
+          },
+          "text_icon_transparent": {
+            "label": " 文字和圖示顏色"
+          }
+        },
+        "blocks": {
+          "mega_menu": {
+            "name": "橫幅（大型選單）",
+            "how_to_use": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#banner-mega-menu)",
+            "banners": {
+              "label": "橫幅設定"
+            },
+            "promotion_1": {
+              "label": "橫幅 #1"
+            },
+            "promotion_2": {
+              "label": "橫幅 #2"
+            },
+            "promotion_3": {
+              "label": "橫幅 #3"
+            },
+            "promotion_4": {
+              "label": "橫幅 #4"
+            },
+            "promotion_5": {
+              "label": "橫幅 #5"
+            },
+            "info": "建議尺寸 448px x 260px"
+          },
+          "menu_item": {
+            "label": "選單項",
+            "info": "輸入要應用大型選單下拉的選單項。請區分大小寫。"
+          },
+          "menu_column": {
+            "label": "桌面選單列數"
+          },
+          "product": {
+            "name": "產品（大型選單）",
+            "how_to_use": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#product-mega-menu)",
+            "header": "Products"
+          },
+          "collection": {
+            "name": "系列（大型選單）",
+            "how_to_use": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/header#collection-mega-menu)",
+            "header": "系列"
+          },
+          "menu_highlight": {
+            "name": "選單高亮",
+            "menu_items": {
+              "label": "要高亮的選單項",
+              "info": "輸入要高亮的選單項名稱，用逗號分隔（例如：Sale, New Arrivals）。請區分大小寫。"
+            },
+            "highlight_color": {
+              "label": "高亮顏色"
+            },
+            "highlight_icon": {
+              "label": "高亮圖示",
+              "options": {
+                "unset": "未設定",
+                "star": "星形",
+                "custom": "Custom"
+              }
+            },
+            "custom_icon": {
+              "label": "自定義圖示",
+              "info": "在高亮選單項旁顯示的可選圖示（建議尺寸：24x24px）"
+            }
+          }
+        },
+        "header_layout": {
+          "label": "桌面頁首版面",
+          "info": "版面會自動針對行動裝置最佳化。",
+          "options__1": {
+            "label": "徽標居左，選單居中"
+          },
+          "options__2": {
+            "label": "徽標居中，選單居左"
+          },
+          "options__3": {
+            "label": "標誌置中，選單在下方"
+          },
+          "options__4": {
+            "label": "標誌靠左，選單在下方"
+          },
+          "options__5": {
+            "label": "標誌靠左，選單靠左"
+          }
+        }
+      }
+    },
+    "custom_liquid": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "how_to_use_block": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+      "name": "自定義 Liquid",
+      "liquid_code": "Liquid 程式碼",
+      "info": "新增應用程式碼片段或其他 Liquid 程式碼以建立高階自定義。",
+      "info_custom_liquid": "新增應用程式碼片段或其他程式碼以建立高階自定義。[瞭解更多](https://shopify.dev/docs/api/liquid)"
+    },
+    "blog-posts": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/blog-posts)",
+      "name": "部落格文章",
+      "settings": {
+        "blog-post": {
+          "label": "部落格文章",
+          "blog_post_type": {
+            "label": "部落格文章型別",
+            "category": "分類",
+            "select_blog": "所選部落格"
+          }
+        },
+        "blog": {
+          "label": "Blog"
+        }
+      }
+    },
+    "multi_content": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/multi-content)",
+      "name": "多內容",
+      "blocks": {
+        "label": "區塊設定",
+        "bellow_image": "徽章設定",
+        "badge": "徽章",
+        "equal_height_adjustment": {
+          "label": "等高調整"
+        },
+        "social_icon": "社交圖示",
+        "grid_info": "網格資訊",
+        "grid_info_1": "網格資訊 1",
+        "grid_info_2": "網格資訊 2",
+        "grid_info_3": "網格資訊 3",
+        "grid_info_4": "網格資訊 4"
+      }
+    },
+    "grid_banner": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/banners/grid-banner)",
+      "name": "網格橫幅",
+      "settings": {
+        "hidden_block_des_mobile": {
+          "label": "在移動端隱藏項目描述"
+        }
+      },
+      "blocks": {
+        "item": {
+          "name": "橫幅項目",
+          "show_arrow": "顯示箭頭圖示"
+        }
+      }
+    },
+    "scrolling_text": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/scrolling-text)",
+      "name": "滾動文字",
+      "settings": {
+        "direction": {
+          "label": "方向",
+          "left": {
+            "label": "從右到左"
+          },
+          "right": {
+            "label": "從左到右"
+          }
+        },
+        "speed": {
+          "label": "速度"
+        },
+        "text_size": {
+          "label": "Size"
+        },
+        "blocks": {
+          "image": {
+            "rounded_image": {
+              "label": "圖片圓角半徑"
+            },
+            "image_height": {
+              "label": "圖片高度"
+            },
+            "image_width": {
+              "label": "寬度"
+            }
+          }
+        }
+      }
+    },
+    "shopby-outfit": {
+      "name": "按穿搭購物",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-by-outfit)",
+      "blocks": {
+        "outfit": {
+          "name": "穿搭",
+          "settings": {
+            "product": {
+              "label": "產品列表"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "按穿搭購物"
+      },
+      "setting": {
+        "media": {
+          "label": "媒體型別"
+        },
+        "video_autoplay": {
+          "info": "僅當在媒體型別區塊設定中選擇影片時才生效。"
+        }
+      }
+    },
+    "collection-list": {
+      "name": "系列列表",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/collection-list)",
+      "settings": {
+        "header": {
+          "collection": "Collection",
+          "collection_title": "系列標題",
+          "collection_card": "系列卡片",
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "how_to_use_collection_title": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/page-heading)"
+        },
+        "collection_title_style": {
+          "label": "系列標題樣式",
+          "text": "Text",
+          "button": "按鈕"
+        },
+        "show_product_count": {
+          "label": "顯示產品數量"
+        },
+        "overlay_image_settings": "疊加圖片設定",
+        "overlay_image_color": "文字顏色",
+        "collection_overlay_image_color": "系列文字顏色"
+      },
+      "blocks": {
+        "featured_collection": {
+          "name": "Collection",
+          "settings": {
+            "collection": {
+              "label": "Collection"
+            },
+            "image": {
+              "label": "Image",
+              "info": "留空以使用系列圖片",
+              "info_highlight": "留空以使用系列圖片。建議尺寸 330px x 520px",
+              "info_suitable": "留空以使用系列圖片。建議尺寸 147px x 72px",
+              "info_collection_item": "建議尺寸 444px x 444px"
+            },
+            "title": {
+              "label": "標題",
+              "info": "留空以使用系列標題"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "系列列表"
+      }
+    },
+    "quickview": {
+      "name": "快速檢視",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/overlay-group/quickview)",
+      "settings": {
+        "paragraph": "此區塊允許您自定義快速檢視彈窗。"
+      }
+    },
+    "featured-collection": {
+      "name": "精選系列",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/featured-collection)"
+    },
+    "expandable_card": {
+      "name": "可展開卡片",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/expandable-card)",
+      "settings": {
+        "card_header": "卡片設定",
+        "interaction_behavior": {
+          "label": "互動行為",
+          "options": {
+            "hover": "懸停顯示",
+            "drawer": "點選開啟抽屜"
+          }
+        }
+      },
+      "blocks": {
+        "layered_card": {
+          "name": "分層卡片",
+          "settings": {
+            "media_header": "Image",
+            "description": "描述",
+            "drawer_page": "來自頁面的描述"
+          }
+        }
+      }
+    },
+    "featured-product": {
+      "name": "精選產品",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/featured-product)",
+      "settings": {
+        "product": "Product"
+      }
+    },
+    "slideshow": {
+      "name": "幻燈片",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/slideshow)",
+      "settings": {
+        "loading_background_color": {
+          "label": "載入背景",
+          "info": "影片幻燈片載入時顯示的背景顏色。"
+        },
+        "slide_height": {
+          "label": "幻燈片高度",
+          "full_screen": "全屏",
+          "adapt_to_first_image": "適應第一張圖片",
+          "small": "小",
+          "medium": "中",
+          "large": "大"
+        },
+        "info": "建議尺寸 1920px x 840px",
+        "info_mobile": "建議尺寸 390px x 572px",
+        "blocks": {
+          "image": {
+            "label": "圖片幻燈片",
+            "image_overlay_opacity": {
+              "label": "圖片疊加不透明度",
+              "overlay_opacity": "疊加不透明度"
+            }
+          },
+          "video": {
+            "label": "影片幻燈片",
+            "video_setting": "影片設定",
+            "video_overlay_opacity": {
+              "label": "影片疊加不透明度"
+            }
+          }
+        }
+      }
+    },
+    "related-products": {
+      "name": "相關產品",
+      "how_to_use": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/related-products)"
+    },
+    "similar-products": {
+      "name": "購買相似產品",
+      "how_to_use": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-product)"
+    },
+    "complete-the-look": {
+      "name": "完整搭配",
+      "how_to_use": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/group-sections/products/complete-the-look)"
+    },
+    "similar-color": {
+      "name": "購買相似顏色",
+      "how_to_use": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/group-sections/products/shop-similar-color)"
+    },
+    "quick-order-list": {
+      "name": "快速訂購列表"
+    },
+    "newsletter": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/newsletter)",
+      "name": "電子報",
+      "settings": {
+        "header": {
+          "heading_setting": "電子報設定"
+        }
+      }
+    },
+    "rich-text": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/rich-text)",
+      "name": "富文字",
+      "settings": {
+        "max_width": {
+          "label": "最大寬度",
+          "info": "最大寬度會自動針對移動端最佳化。"
+        },
+        "rotating_text": "環形文字",
+        "separator_spacing": {
+          "label": "分隔符號間距",
+          "info": "在片語之間的 - 或 • 等分隔符號兩側新增間距。"
+        }
+      }
+    },
+    "recently-viewed-products": {
+      "name": "最近瀏覽的產品",
+      "info": "儲存頁面以載入最近瀏覽的產品",
+      "how_to_use": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/recently-product)"
+    },
+    "info-gallery-products": {
+      "name": "關鍵成分",
+      "how_to_use": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metaobjects/info-gallery)"
+    },
+    "product-benefits": {
+      "name": "產品優勢",
+      "how_to_use": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/product-benefits)",
+      "settings": {
+        "media_header": "中心媒體",
+        "image": {
+          "label": "Image",
+          "info": "為空時使用產品特色圖片。建議尺寸 640 x 900px。"
+        },
+        "media_width": {
+          "label": "桌面圖片寬度"
+        },
+        "video": {
+          "label": "Video"
+        },
+        "video_poster": {
+          "label": "影片封面圖片"
+        }
+      },
+      "blocks": {
+        "benefit": {
+          "name": "優勢",
+          "settings": {
+            "icon": {
+              "label": "圖示"
+            }
+          }
+        }
+      }
+    },
+    "quiz-results-products": {
+      "name": "測驗結果產品"
+    },
+    "quiz": {
+      "name": "測驗",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/utilities-and-layout/quiz)",
+      "settings": {
+        "intro_header": "介紹",
+        "enable_intro_step": {
+          "label": "啟用介紹步驟"
+        },
+        "intro_button_label": {
+          "label": "開始按鈕標籤"
+        },
+        "show_retake_button": {
+          "label": "顯示重測按鈕"
+        },
+        "retake_label": {
+          "label": "重測按鈕標籤"
+        },
+        "results_display_header": "結果顯示",
+        "content_max_width": {
+          "label": "內容最大寬度"
+        },
+        "show_back_button": {
+          "label": "顯示返回按鈕"
+        },
+        "email_header": "郵箱步驟",
+        "enable_email_step": {
+          "label": "啟用郵箱步驟"
+        },
+        "email_heading": {
+          "label": "郵箱標題"
+        },
+        "email_placeholder": {
+          "label": "郵箱佔位符"
+        },
+        "continue_label": {
+          "label": "繼續按鈕標籤"
+        },
+        "skip_label": {
+          "label": "跳過按鈕標籤"
+        },
+        "results_banner_image": {
+          "label": "結果橫幅圖片"
+        },
+        "fallback_products": {
+          "label": "備用產品",
+          "info": "僅當測驗答案未返回任何強匹配或部分匹配時顯示的產品。用作備份，確保結果頁永不空白。"
+        },
+        "results_products_limit": {
+          "label": "最多顯示產品數"
+        }
+      }
+    },
+    "compare-products": {
+      "name": "對比產品",
+      "how_to_use": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/compare-items)",
+      "settings": {
+        "header": {
+          "label": "對比設定"
+        },
+        "show_price": "價格",
+        "show_ratings": "評分",
+        "show_vendor": "供應商",
+        "show_color": "Color",
+        "show_size": "Size",
+        "show_highlights": "亮點",
+        "show_availability": "庫存狀態"
+      }
+    },
+    "bought-together-products": {
+      "name": "經常一起購買的產品",
+      "how_to_use": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/theme-installation/create-required-metafields/metafields/frequently-bought-together)"
+    },
+    "media-with-text": {
+      "name": "媒體與文字",
+      "info_image": {
+        "info_desktop": "建議尺寸 950px x 844px",
+        "info_mobile": "建議尺寸 475px x 422px",
+        "info_video": "覆蓋圖片設定。建議尺寸 950px x 844px"
+      }
+    },
+    "product-specifications": {
+      "name": "產品規格",
+      "item_name": "Product specifications item",
+      "specifications_layout": "規格版面",
+      "grid_gap": "網格間距",
+      "mobile_rows_shown": "列數",
+      "view_more_label": "「查看更多」按鈕標籤",
+      "view_less_label": "「顯示較少」按鈕標籤",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-specifications)"
+    },
+    "image-with-text": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/image-with-text)",
+      "name": "圖片與文字",
+      "settings": {
+        "desktop_vertical_alignment": {
+          "label": "桌面垂直對齊",
+          "top": "頂部",
+          "middle": "中間",
+          "bottom": "底部"
+        },
+        "vertical_alignment": "垂直對齊",
+        "background_type": {
+          "label": "背景型別",
+          "image": "Image",
+          "color": "Color"
+        },
+        "background_color": "背景顏色",
+        "background_image": "背景圖片",
+        "text_color": "文字顏色",
+        "image_info": "建議尺寸 696px x 500px",
+        "offer_image_with_text_info": "建議尺寸 360px x 200px",
+        "image_caption": {
+          "label": "圖片說明",
+          "heading": "標題",
+          "description": "說明",
+          "position": "位置"
+        }
+      }
+    },
+    "before_after_result": {
+      "name": "前後對比",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/banners/before-after)",
+      "before_text": {
+        "label": "之前文字",
+        "default": "之前"
+      },
+      "after_text": {
+        "label": "之後文字",
+        "default": "之後"
+      }
+    },
+    "parallax-image-with-text": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/banners/parallax-split)",
+      "name": "視差分割",
+      "settings": {
+        "image": {
+          "image_1": {
+            "label": "圖片 1"
+          },
+          "image_2": {
+            "label": "圖片 2"
+          },
+          "image_3": {
+            "label": "圖片 3"
+          }
+        },
+        "parallax_image": {
+          "label": "視差圖片"
+        }
+      }
+    },
+    "discount_popup": {
+      "info": "此區塊用於在訂閱後顯示彈窗。",
+      "name": "折扣彈窗",
+      "how_to_use": "[如何使用此設定](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/discount-popup)",
+      "settings": {
+        "discount_code": {
+          "label": "促銷連結",
+          "info": "如何獲取促銷連結？[瞭解更多](https://help.shopify.com/en/manual/discounts/managing-discount-codes#promote-a-discount-using-a-shareable-link)"
+        },
+        "discount_button": {
+          "label": "促銷按鈕標籤",
+          "default": "👉 享受 10% 折扣購物"
+        },
+        "sub_heading": {
+          "default": "太棒了！您已成功訂閱"
+        },
+        "info_image": "此圖片將在移動端自動隱藏。建議尺寸 350px x 410px "
+      }
+    },
+    "image-with-text-overlay": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/image-with-text-overlay)",
+      "name": "帶文字疊加的圖片",
+      "countdown": "倒計時器",
+      "count_down": "倒計時",
+      "how_to_use_count_down": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/countdown)",
+      "end_time": {
+        "label": "結束時間",
+        "info": "例如：mm-dd-yyyy"
+      },
+      "message": {
+        "label": "到期訊息",
+        "info": "時間到期後將顯示此訊息。"
+      },
+      "image_info": {
+        "info_desktop": "建議尺寸 1392px x 500px",
+        "info_mobile": "建議尺寸 400px x 469px"
+      }
+    },
+    "media-hero": {
+      "name": "媒體英雄區",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/media-hero)",
+      "media": "媒體",
+      "info": "覆蓋圖片設定。"
+    },
+    "video": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/video)",
+      "name": "Video",
+      "settings": {
+        "video_local": {
+          "label": "本地影片",
+          "info_2": "覆蓋影片 URL 設定。",
+          "info_multi_content_video": "覆蓋影片 URL 設定。建議尺寸 684px x 500px。",
+          "info_poster": "使用與影片相同的尺寸"
+        },
+        "video_link": {
+          "label": "影片 URL",
+          "info": "接受 YouTube 或 Vimeo URL"
+        },
+        "video_poster": {
+          "label": "影片封面"
+        },
+        "alt_description": {
+          "label": "影片替代文字",
+          "info": "為使用螢幕閱讀器的客戶描述影片。[瞭解更多](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#video-block)"
+        },
+        "autoplay": {
+          "label": "影片自動播放",
+          "info": "影片會自動靜音以允許自動播放"
+        },
+        "looping": {
+          "label": "影片迴圈"
+        },
+        "show_action": {
+          "label": "顯示影片控制元件"
+        },
+        "aspect_ratio": {
+          "label": "寬高比",
+          "option__1": "16:9",
+          "option__2": "21:9",
+          "option__3": "適應影片"
+        },
+        "show_text_bellow": {
+          "label": "在移動端顯示影片下方文字",
+          "info": "文字在移動端將顯示在影片下方。"
+        }
+      }
+    },
+    "main-password-content": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/other-pages/password-page)",
+      "name": "主密碼頁",
+      "settings": {
+        "header__2": {
+          "content": "內容設定"
+        }
+      },
+      "blocks": {
+        "countdown_bn": {
+          "settings": {
+            "countdown_design": {
+              "label": "設計",
+              "options__1": {
+                "label": "Default"
+              },
+              "options__2": {
+                "label": "現代"
+              }
+            }
+          }
+        },
+        "form_subscribe": {
+          "name": "訂閱表單",
+          "settings": {
+            "email_placeholder": {
+              "label": "郵箱佔位符文字"
+            },
+            "btn_label": {
+              "label": "按鈕標籤"
+            }
+          }
+        }
+      }
+    },
+    "divider": {
+      "settings": {
+        "height": {
+          "label": "Height"
+        },
+        "color": {
+          "label": "Color"
+        }
+      }
+    },
+    "faq": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/faqs)",
+      "name": "常見問題",
+      "main-faq": "主要常見問題頁面",
+      "heading": {
+        "content": "常見問題訊息"
+      },
+      "info_image": "建議尺寸 646px x 700px",
+      "settings": {
+        "show_faqs_message": "顯示常見問題訊息",
+        "show_image": "顯示圖片",
+        "open_all_question": "展開所有問題",
+        "framed": "帶邊框",
+        "faq_style": "常見問題樣式",
+        "desktop_layout": {
+          "label": "桌面版面",
+          "horizontal": "水平",
+          "vertical": "垂直"
+        }
+      },
+      "blocks": {
+        "name": "常見問題項",
+        "settings": {
+          "question": {
+            "question": "問題",
+            "answer": "回答"
+          }
+        }
+      }
+    },
+    "page-faq": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/other-pages/faq-page)"
+    },
+    "video-with-text-overlay": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/video-with-text-overlay)",
+      "name": "帶文字疊加的影片",
+      "settings": {
+        "video_local": {
+          "label": "本地影片",
+          "info": "覆蓋影片 URL 設定。建議尺寸 1392px x 550px",
+          "info_mobile": "建議尺寸 390px x 550px"
+        },
+        "video_link": {
+          "label": "影片連結"
+        },
+        "video_poster": {
+          "info": "與影片尺寸相同"
+        },
+        "overlay_opacity": "疊加不透明度",
+        "video_height": {
+          "label": "影片高度",
+          "options__1": {
+            "label": "適應影片"
+          },
+          "options__2": {
+            "label": "小"
+          },
+          "options__3": {
+            "label": "中"
+          },
+          "options__4": {
+            "label": "大"
+          }
+        }
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "產品網格",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/product-grid)",
+      "settings": {
+        "items_per_page": {
+          "label": "每頁顯示專案數"
+        },
+        "columns_desktop": {
+          "label": "桌面每行列數"
+        },
+        "show_product_counts": {
+          "label": "顯示產品數量"
+        }
+      }
+    },
+    "main-collection": {
+      "settings": {
+        "items_per_page": {
+          "label": "每頁顯示專案數"
+        },
+        "columns_desktop": {
+          "label": "桌面每行列數"
+        },
+        "enable_filtering": {
+          "label": "啟用篩選",
+          "info": "使用 Search & Discovery 應用自定義篩選器。[瞭解更多](https://help.shopify.com/manual/online-store/search-and-discovery/filters)"
+        },
+        "filter_type": {
+          "label": "桌面篩選佈局",
+          "options__1": {
+            "label": "Horizontal"
+          },
+          "options__2": {
+            "label": "Vertical"
+          },
+          "options__3": {
+            "label": "抽屜"
+          }
+        },
+        "enable_sorting": {
+          "label": "啟用排序"
+        },
+        "show_product_counts": {
+          "label": "顯示產品數量"
+        },
+        "header__1": {
+          "content": "篩選與排序"
+        }
+      },
+      "blocks": {
+        "promotion": {
+          "name": "促銷",
+          "promotion_position": {
+            "label": "促銷位置"
+          },
+          "info": "建議尺寸 330px 550px"
+        },
+        "steps": {
+          "name": "按步驟購物",
+          "info": "建議尺寸 337px x 200px"
+        }
+      }
+    },
+    "main-search": {
+      "name": "搜尋結果",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/other-pages/search-page)",
+      "settings": {
+        "search_results": {
+          "label": "顯示結果",
+          "option_1": "Default",
+          "option_2": "選項卡"
+        }
+      }
+    },
+    "main-article": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/other-pages/blog-post-page)",
+      "name": "部落格文章",
+      "settings": {
+        "show_date": "顯示釋出日期",
+        "show_comment": "顯示評論",
+        "show_excerpt": "顯示文章摘要",
+        "show_share": "顯示分享按鈕",
+        "blocks": {
+          "featured_image": "特色圖片",
+          "content_article": "內容",
+          "addons": "附加功能",
+          "prev_next_articles": "上一篇和下一篇文章"
+        }
+      },
+      "related": {
+        "heading": "相關文章",
+        "articles": {
+          "label": "文章",
+          "info": "按此順序顯示。留空則顯示此部落格的最新文章。"
+        }
+      },
+      "blocks": {
+        "featured_image": {
+          "settings": {
+            "image_height": {
+              "label": "圖片高度",
+              "options__1": {
+                "label": "適應圖片"
+              },
+              "options__2": {
+                "label": "小"
+              },
+              "options__3": {
+                "label": "中"
+              },
+              "options__4": {
+                "label": "大"
+              }
+            }
+          }
+        }
+      },
+      "related_product": {
+        "heading": "相關產品",
+        "products": {
+          "label": "產品"
+        }
+      }
+    },
+    "cart-drawer": {
+      "name": "購物車抽屜",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/overlay-group/cart-drawer)",
+      "settings": {
+        "info": "要顯示購物車抽屜，請前往主題設定，並在[購物車設定](/editor?context=theme&category=cart)中選擇抽屜作為購物車型別。",
+        "content": "",
+        "show_free_shipping_message": {
+          "label": "顯示免運費訊息",
+          "info": "在主題設定中設定免運費的最低金額。"
+        },
+        "show_cart_note": "顯示購物車備註",
+        "show_estimate_shipping": "顯示運費估算",
+        "show_discount": "顯示折扣碼",
+        "hide_check_badge_on_mobile": "在移動端隱藏信任徽章區塊",
+        "hide_icon_with_text_on_mobile": "在移動端隱藏圖示與文字區塊",
+        "show_gift_wrap": {
+          "label": "顯示禮品包裝",
+          "info": "請在主題設定中選擇禮品包裝產品。"
+        },
+        "discount_progress_bar_active": "折扣進度條已在主題設定中啟用，並會取代免運費訊息。"
+      }
+    },
+    "main-list-collections": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-list-page)",
+      "name": "系列列表頁",
+      "blocks": {
+        "name": "Collection",
+        "settings": {
+          "collection_image": "系列圖片"
+        }
+      },
+      "settings": {
+        "information_position": {
+          "label": "資訊位置",
+          "options__1": {
+            "label": "疊加在圖片上"
+          },
+          "options__2": {
+            "label": "圖片下方"
+          }
+        },
+        "collection_to_show": {
+          "label": "要顯示的系列",
+          "options__1": {
+            "label": "全部"
+          },
+          "options__2": {
+            "label": "已選"
+          }
+        },
+        "sort": {
+          "label": "系列排序方式",
+          "options__1": {
+            "label": "按字母順序，A-Z"
+          },
+          "options__2": {
+            "label": "按字母順序，Z-A"
+          },
+          "options__3": {
+            "label": "日期，從新到舊"
+          },
+          "options__4": {
+            "label": "日期，從舊到新"
+          },
+          "options__5": {
+            "label": "產品數量，從高到低"
+          },
+          "options__6": {
+            "label": "產品數量，從低到高"
+          }
+        }
+      }
+    },
+    "main-blog": {
+      "name": "部落格文章",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/other-pages/blog-page)",
+      "settings": {
+        "header": {
+          "content_post": "文章設定"
+        },
+        "maximum_posts_to_show": {
+          "label": "最多顯示文章數"
+        },
+        "post_per_row_desktop": {
+          "label": "桌面每行文章數"
+        },
+        "show_all_tags": {
+          "label": "顯示標籤列表"
+        }
+      },
+      "blocks": {
+        "name": "訂閱表單",
+        "settings": {
+          "show_email_icon": "顯示郵箱圖示",
+          "form_position": "表單位置"
+        }
+      }
+    },
+    "main-product": {
+      "name": "產品資訊",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "settings": {
+        "header": {
+          "content": "媒體"
+        },
+        "enable_sticky_desktop": {
+          "label": "在桌面端啟用粘性加購"
+        },
+        "desktop_layout": {
+          "label": "桌面佈局",
+          "group": {
+            "static": "網格",
+            "carousel": "輪播"
+          },
+          "one_columns": {
+            "label": "1 列"
+          },
+          "options__1": {
+            "label": "2 列"
+          },
+          "options__2": {
+            "label": "水平縮圖"
+          },
+          "options__3": {
+            "label": "堆疊"
+          },
+          "options__4": {
+            "label": "垂直縮圖"
+          },
+          "options__5": {
+            "label": "垂直縮圖（滾動）"
+          },
+          "options__6": {
+            "label": "2 列"
+          }
+        },
+        "thumbnail_carousel_setting": {
+          "label": "縮圖輪播設定",
+          "number_thumbs": "縮圖數量"
+        },
+        "media_position": {
+          "label": "桌面媒體位置"
+        },
+        "media_width": {
+          "label": "桌面媒體寬度"
+        },
+        "mobile_thumbnails": {
+          "options__1": {
+            "label": "顯示縮圖"
+          },
+          "options__2": {
+            "label": "隱藏縮圖"
+          }
+        },
+        "enable_video_looping": {
+          "label": "啟用影片迴圈"
+        },
+        "enable_image_zoom": {
+          "label": "圖片縮放",
+          "options__1": {
+            "label": "禁用"
+          },
+          "options__2": {
+            "label": "內部放大"
+          },
+          "options__3": {
+            "label": "外部放大"
+          }
+        },
+        "enable_image_lightbox": {
+          "label": "啟用燈箱"
+        },
+        "enable_video_autoplay": {
+          "label": "啟用影片自動播放",
+          "info": "影片會自動靜音以允許自動播放。不適用於 YouTube/Vimeo。"
+        },
+        "enable_video_controls_default": {
+          "label": "啟用自定義影片控制元件",
+          "info": "不適用於 YouTube/Vimeo。"
+        }
+      },
+      "blocks": {
+        "custom_product": {
+          "name": "自定義選項",
+          "tab_setting": {
+            "label": "選項卡標籤",
+            "tab_1": {
+              "label": "選項卡 1"
+            },
+            "tab_2": {
+              "label": "選項卡 2"
+            },
+            "tab_3": {
+              "label": "選項卡 3"
+            }
+          },
+          "description": "讓客戶透過 3 步彈窗在加入購物車前個性化產品——位置、文字和顏色。更多資訊請訪問我們的[支援頁面](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/custom-options)",
+          "placement": "位置",
+          "text": "Text",
+          "text_limit": "文字限制",
+          "note": "備註",
+          "color": {
+            "name": "Color",
+            "options": {
+              "color_1": "顏色 1",
+              "color_2": "顏色 2",
+              "color_3": "顏色 3",
+              "color_4": "顏色 4",
+              "color_5": "顏色 5",
+              "color_6": "顏色 6",
+              "color_7": "顏色 7",
+              "color_8": "顏色 8",
+              "color_9": "顏色 9",
+              "color_10": "顏色 10"
+            }
+          }
+        }
+      }
+    },
+    "main-cart-items": {
+      "name": "主購物車",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/other-pages/cart-page)",
+      "block": {
+        "icon_with_text": "圖示與文字",
+        "trust_badges": "信任徽章"
+      }
+    },
+    "main-collection-banner": {
+      "name": "系列橫幅",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/collection-banner)",
+      "settings": {
+        "heading": {
+          "label": "設定"
+        },
+        "use_collection_image": {
+          "label": "使用系列圖片",
+          "info": "覆蓋背景圖片設定"
+        },
+        "image_height": {
+          "option__2": "基於內容"
+        },
+        "image_position": {
+          "label": "圖片位置",
+          "option__1": "左側",
+          "option__2": "右側"
+        },
+        "image_opacity": {
+          "label": "圖片不透明度"
+        }
+      }
+    },
+    "contact-form": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/contact-form)",
+      "name": "聯絡表單",
+      "settings": {
+        "name": "姓名",
+        "email_placeholder": "Email",
+        "message": "留言",
+        "option": "選項",
+        "info_option": "定義選項名稱。用逗號分隔選項。例如：Product, Order, Press, Other"
+      }
+    },
+    "main-404": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/other-pages/404-page)",
+      "name": "主 404",
+      "info_image": "建議尺寸 500px x 288px"
+    },
+    "main-activate-account": {
+      "name": "賬戶啟用"
+    },
+    "main-password-footer": {
+      "name": "密碼頁頁尾"
+    },
+    "main-account": {
+      "name": "賬戶"
+    },
+    "main-register": {
+      "name": "註冊"
+    },
+    "main-login": {
+      "name": "登入"
+    },
+    "main-reset-password": {
+      "name": "密碼重置"
+    },
+    "main-order": {
+      "name": "訂單"
+    },
+    "main-addresses": {
+      "name": "地址"
+    },
+    "announcement-bar": {
+      "how_to_use": {
+        "label": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/global-sections/header-group/announcement-bar)"
+      },
+      "name": "公告欄",
+      "settings": {
+        "type": {
+          "name": "型別",
+          "options": {
+            "slide": {
+              "label": "輪播"
+            },
+            "marquee": {
+              "label": "跑馬燈"
+            }
+          }
+        },
+        "show_only_homepage": {
+          "label": "僅在首頁顯示"
+        },
+        "show_close_button": {
+          "label": "顯示關閉按鈕"
+        },
+        "enable_on_mobile": {
+          "label": "在移動端啟用"
+        },
+        "marquee_settings": {
+          "label": "跑馬燈設定",
+          "speed": {
+            "label": "速度"
+          },
+          "show_icon": {
+            "label": "顯示圖示"
+          }
+        }
+      },
+      "blocks": {
+        "name": "公告",
+        "setting": {
+          "label": "Text"
+        }
+      }
+    },
+    "multimedia_with_text": {
+      "blocks": {
+        "settings": {
+          "header": "媒體設定",
+          "media_style": {
+            "label": "媒體樣式",
+            "options__1": {
+              "label": "圓角"
+            },
+            "options__2": {
+              "label": "橢圓"
+            },
+            "options__3": {
+              "label": "Default"
+            }
+          }
+        }
+      }
+    },
+    "product-tabs": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/vertical-product-tabs)",
+      "name": "產品選項卡",
+      "setting": {
+        "layout": {
+          "label": "桌面佈局",
+          "vertical": "Vertical",
+          "horizontal": "Horizontal"
+        },
+        "banner_header": "橫幅",
+        "show_banner": "顯示橫幅",
+        "sticky_banner": "固定橫幅",
+        "portrait_4_5": "縱向 (4:5)",
+        "enable_carousel_info": "在移動端，產品佈局將始終以輪播形式顯示。"
+      },
+      "blocks": {
+        "name": "選項卡",
+        "header": "區塊設定",
+        "settings": {
+          "hidden_des_mobile": {
+            "label": "在移動端隱藏選項卡描述"
+          },
+          "collection": {
+            "label": "Collection",
+            "description": "描述"
+          }
+        }
+      },
+      "presets": {
+        "product_tabs_with_banner": "帶橫幅的產品選項卡"
+      }
+    },
+    "collection-highlights": {
+      "name": "系列亮點",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/collection-highlights)",
+      "settings": {
+        "highlight_collection_width": {
+          "label": "系列亮點寬度"
+        }
+      },
+      "blocks": {
+        "header": "區塊設定",
+        "type": {
+          "type_highlight": {
+            "header": "系列亮點設定",
+            "name": "系列亮點"
+          }
+        }
+      }
+    },
+    "collection-pills": {
+      "name": "系列膠囊",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/collections/collection-pills)",
+      "settings": {
+        "pill_style": {
+          "label": "膠囊樣式"
+        },
+        "show_image_on_hover": {
+          "label": "懸停時顯示圖片",
+          "info": "懸停圖片將在移動端隱藏。"
+        },
+        "horizontal_scroll": {
+          "label": "橫向捲動"
+        }
+      }
+    },
+    "suitable_products_finder": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/suitable-products-finder)",
+      "name": "合適產品查詢器",
+      "settings": {
+        "collection_tab_header": {
+          "label": "系列選項卡"
+        },
+        "collection_tab_style": {
+          "label": "系列選項卡樣式"
+        },
+        "collection_tab_style_options": {
+          "range_slider": {
+            "label": "範圍滑塊"
+          },
+          "pill_tabs": {
+            "label": "膠囊選項卡"
+          }
+        },
+        "show_pill_tabs_with_heading": {
+          "label": "與標題同行",
+          "info": "在標題同一行顯示顏色選擇器。"
+        },
+        "show_pill_tabs_color": {
+          "label": "顯示顏色圓點"
+        },
+        "pill_tabs_color": {
+          "label": "Color"
+        },
+        "pill_tabs_image": {
+          "info": "上傳圖片後，圖案圖片將覆蓋顏色。"
+        },
+        "image_collection_width": {
+          "label": "圖片寬度"
+        },
+        "range_slider": {
+          "settings": {
+            "show_range_slider": {
+              "label": "顯示範圍滑塊",
+              "info": "範圍滑塊將在移動端自動隱藏。"
+            }
+          }
+        }
+      },
+      "preset": {
+        "ranger_slider": "產品查詢器：範圍滑塊",
+        "pill_tabs": "產品查詢器：膠囊選項卡",
+        "color_dots": "產品查詢器：顏色圓點"
+      }
+    },
+    "icon-box": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/icon-box)",
+      "name": "圖示框",
+      "settings": {
+        "icon_settings": {
+          "header": "圖示設定",
+          "icon_position": {
+            "label": "位置"
+          },
+          "icon_size": {
+            "label": "Size"
+          },
+          "radius_image": {
+            "label": "圓角圖片",
+            "info": "此設定僅在圖示為圖片時生效。"
+          }
+        }
+      }
+    },
+    "metric-banner": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/metric-banner)",
+      "name": "指標橫幅",
+      "settings": {
+        "metric_setting": "指標設定",
+        "metric_font_size": "指標字號",
+        "enable_metric_animation": "啟用指標動畫",
+        "metric_value": {
+          "start": "指標起始值",
+          "end": "指標結束值"
+        },
+        "metric_unit": "指標單位"
+      },
+      "block": {
+        "name": "指標項"
+      }
+    },
+    "compact_product_bundle": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/compact-product-bundle)",
+      "name": "緊湊產品套裝",
+      "settings": {
+        "image": {
+          "label": "Image",
+          "info_desktop": "建議尺寸 696px x 750px",
+          "info_mobile": "建議尺寸 350px x 303px"
+        },
+        "enable_quick_add_for_items": {
+          "label": "為專案啟用快速加購"
+        },
+        "hidden_button_mobile": {
+          "label": "在移動端隱藏按鈕"
+        },
+        "products_show": {
+          "label": "產品顯示為",
+          "options__1": {
+            "label": "列表"
+          },
+          "options__2": {
+            "label": "網格"
+          }
+        }
+      },
+      "presets": {
+        "name": "緊湊產品套裝"
+      },
+      "blocks": {
+        "settings": {
+          "name": "Product",
+          "select_product": "Product",
+          "position_top": "垂直位置",
+          "position_left": "水平位置"
+        }
+      }
+    },
+    "mobile-navigation-bar": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/overlay-group/mobile-navigation-bar)",
+      "name": "移動端導航欄",
+      "info": "此區塊僅在移動端顯示。請切換到移動端檢視。",
+      "settings": {
+        "show_section": "啟用移動端導航欄",
+        "show_shop": "顯示商店",
+        "show_account": "顯示賬戶",
+        "show_cart": "顯示購物車",
+        "show_homepage": "顯示首頁"
+      }
+    },
+    "mobile_first": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/mobile-first)",
+      "name": "焦點相簿",
+      "image_1": "焦點圖片 1",
+      "image_2": "焦點圖片 2",
+      "image_3": "焦點圖片 3",
+      "image_4": "焦點圖片 4",
+      "image_5": "焦點圖片 5",
+      "text_1": "焦點文字 1",
+      "text_2": "焦點文字 2",
+      "text_3": "焦點文字 3",
+      "text_4": "焦點文字 4",
+      "text_5": "焦點文字 5"
+    },
+    "shopable_video": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/shopable-video)",
+      "name": "可購物影片",
+      "settings": {
+        "video_settings": {
+          "header": "影片設定"
+        },
+        "enable_sticky": {
+          "label": "啟用影片粘性定位",
+          "option_1": {
+            "label": "禁用"
+          },
+          "option_2": {
+            "label": "僅桌面"
+          },
+          "option_3": {
+            "label": "所有螢幕"
+          }
+        },
+        "ratio": {
+          "adapt": {
+            "label": "適應第一個影片"
+          }
+        },
+        "video": {
+          "auto_play": {
+            "info": "當此區塊處於活動狀態或在螢幕上可見時，影片將自動播放"
+          }
+        },
+        "show_product_card": {
+          "label": "顯示產品卡片"
+        }
+      },
+      "blocks": {
+        "name": "Video",
+        "settings": {
+          "poster_image": {
+            "label": "封面圖片",
+            "info": "建議尺寸 1080px x 1920px"
+          },
+          "local_video": {
+            "label": "本地影片"
+          },
+          "select_product": {
+            "label": "Product"
+          }
+        }
+      }
+    },
+    "image_card": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/image-cards)",
+      "name": "圖片卡片",
+      "blocks": {
+        "header": "卡片設定",
+        "group_name": "卡片",
+        "info": "建議尺寸 451px x 453px"
+      }
+    },
+    "testimonials": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonials)",
+      "name": "媒體報道",
+      "settings": {
+        "header": "媒體報道設定",
+        "show_icon_quote": {
+          "label": "顯示引語圖示"
+        }
+      },
+      "blocks": {
+        "name": "媒體項",
+        "settings": {
+          "quote": {
+            "label": "引語"
+          },
+          "info_image": "建議尺寸 180px 60px"
+        }
+      }
+    },
+    "press_card": {
+      "name": "媒體卡片",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/press-card)",
+      "blocks": {
+        "content": "內容",
+        "media": "媒體",
+        "quote": "引語",
+        "settings": {
+          "show_icon_quote": "顯示引語圖示",
+          "author_name": "作者姓名",
+          "quote_content": "引語內容",
+          "press-image": {
+            "info": "覆蓋背景顏色設定"
+          }
+        }
+      }
+    },
+    "scrolling_image": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/scrolling-image)",
+      "name": "相簿圖片",
+      "settings": {
+        "show_background_blur": {
+          "label": "顯示模糊背景"
+        },
+        "show_icon_hover": {
+          "label": "懸停時顯示 Instagram 圖示"
+        },
+        "info_image": "建議尺寸 303px x 303px"
+      }
+    },
+    "featured_product_banner": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/featured-product-banner)",
+      "name": "精選產品橫幅",
+      "hide_icon_text": "在移動端隱藏圖示與文字區塊",
+      "blocks": {
+        "name": "圖示與文字"
+      },
+      "info": {
+        "info_desktop": "建議尺寸 400px x 400px",
+        "info_mobile": "建議尺寸 300px x 300px"
+      }
+    },
+    "product_testimonials": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/products/product-testimonials)",
+      "name": "產品評價",
+      "settings": {
+        "header": "評價設定",
+        "rating_color": {
+          "label": "評分顏色"
+        },
+        "rating_type": {
+          "label": "評分型別",
+          "default": "Default",
+          "modern": "現代",
+          "show": "顯示評分",
+          "show_before_after": "顯示前後文字"
+        },
+        "product_rounded": {
+          "label": "產品圖片圓角半徑"
+        },
+        "show_verified_buyer": {
+          "label": "顯示已驗證買家"
+        },
+        "show_author_name": {
+          "label": "顯示作者姓名"
+        }
+      },
+      "blocks": {
+        "type": {
+          "media": {
+            "label": "評價媒體"
+          },
+          "image_comparison": {
+            "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/image-comparison)",
+            "label": "評價圖片對比",
+            "name": "圖片對比",
+            "show_after_before_text": {
+              "label": "顯示前後文字"
+            }
+          }
+        },
+        "settings": {
+          "media": {
+            "label": "媒體設定",
+            "info": "建議尺寸 448px x 246px",
+            "before_after_image": {
+              "label": "前後對比圖片"
+            },
+            "before_image": {
+              "label": "之前"
+            },
+            "after_image": {
+              "label": "之後"
+            }
+          },
+          "information": {
+            "label": "資訊設定",
+            "rating_star": {
+              "label": "評分星級"
+            },
+            "select_product": {
+              "label": "Product"
+            },
+            "author_name": {
+              "label": "作者姓名"
+            },
+            "review_sumary": {
+              "label": "摘要"
+            },
+            "use_richtext": {
+              "label": "使用富文字"
+            }
+          }
+        }
+      }
+    },
+    "routine-builder": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/routine-builder)",
+      "name": "按步驟購物",
+      "blocks": {
+        "name": "步驟",
+        "settings": {
+          "text_step": {
+            "label": "步驟標題"
+          },
+          "product_in_step": {
+            "label": "步驟中的產品"
+          }
+        }
+      }
+    },
+    "newsletter_popup": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/overlay-group/newsletter-popup)",
+      "name": "電子報彈窗",
+      "header": {
+        "heading": "常規設定"
+      },
+      "settings": {
+        "sections_width": {
+          "label": "寬度",
+          "options": {
+            "options__1": "全寬",
+            "options__2": "自動"
+          }
+        },
+        "collections_selector": {
+          "setting": "系列選擇器設定",
+          "label": "啟用系列選擇器",
+          "collection": {
+            "label_1": "系列 1",
+            "label_2": "系列 2",
+            "label_3": "系列 3",
+            "label_4": "系列 4",
+            "label_5": "系列 5"
+          }
+        },
+        "newsletter_heading": "電子報設定",
+        "show_on_homepage": "僅在首頁顯示",
+        "discount_sticky": {
+          "setting": "折扣粘性條",
+          "label": "顯示折扣粘性條",
+          "heading": "內容",
+          "info": "內容將在 25 個字元處自動截斷，包括 HTML 標籤。"
+        },
+        "heading": "標題",
+        "short_description": "描述",
+        "instructional_text": "說明文字",
+        "email_placeholder": "郵箱佔位符",
+        "button_label": "按鈕標籤",
+        "banner_image": "橫幅圖片"
+      }
+    },
+    "featured-blog": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/featured-blog)",
+      "name": "精選部落格"
+    },
+    "recommended_collection": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/recommended-collection)",
+      "name": "推薦系列",
+      "blocks": {
+        "button": {
+          "info": "[collection] 和 [title] 是將自動替換的變數名。請勿更改名稱，但可以更改它們在文字中的位置。[title] 是可選的——如果只想要系列選擇器，可以刪除它。",
+          "first_button_info": "含圖片的表單：使用所選篩選器開啟結果系列"
+        },
+        "featured_collection": {
+          "title_info": "僅行內文字：作為 [標題] 下拉式選單中的一個選項顯示。系列區塊不用於含圖片的表單版面"
+        },
+        "filter_dropdown": {
+          "name": "篩選下拉式選單",
+          "info": "適用於含圖片的表單版面。請先在 Shopify Search & Discovery 應用程式中設定篩選器。",
+          "filter_name": {
+            "label": "篩選器名稱",
+            "info": "請輸入與系列頁面上顯示的篩選器名稱完全一致的標籤，例如「犬齡分組」。多種語言時，用 ; 分隔標籤。不支援價格篩選器。"
+          },
+          "placeholder": "佔位符"
+        },
+        "text": {
+          "name": "文字"
+        }
+      },
+      "background": {
+        "label": "顯示背景圖片",
+        "header": "背景圖片"
+      },
+      "image_info": {
+        "info_desktop": "建議尺寸 1920px x 700px",
+        "info_mobile": "建議尺寸 390px x 407px"
+      },
+      "layout": {
+        "label": "版面",
+        "inline": "行內文字",
+        "form": "含圖片的表單"
+      },
+      "content_color_scheme": "內容配色方案",
+      "results_collection": {
+        "label": "結果系列",
+        "info": "僅用於含圖片的表單。篩選下拉式選單顯示此系列的篩選器，第一個按鈕會開啟該系列。留空則使用所有產品。"
+      },
+      "presets": {
+        "form": "含圖片的推薦系列"
+      }
+    },
+    "offers-popup": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/overlay-group/offers-popup)",
+      "name": "優惠彈窗",
+      "popup": {
+        "label": "優惠彈窗標題",
+        "info": "在疊加組中自定義優惠彈窗區塊內容。"
+      }
+    },
+    "outfit-finder": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/products/outfit-finder)",
+      "name": "穿搭查詢器",
+      "settings": {
+        "product_listing": {
+          "label": "產品列表設定"
+        },
+        "outfit_finder_logic": {
+          "label": "預覽設定"
+        },
+        "max_items_to_show": {
+          "label": "每頁產品數",
+          "info": "初始顯示的產品數量。向下滾動將載入更多專案。"
+        },
+        "max_items": {
+          "label": "每套穿搭最多產品數",
+          "info": "限制客戶可新增到預覽區域的商品數量。"
+        },
+        "product": {
+          "label": "建議穿搭",
+          "info": "選擇最多 3 個產品，在頁面載入時預設顯示在預覽區域。"
+        },
+        "notify_preview": {
+          "label": "空狀態通知",
+          "info": "在新增任何專案之前顯示在預覽區域的引導文字。"
+        }
+      }
+    },
+    "scrolling-card": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scrolling-card)",
+      "name": "滾動卡片"
+    },
+    "scroll-scatter": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/scroll-scatter)",
+      "name": "滾動散佈"
+    },
+    "store-location": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/other-pages/store-location)",
+      "name": "門店位置",
+      "settings": {
+        "key_google_map": {
+          "label": "Google Maps API 金鑰",
+          "info": "需要 'Maps JavaScript'、'Places' 和 'Geocoding' API。[獲取金鑰](https://console.cloud.google.com/google/maps-apis/credentials)。"
+        },
+        "map_settings": {
+          "header": "地圖設定"
+        },
+        "allowed_countries": {
+          "label": "允許的國家",
+          "info": "控制客戶可以搜尋門店的地區。使用 ISO 國家程式碼（例如 US、UK、CA），用逗號分隔。留空可全球搜尋。"
+        },
+        "radius_km": {
+          "label": "搜尋半徑 (km)",
+          "info": "門店結果的最大距離。"
+        }
+      },
+      "blocks": {
+        "name": "門店",
+        "settings": {
+          "store_name": {
+            "label": "門店名稱"
+          },
+          "store_address": {
+            "label": "門店地址"
+          },
+          "store_email": {
+            "label": "門店郵箱"
+          },
+          "store_phone": {
+            "label": "門店電話"
+          },
+          "store_lat": {
+            "label": "門店緯度",
+            "info": "從 Google Maps 座標中複製第一個數字。"
+          },
+          "store_lng": {
+            "label": "門店經度",
+            "info": "從 Google Maps 座標中複製第二個數字。"
+          },
+          "time_location": {
+            "monday": "星期一",
+            "tuesday": "星期二",
+            "wednesday": "星期三",
+            "thursday": "星期四",
+            "friday": "星期五",
+            "saturday": "星期六",
+            "sunday": "星期日",
+            "open": "營業",
+            "closed": "休息",
+            "open_time_hour": "開門時間（時）",
+            "open_time_minute": "開門時間（分）",
+            "close_time_hour": "關閉時間（時）",
+            "close_time_minute": "關閉時間（分）"
+          },
+          "time_schedule": {
+            "monday": "Schedule",
+            "tuesday": "Schedule",
+            "wednesday": "Schedule",
+            "thursday": "Schedule",
+            "friday": "Schedule",
+            "saturday": "Schedule",
+            "sunday": "Schedule"
+          }
+        }
+      }
+    },
+    "product-bundle": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/product-bundle)",
+      "name": "產品套裝",
+      "settings": {
+        "discount": {
+          "name": "Discount",
+          "info": "瞭解如何建立折扣[點選此處](https://help.shopify.com/manual/discounts)",
+          "minimum": "要求的最小專案數",
+          "maximum": "最大專案數",
+          "edit_quantity": "允許更改每個產品的數量",
+          "discount_title": "折扣碼",
+          "discount_value": {
+            "name": "折扣值",
+            "option": {
+              "fixed": {
+                "label": "固定金額",
+                "once_per_order": "每筆訂單一次"
+              },
+              "percentage": {
+                "label": "百分比"
+              }
+            }
+          }
+        },
+        "your_bundle": {
+          "name": "Discount",
+          "settings": {
+            "show_progress_bar": {
+              "label": "顯示進度條"
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "product_discount": {
+            "name": "產品套裝",
+            "info": "選中後將替換系列。"
+          }
+        }
+      }
+    },
+    "shopable-image": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/shopable-image)",
+      "name": "可購物圖片",
+      "blocks": {
+        "tags": {
+          "name": "標籤",
+          "info": "定義標籤名稱。用逗號分隔。例如：Tag 1,Tag 2",
+          "info_image": "建議尺寸 448px x 600px",
+          "settings": {
+            "show_verify_icon": {
+              "label": "顯示勾選圖示"
+            }
+          }
+        },
+        "lookbook": {
+          "name": "Lookbook",
+          "settings": {
+            "products": {
+              "label": "Products",
+              "position_top": "垂直位置",
+              "position_left": "水平位置",
+              "products": {
+                "otpion__1": {
+                  "label": "產品 1"
+                },
+                "otpion__2": {
+                  "label": "產品 2"
+                },
+                "otpion__3": {
+                  "label": "產品 3"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parallax-image": {
+      "blocks": {
+        "icon": {
+          "name": "圖示",
+          "info": "覆蓋 svg 圖示設定"
+        }
+      }
+    },
+    "main-page": {
+      "name": "頁面"
+    },
+    "subcollection-list": {
+      "name": "子系列",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/collection-page/page-template-sections/sub-collection)"
+    },
+    "before-you-leave": {
+      "name": "離開前提醒",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/global-sections/overlay-group/before-you-leave)",
+      "settings": {
+        "header": {
+          "recommended_products": "推薦產品"
+        },
+        "show_time": {
+          "label": "延遲顯示時間（秒）"
+        },
+        "banner": {
+          "label": "橫幅圖片",
+          "info": "建議尺寸 380px x 423px"
+        },
+        "collection": {
+          "label": "Collection"
+        },
+        "code": {
+          "label": "折扣碼"
+        }
+      }
+    },
+    "advanced-slideshow": {
+      "block": {
+        "slide": "幻燈片",
+        "settings": {
+          "type": {
+            "label": "型別",
+            "image": {
+              "label": "Image"
+            },
+            "video": {
+              "label": "Video"
+            }
+          },
+          "media_overlay": {
+            "label": "媒體疊加"
+          }
+        }
+      }
+    },
+    "custom_section": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/advanced/flexible-section)",
+      "name": "靈活區塊",
+      "settings": {
+        "layout": {
+          "label": "佈局",
+          "direction": {
+            "label": "方向",
+            "options__1": {
+              "label": "Vertical"
+            },
+            "options__2": {
+              "label": "Horizontal"
+            }
+          },
+          "vertical_on_mobile": {
+            "label": "移動端垂直排列"
+          },
+          "content_wrap": {
+            "label": "內容換行"
+          },
+          "height": {
+            "label": "Height",
+            "options": {
+              "auto": {
+                "label": "自動"
+              },
+              "custom": {
+                "label": "Custom"
+              }
+            },
+            "custom_height": {
+              "label": "自定義高度"
+            }
+          },
+          "gap": {
+            "label": "間隙"
+          },
+          "position": {
+            "label": "位置",
+            "options__1": {
+              "label": "頂部"
+            },
+            "options__2": {
+              "label": "居中"
+            },
+            "options__3": {
+              "label": "底部"
+            }
+          },
+          "alignment": {
+            "label": "對齊",
+            "label_mobile": "移動端對齊",
+            "options__1": {
+              "label": "左"
+            },
+            "options__2": {
+              "label": "居中"
+            },
+            "options__3": {
+              "label": "右"
+            },
+            "options__4": {
+              "label": "兩端對齊"
+            }
+          },
+          "hide_on_mobile": {
+            "label": "在移動端隱藏"
+          }
+        },
+        "appearance": {
+          "header": "外觀",
+          "settings": {
+            "background_media": {
+              "label": "背景媒體",
+              "options__2": {
+                "label": "Image"
+              },
+              "options__3": {
+                "label": "Video"
+              },
+              "options__1": {
+                "label": "None"
+              }
+            },
+            "border": {
+              "label": "邊框",
+              "options": {
+                "none": "None",
+                "solid": "實線"
+              },
+              "border_color": {
+                "label": "邊框顏色"
+              },
+              "border_thickness": {
+                "label": "邊框粗細"
+              }
+            },
+            "corner_radius": {
+              "label": "圓角半徑",
+              "options": {
+                "none": {
+                  "label": "None"
+                },
+                "rounded": {
+                  "label": "圓角"
+                },
+                "custom": {
+                  "label": "Custom"
+                },
+                "inherit": {
+                  "label": "繼承",
+                  "info": "如果設定為“繼承”，此區塊將遵循主題設定 ▸ 佈局 ▸ 圓角圖片中的全域性圓角設定。"
+                }
+              },
+              "custom_radius": {
+                "label": "自定義圓角"
+              }
+            },
+            "background_overlay": {
+              "label": "背景疊加",
+              "overlay_color": {
+                "label": "疊加顏色"
+              },
+              "overlay_style": {
+                "label": "疊加樣式",
+                "options__1": {
+                  "label": "純色"
+                },
+                "options__2": {
+                  "label": "漸變"
+                }
+              },
+              "gradient_direction": {
+                "label": "漸變方向",
+                "options__1": {
+                  "label": "向上"
+                },
+                "options__2": {
+                  "label": "向下"
+                }
+              }
+            }
+          }
+        }
+      },
+      "blocks": {
+        "settings": {
+          "size": {
+            "label": "Size",
+            "height": {
+              "label": "Height"
+            },
+            "width": {
+              "label": "寬度",
+              "custom_width": {
+                "label": "自定義寬度"
+              }
+            },
+            "mobile_width": {
+              "label": "移動端寬度"
+            },
+            "options": {
+              "options__1": {
+                "label": "適應"
+              },
+              "options__2": {
+                "label": "填充"
+              },
+              "options__3": {
+                "label": "Custom"
+              },
+              "options__4": {
+                "label": "適應媒體背景"
+              }
+            }
+          },
+          "background": {
+            "label": "背景"
+          },
+          "background_color": {
+            "label": "背景顏色"
+          }
+        },
+        "heading": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/heading)",
+          "label": "預設",
+          "heading_tag": {
+            "label": "標題標籤",
+            "info": "設定標題標籤（H1–H6）以控制內容層級並提升搜尋引擎的 SEO 可讀性。",
+            "h1": "H1",
+            "h2": "H2",
+            "h3": "H3",
+            "h4": "H4",
+            "h5": "H5",
+            "h6": "H6"
+          },
+          "custom": "Custom",
+          "default": "Default",
+          "paragraph": "段落",
+          "h1": "標題 1",
+          "h2": "標題 2",
+          "h3": "標題 3",
+          "h4": "標題 4",
+          "h5": "標題 5",
+          "h6": "標題 6",
+          "h7": "標題 7",
+          "info": {
+            "edit_presets_in_theme_settings": "在[主題設定](/editor?context=theme&category=typography)中編輯預設",
+            "label": "字號"
+          },
+          "text_alignment": {
+            "desktop": "對齊",
+            "mobile": "移動端對齊"
+          }
+        },
+        "logo": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "徽標",
+          "settings": {
+            "size": {
+              "name": "Size",
+              "unit": {
+                "label": "單位",
+                "option__1": {
+                  "label": "畫素"
+                },
+                "option__2": {
+                  "label": "百分比"
+                }
+              },
+              "custom_mobile_size": {
+                "label": "自定義移動端尺寸"
+              },
+              "height": {
+                "label": "Height"
+              },
+              "mobile": {
+                "name": "移動端尺寸"
+              }
+            }
+          }
+        },
+        "email_subscription": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/newsletter)",
+          "name": "電子報"
+        },
+        "contact_form": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/forms/contact-form)",
+          "name": "聯絡表單",
+          "settings": {
+            "name": "姓名",
+            "email": "Email",
+            "message": "留言",
+            "select_label": "選擇標籤",
+            "default_select_label": "主題",
+            "option": "選項",
+            "default_option": "產品, 訂單, 媒體, 其他",
+            "phone": "電話",
+            "submit_button": "提交按鈕",
+            "default_submit_button": "提交"
+          }
+        },
+        "accordion": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/accordion)",
+          "name": "手風琴",
+          "settings": {
+            "icon_style": {
+              "style": "樣式",
+              "label": "圖示樣式",
+              "caret": "箭頭",
+              "plus": "加號"
+            },
+            "row_style": {
+              "label": "行樣式",
+              "background": "背景",
+              "divider": "分隔線"
+            },
+            "background_color": "背景顏色",
+            "row_spacing": "專案間距",
+            "gap_row": "間隙",
+            "padding_row": "內邊距",
+            "gap_content": "間距",
+            "accordion_row": "手風琴行",
+            "default_accordion_row": "手風琴標題",
+            "accordion_content": "手風琴內容",
+            "settings": {
+              "heading": "標題",
+              "heading_size": "標題尺寸",
+              "heading_weight": "標題字重",
+              "body_weight": "正文字重",
+              "open_default": {
+                "label": "預設展開"
+              }
+            }
+          }
+        },
+        "group": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/group)",
+          "name": "分組",
+          "settings": {
+            "link": "連結",
+            "open_in_new_tab": {
+              "label": "在新標籤頁開啟連結"
+            }
+          }
+        },
+        "carousel": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/carousel)",
+          "name": "輪播"
+        },
+        "text": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/text)",
+          "name": "Text",
+          "default_text": "我們打造更好用、更耐用的產品。以簡潔設計和誠實材料解決真實問題。",
+          "text_color": {
+            "label": "文字顏色",
+            "body_color": "正文顏色",
+            "heading_color": "標題顏色"
+          }
+        },
+        "button": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/button)"
+        },
+        "icon": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/basic/icon)"
+        },
+        "page": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "頁面",
+          "inherit_color_scheme": "繼承配色方案",
+          "appearance": "外觀",
+          "spacing": "間距"
+        },
+        "spacer": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/spacer)",
+          "name": "間距",
+          "mobile_settings": {
+            "label": "移動端設定"
+          }
+        },
+        "divider": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "分隔線",
+          "settings": {
+            "thickness": "粗細",
+            "size": "Size",
+            "color": "Color"
+          }
+        },
+        "icon_list": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "圖示列表",
+          "item": "專案",
+          "open_new_tab": "在新標籤頁開啟"
+        },
+        "alert": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "提示",
+          "dismiss_icon": "關閉圖示",
+          "display_dismiss_icon": "顯示關閉圖示"
+        },
+        "social_icons": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "社交圖示",
+          "circle": "圓形",
+          "rounded": "圓角",
+          "square": "方形",
+          "shape": "形狀",
+          "color": "Color",
+          "backgroup_color": "背景顏色"
+        },
+        "progress_bar": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/page-heading)",
+          "name": "進度條",
+          "text_color": "文字顏色",
+          "percentage": "百分比",
+          "border_radius": "圓角半徑",
+          "display_percentage": "顯示百分比",
+          "inner_text": "內部文字"
+        },
+        "counter": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/counter)",
+          "name": "計數器",
+          "counter_style": {
+            "label": "計數器樣式",
+            "default": "Default",
+            "circle": "圓形"
+          },
+          "counter_layout": {
+            "label": "計數器佈局",
+            "horizontal": "Horizontal",
+            "vertical": "Vertical"
+          },
+          "number_position": "數字位置",
+          "space_between": "間距",
+          "before_title": "標題之前",
+          "after_title": "標題之後",
+          "number_alignment": "數字對齊",
+          "stroke_color": "描邊顏色",
+          "indicator_color": "指示器顏色",
+          "background_color": "背景顏色",
+          "text_color": "文字顏色",
+          "ending_number": "結束數字",
+          "starting_number": "起始數字",
+          "animation": "動畫時長 (ms)"
+        },
+        "map": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/google-maps)",
+          "name": "Google 地圖",
+          "location": "位置",
+          "longitude": "經度",
+          "latitude": "緯度"
+        },
+        "jumbo_text": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/sections/custom-liquid)",
+          "name": "超大文字"
+        },
+        "tab": {
+          "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/layout/tab)",
+          "name": "選項卡",
+          "tab_row": "選項卡項",
+          "settings": {
+            "heading": "標題樣式",
+            "heading_preset": "標題預設",
+            "heading_alignment": "標題對齊",
+            "heading_color": "標題顏色",
+            "content": "內容樣式",
+            "content_alignment": "內容對齊"
+          }
+        },
+        "icon_with_text": {
+          "name": "圖示與文字",
+          "icon_first": "第一個圖示",
+          "icon_second": "第二個圖示",
+          "svg_custom": "自定義 SVG"
+        },
+        "popup_link": {
+          "button_type_link": {
+            "label": "按鈕型別",
+            "primary": {
+              "label": "主要"
+            },
+            "outline": {
+              "label": "描邊"
+            },
+            "link": {
+              "label": "連結"
+            }
+          },
+          "popup_style": {
+            "label": "彈窗樣式"
+          },
+          "popup_type": {
+            "label": "彈窗型別"
+          },
+          "popup_width": {
+            "label": "桌面彈窗寬度"
+          },
+          "icon_type": {
+            "label": "圖示型別",
+            "none": "None",
+            "arrow": "箭頭",
+            "image": {
+              "label": "Image",
+              "size": "Size"
+            }
+          }
+        }
+      },
+      "preset": {
+        "promotion_banner": "靈活：促銷橫幅",
+        "flexible_marquee": "靈活：跑馬燈",
+        "story_tabs": "靈活：分頁"
+      }
+    },
+    "text_image_pairing": {
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-blocks/decorative/text-image-pairing)",
+      "name": "文字圖片配對",
+      "settings": {
+        "text_default": "\"擁有你的光彩[image_1]滑動 混合 閃耀 <br/> 感受美麗[image_2]被完整看見[image_3]慶祝。\"",
+        "info": {
+          "label": "使用特定佔位符格式 `[image_X]` 指定圖片出現的位置。X 是圖片索引。例如：`[image_1]` 將被第一張圖片替換。"
+        },
+        "images": {
+          "label": "圖片",
+          "image_style": {
+            "label": "圖片樣式"
+          },
+          "image_1": {
+            "label": "圖片 #1"
+          },
+          "image_2": {
+            "label": "圖片 #2"
+          },
+          "image_3": {
+            "label": "圖片 #3"
+          }
+        }
+      }
+    },
+    "product_sizing": {
+      "name": "產品尺碼",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/product-information)",
+      "info": "幫助客戶瞭解產品合身情況並自信地選擇合適尺碼。"
+    },
+    "size_recommendation": {
+      "name": "尺碼推薦",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/collection-and-product-page/product-page/page-template-sections/size-recommendation)",
+      "info": "透過身高、體重、體型、胸圍和罩杯等簡單輸入，幫助客戶找到合適尺碼。",
+      "data_usage_notice": {
+        "label": "資料使用說明",
+        "info": "此訊息說明客戶詳情如何用於尺碼推薦。您可以自定義措辭以匹配商店的隱私語氣。"
+      },
+      "no_size_match": {
+        "label": "無匹配尺碼訊息",
+        "info": "當沒有尺碼匹配客戶輸入時顯示的訊息。"
+      },
+      "fit_recommendation_note": {
+        "label": "合身推薦備註",
+        "info": "在尺碼推薦結果後顯示。"
+      }
+    },
+    "sticky_image_with_text": {
+      "name": "黏性圖片與文字",
+      "blocks": {
+        "group_text": {
+          "name": "文字群組",
+          "image": {
+            "label": "捲動時的圖片",
+            "info": "當此組捲入檢視時，顯示在固定圖片中。留空則保留上一張圖片。需要在區塊設定中開啟「捲動時更換圖片」。"
+          }
+        },
+        "list_tag": {
+          "name": "標籤列表",
+          "tags": {
+            "label": "標籤",
+            "info": "以逗號分隔每個標籤。"
+          },
+          "show_check": {
+            "label": "顯示勾選圖示"
+          },
+          "chip_style": {
+            "label": "標籤樣式"
+          }
+        }
+      },
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/banners/sticky-image-with-text)",
+      "settings": {
+        "hide_image_mobile": {
+          "label": "在行動裝置上隱藏圖片"
+        },
+        "change_image_on_scroll": {
+          "label": "捲動時更換圖片",
+          "info": "當每個文字組捲入檢視時更換固定圖片。請在每個文字組中設定圖片，不使用區塊圖片。僅限桌面。"
+        }
+      }
+    },
+    "testimonial-images": {
+      "name": "評價圖片",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/testimonial-images)",
+      "settings": {
+        "show_author_image": "顯示作者圖片",
+        "hide_image_on_mobile": {
+          "label": "在行動裝置上隱藏圖片"
+        }
+      },
+      "blocks": {
+        "review": "評價",
+        "settings": {
+          "author_image": "作者圖片"
+        }
+      }
+    },
+    "flow": {
+      "name": "流程",
+      "blocks": {
+        "step": {
+          "name": "步驟",
+          "heading": {
+            "label": "標題"
+          },
+          "image": {
+            "label": "圖片"
+          },
+          "product": {
+            "label": "產品"
+          }
+        }
+      },
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/flow)"
+    },
+    "parallax-scroll": {
+      "name": "視差捲動",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/parallax-scroll)",
+      "instructions": "最多新增 7 張卡片。卡片左右交替排列，每第三張卡片會自動內縮。",
+      "blocks": {
+        "info_card": {
+          "name": "資訊卡片"
+        }
+      },
+      "settings": {
+        "card_width": {
+          "label": "卡片寬度",
+          "info": "設定桌面上的最大卡片寬度。在較小螢幕上，卡片仍保持回應式。"
+        },
+        "button_link": {
+          "info": "如果留空，按鈕會顯示為停用狀態。"
+        },
+        "button_type": {
+          "info": "使用主題設定的按鈕樣式。"
+        }
+      }
+    },
+    "benefit-tabs": {
+      "name": "優勢分頁",
+      "how_to_use": "為每個分頁新增一個優勢分頁區塊，然後在每個分頁內新增優勢區塊。",
+      "settings": {
+        "text_alignment": {
+          "info": "同時對齊分頁按鈕。"
+        },
+        "mobile_alignment": {
+          "info": "在手機和平板電腦上對齊優勢。在桌面版，優勢朝向媒體對齊。"
+        }
+      },
+      "blocks": {
+        "tab": {
+          "name": "優勢分頁",
+          "how_to_use": "為保持版面均衡，建議最多新增 6 個優勢區塊。在桌面版，奇數優勢位於媒體左側，偶數優勢位於右側。",
+          "settings": {
+            "tab_label": {
+              "label": "分頁名稱"
+            },
+            "image": {
+              "label": "之前的圖片",
+              "info": "建議使用 950 x 1060px"
+            },
+            "image_after": {
+              "label": "之後的圖片",
+              "info": "使用與之前圖片相同的尺寸。訪客捲動時會顯示之後的圖片。"
+            }
+          }
+        },
+        "benefit": {
+          "settings": {
+            "icon": {
+              "info": "為空時顯示佔位圖。建議使用 120 x 120px"
+            }
+          }
+        }
+      }
+    },
+    "comparison-table": {
+      "name": "比較表",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/products/comparison-table)",
+      "settings": {
+        "table": {
+          "label": "表格"
+        },
+        "comparison_heading": {
+          "label": "比較標題"
+        },
+        "show_column_images": {
+          "label": "顯示欄圖片"
+        },
+        "color_column_highlight": {
+          "label": "欄高亮顏色"
+        },
+        "table_notes": {
+          "label": "表格備註"
+        },
+        "show_labels": {
+          "label": "顯示標籤"
+        },
+        "first_label": {
+          "label": "第一個標籤"
+        },
+        "second_label": {
+          "label": "第二個標籤"
+        },
+        "button_link": {
+          "label": "連結"
+        }
+      },
+      "blocks": {
+        "column": {
+          "name": "欄",
+          "settings": {
+            "highlight": {
+              "label": "高亮此欄"
+            }
+          }
+        },
+        "row": {
+          "name": "列",
+          "settings": {
+            "icon_info": "選擇此欄中值的顯示方式。",
+            "image_info": "選擇「圖片」時，新增要顯示的圖片。",
+            "value": {
+              "yes": "是",
+              "no": "否"
+            },
+            "text_1": {
+              "label": "第 1 欄文字",
+              "info": "選擇「文字」時顯示。值依欄的順序對應，調整欄區塊順序時請留意。"
+            },
+            "icon_1": {
+              "label": "第 1 欄圖示"
+            },
+            "image_1": {
+              "label": "第 1 欄圖片"
+            },
+            "text_2": {
+              "label": "第 2 欄文字",
+              "info": "選擇「文字」時顯示。"
+            },
+            "icon_2": {
+              "label": "第 2 欄圖示"
+            },
+            "image_2": {
+              "label": "第 2 欄圖片"
+            },
+            "text_3": {
+              "label": "第 3 欄文字",
+              "info": "選擇「文字」時顯示。"
+            },
+            "icon_3": {
+              "label": "第 3 欄圖示"
+            },
+            "image_3": {
+              "label": "第 3 欄圖片"
+            },
+            "text_4": {
+              "label": "第 4 欄文字",
+              "info": "選擇「文字」時顯示。僅當表格有四欄時使用。"
+            },
+            "icon_4": {
+              "label": "第 4 欄圖示"
+            },
+            "image_4": {
+              "label": "第 4 欄圖片"
+            },
+            "column_1": "第 1 欄",
+            "column_2": "第 2 欄",
+            "column_3": "第 3 欄",
+            "column_4": "第 4 欄"
+          }
+        }
+      }
+    },
+    "image-with-text-carousel": {
+      "name": "圖文輪播",
+      "how_to_use": "[瞭解如何使用此區塊](https://nextsky.gitbook.io/purity-theme/group-sections/storytelling/image-with-text-carousel)",
+      "settings": {
+        "show_slide_counter": {
+          "label": "顯示幻燈片編號"
+        }
+      },
+      "blocks": {
+        "slide": {
+          "icon_info": "建議使用 80 x 80px 的 .png 或 .svg"
+        }
+      }
+    },
+    "recommended-collection-filters": {
+      "name": "推薦篩選器"
+    }
+  },
+  "blocks": {
+    "quiz-step": {
+      "name": "測驗問題",
+      "settings": {
+        "stepper_label": {
+          "label": "步驟標籤",
+          "info": "顯示在進度條上的簡短標籤。例如：膚質、關注點。"
+        },
+        "question_id": {
+          "label": "問題 ID",
+          "info": "此問題的唯一 ID。供選項上的跳過問題使用（例如 q1、q2）。"
+        },
+        "layout": {
+          "label": "選項佈局",
+          "options": {
+            "pill": "膠囊按鈕",
+            "image": "圖片圓圈"
+          }
+        }
+      }
+    },
+    "quiz-option": {
+      "name": "測驗選項",
+      "settings": {
+        "label": {
+          "label": "標籤"
+        },
+        "image": {
+          "label": "Image",
+          "info": "當問題佈局為圖片圓圈時使用。"
+        },
+        "product_matching_header": "結果產品",
+        "strong_match": {
+          "label": "主要產品",
+          "info": "當購物者選擇此答案時，在測驗結果中優先顯示。"
+        },
+        "partial_match": {
+          "label": "附加產品",
+          "info": "在測驗結果中顯示在主要產品之後。"
+        },
+        "exclude": {
+          "label": "永不推薦",
+          "info": "當購物者選擇此答案時，即使這些產品出現在其他答案中，也將其排除在結果之外。"
+        },
+        "skip_questions_header": "問題邏輯",
+        "skip_questions": {
+          "label": "跳過問題",
+          "info": "輸入選擇此答案時要跳過的問題 ID。例如：q3, q4"
+        }
+      }
+    }
+  }
+}

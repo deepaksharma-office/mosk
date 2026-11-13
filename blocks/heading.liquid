@@ -1,0 +1,262 @@
+{% liquid
+  assign section_st = section.settings
+  assign block_st = block.settings
+  assign type_preset = block_st.type_preset
+  assign drawn_underline = block_st.drawn_underline
+  assign drawn_underline_type = block_st.drawn_underline_type
+  assign drawn_underline_color = block_st.drawn_underline_color
+  assign content_alignment = section_st.text_alignment
+  assign text_alignment_mobile = section_st.text_alignment_mobile
+
+  assign content_alignment = content_alignment | default: 'start'
+  assign text_alignment_mobile = text_alignment_mobile | default: content_alignment
+
+  if block_st.use_richtext
+    assign heading_output = block_st.heading_richtext
+  else
+    assign heading_output = block_st.heading
+    assign drawn_underline = false
+  endif
+
+  assign text_highlight = false
+  if drawn_underline and drawn_underline_type == 'text_highlight'
+    assign text_highlight = true
+    assign drawn_underline = false
+  endif
+%}
+
+{%- if drawn_underline -%}
+  {%- capture squiggle_svg_1 -%}
+    <svg viewBox="0 0 184 26" fill="none"><use href="#squiggle-svg-1" /></svg>
+  {%- endcapture -%}
+  {%- capture squiggle_svg_2 -%}
+    <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-2" /></svg>
+  {%- endcapture -%}
+  {%- capture squiggle_svg_3 -%}
+    <svg viewBox="0 0 186 24" fill="none"><use href="#squiggle-svg-3" /></svg>
+  {%- endcapture -%}
+  {%- capture squiggle_svg_4 -%}
+    <svg viewBox="0 0 220 20" fill="none"><use href="#squiggle-svg-4" /></svg>
+  {%- endcapture -%}
+  {%- capture squiggle_svg_5 -%}
+    <svg viewBox="0 0 140 24" fill="none" role="presentation" preserveAspectRatio="none"><use href="#squiggle-svg-5" /></svg>
+  {%- endcapture -%}
+  {%- assign parts = heading_output | split: '<em>' -%}
+  {%- assign em_count = parts | size | minus: 1 -%}
+
+  {%- for i in (1..em_count) -%}
+    {%- assign idx = i | plus: 0 -%}
+    {%- assign chunk = parts[idx] | default: '' -%}
+    {%- assign em_text = chunk | split: '</em>' | first | strip_html | strip -%}
+    {%- assign len_text = em_text | size -%}
+    {%- capture open_em -%}
+      {%- liquid
+        if drawn_underline_type == 'simple_underline'
+          assign svg = squiggle_svg_4 | append: '</em>'
+        elsif drawn_underline_type == 'curve_underline'
+          assign svg = squiggle_svg_5 | append: '</em>'
+        else
+          if len_text <= 4
+            assign svg = squiggle_svg_1 | append: '</em>'
+          elsif len_text <= 6
+            assign svg = squiggle_svg_2 | append: '</em>'
+          else
+            assign svg = squiggle_svg_3 | append: '</em>'
+          endif
+        endif
+      -%}
+      <em class="highlighted-text relative inline-flex{% if drawn_underline_type == 'simple_underline' %} simple_underline{% endif %} {{ drawn_underline_type }} not-italic" style="--animate-color:{{ drawn_underline_color }}">{{ svg }}</em>
+    {%- endcapture -%}
+    {%- assign open_em = open_em | remove: '</em>' -%}
+    {%- assign heading_output = heading_output | replace_first: '<em>', open_em -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- if text_highlight -%}
+  {%- assign open_em = '<em class="highlighted-text highlighted-text--text not-italic" style="--animate-color:'
+    | append: drawn_underline_color
+    | append: '">'
+  -%}
+  {%- assign heading_output = heading_output | replace: '<em>', open_em -%}
+{%- endif -%}
+
+{% capture style %}
+--space-bottom: {{ block.settings.padding_bottom }};--space-top: {{ block.settings.padding_top }};
+--bg-color-custom: {{ block_st.background_color | default: '#000000' }};
+--radius: {{ block_st.border_radius }}px;
+{% endcapture %}
+
+{% if request.visual_preview_mode %}
+  <div
+    class="block__heading inline-block pb-sp-2 rounded-5 text-center"
+    {{ block.shopify_attributes }}
+  >
+    <div class="h4">{{ heading_output }}</div>
+  </div>
+{% else %}
+  <div
+    class="block__heading justify_block mb-custom mt-custom{% if block_st.padding_bottom > 10 %} mb_auto-rsp{% endif %}{% if block_st.padding_top > 10 %} mt_auto-rsp{% endif %} {{ type_preset }} justify-content-{{ text_alignment_mobile }}{% if text_alignment_mobile == blank %} justify-content-{{ content_alignment }}{% else %} flex-md-{{ content_alignment }}{% endif %}"
+    style="{{ style | strip | strip_newlines }}"
+    {{ block.shopify_attributes }}
+  >
+    {%- if drawn_underline -%}
+      <motion-effect
+        data-animate="highlighted-text"
+        class="block"
+      >
+    {%- endif -%}
+    <div
+      class="rounded-custom w-full"
+      {{ block.shopify_attributes }}
+    >
+      {{ heading_output }}
+    </div>
+    {%- if drawn_underline -%}
+      </motion-effect>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+{% stylesheet %}
+  .highlighted-text--text {
+    color: var(--animate-color);
+  }
+{% endstylesheet %}
+{% schema %}
+{
+  "name": "t:sections.all.content_setting.heading.label",
+  "class": "w-full",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.all.product_setting.promotion_alert.heading.how_to_use"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_richtext",
+      "label": "t:sections.product_testimonials.blocks.settings.information.use_richtext.label",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Talk about your brand",
+      "label": "t:sections.all.content_setting.heading.label",
+      "visible_if": "{{ block.settings.use_richtext == false }}"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading_richtext",
+      "default": "Talk about your brand",
+      "label": "t:sections.all.content_setting.heading.label",
+      "visible_if": "{{ block.settings.use_richtext }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "drawn_underline",
+      "default": false,
+      "label": "t:sections.all.content_setting.heading_block_highlight.label",
+      "info": "t:sections.all.content_setting.heading_block_highlight.info",
+      "visible_if": "{{ block.settings.use_richtext }}"
+    },
+    {
+      "type": "select",
+      "id": "drawn_underline_type",
+      "label": "t:sections.all.content_setting.heading_block_highlight.type",
+      "default": "squiggle_underline",
+      "visible_if": "{{ block.settings.use_richtext and block.settings.drawn_underline != false }}",
+      "options": [
+        {
+          "value": "simple_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.simple_underline"
+        },
+        {
+          "value": "curve_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.curve_underline"
+        },
+        {
+          "value": "squiggle_underline",
+          "label": "t:sections.all.content_setting.drawn_underline.value.squiggle_underline"
+        },
+        {
+          "value": "text_highlight",
+          "label": "t:sections.all.content_setting.heading_block_highlight.text_highlight"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "drawn_underline_color",
+      "label": "t:sections.all.content_setting.heading_block_highlight.color",
+      "default": "#FFB005",
+      "alpha": true,
+      "visible_if": "{{ block.settings.use_richtext and block.settings.drawn_underline != false }}"
+    },
+    {
+      "type": "header",
+      "content": "t:settings_schema.typography.name"
+    },
+    {
+      "type": "select",
+      "id": "type_preset",
+      "label": "t:sections.custom_section.blocks.heading.label",
+      "options": [
+        {
+          "value": "",
+          "label": "t:sections.custom_section.blocks.heading.default"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.custom_section.blocks.heading.h1"
+        },
+        {
+          "value": "h2",
+          "label": "t:sections.custom_section.blocks.heading.h2"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.custom_section.blocks.heading.h3"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.custom_section.blocks.heading.h4"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.custom_section.blocks.heading.h5"
+        },
+        {
+          "value": "h6",
+          "label": "t:sections.custom_section.blocks.heading.h6"
+        }
+      ],
+      "default": "h2",
+      "info": "t:sections.custom_section.blocks.heading.info.edit_presets_in_theme_settings"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.page.spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 10
+    }
+  ],
+  "presets": [{ "name": "t:sections.all.content_setting.heading.label", "category": "t:sections.group.blocks.basic" }]
+}
+{% endschema %}

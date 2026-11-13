@@ -1,0 +1,290 @@
+{%- liquid
+  assign section_st = section.settings
+
+  if section_st.section_width == 'fix_width'
+    assign section_width = 'container'
+  elsif section_st.section_width == 'full_width'
+    assign section_width = 'full-width'
+  else
+    assign section_width = 'fluid_container'
+  endif
+
+  assign use_collection_image = section_st.use_collection_image
+  assign banner_image = section_st.image
+  if use_collection_image
+    if collection.image != blank
+      assign banner_image = collection.image
+    elsif section_st.image == blank
+      assign banner_image = blank
+    endif
+  endif
+
+  assign has_banner_image = false
+  if banner_image != blank
+    assign has_banner_image = true
+  endif
+
+  assign show_banner_media = false
+  if has_banner_image
+    assign show_banner_media = true
+  elsif use_collection_image
+    assign show_banner_media = true
+  endif
+
+  assign alt = banner_image.alt | default: collection.title | escape
+  assign image_height = section_st.image_height
+  if show_banner_media == false and image_height == 'adapt'
+    assign image_height = 'base_on_content'
+  endif
+
+  assign adapt_ratio = '5/2'
+  if image_height == 'adapt'
+    if banner_image != blank
+      assign adapt_ratio = banner_image.aspect_ratio
+    endif
+  endif
+-%}
+{%- capture style -%}
+  --section-pt: {{ section_st.padding_top }}; --section-pb: {{ section_st.padding_bottom }};--overlay-opacity: {{ section_st.image_opacity }};
+{%- endcapture -%}
+
+{%- for block in section.blocks -%}
+  {%- case block.type -%}
+    {%- when 'heading' -%}
+      {% if request.visual_preview_mode %}
+        <div {{ block.shopify_attributes }} class="fs-50">
+          {{ 'general.content.heading' | t }}
+        </div>
+      {% endif %}
+    {%- when 'description' -%}
+      {% if request.visual_preview_mode %}
+        <div {{ block.shopify_attributes }} class="fs-50">
+          {{ 'general.content.description' | t }}
+        </div>
+      {% endif %}
+  {%- endcase -%}
+{%- endfor -%}
+
+<div
+  class="section__page-heading{% if show_banner_media %} color-{{ section_st.color_scheme }}{% endif %} gradient"
+  style="{{ style | strip | strip_newlines }}"
+>
+  <div class="{{ section_width }}">
+    <div
+      class="w-full flex relative h-{{ image_height }} overflow-hidden section"
+      {%- if show_banner_media -%}
+        {%- if image_height == 'adapt' or image_height == 'full_screen' -%}
+          style="--aspect-ratio: {{ adapt_ratio }}"
+        {%- endif -%}
+      {%- endif -%}
+    >
+      {% if show_banner_media %}
+        <div
+          class="banner__media absolute{% if image_height != 'adapt' %} inset-0{% endif %} h-{{ image_height }}{% if section_st.section_width != 'full_width' %} rounded{% endif %}"
+          {%- if image_height == 'adapt' or image_height == 'full_screen' or image_height == 'base_on_content' -%}
+            style="--aspect-ratio: {{ adapt_ratio }}"
+          {%- endif -%}
+        >
+          {%- if has_banner_image -%}
+            {% render 'responsive-image',
+              type: 'banner',
+              container: section_st.section_width,
+              image: banner_image,
+              image_alt: alt,
+              fetchpriority: 'high',
+              animate: 'zoom-out-small',
+              motion: false
+            %}
+          {%- else -%}
+            {% render 'placeholder-render', type: 'collection', class: 'img-placeholder h-full w-full', motion: false %}
+          {%- endif -%}
+          <div
+            class="overlay absolute inset-0 bg-dark{% if section_width != "full-width" %} rounded{% endif %}"
+            style="--opacity: {{ section_st.image_opacity | times: 0.01 }}"
+          ></div>
+        </div>
+      {% endif %}
+      <div class="heading-content text-{% if section_st.desktop_content_position == 'middle-center' %}center{% elsif section_st.desktop_content_position == 'middle-right' %}end{% endif %} w-full flex z-2 relative {{ section_st.desktop_content_position }}">
+        <div class="flex column gap-sp-2 gap-1025-sp-4{% if show_banner_media %} px-sp-5 py-sp-8 p-1025-40{% endif %} word-break">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'breadcrumb' -%}
+                {% render 'breadcrumbs', class: 'justify-content-center' %}
+              {%- when 'heading' -%}
+                {% if collection.title != blank %}
+                  <h1 class="heading-title">
+                    {{ collection.title }}
+                  </h1>
+                {% endif %}
+              {%- when 'description' -%}
+                {% if collection.description != blank %}
+                  <div class="heading-description rte">
+                    {{ collection.description }}
+                  </div>
+                {% endif %}
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-collection-banner.name",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.main-collection-banner.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "options": [
+        {
+          "value": "fix_width",
+          "label": "t:sections.all.layout.fix_width"
+        },
+        {
+          "value": "stretch_width",
+          "label": "t:sections.all.layout.stretch_width"
+        },
+        {
+          "value": "full_width",
+          "label": "t:sections.all.layout.full_width"
+        }
+      ],
+      "default": "fix_width",
+      "label": "t:sections.all.layout.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-banner.settings.heading.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.all.image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_collection_image",
+      "default": true,
+      "label": "t:sections.main-collection-banner.settings.use_collection_image.label",
+      "info": "t:sections.main-collection-banner.settings.use_collection_image.info"
+    },
+    {
+      "type": "range",
+      "id": "image_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:sections.main-collection-banner.settings.image_opacity.label",
+      "default": 20
+    },
+    {
+      "type": "select",
+      "id": "image_height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__1.label"
+        },
+        {
+          "value": "base_on_content",
+          "label": "t:sections.main-collection-banner.settings.image_height.option__2"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.slideshow.settings.slide_height.small"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.slideshow.settings.slide_height.medium"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.slideshow.settings.slide_height.large"
+        }
+      ],
+      "default": "base_on_content",
+      "label": "t:sections.scrolling_text.settings.blocks.image.image_height.label"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_position",
+      "default": "middle-center",
+      "label": "t:sections.all.desktop_content_position.label",
+      "options": [
+        {
+          "value": "middle-left",
+          "label": "t:sections.all.desktop_content_position.options__4.label"
+        },
+        {
+          "value": "middle-center",
+          "label": "t:sections.all.desktop_content_position.options__5.label"
+        },
+        {
+          "value": "middle-right",
+          "label": "t:sections.all.desktop_content_position.options__6.label"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "breadcrumb",
+      "limit": 1,
+      "name": "t:sections.all.section_setting.page_heading.breadcrumb.label"
+    },
+    {
+      "type": "heading",
+      "limit": 1,
+      "name": "t:sections.all.content_setting.heading.label"
+    },
+    {
+      "type": "description",
+      "limit": 1,
+      "name": "t:sections.all.content_setting.description.label"
+    }
+  ]
+}
+{% endschema %}

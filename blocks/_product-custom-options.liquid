@@ -1,0 +1,371 @@
+{%- liquid
+  assign block_st = block.settings
+  assign product_placement = product.metafields.custom.product_placement.value
+  assign min_price = null
+  assign all_same_price = true
+  assign first_price = null
+  assign product_count = 0
+
+  if product_placement != blank
+    for entry in product_placement
+      assign entry_product = entry.product.value
+      if entry_product != blank
+        assign product_count = product_count | plus: 1
+        assign current_price = entry_product.price | plus: 0
+
+        if first_price == null
+          assign first_price = current_price
+          assign min_price = current_price
+        else
+          if current_price != first_price
+            assign all_same_price = false
+          endif
+          if current_price < min_price
+            assign min_price = current_price
+          endif
+        endif
+      endif
+    endfor
+  endif
+  assign check_against_inventory = true
+  if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
+    assign check_against_inventory = false
+  endif
+  if product.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+    assign quantity_rule_soldout = true
+  endif
+-%}
+{% if product_placement != blank %}
+  {{ 'custom-options-tabs.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'custom-options-tabs.js' | asset_url }}" defer type="module"></script>
+  <custom-options-modal data-product-url="{{ product.selected_or_first_available_variant.url }}">
+    <button
+      class="btn btn-reset w-full fs-16 heading-color lh-global flex align-center space-between pointer px-sp-6 py-10 rounded-30 clip-path-unset border"
+      type="button"
+      aria-haspopup="dialog"
+      aria-controls="custom-options-dialog-{{ block.id }}"
+    >
+      <div class="hidden-on-load w-full flex">
+        <div class="flex gap-sp-3 align-center flex-1">
+          <svg width="13" height="13" viewBox="0 0 10 10" fill="none">
+            <use href="#icon-plus"></use>
+          </svg>
+          <span class="body_weight">{{ block.settings.heading }}</span>
+        </div>
+        {%- if min_price != null -%}
+          <span class="custom-option-price heading-style">
+            {%- if all_same_price -%}
+              {{ min_price | money }}
+            {%- else -%}
+              {{ min_price | money }} +
+            {%- endif -%}
+          </span>
+        {%- endif -%}
+      </div>
+      {%- render 'loader' -%}
+    </button>
+  </custom-options-modal>
+  <template>
+    <custom-options
+      id="custom-options-dialog-{{ block.id }}"
+      class="custom-options-popup modal modal_type_popup active-modal-js fixed inset-0 z-22 w-full flex align-center invisible-1025 transition-drawer"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="custom-options-heading-{{ block.id }}"
+      data-product-id="{{ product.id }}"
+      data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+      data-section-id="{{ section.id }}"
+      data-text-label='{"placement": "{{ block_st.tab_1_title }}", "text": "{{ block_st.tab_2_title }}", "color": "{{ block_st.tab_3_title }}"}'
+    >
+      <modal-overlay class="modal-overlay invisible transition-drawer cursor-crosshair"></modal-overlay>
+      <div
+        class="modal-popup-inner w-full invisible-1025 flex column modal-focus transition modal-draggable rounded max-w-custom m-auto z-15 bg-white"
+        tabindex="0"
+        style="--max-width: 59.2rem;"
+      >
+        <draggable-modal
+          class="drawer__header draggable-modal drawer__header-cart flex gap-10 space-between align-center drawer-spacing border-bottom sticky"
+          style="--padding-block-desktop: 1.7rem;--padding-block:1.2rem;--padding-inline-desktop:3.2rem;"
+        >
+          <div
+            id="custom-options-heading-{{ block.id }}"
+            class="drawer__heading h5 flex gap align-center"
+            style="--gap-desktop: 8px;--gap: 8px"
+          >
+            {{ block.settings.heading }}
+          </div>
+          <button
+            is="button-close-model"
+            class="modal__close modal-button-close rounded-50 pointer btn-reset h-full flex content-center"
+            aria-label="{{ 'accessibility.close' | t }}"
+          >
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 14 14"
+              fill="none"
+              class="transition-short will-change icon-zoom"
+            >
+              <use href="#icon-close"></use>
+            </svg>
+          </button>
+        </draggable-modal>
+        <div class="drawer__body grow-1 h-full overflow-y-auto overflow-x-hidden custom-scrollbar drawer-spacing">
+          <div class="product-custom-options overflow-hidden">
+            <div class="custom-options-hidden-inputs" style="display: none;">
+              <input type="hidden" name="items[1][id]" class="hidden-placement-id" value="">
+              <input
+                type="hidden"
+                name="items[1][properties][_main_product_image]"
+                class="hidden-main-image"
+                value="{{ product.featured_image | image_url }}"
+              >
+              <input type="hidden" name="items[1][properties][_uniq_id]" class="hidden-uniq-id-1" value="">
+              <input type="hidden" name="items[1][properties][_embroidery]" value="true">
+              <input
+                type="hidden"
+                name="items[1][properties][_main_product_sku]"
+                class="hidden-main-sku"
+                value="{{ product.selected_or_first_available_variant.sku }}"
+              >
+              <input
+                type="hidden"
+                name="items[1][properties][_main_product_url]"
+                class="hidden-main-url"
+                value="{{ product.url }}"
+              >
+              <input type="hidden" name="items[1][properties][_checked_inputs]" class="hidden-checked-inputs" value="">
+              <input type="hidden" name="items[0][properties][_uniq_id]" class="hidden-uniq-id-0" value="">
+            </div>
+
+            <div class="custom-options-tabs w-full">
+              <div
+                class="tabs-navigation flex gap-sp-3 text-center space-between align-end mb-sp-5 mb-1025-sp-8 relative px-10"
+                role="tablist"
+                aria-label="{{ block.settings.heading | escape }}"
+                style="--max-width: 33%"
+              >
+                <div
+                  class="tab-btn stepper-item relative flex align-center z-1 column flex-1 fs-big-2 active pointer max-w-custom-all"
+                  data-tab="{{ block.id }}-placement"
+                  data-index="1"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tab-placement"
+                  tabindex="0"
+                >
+                  <span class="stepper-label mb-sp-1 transition text-color word-break" style="--color-text: #666666">
+                    {{ block_st.tab_1_title }}
+                  </span>
+                  <span
+                    class="stepper-dot w-custom h-custom rounded-50 bg-white border transition z-1"
+                    style="--height: 16px;--width: 16px;--border-height: 5px;--color-border: #e0e0e0;"
+                  ></span>
+                </div>
+                <div
+                  class="tab-btn stepper-item relative flex align-center z-1 column flex-1 fs-big-2 pointer max-w-custom-all"
+                  data-tab="{{ block.id }}-text"
+                  data-index="2"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tab-text"
+                  tabindex="0"
+                >
+                  <span class="stepper-label mb-sp-1 transition text-color word-break" style="--color-text: #666666">
+                    {{ block_st.tab_2_title }}
+                  </span>
+                  <span
+                    class="stepper-dot w-custom h-custom rounded-50 bg-white border transition z-1"
+                    style="--height: 16px;--width: 16px;--border-height: 5px;--color-border: #e0e0e0;"
+                  ></span>
+                </div>
+                <div
+                  class="tab-btn stepper-item relative flex align-center z-1 column flex-1 fs-big-2 pointer max-w-custom-all"
+                  data-tab="{{ block.id }}-color"
+                  data-index="3"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tab-color"
+                  tabindex="0"
+                >
+                  <span class="stepper-label mb-sp-1 transition text-color word-break" style="--color-text: #666666">
+                    {{ block_st.tab_3_title }}
+                  </span>
+                  <span
+                    class="stepper-dot w-custom h-custom rounded-50 bg-white border transition z-1"
+                    style="--height: 16px;--width: 16px;--border-height: 5px;--color-border: #e0e0e0;"
+                  ></span>
+                </div>
+              </div>
+
+              <div class="tabs-content relative">
+                <div
+                  class="tab-panel block fadeIn active"
+                  id="tab-placement"
+                  data-tab-content="{{ block.id }}-placement"
+                  role="tabpanel"
+                  aria-hidden="false"
+                  data-index="1"
+                >
+                  {% content_for 'block', type: '_custom-placement', id: 'placement' %}
+                  <div class="tab-actions mt-sp-8">
+                    <button
+                      class="btn-next btn btn-primary w-full"
+                      data-next-tab="{{ block.id }}-text"
+                      data-index="2"
+                      type="button"
+                    >
+                      {{ 'products.custom_options.next' | t }}: {{ block_st.tab_2_title }}
+                    </button>
+                  </div>
+                </div>
+
+                <div
+                  class="tab-panel block fadeIn"
+                  id="tab-text"
+                  data-tab-content="{{ block.id }}-text"
+                  role="tabpanel"
+                  data-index="2"
+                  aria-hidden="true"
+                  hidden
+                >
+                  {% content_for 'block', type: '_custom-text', id: 'text' %}
+                  <div class="tab-actions mt-sp-8 w-full flex gap-sp-3 mt-sp-8">
+                    <button
+                      class="btn-back btn btn-outline w-fit w-1025-full min-w-custom"
+                      data-back-tab="{{ block.id }}-placement"
+                      data-index="1"
+                      type="button"
+                      style="--btn-bg: #fff;--min-width: 13rem;"
+                    >
+                      {{ 'products.custom_options.back' | t }}
+                    </button>
+                    <button
+                      class="btn-next btn btn-primary w-full"
+                      data-next-tab="{{ block.id }}-color"
+                      data-index="3"
+                      type="button"
+                    >
+                      {{ 'products.custom_options.next' | t }}: {{ block_st.tab_3_title }}
+                    </button>
+                  </div>
+                </div>
+
+                <div
+                  class="tab-panel block fadeIn"
+                  id="tab-color"
+                  data-tab-content="{{ block.id }}-color"
+                  role="tabpanel"
+                  aria-hidden="true"
+                  hidden
+                  data-index="3"
+                >
+                  {% content_for 'block', type: '_custom-color', id: 'color' %}
+                  <div class="tab-actions mt-sp-8 w-full flex gap-sp-3 mt-sp-8">
+                    <button
+                      class="btn-back btn btn-outline w-fit w-1025-full min-w-custom"
+                      data-back-tab="{{ block.id }}-text"
+                      data-index="2"
+                      type="button"
+                      style="--btn-bg: #fff;--min-width: 13rem;"
+                    >
+                      {{ 'products.custom_options.back' | t }}
+                    </button>
+                    <button
+                      class="btn-add-to-cart btn btn-primary w-full"
+                      type="button"
+                      disabled
+                      aria-disabled="true"
+                      data-label="
+                        {%- if product.selected_or_first_available_variant == null -%}
+                          {{ 'products.product.unavailable' | t }}
+                        {%- elsif product.selected_or_first_available_variant.available == false
+                          or quantity_rule_soldout
+                        -%}
+                          {{ 'products.product.sold_out' | t }}
+                        {%- else -%}
+                          {{ 'products.product.add_to_cart' | t }}
+                        {%- endif -%}
+                      "
+                    >
+                      <span class="hidden-on-load" aria-live="polite" aria-atomic="true">
+                        {%- if product.selected_or_first_available_variant == null -%}
+                          {{ 'products.product.unavailable' | t }}
+                        {%- elsif product.selected_or_first_available_variant.available == false
+                          or quantity_rule_soldout
+                        -%}
+                          {{ 'products.product.sold_out' | t }}
+                        {%- else -%}
+                          {{ 'products.product.add_to_cart' | t }}
+                        {%- endif -%}
+                      </span>
+                      {%- render 'loader' -%}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% if block.settings.text_info != blank %}
+          <div
+            class="modal__footer size_guide-footer bg-primary color-white text-center px-gutter-x py-sp-4 py-1025-sp-6 prose fs-small border-top"
+          >
+            {{ block.settings.text_info }}
+          </div>
+        {% endif %}
+      </div>
+    </custom-options>
+  </template>
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.main-product.blocks.custom_product.name",
+  "class": "block-custom-options my-custom",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.main-product.blocks.custom_product.description"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Add Custom Embroidery",
+      "label": "t:sections.all.content_setting.heading.label",
+      "info": "t:sections.all.product_setting.collapsible_row.settings.info"
+    },
+    {
+      "type": "richtext",
+      "id": "text_info",
+      "label": "Text info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-product.blocks.custom_product.tab_setting.label"
+    },
+    {
+      "type": "text",
+      "id": "tab_1_title",
+      "label": "t:sections.main-product.blocks.custom_product.tab_setting.tab_1.label",
+      "default": "Position"
+    },
+    {
+      "type": "text",
+      "id": "tab_2_title",
+      "label": "t:sections.main-product.blocks.custom_product.tab_setting.tab_2.label",
+      "default": "Text"
+    },
+    {
+      "type": "text",
+      "id": "tab_3_title",
+      "label": "t:sections.main-product.blocks.custom_product.tab_setting.tab_3.label",
+      "default": "Color"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.main-product.blocks.custom_product.name"
+    }
+  ]
+}
+{% endschema %}

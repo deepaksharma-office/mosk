@@ -1,0 +1,180 @@
+<script type="module" src="{{ 'section-offers-popup.js' | asset_url }}" defer="defer"></script>
+{% liquid
+  assign section_st = section.settings
+
+  assign column_gap_slide = 0
+  if section_st.column_gap == 'large'
+    assign column_gap_slide = 32
+  elsif section_st.column_gap == 'medium'
+    assign column_gap_slide = 20
+  elsif section_st.column_gap == 'small'
+    assign column_gap_slide = 16
+  endif
+%}
+
+{%- capture col_style -%}
+    --gap: {{  column_gap_slide }}px;
+{%- endcapture -%}
+
+{% if section_st.highlight_text != blank %}
+  {% if request.design_mode == false %}
+    <template class="lazy-template-modal"><div class="content-element">
+  {% endif %}
+  <offer-popup
+    data-section-id="{{ section.id }}"
+    class="modal-offer-wrapper modal transition-drawer invisible fixed inset-0 z-21 active-modal-js content-hidden"
+    drawer
+  >
+    <modal-overlay class="modal-overlay cursor-crosshair"></modal-overlay>
+    <div
+      class="modal-inner transition-drawer draw-mb drawer-right-mb bg-white drawer drawer-right fixed right-0 z-15 inset-y-0 w-full z-2"
+      style="--drawer-width: 42.4rem;"
+      tabindex="-1"
+    >
+      <div class="drawer__body h-full flex column bg-white rounded-start">
+        <div
+          class="drawer__header drawer-spacing border-bottom align-center flex gap-sp-6 space-between"
+          style="--padding-block-desktop: 1.7rem;--padding-inline-desktop: 3.2rem;--padding-block: 1.2rem;"
+        >
+          <div class="drawer__heading flex align-center gap-sp-2">
+            <div class="h5 flex-1">
+              {{ section_st.highlight_text | escape }}
+            </div>
+            <div
+              class="w-custom h-custom rounded-50 bg-custom fs-12 fw-500 inline-flex content-center color-white"
+              style="--width: 2.3rem; --height: 2.3rem;--bg-color-custom: var(--btn-primary-bg-color);"
+            >
+              {{ section.blocks.size }}
+            </div>
+          </div>
+          <button
+            type="button"
+            is="button-close-model"
+            class="modal__close pointer hover-icon-zoom modal-button-close rounded-50 heading-color btn-reset  h-full inline-flex content-center"
+            aria-label="{{ 'accessibility.close' | t }}"
+          >
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 14 14"
+              fill="none"
+              class="transition-short will-change icon-zoom"
+            >
+              <use href="#icon-close" />
+            </svg>
+          </button>
+        </div>
+        <div class="drawer__content drawer-content__offer drawer-spacing overflow-y-auto custom-scrollbar">
+          <offer-slide
+            class="flex column gap grow-1 offer-content__mobile"
+            style="{{ col_style | strip | strip_newlines }}"
+          >
+            {% content_for 'blocks' %}
+          </offer-slide>
+        </div>
+      </div>
+    </div>
+  </offer-popup>
+  {% if request.design_mode == false %}
+    </div>
+    </template>
+  {% endif %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.offers-popup.name",
+  "tag": "section",
+  "class": "overlay-section overlay-offers-popup",
+  "max_blocks": 10,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.offers-popup.how_to_use"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.general"
+    },
+    {
+      "type": "select",
+      "id": "column_gap",
+      "options": [
+        {
+          "value": "no_gap",
+          "label": "t:sections.all.padding.column_gap.no_gap"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.all.padding.column_gap.small"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.all.padding.column_gap.medium"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.all.padding.column_gap.large"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.all.padding.column_gap.label"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.all.image.aspect_ratio.adapt"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.all.image.aspect_ratio.options__1"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.all.image.aspect_ratio.options__2"
+        },
+        {
+          "value": "landscape",
+          "label": "t:sections.all.image.aspect_ratio.options__3"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.all.image.aspect_ratio.label"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "start",
+      "label": "t:sections.all.text_alignment.label"
+    },
+    {
+      "type": "text",
+      "id": "highlight_text",
+      "default": "Today's Offers",
+      "label": "t:sections.offers-popup.popup.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "_group-image-with-text-offer"
+    }
+  ]
+}
+{% endschema %}

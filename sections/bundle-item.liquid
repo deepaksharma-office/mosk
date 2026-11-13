@@ -1,0 +1,195 @@
+{%- liquid
+  assign theme_st = settings
+  assign product_image_ratio = theme_st.product_image_ratio
+  assign selected_variant_id = request.params.variant
+  assign selected_variant = product.selected_variant
+  if selected_variant_id
+    for variant in product.variants
+      if variant.id == selected_variant_id
+        assign selected_variant = variant
+        break
+      endif
+    endfor
+  endif
+  assign money_price = selected_variant.price | money
+  if settings.currency_code_enabled
+    assign money_price = selected_variant.price | money_with_currency
+  endif
+
+  assign compare_at_price = selected_variant.compare_at_price
+  assign price = selected_variant.price | default: 1999
+
+  assign ratio = '3/4'
+  if product_image_ratio != 'adapt'
+    case product_image_ratio
+      when 'square'
+        assign ratio = '1/1'
+      when 'landscape'
+        assign ratio = '4/3'
+      when 'portrait'
+        assign ratio = '3/4'
+    endcase
+  else
+    if selected_variant.featured_media != blank
+      assign ratio = selected_variant.featured_media.aspect_ratio
+    elsif product.featured_media != blank
+      assign ratio = product.featured_media.aspect_ratio
+    else
+      assign ratio = '3/4'
+    endif
+  endif
+  assign special_class = ''
+  if compare_at_price > price
+    assign special_class = ' special-price sale-color'
+  endif
+-%}
+<div class="bundle-image" data-ratio="{{ ratio }}">
+  {%- if selected_variant.featured_media != blank -%}
+    {%- assign image_alt = selected_variant.featured_media.alt | default: product.title | escape -%}
+    {% render 'responsive-image',
+      class: 'product__img video-thumbnail',
+      type: 'product',
+      image: selected_variant.featured_media,
+      image_alt: image_alt
+    %}
+  {%- elsif product.featured_media != blank -%}
+    {%- assign image_alt = product.featured_media.alt | default: product.title | escape -%}
+    {% render 'responsive-image',
+      class: 'product__img video-thumbnail',
+      type: 'product',
+      image: product.featured_media,
+      image_alt: image_alt
+    %}
+  {%- else -%}
+    {% render 'placeholder-render' %}
+  {%- endif -%}
+</div>
+<div class="bundle-content">
+  <div class="flex gap-10 align-center space-between">
+    <a
+      aria-label="{{ product.title }}"
+      class="product__name heading-color outlined-border block"
+      href="{{ product.url }}"
+    >
+      {{- product.title -}}
+    </a>
+    <bundle-cart-remove-button data-variant-id="{{ selected_variant.id }}" class="flex">
+      <button
+        type="button"
+        class="btn-reset inline-flex align-center flex-end w-30 pointer hover-icon-zoom relative"
+        aria-label="{{ 'sections.cart.remove_title' | t }}"
+      >
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 20 20"
+          fill="none"
+          class="icon-zoom transition-short will-change text-color hidden-on-load transition-short"
+        >
+          <use href="#icon-trash-cart"/>
+        </svg>
+        <span class="capitalize currentColor lh-1 visually-hidden">Remove</span>
+        <span
+          class="icon-rotator absolute top-0 right-0 rounded-50 opacity-0 w-custom h-custom"
+          style="--width: 1.5rem;--height: 1.5rem;"
+        ></span>
+      </button>
+    </bundle-cart-remove-button>
+  </div>
+  {% if selected_variant.title != 'Default Title' %}
+    <span class="text-muted fs-small">{{- selected_variant.title -}}</span>
+  {% endif %}
+  <div class="product__price heading-color" data-price="{{ selected_variant.price }}">
+    <div class="card-product-price relative">
+      {%- if compare_at_price > price -%}
+        <div class="heading-color price-regular inline-block">
+          <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
+          <span class="price{{ special_class }}">
+            {{ money_price }}
+          </span>
+        </div>
+        <div class="price-regular grey-color inline-block">
+          <span class="visually-hidden visually-hidden--inline">
+            {{- 'products.product.price.regular_price' | t -}}
+          </span>
+          <s class="price-item compare-price body_weight">
+            {%- if settings.currency_code_enabled -%}
+              {{ compare_at_price | money_with_currency }}
+            {%- else -%}
+              {{ compare_at_price | money }}
+            {%- endif -%}
+          </s>
+        </div>
+      {%- else -%}
+        <div class="price-regular">
+          <span class="visually-hidden visually-hidden--inline">
+            {{- 'products.product.price.regular_price' | t -}}
+          </span>
+          <span class="price heading-color">
+            {{ money_price }}
+          </span>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+  <ul
+    class="discounts list-unstyled mt-sp-1"
+    role="list"
+    aria-label="{{ 'customer.order.discount' | t }}"
+    style="display: none;"
+  >
+    <div
+      class="bundle-page-item discounts__discount fs-13 py-sp-1 inline-flex align-center text-center bg-custom text-color px-sp-3 rounded"
+      style="--img-rounded: 3rem;"
+    ></div>
+  </ul>
+  <div class="grow-1 flex bundle-quantity">
+    <quantity-input-bundle
+      class="quantity cart-quantity input-rounded flex input-style px-0 align-self-end mt-10"
+      style="--input-height: 40px; "
+      data-section-id="{{ section.id }}"
+    >
+      <button
+        class="quantity__button flex align-center btn-reset ps-17 pe-10 pointer heading-color"
+        name="minus"
+        type="button"
+      >
+        <span class="visually-hidden border-0 p-0 text-center">
+          {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+        </span>
+        <svg width="10" height="2" viewBox="0 0 10 2" fill="none">
+          <use href="#icon-minus"></use>
+        </svg>
+      </button>
+      <input
+        class="quantity__input border-0 p-0 text-center w-custom fs-small heading-color"
+        type="number"
+        style="--width: 3.4rem;--input-height: 38px;"
+        data-variant-id="{{ selected_variant.id }}"
+        name="updates[]"
+        value="1"
+        min="1"
+        step="1"
+        aria-label="
+          {{
+            'products.product.quantity.decrease'
+            | t: product: product.title
+            | escape
+          }}
+        "
+      >
+      <button
+        class="quantity__button flex align-center btn-reset ps-10 pe-17 pointer heading-color"
+        name="plus"
+        type="button"
+      >
+        <span class="visually-hidden">
+          {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+        </span>
+        <svg width="10" height="10" viewBox="0 0 10 12" fill="none">
+          <use href="#icon-plus"></use>
+        </svg>
+      </button>
+    </quantity-input-bundle>
+  </div>
+</div>

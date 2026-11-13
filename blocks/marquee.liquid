@@ -1,0 +1,159 @@
+{% liquid
+  assign block_st = block.settings
+  assign inherit_color_scheme = block_st.inherit_color_scheme
+%}
+{%- capture style -%}
+  --speed: {{ block_st.speed }}s;
+{%- endcapture -%}
+{%- capture col_style -%}
+  {% if block_st.space_between < 40 %}--gap: {{ block_st.space_between }}px;{% else %}--gap: clamp(4rem, calc({{ block_st.space_between }} * var(--responsive-rate)), calc({{ block_st.space_between }}*1px));{% endif %}
+{%- endcapture -%}
+
+<div
+  class="flexible-block section__scrolling-text marquee-block{% if inherit_color_scheme == false %} color-{{ block_st.color_scheme }}{% endif %} gradient pb-custom pt-custom"
+  style="{{ style | strip | strip_newlines }} --space-bottom: {{ block_st.padding_bottom }};--space-top: {{ block_st.padding_top }};"
+>
+  <div class="w-full">
+    <div
+      class="flex marquee overflow-hidden gap w-full justify-center"
+      style="{{ col_style | strip | strip_newlines }}"
+      {{ block.shopify_attributes }}
+    >
+      {%- for i in (0..6) -%}
+        <div
+          class="flex marquee animation-marquee animation__marquee-{{ block_st.direction }} whitespace-nowrap gap align-center"
+          style="{{ col_style | strip | strip_newlines }}"
+        >
+          {% content_for 'blocks' %}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.group.decorative.marquee",
+  "class": "marquee group-block--width-mb-fill group-block--width-fill",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.group.decorative.how_to_use_maquee"
+    },
+    {
+      "type": "checkbox",
+      "id": "inherit_color_scheme",
+      "label": "t:sections.custom_section.blocks.page.inherit_color_scheme",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.info",
+      "default": "default-color-scheme",
+      "visible_if": "{{ block.settings.inherit_color_scheme == false }}"
+    },
+    {
+      "type": "select",
+      "id": "direction",
+      "label": "t:sections.scrolling_text.settings.direction.label",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.scrolling_text.settings.direction.left.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.scrolling_text.settings.direction.right.label"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "t:sections.scrolling_text.settings.speed.label",
+      "default": 40,
+      "min": 5,
+      "max": 50,
+      "step": 1,
+      "unit": "s"
+    },
+    {
+      "type": "range",
+      "id": "space_between",
+      "label": "t:sections.all.space_between.label",
+      "min": 10,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_section.blocks.page.spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 10
+    }
+  ],
+  "blocks": [
+    {
+      "type": "icon"
+    },
+    {
+      "type": "heading"
+    },
+    {
+      "type": "text"
+    },
+    {
+      "type": "group"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.group.decorative.marquee",
+      "category": "t:sections.group.decorative.name",
+      "blocks": [
+        {
+          "type": "icon"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "icon"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "icon"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

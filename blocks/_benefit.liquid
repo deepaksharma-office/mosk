@@ -1,0 +1,78 @@
+{%- liquid
+  assign block_st = block.settings
+  assign icon = block_st.icon
+  assign alignment = section.settings.mobile_alignment
+-%}
+<div
+  class="benefit-tabs__item switch-slide__mobile text-{{ alignment }} max-w-custom motion-item"
+  style="--max-width: 35rem;"
+  {{ block.shopify_attributes }}
+>
+  <div class="fs-0 mb-sp-4">
+    <div
+      class="rounded-50 inline-flex align-center justify-content-center w-custom h-custom overflow-hidden"
+      style="--width: 8rem; --height: 8rem;"
+    >
+      {%- if icon != blank -%}
+        {%- assign icon_alt = icon.alt | escape -%}
+        {{
+          icon
+          | image_url: width: 240
+          | image_tag:
+            alt: icon_alt,
+            widths: '80, 120, 160, 240',
+            sizes: '80px',
+            width: 80,
+            height: 80,
+            loading: 'lazy',
+            class: 'w-custom h-custom',
+            style: '--width: 8rem; --height: 8rem;'
+        }}
+      {%- else -%}
+        {%- render 'placeholder-render',
+          type: 'product',
+          motion: false,
+          class: 'img-placeholder w-full h-full object-fit-cover'
+        -%}
+      {%- endif -%}
+    </div>
+  </div>
+  {%- if block_st.heading != blank -%}
+    <h3 class="h4 heading_weight heading-color mb-10">{{ block_st.heading }}</h3>
+  {%- endif -%}
+  {%- if block_st.description != blank -%}
+    <div class="rte">{{ block_st.description }}</div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.product-benefits.blocks.benefit.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "icon",
+      "label": "t:sections.product-benefits.blocks.benefit.settings.icon.label",
+      "info": "t:sections.benefit-tabs.blocks.benefit.settings.icon.info"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.all.content_setting.heading.label",
+      "default": "This is heading text"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.all.content_setting.description.label",
+      "default": "<p>Add a short description for this section.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.product-benefits.blocks.benefit.name"
+    }
+  ]
+}
+{% endschema %}

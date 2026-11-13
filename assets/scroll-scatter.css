@@ -1,0 +1,99 @@
+.section__parallax-cards {
+  overflow: visible;
+  --parallax-card-width: clamp(20rem, 20vw, 26rem);
+}
+
+.parallax-cards__stage {
+  padding-top: var(--parallax-section-pt);
+  padding-bottom: var(--parallax-section-pb);
+  isolation: isolate;
+  inset-block-start: 0;
+  place-items: center;
+  min-block-size: 100svh;
+  isolation: isolate;
+  overflow: clip;
+  container-type: inline-size;
+}
+
+.parallax-cards__glow {
+  left: 50%;
+  top: 50%;
+  width: 80vmin;
+  height: 80vmin;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--color-heading) 18%, transparent), transparent 65%);
+  opacity: 0.5;
+  transform: translate(-50%, -50%);
+  will-change: transform, opacity;
+}
+
+.parallax-cards__veil {
+  inset: -3.4rem -6.4rem;
+  background: color-mix(in srgb, var(--color-background) 50%, transparent);
+  filter: blur(3.2rem);
+  transform: scale(0.96);
+  will-change: opacity, transform;
+}
+
+.parallax-cards__lead,
+[data-parallax-cards-cta] {
+  opacity: 0;
+}
+
+.parallax-cards__shot {
+  padding: 6px;
+  left: 50%;
+  top: 50%;
+  width: clamp(200px, 20vw, 260px);
+  transform: translate(-50%, -50%);
+  will-change: transform;
+  box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.05);
+  background: var(--color-background-2, var(--color-background));
+}
+.parallax-cards__head .section-heading{
+  --h2: clamp(4rem,calc(4rem + (50 - 36) * var(--responsive-rate)), 6rem);
+}
+
+.parallax-cards__button [data-parallax-cards-cta] svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+.parallax__additional .icon-next {
+    transform: rotate(90deg);
+}
+.parallax-cards__hint {
+  bottom: 4rem;
+  transition: opacity 0.4s;
+}
+
+.animation-bounce-bottom {
+  animation: bounce-bottom 1.5s infinite;
+  will-change: transform;
+}
+.parallax-cards__image{
+  border-radius: calc(var(--img-rounded) - 5px);
+  clip-path: inset(0 0 0 0 round var(--img-rounded) - 5px);
+}
+@keyframes bounce-bottom {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes parallax-cards-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(0.5rem);
+  }
+}
