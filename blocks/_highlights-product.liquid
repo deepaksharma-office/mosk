@@ -13,20 +13,20 @@
       {%- for highlights in highlights_metafield.value -%}
         <li class="flex column fs-small" style="--width:6.5rem;">
           {% # theme-check-disable %}
-          {% assign image_alt = highlights.icon.alt | default: closest.product.title | escape %}
+          {% assign image_alt = highlights.icons.alt | default: closest.product.title | escape %}
           {% # theme-check-enable %}
-          {%- if highlights.icon -%}
+          {%- if highlights.icons -%}
             {%
               render 'responsive-image',
               type: 'other',
-              image: highlights.icon,
+              image: highlights.icons,
               image_alt: image_alt,
               class: 'rounded w-custom max-w-100'
             %}
           {% endif %}
-          {%- if highlights.title -%}
+          {%- if highlights.titles -%}
             <div class="highlights-text heading-color mt-sp-2 w-full text-size">
-              {{ highlights.title }}
+              {{ highlights.titles }}
             </div>
           {% endif %}
         </li>
