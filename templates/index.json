@@ -858,7 +858,8 @@
         "featured_collection_7byhEe": {
           "type": "featured_collection",
           "settings": {
-            "collection": "fair-skin",
+            "collection": "anti-ageing-series",
+            "collection_image": "shopify://shop_images/suitable-1.jpg",
             "collection_pill_color": "#3a60e6",
             "collection_title": ""
           }
@@ -866,7 +867,8 @@
         "featured_collection_NNLAJQ": {
           "type": "featured_collection",
           "settings": {
-            "collection": "light-skin",
+            "collection": "barrier-series",
+            "collection_image": "shopify://shop_images/suitable-2.jpg",
             "collection_pill_color": "#3a60e6",
             "collection_title": ""
           }
@@ -874,7 +876,8 @@
         "featured_collection_cNaRKy": {
           "type": "featured_collection",
           "settings": {
-            "collection": "medium-skin",
+            "collection": "blemish-acne-series",
+            "collection_image": "shopify://shop_images/suitable-3.jpg",
             "collection_pill_color": "#3a60e6",
             "collection_title": ""
           }
@@ -882,7 +885,8 @@
         "featured_collection_xqmFBi": {
           "type": "featured_collection",
           "settings": {
-            "collection": "dark-skin",
+            "collection": "glow-series",
+            "collection_image": "shopify://shop_images/suitable-4.jpg",
             "collection_pill_color": "#3a60e6",
             "collection_title": ""
           }
@@ -934,6 +938,19 @@
     "recommended_collection_KRNgie": {
       "type": "recommended-collection",
       "blocks": {
+        "featured_collection_MtkGHm": {
+          "type": "featured_collection",
+          "settings": {
+            "title": "",
+            "collection_list": [
+              "anti-ageing-series",
+              "barrier-series",
+              "blemish-acne-series",
+              "glow-series",
+              "sunscreen"
+            ]
+          }
+        },
         "subheading_paUKVG": {
           "type": "subheading",
           "settings": {
@@ -952,7 +969,7 @@
         "description_p4aPGB": {
           "type": "description",
           "settings": {
-            "description": "I have [title] skin and my top concern is [collection]",
+            "description": "My top concern is [collection]",
             "description_size": "22",
             "spacing_bottom": 40
           }
@@ -967,74 +984,14 @@
             "second_button_type": "link",
             "spacing_bottom": 0
           }
-        },
-        "featured_collection_bELJ4k": {
-          "type": "featured_collection",
-          "settings": {
-            "title": "Dry",
-            "collection_list": [
-              "large-pores",
-              "intense-hydration",
-              "barrier-repair-soothing",
-              "radiant-plumping"
-            ]
-          }
-        },
-        "featured_collection_W98XLD": {
-          "type": "featured_collection",
-          "settings": {
-            "title": "Balanced",
-            "collection_list": [
-              "daily-essentials",
-              "natural-glow-1",
-              "protect-perfect"
-            ]
-          }
-        },
-        "featured_collection_rB4eKT": {
-          "type": "featured_collection",
-          "settings": {
-            "title": "Senitive",
-            "collection_list": [
-              "barrier-repair-soothing",
-              "barrier-support",
-              "simple-safe"
-            ]
-          }
-        },
-        "featured_collection_CFaezm": {
-          "type": "featured_collection",
-          "settings": {
-            "title": "Oily",
-            "collection_list": [
-              "oil-control-mattifying",
-              "pore-refining-clarifying",
-              "acne-fighting"
-            ]
-          }
-        },
-        "featured_collection_yaryVK": {
-          "type": "featured_collection",
-          "settings": {
-            "title": "Combination",
-            "collection_list": [
-              "multi-masking",
-              "pore-care-hydration",
-              "balanced-hydrating"
-            ]
-          }
         }
       },
       "block_order": [
+        "featured_collection_MtkGHm",
         "subheading_paUKVG",
         "heading_dW4HXK",
         "description_p4aPGB",
-        "button_46pjh7",
-        "featured_collection_bELJ4k",
-        "featured_collection_W98XLD",
-        "featured_collection_rB4eKT",
-        "featured_collection_CFaezm",
-        "featured_collection_yaryVK"
+        "button_46pjh7"
       ],
       "name": "t:sections.recommended_collection.name",
       "settings": {
