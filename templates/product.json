@@ -122,7 +122,7 @@
           "type": "_highlights-product",
           "name": "t:sections.all.product_setting.highlights.name",
           "settings": {
-            "metafield": "{{ product.metafields.custom.highlights | metafield_text: field: 'titles' }}"
+            "metafield": "custom.highlights"
           },
           "blocks": {}
         },
@@ -130,7 +130,7 @@
           "type": "_media-lightbox-product",
           "name": "t:sections.all.product_setting.media_lightbox.name",
           "settings": {
-            "metafield": "",
+            "metafield": "media_lightbox",
             "block_heading": "See in Action",
             "items_to_show": 4,
             "show_navigation": true,
