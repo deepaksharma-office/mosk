@@ -122,7 +122,7 @@
           "type": "_highlights-product",
           "name": "t:sections.all.product_setting.highlights.name",
           "settings": {
-            "metafield": ""
+            "metafield": "{{ product.metafields.custom.highlights | metafield_text: field: 'titles' }}"
           },
           "blocks": {}
         },
