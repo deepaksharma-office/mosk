@@ -50,7 +50,7 @@
         "image_YVC8HE": {
           "type": "_image",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/cica_centella.png",
             "link": "",
             "vertical_alignment": "start",
             "width": "50%"
@@ -71,7 +71,12 @@
             "heading_Rc6Dqr": {
               "type": "heading",
               "settings": {
+                "use_richtext": false,
                 "heading": "Got Help?",
+                "heading_richtext": "Talk about your brand",
+                "drawn_underline": false,
+                "drawn_underline_type": "squiggle_underline",
+                "drawn_underline_color": "#ffb005",
                 "type_preset": "h3",
                 "padding_top": 0,
                 "padding_bottom": 0
@@ -165,6 +170,7 @@
       "custom_css": [],
       "settings": {
         "section_width": "fix_width",
+        "color_scheme": "",
         "subheading": "",
         "heading": "",
         "drawn_underline": true,
@@ -180,7 +186,9 @@
         "equal_height_adjustment": true,
         "padding_top": 0,
         "padding_bottom": 100,
-        "show_divider": false
+        "show_divider": false,
+        "divider_top": "line",
+        "divider_bottom": "none"
       }
     },
     "contact_form": {
@@ -200,7 +208,9 @@
         "option_select": "Product, Order, Press, Other",
         "padding_top": 0,
         "padding_bottom": 100,
-        "show_divider": false
+        "show_divider": false,
+        "divider_top": "line",
+        "divider_bottom": "none"
       }
     }
   },

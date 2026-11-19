@@ -51,7 +51,12 @@
         "heading_PWDBCA": {
           "type": "heading",
           "settings": {
+            "use_richtext": false,
             "heading": "Your Beauty Bundle",
+            "heading_richtext": "Talk about your brand",
+            "drawn_underline": false,
+            "drawn_underline_type": "squiggle_underline",
+            "drawn_underline_color": "#ffb005",
             "type_preset": "h1",
             "padding_top": 0,
             "padding_bottom": 16
@@ -77,9 +82,9 @@
       "settings": {
         "section_width": "fix_width",
         "color_scheme": "scheme-b057792d-f0df-4ed0-973f-3dd88bca67d5",
-        "image": "",
+        "image": "shopify://shop_images/UGC_Product_Ad_73922_Seedream_50_Pro.png",
         "overlay_opacity": 0,
-        "image_height": "adapt",
+        "image_height": "small",
         "desktop_content_position": "middle-center",
         "text_alignment": "center",
         "max_width": 100,
@@ -89,7 +94,9 @@
         "text_alignment_mobile": "center",
         "padding_top": 0,
         "padding_bottom": 60,
-        "show_divider": false
+        "show_divider": false,
+        "divider_top": "line",
+        "divider_bottom": "none"
       }
     },
     "product_bundle_FFF7zW": {
@@ -98,7 +105,7 @@
         "product_discount_mC7FdP": {
           "type": "_product-discount",
           "settings": {
-            "collection": "bundle-product",
+            "collection": "ageless™",
             "products": [],
             "items_to_show": 6,
             "items_per_row": 3,
@@ -172,39 +179,10 @@
         "minimum": 3,
         "maximum": 3,
         "padding_top": 0,
-        "padding_bottom": 100
-      }
-    },
-    "featured_collection_UWEja3": {
-      "type": "featured-collection",
-      "name": "t:sections.featured-collection.name",
-      "settings": {
-        "section_width": "fix_width",
-        "color_scheme": "",
-        "subheading": "",
-        "heading": "<p>Others Also Bought</p>",
-        "drawn_underline": true,
-        "drawn_underline_type": "squiggle_underline",
-        "drawn_underline_color": "#ffb005",
-        "description": "<p>Check out similar products people are loving. Click to explore trending styles.</p>",
-        "heading_size": "medium",
-        "text_alignment": "center",
-        "show_view_all_button": false,
-        "view_all_button_label": "View all product",
-        "btn_type": "link",
-        "collection": "prepare",
-        "items_to_show": 4,
-        "items_per_row": 4,
-        "column_gap": "medium",
-        "enable_carousel": false,
-        "show_navigation": true,
-        "show_pagination": false,
-        "reveal_slide": false,
-        "items_per_row_mobile": 2,
-        "hide_description_on_mobile": false,
-        "padding_top": 100,
         "padding_bottom": 100,
-        "show_divider": true
+        "show_divider": false,
+        "divider_top": "line",
+        "divider_bottom": "none"
       }
     }
   },
@@ -212,7 +190,6 @@
     "breadcrumb",
     "heading",
     "image_with_text_overlay_Jbtknh",
-    "product_bundle_FFF7zW",
-    "featured_collection_UWEja3"
+    "product_bundle_FFF7zW"
   ]
 }
